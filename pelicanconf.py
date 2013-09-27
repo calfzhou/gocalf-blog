@@ -6,7 +6,7 @@ AUTHOR = u'Calf'
 SITENAME = u'GoCalf Blog'
 SITEURL = ''
 
-TIMEZONE = 'Europe/Paris'
+TIMEZONE = 'Asia/Shanghai'
 
 DEFAULT_LANG = u'zh'
 
@@ -14,6 +14,23 @@ DEFAULT_LANG = u'zh'
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
+
+MD_EXTENSIONS = ['codehilite', 'extra', 'toc', 'fenced_code', 'footnotes']
+MARKUP = ['md']
+
+PAGE_DIR = ('pages/')
+ARTICLE_DIR = ('posts/')
+STATIC_PATHS = ['images', 'code']
+
+ARTICLE_URL = '{slug}.html'
+ARTICLE_SAVE_AS = '{slug}.html'
+PAGE_URL = 'page/{slug}.html'
+PAGE_SAVE_AS = 'page/{slug}.html'
+TAG_URL = 'tag/{slug}.html'
+TAG_SAVE_AS = 'tag/{slug}.html'
+CATEGORY_URL = 'category/{slug}.html'
+CATEGORY_SAVE_AS = 'category/{slug}.html'
+DISPLAY_PAGES_ON_MENU = True
 
 # Blogroll
 LINKS =  (('Pelican', 'http://getpelican.com/'),
