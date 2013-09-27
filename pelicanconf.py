@@ -30,7 +30,10 @@ TAG_URL = 'tag/{slug}.html'
 TAG_SAVE_AS = 'tag/{slug}.html'
 CATEGORY_URL = 'category/{slug}.html'
 CATEGORY_SAVE_AS = 'category/{slug}.html'
+
+MENUITEMS = [('Home', '/')]
 DISPLAY_PAGES_ON_MENU = True
+DISPLAY_CATEGORIES_ON_MENU = False
 
 # Blogroll
 LINKS =  (('Pelican', 'http://getpelican.com/'),
