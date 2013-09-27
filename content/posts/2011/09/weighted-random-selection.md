@@ -4,6 +4,7 @@ Author: Calf
 Category: 算法
 Tags: Algorithm, Random Sample, Random Selection, Weighted Random Sample, Weighted Selection, 单次遍历, 带权概率, 概率, 算法题, 随机数, 随机选取, 面试题
 Slug: weighted-random-selection
+Summary: 问题描述：有一组数量未知的数据，每个元素有非负权重。要求只遍历一次，随机选取其中的一个元素，任何一个元素被选到的概率与其权重成正比。
 
 在[单次遍历，等概率随机选取问题][]中已经剧透了今天的内容，那就是带权随机选取（Weighted
 Random Sample）问题。

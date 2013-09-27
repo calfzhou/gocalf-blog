@@ -4,6 +4,7 @@ Author: Calf
 Category: 有用知识
 Tags: Excel, Excel字符串查找, Excel技巧, Find from Right, rfind
 Slug: excel-find-from-right
+Summary: 今天看一个小问题，是前几天遇到的，就是要在Excel里面实现从右向左查找。比如给定字符串“abc,defg,hi,jkl”，需要找到最右一个逗号的位置（即12），或者最右一个逗号右边的部分（即“jkl”）。
 
 发现我已经有几乎整整一年没更新博客了。在Google
 Reader都快要关闭的时代，个人博客还有多少存在的意义呢。

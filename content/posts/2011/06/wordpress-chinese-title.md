@@ -4,6 +4,7 @@ Author: Calf
 Category: 建站
 Tags: Cufon, Font, Theme, WordPress, 中文, 字体
 Slug: wordpress-chinese-title
+Summary: 如果在WordPress主题中使用了Cufón，中文标题有可能无法显示，这时候只能忍痛割爱，关掉Cufón。
 
 博客刚刚开张，就遇到了第一个问题，中文标题无法显示。
 

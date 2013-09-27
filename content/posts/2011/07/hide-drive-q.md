@@ -4,6 +4,7 @@ Author: Calf
 Category: 操作系统
 Tags: App-V, Hide Disk Drive, OS, Registry, SoftGrid, Windows, Windows 7
 Slug: hide-drive-q
+Summary: 本文介绍如果隐藏 Windows 7 中那讨厌的无法访问的磁盘分区 Q。
 
 在 Windows 7 操作系统中，有些用户可能会在我的电脑（My
 Computer）中看到一个盘符为 **Q**

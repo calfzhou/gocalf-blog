@@ -4,6 +4,7 @@ Author: Calf
 Category: 数学
 Tags: Algorithm, Google, Math, Puzzle, 智力题
 Slug: puzzle-wwwdot-google-dotcom
+Summary: 一道Google的数字游戏题。
 
 以前见到一道关于Google的数字游戏题目，要求解开隐秘的等式[cci]WWWDOT -
 GOOGLE =

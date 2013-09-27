@@ -4,6 +4,7 @@ Author: Calf
 Category: 操作系统
 Tags: BootThink, Dell E6400, Hackintosh, MacOS, OS, PC, PC机装Mac, 雪豹, 黑苹果
 Slug: dell-e6400-install-mac
+Summary: 半年前在Dell Latitude E6400上安装了Mac OS X Snow Leopard 10.6（与Windows 7并存），除了WiFi之外都挺好的，折腾了好久才搞定，现在又有些记不清了，所以要赶紧留下印记，以免过几天就忘光了。
 
 半年前在Dell Latitude E6400上安装了Mac OS X Snow Leopard 10.6（与Windows
 7并存），除了WiFi之外都挺好的，折腾了好久才搞定，现在又有些记不清了，所以要赶紧留下印记，以免过几天就忘光了。

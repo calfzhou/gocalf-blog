@@ -4,6 +4,7 @@ Author: Calf
 Category: 程序开发
 Tags: C++, const, Const Pointer, Pointer to Const, 指针, 面试题
 Slug: cpp-const-and-pointer
+Summary: 仔细回忆一下C++中的指针常量与常量指针的区别，记录于此。
 
 太久不用C++了，竟然连最基本的东西都记不清楚了。今天干活的时候突然想要用指针常量，但突然就忘了指针常量跟常量指针的区别。花了一点儿时间仔细回想了一下几年前上课时老师讲的，总算又回忆起来了，赶紧记录下来备忘。
 

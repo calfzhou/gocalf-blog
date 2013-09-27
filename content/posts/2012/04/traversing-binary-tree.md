@@ -4,6 +4,7 @@ Author: Calf
 Category: 算法
 Tags: 二叉树, 栈, 递归, 遍历二叉树, 队列, 非递归遍历, 面试题
 Slug: traversing-binary-tree
+Summary: 最近工作忙，没时间思考复杂的问题了。正好要招人就得有面试的嘛，自己也温习一下，要不然怎么去问别人。今天复习一下二叉树的遍历，前序（pre-order，NLR）、中序（in-order，LNR）、后序（post-order，LRN）、层序（level-order），用和不用递归。
 
 最近工作忙，没时间思考复杂的问题了。正好要招人就得有面试的嘛，自己也温习一下，要不然怎么去问别人。
 

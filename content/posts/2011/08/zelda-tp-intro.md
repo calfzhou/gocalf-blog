@@ -4,6 +4,7 @@ Author: Calf
 Category: 游戏
 Tags: Game, Twilight Princess, Wii, 任天堂, 塞尔达传说, 游戏攻略, 黄昏公主, 黎明公主
 Slug: zelda-tp-intro
+Summary: 前年的时候花了好多个晚上的时间在Wii上玩了《塞尔达传说：黎明公主》（The Legend of Zelda: Twilight Princess），真的是很不错的游戏呢。当时搜了很多的攻略，现在就贴在这里吧。基本上是参考了网上已有的攻略，但结合自己的实践也做了整理和修订。
 
 前年的时候花了好多个晚上的时间在Wii上玩了《[塞尔达传说：黎明公主][]》（[The
 Legend of Zelda: Twilight

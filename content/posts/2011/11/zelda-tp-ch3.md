@@ -4,6 +4,7 @@ Author: Calf
 Category: 游戏
 Tags: Game, Twilight Princess, Wii, 塞尔达传说, 游戏攻略, 黎明公主
 Slug: zelda-tp-ch3
+Summary: 回到卡卡里科村，林克遇见塔洛，他看到了林克的英雄之弓，又闹着要林克表演箭术，并要林克射中西北山丘房子顶上的一根木棒，就算是救世主。
 
 ### 第三章 深海鱼族的传说（最后的影之碎片）
 

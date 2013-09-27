@@ -4,6 +4,7 @@ Author: Calf
 Category: 算法
 Tags: Google面试, 任务, 算法题, 调度, 贪心算法, 资源, 面试题
 Slug: task-schedule-with-resource
+Summary: 问题描述：有n个任务，第i个任务运行时需要使用 R[i] 的资源，运行完毕后需要占用 O[i] 的资源（O[i] <= R[i]），假设现在我们总共有s的资源，要求设计一个调度算法，能保证所有任务能顺利执行；如果无法执行完，需要说明理由。
 
 据说这是2009年Google暑期实习招聘的笔试题。
 

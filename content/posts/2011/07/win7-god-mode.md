@@ -4,6 +4,7 @@ Author: Calf
 Category: 操作系统
 Tags: God Mode, OS, Windows, Windows 7
 Slug: win7-god-mode
+Summary: 在 Windows 7 里，“上帝”能做什么？
 
 在 Windows 7 里，“上帝”能做什么？
 

@@ -4,6 +4,7 @@ Author: Calf
 Category: 算法
 Tags: Google面试, 数组内积, 最大值问题, 算法题, 面试题
 Slug: max-inner-product
+Summary: 问题描述：有两个长度均为 n 的整数数组 A 和 B，现在要从这两个数组中各抽出 s 个数字，分别构成两个新的数组 C 和 D，要求数组 C 和 D 的内积最大。
 
 之前在网上看到有好多人在讨论这道题，据说是一道Google的面试题。
 

@@ -4,6 +4,7 @@ Author: Calf
 Category: 影视音乐
 Tags: Movie, Quantum, Science Fiction, 电影, 科幻
 Slug: movie-source-code
+Summary: 一篇物理学家写的关于电影《源代码》的文章，觉得非常不错，转载于此。
 
 昨天无意间看到一个视频，名字叫“源代码”。第一反应是网友恶搞的关于IT民工的短片，可是看到时间轴上显示总长为九十多分钟，才反应过来这是个电影。可依旧以为是IT民工相关的东西。看了几分钟之后发现是一部关于平行宇宙的科幻电影。
 

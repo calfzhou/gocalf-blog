@@ -4,6 +4,7 @@ Author: Calf
 Category: 数码电子
 Tags: Apple, iOS, iPad, JailBreak, 越狱
 Slug: ipad2-433-jailbreak
+Summary: iOS 4.3.3可以越狱了。
 
 原以为iPad
 2的越狱会遥遥无期，没想到突然就传出已经可以越狱的消息，大神Comex又一次找到了PDF漏洞，跟去年的iPhone4越狱一样，无需连接电脑只要有WiFi就可以。

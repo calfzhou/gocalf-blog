@@ -4,6 +4,7 @@ Author: Calf
 Category: 程序开发
 Tags: iOS, iPhone 开发, ObjC, progress bar, UIAlertView, UIProgressView, 进度条
 Slug: iphone-dev-progressview-in-alertview
+Summary: 今天这个问题是，在一个iPhone程序中，我要在后台做大量的数据处理，希望在界面上显示一个进度条（Progress Bar）使得用户了解处理进度。这个进度条应该是在一个模态的窗口中，使界面上其他控件无法被操作。怎么用最简单的方法来实现这个功能？UIAlertView是一个现成的模态窗口，如果能把进度条嵌入到它里面就好了。
 
 今天这个问题是，在一个iPhone程序中，我要在后台做大量的数据处理，希望在界面上显示一个进度条（Progress
 Bar）使得用户了解处理进度。这个进度条应该是在一个模态的窗口中，使界面上其他控件无法被操作。怎么用最简单的方法来实现这个功能？[UIAlertView][]是一个现成的模态窗口，如果能把进度条嵌入到它里面就好了。<!--more-->

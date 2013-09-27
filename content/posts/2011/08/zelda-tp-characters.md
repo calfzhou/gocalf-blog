@@ -4,6 +4,7 @@ Author: Calf
 Category: 游戏
 Tags: Game, Twilight Princess, Wii, 任天堂, 塞尔达传说, 游戏攻略, 黄昏公主, 黎明公主
 Slug: zelda-tp-characters
+Summary: 今天来介绍一下《塞尔达传说：黎明公主》中的几位角色，有好的也有敌人。
 
 《[塞尔达传说：黎明公主][]》（[The Legend of Zelda: Twilight
 Princess][塞尔达传说：黎明公主]）是我玩的唯一的一个塞尔达传说系列的游戏，之前都没太关注过这个系列。开始的时候一直以为塞尔达（公主）是主角呢，后来发现是林克跟黎明公主。不知道这里面的塞尔达有什么特别的作用，感觉就是弱弱的呢。

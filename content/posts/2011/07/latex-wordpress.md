@@ -4,6 +4,7 @@ Author: Calf
 Category: 建站
 Tags: LaTeX, Plugin, WordPress, WordPress Plugin, 插件
 Slug: latex-wordpress
+Summary: 为WordPress添加数学公式。
 
 几年前在我与几个同学一起维护的博客[钟磬居][]（链接已失效）中，我们使用了[dahnielson\_mimetex][]（链接已失效）来渲染LaTeX公式（原博文备份至：[为你的WordPress站点添加LaTeX支持][]）。
 

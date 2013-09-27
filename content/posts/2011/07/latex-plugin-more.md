@@ -4,6 +4,7 @@ Author: Calf
 Category: 建站
 Tags: LaTeX, PHP, Plugin, WordPress, WordPress Plugin
 Slug: latex-plugin-more
+Summary: 对LaTeX for WordPress插件做了一点小小的改动，修复了在启用MathJax时无法显示公式源码的问题。还将公式的shortcode限定为latex。
 
 在[WordPress数学公式插件LaTeX][]中推荐了Zhiqiang同学的WordPress插件LaTeX
 for

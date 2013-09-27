@@ -4,6 +4,7 @@ Author: Calf
 Category: 互联网
 Tags: Canvas, Google, Google Doodle, HTML5, 动态雕塑, 雕塑
 Slug: google-doodle-calder
+Summary: 现在Google经常会在它的Doodle中加入各种有趣的元素，今天这个就用到了HTML5的Canvas，在支持HTML5 Canvas的浏览器里，可以看到3D的动态Doodle，还可以拖动哦。为了便于以后查看和保存，我把这个Doodle相关的脚本扒下来，在此留存。
 
 现在Google经常会在它的Doodle中加入各种有趣的元素，今天这个就用到了HTML5的Canvas，在支持HTML5
 Canvas的浏览器里，可以看到3D的动态Doodle，还可以拖动哦。为了便于以后查看和保存，我把这个Doodle相关的脚本扒下来，在此留存。<!--more-->

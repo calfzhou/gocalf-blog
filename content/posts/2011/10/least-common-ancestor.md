@@ -4,6 +4,7 @@ Author: Calf
 Category: 算法
 Tags: Least Common Ancestor, 二叉树, 微软面试, 数据结构, 最小公共父结点, 最小公共祖先, 算法题, 编程, 遍历二叉树, 面试题
 Slug: least-common-ancestor
+Summary: 据说这是微软的一道面试题，谁知道呢。问题描述：找出二叉树上任意两个指定结点的最近共同父结点（LCA，Least Common Ancestor）。
 
 据说这是微软的一道面试题，谁知道呢。
 
