@@ -18,14 +18,10 @@ Summary: 以前买到过一个假冒的8GB U盘，是用劣质的4GB芯片改装
 [caption id="attachment\_1028" align="alignnone" width="562"
 caption="正牌8G金士顿U盘在ChipGenius中的检测结果"]![real\_kingston][][/caption]
 
- 
-
 [caption id="attachment\_1029" align="alignnone" width="562"
 caption="冒牌扩容8G金士顿U盘在ChipGenius中的检测结果"]![fake\_kingston][][/caption]
 
-可见，关键的区别就在产品制造商（Product Vendor）和产品型号（Product
-Model）上，正牌的应该是Kingston DataTraveler 2.0，而假冒的通常都是USB
-2.0 Flash Disk之类的东西。
+可见，关键的区别就在产品制造商（Product Vendor）和产品型号（Product Model）上，正牌的应该是Kingston DataTraveler 2.0，而假冒的通常都是USB 2.0 Flash Disk之类的东西。
 
 有一点比较奇怪的是，我在英文Vista上运行该软件，显示版本是2.64，在中文Xp上运行，则显示2.70，呵呵，无视之。
 
@@ -34,8 +30,6 @@ Model）上，正牌的应该是Kingston DataTraveler 2.0，而假冒的通常�
 [caption id="attachment\_1030" align="alignnone" width="313"
 caption="正牌8G金士顿U盘在MyDiskTest中的检测结果"]![real\_8g\_chip][][/caption]
 
- 
-
 [caption id="attachment\_1031" align="alignnone" width="528"
 caption="冒牌扩容8G金士顿U盘在MyDiskTest中的检测结果"]![fake\_8g\_chip][][/caption]
 
@@ -43,8 +37,8 @@ caption="冒牌扩容8G金士顿U盘在MyDiskTest中的检测结果"]![fake\_8g\
 
 好在两个软件都非常小，这里就直接提供下载吧（压缩包内有详细使用说明，就不多说了）：
 
--   [ChipGenius v2.64][] （113K） MD5：2628f1748e558bd71ab661ae1ab27aa5
--   [MyDiskTest v2.50][] （610K） MD5：7d4bfeb1e01f748fe3bd2b6a590bd83b
+-   [ChipGenius v2.64]({filename}/assets/2011/09/ChipGenius_264.zip) （113K） MD5：2628f1748e558bd71ab661ae1ab27aa5
+-   [MyDiskTest v2.50]({filename}/assets/2011/09/MyDiskTest_250.zip) （610K） MD5：7d4bfeb1e01f748fe3bd2b6a590bd83b
 
 真想哪天背着本本出来去街边买个U盘，现场检测，揭穿这些奸商的把戏。
 
@@ -56,5 +50,3 @@ caption="冒牌扩容8G金士顿U盘在MyDiskTest中的检测结果"]![fake\_8g\
     "real_8g_chip"
   [fake\_8g\_chip]: http://www.gocalf.com/blog/wp-content/uploads/2011/09/fake_8g_chip.png
     "fake_8g_chip"
-  [ChipGenius v2.64]: http://www.gocalf.com/blog/wp-content/uploads/2011/09/ChipGenius_264.zip
-  [MyDiskTest v2.50]: http://www.gocalf.com/blog/wp-content/uploads/2011/09/MyDiskTest_250.zip

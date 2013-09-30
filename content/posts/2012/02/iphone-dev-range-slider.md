@@ -9,13 +9,13 @@ Summary: 前些日子写app的时候遇到一个需求，希望有一个类似�
 前些日子写app的时候遇到一个需求，希望有一个类似于[UISlider][]的东西，但能够选取一个范围，也就是所谓的Range
 Slider。在网上也能找到很多相关的代码，不过本着学习的态度，还是自己琢磨了一下。
 
-就当是为以后写复杂控件做的练习吧。<!--more-->
+就当是为以后写复杂控件做的练习吧。
+
+<!--more-->
 
 以下内容适用于iOS 2.0+。
 
-需求决定一切，在介绍我的这个Range
-Slider之前，先把我的需求（或者说我这个Range
-Slider的功能）介绍一下。它最多只算是个toy，还有很多需要完善的地方。不过聊胜于无，以后继续努力呗。
+需求决定一切，在介绍我的这个Range Slider之前，先把我的需求（或者说我这个Range Slider的功能）介绍一下。它最多只算是个toy，还有很多需要完善的地方。不过聊胜于无，以后继续努力呗。
 
 这是一个水平方向的（浮点）数值范围选择器：
 
@@ -42,180 +42,183 @@ caption="我的Range Slider"]![range\_slider][][/caption]
 
 实现起来蛮简单的，因为SDK已经提供了足够的支持。我的这个类就叫做RangeSlider，继承自[UIControl][]类。另外我还定义了它的委托类，叫做RangeSliderDelegate。二者的接口如下：
 
-[wptabs]
+* RangeSlider<!--lines="15"-->
+```objc
+#import <UIKit/UIKit.h>
 
-[wptabtitle]RangeSlider[/wptabtitle]
+@protocol RangeSliderDelegate;
 
-    [wptabcontent][ccen_objc lines="15"]#import <UIKit/UIKit.h>
+@interface RangeSlider : UIControl {
+@private
+    id<RangeSliderDelegate> delegate_;
 
-    @protocol RangeSliderDelegate;
+    float minimumValue_;
+    float maximumValue_;
+    float minimumSpan_;
+    float maximumSpan_;
+    float smallValue_;
+    float largeValue_;
+    float offsetTrend_;
+    int insetWidthLeft_;
+    int rangeWidth_;
 
-    @interface RangeSlider : UIControl {
-    @private
-        id<RangeSliderDelegate> delegate_;
+    UIImageView* selectionView_;
+    UIImageView* smallHandle_;
+    UIImageView* largeHandle_;
 
-        float minimumValue_;
-        float maximumValue_;
-        float minimumSpan_;
-        float maximumSpan_;
-        float smallValue_;
-        float largeValue_;
-        float offsetTrend_;
-        int insetWidthLeft_;
-        int rangeWidth_;
+    BOOL isTrackingSmallHandle_;
+    BOOL isTrackingLargeHandle_;
+    BOOL isTrackingSelection_;
+    BOOL isDragging_;
+}
 
-        UIImageView* selectionView_;
-        UIImageView* smallHandle_;
-        UIImageView* largeHandle_;
+// The delegate object.
+@property(nonatomic, assign) id<RangeSliderDelegate> delegate;
 
-        BOOL isTrackingSmallHandle_;
-        BOOL isTrackingLargeHandle_;
-        BOOL isTrackingSelection_;
-        BOOL isDragging_;
-    }
+// The minimum value of the slider.
+// The default value is 0.0.
+@property(nonatomic, assign) float minimumValue;
 
-    // The delegate object.
-    @property(nonatomic, assign) id<RangeSliderDelegate> delegate;
+// The maximum value of the slider.
+// The default value is 1.0.
+@property(nonatomic, assign) float maximumValue;
 
-    // The minimum value of the slider.
-    // The default value is 0.0.
-    @property(nonatomic, assign) float minimumValue;
+// The minimum span of the selected range.
+// The default value is 0.1.
+@property(nonatomic, assign) float minimumSpan;
 
-    // The maximum value of the slider.
-    // The default value is 1.0.
-    @property(nonatomic, assign) float maximumValue;
+// The maximum span of the selected range.
+// The default value is 1.0.
+@property(nonatomic, assign) float maximumSpan;
 
-    // The minimum span of the selected range.
-    // The default value is 0.1.
-    @property(nonatomic, assign) float minimumSpan;
+// The lower bound of the selected range.
+@property(nonatomic, assign, setter=setSmallValue:) float smallValue;
 
-    // The maximum span of the selected range.
-    // The default value is 1.0.
-    @property(nonatomic, assign) float maximumSpan;
+// The higher bound of the selected range.
+@property(nonatomic, assign, setter=setLargeValue:) float largeValue;
 
-    // The lower bound of the selected range.
-    @property(nonatomic, assign, setter=setSmallValue:) float smallValue;
+// A Boolean value that indicates whether the user has begun dragging.
+@property(nonatomic, assign, readonly) BOOL isDragging;
 
-    // The higher bound of the selected range.
-    @property(nonatomic, assign, setter=setLargeValue:) float largeValue;
+// Initialization with frame, also specify the inset of left and right edge.
+- (id)initWithFrame:(CGRect)frame insetLeft:(int)insetLeft insetRight:(int)insetRight;
 
-    // A Boolean value that indicates whether the user has begun dragging.
-    @property(nonatomic, assign, readonly) BOOL isDragging;
+// Move the current selection.
+- (void)moveSelection:(float)offset;
 
-    // Initialization with frame, also specify the inset of left and right edge.
-    - (id)initWithFrame:(CGRect)frame insetLeft:(int)insetLeft insetRight:(int)insetRight;
+// Gets offset trend, it will be reset to 0 after call finished.
+- (float)getAndResetOffsetTrend;
 
-    // Move the current selection.
-    - (void)moveSelection:(float)offset;
+// Converts slider value to x coor.
+- (float)xForValue:(float)value;
 
-    // Gets offset trend, it will be reset to 0 after call finished.
-    - (float)getAndResetOffsetTrend;
+// Converts x coor to slider value.
+- (float)valueForX:(float)x;
 
-    // Converts slider value to x coor.
-    - (float)xForValue:(float)value;
+@end
+```
 
-    // Converts x coor to slider value.
-    - (float)valueForX:(float)x;
+* RangeSliderDelegate
+```objc
+@protocol RangeSliderDelegate<NSObject>
+@optional
 
-    @end[/ccen_objc][/wptabcontent]
+// Tells the delegate when the slider is about to start dragging.
+// The delegate might not receive this message until dragging has occurred over a small distance.
+- (void)rangeSliderWillBeginDragging:(RangeSlider*)rangeSlider;
 
-[wptabtitle]RangeSliderDelegate[/wptabtitle]
+// Tells the delegate when dragging ended in the range slider.
+// This message is sent when the user's finger touches up after dragging.
+- (void)rangeSliderDidEndDragging:(RangeSlider*)rangeSlider;
 
-    [wptabcontent][ccen_objc]@protocol RangeSliderDelegate<NSObject>
-    @optional
+@end
+```
 
-    // Tells the delegate when the slider is about to start dragging.
-    // The delegate might not receive this message until dragging has occurred over a small distance.
-    - (void)rangeSliderWillBeginDragging:(RangeSlider*)rangeSlider;
+接口中的大部分内容都在需求和功能介绍部分见过了。另外有两个方法，xForValue和valueForX，它们用来在Range Slider内部的坐标值和用户数值之间做转换，内容如下（这里的insetWidth是在UI上做的小伎俩，主要是为了保证滑块滑到最两端时也能有充足的空间来接受用户的点击）：
 
-    // Tells the delegate when dragging ended in the range slider.
-    // This message is sent when the user's finger touches up after dragging.
-    - (void)rangeSliderDidEndDragging:(RangeSlider*)rangeSlider;
+```objc
+- (float)xForValue:(float)value {
+    return insetWidthLeft_ + rangeWidth_ * (value - minimumValue_) / (maximumValue_ - minimumValue_);
+}
 
-    @end[/ccen_objc][/wptabcontent][/wptabs]
-
-接口中的大部分内容都在需求和功能介绍部分见过了。另外有两个方法，xForValue和valueForX，它们用来在Range
-Slider内部的坐标值和用户数值之间做转换，内容如下（这里的insetWidth是在UI上做的小伎俩，主要是为了保证滑块滑到最两端时也能有充足的空间来接受用户的点击）：
-
-    [ccen_objc]- (float)xForValue:(float)value {
-        return insetWidthLeft_ + rangeWidth_ * (value - minimumValue_) / (maximumValue_ - minimumValue_);
-    }
-
-    - (float)valueForX:(float)x {
-        return minimumValue_ + (x - insetWidthLeft_) * (maximumValue_ - minimumValue_) / rangeWidth_;
-    }[/ccen_objc]
+- (float)valueForX:(float)x {
+    return minimumValue_ + (x - insetWidthLeft_) * (maximumValue_ - minimumValue_) / rangeWidth_;
+}
+```
 
 我就不贴完整的.m源文件了，只是逐个介绍一下重要的方法。
 
 首先看初始化方法initWithFrame，和更新显示的方法updateSelectionView。这个没啥好说的，就是初始化成员变量，创建好相关的图片：
 
-[wptabs][wptabtitle]initWithFrame[/wptabtitle]
+* initWithFrame<!--lines="15"-->
+```objc
+- (id)initWithFrame:(CGRect)frame insetLeft:(int)insetLeft insetRight:(int)insetRight {
+    self = [super initWithFrame:frame];
+    if (self != nil) {
+        // Set the initial state.
+        minimumValue_ = 0.0f;
+        maximumValue_ = 1.0f;
+        minimumSpan_ = 0.1f;
+        maximumSpan_ = 0.7f;
+        smallValue_ = minimumValue_;
+        largeValue_ = minimumValue_ + maximumSpan_;
+        offsetTrend_ = 0.0f;
+        insetWidthLeft_ = insetLeft;
+        rangeWidth_ = frame.size.width - insetLeft - insetRight;
 
-    [wptabcontent][ccen_objc lines="15"]- (id)initWithFrame:(CGRect)frame insetLeft:(int)insetLeft insetRight:(int)insetRight {
-        self = [super initWithFrame:frame];
-        if (self != nil) {
-            // Set the initial state.
-            minimumValue_ = 0.0f;
-            maximumValue_ = 1.0f;
-            minimumSpan_ = 0.1f;
-            maximumSpan_ = 0.7f;
-            smallValue_ = minimumValue_;
-            largeValue_ = minimumValue_ + maximumSpan_;
-            offsetTrend_ = 0.0f;
-            insetWidthLeft_ = insetLeft;
-            rangeWidth_ = frame.size.width - insetLeft - insetRight;
+        isTrackingSmallHandle_ = NO;
+        isTrackingLargeHandle_ = NO;
+        isTrackingSelection_ = NO;
+        isDragging_ = NO;
 
-            isTrackingSmallHandle_ = NO;
-            isTrackingLargeHandle_ = NO;
-            isTrackingSelection_ = NO;
-            isDragging_ = NO;
+        float centerY = frame.size.height / 2.0f;
 
-            float centerY = frame.size.height / 2.0f;
+        // Background image.
+        UIImageView* background = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rangeslider-bg.png"]]
+                                  autorelease];
+        background.frame = CGRectMake(insetWidthLeft_, 0, rangeWidth_, background.frame.size.height);
+        background.center = CGPointMake(background.center.x, centerY);
+        [self addSubview:background];
 
-            // Background image.
-            UIImageView* background = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rangeslider-bg.png"]]
-                                      autorelease];
-            background.frame = CGRectMake(insetWidthLeft_, 0, rangeWidth_, background.frame.size.height);
-            background.center = CGPointMake(background.center.x, centerY);
-            [self addSubview:background];
+        // Selection image.
+        selectionView_ = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rangeslider-select.png"]
+                                            highlightedImage:[UIImage imageNamed:@"rangeslider-select-hover.png"]]
+                          autorelease];
+        selectionView_.center = CGPointMake(0, centerY);
+        [self addSubview:selectionView_];
 
-            // Selection image.
-            selectionView_ = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rangeslider-select.png"]
-                                                highlightedImage:[UIImage imageNamed:@"rangeslider-select-hover.png"]]
-                              autorelease];
-            selectionView_.center = CGPointMake(0, centerY);
-            [self addSubview:selectionView_];
+        // Left handle for small value selection.
+        smallHandle_ = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rangeslider-handle.png"]
+                                          highlightedImage:[UIImage imageNamed:@"rangeslider-handle-hover.png"]]
+                        autorelease];
+        smallHandle_.center = CGPointMake(0, centerY);
+        [self addSubview:smallHandle_];
 
-            // Left handle for small value selection.
-            smallHandle_ = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rangeslider-handle.png"]
-                                              highlightedImage:[UIImage imageNamed:@"rangeslider-handle-hover.png"]]
-                            autorelease];
-            smallHandle_.center = CGPointMake(0, centerY);
-            [self addSubview:smallHandle_];
+        // Right handle for small value selection.
+        largeHandle_ = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rangeslider-handle.png"]
+                                          highlightedImage:[UIImage imageNamed:@"rangeslider-handle-hover.png"]]
+                        autorelease];
+        largeHandle_.center = CGPointMake(0, centerY);
+        [self addSubview:largeHandle_];
 
-            // Right handle for small value selection.
-            largeHandle_ = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rangeslider-handle.png"]
-                                              highlightedImage:[UIImage imageNamed:@"rangeslider-handle-hover.png"]]
-                            autorelease];
-            largeHandle_.center = CGPointMake(0, centerY);
-            [self addSubview:largeHandle_];
+        [self updateSelectionView];
+    }
 
-            [self updateSelectionView];
-        }
+    return self;
+}
+```
 
-        return self;
-    }[/ccen_objc][/wptabcontent]
-
-[wptabtitle]updateSelectionView[/wptabtitle]
-
-    [wptabcontent][ccen_objc]- (void)updateSelectionView {
-        smallHandle_.center = CGPointMake([self xForValue:smallValue_], smallHandle_.center.y);
-        largeHandle_.center = CGPointMake([self xForValue:largeValue_], largeHandle_.center.y);
-        selectionView_.frame = CGRectMake(smallHandle_.center.x,
-                                          selectionView_.frame.origin.y,
-                                          largeHandle_.center.x - smallHandle_.center.x,
-                                          selectionView_.frame.size.height);
-    }[/ccen_objc][/wptabcontent][/wptabs]
+* updateSelectionView
+```objc
+- (void)updateSelectionView {
+    smallHandle_.center = CGPointMake([self xForValue:smallValue_], smallHandle_.center.y);
+    largeHandle_.center = CGPointMake([self xForValue:largeValue_], largeHandle_.center.y);
+    selectionView_.frame = CGRectMake(smallHandle_.center.x,
+                                      selectionView_.frame.origin.y,
+                                      largeHandle_.center.x - smallHandle_.center.x,
+                                      selectionView_.frame.size.height);
+}
+```
 
 接下来看最重要的部分，就是处理触摸事件的方法。这些方法继承自基类UIControl，分别是[beginTrackingWithTouch:withEvent:][]，[continueTrackingWithTouch:withEvent:][]，和[endTrackingWithTouch:withEvent:][]。
 
@@ -225,141 +228,147 @@ beginTracking和endTracking都很简单，在beginTracking的时候判断是哪�
 
 注意rangeSliderWillBeginDragging和rangeSliderDidEndDragging这两个消息的回调时机。手指刚刚按在滑块上的时候，beginTracking被调用，但这时并不表示用户开始已经开始拖动了，他可能只是按了一下，马上就抬起来。所以当手指按住滑块并有了第一次微小的位移时，continueTracking被调用，这时就可以确定用户是在进行拖动操作。这时候才发送rangeSliderWillBeginDragging消息。最后当手指离开滑块时，拖动操作结束，发送rangeSliderDidEndDragging消息。
 
-[wptabs][wptabtitle]beginTrackingWithTouch[/wptabtitle]
+* beginTrackingWithTouch
+```objc
+- (BOOL)beginTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event {
+    CGPoint touchPoint = [touch locationInView:self];
+    if (CGRectContainsPoint(largeHandle_.frame, touchPoint)) {
+        largeHandle_.highlighted = YES;
+        isTrackingLargeHandle_ = YES;
+    }
+    else if (CGRectContainsPoint(smallHandle_.frame, touchPoint)) {
+        smallHandle_.highlighted = YES;
+        isTrackingSmallHandle_ = YES;
+    }
+    else if (CGRectContainsPoint(selectionView_.frame, touchPoint)) {
+        selectionView_.highlighted = YES;
+        isTrackingSelection_ = YES;
+    }
+    else {
+        return NO;
+    }
 
-    [wptabcontent][ccen_objc]- (BOOL)beginTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event {
-        CGPoint touchPoint = [touch locationInView:self];
-        if (CGRectContainsPoint(largeHandle_.frame, touchPoint)) {
-            largeHandle_.highlighted = YES;
-            isTrackingLargeHandle_ = YES;
-        }
-        else if (CGRectContainsPoint(smallHandle_.frame, touchPoint)) {
-            smallHandle_.highlighted = YES;
-            isTrackingSmallHandle_ = YES;
-        }
-        else if (CGRectContainsPoint(selectionView_.frame, touchPoint)) {
-            selectionView_.highlighted = YES;
-            isTrackingSelection_ = YES;
-        }
-        else {
-            return NO;
-        }
+    isDragging_ = NO;
+    return YES;
+}
+```
 
+* continueTrackingWithTouch
+```objc
+- (BOOL)continueTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event {
+    if (!isTrackingSmallHandle_ && !isTrackingLargeHandle_ && !isTrackingSelection_) {
+        return NO;
+    }
+
+    if (!isDragging_) {
+        isDragging_ = YES;
+        if ([self.delegate respondsToSelector:@selector(rangeSliderWillBeginDragging:)]) {
+            [self.delegate rangeSliderWillBeginDragging:self];
+        }
+    }
+
+    float prev = [self valueForX:[touch previousLocationInView:self].x];
+    float curr = [self valueForX:[touch locationInView:self].x];
+    float offset = curr - prev;
+
+    if (isTrackingSmallHandle_) {
+        self.smallValue = smallValue_ + offset;
+    }
+    else if (isTrackingLargeHandle_) {
+        self.largeValue = largeValue_ + offset;
+    }
+    else if (isTrackingSelection_) {
+        [self moveSelection:offset];
+    }
+
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
+    return YES;
+}
+```
+
+* endTrackingWithTouch
+```objc
+- (void)endTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event {
+    isTrackingSmallHandle_ = NO;
+    isTrackingLargeHandle_ = NO;
+    isTrackingSelection_ = NO;
+
+    selectionView_.highlighted = NO;
+    smallHandle_.highlighted = NO;
+    largeHandle_.highlighted = NO;
+
+    if (isDragging_) {
         isDragging_ = NO;
-        return YES;
-    }[/ccen_objc][/wptabcontent]
-
-[wptabtitle]continueTrackingWithTouch[/wptabtitle]
-
-    [wptabcontent][ccen_objc]- (BOOL)continueTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event {
-        if (!isTrackingSmallHandle_ && !isTrackingLargeHandle_ && !isTrackingSelection_) {
-            return NO;
+        if ([self.delegate respondsToSelector:@selector(rangeSliderDidEndDragging:)]) {
+            [self.delegate rangeSliderDidEndDragging:self];
         }
-
-        if (!isDragging_) {
-            isDragging_ = YES;
-            if ([self.delegate respondsToSelector:@selector(rangeSliderWillBeginDragging:)]) {
-                [self.delegate rangeSliderWillBeginDragging:self];
-            }
-        }
-
-        float prev = [self valueForX:[touch previousLocationInView:self].x];
-        float curr = [self valueForX:[touch locationInView:self].x];
-        float offset = curr - prev;
-
-        if (isTrackingSmallHandle_) {
-            self.smallValue = smallValue_ + offset;
-        }
-        else if (isTrackingLargeHandle_) {
-            self.largeValue = largeValue_ + offset;
-        }
-        else if (isTrackingSelection_) {
-            [self moveSelection:offset];
-        }
-
-        [self sendActionsForControlEvents:UIControlEventValueChanged];
-        return YES;
-    }[/ccen_objc][/wptabcontent]
-
-[wptabtitle]endTrackingWithTouch[/wptabtitle]
-
-    [wptabcontent][ccen_objc]- (void)endTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event {
-        isTrackingSmallHandle_ = NO;
-        isTrackingLargeHandle_ = NO;
-        isTrackingSelection_ = NO;
-
-        selectionView_.highlighted = NO;
-        smallHandle_.highlighted = NO;
-        largeHandle_.highlighted = NO;
-
-        if (isDragging_) {
-            isDragging_ = NO;
-            if ([self.delegate respondsToSelector:@selector(rangeSliderDidEndDragging:)]) {
-                [self.delegate rangeSliderDidEndDragging:self];
-            }
-        }
-    }[/ccen_objc][/wptabcontent][/wptabs]
+    }
+}
+```
 
 最后就是修改smallValue、largeValue和整个选取范围的方法，这些方法会在滑动过程中由上面的continueTrackingWithTouch:withEvent:调用，也可以由其他程序直接调用。
 
 不但要保证smallValue和largeValue都在最小值和最大值范围之内，还要根据最小范围和最大范围的限制来进行适当的调整。
 
-[wptabs][wptabtitle]setSmallValue[/wptabtitle]
+* setSmallValue
+```objc
+- (void)setSmallValue:(float)value {
+    smallValue_ = value;
 
-    [wptabcontent][ccen_objc]- (void)setSmallValue:(float)value {
-        smallValue_ = value;
+    smallValue_ = MIN(MAX(smallValue_, minimumValue_), maximumValue_ - minimumSpan_);
+    if (smallValue_ < largeValue_ - maximumSpan_) {
+        largeValue_ = smallValue_ + maximumSpan_;
+    }
+    else if (smallValue_ > largeValue_ - minimumSpan_) {
+        largeValue_ = smallValue_ + minimumSpan_;
+    }
 
-        smallValue_ = MIN(MAX(smallValue_, minimumValue_), maximumValue_ - minimumSpan_);
-        if (smallValue_ < largeValue_ - maximumSpan_) {
-            largeValue_ = smallValue_ + maximumSpan_;
-        }
-        else if (smallValue_ > largeValue_ - minimumSpan_) {
-            largeValue_ = smallValue_ + minimumSpan_;
-        }
+    offsetTrend_ = value - smallValue_;
 
-        offsetTrend_ = value - smallValue_;
+    [self updateSelectionView];
+}
+```
 
-        [self updateSelectionView];
-    }[/ccen_objc][/wptabcontent]
+* setLargeValue
+```objc
+- (void)setLargeValue:(float)value {
+    largeValue_ = value;
 
-[wptabtitle]setLargeValue[/wptabtitle]
+    largeValue_ = MAX(MIN(largeValue_, maximumValue_), minimumValue_ + minimumSpan_);
+    if (largeValue_ < smallValue_ + minimumSpan_) {
+        smallValue_ = largeValue_ - minimumSpan_;
+    }
+    if (largeValue_ > smallValue_ + maximumSpan_) {
+        smallValue_ = largeValue_ - maximumSpan_;
+    }
 
-    [wptabcontent][ccen_objc]- (void)setLargeValue:(float)value {
-        largeValue_ = value;
+    offsetTrend_ = value - largeValue_;
 
-        largeValue_ = MAX(MIN(largeValue_, maximumValue_), minimumValue_ + minimumSpan_);
-        if (largeValue_ < smallValue_ + minimumSpan_) {
-            smallValue_ = largeValue_ - minimumSpan_;
-        }
-        if (largeValue_ > smallValue_ + maximumSpan_) {
-            smallValue_ = largeValue_ - maximumSpan_;
-        }
+    [self updateSelectionView];
+}
+```
 
-        offsetTrend_ = value - largeValue_;
+* moveSelection
+```objc
+- (void)moveSelection:(float)offset {
+    float span = largeValue_ - smallValue_;
+    float prevSmallValue = smallValue_;
+    smallValue_ += offset;
+    largeValue_ += offset;
+    if (smallValue_ < minimumValue_) {
+        smallValue_ = minimumValue_;
+        largeValue_ = smallValue_ + span;
+    }
+    else if (largeValue_ > maximumValue_) {
+        largeValue_ = maximumValue_;
+        smallValue_ = largeValue_ - span;
+    }
 
-        [self updateSelectionView];
-    }[/ccen_objc][/wptabcontent]
+    offsetTrend_ = prevSmallValue + offset - smallValue_;
 
-[wptabtitle]moveSelection[/wptabtitle]
-
-    [wptabcontent][ccen_objc]- (void)moveSelection:(float)offset {
-        float span = largeValue_ - smallValue_;
-        float prevSmallValue = smallValue_;
-        smallValue_ += offset;
-        largeValue_ += offset;
-        if (smallValue_ < minimumValue_) {
-            smallValue_ = minimumValue_;
-            largeValue_ = smallValue_ + span;
-        }
-        else if (largeValue_ > maximumValue_) {
-            largeValue_ = maximumValue_;
-            smallValue_ = largeValue_ - span;
-        }
-
-        offsetTrend_ = prevSmallValue + offset - smallValue_;
-
-        [self updateSelectionView];
-    }[/ccen_objc][/wptabcontent][/wptabs]
+    [self updateSelectionView];
+}
+```
 
 好了，基本上就这么些代码，还是很简单的。不放完整的程序文件了，只要了解了基本的处理方法，就可根据自己的需求去实现了。
 
