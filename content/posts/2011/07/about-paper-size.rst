@@ -1,0 +1,912 @@
+纸张的尺寸：A、B、C号纸，纸张开本
+##################
+:date: 2011-07-27 22:11
+:author: Calf
+:category: 有用知识
+:tags: A4纸, ISO标准, 开本, 纸张, 纸张大小
+:slug: about-paper-size
+
+记得小时候买书本，都会提到多少多少开，成语词典好像是64开，小学课本是32开，到高中教材改革，课本变成了16开。随着打印机、复印机的广泛应用，现在似乎很少说多少开了，张口就是A4纸，A3纸，还有B5、C5之类的。它们的尺寸分别是多少？大小关系呢？
+
+看到书架里高矮宽窄各不同的书本，赶紧上网查了一番，总结于此。
+
+先说现在的复印纸。有A、B、C三个系列，它们的尺寸遵循国际标准\ `ISO
+216`_\ 和\ `ISO 269`_\ 。
+
+A系列从A0开始，这是一整张纸，将其沿长边对折，每半都是A1，继续沿长边对折得到A2，以此类推。由于每次对折之后，纸张的长宽比保持不变，可知（a、b分别代表短边、长边）[latex]a:b=\\frac{b}{2}:a\\Rightarrow
+a:b=1:\\sqrt2[/latex]。A0的面积是[latex]1m^2[/latex]，由此可以推算出其尺寸为841
+x 1189（单位是毫米，下同）：
+
+[latex]\\left\\{\\begin{matrix} \\sqrt{10^6/\\sqrt2}\\approx 841\\\\
+\\sqrt2\\sqrt{10^6/\\sqrt2}\\approx 1189 \\end{matrix} \\right.[/latex]
+
+将A0纸张长边减半，就可以得到A1的尺寸（不能整除时下取整），为594 x
+841。常用的A3纸是297 x 420，A4纸是210 x
+297。维基百科上还给出了边长的通项公式：纸张An的尺寸是[latex]a\_n \\times
+a\_{n+1}[/latex]，其中[latex]a\_n=\\left \\lfloor 1000\\times
+2^{1/4-n/2}+0.2 \\right
+\\rfloor[/latex]，是一个等比数列（这里加0.2下取整是使得A0的面积尽可能接近一平米，其他编号的纸张面积最接近但不超过前一编号纸张的一半）。
+
+B系列的尺寸被定义为相同编号的A系列纸张，与前一编号的A系列纸张的几何平均（乘积的开方）。即B1的尺寸是A1和A0的几何平均。直接根据A0的通项公式可以得到：纸张Bn的尺寸是[latex]b\_n
+\\times b\_{n+1}[/latex]，其中[latex]b\_n=\\left \\lfloor 1000\\times
+2^{1/2-n/2}+0.2 \\right
+\\rfloor[/latex]。可见B纸的边长是相同编号的A纸的[latex]\\sqrt[4]{2}[/latex]倍，面积是[latex]\\sqrt2[/latex]倍。B0的尺寸是1000x1414，B4是250x353。
+
+C系列是信封系列，其尺寸是相同编号的A纸与B纸的几何平均。可以推算出其通项公式为：[latex]c\_n=\\left
+\\lfloor 1000\\times 2^{3/8-n/2}+0.2 \\right
+\\rfloor[/latex]。C0的尺寸是917 x 1297，C4为229 x
+324。C4刚好比A4大一点儿，正好可以给A4纸当信封。
+
+下面这个表列出了A、B、C三个系列纸张的尺寸：
+
+.. raw:: html
+
+   <table>
+
+.. raw:: html
+
+   <thead>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <th colspan="2">
+
+A系列
+
+.. raw:: html
+
+   </th>
+
+.. raw:: html
+
+   <th colspan="2">
+
+B系列
+
+.. raw:: html
+
+   </th>
+
+.. raw:: html
+
+   <th colspan="2">
+
+C系列
+
+.. raw:: html
+
+   </th>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </thead>
+
+.. raw:: html
+
+   <tbody>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+A0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+841 x 1189
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+B0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+1000 x 1414
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+C0
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+917 x 1297
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+A1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+594 x 841
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+B1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+707 x 1000
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+C1
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+648 x 917
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+A2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+420 x 594
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+B2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+500 x 707
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+C2
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+458 x 648
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+A3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+297 x 420
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+B3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+353 x 500
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+C3
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+324 x 458
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+A4
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+210 x 297
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+B4
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+250 x 353
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+C4
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+229 x 324
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+A5
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+148 x 210
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+B5
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+176 x 250
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+C5
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+162 x 229
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+A6
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+105 x 148
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+B6
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+125 x 176
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+C6
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+114 x 162
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+A7
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+74 x 105
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+B7
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+88 x 125
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+C7
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+81 x 114
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+A8
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+52 x 74
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+B8
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+62 x 88
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+C8
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+57 x 81
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+A9
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+37 x 52
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+B9
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+44 x 62
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+C9
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+40 x 57
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+.. raw:: html
+
+   <td>
+
+A10
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+26 x 37
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+B10
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+31 x 44
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+C10
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   <td>
+
+28 x 40
+
+.. raw:: html
+
+   </td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </tbody>
+
+.. raw:: html
+
+   </table>
+
+本来想下载ISO 216标准完整版阅读一下，没想到很贵呢，要\ `七十多美元`_\ 。
+
+再来看小时候常说的开本，什么16开、32开。其实很容易理解啦，16开就是把一张大纸裁成16等份（对折4次，类似于A4），32开就是把16开纸再对折1次（类似于A5）。而整张的大纸的尺寸在我国也有好几种，最常见的有（宽长比差不多都是[latex]1:\\sqrt2[/latex]）：
+
+-  787号纸（正度纸）：787 x 1092
+-  850号纸（大度纸）：850 x 1168
+-  880号纸：880 x 1230
+-  889号纸（也有说这个是大度纸，搞不清楚）：889 x 1194
+
+不过如果按照对折的办法去算开纸的尺寸，比如787号纸的16开是196 x
+273，这个尺寸一般要比16开的书大，因为书籍还要修边裁剪啥的。比如我手边的交规课本就是787号纸16开的，实际尺寸是186
+x
+259。除了常见的对开（就是2开）、4开、8开、16开、32开、64开（袖珍手册），偶尔也能看到其他开本。比如我手边有一本讲PPT的书是889号纸24开的，实际尺寸是180
+x 210，貌似是把4开本沿短边对折后再沿长边三折：
+
+[caption id="attachment\_851" align="alignnone" width="235" caption="889
+x 1194 24开本"]\ |889 x 1194 24开本|\ [/caption]
+
+对于给定的原始尺寸，可以用下面这段程序（Python）来算出1～10次对折后的尺寸：
+
+::
+
+    [cce_python]def Kai(x, y):
+      n = 11
+      for i in xrange(n):
+        print i, ':', x, 'x', y
+        x, y = y/2, x
+
+    Kai(841, 1189)[/cce_python]
+
+下面的表格列出了这四种纸张各个开本的未修边尺寸（有些格子里列出了常见的修边后的尺寸）：
+
++---------+----------------+----------------+--------------+--------------+
+| 开本    | 787号纸        | 850号纸        | 880号纸      | 889号纸      |
++=========+================+================+==============+==============+
+| 全张    | 787 x 1092     | 850 x 1168     | 880 x 1230   | 889 x 1194   |
++---------+----------------+----------------+--------------+--------------+
+| 2开     | 546 x 787      | 584 x 850      | 615 x 880    | 597 x 889    |
++---------+----------------+----------------+--------------+--------------+
+| 4开     | 393 x 546      | 425 x 584      | 440 x 615    | 444 x 597    |
++---------+----------------+----------------+--------------+--------------+
+| 8开     | 273 x 393      | 292 x 425      | 307 x 440    | 298 x 444    |
+|         |  (260 x 368)   |  (285 x 420)   |              |              |
++---------+----------------+----------------+--------------+--------------+
+| 16开    | 196 x 273      | 212 x 292      | 220 x 307    | 222 x 298    |
+|         |  (184 x 260)   |  (210 x 285)   |              |              |
++---------+----------------+----------------+--------------+--------------+
+| 32开    | 136 x 196      | 146 x 212      | 153 x 220    | 149 x 222    |
+|         |  (130 x 184)   |  (140 x 203)   |              |              |
++---------+----------------+----------------+--------------+--------------+
+| 64开    | 98 x 136       | 106 x 146      | 110 x 153    | 111 x 149    |
++---------+----------------+----------------+--------------+--------------+
+| 128开   | 68 x 98        | 73 x 106       | 76 x 110     | 74 x 111     |
++---------+----------------+----------------+--------------+--------------+
+
+.. _ISO 216: http://en.wikipedia.org/wiki/A4_paper
+.. _ISO 269: http://en.wikipedia.org/wiki/ISO_269
+.. _七十多美元: http://webstore.ansi.org/RecordDetail.aspx?sku=ISO+216%3a2007
+
+.. |889 x 1194 24开本| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/07/paper_24k-235x300.png
+   :target: http://www.gocalf.com/blog/wp-content/uploads/2011/07/paper_24k.png
