@@ -1,15 +1,18 @@
 Kindle4修砖记
-##########
+#############
 :date: 2013-07-29 10:13
 :author: Calf
 :category: 硬件
 :tags: Kindle, Kindle 4, unbrick, USB Net, Your Kindle Needs Repair, 修砖
 :slug: fix-bricked-kindle4
+:summary: 入手一年的Kindle4突然变成砖头了，屏幕显示“Your Kindle Needs Repair”，花了大半个晚上的时间才修好它，简单记录一下。
 
 入手一年的Kindle4突然不能用了，屏幕显示“Your Kindle Needs
 Repair”，原来就是传说中的变成砖头了。
 
 花了大半个晚上的时间才修好它，简单记录一下。
+
+.. more
 
 先说下机器的情况。这是美版的Kindle4广告版，曾经装过多看，但早就删掉了，现在用的是原生系统，应该是4.0.1吧。
 
@@ -65,34 +68,38 @@ Ethernet驱动，\ `点此下载`_\ 。）
 
 装好驱动，进入网络中心，看到有一块新的网卡设备。点击右键查看属性，在IPv4选项中，将IP地址设置为“192.168.15.200”，子网掩码是默认的“255.255.255.0”。
 
-用SSH客户端（我用的是Putty）登录Kindle，IP地址为192.168.15.244，用户名是root。密码可以先试试“mario”（针对4.0系统），如果不行，就将序列号输入到下面的文本框中得到密码（针对4.0.1系统）（若无法显示请猛击\ `这里 <http://www.gocalf.com/blog/wp-content/uploads/2013/07/kindle_root_password.html>`__\ ）。
+用SSH客户端（我用的是Putty）登录Kindle，IP地址为192.168.15.244，用户名是root。密码可以先试试“mario”（针对4.0系统），如果不行，就将序列号输入到下面的文本框中得到密码（针对4.0.1系统）（若无法显示请猛击\ `这里 <{filename}/assets/2013/07/kindle_root_password.html>`__\ ）。
+
+.. raw:: html
+
+    <iframe frameborder="0" height="50" scrolling="no" src="{filename}/assets/2013/07/kindle_root_password.html" width="100%"></iframe>
 
 其实root密码就是“fiona”加上序列号MD5值中的一部分。生成代码如下（Python
 2.7.\*）：
 
-::
+.. code-block:: python
 
-    [ccen_python]import hashlib
+    import hashlib
     serial_number = 'USE YOUR OWN SERIAL NUMBER'
     password = 'fiona%s' % hashlib.md5('%s\n' % serial_number).hexdigest()[7:11]
-    print password[/ccen_python]
+    print password
 
 4. 进行系统恢复
 ---------------
 
 SSH登录成功后，在终端中运行如下命令来恢复系统（大概需要几分钟的时间）：
 
-::
+.. code-block:: bash
 
-    [cce_bash]dd if=/mnt/us/mmcblk0p1_410.img of=/dev/mmcblk0p1 bs=4K[/cce_bash]
+    dd if=/mnt/us/mmcblk0p1_410.img of=/dev/mmcblk0p1 bs=4K
 
 成功后，我又运行了另外几个命令以免还是不能重启，有的命令根本就没执行成功，可能要看具体的情况了：
 
-::
+.. code-block:: bash
 
-    [ccen_bash]dd if=/dev/zero of=/dev/mmcblk0p3 bs=4K
+    dd if=/dev/zero of=/dev/mmcblk0p3 bs=4K
     rm /var/local/system/.framework_reboots
-    ​rm /var/local/system/.framework_retries[/ccen_bash]
+    ​rm /var/local/system/.framework_retries
 
 5. 完成
 -------

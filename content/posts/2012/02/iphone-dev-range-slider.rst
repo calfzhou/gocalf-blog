@@ -1,15 +1,18 @@
 iPhone开发：自定义控件RangeSlider（范围滑动条）
-################################
+###############################################
 :date: 2012-02-03 21:19
 :author: Calf
 :category: 程序开发
 :tags: iOS, iPhone 开发, ObjC, Range Slider, UIControl, UISlider, 控件
 :slug: iphone-dev-range-slider
+:summary: 前些日子写app的时候遇到一个需求，希望有一个类似于UISlider的东西，但能够选取一个范围，也就是所谓的Range Slider。在网上也能找到很多相关的代码，不过本着学习的态度，还是自己琢磨了一下，就当是为以后写复杂控件做的练习吧。
 
 前些日子写app的时候遇到一个需求，希望有一个类似于\ `UISlider`_\ 的东西，但能够选取一个范围，也就是所谓的Range
 Slider。在网上也能找到很多相关的代码，不过本着学习的态度，还是自己琢磨了一下。
 
 就当是为以后写复杂控件做的练习吧。
+
+.. more
 
 以下内容适用于iOS 2.0+。
 
@@ -37,18 +40,18 @@ Slider的功能）介绍一下。它最多只算是个toy，还有很多需要�
 
 说了这么多，来看看它的样子吧。外表很简单，我用的背景、滑块和滑条图片都跟UISlider是一样的：
 
-[caption id="attachment\_1609" align="alignnone" width="320"
-caption="我的Range Slider"]\ |range\_slider|\ [/caption]
+.. figure:: {filename}/images/2012/02/range_slider.png
+    :alt: range_slider
+    
+    我的Range Slider
 
 实现起来蛮简单的，因为SDK已经提供了足够的支持。我的这个类就叫做RangeSlider，继承自\ `UIControl`_\ 类。另外我还定义了它的委托类，叫做RangeSliderDelegate。二者的接口如下：
 
-[wptabs]
+- RangeSlider
 
-[wptabtitle]RangeSlider[/wptabtitle]
+.. code-block:: objc
 
-::
-
-    [wptabcontent][ccen_objc lines="15"]#import <UIKit/UIKit.h>
+    #import <UIKit/UIKit.h>
 
     @protocol RangeSliderDelegate;
 
@@ -119,13 +122,13 @@ caption="我的Range Slider"]\ |range\_slider|\ [/caption]
     // Converts x coor to slider value.
     - (float)valueForX:(float)x;
 
-    @end[/ccen_objc][/wptabcontent]
+    @end
 
-[wptabtitle]RangeSliderDelegate[/wptabtitle]
+- RangeSliderDelegate
 
-::
+.. code-block:: objc
 
-    [wptabcontent][ccen_objc]@protocol RangeSliderDelegate<NSObject>
+    @protocol RangeSliderDelegate<NSObject>
     @optional
 
     // Tells the delegate when the slider is about to start dragging.
@@ -136,30 +139,30 @@ caption="我的Range Slider"]\ |range\_slider|\ [/caption]
     // This message is sent when the user's finger touches up after dragging.
     - (void)rangeSliderDidEndDragging:(RangeSlider*)rangeSlider;
 
-    @end[/ccen_objc][/wptabcontent][/wptabs]
+    @end
 
 接口中的大部分内容都在需求和功能介绍部分见过了。另外有两个方法，xForValue和valueForX，它们用来在Range
 Slider内部的坐标值和用户数值之间做转换，内容如下（这里的insetWidth是在UI上做的小伎俩，主要是为了保证滑块滑到最两端时也能有充足的空间来接受用户的点击）：
 
-::
+.. code-block:: objc
 
-    [ccen_objc]- (float)xForValue:(float)value {
+    - (float)xForValue:(float)value {
         return insetWidthLeft_ + rangeWidth_ * (value - minimumValue_) / (maximumValue_ - minimumValue_);
     }
 
     - (float)valueForX:(float)x {
         return minimumValue_ + (x - insetWidthLeft_) * (maximumValue_ - minimumValue_) / rangeWidth_;
-    }[/ccen_objc]
+    }
 
 我就不贴完整的.m源文件了，只是逐个介绍一下重要的方法。
 
 首先看初始化方法initWithFrame，和更新显示的方法updateSelectionView。这个没啥好说的，就是初始化成员变量，创建好相关的图片：
 
-[wptabs][wptabtitle]initWithFrame[/wptabtitle]
+- initWithFrame
 
-::
+.. code-block:: objc
 
-    [wptabcontent][ccen_objc lines="15"]- (id)initWithFrame:(CGRect)frame insetLeft:(int)insetLeft insetRight:(int)insetRight {
+    - (id)initWithFrame:(CGRect)frame insetLeft:(int)insetLeft insetRight:(int)insetRight {
         self = [super initWithFrame:frame];
         if (self != nil) {
             // Set the initial state.
@@ -212,20 +215,20 @@ Slider内部的坐标值和用户数值之间做转换，内容如下（这里�
         }
 
         return self;
-    }[/ccen_objc][/wptabcontent]
+    }
 
-[wptabtitle]updateSelectionView[/wptabtitle]
+- updateSelectionView
 
-::
+.. code-block:: objc
 
-    [wptabcontent][ccen_objc]- (void)updateSelectionView {
+    - (void)updateSelectionView {
         smallHandle_.center = CGPointMake([self xForValue:smallValue_], smallHandle_.center.y);
         largeHandle_.center = CGPointMake([self xForValue:largeValue_], largeHandle_.center.y);
         selectionView_.frame = CGRectMake(smallHandle_.center.x,
                                           selectionView_.frame.origin.y,
                                           largeHandle_.center.x - smallHandle_.center.x,
                                           selectionView_.frame.size.height);
-    }[/ccen_objc][/wptabcontent][/wptabs]
+    }
 
 接下来看最重要的部分，就是处理触摸事件的方法。这些方法继承自基类UIControl，分别是\ `beginTrackingWithTouch:withEvent:`_\ ，\ `continueTrackingWithTouch:withEvent:`_\ ，和\ `endTrackingWithTouch:withEvent:`_\ 。
 
@@ -235,11 +238,11 @@ beginTracking和endTracking都很简单，在beginTracking的时候判断是哪�
 
 注意rangeSliderWillBeginDragging和rangeSliderDidEndDragging这两个消息的回调时机。手指刚刚按在滑块上的时候，beginTracking被调用，但这时并不表示用户开始已经开始拖动了，他可能只是按了一下，马上就抬起来。所以当手指按住滑块并有了第一次微小的位移时，continueTracking被调用，这时就可以确定用户是在进行拖动操作。这时候才发送rangeSliderWillBeginDragging消息。最后当手指离开滑块时，拖动操作结束，发送rangeSliderDidEndDragging消息。
 
-[wptabs][wptabtitle]beginTrackingWithTouch[/wptabtitle]
+- beginTrackingWithTouch
 
-::
+.. code-block:: objc
 
-    [wptabcontent][ccen_objc]- (BOOL)beginTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event {
+    - (BOOL)beginTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event {
         CGPoint touchPoint = [touch locationInView:self];
         if (CGRectContainsPoint(largeHandle_.frame, touchPoint)) {
             largeHandle_.highlighted = YES;
@@ -259,13 +262,13 @@ beginTracking和endTracking都很简单，在beginTracking的时候判断是哪�
 
         isDragging_ = NO;
         return YES;
-    }[/ccen_objc][/wptabcontent]
+    }
 
-[wptabtitle]continueTrackingWithTouch[/wptabtitle]
+- continueTrackingWithTouch
 
-::
+.. code-block:: objc
 
-    [wptabcontent][ccen_objc]- (BOOL)continueTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event {
+    - (BOOL)continueTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event {
         if (!isTrackingSmallHandle_ && !isTrackingLargeHandle_ && !isTrackingSelection_) {
             return NO;
         }
@@ -293,11 +296,11 @@ beginTracking和endTracking都很简单，在beginTracking的时候判断是哪�
 
         [self sendActionsForControlEvents:UIControlEventValueChanged];
         return YES;
-    }[/ccen_objc][/wptabcontent]
+    }
 
-[wptabtitle]endTrackingWithTouch[/wptabtitle]
+- endTrackingWithTouch
 
-::
+.. code-block:: objc
 
     [wptabcontent][ccen_objc]- (void)endTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event {
         isTrackingSmallHandle_ = NO;
@@ -314,17 +317,17 @@ beginTracking和endTracking都很简单，在beginTracking的时候判断是哪�
                 [self.delegate rangeSliderDidEndDragging:self];
             }
         }
-    }[/ccen_objc][/wptabcontent][/wptabs]
+    }
 
 最后就是修改smallValue、largeValue和整个选取范围的方法，这些方法会在滑动过程中由上面的continueTrackingWithTouch:withEvent:调用，也可以由其他程序直接调用。
 
 不但要保证smallValue和largeValue都在最小值和最大值范围之内，还要根据最小范围和最大范围的限制来进行适当的调整。
 
-[wptabs][wptabtitle]setSmallValue[/wptabtitle]
+- setSmallValue
 
-::
+.. code-block:: objc
 
-    [wptabcontent][ccen_objc]- (void)setSmallValue:(float)value {
+    - (void)setSmallValue:(float)value {
         smallValue_ = value;
 
         smallValue_ = MIN(MAX(smallValue_, minimumValue_), maximumValue_ - minimumSpan_);
@@ -338,13 +341,13 @@ beginTracking和endTracking都很简单，在beginTracking的时候判断是哪�
         offsetTrend_ = value - smallValue_;
 
         [self updateSelectionView];
-    }[/ccen_objc][/wptabcontent]
+    }
 
-[wptabtitle]setLargeValue[/wptabtitle]
+- setLargeValue
 
-::
+.. code-block:: objc
 
-    [wptabcontent][ccen_objc]- (void)setLargeValue:(float)value {
+    - (void)setLargeValue:(float)value {
         largeValue_ = value;
 
         largeValue_ = MAX(MIN(largeValue_, maximumValue_), minimumValue_ + minimumSpan_);
@@ -358,13 +361,13 @@ beginTracking和endTracking都很简单，在beginTracking的时候判断是哪�
         offsetTrend_ = value - largeValue_;
 
         [self updateSelectionView];
-    }[/ccen_objc][/wptabcontent]
+    }
 
-[wptabtitle]moveSelection[/wptabtitle]
+- moveSelection
 
-::
+.. code-block:: objc
 
-    [wptabcontent][ccen_objc]- (void)moveSelection:(float)offset {
+    - (void)moveSelection:(float)offset {
         float span = largeValue_ - smallValue_;
         float prevSmallValue = smallValue_;
         smallValue_ += offset;
@@ -381,7 +384,7 @@ beginTracking和endTracking都很简单，在beginTracking的时候判断是哪�
         offsetTrend_ = prevSmallValue + offset - smallValue_;
 
         [self updateSelectionView];
-    }[/ccen_objc][/wptabcontent][/wptabs]
+    }
 
 好了，基本上就这么些代码，还是很简单的。不放完整的程序文件了，只要了解了基本的处理方法，就可根据自己的需求去实现了。
 
@@ -390,5 +393,3 @@ beginTracking和endTracking都很简单，在beginTracking的时候判断是哪�
 .. _`beginTrackingWithTouch:withEvent:`: http://developer.apple.com/library/ios/documentation/uikit/reference/UIControl_Class/Reference/Reference.html#//apple_ref/occ/instm/UIControl/beginTrackingWithTouch:withEvent:
 .. _`continueTrackingWithTouch:withEvent:`: http://developer.apple.com/library/ios/documentation/uikit/reference/UIControl_Class/Reference/Reference.html#//apple_ref/occ/instm/UIControl/continueTrackingWithTouch:withEvent:
 .. _`endTrackingWithTouch:withEvent:`: http://developer.apple.com/library/ios/documentation/uikit/reference/UIControl_Class/Reference/Reference.html#//apple_ref/occ/instm/UIControl/endTrackingWithTouch:withEvent:
-
-.. |range\_slider| image:: http://www.gocalf.com/blog/wp-content/uploads/2012/02/range_slider.png

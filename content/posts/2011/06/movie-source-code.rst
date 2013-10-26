@@ -1,10 +1,11 @@
 电影《源代码》（Source Code）
-####################
+#############################
 :date: 2011-06-30 23:52
 :author: Calf
 :category: 影视音乐
 :tags: Movie, Quantum, Science Fiction, 电影, 科幻
 :slug: movie-source-code
+:summary: 一篇物理学家写的关于电影《源代码》的文章，觉得非常不错，转载于此。
 
 昨天无意间看到一个视频，名字叫“源代码”。第一反应是网友恶搞的关于IT民工的短片，可是看到时间轴上显示总长为九十多分钟，才反应过来这是个电影。可依旧以为是IT民工相关的东西。看了几分钟之后发现是一部关于平行宇宙的科幻电影。
 
@@ -15,37 +16,40 @@ Code这样的，平行宇宙论。一个人回到过去，其实是回到了一�
 
 看到了一篇物理学家写的关于这个电影的文章，觉得非常不错，他对电影中一些现象的理解跟我的理解也很接近。转载于此留个印记。
 
-附：在线观看电影《源代码》地址 \ http://video.sina.com.cn/v/b/55050458-1650913383.html
+附：在线观看电影《源代码》地址 http://video.sina.com.cn/v/b/55050458-1650913383.html
 
 注：以下内容有剧透。
 
+.. more
+
 ======== 分隔符 ========
 
-以下内容转载自\ http://blogs.discovermagazine.com/cosmicvariance/2011/04/12/guest-post-jim-kakalios-on-the-quantum-mechanics-of-source-code/\ 。
+以下内容转载自 http://blogs.discovermagazine.com/cosmicvariance/2011/04/12/guest-post-jim-kakalios-on-the-quantum-mechanics-of-source-code/。
 
 Jim Kakalios on the Quantum Mechanics of Source Code
 ----------------------------------------------------
 
-by \ `Sean`_
+by `Sean`_
 
 Jim Kakalios of the University of Minnesota has achieved internet
-demi-fame — he has \ `a YouTube video`_ with over a million and a half
-views. It’s on the science of \ *Watchmen*, the movie based on Alan
+demi-fame — he has `a YouTube video`_ with over a million and a half
+views. It’s on the science of *Watchmen*, the movie based on Alan
 Moore’s graphic novel. Jim got that sweet gig because he wrote a great
-book called \ `*The Science of Superheroes*`_ — what better credentials
+book called |The Science of Superheroes|_ — what better credentials
 could you ask for?
 
-More recently Jim has written another book, \ `*The Amazing Story of
-Quantum Mechanics*`_. But even without superheroes in the title,
+More recently Jim has written another book,
+|The Amazing Story of Quantum Mechanics|_.
+But even without superheroes in the title,
 everything Jim thinks about ends up being relevant to movies before too
-long. The new movie \ `*Source Code*`_ features a twist at the end that
+long. The new movie |Source Code|_ features a twist at the end that
 involves — you guessed it — quantum mechanics. Jim has applied his
 physicist super-powers to unraveling what it all means, and was kind
 enough to share his thoughts with us in this guest post.
 
 ——————————————————————-
 
-There is \ `an interesting discussion taking place on the internets`_
+There is `an interesting discussion taking place on the internets`_
 concerning the ending of the newly released film SOURCE CODE, that
 suggests that the film concludes with a paradox. I believe that any such
 paradox can be resolved – with Physics!
@@ -189,7 +193,10 @@ always get a lecture in reply!
 
 .. _Sean: http://blogs.discovermagazine.com/cosmicvariance/author/scarroll/
 .. _a YouTube video: http://www.youtube.com/watch?v=zmj1rpzDRZ0
-.. _*The Science of Superheroes*: http://www.amazon.com/Physics-Superheroes-Spectacular-Second/dp/1592405088/
-.. _*The Amazing Story of Quantum Mechanics*: http://www.amazon.com/Amazing-Story-Quantum-Mechanics-Exploration/dp/1592404790/
-.. _*Source Code*: http://www.imdb.com/title/tt0945513/
+.. |The Science of Superheroes| replace:: *The Science of Superheroes*
+.. _The Science of Superheroes: http://www.amazon.com/Physics-Superheroes-Spectacular-Second/dp/1592405088/
+.. |The Amazing Story of Quantum Mechanics| replace:: *The Amazing Story of Quantum Mechanics*
+.. _The Amazing Story of Quantum Mechanics: http://www.amazon.com/Amazing-Story-Quantum-Mechanics-Exploration/dp/1592404790/
+.. |Source Code| replace:: *Source Code*
+.. _Source Code: http://www.imdb.com/title/tt0945513/
 .. _an interesting discussion taking place on the internets: http://www.ropeofsilicon.com/article/spoiler-talk-is-the-ending-of-source-code-open-to-interpretation

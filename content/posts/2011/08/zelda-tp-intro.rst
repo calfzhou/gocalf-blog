@@ -1,15 +1,18 @@
 《塞尔达传说：黎明公主》攻略：剧情介绍
-###################
+######################################
 :date: 2011-08-22 00:28
 :author: Calf
 :category: 游戏
 :tags: Game, Twilight Princess, Wii, 任天堂, 塞尔达传说, 游戏攻略, 黄昏公主, 黎明公主
 :slug: zelda-tp-intro
+:summary: 前年的时候花了好多个晚上的时间在Wii上玩了《塞尔达传说：黎明公主》（The Legend of Zelda: Twilight Princess），真的是很不错的游戏呢。当时搜了很多的攻略，现在就贴在这里吧。基本上是参考了网上已有的攻略，但结合自己的实践也做了整理和修订。
 
 前年的时候花了好多个晚上的时间在Wii上玩了《\ `塞尔达传说：黎明公主`_\ 》（\ `The
 Legend of Zelda: Twilight Princess`_\ ），真的是很不错的游戏呢。
 
 当时搜了很多的攻略，现在就贴在这里吧。基本上是参考了网上已有的攻略，但结合自己的实践也做了整理和修订。
+
+.. more
 
 由于内容非常多，将会以系列文章的形式发布。今天这篇就只是个简单的开始。所有的文章如果有参考了其他人的作品，会在文章底部附加“参考”项。图片几乎全部来自参考的文章，但有些是我重新整理的，这种图片会打上GoCalf的水印。
 
@@ -17,13 +20,15 @@ Legend of Zelda: Twilight Princess`_\ ），真的是很不错的游戏呢。
 Twilight Princess
 则有多种翻译，有“曙光公主”、“黎明公主”、“黄昏公主”等等，似乎“黄昏公主”是比较普遍的叫法，但因为我的游戏里显示的是“黎明公主”，我就实在难以接受其他的名称了。所以我整理的攻略中将全部使用“黎明公主”这一说法。
 
-[caption id="attachment\_921" align="alignnone" width="640"
-caption="《塞尔达传说：黎明公主》LOGO"]\ |Zelda Twilight Princess
-Logo|\ [/caption]
+.. figure:: {filename}/images/2011/08/zelda_tp_logo_mid.png
+    :alt: Zelda Twilight Princess Logo
+    
+    《塞尔达传说：黎明公主》LOGO
 
-`[caption id="attachment\_922" align="alignnone" width="545"
-caption="《塞尔达传说：黎明公主》封面、海报"]\ |Zelda Twilight Princess
-Cover|\ [/caption]`_
+.. figure:: {filename}/images/2011/08/zelda_tp_cover-545x700.jpg
+    :alt: Zelda Twilight Princess Cover
+    
+    《塞尔达传说：黎明公主》封面、海报
 
 随着美版Wii的首发，玩家们期盼已久的《塞尔达传说：黎明公主》终于与大家见面了，这款被任天堂寄予厚望的作品一再延期，也从最初预计的
 NGC平台转移到了Wii上面，其重要性不言而喻。新生的塞尔达，以其卓越的世界观、精巧的迷题，用写实的风格让玩家体验最原始的感动，当你闭上眼睛，一切都会变成脑海里最精美的画面。
@@ -43,8 +48,7 @@ NGC平台转移到了Wii上面，其重要性不言而喻。新生的塞尔达�
 
 在那里等待着他的，除了可怕的怪物和荆棘的道路外，还有光之公主与黎明公主殷切的期盼……
 
-剧情流程目录
-^^^^^^^^^^^^
+剧情流程目录：
 
 -  `剧情介绍`_
 -  `主要角色简介`_
@@ -64,20 +68,21 @@ NGC平台转移到了Wii上面，其重要性不言而喻。新生的塞尔达�
    -  `第九章 斩破黑暗的利刃（黎明公主）`_
 
 -  `终章 世界秩序的平衡（光与影）`_
+-  附录
 
-附录部分
-^^^^^^^^
+   -  `必须要知道的几个秘密`_
+   -  `心之碎片`_
+   -  `非剧情道具`_
+   -  `瓶子`_
+   -  `奥义`_
+   -  `金色虫`_
+   -  `鬼魂之魂`_
+   -  `钓鱼`_
+   -  `试炼的洞窟`_
 
--  `必须要知道的几个秘密`_
--  `心之碎片`_
--  `非剧情道具`_
--  `瓶子`_
--  `奥义`_
--  `金色虫`_
--  `鬼魂之魂`_
--  `钓鱼`_
--  `试炼的洞窟`_
--  日版金手指文件下载：\ `GoldenFinger\_JP.zip`_
+-  附件
+
+   -  日版金手指文件下载：\ `GoldenFinger\_JP.zip`_
 
 --------------
 
@@ -89,11 +94,11 @@ NGC平台转移到了Wii上面，其重要性不言而喻。新生的塞尔达�
 .. _塞尔达传说：黎明公主: http://www.zelda.com/tp/
 .. _`The Legend of Zelda: Twilight Princess`: http://www.zelda.com/tp/
 .. _[caption id="attachment\_922" align="alignnone" width="545" caption="《塞尔达传说：黎明公主》封面、海报"]\ |Zelda Twilight Princess Cover|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/08/zelda_tp_cover.jpg
-.. _剧情介绍: http://www.gocalf.com/blog/zelda-tp-into.html
-.. _主要角色简介: http://www.gocalf.com/blog/zelda-tp-characters.html
-.. _初章 英雄传说的扉页（被神选中的少年）: http://www.gocalf.com/blog/zelda-tp-ch1.html
-.. _第二章 死亡山巅的咆哮（大地的子民）: http://www.gocalf.com/blog/zelda-tp-ch2.html
-.. _第三章 深海鱼族的传说（最后的影之碎片）: http://www.gocalf.com/blog/zelda-tp-ch3.html
+.. _剧情介绍: #
+.. _主要角色简介: {filename}zelda-tp-characters.rst
+.. _初章 英雄传说的扉页（被神选中的少年）: {filename}../09/zelda-tp-ch1.rst
+.. _第二章 死亡山巅的咆哮（大地的子民）: {filename}../10/zelda-tp-ch2.rst
+.. _第三章 深海鱼族的传说（最后的影之碎片）: {filename}../11/zelda-tp-ch3.rst
 .. _第四章 沙漠深处的审判（死者之沙漠）: http://www.gocalf.com/blog/zelda-tp-ch4.html
 .. _第五章 冰封魔镜的罪恶（雪山！兽人！爱！）: http://www.gocalf.com/blog/zelda-tp-ch5.html
 .. _第六章 时间遗忘的裂缝（时之神殿）: http://www.gocalf.com/blog/zelda-tp-ch6.html
@@ -110,8 +115,5 @@ NGC平台转移到了Wii上面，其重要性不言而喻。新生的塞尔达�
 .. _鬼魂之魂: http://www.gocalf.com/blog/zelda-tp-ghostsoul.html
 .. _钓鱼: http://www.gocalf.com/blog/zelda-tp-fishing.html
 .. _试炼的洞窟: http://www.gocalf.com/blog/zelda-tp-trialscave.html
-.. _GoldenFinger\_JP.zip: http://www.gocalf.com/blog/wp-content/uploads/2011/08/GoldenFinger_JP.zip
+.. _GoldenFinger\_JP.zip: {filename}/assets/2011/08/GoldenFinger_JP.zip
 .. _《塞尔达传说：黄昏公主》图文全攻略: http://wii.tgbus.com/glmj/gl/200611/20061129114849.shtml
-
-.. |Zelda Twilight Princess Logo| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/08/zelda_tp_logo_mid.png
-.. |Zelda Twilight Princess Cover| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/08/zelda_tp_cover-545x700.jpg

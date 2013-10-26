@@ -1,10 +1,11 @@
 Dell E6400安装MacOS雪豹10.6
-#######################
+###########################
 :date: 2011-07-24 18:08
 :author: Calf
 :category: 操作系统
 :tags: BootThink, Dell E6400, Hackintosh, MacOS, OS, PC, PC机装Mac, 雪豹, 黑苹果
 :slug: dell-e6400-install-mac
+:summary: 半年前在Dell Latitude E6400上安装了Mac OS X Snow Leopard 10.6（与Windows 7并存），除了WiFi之外都挺好的，折腾了好久才搞定，现在又有些记不清了，所以要赶紧留下印记，以免过几天就忘光了。
 
 半年前在Dell Latitude E6400上安装了Mac OS X Snow Leopard 10.6（与Windows
 7并存），除了WiFi之外都挺好的，折腾了好久才搞定，现在又有些记不清了，所以要赶紧留下印记，以免过几天就忘光了。
@@ -14,8 +15,10 @@ Dell E6400安装MacOS雪豹10.6
 在PC上装Mac的教程满天飞，这里不打算详细讲述，就以跟Dell
 E6400有关的部分和遇到的一些问题为主吧，这款机器似乎是最难装Mac的机器之一。
 
+.. more
+
 Dell Latitude E6400硬件配置
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 为PC装Mac系统最头疼的当然是硬件驱动了，所以在安装前要先搞清楚机器的硬件情况。
 
@@ -38,7 +41,7 @@ Dell Latitude E6400硬件配置
    -  WiFi: Intel WiFi Link 5300 AGN （最让人头疼的硬件，驱动无解）
 
 工具和准备工作
-~~~~~~~~~~~~~~
+--------------
 
 下载了Mac OS X
 10.6原版光盘镜像（尝试了很多其他处理好的镜像，全都无法正常安装，最后还是选择用原版），我用的是snowleopard\_10a432\_userdvd.dmg（网上到处都能下载，我就不发链接了），6.13G。这么大就不刻盘了，用光盘装还慢呢。
@@ -52,13 +55,15 @@ system from
 file...），选择下载的安装盘镜像，在弹出的对话框里选择Apple\_HFS那项。加载之后点击菜单Tool->Create
 disk image...，将生成的文件（.dmg）保存在某个NTFS分区上即可。
 
-[caption id="attachment\_842" align="alignnone" width="287"
-caption="HFS-Explorer选择Partition"]\ |HFS-Explorer选择Partition|\ [/caption]
-
- 
-
-[caption id="attachment\_843" align="alignnone" width="540"
-caption="在HFS-Explorer中查看安装盘镜像"]\ |HFS-Explorer|\ [/caption]
+.. figure:: {filename}/images/2011/07/hfs_explorer_hfs.png
+    :alt: hfs_explorer_hfs
+    
+    HFS-Explorer选择Partition
+    
+.. figure:: {filename}/images/2011/07/hfs_explorer_view.png
+    :alt: hfs_explorer_view
+    
+    在HFS-Explorer中查看安装盘镜像
 
 使用HFS-Explorer把下载的安装盘镜像处理一下生成另外一个镜像，主要有三个作用：
 
@@ -72,10 +77,21 @@ administrator）。载入刚才用HFS-Explorer生成的镜像文件，选择之�
 V8）。点击“开始！”按钮，然后耐心等待。当进度条走满，日志中出现“Change
 partition type to AF: Success”、“All done, have fun!”时就算成功了。
 
-[caption id="attachment\_844" align="alignnone" width="502"
-caption="Leopard硬盘安装助手"]\ |Leopard硬盘安装助手|\ [/caption]
+.. figure:: {filename}/images/2011/07/lepoard-inshelper.png
+    :alt: lepoard-inshelper
+    
+    Leopard硬盘安装助手
 
-接下来要替换OSInstall，这需要安装工具MacDriver（v8.0.4.10），这是个收费软件。装好之后重启系统，就可以进入刚才用硬盘安装助手写入的HFS安装分区了。让Windows显示隐藏文件和系统文件，下载一个PC用的OSInstall，替换掉[cc]X:\\System\\Library\\PrivateFrameworks\\Install.framework\\Frameworks\\OSInstall.framework\\Versions\\A\\[/cc]里面的同名文件。这样做的目的是使得Mac可以安装在MBR分区表下（否则Mac只能装在GPT（GUID）分区表下，但Windows默认都是用MBR）。（还是直接下载一个已经替换好了的镜像吧，省的麻烦。）
+.. compound::
+
+    接下来要替换OSInstall，这需要安装工具MacDriver（v8.0.4.10），这是个收费软件。装好之后重启系统，就可以进入刚才用硬盘安装助手写入的HFS安装分区了。让Windows显示隐藏文件和系统文件，下载一个PC用的OSInstall，替换掉
+    
+    .. code-block:: text
+        :linenos: none
+    
+        X:\System\Library\PrivateFrameworks\Install.framework\Frameworks\OSInstall.framework\Versions\A\
+    
+    里面的同名文件。这样做的目的是使得Mac可以安装在MBR分区表下（否则Mac只能装在GPT（GUID）分区表下，但Windows默认都是用MBR）。（还是直接下载一个已经替换好了的镜像吧，省的麻烦。）
 
 最后还要装引导程序。以前我用的是变色龙引导程序，但这次总是出错，就改用BootThink了。觉得这个比变色龙还要好些吧。不过如果原有系统是Win
 7的话，还稍微有一点儿麻烦，就是Win
@@ -84,7 +100,7 @@ caption="Leopard硬盘安装助手"]\ |Leopard硬盘安装助手|\ [/caption]
 Reserved），而这个分区默认是不显示出来的（没有分配盘符）。如果把BootThink装在C盘，那有可能会无法进行引导。所以要把它装在那个保留分区里（幸好它体积不是很大）。在磁盘管理中找到那个保留分区，给它指定一个盘符（我习惯用B），然后把BootThink装在这个分区中。（有人说把C盘标记为活动分区就可以启动BootThink，但我没有成功。）安装之后在目标分区的根目录应该有一个文件夹Darwin和两个文件btldr（系统文件）、btldr.mbr。
 
 准备驱动程序
-~~~~~~~~~~~~
+------------
 
 网上那些破解过的Mac安装镜像里面通常都包含了各种驱动程序，在安装的时候选择需要的就可以了，但不知道为什么我这次怎么都装不成功，所以才用了原版的镜像。但原版镜像里没有PC的驱动程序，这就要借助BootThink了。用BootThink引导刚才制作的替换了OSInstall的硬盘安装分区，它就可以从C:\\Darwin\\System\\LibrarySL\\Extensions\\（我的是B:\\）里面加载放在那里的驱动程序和补丁（不同版本的Mac
 OS对应的目录也不太一样，这里就不多说了）。
@@ -118,8 +134,7 @@ OS对应的目录也不太一样，这里就不多说了）。
 
 -  WiFi
 
-   -  :-(
-      我那无解的无线网卡，凑合用了个LegacyAppleAirPortBrcm4311.kext，不五国，也没效果
+   -  :-( 我那无解的无线网卡，凑合用了个LegacyAppleAirPortBrcm4311.kext，不五国，也没效果
 
 -  PS/2（鼠标、键盘、触摸板）
 
@@ -156,7 +171,7 @@ OS对应的目录也不太一样，这里就不多说了）。
    -  OSvKernDSPLib.kext
 
 安装
-~~~~
+----
 
 动手安装之前还要注意几件事情。
 
@@ -177,9 +192,9 @@ BootThink的一些操作：
 我的E6400用64位总是有些驱动有问题，只好用32位了。在安装和启动Mac的时候，都要在BootThink里输入-x32，或者修改B:\\Darwin\\com.apple.Boot.plist，添加Kernel
 Flags，值为arch=i386。我的此文件内容如下：
 
-::
+.. code-block:: xml
 
-    [cce_xml]<?xml version="1.0" encoding="UTF-8"?>
+    <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
       <dict>
@@ -202,27 +217,24 @@ Flags，值为arch=i386。我的此文件内容如下：
         <key>device-properties</key>
         <string></string>
       </dict>
-    </plist>[/cce_xml]
+    </plist>
 
 好了，重启电脑，进入BootThink引导，选择启动Mac安装盘分区。成功话可以看到苹果图标和风火轮，选择语言，然后就进入安装界面。这时候要对目标分区做格式化，点击菜单“实用工具->磁盘工具...”，在对话框中选择之前格式化成NTFS的空白分区，将选择模式“Mac
 OS扩展（日志式）”，填写卷标，点击“抹掉”。成功之后关闭窗口，继续安装，接受软解许可协议，然后就是选择安装组件。有人建议不用选“打印机支持”，太占体积了。选好之后继续，选择刚才格式化好的目标分区，点击安装。
 
 如果是用硬盘安装的话，不用等太久就装好了。装好之后会自动重启，不过由于安装过程中，Windows系统盘的活动分区属性被取消了，如果直接重启将无法进入Windows，可以利用重启前的一点时间处理一下。点击菜单“实用工具->终端”，用diskutil命令来设置活动分区。
 
-::
+.. code-block:: text
+    :linenos: none
 
-    [cc]# diskutil list
+    # diskutil list
     ... blah blah ...（查看C:\在哪里，比如我的在/dev/disk0分区1）
     # fdisk -e /dev/disk0
     f 1
     w
     y
-    quit[/cc]
+    quit
 
 重启电脑，进入BootThink，这时候就可以看到安装好的Mac系统分区了，引导它启动即可（如果装的是32位，也没改com.apple.Boot.plist，就需要输入-x32以32位模式启动）。
 
 运气不背的话就可以顺利进入Mac系统了，声音、图像、有线网络、触摸板等全都正常，唯一的遗憾是无线网卡不能使用（也不知道这半年来出了新的驱动没）。可以买个USB/PCMCIA无线网卡，也可以像我一样扯根网线。
-
-.. |HFS-Explorer选择Partition| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/07/hfs_explorer_hfs.png
-.. |HFS-Explorer| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/07/hfs_explorer_view.png
-.. |Leopard硬盘安装助手| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/07/lepoard-inshelper.png

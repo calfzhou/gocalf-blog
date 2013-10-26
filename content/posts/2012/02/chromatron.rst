@@ -1,14 +1,17 @@
 最经典的光线反射游戏Chromatron
-####################
+##############################
 :date: 2012-02-11 00:14
 :author: Calf
 :category: 游戏
 :tags: Chromatron, 光线反射, 反光镜, 显像管, 游戏, 游戏攻略, 益智游戏
 :slug: chromatron
+:summary: Chromatron，翻译过来是彩色显像管。顾名思义，这个游戏是关于光线反射的。在网络中还流传着很多这个游戏的Flash版，都是山寨的，抄袭了这个游戏的关卡和操作方式。这是个相当古老的游戏了，好多年前就玩了它的第一代和第二代，后来又陆续玩了第三代和第四代。第三代有几关是前些日子才玩出来的，整理一下留作纪念。
 
 Chromatron，翻译过来是彩色显像管。顾名思义，这个游戏是关于光线反射的。在网络中还流传着很多这个游戏的Flash版，都是山寨的，抄袭了这个游戏的关卡和操作方式。
 
 这是个相当古老的游戏了，好多年前就玩了它的第一代和第二代，后来又陆续玩了第三代和第四代。第三代有几关是前些日子才玩出来的，整理一下留作纪念。
+
+.. more
 
 游戏的官方网站是：\ http://silverspaceship.com/chromatron/\ ，可以下载到Chromatron第一代到第四代的最新版本，Windows系统和Mac
 OS都支持哦。
@@ -25,13 +28,17 @@ Tangler），它将输入的光线变成两条向相反方向射出的光线，�
 Teleporter），成对使用时，可以将其中一个接收到的光线传送到另一个。还有逻辑门（Logic
 Gate）、互补器（Complementor）等等。所有的元件如下图示。
 
-[caption id="attachment\_1650" align="alignnone" width="132"
-caption="Chromatron中的各种光学元件"]\ |chromatron\_elems|\ [/caption]
+.. figure:: {filename}/images/2012/02/chromatron_elems.png
+    :alt: chromatron_elems
+    
+    Chromatron中的各种光学元件
 
 别的关卡都可以不谈，但有一关是一定要说一下的，这一关太有趣了。虽然它也有传统的解法，但其中有一种解法却非常神奇。见下图：
 
-[caption id="attachment\_1652" align="alignnone" width="379"
-caption="Chromatron 2代49关：反馈消除"]\ |chromatron\_2\_49|\ [/caption]
+.. figure:: {filename}/images/2012/02/chromatron_2_49.png
+    :alt: chromatron_2_49
+    
+    Chromatron 2代49关：反馈消除
 
 注意到那几个没有光线经过的反射镜了吗？看起来它们摆在那儿是多余的，但一旦移动它们，你就输了。游戏中对这一关的说明是：
 
@@ -42,11 +49,14 @@ caption="Chromatron 2代49关：反馈消除"]\ |chromatron\_2\_49|\ [/caption]
 
 最后放上我的各关解法，需要的可以参考之。用的时候，找到你要解决的关卡（比如3代第9关），复制对应的解法代码（如3-09-nIIAnqNtOvNPtNsJOx），注意复制的时候要包括开头的3-09-，而代码首尾都不要包含任何其他字符（如空格、回车等）。在游戏中进入此关卡，按Ctrl-V即可。如果你要向别人分享你的解法，就可以在游戏中进入关卡，按Ctrl-C，然后在任何文本编辑器中按Ctrl-V粘贴。
 
-[wptabs][wptabtitle]Chromatron 1代 v1.14[/wptabtitle]
+.. limit every code block to at most 15 lines
 
-::
+- Chromatron 1代 v1.14
 
-    [wptabcontent][cc lines="15"]1-01-hI
+.. code-block:: text
+    :linenos: none
+
+    1-01-hI
     1-02-hXioDr
     1-03-nJtNcl
     1-04-rODFCJ
@@ -95,13 +105,14 @@ caption="Chromatron 2代49关：反馈消除"]\ |chromatron\_2\_49|\ [/caption]
     1-47-coBvxonWDnbUfVaoOLaSuzKuFpympo
     1-48-sUjtcnzJuEsYNY
     1-49-DwMGMKrsgEBHhNtGdtdnng
-    1-50-CbNiHScQhwxKoEzwDVCZhTwJxM[/cc][/wptabcontent]
+    1-50-CbNiHScQhwxKoEzwDVCZhTwJxM
 
-[wptabtitle]Chromatron 2代 v1.5[/wptabtitle]
+- Chromatron 2代 v1.5
 
-::
+.. code-block:: text
+    :linenos: none
 
-    [wptabcontent][cc lines="15"]2-01-BRgqgZhjqZ
+    2-01-BRgqgZhjqZ
     2-02-mDGXzupcMGJagFoXNowP
     2-03-coOEOBOy
     2-04-OIBOixHtovzwIjqTJnFd
@@ -152,11 +163,12 @@ caption="Chromatron 2代49关：反馈消除"]\ |chromatron\_2\_49|\ [/caption]
     2-49-yDaCritKcoHrusoqKzjzhCJc
     2-50-OtMzBDBwNdCsNurGuGjHtvjJQKPYubIIochxDhNLsPcCCbym[/cc][/wptabcontent]
 
-[wptabtitle]Chromatron 3代 v1.1[/wptabtitle]
+- Chromatron 3代 v1.1
 
-::
+.. code-block:: text
+    :linenos: none
 
-    [wptabcontent][cc lines="15"]3-01-oCcmcO
+    3-01-oCcmcO
     3-02-JeHgwAgrMvETdMuBuL
     3-03-gOCggnjMBFOSyZdJCGsU
     3-04-omoZINqLBA
@@ -205,13 +217,14 @@ caption="Chromatron 2代49关：反馈消除"]\ |chromatron\_2\_49|\ [/caption]
     3-47-sJspinOzHTbXtjNuckEw
     3-48-uECVirMYMDMWNyCDNKMKNiCtMxOdtsiFtKiRtYjiukjAtejL
     3-49-BPMTIeIkxIoWnGtwiEdisD
-    3-50-OnNlCrNyCICbioCWtYDnjijWiUtwtIiChgNKCNixtiesEiey[/cc][/wptabcontent]
+    3-50-OnNlCrNyCICbioCWtYDnjijWiUtwtIiChgNKCNixtiesEiey
 
-[wptabtitle]Chromatron 4代 v1.0[/wptabtitle]
+- Chromatron 4代 v1.0
 
-::
+.. code-block:: text
+    :linenos: none
 
-    [wptabcontent][cc lines="15"]4-01-OqHQhHOi
+    4-01-OqHQhHOi
     4-02-OHDxoYCboSHbci
     4-03-tZGYsVyb
     4-04-wSHIbeHCxA
@@ -260,14 +273,11 @@ caption="Chromatron 2代49关：反馈消除"]\ |chromatron\_2\_49|\ [/caption]
     4-47-tQNwxXiWCvwXcdci
     4-48-nLMVriNgCtIkIRcCBKcTyUtYjgjkoSjG
     4-49-BEssOXjClPmBCjsjJlMzhzENiVdEoRDVeser
-    4-50-BCMCcCHODwNHNOuaFpGZjhnGEbIRrKzadshHsHne[/cc][/wptabcontent][/wptabs]
+    4-50-BCMCcCHODwNHNOuaFpGZjhnGEbIRrKzadshHsHne
 
 如果没玩过这个游戏，那就赶快开始吧！
 
-.. _Chromatron 1代 v1.14: http://www.gocalf.com/blog/wp-content/uploads/2012/02/chromatron1_v1.14.zip
-.. _Chromatron 2代 v1.5: http://www.gocalf.com/blog/wp-content/uploads/2012/02/chromatron2_v1.5.zip
-.. _Chromatron 3代 v1.1: http://www.gocalf.com/blog/wp-content/uploads/2012/02/chromatron3_v1.1.zip
-.. _Chromatron 4代 v1.0: http://www.gocalf.com/blog/wp-content/uploads/2012/02/chromatron4_v1.0.zip
-
-.. |chromatron\_elems| image:: http://www.gocalf.com/blog/wp-content/uploads/2012/02/chromatron_elems.png
-.. |chromatron\_2\_49| image:: http://www.gocalf.com/blog/wp-content/uploads/2012/02/chromatron_2_49.png
+.. _Chromatron 1代 v1.14: {filename}/assets/2012/02/chromatron1_v1.14.zip
+.. _Chromatron 2代 v1.5: {filename}/assets/2012/02/chromatron2_v1.5.zip
+.. _Chromatron 3代 v1.1: {filename}/assets/2012/02/chromatron3_v1.1.zip
+.. _Chromatron 4代 v1.0: {filename}/assets/2012/02/chromatron4_v1.0.zip

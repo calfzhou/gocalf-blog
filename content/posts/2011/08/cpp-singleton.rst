@@ -1,23 +1,29 @@
 可以继承的C++ Singleton基类
-####################
+###########################
 :date: 2011-08-12 23:20
 :author: Calf
 :category: 程序开发
 :tags: C++, Design Pattern, Singleton, 单例, 模板类, 继承, 设计模式, 面试题
 :slug: cpp-singleton
+:summary: 单例模式是设计模式中的一种，它用来保证系统中最多只能存在一个它的实例，其做法是由类自身来创建和持有它的对象实例，把对实例的创建权和管理权都控制在自己手中，以便控制实例数目。本文介绍可以继承的单例类。
+
+.. role:: cpp(code)
+    :language: cpp
 
 单例模式（Singleton
 Pattern）是设计模式中的一种，它用来保证系统中最多只能存在一个它的实例，其做法是由类自身来创建和持有它的对象实例，把对实例的创建权和管理权都控制在自己手中，以便控制实例数目。
 
 关于如何在C++中实现单例模式的讨论已经太多了，我只是简单介绍一下可以继承的单例类。
 
+.. more
+
 首先介绍一下通常所见的单例类的写法，不妨设这个类叫做Singleton。
 
 Singleton.h：
 
-::
+.. code-block:: cpp
 
-    [ccen_cpp]#ifndef _SINGLETON_H_
+    #ifndef _SINGLETON_H_
     #define _SINGLETON_H_
 
     #include 
@@ -40,13 +46,13 @@ Singleton.h：
         Singleton& operator =(const Singleton&);
     };
 
-    #endif[/ccen_cpp]
+    #endif
 
 Singleton.cpp：
 
-::
+.. code-block:: cpp
 
-    [ccen_cpp]#include "Singleton.h"
+    #include "Singleton.h"
     #include 
     #include 
 
@@ -78,7 +84,7 @@ Singleton.cpp：
             // 'lock' will be destructed now. 's_mutex' will be unlocked.
         }
         return *s_instance;
-    }[/ccen_cpp]
+    }
 
 这个类写的也不完美啦，比如双重判定也会有失效的时候，不过凑合用吧，哈哈。不过话说boost库里也有singleton，我为什么要自己写个呢，无奈地飘过。
 
@@ -86,15 +92,13 @@ Singleton.cpp：
 
 以前的时候我还真不知道该怎么解决这个问题，但05年用了WTL（Windows
 Template
-Library）之后，我才意识到模板类可以帮助我（话说我真的是自己想到的，虽然现在搜一下能搜到一大堆）。这里要用的还不是普通的模板类，而是像ATL、WTL里面那样把要定义的类自身放入模板参数中，形如[ccei\_cpp]class
-MyClass : public Base {
-};[/ccei\_cpp]。这样做有很多优点啦，最显著的比如不需要虚表（节省内存哦）、多态函数的调用在编译时就确定了（既加快了运行速度，也有利于编译器对代码进行优化）。
+Library）之后，我才意识到模板类可以帮助我（话说我真的是自己想到的，虽然现在搜一下能搜到一大堆）。这里要用的还不是普通的模板类，而是像ATL、WTL里面那样把要定义的类自身放入模板参数中，形如\ :cpp:`class MyClass : public Base { };`。这样做有很多优点啦，最显著的比如不需要虚表（节省内存哦）、多态函数的调用在编译时就确定了（既加快了运行速度，也有利于编译器对代码进行优化）。
 
 不妨把这个单例基类叫做ISingleton吧，看起来好像是个interface呢。代码如下：
 
-::
+.. code-block:: cpp
 
-    [ccen_cpp]#ifndef _ISingleton_H_
+    #ifndef _ISingleton_H_
     #define _ISingleton_H_
 
     #include 
@@ -135,13 +139,13 @@ MyClass : public Base {
     template 
     std::auto_ptr ISingleton::s_instance;
 
-    #endif[/ccen_cpp]
+    #endif
 
 要利用ISingleton创建一个自己的单例类，比如MySingleton，可以使用如下的代码：
 
-::
+.. code-block:: cpp
 
-    [ccen_cpp]#include "Singleton.h"
+    #include "Singleton.h"
     #include "ISingleton.h"
     #include 
 
@@ -168,6 +172,6 @@ MyClass : public Base {
 
         MySingleton(const MySingleton&);
         MySingleton& operator =(const MySingleton&);
-    };[/ccen_cpp]
+    };
 
 最最重要的，千万不要忘了把MySingleton的构造和析构函数弄成private的，还要添加两个友元。有人说ISingleton和MySingleton的析构函数都要加virtual，我倒是觉得没有必要呢，你说呢？另外要注意，MySingleton不能被继承哦。

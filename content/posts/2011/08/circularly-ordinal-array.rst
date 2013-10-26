@@ -1,19 +1,21 @@
 在循环有序数组中查找指定元素
-##############
+############################
 :date: 2011-08-19 00:05
 :author: Calf
 :category: 算法
 :tags: Algorithm, Binary Search, 二分查找, 循环有序数组, 有序数组, 查找算法, 算法题, 面试题
 :slug: circularly-ordinal-array
+:summary: 问题描述：给定一个由n个各不相等的元素构成的循环有序数组（Circularly Ordinal Array），用O(log n) 时间、O(1)辅助空间在其中查找指定的元素。
 
 这次的题目跟二分搜索有关，如果还不能写出正确的二分搜索，那就先找出课本温习一下吧。
 
 问题描述：给定一个由n个各不相等的元素构成的循环有序数组（Circularly
-Ordinal Array），用 O(log n) 时间、O(1) 辅助空间在其中查找指定的元素。
+Ordinal Array），用O(log n)时间、O(1)辅助空间在其中查找指定的元素。
+
+.. more
 
 所谓循环有序数组，就是把一个排好序（以升序排列为例）的数组从某个（未知）位置处截为两段，把前一段放到后一段的后面，所得到的数组。比如
-{ 8, 9, 10, 0, 1, 2, 3, 4, 5, 6, 7
-}。如果把数组首尾相接，看成一个环形，那么数组就还是有序的，只不过最小值有可能在任何一个位置。从最小值开始向后，数值逐渐递增，到数组的最后一个元素时再回到第一个元素。
+{8, 9, 10, 0, 1, 2, 3, 4, 5, 6, 7}。如果把数组首尾相接，看成一个环形，那么数组就还是有序的，只不过最小值有可能在任何一个位置。从最小值开始向后，数值逐渐递增，到数组的最后一个元素时再回到第一个元素。
 
 显然应用于普通的有序数组查找的二分算法已经无法直接使用了。如果已经知道了分界点（数组最小值或最大值）的位置，那问题就简单的多了，只要先判断一下待查元素是在分界点的左侧还是右侧，然后直接对那一侧的半个数组使用二分查找即可。
 
@@ -21,23 +23,25 @@ Ordinal Array），用 O(log n) 时间、O(1) 辅助空间在其中查找指定�
 
 数组的第一个元素应该是在分界点左边最小的元素，但又不小于分界点右边的任何元素。那么如果中间位置的元素比它大，分界点就只能在中间元素的右边；反之，如果中间元素比它小，分界点就一定在左半边。由于题目中规定数组元素是个不相等的，这样的判断就足够了。
 
-如果允许重复的元素，那就有可能遇到第一个元素与中间元素相等情况，这时需要再拿最后一个元素来比较，如果中间元素比最后一个元素大，分界点就在右半边；\ [STRIKEOUT:反之，如果中间元素比最后一个元素小，分界点就在左半边]\ （感谢chasefornone的提醒，这种情况下，中间元素不会比最后一个元素小）。如果还是相等呢？
+.. raw:: html
+
+    <p>如果允许重复的元素，那就有可能遇到第一个元素与中间元素相等情况，这时需要再拿最后一个元素来比较，如果中间元素比最后一个元素大，分界点就在右半边<s>；反之，如果中间元素比最后一个元素小，分界点就在左半边</s>（感谢chasefornone的提醒，这种情况下，中间元素不会比最后一个元素小）。如果还是相等呢？</p>
 
 看看下面这张图中的两种情况（A和B），显然在第一次二分处理的时候，第一个（下标0）、中间的（下标12）和最后一个（下标24）元素都彼此相等，分界点却有可能在任何一边。这时候就只能分别对两半继续递归处理，时间复杂度可能会变成O(n)，空间复杂度可能会（不得不用递归或者栈来保存中间状态）变成O(log
 n)。
 
-[caption id="attachment\_915" align="alignnone" width="483"
-caption="有重复元素时的特殊情况：第一个、中间的和最后一个元素彼此相等"]\ |coa\_special\_case1|\ [/caption]
+.. figure:: {filename}/images/2011/08/coa_special_case1.png
+    :alt: coa_special_case1.png
+    
+    有重复元素时的特殊情况：第一个、中间的和最后一个元素彼此相等
 
 还是简单点儿，限定元素各不相同吧……
 
 实际上，如果仔细考量上面的寻找分界点的方法，就会发现它跟二分查找是多么的相似啊。因此另外一种方法就是将二分查找算法修改一下，相当于把找分界点跟搜索指定元素结合起来。在每次二分的时候，除了跟中间值做比较外，也要跟两端的数值做比较，以此来确定对哪一半分治处理。直接写出这种方法下的查找函数算法：
 
-[wptabs][wptabtitle]Python[/wptabtitle]
+.. code-block:: python
 
-::
-
-    [wptabcontent][ccen_python]def CycleBSearch(arr, val):
+    def CycleBSearch(arr, val):
       left = 0
       right = len(arr) - 1
       while left <= right:
@@ -55,13 +59,11 @@ caption="有重复元素时的特殊情况：第一个、中间的和最后一�
             left = mid + 1    # val is in right side
           else:
             right = mid - 1   # val is in left side
-      return -1               # cannot find val[/ccen_python][/wptabcontent]
+      return -1               # cannot find val
 
-[wptabtitle]C++[/wptabtitle]
+.. code-block:: cpp
 
-::
-
-    [wptabcontent][ccen_cpp lines="20"]#include <functional>
+    #include <functional>
     using namespace std;
 
     template <class RandomAccessIterator, class T>
@@ -122,8 +124,6 @@ caption="有重复元素时的特殊情况：第一个、中间的和最后一�
 
         // cannot find value
         return last;
-    }[/ccen_cpp][/wptabcontent][/wptabs]
+    }
 
 话说我还是更喜欢 Python 啊。
-
-.. |coa\_special\_case1| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/08/coa_special_case1.png

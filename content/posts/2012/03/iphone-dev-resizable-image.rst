@@ -1,12 +1,15 @@
 iPhone开发：可拉伸的图片
-###############
+########################
 :date: 2012-03-10 22:57
 :author: Calf
 :category: 程序开发
 :tags: End Cap, iOS, iPhone 开发, ObjC, Resizable Image, Stretchable Image, UIImage, 图片拉伸, 端帽
 :slug: iphone-dev-resizable-image
+:summary: 还记得在Windows下用MFC或WTL写用户界面程序的时候，为了给可改变大小的对话框加上背景图案，需要对设计师提供的图片进行裁剪。把图片切成九块，其中四个角是不拉伸的，四条棱边可以在一个方向上拉伸，中间区域则可任意拉伸。其过程是相当烦琐的。在Mac下，一切都变的及其简单，UIImage类已经为我们提供了处理拉伸的方法。
 
 还记得在Windows下用MFC或WTL写用户界面程序的时候，为了给可改变大小的对话框加上背景图案，需要对设计师提供的图片进行裁剪。把图片切成九块，其中四个角是不拉伸的，四条棱边可以在一个方向上拉伸，中间区域则可任意拉伸。其过程是相当烦琐的。在Mac下，一切都变的及其简单，\ `UIImage`_\ 类已经为我们提供了处理拉伸的方法。
+
+.. more
 
 以下内容适用于iOS 2.0+，或在iOS 5.0+中使用替换的方法。
 
@@ -21,18 +24,18 @@ stretchableImage方法有两个整数参数，分别用来指定图片的左边�
     end cap and the middle portion together and then subtracting that
     value from the width of the image:
 
-    ::
+    .. code-block:: objc
 
-        [cc_objc]rightCapWidth = image.size.width - (image.leftCapWidth + 1);[/cc_objc]
+        rightCapWidth = image.size.width - (image.leftCapWidth + 1);
 
     The middle (stretchable) portion is assumed to be 1 pixel wide. The
     bottom end cap is therefore computed by adding the size of the top
     end cap and the middle portion together and then subtracting that
     value from the height of the image:
 
-    ::
+    .. code-block:: objc
 
-        [cc_objc]bottomCapHeight = image.size.height - (image.topCapHeight + 1);[/cc_objc]
+        bottomCapHeight = image.size.height - (image.topCapHeight + 1);
 
 原来已经规定了中间可拉伸区域必须是1x1的，因此右边和下边的端帽宽度就由图片的宽度和高度、左边和上边的端帽宽度决定。在设计非对称图案时需要注意一下。
 
@@ -41,9 +44,10 @@ stretchableImage方法有两个整数参数，分别用来指定图片的左边�
 
 下面这个程序片段给试图添加了三个UIImageView，分别显示原始大小的图片、无端帽拉伸之后的图片、和指定了正确的端帽宽度（用stretchableImage）后拉伸的图片。
 
-::
+.. code-block:: objc
+    :hl_lines: 7 8
 
-    [ccen_objc highlight="7,8"]- (void)viewDidLoad
+    - (void)viewDidLoad
     {
       [super viewDidLoad];
       // Do any additional setup after loading the view, typically from a nib.
@@ -69,15 +73,15 @@ stretchableImage方法有两个整数参数，分别用来指定图片的左边�
       imageView3.frame = CGRectMake(0, 0, 260, 200);
       imageView3.center = CGPointMake(160, 340);
       [self.view addSubview:imageView3];
-    }[/ccen_objc]
+    }
 
 运行后效果如下图示：
 
-[caption id="attachment\_1693" align="alignnone" width="320"
-caption="UIImage拉伸示意（左上角：原始图片；上：直接拉伸；下：按照端帽拉伸）"]\ |resizable\_image|\ [/caption]
+.. figure:: {filename}/images/2012/03/resizable_image.png
+    :alt: resizable_image
+    
+    UIImage拉伸示意（左上角：原始图片；上：直接拉伸；下：按照端帽拉伸）
 
 .. _UIImage: https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/
 .. _`stretchableImageWithLeftCapWidth:topCapHeight:`: https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIImage_Class/DeprecationAppendix/AppendixADeprecatedAPI.html#//apple_ref/occ/instm/UIImage/stretchableImageWithLeftCapWidth:topCapHeight:
 .. _`resizableImageWithCapInsets:`: https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIImage_Class/Reference/Reference.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets:
-
-.. |resizable\_image| image:: http://www.gocalf.com/blog/wp-content/uploads/2012/03/resizable_image.png

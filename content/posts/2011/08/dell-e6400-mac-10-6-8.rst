@@ -1,14 +1,16 @@
 Dell E6400升级到MacOS 10.6.8
-#########################
+############################
 :date: 2011-08-26 23:48
 :author: Calf
 :category: 操作系统
 :tags: BootThink, Dell E6400, Hackintosh, MacOS, OS, PC, PC机装Mac, SL 10.6.8, 升级, 雪豹, 黑苹果
 :slug: dell-e6400-mac-10-6-8
+:summary: 半年前安装黑苹果的经历，装的是10.6.3。最近由于有些软件需要较高版本的系统，不得不对系统进行升级，升级到雪豹的最后一个版本10.6.8。升级后自然又遇到了一堆问题并逐一解决。解决得算是基本完美了，只差我那全球无解的Intel WiFi Link 5300 AGN无线网卡和不能休眠的问题。
 
-在\ `Dell
-E6400安装MacOS雪豹10.6`_\ 中介绍了半年前安装黑苹果的经历，当时安装的版本其实是10.6.3。最近由于有些软件需要较高版本的系统，不得不对系统进行升级，升级到雪豹的最后一个版本10.6.8。升级后自然又遇到了一堆问题并逐一解决。解决得算是基本完美了，只差我那全球无解的Intel
+在\ `Dell E6400安装MacOS雪豹10.6`_\ 中介绍了半年前安装黑苹果的经历，当时安装的版本其实是10.6.3。最近由于有些软件需要较高版本的系统，不得不对系统进行升级，升级到雪豹的最后一个版本10.6.8。升级后自然又遇到了一堆问题并逐一解决。解决得算是基本完美了，只差我那全球无解的Intel
 WiFi Link 5300 AGN无线网卡和不能休眠的问题。
+
+.. more
 
 还是上次那台机器，硬件配置完全没有变，就不再重复了。黑苹果之所以难装，除了核心的破解之外就全是驱动的问题了，来看看这次都遇到了哪些问题又是如何解决的。
 
@@ -37,15 +39,14 @@ fail。要删掉BootThink里的VoodooHDA.kext。不过这样不就不能驱动�
 system extension /System/Library/Extensions/IOPCIFamily.kext was
 installed improperly and cannot be
 used.（或者是AppleACPIPlatform.kext）。这不是刚才替换的那两个老版本的文件么，啊，想起来了，刚才在Win
-7里用MacDrive把两个文件复制过去之后，还应该要修改权限并删除缓存呢，这些都还没有做，能让我把系统启动起来就很不错了。赶紧打开Console，依次输入下面这些命令（如果当前用户不是root，还需要在命令前面加sudo）（另外命令中的[cci]Mac\\
-OS[/cci]需要替换成你的Mac系统所在分区的卷标）（忘了试一试直接用/System/Linrary行不行了，应该是同一个目录的）：
+7里用MacDrive把两个文件复制过去之后，还应该要修改权限并删除缓存呢，这些都还没有做，能让我把系统启动起来就很不错了。赶紧打开Console，依次输入下面这些命令（如果当前用户不是root，还需要在命令前面加sudo）（另外命令中的\ ``Mac\OS``\ 需要替换成你的Mac系统所在分区的卷标）（忘了试一试直接用/System/Linrary行不行了，应该是同一个目录的）：
 
-::
+.. code-block:: bash
 
-    [cce_bash]cd /Volumes/Mac\ OS/System/Library
+    cd /Volumes/Mac\ OS/System/Library
     chmod -R 755 Extensions
     chown -R root:wheel Extensions
-    kextcache -v 1 -l -s -n -t -arch i386 -arch x86_64 -m /Volumes/Mac\ OS/System/Library/Caches/com.apple.kext.caches/Startup/Extensions.mkext /Volumes/Mac\ OS/System/Library/Extensions[/cce_bash]
+    kextcache -v 1 -l -s -n -t -arch i386 -arch x86_64 -m /Volumes/Mac\ OS/System/Library/Caches/com.apple.kext.caches/Startup/Extensions.mkext /Volumes/Mac\ OS/System/Library/Extensions
 
 完成之后重启系统，就不会再遇到那样的错误提示了。
 
@@ -74,8 +75,10 @@ OS[/cci]需要替换成你的Mac系统所在分区的卷标）（忘了试一试
 
 呼，冒险升了次级，结果还是比较满意的，截图纪念。
 
-[caption id="attachment\_927" align="alignnone" width="321" caption="Mac
-OS SL 10.6.8 on Dell E6400"]\ |Mac OS 10.6.8 on Dell E6400|\ [/caption]
+.. figure:: {filename}/images/2011/08/mac_10.6.8_screenshot.png
+    :alt: Mac OS 10.6.8 on Dell E6400
+    
+    Mac OS 10.6.8 on Dell E6400
 
 最后把用到的kext之类的都放在这里吧。
 
@@ -138,25 +141,23 @@ OS SL 10.6.8 on Dell E6400"]\ |Mac OS 10.6.8 on Dell E6400|\ [/caption]
 
 继续啃苹果咯～
 
-.. _Dell E6400安装MacOS雪豹10.6: http://www.gocalf.com/blog/dell-e6400-install-mac.html
+.. _Dell E6400安装MacOS雪豹10.6: {filename}../07/dell-e6400-install-mac.rst
 .. _MacDrive（v8.0.5.31）: http://bbs.pcbeta.com/forum-viewthread-tid-860881-highlight-macdriver.html
-.. _dsdt.aml: http://www.gocalf.com/blog/wp-content/uploads/2011/08/dsdt.aml_.zip
-.. _FakeSMC.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/FakeSMC.kext_.zip
-.. _Disabler.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/Disabler.kext_.zip
-.. _IOAudioFamily.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/IOAudioFamily.kext_.zip
-.. _OSvKernDSPLib.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/OSvKernDSPLib.kext_.zip
-.. _HDAEnabler.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/HDAEnabler.kext_.zip
-.. _VoodooHDA.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/VoodooHDA.kext_.zip
-.. _IONetworkingFamily.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/IONetworkingFamily.kext_.zip
-.. _Intel82566MM.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/Intel82566MM.kext_.zip
-.. _ApplePS2Controller.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/ApplePS2Controller.kext_.zip
-.. _AppleACPIPS2Nub.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/AppleACPIPS2Nub.kext_.zip
-.. _AppleACPIPlatform.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/AppleACPIPlatform.kext_.zip
-.. _IOACPIFamily.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/IOACPIFamily.kext_.zip
-.. _VoodooBattery.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/VoodooBattery.kext_.zip
-.. _DellBluetoothHCI.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/DellBluetoothHCI.kext_.zip
-.. _VoodooSDHC.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/VoodooSDHC.kext_.zip
-.. _IOPCIFamily.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/IOPCIFamily.kext_.zip
-.. _AHCIPortInjector.kext: http://www.gocalf.com/blog/wp-content/uploads/2011/08/AHCIPortInjector.kext_.zip
-
-.. |Mac OS 10.6.8 on Dell E6400| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/08/mac_10.6.8_screenshot.png
+.. _dsdt.aml: {filename}/assets/2011/08/dsdt.aml_.zip
+.. _FakeSMC.kext: {filename}/assets/2011/08/FakeSMC.kext_.zip
+.. _Disabler.kext: {filename}/assets/2011/08/Disabler.kext_.zip
+.. _IOAudioFamily.kext: {filename}/assets/2011/08/IOAudioFamily.kext_.zip
+.. _OSvKernDSPLib.kext: {filename}/assets/2011/08/OSvKernDSPLib.kext_.zip
+.. _HDAEnabler.kext: {filename}/assets/2011/08/HDAEnabler.kext_.zip
+.. _VoodooHDA.kext: {filename}/assets/2011/08/VoodooHDA.kext_.zip
+.. _IONetworkingFamily.kext: {filename}/assets/2011/08/IONetworkingFamily.kext_.zip
+.. _Intel82566MM.kext: {filename}/assets/2011/08/Intel82566MM.kext_.zip
+.. _ApplePS2Controller.kext: {filename}/assets/2011/08/ApplePS2Controller.kext_.zip
+.. _AppleACPIPS2Nub.kext: {filename}/assets/2011/08/AppleACPIPS2Nub.kext_.zip
+.. _AppleACPIPlatform.kext: {filename}/assets/2011/08/AppleACPIPlatform.kext_.zip
+.. _IOACPIFamily.kext: {filename}/assets/2011/08/IOACPIFamily.kext_.zip
+.. _VoodooBattery.kext: {filename}/assets/2011/08/VoodooBattery.kext_.zip
+.. _DellBluetoothHCI.kext: {filename}/assets/2011/08/DellBluetoothHCI.kext_.zip
+.. _VoodooSDHC.kext: {filename}/assets/2011/08/VoodooSDHC.kext_.zip
+.. _IOPCIFamily.kext: {filename}/assets/2011/08/IOPCIFamily.kext_.zip
+.. _AHCIPortInjector.kext: {filename}/assets/2011/08/AHCIPortInjector.kext_.zip

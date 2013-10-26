@@ -1,15 +1,18 @@
 《塞尔达传说：黎明公主》攻略：初章 英雄传说的扉页
-#########################
+#################################################
 :date: 2011-09-13 22:59
 :author: Calf
 :category: 游戏
 :tags: Game, Twilight Princess, Wii, 任天堂, 塞尔达传说, 游戏攻略, 黎明公主
 :slug: zelda-tp-ch1
+:summary: 如你期望那样，你将扮演Link，拯救Zelda公主和Hyrule王国的年轻英雄。在黎明公主中，你将与横行在Hyrule王国的暗影军团战斗。凭借Hyrule大地神奇的力量和你自己的勇气，在一个个迷宫里消灭无数的敌人吧！那么，现在就开始我们的旅程！
 
 初章 英雄传说的扉页（被神选中的少年）
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 如你期望那样，你将扮演Link，拯救Zelda公主和Hyrule王国的年轻英雄。在黎明公主中，你将与横行在Hyrule王国的暗影军团战斗。凭借Hyrule大地神奇的力量和你自己的勇气，在一个个迷宫里消灭无数的敌人吧！那么，现在就开始我们的旅程！
+
+.. more
 
 奥东村（Ordon Village）
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -19,7 +22,7 @@ Woods）的泉水旁，我们的主角\ `林克（Link）`_\ 与村里唯一的�
 Time），年轻的林克显然还不知道这些，因为他还没走出过法隆森林，鲁斯尔也打算让林克到外面的世界去看看，让他后天把送给贵族的东西到带海拉尔城去。在天黑前两人回到了村子里。
 
 [caption id="attachment\_1059" align="alignnone" width="640"
-caption="林克与导师鲁斯尔在谈论着夜晚的异常与广阔的海拉尔世界"]\ |tp\_ch01\_01|\ [/caption]
+caption="林克与导师鲁斯尔在谈论着夜晚的异常与广阔的海拉尔世界"] [/caption]
 
 牧羊
 ''''
@@ -222,17 +225,17 @@ caption="用回旋镖将蜘蛛炸弹送到食人花的嘴巴里"]\ |tp\_ch01\_19
 -  `《塞尔达传说 黄昏公主》完美攻略研究`_ by www.cngba.com 鸡蛋
 -  `Wii《塞尔达传说：黎明公主》流程攻略`_
 
-.. _林克（Link）: http://www.gocalf.com/blog/zelda-tp-characters.html#Link
-.. _伊莉娅（Ilia）: http://www.gocalf.com/blog/zelda-tp-characters.html#Ilia
+.. _林克（Link）: {filename}../08/zelda-tp-characters.rst#Link
+.. _伊莉娅（Ilia）: {filename}../08/zelda-tp-characters.rst#Ilia
 .. _[caption id="attachment\_1060" align="alignnone" width="700" caption="奥东牧场的农场主请林克帮忙把倔犟的羊群赶回羊圈"]\ |tp\_ch01\_02|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/09/tp_ch01_02.jpg
 .. _[caption id="attachment\_1061" align="alignnone" width="700" caption="林克凭借着敏捷的反应，顺手抓住山羊的角，然后将其摔翻在地上"]\ |tp\_ch01\_03|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/09/tp_ch01_03.jpg
 .. _[caption id="attachment\_1063" align="alignnone" width="700" caption="林克表演剑术"]\ |tp\_ch01\_04|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/09/tp_ch01_04.jpg
 .. _第一块心之碎片: http://www.gocalf.com/blog/zelda-tp-heartpiece.html#H01
 .. _[caption id="attachment\_1064" align="alignnone" width="700" caption="关押小猴子和塔洛被关押在笼子中"]\ |tp\_ch01\_05|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/09/tp_ch01_05.jpg
 .. _[caption id="attachment\_1065" align="alignnone" width="700" caption="一群凶悍的野猪骑士破门而入，将林克打昏在地，并带走了伊莉娅和柯林"]\ |tp\_ch01\_06|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/09/tp_ch01_06.jpg
-.. _塞尔达（Zelda）公主: http://www.gocalf.com/blog/zelda-tp-characters.html#Zelda
-.. _米德娜（Midna）: http://www.gocalf.com/blog/zelda-tp-characters.html#Midna
-.. _赞特（Zant）: http://www.gocalf.com/blog/zelda-tp-characters.html#Zant
+.. _塞尔达（Zelda）公主: {filename}../08/zelda-tp-characters.rst#Zelda
+.. _米德娜（Midna）: {filename}../08/zelda-tp-characters.rst#Midna
+.. _赞特（Zant）: {filename}../08/zelda-tp-characters.rst#Zant
 .. _[caption id="attachment\_1066" align="alignnone" width="700" caption="变成狼形态的林克与米德娜"]\ |tp\_ch01\_07|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/09/tp_ch01_07.jpg
 .. _[caption id="attachment\_1067" align="alignnone" width="700" caption="在导师鲁斯尔家里找到剑"]\ |tp\_ch01\_08|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/09/tp_ch01_08.jpg
 .. _暗影使者（Shadow Being）: http://www.gocalf.com/blog/zelda-tp-characters.html#ShadowBeing

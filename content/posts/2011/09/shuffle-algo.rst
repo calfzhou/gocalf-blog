@@ -1,15 +1,18 @@
 等概率随机排列数组（洗牌算法）
-###############
+##############################
 :date: 2011-09-01 21:58
 :author: Calf
 :category: 算法
 :tags: Algorithm, Shuffle, 排列问题, 概率, 洗牌算法, 等概率, 算法题, 随机数, 面试题
 :slug: shuffle-algo
+:summary: 问题描述：假设有一个数组，包含n个元素。现在要重新排列这些数据，要求每个元素被放到任何一个位置的概率都相等（即1/n），并且直接在数组上重排（in place），不要生成新的数组。用O(n)时间、O(1)辅助空间。
 
 又是一道跟概率相关的简单问题。话说我的概率学的太差了，趁这个机会也从头开始补习一下。
 
 问题描述：假设有一个数组，包含n个元素。现在要重新排列这些元素，要求每个元素被放到任何一个位置的概率都相等（即1/n），并且直接在数组上重排（in
-place），不要生成新的数组。用 O(n) 时间、O(1) 辅助空间。
+place），不要生成新的数组。用O(n) 时间、O(1)辅助空间。
+
+.. more
 
 算法是非常简单了，当然在给出算法的同时，我们也要证明概率满足题目要求。
 
@@ -19,32 +22,34 @@ place），不要生成新的数组。用 O(n) 时间、O(1) 辅助空间。
 
 用Python来写一段简单的程序描述这个算法：
 
-::
+.. code-block:: python
 
-    [ccen_python]from random import Random
+    from random import Random
 
     def Shuffle(li):
       rand = Random()
       for x in xrange(len(li) - 1, 0, -1):  # 逆序遍历li
         y = rand.randint(0, x)              # 从剩余数据中随机选取一个
-        li[x], li[y] = li[y], li[x]         # 将随机选取的元素与当前位置元素互换[/ccen_python]
+        li[x], li[y] = li[y], li[x]         # 将随机选取的元素与当前位置元素互换
 
 主要的代码仅仅三行而已，浅显易懂。
 
-来计算一下概率。如果某个元素被放入第i（[latex]1\\leq i\\leq
-n[/latex]）个位置，就必须是在前 i - 1 次选取中都没有选到它，并且第 i
-次选取是恰好选中它。其概率为：
+来计算一下概率。如果某个元素被放入第i（:math:`1\leq i\leq n`）个位置，就必须是在前i - 1次选取中都没有选到它，并且第i次选取是恰好选中它。其概率为：
 
-[latex]p\_i=\\frac{n-1}{n}\\times\\frac{n-2}{n-1}\\times\\cdots\\times\\frac{n-i+1}{n-i+2}\\times\\frac{1}{n-i+1}=\\frac{1}{n}[/latex]
+.. math::
+
+    p_i=\frac{n-1}{n}\times\frac{n-2}{n-1}\times\cdots\times\frac{n-i+1}{n-i+2}\times\frac{1}{n-i+1}=\frac{1}{n}
 
 可见任何元素出现在任何位置的概率都是相等的。
 
 实际上Python用户一定知道，在Random类中就有现成的shuffle方法，处理方法与我上面的程序是一样的。顺便也贴在这里学习一下。以下代码来自于
 Python 2.5 Lib\\random.py：
 
-::
+.. code-block:: python
+    :linenostart: 250
+    :linenos: inline
 
-    [ccen_python first_line="250"]def shuffle(self, x, random=None, int=int):
+    def shuffle(self, x, random=None, int=int):
       """x, random=random.random -> shuffle list x in place; return None.
 
       Optional arg random is a 0-argument function returning a random
@@ -56,5 +61,4 @@ Python 2.5 Lib\\random.py：
       for i in reversed(xrange(1, len(x))):
         # pick an element in x[:i+1] with which to exchange x[i]
         j = int(random() * (i+1))
-        x[i], x[j] = x[j], x[i][/ccen_python]
-
+        x[i], x[j] = x[j], x[i]
