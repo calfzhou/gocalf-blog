@@ -93,27 +93,26 @@ NGC平台转移到了Wii上面，其重要性不言而喻。新生的塞尔达�
 
 .. _塞尔达传说：黎明公主: http://www.zelda.com/tp/
 .. _`The Legend of Zelda: Twilight Princess`: http://www.zelda.com/tp/
-.. _[caption id="attachment\_922" align="alignnone" width="545" caption="《塞尔达传说：黎明公主》封面、海报"]\ |Zelda Twilight Princess Cover|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/08/zelda_tp_cover.jpg
-.. _剧情介绍: #
+.. _剧情介绍: {filename}zelda-tp-intro.rst
 .. _主要角色简介: {filename}zelda-tp-characters.rst
 .. _初章 英雄传说的扉页（被神选中的少年）: {filename}../09/zelda-tp-ch1.rst
 .. _第二章 死亡山巅的咆哮（大地的子民）: {filename}../10/zelda-tp-ch2.rst
 .. _第三章 深海鱼族的传说（最后的影之碎片）: {filename}../11/zelda-tp-ch3.rst
-.. _第四章 沙漠深处的审判（死者之沙漠）: http://www.gocalf.com/blog/zelda-tp-ch4.html
-.. _第五章 冰封魔镜的罪恶（雪山！兽人！爱！）: http://www.gocalf.com/blog/zelda-tp-ch5.html
-.. _第六章 时间遗忘的裂缝（时之神殿）: http://www.gocalf.com/blog/zelda-tp-ch6.html
-.. _第七章 天堂神殿的挽歌（天空之城）: http://www.gocalf.com/blog/zelda-tp-ch7.html
-.. _第八章 黎明之前的黑暗（伪王）: http://www.gocalf.com/blog/zelda-tp-ch8.html
-.. _第九章 斩破黑暗的利刃（黎明公主）: http://www.gocalf.com/blog/zelda-tp-ch9.html
-.. _终章 世界秩序的平衡（光与影）: http://www.gocalf.com/blog/zelda-tp-epilogue.html
-.. _必须要知道的几个秘密: http://www.gocalf.com/blog/zelda-tp-secret.html
-.. _心之碎片: http://www.gocalf.com/blog/zelda-tp-heartpiece.html
-.. _非剧情道具: http://www.gocalf.com/blog/zelda-tp-item.html
-.. _瓶子: http://www.gocalf.com/blog/zelda-tp-bottle.html
-.. _奥义: http://www.gocalf.com/blog/zelda-tp-mistery.html
-.. _金色虫: http://www.gocalf.com/blog/zelda-tp-goldenbug.html
-.. _鬼魂之魂: http://www.gocalf.com/blog/zelda-tp-ghostsoul.html
-.. _钓鱼: http://www.gocalf.com/blog/zelda-tp-fishing.html
-.. _试炼的洞窟: http://www.gocalf.com/blog/zelda-tp-trialscave.html
+.. _第四章 沙漠深处的审判（死者之沙漠）: {filename}../11/zelda-tp-ch4.rst
+.. _第五章 冰封魔镜的罪恶（雪山！兽人！爱！）: {filename}../11/zelda-tp-ch5.rst
+.. _第六章 时间遗忘的裂缝（时之神殿）: {filename}../12/zelda-tp-ch6.rst
+.. _第七章 天堂神殿的挽歌（天空之城）: {filename}../12/zelda-tp-ch7.rst
+.. _第八章 黎明之前的黑暗（伪王）: {filename}../12/zelda-tp-ch8.rst
+.. _第九章 斩破黑暗的利刃（黎明公主）: {filename}../12/zelda-tp-ch9.rst
+.. _终章 世界秩序的平衡（光与影）: {filename}../../2012/01/zelda-tp-epilogue.rst
+.. _必须要知道的几个秘密: {filename}../../2012/01/zelda-tp-appendix.rst#secret
+.. _心之碎片: {filename}../../2012/01/zelda-tp-appendix.rst#heartpiece
+.. _非剧情道具: {filename}../../2012/01/zelda-tp-appendix.rst#item
+.. _瓶子: {filename}../../2012/01/zelda-tp-appendix.rst#bottle
+.. _奥义: {filename}../../2012/01/zelda-tp-appendix.rst#mistery
+.. _金色虫: {filename}../../2012/01/zelda-tp-appendix.rst#goldenbug
+.. _鬼魂之魂: {filename}../../2012/01/zelda-tp-appendix.rst#ghostsoul
+.. _钓鱼: {filename}../../2012/01/zelda-tp-appendix.rst#fishing
+.. _试炼的洞窟: {filename}../../2012/01/zelda-tp-appendix.rst#trialscave
 .. _GoldenFinger\_JP.zip: {filename}/assets/2011/08/GoldenFinger_JP.zip
 .. _《塞尔达传说：黄昏公主》图文全攻略: http://wii.tgbus.com/glmj/gl/200611/20061129114849.shtml

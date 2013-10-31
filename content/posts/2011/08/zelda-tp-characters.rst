@@ -14,7 +14,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
 
 .. more
 
-.. _Link:
+.. _link:
 
 主角：林克（Link）
 ------------------
@@ -28,7 +28,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
     
     《塞尔达传说：黎明公主》主角：林克（Link）
 
-.. _Zelda:
+.. _zelda:
 
 塞尔达（Zelda）
 ---------------
@@ -40,9 +40,9 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
 .. figure:: {filename}/images/2011/08/zelda_tp_Zelda.jpg
     :alt: zelda_tp_Zelda
     
-    善良温和的光之世界领主：萨尔达（Zelda）
+    善良温和的光之世界领主：塞尔达（Zelda）
 
-.. _Midna:
+.. _midna:
 
 米德娜（Midna）
 ---------------
@@ -56,7 +56,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
     
     米德娜（Midna）
 
-.. Ilia:
+.. ilia:
 
 伊莉娅（Ilia）
 --------------
@@ -70,7 +70,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
     
     伊莉娅（Ilia）
 
-.. _Ooccoo:
+.. _ooccoo:
 
 欧库 & 小欧库（Ooccoo & Ooccoo Jr.）
 ------------------------------------
@@ -84,7 +84,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
     
     欧库 & 小欧库（Ooccoo & Ooccoo Jr.）
 
-.. _GorCoron:
+.. _gorcoron:
 
 戈隆长老：戈·克隆（Gor Coron）
 ------------------------------
@@ -96,7 +96,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
     
     戈隆长老：戈·克隆（Gor Coron）
 
-.. _KingOrcsBulblin:
+.. _kingorcsbulblin:
 
 兽王：布尔布林（King Orcs Bulblin）
 -----------------------------------
@@ -108,7 +108,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
     
     兽王：布尔布林（King Orcs Bulblin）
 
-.. _ShadowBeing:
+.. _shadowbeing:
 
 暗影使者（Shadow Being）
 ------------------------
@@ -120,7 +120,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
     
     暗影使者（Shadow Being）
 
-.. _Zant:
+.. _zant:
 
 赞特（Zant）
 ------------
@@ -132,7 +132,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
     
     赞特（Zant）
 
-.. _Ganondorf:
+.. _ganondorf:
 
 加农道夫（Ganondorf）
 ---------------------
@@ -146,7 +146,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
     
     加农道夫（Ganondorf）
 
-.. _TwilightPrincess:
+.. _twilightprincess:
 
 黎明公主（Twilight Princess）
 -----------------------------

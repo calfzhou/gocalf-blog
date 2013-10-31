@@ -8,7 +8,7 @@
 :summary: 打倒达巴巴之后，林克得到一个完整的心之容器（加一格血）。米德娜出现并将林克传送回法隆之泉处，顺路来到柯洛处，可以补充一点灯油，之前关上的栅栏打开了，过去后就来到海拉尔平原（Hyrule Field）。
 
 第二章 死亡山巅的咆哮（大地的子民）
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===================================
 
 打倒达巴巴之后，林克得到一个完整的心之容器（加一格血）。
 
@@ -18,29 +18,35 @@ Field）。
 .. more
 
 海拉尔平原
-^^^^^^^^^^
+----------
 
 森林复苏
-''''''''
+~~~~~~~~
 
 顺路一直往平原的北面走，途中会遇到一位滑稽的邮递员，他告诉林克，他奔波于世界各地为大家送邮件，无论以后林克在哪里，他都会及时把邮件送到。从北面的小径离开海拉尔平原后，林克来到第二堵黑暗之墙的面前，米德娜带着林克进入了黑暗世界，林克又变成了狼的形态。顺着路没走多远便发现了塔洛掉下的剑，林克嗅了嗅，可以通过感知追踪孩子们留下的气味，跟随气味一直来到一断桥处，这里又遇见了暗影使者，打倒后，天空出现了黑暗空洞，米德娜告诉林克，她可以发动魔法让林克在两个黑暗空洞之间来回传送。前方没路了，林克只好让米德娜开启传送门回到森之神殿之前的那片地区，还记得当时看到的遗留在路旁的桥体吗?在桥体处，米德娜发动魔法，将桥体移到之前的断桥处修通道路，过桥之后顺着路走可以进入卡卡里科村（Kakariko
 Village）。
 
-`[caption id="attachment\_1227" align="alignnone" width="700"
-caption="林克来到海拉尔平原（Hyrule
-Field）"]\ |tp\_ch02\_01|\ [/caption]`_
+.. figure:: {filename}/images/2011/10/tp_ch02_01.jpg
+    :alt: tp_ch02_01
+    :target: {filename}/images/2011/10/tp_ch02_01.jpg
+    :width: 500
+    
+    林克来到海拉尔平原（Hyrule Field）
 
 卡卡里科村
-^^^^^^^^^^
+----------
 
 被黑暗覆盖的小镇
-''''''''''''''''
+~~~~~~~~~~~~~~~~
 
 刚刚到村口又遇到了暗影使者，比较有难度的是其中一个始终与另两个保持一定距离，林克只好先把远处的一个杀掉再迅速把其余两个同时干掉。此时泉水处出现了第三位光之精灵，但是由于黑暗力量的笼罩，它还无法现出真身，它交给林克第二个光之容器，让林克收集散落在卡卡里科村的光之泪。进入卡卡里科村后，发现这里面基本每个房子里都有携带光之泪的虫子。不过林克还是很担心孩子们，他顺着气温来到村子门口的一座建筑前，但是林克在狼形态下是无法开门的，他围着房子转了转，米德娜告诉林克可以借助树枝跳到屋顶，这个主意不错，来到屋顶后，林克从中间的洞跳了下去。孩子们都在这里，林克一下安心了，不过这里还有一些林克不认识的人，林克通过感知听到了他们的谈话，原来都是村里的居民，他们都很害怕，不过柯林坚信林克一定会回来救他们，米德娜嘲笑林克，林克要保护的人就在眼前，但是现在的林克却无能为力，没办法，林克只好暂时离开。林克捡起地上的木棍，到火台上点燃后，把房内的蜡烛全部引燃（可以发现三只虫子），房子中间的雕像移开，出现了一条地道，林克顺着地道出了房间。
 
-`[caption id="attachment\_1229" align="alignnone" width="700"
-caption="卡卡里科村（Kakariko
-Village）被黑暗覆盖，需要收集光之泪"]\ |tp\_ch02\_02|\ [/caption]`_
+.. figure:: {filename}/images/2011/10/tp_ch02_02.jpg
+    :alt: tp_ch02_02
+    :target: {filename}/images/2011/10/tp_ch02_02.jpg
+    :width: 500
+    
+    卡卡里科村（Kakariko Village）被黑暗覆盖，需要收集光之泪
 
 通过地道林克来到了卡卡里科墓地（Graveyard），发现这里有携带着光之泪的虫子，杀掉后，林克回到村子里，来到商店（General
 Store）的房子右边，林克发现大楼的底部有个小洞，钻进去找到虫子，干掉它收集到光之泪，再原路出来。林克来到商店南边，走上坡道，这里是艾尔德旅馆（Elde
@@ -52,65 +58,95 @@ Northwestern
 Hills），顺着路向上，林克来到一个标着"Danger!"的建筑物面前。进到房子里面，林克发现这里到处都是火药，虫子也藏在角落里，林克没有办法，只好在地上捡起一根木棍，引燃木棍后，用它来把壁炉点着，火星蹦了出来，火药被点燃了，林克见状赶紧原路跑开。刚一出房子，只听身后一声巨响，连屋带虫一起化为了灰烬，林克也得到了三颗光之泪。林克顺着斜坡上到了山顶，这里的房里可以找到一条虫子，村里已经没有虫子了，但是光之泪还没有收集全，看来有虫子飞到了更远的地方去了。林克只好从村子北面的一个大山洞出村，一路来到死亡山（Death
 Mountain）的脚下。
 
-`[caption id="attachment\_1230" align="alignnone" width="700"
-caption="在屋顶上看到炸弹商店的一扇窗户，可以撞碎玻璃跳进去"]\ |tp\_ch02\_03|\ [/caption]`_
+.. figure:: {filename}/images/2011/10/tp_ch02_03.jpg
+    :alt: tp_ch02_03
+    :target: {filename}/images/2011/10/tp_ch02_03.jpg
+    :width: 500
+    
+    在屋顶上看到炸弹商店的一扇窗户，可以撞碎玻璃跳进去
 
 死亡山
-^^^^^^
+------
 
 在米德娜的帮助下跳上了一个峭壁，林克顺着路往山上走，一路上还要躲过一连串的热泉。林克在这片区域中找到了三只虫子，解决掉后继续前进，不远处有一个嚎叫之岩（Howling
 Shrine），林克隐约听到嚎叫之岩会发出狼的嚎声，狼形态下的林克跟着听到的声音也嚎叫了起来，原来是林克的嚎声引起了远方金狼的共鸣，难道就是上次教林克绝技的那只狼？带着疑问，林克继续前进，再次遇到了黑暗使者，这次数量增加到了四个，但是林克还是轻松取胜，之后便开启了死亡山的黑暗空洞。光之泪还没收集齐，林克只好继续前进，米德娜带着林克不断向上跳，来到一个盆地处，跳下去解决掉虫子，最后一颗光之泪终于到手了，卡卡里科村净化完成，村子又重新回到了光明的怀抱。
 
-`[caption id="attachment\_1231" align="alignnone" width="700"
-caption="死亡山"]\ |tp\_ch02\_04|\ [/caption]`_
+.. figure:: {filename}/images/2011/10/tp_ch02_04.jpg
+    :alt: tp_ch02_04
+    :target: {filename}/images/2011/10/tp_ch02_04.jpg
+    :width: 500
+    
+    死亡山
 
 大地之民族
-''''''''''
+~~~~~~~~~~
 
 林克回到村口的泉水处，第三位光之精灵艾尔丁（Eldin）也恢复了其真实的形态，艾尔丁告诉林克，死亡山上的戈隆一族有着能够帮助林克的宝物，看来林克只有上山去拜访戈隆一族了。
 
-`[caption id="attachment\_1232" align="alignnone" width="700"
-caption="恢复了真实的形态的第三位光之精灵艾尔丁（Eldin）"]\ |tp\_ch02\_05|\ [/caption]`_
+.. figure:: {filename}/images/2011/10/tp_ch02_05.jpg
+    :alt: tp_ch02_05
+    :target: {filename}/images/2011/10/tp_ch02_05.jpg
+    :width: 500
+    
+    恢复了真实的形态的第三位光之精灵艾尔丁（Eldin）
 
 村里的村民和小孩们都被解救出来了，柯林非常高兴，他就知道林克会来救大家，可是马洛和塔洛还是很不服气，怪林克那么晚才来，这时当初在房子看到的陌生人上前来自我介绍，原来他叫雷那多（Renado），是村里的牧师，另外一位就是炸弹店的老板巴恩斯，雷那多告诉林克，孩子们在这里很安全，让林克放心去找伊莉娅。林克也很担心伊莉娅，于是继续上路，林克再次前往死亡山，刚爬上峭壁，却发现有个戈隆人挡路，两句话不对戈隆人毫不客气地将林克撞了下来，看来暂时是没法上去了，只得离开。回到村里，雷那多告诉林克，奥东村的村长布有办法对付挡路的戈隆人。那不是林克的家乡么，很久没回去了，林克也挺想念大家的，于是打算回奥东村一趟，顺便找村长布想办法帮忙。林克正在犯愁，离家乡那么远，怎么回去呢？正在这时艾普娜出现，可能是很久没见了，艾普娜有点兴奋，林克跳到艾普娜背上试图让她安静下来，骑上之后，按屏幕下方出现的提示做就可以了，一开始是利用左手手柄左右晃动，最后一下则是按A（看见“SEIZE”提示时），将马驯服，艾普娜又变得跟往常一样温和了。
 
-`[caption id="attachment\_1233" align="alignnone" width="700"
-caption="艾普娜过于兴奋，林克跳到她背上试图让她安静下来"]\ |tp\_ch02\_06|\ [/caption]`_
+.. figure:: {filename}/images/2011/10/tp_ch02_06.jpg
+    :alt: tp_ch02_06
+    :target: {filename}/images/2011/10/tp_ch02_06.jpg
+    :width: 500
+    
+    艾普娜过于兴奋，林克跳到她背上试图让她安静下来
 
 奥东村
-^^^^^^
+------
 
 相扑！！
-''''''''
+~~~~~~~~
 
 林克骑着艾普娜飞奔，很快便回到了法隆森林，经过奥东之泉时，林克想起了在死亡山上遇到金狼的事情，来到奥东之泉看到了金狼蹲在那里，林克走上前，金狼又是二话没说扑了上来，一阵眩晕后，不死勇士再次出现，看来林克又可以学到新的技能了。学会新的技能后，林克回到奥东村，径直来到村长布的家，林克向村长表明了来意，布将林克带到了里屋，他准备给林克传授摔跤的技能，聪明的林克没一会儿就学会了（第一局很容易，只要闪避后按住A攻击就可以了；第二局则要闪避后，挥动右手手柄击打对手，然后再按A攻击），学会了摔跤，就不怕戈隆人了，当林克正准备离去，村长又将自己的宝物钢之靴（Iron
-Boots）交给了林克，这对林克将来的冒险大有帮助。告别村长，林克打算去拜访老朋友农场主，农场主看到林克回来了也很高兴，他有件神秘的礼物准备送给林克，但条件是要林克打破他的赶羊纪录，这对林克来说再简单不过了，打破他的纪录后林克得到了一块\ `心之碎片`_\ 。随后告别农场主，该是继续冒险的时候了。
+Boots）交给了林克，这对林克将来的冒险大有帮助。告别村长，林克打算去拜访老朋友农场主，农场主看到林克回来了也很高兴，他有件神秘的礼物准备送给林克，但条件是要林克打破他的赶羊纪录，这对林克来说再简单不过了，打破他的纪录后林克得到了一块\ `心之碎片05`_\ 。随后告别农场主，该是继续冒险的时候了。
 
 勇敢的少年
-''''''''''
+~~~~~~~~~~
 
 林克回到卡卡里科村，刚进村子就看见兽人来袭，带头的兽人首领凶残地撞向贝思，柯林挺身而出推开了贝思，自己却被兽人首领撞到并抓走了。愤怒的林克快马加鞭地追赶了上去，第一场强制马上战！一路追到海拉尔平原上，兽人头领会不断招呼喽啰来阻拦林克，不过都被林克轻松搞定（如果怕麻烦又臂力超群的话，可以挥剑来斩射来的箭，然后完全无视小怪），林克在重创兽人首领后，其带着柯林向艾尔丁大桥逃去，林克追了上去，这时又出现了兽人弓箭手，用火箭点燃了早已准备好的草堆封住了桥头两边的去路，一场生死决斗在所难免，单挑战中，接近头目时注意快速回避，同时狂挥右手的手柄，成功的话一击就可以KO。兽人首领也不是林克的对手，最后林克挥剑将兽人首领击落桥下，林克带着受伤的柯林回到卡卡里科村，林克看着柯林非常难过，柯林告诉林克，他已经将林克作为自己的目标，将来也要像林克一样勇敢强壮，柯林的话给了林克很大的鼓舞，林克振作起来，再次来到死亡山脚下。
 
-`[caption id="attachment\_1234" align="alignnone" width="700"
-caption="与兽人首领之间的一场马上战斗"]\ |tp\_ch02\_07|\ [/caption]`_
+.. figure:: {filename}/images/2011/10/tp_ch02_07.jpg
+    :alt: tp_ch02_07
+    :target: {filename}/images/2011/10/tp_ch02_07.jpg
+    :width: 500
+    
+    与兽人首领之间的一场马上战斗
 
-`[caption id="attachment\_1235" align="alignnone" width="700"
-caption="在艾尔丁大桥上与兽人首领生死决斗"]\ |tp\_ch02\_08|\ [/caption]`_
+.. figure:: {filename}/images/2011/10/tp_ch02_08.jpg
+    :alt: tp_ch02_08
+    :target: {filename}/images/2011/10/tp_ch02_08.jpg
+    :width: 500
+    
+    在艾尔丁大桥上与兽人首领生死决斗
 
-`[caption id="attachment\_1236" align="alignnone" width="700"
-caption="骑马战胜兽人的林克，英姿飒爽"]\ |tp\_ch02\_09|\ [/caption]`_
+.. figure:: {filename}/images/2011/10/tp_ch02_09.jpg
+    :alt: tp_ch02_09
+    :target: {filename}/images/2011/10/tp_ch02_09.jpg
+    :width: 500
+    
+    骑马战胜兽人的林克，英姿飒爽
 
 上山
-''''
+~~~~
 
 准备上山，上山前记得到村子新开的杂货店（入口第一间）买个铁盾牌，后面迷宫里会有很多敌人会火系攻击，现在的木盾很容易会被火烧掉。上山后林克穿上了重力靴，加上布所教授的摔跤技巧，挡路的戈隆人就拿林克没办法了。一路前进，途中还会遇到一些好斗的戈隆人，但是也有好心的戈隆人会帮林克跳上峭壁，峭壁喷出上的蒸汽，只要林克穿上钢之靴就能顺利通过。一直来到山顶的洞穴中，这里会遇到戈隆族的领袖，林克表明了来意，但是显然林克想要的宝物没在这里，但是戈隆族长告诉林克，戈隆矿山（Goron
 Mines）是他们世代守护的地方，现在被黑暗势力所侵吞了，而且他们有位伙伴被黑暗势力魔化了并关在矿山最深处，希望林克能帮助他们救出同伴，驱赶黑暗势力。林克爽快答应下，但是族长还是不太放心，要考验一下林克的实力，戈隆族长果然很强，一下就将林克推下擂台，林克只好穿上钢之靴后再上去挑战，战胜戈隆族长后，他终于放心的让林克进入了戈隆矿山。
 
 戈隆矿山迷宫
-^^^^^^^^^^^^
+------------
 
-`[caption id="attachment\_1237" align="alignnone" width="700"
-caption="戈隆矿山迷宫地图"]\ |tp\_ch02\_10|\ [/caption]`_
+.. figure:: {filename}/images/2011/10/tp_ch02_10.jpg
+    :alt: tp_ch02_10
+    
+    戈隆矿山迷宫地图
 
 **房间1：**\ 林克进入戈隆矿山，这里到处都是炙热的岩浆，利用钢之靴可以关闭喷火的机关，不过有时间限制，必须快速通过。北面的门要先从右边的路上到第二层，用同样的方法按下按钮关闭第二个喷火机关后快速通过，之后再用钢之靴站到门旁边的开关上打开门进入房间2。
 
@@ -120,9 +156,9 @@ caption="戈隆矿山迷宫地图"]\ |tp\_ch02\_10|\ [/caption]`_
 
 **房间4：**\ 来到房间4，这个房间要先用钢之靴沉入水底，然后穿过水低铁丝网上的洞，到最北面的按钮可以激活磁场，这样钢之靴就可以吸附在天花板上行动，不过只能在有磁矿的墙面上行走，继续前进来到5号房间。
 
-**房间5：**\ 这里能见到一位戈隆长老，他将大钥匙的一部分交到林克手上，并告诉林克，想要打开关押他们同伴的大门还必须找到剩下的两部分钥匙。林克接过钥匙后从长老后面的楼梯上到二层，途中可以遇到戈隆矿山的欧库。利用钢之靴通过有水的房间后回到房间3，在西北角有个心之碎片，然后回到东南边找到门，跳下去回到房间2。这时林克来到房间2的上部，可以开启另一个磁力机，于是便能向北边前进进入房间6。
+**房间5：**\ 这里能见到一位戈隆长老，他将大钥匙的一部分交到林克手上，并告诉林克，想要打开关押他们同伴的大门还必须找到剩下的两部分钥匙。林克接过钥匙后从长老后面的楼梯上到二层，途中可以遇到戈隆矿山的欧库。利用钢之靴通过有水的房间后回到房间3，在西北角有个\ `心之碎片07`_\ ，然后回到东南边找到门，跳下去回到房间2。这时林克来到房间2的上部，可以开启另一个磁力机，于是便能向北边前进进入房间6。
 
-**房间6：**\ 把里面的敌人都解决掉，西北角的水里能够找到一把小钥匙，之后过去找到开关，可以激活磁场上到天花板上，沿着天花板走到高台上然后跳下来，启动另一个机关之后脱掉钢之靴跳下，在进入磁力范围时再穿上钢之靴就能被磁力吸到对面的墙壁上，之后走到平台上击打状态转换水晶，可以打开大门，林克迅速进入，再次穿上钢之靴走到高台上，林克在右边的高台找到一个心之碎片，来到左边砍断绳索放下大门，就是去房间7的路。
+**房间6：**\ 把里面的敌人都解决掉，西北角的水里能够找到一把小钥匙，之后过去找到开关，可以激活磁场上到天花板上，沿着天花板走到高台上然后跳下来，启动另一个机关之后脱掉钢之靴跳下，在进入磁力范围时再穿上钢之靴就能被磁力吸到对面的墙壁上，之后走到平台上击打状态转换水晶，可以打开大门，林克迅速进入，再次穿上钢之靴走到高台上，林克在右边的高台找到一个\ `心之碎片08`_\ ，来到左边砍断绳索放下大门，就是去房间7的路。
 
 **房间7：**\ 跳下进入房间7，这里正东面有把小钥匙，有了它林克就能打开通往西面的门了前往房间8了。
 
@@ -141,19 +177,30 @@ Bow），看来这就是牧师雷那多告诉林克的戈隆族的宝物，林�
 
 **房间7：**\ 一路回到房间7，到之前有个活动石像的地方，就在房间最东面。用弓箭干掉它并将其拉出来，通过背后的路来到房间7的高处，打开磁力机，林克穿上钢之靴吸附到磁力机上，用弓箭射断东北方的桥索来到房间14，消灭所有的怪后，林克站到了关押狂暴的戈隆族人的门前。
 
-`[caption id="attachment\_1238" align="alignnone" width="700"
-caption="戈隆矿山迷宫房间7"]\ |tp\_ch02\_11|\ [/caption]`_
+.. figure:: {filename}/images/2011/10/tp_ch02_11.jpg
+    :alt: tp_ch02_11
+    :target: {filename}/images/2011/10/tp_ch02_11.jpg
+    :width: 500
+    
+    戈隆矿山迷宫房间7
 
 **BOSS战：**\ 福里乌斯（Twilit Iginiter——Fryus）
 
 进门后看到福里乌斯，林克先用弓箭射其头顶发光的宝石，射中后他会痛苦得到处乱撞，林克迅速上前抓住他的脚链并换上钢之靴向后拖，福里乌斯会绊倒在地上，这时迅速上前挥砍其头顶的宝石，几个回合后，福里乌斯头顶的宝石破碎了，控制他的黑暗力量消失了，之后米德娜出现，带着林克回到了戈隆矿山的外面。
 
-`[caption id="attachment\_1240" align="alignnone" width="700"
-caption="BOSS：福里乌斯（Twilit
-Iginiter——Fryus）"]\ |tp\_ch02\_12|\ [/caption]`_
+.. figure:: {filename}/images/2011/10/tp_ch02_12.jpg
+    :alt: tp_ch02_12
+    :target: {filename}/images/2011/10/tp_ch02_12.jpg
+    :width: 500
+    
+    BOSS：福里乌斯（Twilit Iginiter——Fryus）
 
-`[caption id="attachment\_1242" align="alignnone" width="700"
-caption="福里乌斯头顶的宝石破碎，控制他的黑暗力量消失，他恢复正常"]\ |tp\_ch02\_13|\ [/caption]`_
+.. figure:: {filename}/images/2011/10/tp_ch02_13.jpg
+    :alt: tp_ch02_13
+    :target: {filename}/images/2011/10/tp_ch02_13.jpg
+    :width: 500
+    
+    福里乌斯头顶的宝石破碎，控制他的黑暗力量消失，他恢复正常
 
 --------------
 
@@ -164,34 +211,10 @@ caption="福里乌斯头顶的宝石破碎，控制他的黑暗力量消失，�
 -  `《塞尔达传说 黄昏公主》完美攻略研究`_ by www.cngba.com 鸡蛋
 -  `Wii《塞尔达传说：黎明公主》流程攻略`_
 
-.. _[caption id="attachment\_1227" align="alignnone" width="700" caption="林克来到海拉尔平原（Hyrule Field）"]\ |tp\_ch02\_01|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_01.jpg
-.. _[caption id="attachment\_1229" align="alignnone" width="700" caption="卡卡里科村（Kakariko Village）被黑暗覆盖，需要收集光之泪"]\ |tp\_ch02\_02|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_02.jpg
-.. _[caption id="attachment\_1230" align="alignnone" width="700" caption="在屋顶上看到炸弹商店的一扇窗户，可以撞碎玻璃跳进去"]\ |tp\_ch02\_03|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_03.jpg
-.. _[caption id="attachment\_1231" align="alignnone" width="700" caption="死亡山"]\ |tp\_ch02\_04|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_04.jpg
-.. _[caption id="attachment\_1232" align="alignnone" width="700" caption="恢复了真实的形态的第三位光之精灵艾尔丁（Eldin）"]\ |tp\_ch02\_05|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_05.jpg
-.. _[caption id="attachment\_1233" align="alignnone" width="700" caption="艾普娜过于兴奋，林克跳到她背上试图让她安静下来"]\ |tp\_ch02\_06|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_06.jpg
-.. _心之碎片: http://www.gocalf.com/blog/zelda-tp-heartpiece.html#H05
-.. _[caption id="attachment\_1234" align="alignnone" width="700" caption="与兽人首领之间的一场马上战斗"]\ |tp\_ch02\_07|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_07.jpg
-.. _[caption id="attachment\_1235" align="alignnone" width="700" caption="在艾尔丁大桥上与兽人首领生死决斗"]\ |tp\_ch02\_08|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_08.jpg
-.. _[caption id="attachment\_1236" align="alignnone" width="700" caption="骑马战胜兽人的林克，英姿飒爽"]\ |tp\_ch02\_09|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_09.jpg
-.. _[caption id="attachment\_1237" align="alignnone" width="700" caption="戈隆矿山迷宫地图"]\ |tp\_ch02\_10|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_10.jpg
-.. _[caption id="attachment\_1238" align="alignnone" width="700" caption="戈隆矿山迷宫房间7"]\ |tp\_ch02\_11|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_11.jpg
-.. _[caption id="attachment\_1240" align="alignnone" width="700" caption="BOSS：福里乌斯（Twilit Iginiter——Fryus）"]\ |tp\_ch02\_12|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_12.jpg
-.. _[caption id="attachment\_1242" align="alignnone" width="700" caption="福里乌斯头顶的宝石破碎，控制他的黑暗力量消失，他恢复正常"]\ |tp\_ch02\_13|\ [/caption]: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_13.jpg
+.. _心之碎片05: {filename}../../2012/01/zelda-tp-appendix.rst#h05
+.. _心之碎片07: {filename}../../2012/01/zelda-tp-appendix.rst#h07
+.. _心之碎片08: {filename}../../2012/01/zelda-tp-appendix.rst#h08
 .. _《塞尔达传说：黄昏公主》图文全攻略: http://wii.tgbus.com/glmj/gl/200611/20061129114849.shtml
 .. _《塞尔达传说 黄昏公主》完美攻略研究: http://www.cngba.com/thread-16520313-1-1.html
 .. _Wii《塞尔达传说：黎明公主》流程攻略: http://tv.duowan.com/0710/57154029137.html
 
-.. |tp\_ch02\_01| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_01-700x466.jpg
-.. |tp\_ch02\_02| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_02-700x466.jpg
-.. |tp\_ch02\_03| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_03-700x466.jpg
-.. |tp\_ch02\_04| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_04-700x466.jpg
-.. |tp\_ch02\_05| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_05-700x466.jpg
-.. |tp\_ch02\_06| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_06-700x466.jpg
-.. |tp\_ch02\_07| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_07-700x466.jpg
-.. |tp\_ch02\_08| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_08-700x466.jpg
-.. |tp\_ch02\_09| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_09-700x466.jpg
-.. |tp\_ch02\_10| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_10-700x611.jpg
-.. |tp\_ch02\_11| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_11-700x560.jpg
-.. |tp\_ch02\_12| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_12-700x560.jpg
-.. |tp\_ch02\_13| image:: http://www.gocalf.com/blog/wp-content/uploads/2011/10/tp_ch02_13-700x560.jpg
