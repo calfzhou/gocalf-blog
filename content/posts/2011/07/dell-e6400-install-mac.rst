@@ -1,6 +1,7 @@
 Dell E6400安装MacOS雪豹10.6
 ###########################
 :date: 2011-07-24 18:08
+:modified: 2012-03-02 21:46
 :author: Calf
 :category: 操作系统
 :tags: BootThink, Dell E6400, Hackintosh, MacOS, OS, PC, PC机装Mac, 雪豹, 黑苹果

@@ -1,6 +1,7 @@
 iPhone开发：隐藏系统状态栏
 ##########################
 :date: 2011-11-30 14:45
+:modified: 2011-12-02 13:01
 :author: Calf
 :category: 程序开发
 :tags: iOS, iPhone开发, ObjC, setStatusBarHidden, Status Bar, UIApplication, 隐藏状态栏

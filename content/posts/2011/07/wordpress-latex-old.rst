@@ -1,6 +1,7 @@
 为你的WordPress站点添加LaTeX支持
 ################################
 :date: 2011-07-02 23:55
+:modified: 2011-08-03 22:20
 :author: Calf
 :category: 建站
 :tags: LaTeX, Plugin, WordPress, WordPress Plugin, 插件

@@ -1,6 +1,7 @@
 《塞尔达传说：黎明公主》攻略：附录
 ##################################
 :date: 2012-01-22 23:12
+:modified: 2012-01-22 23:12
 :author: Calf
 :category: 游戏
 :tags: Game, Twilight Princess, Wii, 任天堂, 塞尔达传说, 游戏攻略, 黎明公主

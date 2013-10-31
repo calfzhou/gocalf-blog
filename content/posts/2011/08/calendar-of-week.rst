@@ -1,6 +1,7 @@
 星期万年历
 ##########
 :date: 2011-08-10 22:25
+:modified: 2011-08-10 22:25
 :author: Calf
 :category: 有用知识
 :tags: Calendar, Day of Week, Math, 万年历, 星期几

@@ -1,6 +1,7 @@
 iPhone开发：自定义控件RangeSlider（范围滑动条）
 ###############################################
 :date: 2012-02-03 21:19
+:modified: 2012-12-04 16:58
 :author: Calf
 :category: 程序开发
 :tags: iOS, iPhone 开发, ObjC, Range Slider, UIControl, UISlider, 控件

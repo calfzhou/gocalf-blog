@@ -1,6 +1,7 @@
 单次遍历，带权随机选取问题（一）
 ################################
 :date: 2011-09-21 23:07
+:modified: 2011-09-27 13:20
 :author: Calf
 :category: 算法
 :tags: Algorithm, Random Sample, Random Selection, Weighted Random Sample, Weighted Selection, 单次遍历, 带权概率, 概率, 算法题, 随机数, 随机选取, 面试题

@@ -1,6 +1,7 @@
 单次遍历，带权随机选取问题（二）
 ################################
 :date: 2011-09-26 11:27
+:modified: 2011-09-28 10:05
 :author: Calf
 :category: 算法
 :tags: Algorithm, Heap, Weighted Random Sample, 单次遍历, 带权概率, 最小堆, 概率, 算法题, 随机数, 随机选取, 面试题

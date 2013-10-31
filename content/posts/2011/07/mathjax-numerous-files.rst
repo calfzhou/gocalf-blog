@@ -1,6 +1,7 @@
 关于安装MathJax后占用文件过多的问题
 ###################################
 :date: 2011-07-28 22:39
+:modified: 2011-08-03 22:26
 :author: Calf
 :category: 建站
 :tags: BlueHost, LaTeX, MathJax, Web Font, 建站

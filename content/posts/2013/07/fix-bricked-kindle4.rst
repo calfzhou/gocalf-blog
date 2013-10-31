@@ -1,6 +1,7 @@
 Kindle4修砖记
 #############
 :date: 2013-07-29 10:13
+:modified: 2013-07-29 10:13
 :author: Calf
 :category: 硬件
 :tags: Kindle, Kindle 4, unbrick, USB Net, Your Kindle Needs Repair, 修砖

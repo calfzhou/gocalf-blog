@@ -1,6 +1,7 @@
 解决BlueHost邮箱无法接收邮件的问题
 ##################################
 :date: 2011-07-31 22:04
+:modified: 2011-08-03 22:33
 :author: Calf
 :category: 建站
 :tags: A记录, BlueHost, email, GoDaddy, Hosting, Mail Exchanger, MX, 建站

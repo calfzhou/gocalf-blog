@@ -1,6 +1,7 @@
 今日Google图标：动态雕塑家Calder诞辰113周年
 ###########################################
 :date: 2011-07-22 18:33
+:modified: 2011-08-03 21:45
 :author: Calf
 :category: 互联网
 :tags: Canvas, Google, Google Doodle, HTML5, 动态雕塑, 雕塑

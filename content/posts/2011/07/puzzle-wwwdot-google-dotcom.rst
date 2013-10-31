@@ -1,6 +1,7 @@
 数学趣题WWWDOT-GOOGLE=DOTCOM
 ############################
 :date: 2011-07-13 22:49
+:modified: 2011-08-03 20:56
 :author: Calf
 :category: 数学
 :tags: Algorithm, Google, Math, Puzzle, 智力题

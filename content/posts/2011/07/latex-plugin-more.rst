@@ -1,6 +1,7 @@
 关于LaTeX插件再啰嗦几句
 #######################
 :date: 2011-07-11 23:43
+:modified: 2011-08-03 20:52
 :author: Calf
 :category: 建站
 :tags: LaTeX, PHP, Plugin, WordPress, WordPress Plugin

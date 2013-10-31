@@ -1,6 +1,7 @@
 彻底禁止游客访问Discuz! 7.0搭建的论坛
 #####################################
 :date: 2011-08-15 21:17
+:modified: 2011-08-15 21:17
 :author: Calf
 :category: 建站
 :tags: Anonymous, Discuz!, PHP, 匿名访问, 权限控制, 游客, 论坛

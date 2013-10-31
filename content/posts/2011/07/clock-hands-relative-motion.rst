@@ -1,6 +1,7 @@
 时针，分针，相对运动
 ####################
 :date: 2011-07-18 21:29
+:modified: 2011-08-03 20:59
 :author: Calf
 :category: 数学
 :tags: Clock, Interview Question, Math, Puzzle, Relative Motion, 智力题

@@ -1,6 +1,7 @@
 可以继承的C++ Singleton基类
 ###########################
 :date: 2011-08-12 23:20
+:modified: 2011-08-22 00:32
 :author: Calf
 :category: 程序开发
 :tags: C++, Design Pattern, Singleton, 单例, 模板类, 继承, 设计模式, 面试题

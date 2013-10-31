@@ -1,6 +1,7 @@
 WordPress数学公式插件LaTeX
 ##########################
 :date: 2011-07-02 22:32
+:modified: 2011-08-03 20:19
 :author: Calf
 :category: 建站
 :tags: LaTeX, Plugin, WordPress, WordPress Plugin, 插件

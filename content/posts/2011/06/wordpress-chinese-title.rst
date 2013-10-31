@@ -1,6 +1,7 @@
 解决WordPress中文title无法显示的问题
 ####################################
 :date: 2011-06-30 22:50
+:modified: 2011-08-03 20:10
 :author: Calf
 :category: 建站
 :tags: Cufon, Font, Theme, WordPress, 中文, 字体

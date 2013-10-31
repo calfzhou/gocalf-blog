@@ -1,6 +1,7 @@
 Dell E6400升级到MacOS 10.6.8
 ############################
 :date: 2011-08-26 23:48
+:modified: 2012-03-02 21:45
 :author: Calf
 :category: 操作系统
 :tags: BootThink, Dell E6400, Hackintosh, MacOS, OS, PC, PC机装Mac, SL 10.6.8, 升级, 雪豹, 黑苹果

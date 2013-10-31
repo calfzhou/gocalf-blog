@@ -1,6 +1,7 @@
 iPhone开发：在UIAlertView中显示进度条
 #####################################
 :date: 2011-12-09 18:27
+:modified: 2011-12-21 10:31
 :author: Calf
 :category: 程序开发
 :tags: iOS, iPhone 开发, ObjC, progress bar, UIAlertView, UIProgressView, 进度条

@@ -1,6 +1,7 @@
 Hello world!
 ############
 :date: 2011-01-07 09:11
+:modified: 2011-08-03 19:52
 :author: Calf
 :category: 日记
 :tags: WordPress

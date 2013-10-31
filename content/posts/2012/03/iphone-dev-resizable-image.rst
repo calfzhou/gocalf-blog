@@ -1,6 +1,7 @@
 iPhone开发：可拉伸的图片
 ########################
 :date: 2012-03-10 22:57
+:modified: 2012-03-10 22:57
 :author: Calf
 :category: 程序开发
 :tags: End Cap, iOS, iPhone 开发, ObjC, Resizable Image, Stretchable Image, UIImage, 图片拉伸, 端帽

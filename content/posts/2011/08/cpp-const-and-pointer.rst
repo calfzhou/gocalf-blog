@@ -1,6 +1,7 @@
 C++中的常量指针和指针常量
 #########################
 :date: 2011-08-04 23:39
+:modified: 2011-08-18 14:06
 :author: Calf
 :category: 程序开发
 :tags: C++, const, Const Pointer, Pointer to Const, 指针, 面试题

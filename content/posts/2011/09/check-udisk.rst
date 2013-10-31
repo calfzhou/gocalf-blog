@@ -1,6 +1,7 @@
 U盘检测软件：ChipGenius，MyDiskTest
 ###################################
 :date: 2011-09-08 22:13
+:modified: 2011-09-08 22:13
 :author: Calf
 :category: 硬件
 :tags: ChipGenius, Disk Check, FlashDisk, MyDiskTest, U盘检测, 优盘检测, 移动存储, 金士顿U盘

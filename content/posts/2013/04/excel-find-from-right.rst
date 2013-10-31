@@ -1,6 +1,7 @@
 Excel从右向左查找
 #################
 :date: 2013-04-03 18:09
+:modified: 2013-04-03 18:09
 :author: Calf
 :category: 有用知识
 :tags: Excel, Excel字符串查找, Excel技巧, Find from Right, rfind

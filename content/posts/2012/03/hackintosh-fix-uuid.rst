@@ -1,6 +1,7 @@
 解决黑苹果Unable to Determine UUID错误
 ######################################
 :date: 2012-03-02 23:09
+:modified: 2012-03-02 23:09
 :author: Calf
 :category: 操作系统
 :tags: genstrings, Hackintosh, Localizable.strings, Unable to Determine UUID, UUID, 黑苹果

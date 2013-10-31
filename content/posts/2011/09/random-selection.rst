@@ -1,6 +1,7 @@
 单次遍历，等概率随机选取问题
 ############################
 :date: 2011-09-06 00:24
+:modified: 2011-09-23 20:49
 :author: Calf
 :category: 算法
 :tags: Algorithm, Coroutines and Generators, Random Sample, Random Selection, 单次遍历, 概率, 相等权重, 等概率, 算法题, 随机数, 随机选取, 面试题
