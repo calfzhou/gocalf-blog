@@ -141,7 +141,7 @@ escaped
 .. _钟磬居: http://www.zhongqingju.com
 .. _Zhiqiang: http://zhiqiang.org/
 .. _LaTeX for WordPress: http://wordpress.org/extend/plugins/latex/
-.. _WordPress数学公式插件LaTeX: http://www.gocalf.com/blog/latex-wordpress.html
+.. _WordPress数学公式插件LaTeX: {filename}latex-wordpress.rst
 .. _mimetex: http://www.forkosh.com/mimetex.html
 .. _LaTeX Equation Editor: http://www.codecogs.com/components/equationeditor/equationeditor.php
 .. _dahnielson\_mimetex: http://en.dahnielson.com/2006/09/mimetex-plugin.html
