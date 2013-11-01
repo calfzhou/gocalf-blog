@@ -1,7 +1,7 @@
 求二叉树中两结点的最小公共祖先
 ##############################
 :date: 2011-10-21 22:34
-:modified: 2012-04-02 17:55
+:modified: 2012-04-05 23:31
 :author: Calf
 :category: 算法
 :tags: Least Common Ancestor, 二叉树, 微软面试, 数据结构, 最小公共父结点, 最小公共祖先, 算法题, 编程, 遍历二叉树, 面试题
@@ -16,6 +16,9 @@ Common Ancestor）。
 .. more
 
 这算不上是一道算法题了，主要还是看数据结构基本知识和编程能力。
+
+有父指针，方法一
+================
 
 首先考虑最简单的情况——二叉树结点数据结构中有父指针。
 
@@ -48,9 +51,48 @@ log(n)，最坏情况h = n）。
       # These two nodes have no common ancestor.
       return None
 
-这样确实很简单，但实际情况是，通常二叉树结点中并没有父结点指针，这时候就要遍历二叉树找到这两个结点，并找出它们的LCA。
+时间和空间复杂度都是O(h)。
 
-实际上，在遍历二叉树的时候，很容易就能够记录下根结点到任何结点的分支路径，只要有了分支路径，就可以对比找出LCA。
+有父指针，方法二（2012-04-02 22:10添加）
+========================================
+
+上面的方法需要至少一个跟深度相当的缓存，在空间上还是有一些浪费的。可以使用更节省空间的方法，就是先计算出两个结点各自的深度，如果深度不同，则将较靠下的一个结点拉上去，直到两个结点在同一深度处。然后同步向根结点前进，首次相遇时则为最小公共祖先。示意代码（python 2.7）如下：
+
+.. code-block:: python
+
+    def FindLCA(node1, node2):
+      # Special cases.
+      if not node1 or not node2:
+        return None
+      if node1 is node2:
+        return node1
+      
+      # Gets each node's depth.
+      depth = lambda node: depth(node.parent) + 1 if node else 0
+      depth1 = depth(node1)
+      depth2 = depth(node2)
+      
+      # Pulls up the lower node and makes the two nodes in the same depth.
+      mindepth = min(depth1, depth2)
+      for i in xrange(depth1 - mindepth): node1 = node1.parent
+      for i in xrange(depth2 - mindepth): node2 = node2.parent
+      
+      # Finds the common ancestor.
+      while node1 and node2:
+        if node1 is node2: return node1
+        node1 = node1.parent
+        node2 = node2.parent
+      
+      return None
+
+这样时间复杂度是O(h)，空间复杂度是O(1)。
+
+没有父指针，方法一
+==================
+
+通常二叉树结点中并没有父结点指针，这时候就要遍历二叉树找到这两个结点，并找出它们的LCA。
+
+在遍历二叉树的时候，很容易就能够记录下根结点到任何结点的分支路径，只要有了分支路径，就可以对比找出LCA。
 
 我们采取前序遍历，即N-L-R的顺序，使用堆栈来避免递归并且记录完整的分支路径。那么，在二叉树中查找指定结点的算法可以这样写：
 
@@ -120,3 +162,73 @@ log(n)，最坏情况h = n）。
       return lca
 
 遍历二叉树查找所有指定的结点需要O(n)时间，O(h)额外空间；对比两条分支路径需要O(h)的时间，因此总的时间代价为O(n)，空间代价为O(h)。
+
+没有父结点，方法二（2012-04-05 23:31更新）
+==========================================
+
+上面的代码有点儿太啰嗦了，如果不想缓存整条分支路径，或者只是想让代码更简洁一些，也很容易做到，只需要在遍历查找的时候做点儿小小的改动。关于遍历二叉树可以参考后面的一篇文章：\ `程序基本功之遍历二叉树`_\ 。这里我将在非递归的前序（N-L-R）遍历基础上修改得到求LCA的程序。
+
+为什么用前序遍历？
+
+首先考察一下LCA的特性，只有两种可能：
+
+#.  LCA就是其中的一个结点，而另一个结点是它的子孙；
+#.  两个结点分别位于LCA的左子树和右子树中。
+
+对于第一种可能，前序遍历时首先找到的结点就是LCA，剩下的事情就是确定第二个结点在它下面。中序和后序也都可以做，但没有这么美妙。
+
+对于第二种可能，假设在前序遍历过程中，首先找到了一个结点（比如下面的H），根据非递归前序遍历的算法特性，这时候栈里一定是依次存储了结点A（根节点）、B、D、G（请自行思考为什么没有C、E、F），再结合LCA的特性，很容易发现，LCA要么是H自身（对应于上面第一种情况），要么就只能是A、B、D或G。剩下的事情就太美妙，继续遍历二叉树，直到找到另外一个结点。这时候看看A、B、D、G和H中还有谁在栈里，最靠下的那个就是LCA。怎么判定谁在栈里？怎么判定最靠下？用辅助变量呗。
+
+.. code-block:: text
+    :linenos: none
+
+        A
+       /
+      B
+     /
+    C
+     \
+      D
+     /
+    E
+     \
+      F
+       \
+        G
+       /
+      H
+
+示意程序代码：
+
+.. code-block:: python
+
+    def FindLCA(root, node1, node2):
+      nodeset = set([node1, node2])   # Also supports 3 or more nodes.
+      s = []          # A stack to help performing N-L-R traversing.
+      lca = None      # Records the most possible least common ancestor.
+      mindepth = -1   # The depth of lca.
+      while root or s:
+        if root:
+          if root in nodeset:
+            nodeset.remove(root)
+            if mindepth < 0:
+              # Yeah, found the first node. The lca must be itself or already in s.
+              lca = root
+              mindepth = len(s)
+            if not nodeset:
+              break
+          s.append(root)
+          root = root.left
+        else:
+          root = s.pop()
+          if mindepth > len(s):
+            lca = root
+            mindepth = len(s)
+          root = root.right
+      return None if nodeset else lca
+
+可以跟\ `程序基本功之遍历二叉树`_\ 中的\ **非递归前序遍历**\ 的程序对比一下，会发现改动之处是非常小的。
+
+这段程序时间复杂度都是O(n)，空间复杂度是O(h)，这些都是遍历二叉树所需的时间和空间消耗。在遍历之外，就只剩下常数量的时空开销了。
+
+.. _程序基本功之遍历二叉树: {filename}../../2012/04/traversing-binary-tree.rst
