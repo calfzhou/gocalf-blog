@@ -5,7 +5,7 @@
 :author: Calf
 :category: 算法
 :tags: Algorithm, 不均匀硬币, 抛硬币, 概率, 等概率, 算法题, 随机数, 面试题
-:slug: unbalcanced-coin
+:slug: unbalanced-coin
 :summary: 问题描述：有一枚不均匀的硬币，已知抛出此硬币后，正面向上的概率为p（0 < p < 1）。请利用这枚硬币产生出概率相等的两个事件。
 
 问题描述：有一枚不均匀的硬币，已知抛出此硬币后，正面向上的概率为p（0
