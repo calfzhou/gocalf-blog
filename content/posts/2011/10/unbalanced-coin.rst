@@ -61,4 +61,4 @@ p。函数MakeEqualProb利用参数coin（这枚不均匀硬币）构造出两�
 
 如果问题改变一下，把“一枚”改成“一种”，那解决办法就更简单有趣了，把两枚同样的不均匀硬币正面相对粘在一起，就可以得到一个均匀的组合币，抛出这枚组合币就可以得到等概率的两个事件。
 
-.. _利用等概率Rand5产生等概率Rand3: {filename}../08/build-rank3-from-rand5.rst
+.. _利用等概率Rand5产生等概率Rand3: {filename}../08/build-rand3-from-rand5.rst

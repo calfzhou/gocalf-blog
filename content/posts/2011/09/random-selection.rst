@@ -165,5 +165,5 @@ OK，问题解决了。结束之前再做个简单的扩展，改成等概率随
 
 等概率问题通常都是比较简单的。下一次将会对这个问题做进一步的扩展，变成每个元素都有一个权重，要求任何一个元素被选取的概率正比于其权重。
 
-.. _《利用等概率Rand5产生等概率Rand3》: {filename}../08/build-rank3-from-rand5.rst
+.. _《利用等概率Rand5产生等概率Rand3》: {filename}../08/build-rand3-from-rand5.rst
 .. _PEP 342 -- Coroutines via Enhanced Generators: http://www.python.org/dev/peps/pep-0342/

@@ -5,7 +5,7 @@
 :author: Calf
 :category: 算法
 :tags: Algorithm, 极限, 概率, 等概率, 算法题, 随机数, 面试题
-:slug: build-rank3-from-rand5
+:slug: build-rand3-from-rand5
 :summary: 问题描述：现在有一个叫做Rand5的函数，可以生成等概率的[0, 5)范围内的随机整数，要求利用此函数写一个Rand3函数（除此之外，不能再使用任何能产生随机数的函数或数据源），生成等概率的[0, 3)范围内的随机整数。
 
 问题本身很明确，但不知道起个什么题目好，姑且先这么说吧。
