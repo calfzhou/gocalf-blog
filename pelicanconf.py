@@ -95,8 +95,14 @@ SLUG_SUBSTITUTIONS = (
 # Feed settings #
 
 # Feed generation is usually not desired when developing
+FEED_ATOM = None
+FEED_RSS = None
 FEED_ALL_ATOM = None
+FEED_ALL_RSS = None
 CATEGORY_FEED_ATOM = None
+CATEGORY_FEED_RSS = None
+TAG_FEED_ATOM = None
+TAG_FEED_RSS = None
 
 # Pagination #
 
