@@ -52,7 +52,7 @@ wordpress.com的用户都可以在博客中使用一对\ ``$``\ 来书写LaTeX�
     > Version: 1.2.1
     > Author: Anders Dahnielson; Modified by calf (April 12, 2009)
 
-这个插件最初的语法只是\ ``<tex></text>``，我给它添加了四个参数：
+这个插件最初的语法只是\ ``<tex></text>``\ ，我给它添加了四个参数：
 
 bg
     设定图片的背景色，格式为六个十六进制字符，范围000000到ffffff，默认值为ffffff即白色
@@ -66,6 +66,7 @@ escaped
 第二处修改是正则表达式，在dahnielson\_mimetex类的parse函数中，修改过的正则表达式可以匹配刚刚提到的四个参数：
 
 .. code-block:: diff
+    :linenos: none
 
     32c32,33
     < $regex = '#<tex>(.*?)</tex>#si';
@@ -76,6 +77,7 @@ escaped
 第三处修改是提取公式文本和参数，也就是对上面正则表达式的匹配结果做处理：
 
 .. code-block:: diff
+    :linenos: none
 
     38,40c39,50
     < $formula_text = $match[1];
@@ -95,11 +97,12 @@ escaped
     > $formula_hash = md5($formula_text.'_'.$formula_bg.'_'.$formula_fg.'_'.$formula_sz.'_1.2.1');
     > $formula_filename = 'tex_'.$formula_hash.'.png';
 
-这里我添加了一个变量\ ``$formula_text_html``，用来记录html转义过的公式内容，稍后会看到这样做的目的。
+这里我添加了一个变量\ ``$formula_text_html``\ ，用来记录html转义过的公式内容，稍后会看到这样做的目的。
 
 第四处是设置LaTeX服务地址，原先forkosh.dreamhost.com的服务已经不能用了（很简短的公式还行，稍微复杂的公式都没法得到想要的结果），改成l.wordpress.com的服务：
 
 .. code-block:: diff
+    :linenos: none
 
     49c59,61
     < $mimetex_host = curl_init('http://www.forkosh.dreamhost.com/cgi-bin/mimetexpublic.cgi?formdata='.urlencode($formula_text));
@@ -111,6 +114,7 @@ escaped
 最后一处修改是展示获取到的图片。我给img标签加了class属性，便于修改样式。添加了title属性，当鼠标放在图片上时，可以看到公式内容。注意这里alt和title都是用html转义后的公式内容，这样可以避免公式中的一些特殊字符把html结构搞乱：
 
 .. code-block:: diff
+    :linenos: none
 
     58c70
     < return "<img src="$cache_formula_url" alt="$formula_text" />";
@@ -125,6 +129,7 @@ escaped
 试用一下吧，在文章中输入这样的内容：
 
 .. code-block:: latex
+    :linenos: none
 
     <tex fg="0000ff" sz="2">\begin{array}{rcl}
     p & = & \frac{1}{5}+\frac{2}{5}\times\left(\frac{1}{5}+\frac{2}{5}\times\left(\frac{1}{5}+\frac{2}{5}\times\left(\cdots\right)\right)\right) \\

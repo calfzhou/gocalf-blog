@@ -43,6 +43,7 @@ used.（或者是AppleACPIPlatform.kext）。这不是刚才替换的那两个�
 7里用MacDrive把两个文件复制过去之后，还应该要修改权限并删除缓存呢，这些都还没有做，能让我把系统启动起来就很不错了。赶紧打开Console，依次输入下面这些命令（如果当前用户不是root，还需要在命令前面加sudo）（另外命令中的\ ``Mac\OS``\ 需要替换成你的Mac系统所在分区的卷标）（忘了试一试直接用/System/Linrary行不行了，应该是同一个目录的）：
 
 .. code-block:: bash
+    :linenos: none
 
     cd /Volumes/Mac\ OS/System/Library
     chmod -R 755 Extensions

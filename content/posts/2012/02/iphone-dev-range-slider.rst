@@ -303,7 +303,7 @@ beginTracking和endTracking都很简单，在beginTracking的时候判断是哪�
 
 .. code-block:: objc
 
-    [wptabcontent][ccen_objc]- (void)endTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event {
+    - (void)endTrackingWithTouch:(UITouch*)touch withEvent:(UIEvent*)event {
         isTrackingSmallHandle_ = NO;
         isTrackingLargeHandle_ = NO;
         isTrackingSelection_ = NO;

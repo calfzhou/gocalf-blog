@@ -8,6 +8,8 @@
 :slug: calendar-of-week
 :summary: 小学的时候看到过计算某年某月某日是星期几的方法，当时觉得好神奇啊，当时一直不明白为什么一个简简单单的式子或者一张表格就能够算出任何一天是星期几呢。让我们回忆一下孩童时期的乐趣吧，或许以后可以用来逗孩子玩呢。
 
+.. contents::
+
 还记得小学的时候看到过计算某年某月某日是星期几的方法，当时觉得好神奇啊，当时一直不明白为什么一个简简单单的式子或者一张表格就能够算出任何一天是星期几呢，这些方法伴随我度过了整个童年。
 
 长大后就知道了它们的原理，因为星期是七天为一个周期，只要已知某一天是星期几，要算任何一天是星期几只要求出两个日子之间的天数就可以了。现在的编程语言几乎全都包含了获得星期的方法，程序员们再也不用为此发愁。但还是让我们回忆一下孩童时期的乐趣吧，或许以后可以用来逗孩子玩呢。
@@ -68,6 +70,6 @@
 
 .. raw:: html
 
-    <iframe frameborder="1" height="1060" name="星期万年历" scrolling="yes" src="{filename}/assets/2011/08/calendar_week.htm" title="Week Calendar" width="100%"></iframe>
+    <iframe frameborder="0" height="1060" name="星期万年历" scrolling="yes" src="{filename}/assets/2011/08/calendar_week.htm" title="Week Calendar" width="100%"></iframe>
 
 .. _这里（calendar\_week.html）: {filename}/assets/2011/08/calendar_week.htm

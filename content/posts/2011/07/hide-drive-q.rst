@@ -30,8 +30,8 @@ Desktop（App-V）使用的一个虚拟分区，我也不记得是装了什么�
 #. 找到HKEY\_CURRENT\_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer
 #. 在Explorer这个键值下添加如下两个DWORD（32位）值：
 
-   #. 第一个名为\ ``NoDrives``，值为16进制的\ ``10000``，也就是十进制的\ ``65536``；
-   #. 第二个名为\ ``NoViewOnDrive``，值同样是16进制的\ ``10000``；
+   #. 第一个名为\ ``NoDrives``\ ，值为16进制的\ ``10000``\ ，也就是十进制的\ ``65536``\ ；
+   #. 第二个名为\ ``NoViewOnDrive``\ ，值同样是16进制的\ ``10000``\ ；
 
 #. 重启一下explorer即可。
 

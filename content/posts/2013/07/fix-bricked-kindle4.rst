@@ -8,6 +8,8 @@ Kindle4修砖记
 :slug: fix-bricked-kindle4
 :summary: 入手一年的Kindle4突然变成砖头了，屏幕显示“Your Kindle Needs Repair”，花了大半个晚上的时间才修好它，简单记录一下。
 
+.. contents::
+
 入手一年的Kindle4突然不能用了，屏幕显示“Your Kindle Needs
 Repair”，原来就是传说中的变成砖头了。
 
@@ -91,16 +93,18 @@ Ethernet驱动，\ `点此下载`_\ 。）
 SSH登录成功后，在终端中运行如下命令来恢复系统（大概需要几分钟的时间）：
 
 .. code-block:: bash
+    :linenos: none
 
     dd if=/mnt/us/mmcblk0p1_410.img of=/dev/mmcblk0p1 bs=4K
 
 成功后，我又运行了另外几个命令以免还是不能重启，有的命令根本就没执行成功，可能要看具体的情况了：
 
 .. code-block:: bash
+    :linenos: none
 
     dd if=/dev/zero of=/dev/mmcblk0p3 bs=4K
     rm /var/local/system/.framework_reboots
-    ​rm /var/local/system/.framework_retries
+    rm /var/local/system/.framework_retries
 
 5. 完成
 -------

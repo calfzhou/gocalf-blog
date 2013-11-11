@@ -30,7 +30,7 @@
 -  :math:`(11+12)\ll(14-13)=46`
 -  :math:`(11+12)\times\left\lceil\frac{14}{13}\right\rceil=46`
 -  :math:`\sum_{i=13}^{14}{(11+12)}=46`
--  :math:`(11+12)\times\left|\left\\{13,14\right\\}\right|=46`
+-  :math:`(11+12)\times\left|\left\{13,14\right\}\right|=46`\ （这里大括号代表集合）
 -  :math:`(11+12)\times\left(e^{14i\pi}-e^{13i\pi}\right)=46`
 
 很明显越来越扯了，每个解法都引入了四则运算之外的运算符或者函数，都不是正确的解。

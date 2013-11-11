@@ -21,8 +21,8 @@ GoCalf的blog和wiki就此开张吧。
 今天就先记录一下建站的初始步骤：
 
 #. 在GoDaddy购买域名，在BlueHost购买空间，去GoDaddy里把域名的ip地址指向BlueHost空间。GoDaddy域名赠送的小空间留作他用。
-#. Default web root: ``$HOME/public_html/``。
-#. 在web root中\ ``mkdir blog``、``mkdir wiki``。
+#. Default web root: ``$HOME/public_html/``\ 。
+#. 在web root中\ ``mkdir blog``\ 、\ ``mkdir wiki``\ 。
 #. 在cPanel中开通子域名blog、wiki，分别指向相应的目录。
 #. 在GoDaddy中开通相同的子域名指向A地址。
 #. 在cPanel中安装WordPress、MediaWiki至相应目录。
@@ -32,7 +32,7 @@ GoCalf的blog和wiki就此开张吧。
    -  wiki.gocalf.com -> gocalf.com/wiki
    -  gocalf.com -> www.gocalf.com
 
-#. 为防止web root混乱：\ ``mkdir <sitename>``，在.htaccess中添加重定向：
+#. 为防止web root混乱：\ ``mkdir <sitename>``\ ，在.htaccess中添加重定向：
 
    -  www.gocalf.com/\* -> www.gocalf.com/<sitename>/$1
 

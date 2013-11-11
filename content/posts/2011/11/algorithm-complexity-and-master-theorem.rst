@@ -20,7 +20,7 @@ n)。那这里的O是什么意思？这样的表达是否准确呢？
 
 算法复杂度（算法复杂性）是用来衡量算法运行所需要的计算机资源（时间、空间）的量。通常我们利用渐进性态来描述算法的复杂度。
 
-用n表示问题的规模，T(n)表示某个给定算法的复杂度。所谓渐进性态就是令n→∞时，T(n)中增长最快的那部分。严格的定义是：如果存在\ :math:`\widetilde{T}(n)`，当n→∞时，有
+用n表示问题的规模，T(n)表示某个给定算法的复杂度。所谓渐进性态就是令n→∞时，T(n)中增长最快的那部分。严格的定义是：如果存在\ :math:`\widetilde{T}(n)`\ ，当n→∞时，有
 
 .. math::
 
@@ -35,10 +35,10 @@ n)。那这里的O是什么意思？这样的表达是否准确呢？
 
 假设有两个函数f(n)和g(n)，都是定义在正整数集上的正函数。上述四个记号的含义分别是：
 
--   f(n) = O(g(n))：:math:`\exists c>0,n_0\in\mathbb{N},\forall n\geq n_0,f(n)\leq c g(n)`；f的阶\ **不高于**\ g的阶。
--   f(n) = Ω(g(n))：:math:`\exists c>0,n_0\in\mathbb{N},\forall n\geq n_0,f(n)\geq c g(n)`；f的阶\ **不低于**\ g的阶。
--   f(n) = θ(g(n))：:math:`\iff f(n)=O(g(n))\&\&f(n)=\Omega(g(n))`；f的阶\ **等于**\ g的阶。
--   f(n) = o(g(n))：:math:`\forall\varepsilon > 0,\exists n_0\in \mathbb{N},\forall n\geq n_0,f(n)/g(n) < \varepsilon`；f的阶\ **低于**\ g的阶。
+-   f(n) = O(g(n))：:math:`\exists c>0,n_0\in\mathbb{N},\forall n\geq n_0,f(n)\leq c g(n)`\ ；f的阶\ **不高于**\ g的阶。
+-   f(n) = Ω(g(n))：:math:`\exists c>0,n_0\in\mathbb{N},\forall n\geq n_0,f(n)\geq c g(n)`\ ；f的阶\ **不低于**\ g的阶。
+-   f(n) = θ(g(n))：:math:`\iff f(n)=O(g(n))\&\&f(n)=\Omega(g(n))`\ ；f的阶\ **等于**\ g的阶。
+-   f(n) = o(g(n))：:math:`\forall\varepsilon > 0,\exists n_0\in \mathbb{N},\forall n\geq n_0,f(n)/g(n) < \varepsilon`\ ；f的阶\ **低于**\ g的阶。
 
 可见，记号O给出了函数f(n)在渐进意义下的上界（但不一定是最小的），相反，记号Ω给出的是下界（不一定是最大的）。如果上界与下界相同，表示f(n)和g(n)在渐进意义下是同阶的（θ），亦即复杂度一样。
 
@@ -69,27 +69,27 @@ n)。那这里的O是什么意思？这样的表达是否准确呢？
 设常数a >= 1，b > 1，f(n)为函数，T(n)为非负整数，T(n) = a T(n / b) +
 f(n)，则有：
 
-#. 若\ :math:`f(n)=O(n^{\log_b a-\varepsilon}),\varepsilon > 0`，那么\ :math:`T(n)=\Theta(n^{\log_b a})`。
-#. 若\ :math:`f(n)=\Theta(n^{\log_b a})`，那么\ :math:`T(n)=\Theta(n^{\log_b a}\log n)`。
-#. 若\ :math:`f(n)=\Omega(n^{\log_b a+\varepsilon}),\varepsilon > 0`，并且对于某个常数c < 1和充分大的n有\ :math:`a f(n/b)\leq c f(n)`，那么\ :math:`T(n)=\Theta(f(n))`。
+#. 若\ :math:`f(n)=O(n^{\log_b a-\varepsilon}),\varepsilon > 0`\ ，那么\ :math:`T(n)=\Theta(n^{\log_b a})`\ 。
+#. 若\ :math:`f(n)=\Theta(n^{\log_b a})`\ ，那么\ :math:`T(n)=\Theta(n^{\log_b a}\log n)`\ 。
+#. 若\ :math:`f(n)=\Omega(n^{\log_b a+\varepsilon}),\varepsilon > 0`\ ，并且对于某个常数c < 1和充分大的n有\ :math:`a f(n/b)\leq c f(n)`\ ，那么\ :math:`T(n)=\Theta(f(n))`\ 。
 
 比如常见的二分查找算法，时间复杂度的递推方程为T(n) = T(n / 2) +
-θ(1)，显然有\ :math:`n^{\log_b a}=n^0=\Theta(1)`，满足Master定理第二条，可以得到其时间复杂度为T(n)
+θ(1)，显然有\ :math:`n^{\log_b a}=n^0=\Theta(1)`\ ，满足Master定理第二条，可以得到其时间复杂度为T(n)
 = θ(log n)。
 
-再看一个例子，T(n) = 9 T(n / 3) + n，可知\ :math:`n^{\log_b a}=n^2`，令ε取1，显然满足Master定理第一条，可以得到T(n) = θ(n ^
+再看一个例子，T(n) = 9 T(n / 3) + n，可知\ :math:`n^{\log_b a}=n^2`\ ，令ε取1，显然满足Master定理第一条，可以得到T(n) = θ(n ^
 2)。
 
 来一个稍微复杂一点儿例子，T(n) = 3 T(n / 4) + n log
-n。:math:`n^{\log_b a}=O(n^{0.793})`，取ε = 0.2，显然当c = 3 /
+n。:math:`n^{\log_b a}=O(n^{0.793})`\ ，取ε = 0.2，显然当c = 3 /
 4时，对于充分大的n可以满足a \* f(n / b) = 3 \* (n / 4) \* log(n / 4) <=
 (3 / 4) \* n \* log n = c \* f(n)，符合Master定理第三条，因此求得T(n)
 = θ(n log n)。
 
 运用Master定理的时候，有一点一定要\ **特别注意**\ ，就是第一条和第三条中的ε必须\ **大于零**\ 。如果无法找到大于零的ε，就不能使用这两条规则。
 
-举个例子，T(n) = 2 T(n / 2) + n log n。可知\ :math:`n^{\log_b a}=n^1`，而f(n) = n log
-n，显然不满足Master定理第二条。但对于第一条和第三条，也无法找到大于零的ε使得\ :math:`n \log n=O(n^{1-\varepsilon})`\ 或者\ :math:`n \log n=\Omega(n^{1+\varepsilon})`，因此不能用Master定理求解，只能寻求别的方式求解。比如可以利用递归树求出该算法的复杂度为\ :math:`T(n)=O(n \log^2{n})`。简单的说一下计算过程：
+举个例子，T(n) = 2 T(n / 2) + n log n。可知\ :math:`n^{\log_b a}=n^1`\ ，而f(n) = n log
+n，显然不满足Master定理第二条。但对于第一条和第三条，也无法找到大于零的ε使得\ :math:`n \log n=O(n^{1-\varepsilon})`\ 或者\ :math:`n \log n=\Omega(n^{1+\varepsilon})`\ ，因此不能用Master定理求解，只能寻求别的方式求解。比如可以利用递归树求出该算法的复杂度为\ :math:`T(n)=O(n \log^2{n})`\ 。简单的说一下计算过程：
 
 递归树的建立过程，就像是模拟算法的递推过程。树根对应的是输入的规模为n的问题，在递归处理子问题之外，还需要n
 log

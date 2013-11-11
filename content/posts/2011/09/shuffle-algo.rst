@@ -35,7 +35,7 @@ place），不要生成新的数组。用O(n) 时间、O(1)辅助空间。
 
 主要的代码仅仅三行而已，浅显易懂。
 
-来计算一下概率。如果某个元素被放入第i（:math:`1\leq i\leq n`）个位置，就必须是在前i - 1次选取中都没有选到它，并且第i次选取是恰好选中它。其概率为：
+来计算一下概率。如果某个元素被放入第i（:math:`1\leq i\leq n`\ ）个位置，就必须是在前i - 1次选取中都没有选到它，并且第i次选取是恰好选中它。其概率为：
 
 .. math::
 
@@ -48,7 +48,7 @@ Python 2.5 Lib\\random.py：
 
 .. code-block:: python
     :linenostart: 250
-    :linenos: inline
+    :linenos: table
 
     def shuffle(self, x, random=None, int=int):
       """x, random=random.random -> shuffle list x in place; return None.

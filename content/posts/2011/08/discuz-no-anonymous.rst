@@ -21,7 +21,7 @@
 
 .. code-block:: php4
     :linenostart: 365
-    :linenos: inline
+    :linenos: table
 
     if((!empty($_DCACHE['advs']) || $globaladvs) && !defined('IN_ADMINCP')) {
       require_once DISCUZ_ROOT.'./include/advertisements.inc.php';
@@ -43,6 +43,7 @@
 修改的内容如下，只是多加了一个判断而已：
 
 .. code-block:: diff
+    :linenos: none
 
     368a369,374
     > /* Forbid tourists visiting the bbs. Add by calf, Apr 15, 2009 */

@@ -8,6 +8,8 @@
 :slug: wordpress-to-pelican
 :summary: 经过一段时间的整理，现在正式把GoCalf博客从WordPress迁移到Pelican了。
 
+.. contents::
+
 经过一段时间的整理，现在正式把\ `GoCalf博客`_\ 从\ `WordPress`_\ 迁移到\ `Pelican`_\ 了，简单记录一下，还有一些未完成的事情等着以后再慢慢搞。
 
 .. more
@@ -79,6 +81,7 @@ Markdown的扩展性也让人难以忍受，它天生似乎就没打算让别人
 如果去看这个插件的源代码，可以发现它用正则表达式来解析这个语法，相关的代码如下：
 
 .. code-block:: ruby
+    :linenos: none
 
     if markup =~ /(?<class>\S.*\s+)?(?<src>(?:https?:\/\/|\/|\S+\/)\S+)(?:\s+(?<width>\d+))?(?:\s+(?<height>\d+))?(?<title>\s+.+)?/i
       @img = attributes.reduce({}) { |img, attr| img[attr] = $~[attr].strip if $~[attr]; img }

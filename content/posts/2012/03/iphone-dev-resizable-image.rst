@@ -26,6 +26,7 @@ stretchableImage方法有两个整数参数，分别用来指定图片的左边�
     value from the width of the image:
 
     .. code-block:: objc
+        :linenos: none
 
         rightCapWidth = image.size.width - (image.leftCapWidth + 1);
 
@@ -35,6 +36,7 @@ stretchableImage方法有两个整数参数，分别用来指定图片的左边�
     value from the height of the image:
 
     .. code-block:: objc
+        :linenos: none
 
         bottomCapHeight = image.size.height - (image.topCapHeight + 1);
 

@@ -8,6 +8,8 @@
 :slug: least-common-ancestor
 :summary: 据说这是微软的一道面试题，谁知道呢。问题描述：找出二叉树上任意两个指定结点的最近共同父结点（LCA，Least Common Ancestor）。
 
+.. contents::
+
 据说这是微软的一道面试题，谁知道呢。
 
 问题描述：找出二叉树上任意两个指定结点的最近共同父结点（LCA，Least

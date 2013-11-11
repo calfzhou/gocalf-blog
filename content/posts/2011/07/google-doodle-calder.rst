@@ -29,7 +29,7 @@ Canvas也一无所知。就像电视上有个广告词：“我们不生产水�
 
 .. raw:: html
 
-    <iframe height="320" scrolling="no" src="{filename}/assets/2011/07/doodle_0722.html" title="The Star" width="100%"></iframe>
+    <iframe frameborder="0" height="320" scrolling="no" src="{filename}/assets/2011/07/doodle_0722.html" title="The Star" width="100%"></iframe>
 
 .. _Alexander Calder: http://en.wikipedia.org/wiki/Alexander_Calder
 .. _doodle\_0722\_html: {filename}/assets/2011/07/doodle_0722.html

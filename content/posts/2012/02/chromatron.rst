@@ -162,7 +162,7 @@ Gate）、互补器（Complementor）等等。所有的元件如下图示。
     2-47-hsuHDhyGETNXbS
     2-48-hIwQHFerNyjjzwCvIzdBdExaJLpvHV
     2-49-yDaCritKcoHrusoqKzjzhCJc
-    2-50-OtMzBDBwNdCsNurGuGjHtvjJQKPYubIIochxDhNLsPcCCbym[/cc][/wptabcontent]
+    2-50-OtMzBDBwNdCsNurGuGjHtvjJQKPYubIIochxDhNLsPcCCbym
 
 - Chromatron 3代 v1.1
 

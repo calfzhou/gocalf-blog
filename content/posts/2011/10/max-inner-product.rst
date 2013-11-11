@@ -12,11 +12,11 @@
 
 问题描述：有两个长度均为n的整数数组A和B，现在要从这两个数组中各抽出s个数字，分别构成两个新的数组C和D，要求数组C和D的内积最大。
 
-用数学语言描述一下题目，就是已知：:math:`A=\left[a_1,a_2,\cdots,a_n\right]`，:math:`B=\left[b_1,b_2,\cdots,b_n\right]`；
+用数学语言描述一下题目，就是已知：:math:`A=\left[a_1,a_2,\cdots,a_n\right]`\ ，:math:`B=\left[b_1,b_2,\cdots,b_n\right]`\ ；
 
-求：:math:`C=\left[c_1,c_2,\cdots,c_s\right]`，:math:`D=\left[d_1,d_2,\cdots,d_s\right]`，满足：:math:`\forall c_i\in C,c_i\in A`，:math:`\forall d_i\in D,d_i\in B`；
+求：:math:`C=\left[c_1,c_2,\cdots,c_s\right]`\ ，:math:`D=\left[d_1,d_2,\cdots,d_s\right]`\ ，满足：:math:`\forall c_i\in C,c_i\in A`\ ，:math:`\forall d_i\in D,d_i\in B`\ ；
 
-要使得 C、D 的内积（:math:`C\cdot D=c_1d_1+c_2d_2+\dots+c_s d_s`）最大。
+要使得 C、D 的内积（:math:`C\cdot D=c_1d_1+c_2d_2+\dots+c_s d_s`\ ）最大。
 
 一、先考虑只有正数的情况：
 
@@ -26,7 +26,7 @@
 
 #. 相信很多人都可以轻松地得出这样的结论：从A中选取最大的s个数构成C，从B中选取最大的s个数构成D，才有可能使得C、D内积最大。因为如果用A中的某个较小的数替换C中的任何一个数字，都会导致对应的乘积变小，从而整个内积变小。对于D也是类似的。
 
-#. 对于选定的C和D，如何配对呢？显然，应该让C中最大的数与D中最大的数相乘，C中第二大的数与D中第二大的数相乘，以此类推。这个命题的证明也是很简单的，考虑任意两对数字：:math:`c_i\leq c_j`，:math:`d_k\leq d_l`，显然有
+#. 对于选定的C和D，如何配对呢？显然，应该让C中最大的数与D中最大的数相乘，C中第二大的数与D中第二大的数相乘，以此类推。这个命题的证明也是很简单的，考虑任意两对数字：:math:`c_i\leq c_j`，:math:`d_k\leq d_l`\ ，显然有
 
 .. math::
 

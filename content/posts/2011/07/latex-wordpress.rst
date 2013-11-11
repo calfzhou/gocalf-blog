@@ -34,6 +34,7 @@ WordPress数学公式插件LaTeX
 一个例子：
 
 .. code-block:: latex
+    :linenos: none
 
     $$\begin{array}{rcl}
     p & = & \frac{1}{5}+\frac{2}{5}\times\left(\frac{1}{5}+\frac{2}{5}\times\left(\cdots\right)\right) \\
