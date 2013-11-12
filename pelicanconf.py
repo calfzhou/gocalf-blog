@@ -153,6 +153,7 @@ LINKS = (
 
 SOCIAL = (
     ('Email', 'mailto:calf.zhou+blog@gmail.com'),
+    ('Weibo', 'http://weibo.com/calfzhou'),
     ('Github', 'https://github.com/calfzhou'),
     ('Facebook', 'https://www.facebook.com/calfzhou'),
     ('Twitter', 'https://twitter.com/calfzhou'),
