@@ -3,10 +3,15 @@
 from __future__ import unicode_literals
 
 SITENAME = 'GoCalf Blog'
-SITEURL = ''
+SITEURL = 'http://www.gocalf.com/blog'
 AUTHOR = 'Calf'
 
+# Uncomment following line if you want document-relative URLs when developing
+RELATIVE_URLS = True
+
 TIMEZONE = 'Asia/Shanghai'
+
+DEFAULT_DATE_FORMAT = '%b %d, %Y'
 
 PAGE_DIR = 'pages'
 PAGE_EXCLUDES = ()
@@ -15,7 +20,7 @@ ARTICLE_EXCLUDES = ()
 STATIC_PATHS = [
     'images',
     'assets',
-    'favicon.png',
+    #'favicon.png',
 ]
 
 DEFAULT_CATEGORY = 'uncategorized'
@@ -32,9 +37,6 @@ PYGMENTS_RST_OPTIONS = {'linenos': 'none'}
 
 # Disable future dates, then content with dates in the future will get a default status of draft.
 WITH_FUTURE_DATES = False
-
-# Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
 
 # URL settings #
 
@@ -150,8 +152,47 @@ LINKS = (
 )
 
 SOCIAL = (
-    ('facebook', 'https://www.facebook.com/calfzhou'),
-    ('github', 'https://github.com/calfzhou'),
+    ('Email', 'mailto:calf.zhou+blog@gmail.com'),
+    ('Github', 'https://github.com/calfzhou'),
+    ('Facebook', 'https://www.facebook.com/calfzhou'),
+    ('Twitter', 'https://twitter.com/calfzhou'),
 )
+
+# For Elegant theme #
+
+THEME = 'elegant-theme'
+
+STATIC_PATHS.append('theme/images')
+USE_FAVICON = True
+CUSTOM_CSS = True
+
+DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives', 'search', '404')
+
+PLUGINS = ['tipue_search', 'sitemap', 'extract_toc']
+
+SITEMAP = {
+    'format': 'xml',
+}
+
+MD_EXTENSIONS = ['codehilite(css_class=highlight)', 'extra', 'headerid', 'toc', 'fenced_code', 'footnotes']
+PYGMENTS_RST_OPTIONS = {'linenos': 'table'}
+
+CATEGORY_URL = 'categories.html#{slug}-ref'
+CATEGORY_SAVE_AS = ''
+CATEGORIES_URL = 'categories.html'
+CATEGORIES_SAVE_AS = 'categories.html'
+TAG_URL = 'tags.html#{slug}-ref'
+TAG_SAVE_AS = ''
+TAGS_URL = 'tags.html'
+TAGS_SAVE_AS = 'tags.html'
+AUTHOR_URL = ''
+AUTHOR_SAVE_AS = ''
+AUTHORS_URL = ''
+AUTHORS_SAVE_AS = ''
+ARCHIVES_SAVE_AS = 'archives.html'
+YEAR_ARCHIVE_SAVE_AS = False
+MONTH_ARCHIVE_SAVE_AS = False
+
+DEFAULT_PAGINATION = False
 
 # End #
