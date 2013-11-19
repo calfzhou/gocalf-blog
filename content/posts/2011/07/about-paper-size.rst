@@ -58,6 +58,7 @@ A10    26x37     B10    31x44      C10    28x40
 
 .. figure:: {filename}/images/2011/07/paper_24k.svg
     :alt: paper_24k
+    :width: 346
     
     889x1194 24开本
 
