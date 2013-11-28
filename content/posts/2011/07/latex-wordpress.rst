@@ -7,6 +7,7 @@ WordPress数学公式插件LaTeX
 :tags: LaTeX, Plugin, WordPress, WordPress Plugin, 插件
 :slug: latex-wordpress
 :summary: 为WordPress添加数学公式。
+:depends: mathjax
 
 几年前在我与几个同学一起维护的博客\ `钟磬居`_\ （链接已失效）中，我们使用了\ `dahnielson\_mimetex`_\ （链接已失效）来渲染LaTeX公式（原博文备份至：\ `为你的WordPress站点添加LaTeX支持`_\ ）。
 

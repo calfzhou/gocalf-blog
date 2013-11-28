@@ -7,6 +7,7 @@
 :tags: Algorithm, Google, Math, Puzzle, 智力题
 :slug: puzzle-wwwdot-google-dotcom
 :summary: 一道关于Google的数字游戏题。
+:depends: mathjax
 
 以前见到一道关于Google的数字游戏题目，要求解开隐秘的等式\ ``WWWDOT - GOOGLE = DOTCOM``\ ，每个字母代表十个阿拉伯数字中的一个且各不相同，每个六位数字最高位都不是0，当然显而易见地，E和M是可以互换的。对于一个程序员，解决这个问题是很容易的，但今天我要讲讲小学生是怎么解决这个问题的。
 
