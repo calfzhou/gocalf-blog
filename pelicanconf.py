@@ -11,7 +11,7 @@ RELATIVE_URLS = True
 
 TIMEZONE = 'Asia/Shanghai'
 
-DEFAULT_DATE_FORMAT = '%b %d, %Y'
+DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 
 PAGE_DIR = 'pages'
 PAGE_EXCLUDES = ()
