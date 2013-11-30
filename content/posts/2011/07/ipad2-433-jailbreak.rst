@@ -4,7 +4,8 @@ iPad 2 iOS 4.3.3 可以越狱了
 :modified: 2011-08-03 20:41
 :author: Calf
 :category: 数码电子
-:tags: Apple, iOS, iPad, JailBreak, 越狱
+:tags: iOS JailBreak
+:keywords: iPad 2, Apple, iOS 4, Cydia, AppSync
 :slug: ipad2-433-jailbreak
 :summary: iOS 4.3.3可以越狱了。
 

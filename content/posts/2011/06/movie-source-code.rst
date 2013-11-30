@@ -4,7 +4,8 @@
 :modified: 2011-08-03 20:12
 :author: Calf
 :category: 影视音乐
-:tags: Movie, Quantum, Science Fiction, 电影, 科幻
+:tags: Movie, Science Fiction
+:keywords: Quantum, Source Code, 平行宇宙, 时间旅行
 :slug: movie-source-code
 :summary: 一篇物理学家写的关于电影《源代码》的文章，觉得非常不错，转载于此。
 

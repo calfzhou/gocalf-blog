@@ -4,7 +4,8 @@
 :modified: 2011-09-28 10:05
 :author: Calf
 :category: 算法
-:tags: Algorithm, Heap, Weighted Random Sample, 单次遍历, 带权概率, 最小堆, 概率, 算法题, 随机数, 随机选取, 面试题
+:tags: Interview Question, Probability, Random Sample
+:keywords: Weighted Random Sample, 单次遍历, 带权选取, 最小堆, 算法题, 随机选取, 面试题
 :slug: weighted-random-selection-2
 :summary: 本文介绍一个有趣的算法，用来解决带权随机选取问题：有一组数量未知的数据，每个元素有非负权重。要求只遍历一次，随机选取其中的一个元素，任何一个元素被选到的概率与其权重成正比。
 :depends: mathjax, highcharts

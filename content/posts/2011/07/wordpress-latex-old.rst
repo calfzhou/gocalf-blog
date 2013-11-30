@@ -4,7 +4,8 @@
 :modified: 2011-08-03 22:20
 :author: Calf
 :category: 建站
-:tags: LaTeX, Plugin, WordPress, WordPress Plugin, 插件
+:tags: WordPress LaTeX, WordPress Plugin
+:keywords: LaTeX, MimeTex
 :slug: wordpress-latex-old
 :summary: 如果你的博客跟我们这个一样，也是用WordPress系统搭建的；如果你跟我一样，也希望可以在Blog中用LaTeX书写数学公式，那么这篇文章或许对你有所帮助。
 

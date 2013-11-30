@@ -4,7 +4,8 @@
 :modified: 2011-08-03 20:56
 :author: Calf
 :category: 数学
-:tags: Algorithm, Google, Math, Puzzle, 智力题
+:tags: Puzzle, Google
+:keywords: 智力题, Math Puzzle, WWW DOT GOOGLE DOT COM
 :slug: puzzle-wwwdot-google-dotcom
 :summary: 一道关于Google的数字游戏题。
 :depends: mathjax

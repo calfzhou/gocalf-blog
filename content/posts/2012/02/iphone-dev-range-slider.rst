@@ -4,7 +4,8 @@ iOS自定义范围滑动条控件
 :modified: 2012-12-04 16:58
 :author: Calf
 :category: 程序开发
-:tags: iOS, iPhone 开发, ObjC, Range Slider, UIControl, UISlider, 控件
+:tags: iOS Develop
+:keywords: iPhone开发, ObjC, Range Slider, UIControl, UISlider, 控件
 :slug: iphone-dev-range-slider
 :summary: 前些日子写app的时候遇到一个需求，希望有一个类似于UISlider的东西，但能够选取一个范围，也就是所谓的Range Slider。在网上也能找到很多相关的代码，不过本着学习的态度，还是自己琢磨了一下，就当是为以后写复杂控件做的练习吧。
 

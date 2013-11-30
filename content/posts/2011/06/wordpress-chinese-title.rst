@@ -4,7 +4,8 @@
 :modified: 2011-08-03 20:10
 :author: Calf
 :category: 建站
-:tags: Cufon, Font, Theme, WordPress, 中文, 字体
+:tags: WordPress Theme
+:keywords: Cufon, LightWord, WordPress, 中文, 字体
 :slug: wordpress-chinese-title
 :summary: 如果在WordPress主题中使用了Cufón，中文标题有可能无法显示，这时候只能忍痛割爱，关掉Cufón。
 

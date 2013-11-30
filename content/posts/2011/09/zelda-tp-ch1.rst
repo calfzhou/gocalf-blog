@@ -4,7 +4,8 @@
 :modified: 2011-10-11 20:30
 :author: Calf
 :category: 游戏
-:tags: Game, Twilight Princess, Wii, 任天堂, 塞尔达传说, 游戏攻略, 黎明公主
+:tags: Twilight Princess
+:keywords: Wii, 任天堂, 塞尔达传说, 游戏攻略, 黎明公主
 :slug: zelda-tp-ch1
 :summary: 如你期望那样，你将扮演Link，拯救Zelda公主和Hyrule王国的年轻英雄。在黎明公主中，你将与横行在Hyrule王国的暗影军团战斗。凭借Hyrule大地神奇的力量和你自己的勇气，在一个个迷宫里消灭无数的敌人吧！那么，现在就开始我们的旅程！
 

@@ -4,7 +4,8 @@
 :modified: 2011-08-03 20:36
 :author: Angel
 :category: 日记
-:tags: 仪式, 婚礼, 照片
+:tags: My Wedding
+:keywords: 婚礼, 照片
 :slug: wedding-4
 :summary: 婚礼照片第四部分。
 

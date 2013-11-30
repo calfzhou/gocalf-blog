@@ -4,7 +4,8 @@
 :modified: 2011-12-01 19:53
 :author: Calf
 :category: 游戏
-:tags: Game, Twilight Princess, Wii, 塞尔达传说, 游戏攻略, 黎明公主
+:tags: Twilight Princess
+:keywords: Wii, 塞尔达传说, 游戏攻略, 黎明公主
 :slug: zelda-tp-ch6
 :summary: 回到海拉尔城，林克去特尔玛的酒馆了解信息，得知最近鲁斯尔（Rusl）外出了，林克和那群人谈话后调查地图知道鲁斯尔去了北法隆森林。
 

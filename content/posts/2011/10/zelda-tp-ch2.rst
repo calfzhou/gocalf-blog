@@ -4,7 +4,8 @@
 :modified: 2011-10-12 21:54
 :author: Calf
 :category: 游戏
-:tags: Game, Twilight Princess, Wii, 任天堂, 塞尔达传说, 游戏攻略, 黎明公主
+:tags: Twilight Princess
+:keywords: Wii, 任天堂, 塞尔达传说, 游戏攻略, 黎明公主
 :slug: zelda-tp-ch2
 :summary: 打倒达巴巴之后，林克得到一个完整的心之容器（加一格血）。米德娜出现并将林克传送回法隆之泉处，顺路来到柯洛处，可以补充一点灯油，之前关上的栅栏打开了，过去后就来到海拉尔平原（Hyrule Field）。
 

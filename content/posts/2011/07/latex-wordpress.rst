@@ -4,7 +4,8 @@ WordPress数学公式插件LaTeX
 :modified: 2011-08-03 20:19
 :author: Calf
 :category: 建站
-:tags: LaTeX, Plugin, WordPress, WordPress Plugin, 插件
+:tags: WordPress LaTeX, WordPress Plugin
+:keywords: MimeTeX, LaTeX for WordPress, MathJax, LaTeX
 :slug: latex-wordpress
 :summary: 为WordPress添加数学公式。
 :depends: mathjax

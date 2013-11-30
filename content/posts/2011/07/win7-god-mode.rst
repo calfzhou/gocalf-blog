@@ -4,7 +4,8 @@ Windows7上帝模式
 :modified: 2011-08-03 20:57
 :author: Calf
 :category: 操作系统
-:tags: God Mode, OS, Windows, Windows 7
+:tags: Windows 7
+:keywords: God Mode, Control Panel
 :slug: win7-god-mode
 :summary: 在Windows 7里，“上帝”能做什么？
 

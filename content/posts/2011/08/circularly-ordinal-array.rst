@@ -4,7 +4,8 @@
 :modified: 2012-12-04 17:02
 :author: Calf
 :category: 算法
-:tags: Algorithm, Binary Search, 二分查找, 循环有序数组, 有序数组, 查找算法, 算法题, 面试题
+:tags: Interview Question, Lookup Algorithm
+:keywords: Binary Search, 二分查找, 循环有序数组, 算法题, 面试题
 :slug: circularly-ordinal-array
 :summary: 问题描述：给定一个由n个各不相等的元素构成的循环有序数组（Circularly Ordinal Array），用O(log n) 时间、O(1)辅助空间在其中查找指定的元素。
 

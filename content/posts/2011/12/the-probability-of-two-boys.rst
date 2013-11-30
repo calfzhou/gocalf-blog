@@ -4,7 +4,8 @@
 :modified: 2013-10-14 11:19
 :author: Calf
 :category: 数学
-:tags: 条件概率, 概率, 概率题, 贝叶斯公式, 面试题
+:tags: Interview Question, Probability
+:keywords: 条件概率, 概率题, 贝叶斯公式, 面试题
 :slug: the-probability-of-two-boys
 :summary: 这个问题其实不难，只是很多时候，尤其在没有任何提示的时候，容易想错。条件概率的题目一定要看清楚条件信息。问题描述：老王有两个孩子，已知至少有一个孩子是在星期二出生的男孩。问：两个孩子都是男孩的概率是多大？【假设生男生女的概率相等】
 :depends: mathjax

@@ -4,7 +4,8 @@
 :modified: 2011-10-09 14:59
 :author: Calf
 :category: 互联网
-:tags: RSS订阅, 十大博客, 小百合, 水木十大, 水木社区, 百合十大, 饮水思源
+:tags: RSS Feed
+:keywords: RSS订阅, 十大博客, 小百合, 水木十大, 水木社区, 百合十大, 饮水思源
 :slug: bbs-top-10
 :summary: gdh同学利用Google Blogspot和Google Picasa制作了四个博客，分别收集了清华水木社区、南大小百合、上海交通大学饮水思源和复旦大学日月光华的全站十大，不但保留了文章全文，还存储了图片，几乎是与这几个BBS同步更新的，非常方便。欢迎参观，猛烈点击小广告。
 

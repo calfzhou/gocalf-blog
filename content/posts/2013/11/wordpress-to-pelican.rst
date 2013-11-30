@@ -4,7 +4,8 @@
 :modified: 2013-11-12 14:00
 :author: Calf
 :category: 建站
-:tags: Pelican, WordPress, Static Blog
+:tags: Static Blog, Pelican
+:keywords: WordPress, 静态博客, Octopress, Markdown, reStructuredText, Pelican Theme, Elegant
 :slug: wordpress-to-pelican
 :summary: 经过一段时间的整理，现在正式把GoCalf博客从WordPress迁移到Pelican了。
 

@@ -4,7 +4,8 @@
 :modified: 2011-08-03 20:57
 :author: Calf
 :category: 操作系统
-:tags: App-V, Hide Disk Drive, OS, Registry, SoftGrid, Windows, Windows 7
+:tags: Windows 7
+:keywords: Hide Disk Drive, App-V, SoftGrid
 :slug: hide-drive-q
 :summary: 本文介绍如果隐藏Windows 7中那讨厌的无法访问的磁盘分区Q。
 

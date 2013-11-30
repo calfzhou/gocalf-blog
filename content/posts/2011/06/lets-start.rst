@@ -4,7 +4,8 @@
 :modified: 2011-08-03 20:04
 :author: Calf
 :category: 建站
-:tags: BlueHost, Domain, GoDaddy, Hosting, MediaWiki, WordPress, 建站
+:tags: Hosting, Blog
+:keywords: BlueHost, GoDaddy, MediaWiki, WordPress, htaccess
 :slug: lets-start
 :summary: GoCalf博客正式开张，顺带介绍一下建站的初始步骤。
 

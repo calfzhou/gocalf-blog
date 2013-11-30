@@ -4,7 +4,8 @@
 :modified: 2011-09-13 21:52
 :author: Calf
 :category: 游戏
-:tags: Game, Twilight Princess, Wii, 任天堂, 塞尔达传说, 游戏攻略, 黄昏公主, 黎明公主
+:tags: Twilight Princess
+:keywords: Game, Wii, 任天堂, 塞尔达传说, 游戏攻略, 黄昏公主, 黎明公主
 :slug: zelda-tp-characters
 :summary: 今天来介绍一下《塞尔达传说：黎明公主》中的几位角色，有好的也有敌人。
 

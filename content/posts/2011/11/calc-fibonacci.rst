@@ -4,7 +4,8 @@
 :modified: 2012-12-04 17:00
 :author: Calf
 :category: 算法
-:tags: Fibonacci, Master定理, 大整数运算, 斐波纳契数列, 矩阵乘方, 算法复杂度, 算法题, 面试题
+:tags: Interview Question, Algorithm Complexity, Fibonacci
+:keywords: 大整数运算, 斐波纳契数列, 矩阵乘方, 算法复杂度, 算法题, 面试题
 :slug: calc-fibonacci
 :summary: 问题描述：Fibonacci数（Fibonacci Number）的定义是：F(n) = F(n - 1) + F(n - 2)，并且F(0) = 0，F(1) = 1。对于任意指定的整数n（n >= 0），计算F(n)，并分析算法的时间、空间复杂度。
 :depends: mathjax

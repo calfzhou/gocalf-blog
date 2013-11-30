@@ -4,7 +4,8 @@
 :modified: 2011-10-14 12:56
 :author: Calf
 :category: 算法
-:tags: 双指针, 环检测, 环长, 算法题, 链表, 面试题
+:tags: Interview Question, Data Structure, Linked List
+:keywords: 双指针, 环检测, 算法题, 链表, 面试题
 :slug: circle-of-link-list
 :summary: 问题描述：在单向链表中，每个结点都包含一个指向下一个结点的指针，最后一个结点的这个指针被设置为空。但如果把最后一个结点的指针指向链表中存在的某个结点，就会形成一个环，在顺序遍历链表的时候，程序就会陷入死循环。我们的问题就是，如何检测一个链表中是否有环，如果检测到环，如何确定环的入口点（即求出环长，环前面的链长）。
 

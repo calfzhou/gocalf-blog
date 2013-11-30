@@ -4,7 +4,8 @@ C++中的常量指针和指针常量
 :modified: 2011-08-18 14:06
 :author: Calf
 :category: 程序开发
-:tags: C++, const, Const Pointer, Pointer to Const, 指针, 面试题
+:tags: Interview Question, C++
+:keywords: Const Pointer, Pointer to Const, 指针, 面试题, C++ Pointer
 :slug: cpp-const-and-pointer
 :summary: 仔细回忆一下C++中的指针常量与常量指针的区别，记录于此。
 

@@ -4,7 +4,8 @@ iOS在UIAlertView中显示进度条
 :modified: 2011-12-21 10:31
 :author: Calf
 :category: 程序开发
-:tags: iOS, iPhone 开发, ObjC, progress bar, UIAlertView, UIProgressView, 进度条
+:tags: iOS Develop
+:keywords: iPhone 开发, ObjC, progress bar, UIAlertView, UIProgressView, 进度条
 :slug: iphone-dev-progressview-in-alertview
 :summary: 今天这个问题是，在一个iPhone程序中，我要在后台做大量的数据处理，希望在界面上显示一个进度条（Progress Bar）使得用户了解处理进度。这个进度条应该是在一个模态的窗口中，使界面上其他控件无法被操作。怎么用最简单的方法来实现这个功能？UIAlertView是一个现成的模态窗口，如果能把进度条嵌入到它里面就好了。
 

@@ -4,7 +4,8 @@
 :modified: 2012-03-02 23:09
 :author: Calf
 :category: 操作系统
-:tags: genstrings, Hackintosh, Localizable.strings, Unable to Determine UUID, UUID, 黑苹果
+:tags: Hackintosh
+:keywords: genstrings, Localizable.strings, Unable to Determine UUID, UUID, 黑苹果
 :slug: hackintosh-fix-uuid
 :summary: 前几天在写app的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行genstrings命令来扫描源代码中NSLocalizedString宏所使用到的文字。由于使用的是黑苹果，在运行genstrings时遇到了“Unable to Determine UUID”的错误，解决方法倒也容易。
 

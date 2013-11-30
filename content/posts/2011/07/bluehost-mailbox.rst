@@ -4,7 +4,8 @@
 :modified: 2011-08-03 22:33
 :author: Calf
 :category: 建站
-:tags: A记录, BlueHost, email, GoDaddy, Hosting, Mail Exchanger, MX, 建站
+:tags: BlueHost, Mail Exchanger
+:keywords: Hosting, BlueHost Email, DNS Manager, MX, A记录, @地址
 :slug: bluehost-mailbox
 :summary: 在之前的一篇文章中提到GoCalf网站的Email部分还没弄好，当时遇到的问题是可以发出邮件，却无法接收邮件。问题根源在于DNS没有设置好（空间跟域名来自不同的提供商），今天花了一点儿时间把这个问题解决了。
 

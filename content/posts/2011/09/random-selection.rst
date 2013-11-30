@@ -4,7 +4,8 @@
 :modified: 2011-09-23 20:49
 :author: Calf
 :category: 算法
-:tags: Algorithm, Coroutines and Generators, Random Sample, Random Selection, 单次遍历, 概率, 相等权重, 等概率, 算法题, 随机数, 随机选取, 面试题
+:tags: Interview Question, Probability, Random Sample
+:keywords: Coroutines and Generators, 单次遍历, 等概率, 算法题, 随机选取, 面试题
 :slug: random-selection
 :summary: 问题描述：假设我们有一堆数据（可能在一个链表里，也可能在文件里），数量未知。要求只遍历一次这些数据，随机选取其中的一个元素，任何一个元素被选到的概率相等。O(n)时间，O(1)辅助空间（n是数据总数，但事先不知道）。
 :depends: mathjax
