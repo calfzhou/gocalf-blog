@@ -6,7 +6,7 @@
 :category: 建站
 :tags: HTML, SVG
 :keywords: Scalable Vector Graphics, Auto Scale
-:slug: scale-embedded-svg.rst
+:slug: scale-embedded-svg
 :summary: 在HTMl页面中用<object>标签嵌入的SVG图片如何能跟随窗口大小自动缩放呢？
 
 以前不知道出于什么原因，一直仅仅钟爱于PNG图片，对矢量图完全没有兴趣。最近突然觉得矢量图才是王道啊。
