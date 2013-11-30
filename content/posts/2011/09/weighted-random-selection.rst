@@ -295,6 +295,22 @@ style）：
 
 Mathematica提供了RandomSample函数，支持带权选取，当然它是在遍历之前就已经知道元素个数的。给它一组等差分布的权重，可以看出十万次随机选取后得到的概率分布与上面的理论分布非常接近。
 
+.. code-block:: text
+    :linenos: none
+
+    count = 10;
+    weights = Range[count];
+    elems = Range[count];
+    retry = 100000;
+    map = Table[
+        freq = ConstantArray[0, count];
+        For [i = 0, i < retry, i++,
+            freq += BinCounts[RandomSample[weights -> elems, m], {1, count + 1, 1}]
+        ];
+        freq, {m, 1, count, 1}
+    ];
+    ListLinePlot[map / retry, PlotMarkers -> Automatic]
+
 .. figure:: {filename}/images/2011/09/mathematica_random_sample.png
     :alt: mathematica_random_sample
     
