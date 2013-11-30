@@ -7,6 +7,7 @@
 :tags: My Wedding
 :keywords: 婚礼, 照片
 :slug: wedding-4
+:status: draft
 :summary: 婚礼照片第四部分。
 
 第四部分：婚礼仪式。

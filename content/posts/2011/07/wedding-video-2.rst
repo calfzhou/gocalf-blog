@@ -7,6 +7,7 @@
 :tags: My Wedding
 :keywords: 婚礼, 录像
 :slug: wedding-video-2
+:status: draft
 :summary: 婚礼的录像有一个多小时，忒长鸟~~，在此，仅截取开头四分钟的小片头展示一下吧，每个环节都有一滴滴。hoho~~
 
 婚礼的录像有一个多小时，忒长鸟~~，在此，仅截取开头四分钟的小片头展示一下吧，每个环节都有一滴滴。hoho~~

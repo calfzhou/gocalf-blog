@@ -7,6 +7,7 @@
 :tags: My Wedding
 :keywords: 婚礼, 成长相册
 :slug: wedding-video-1
+:status: draft
 :summary: 为了这个婚礼的开场视频，两个人翻箱倒柜地忆童年折腾了好久。用心做的成长相册，分享一下吧~ ：）
 
 为了这个婚礼的开场视频，两个人翻箱倒柜地忆童年折腾了好久。用心做的成长相册，分享一下吧~ ：）

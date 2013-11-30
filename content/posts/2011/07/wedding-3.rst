@@ -7,6 +7,7 @@
 :tags: My Wedding
 :keywords: 婚礼, 照片
 :slug: wedding-3
+:status: draft
 :summary: 婚礼照片第三部分。
 
 第三部分：婚礼准备。

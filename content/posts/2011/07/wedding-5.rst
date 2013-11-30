@@ -7,6 +7,7 @@
 :tags: My Wedding
 :keywords: 婚礼, 照片
 :slug: wedding-5
+:status: draft
 :summary: 婚礼照片第五部分。
 
 第五部分：婚宴。
