@@ -169,7 +169,7 @@ CUSTOM_CSS = True
 
 DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives', 'search', '404')
 
-PLUGINS = ['tipue_search', 'sitemap', 'extract_toc']
+PLUGINS = ['tipue_search', 'sitemap', 'extract_toc', 'neighbors']
 
 SITEMAP = {
     'format': 'xml',
