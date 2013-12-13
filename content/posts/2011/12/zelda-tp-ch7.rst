@@ -176,7 +176,7 @@
 
 **房间3：**\ 从右边用飞爪过去可以到对面取得小钥匙，然后返回房间2，过桥后龙会把桥撞断，之后进房间2走西面的门出去。阳台左边又有一个陀螺仪机关，打开后会出现到房间4的桥，过去到房间4。
 
-.. image:: {filename}/images/2011/12/tp_ch07_15.jpg
+.. figure:: {filename}/images/2011/12/tp_ch07_15.jpg
     :alt: tp_ch07_15
     :target: {filename}/images/2011/12/tp_ch07_15.jpg
     :width: 500
@@ -277,7 +277,7 @@
 
 **房间14：**\ 先从藤条上到房间上层，然后从右边沿着绳索一直到2层西面的门进入房间15。
 
-.. image:: {filename}/images/2011/12/tp_ch07_26.jpg
+.. figure:: {filename}/images/2011/12/tp_ch07_26.jpg
     :alt: tp_ch07_26
     :target: {filename}/images/2011/12/tp_ch07_26.jpg
     :width: 500

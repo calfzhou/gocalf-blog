@@ -124,7 +124,7 @@
    .. _h05:
 #. **奥当村(Ordon Village)：**\ 在完成Goron Mines后，Epona重回身边。在这之后前往Ordon Village，在白天到牧场，喊出Epona，然后与Fado对话可以接到驱赶山羊的任务，成功后获得。
 
-   .. image:: {filename}/images/2012/01/heart_pieces_1_small.jpg
+   .. figure:: {filename}/images/2012/01/heart_pieces_1_small.jpg
        :alt: heart_pieces_1
        :target: {filename}/images/2012/01/heart_pieces_1.jpg
 
@@ -143,7 +143,7 @@
    .. _h10:
 #. **卡卡里克村(Kakariko Village)：**\ 在村子南方的尽头有一处精灵之泉，在这里的西边可以看到大量的礁石，炸开石头可以看到一个洞穴。顺着里面的路到达池塘前，使用磁力靴沉到水底就可以看到宝箱。
 
-   .. image:: {filename}/images/2012/01/heart_pieces_2_small.jpg
+   .. figure:: {filename}/images/2012/01/heart_pieces_2_small.jpg
        :alt: heart_pieces_2
        :target: {filename}/images/2012/01/heart_pieces_2.jpg
 
@@ -162,7 +162,7 @@
    .. _h15:
 #. **海利亚湖(Lake Hylia)：**\ 在（雷纳尔地区）Lanayru的精灵之泉后面有一间房间，使用钩枪可以抓住附近的树藤可以到达一个房间，在里面点燃两支火把就可以获得奖励。
 
-   .. image:: {filename}/images/2012/01/heart_pieces_3_small.jpg
+   .. figure:: {filename}/images/2012/01/heart_pieces_3_small.jpg
        :alt: heart_pieces_3
        :target: {filename}/images/2012/01/heart_pieces_3.jpg
 
@@ -181,7 +181,7 @@
    .. _h20:
 #. **沙漠刑场(Arbiters Grounds)：**\ 在获得滑动齿轮后，前往地下室东北角的房间，在墙壁的标志处使用滑轮可以到达房中央的宝箱处。
 
-   .. image:: {filename}/images/2012/01/heart_pieces_4_small.jpg
+   .. figure:: {filename}/images/2012/01/heart_pieces_4_small.jpg
        :alt: heart_pieces_4
        :target: {filename}/images/2012/01/heart_pieces_4.jpg
 
@@ -200,7 +200,7 @@
    .. _h25:
 #. **时之神殿(Temple of Time)：**\ 在拿到统治权杖后，返回神殿的大门，在房间的第五层最南部的房间，使用统治权杖让两塑雕像分别（沿着东边和西边的小路）打开各自开关，就会出现宝箱。
 
-   .. image:: {filename}/images/2012/01/heart_pieces_5_small.jpg
+   .. figure:: {filename}/images/2012/01/heart_pieces_5_small.jpg
        :alt: heart_pieces_5
        :target: {filename}/images/2012/01/heart_pieces_5.jpg
 
@@ -219,7 +219,7 @@
    .. _h30:
 #. **黎明宫殿(Palace of Twilight)：**\ 当获得光之剑后，前往宫殿西翼（West Wing），在第一个房间劈散雾可以出现一个新的传送台，可以带你到达宝箱处。
 
-   .. image:: {filename}/images/2012/01/heart_pieces_6_small.jpg
+   .. figure:: {filename}/images/2012/01/heart_pieces_6_small.jpg
        :alt: heart_pieces_6
        :target: {filename}/images/2012/01/heart_pieces_6.jpg
 
@@ -238,7 +238,7 @@
    .. _h35:
 #. **海利亚湖(Lake Hylia)：**\ （以狼的形态）与湖西边的Plumm对话，可以接到一个打水果气球的迷你游戏，获得10000分就可以得到心之碎片的奖励。诀窍是连续击中双倍分数的水果，如一长串的草莓。
 
-   .. image:: {filename}/images/2012/01/heart_pieces_7_small.jpg
+   .. figure:: {filename}/images/2012/01/heart_pieces_7_small.jpg
        :alt: heart_pieces_7
        :target: {filename}/images/2012/01/heart_pieces_7.jpg
 
@@ -257,7 +257,7 @@
    .. _h40:
 #. **海拉尔城(Castle Town)：**\ 在城东的路上可以找到一名穿着绿色礼服的人，他一次可以接收30或50的卢比，如果你给足他1000，他就会给你一枚心之碎片作为回报。
 
-   .. image:: {filename}/images/2012/01/heart_pieces_8_small.jpg
+   .. figure:: {filename}/images/2012/01/heart_pieces_8_small.jpg
        :alt: heart_pieces_8
        :target: {filename}/images/2012/01/heart_pieces_8.jpg
 
@@ -276,7 +276,7 @@
    .. _h45:
 #. **海拉尔平原(Hyrule Field)：**\ 出Hyrule Castle往北走，沿着北部的石道直到看到一处被大石档住的洞穴，炸掉石头后，可以利用链球将冰块去处，解答完出现的三个推箱子谜题后获得。
 
-   .. image:: {filename}/images/2012/01/heart_pieces_9_small.jpg
+   .. figure:: {filename}/images/2012/01/heart_pieces_9_small.jpg
        :alt: heart_pieces_9
        :target: {filename}/images/2012/01/heart_pieces_9.jpg
 

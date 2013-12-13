@@ -130,7 +130,7 @@
 
 **房间8：**\ 这里会遇到两个冰骷髅，站到一定距离的话他们会扔冰矛攻击林克，不过可以站到更远的地方用炸弹箭攻击他们，当然也可以直接冲上去砍掉，干掉他们两个后朝南面到亚塔标记的房间9。
 
-.. image:: {filename}/images/2011/11/tp_ch05_11.jpg
+.. figure:: {filename}/images/2011/11/tp_ch05_11.jpg
     :alt: tp_ch05_11
     :target: {filename}/images/2011/11/tp_ch05_11.jpg
     :width: 500

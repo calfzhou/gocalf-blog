@@ -138,7 +138,7 @@
 
 **房间5：**\ 房间5的墙壁可以用雕像全部破坏掉，另外让雕像在里面踩下机关关闭电网后可以取得\ `心之碎片24`_\ ，随后将雕像带回楼下的钟处，传送回房间3。
 
-.. image:: {filename}/images/2011/12/tp_ch06_13.jpg
+.. figure:: {filename}/images/2011/12/tp_ch06_13.jpg
     :alt: tp_ch06_13
     :target: {filename}/images/2011/12/tp_ch06_13.jpg
     :width: 500
