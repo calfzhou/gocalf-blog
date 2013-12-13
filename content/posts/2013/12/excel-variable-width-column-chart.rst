@@ -1,13 +1,14 @@
 在Excel中制作不等宽柱状图
 #########################
 :date: 2013-12-13 14:35
-:modified: 2013-12-13 14:35
+:modified: 2013-12-13 22:40
 :author: Calf
 :category: 有用知识
 :tags: Excel
 :keywords: Microsoft Excel, Variable Width Column Chart, Marimekko Chart, 不等宽柱状图, Excel Table, Area Chart
 :slug: excel-variable-width-column-chart
 :summary: 介绍一下我是怎么在Microsoft Office Excel中制作不等宽柱状图（Variable Width Column Chart）的。
+:depends: highcharts
 
 .. contents::
 
@@ -284,7 +285,88 @@ Range对话框，将数据范围设置为TableData的X列整列数据。然后�
 -   使用Excel表的示例文件：\ `variable_width_column.xlsx`_
 -   不用Excel表的示例文件：\ `variable_width_column_no_table.xlsx`_
 
+Highcharts版本
+==============
+
+`GoCalf博客`_\ 使用\ `Highcharts`_\ 渲染动态图表。Highchart也并不直接支持不等宽柱状图，但是可以用完全相同的方法来进行模拟。具体的过程不再赘述，效果参见下图，源代码可以通过本页面的HTML源码获得，或者查看\ `我共享的jsfiddle`_\ ：
+
+http://jsfiddle.net/calfzhou/TUt2U/
+
+.. raw:: html
+
+    <div id="variable-width-column-chart" class="highcharts" style="height: 400px; width: 640px"></div>
+    <script type="text/javascript">
+    $(function () {
+        var rawData = [
+            { name: 'A', x: 5.2, y: 5.6 },
+            { name: 'B', x: 3.9, y: 10.1 },
+            { name: 'C', x: 11.5, y: 1.2 },
+            { name: 'D', x: 2.4, y: 17.8 },
+            { name: 'E', x: 8.1, y: 8.4 }
+        ];
+        function makeSeries(listOfData) {
+            var sumX = 0.0;
+            for (var i = 0; i < listOfData.length; i++) {
+                sumX += listOfData[i].x;
+            }
+            var gap = sumX / rawData.length * 0.2;
+            var allSeries = []
+            var x = 0.0;
+            for (var i = 0; i < listOfData.length; i++) {
+                var data = listOfData[i];
+                allSeries[i] = {
+                    name: data.name,
+                    data: [
+                        [x, 0], [x, data.y],
+                        {
+                            x: x + data.x / 2.0,
+                            y: data.y,
+                            dataLabels: { enabled: true, format: data.x + ' x {y}' }
+                        },
+                        [x + data.x, data.y], [x + data.x, 0]
+                    ],
+                    w: data.x,
+                    h: data.y
+                };
+                x += data.x + gap;
+            }
+            return allSeries;
+        }
+        $('#variable-width-column-chart').highcharts({
+            chart: { type: 'area', backgroundColor: null },
+            title: { text: 'Variable Width Column Chart' },
+            xAxis: {
+                tickLength: 0,
+                labels: { enabled: false}
+            },
+            yAxis: {
+                title: { enabled: false}
+            },
+            plotOptions: {
+                area: {
+                    marker: {
+                        enabled: false,
+                        states: {
+                            hover: { enabled: false }
+                        }
+                    }
+                }
+            },
+            tooltip: {
+                followPointer: true,
+                useHTML: true,
+                headerFormat: '<span style="color: {series.color}">{series.name}</span>: ',
+                pointFormat: '<span>{series.options.w} x {series.options.h}</span>'
+            },
+            series: makeSeries(rawData)
+        });
+    });
+    </script>
+
 .. _官方的文档: http://office.microsoft.com/en-us/excel-help/overview-of-excel-tables-HA010048546.aspx
 .. _中文文档: http://office.microsoft.com/zh-cn/excel-help/overview-of-excel-tables-HA010048546.aspx
 .. _variable_width_column.xlsx: {filename}/assets/2013/12/variable_width_column.xlsx
 .. _variable_width_column_no_table.xlsx: {filename}/assets/2013/12/variable_width_column_no_table.xlsx
+.. _GoCalf博客: http://www.gocalf.com/
+.. _Highcharts: http://www.highcharts.com/
+.. _我共享的jsfiddle: http://jsfiddle.net/calfzhou/TUt2U/
