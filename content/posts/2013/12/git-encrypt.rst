@@ -32,7 +32,7 @@
 
 简单介绍一下如何使用，更准确的操作方式就直接去看项目的官方文档好了。
 
-首先安装，我选择的git-encrypt是用Shell写的，所谓安装就是clone一下它的repo，建立一个符号链接使得通过$PATH可以找到它即可。当然，你的系统中必须安装了openssl，它是加密解密的核心啊。
+首先安装，我选择的git-encrypt是用Shell写的，所谓安装就是clone一下它的repo，建立一个符号链接使得通过$PATH可以找到它即可。当然，你的系统中必须安装了OpenSSL，它是加密解密的核心啊。
 
 项目中有两个脚本文件，我只用其中的“gitcrypt”，另一个感觉不太好用。
 
@@ -56,7 +56,7 @@
     cd myrepo
     git init
 
-然后就要做好加密解密的准备工作了，直接在本地仓库的根目录运行\ ``gitcrypt init``\ 命令，根据提示输入相应的信息。它首先会问你是否需要生成一个随机的salt值和密码，你可以同意或拒绝，拒绝的话就自己提供salt值和密码。如果你只有这个本地仓库，那建议直接使用随机生成的，那样足够复杂，更安全些。如果还需要在别的机器上clone这个仓库，那还是自己设置一下，免得忘了密码。然后选择加密算法，默认的是aes-256-ecb。接下来会问你是否使用\ ``.git/info/attribute``\ ，选择是就好了。最后问你需要对什么文件进行加密，默认是\ ``*``\ 表示所有文件。你可以根据需要进行设置，比如我这里让它加密所有以“private-”开头的文件，就输入\ ``private-*``\ 。
+然后就要做好加密解密的准备工作了，直接在本地仓库的根目录运行\ ``gitcrypt init``\ 命令，根据提示输入相应的信息。它首先会问你是否需要生成一个随机的salt值和密码，你可以同意或拒绝，拒绝的话就自己提供salt值和密码。如果你只有这个本地仓库，那建议直接使用随机生成的，那样足够复杂，更安全些。如果还需要在别的机器上clone这个仓库，那还是自己设置一下，免得忘了密码。然后选择加密算法，默认的是aes-256-ecb（ECB加密模式比较简单，相对容易破解，推荐使用aes-256-cbc；当然OpenSSL提供了很多加密算法，大家可以自行选择；另外，发现一篇很直观的文章，可以看看，\ `分组对称加密模式`_\ ）。接下来会问你是否使用\ ``.git/info/attribute``\ ，选择是就好了。最后问你需要对什么文件进行加密，默认是\ ``*``\ 表示所有文件。你可以根据需要进行设置，比如我这里让它加密所有以“private-”开头的文件，就输入\ ``private-*``\ 。
 
 好了，完成了。接下来就正常地在仓库里提交各种文件，但只要文件名是以“private-”开头的，都会被加密后再被提交。
 
@@ -116,7 +116,7 @@
 
 最后，一些关于transparent git encryption的讨论：
 
--   `GIT transparent encryption`_
+-   `GIT transparent encryption`_ or https://gist.github.com/shadowhand/873637
 -   `Transparently encrypt repository contents with GPG`_
 
 当然也有反对的声音，所以建议大家先多了解了解再决定要不要使用这个方法。
@@ -126,6 +126,7 @@
 .. _Dropbox: https://www.dropbox.com/
 .. _GitHub: https://github.com/
 .. _TrueCrypt: http://www.truecrypt.org/
+.. _分组对称加密模式: http://blog.csdn.net/aaaaatiger/article/details/2525561
 .. _Rainbow table: http://en.wikipedia.org/wiki/Rainbow_table
 .. _GIT transparent encryption: http://syncom.appspot.com/papers/git_encryption.txt
 .. _Transparently encrypt repository contents with GPG: http://git.661346.n2.nabble.com/Transparently-encrypt-repository-contents-with-GPG-td2470145.html
