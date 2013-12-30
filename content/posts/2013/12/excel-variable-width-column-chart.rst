@@ -334,6 +334,7 @@ http://jsfiddle.net/calfzhou/TUt2U/
         }
         $('#variable-width-column-chart').highcharts({
             chart: { type: 'area', backgroundColor: null },
+            colors: ['#3399ff', '#ff3300', '#9fd42e', '#ff9900', '#ff6633'],
             title: { text: 'Variable Width Column Chart' },
             xAxis: {
                 tickLength: 0,

@@ -63,7 +63,7 @@ p。函数MakeEqualProb利用参数coin（这枚不均匀硬币）构造出两�
     $(function () {
         $('#coin-prob-chart').highcharts({
             chart: { type: 'line', backgroundColor: null },
-            colors: ['#2f7ed8', '#910000'],
+            colors: ['#3399ff', '#ff3300'],
             title: { text: null },
             xAxis: { min: 0, max: 1, tickInterval: 0.1 },
             yAxis: { min: 0, max: 1, tickInterval: 0.1, title: { text: null } },
