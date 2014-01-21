@@ -165,11 +165,10 @@ THEME = 'elegant-theme'
 
 STATIC_PATHS.append('theme/images')
 USE_FAVICON = True
-CUSTOM_CSS = True
 
 DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives', 'search', '404')
 
-PLUGINS = ['tipue_search', 'sitemap', 'extract_toc', 'neighbors']
+PLUGINS = ['tipue_search', 'sitemap', 'extract_toc', 'neighbors', 'assets']
 
 SITEMAP = {
     'format': 'xml',
