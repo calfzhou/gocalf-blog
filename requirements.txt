@@ -1,0 +1,8 @@
+# For tipuesearch and extract_toc plugin.
+beautifulsoup4
+
+# For assets plugin.
+webassets
+cssmin
+
+#-r pelican/dev_requirements.txt
