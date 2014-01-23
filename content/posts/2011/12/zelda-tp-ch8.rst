@@ -7,6 +7,7 @@
 :tags: Twilight Princess
 :keywords: Wii, 塞尔达传说, 游戏攻略, 黎明公主
 :slug: zelda-tp-ch8
+:parts: twilight-princess
 :summary: 在离开天空之城回到陆地上以后，林克可以开始搜集所有散落在大陆上的心之碎片和金色小虫了，24只金色小虫能换取装1000卢比的钱包，另外还可以开始凑钱买第三套铠甲。
 
 第八章 黎明之前的黑暗（伪王）

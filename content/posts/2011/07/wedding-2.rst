@@ -8,6 +8,7 @@
 :keywords: 婚礼, 照片
 :slug: wedding-2
 :status: draft
+:parts: my-wedding
 :summary: 婚礼照片第二部分。
 
 第二部分：迎亲

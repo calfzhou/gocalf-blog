@@ -7,6 +7,7 @@
 :tags: Interview Question, Probability, Random Sample
 :keywords: Random Selection, Weighted Random Sample, 单次遍历, 带权选取, 算法题, 随机选取, 面试题
 :slug: weighted-random-selection
+:parts: random-selection
 :summary: 问题描述：有一组数量未知的数据，每个元素有非负权重。要求只遍历一次，随机选取其中的一个元素，任何一个元素被选到的概率与其权重成正比。
 :depends: mathjax, highcharts
 

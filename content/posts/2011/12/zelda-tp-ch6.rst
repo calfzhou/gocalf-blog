@@ -7,6 +7,7 @@
 :tags: Twilight Princess
 :keywords: Wii, 塞尔达传说, 游戏攻略, 黎明公主
 :slug: zelda-tp-ch6
+:parts: twilight-princess
 :summary: 回到海拉尔城，林克去特尔玛的酒馆了解信息，得知最近鲁斯尔（Rusl）外出了，林克和那群人谈话后调查地图知道鲁斯尔去了北法隆森林。
 
 第六章 时间遗忘的裂缝（时之神殿）

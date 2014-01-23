@@ -7,6 +7,7 @@
 :tags: Twilight Princess
 :keywords: Wii, 任天堂, 塞尔达传说, 游戏攻略, 黎明公主
 :slug: zelda-tp-appendix
+:parts: twilight-princess
 :summary: 这里记录《塞尔达传说：黎明公主》中主要剧情之外的一些信息。
 
 .. contents::
