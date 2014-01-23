@@ -168,7 +168,7 @@ USE_FAVICON = True
 
 DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives', 'search', '404')
 
-PLUGINS = ['tipue_search', 'sitemap', 'extract_toc', 'neighbors', 'assets']
+PLUGINS = ['tipue_search', 'sitemap', 'extract_toc', 'neighbors', 'related_posts', 'multi_part']
 
 SITEMAP = {
     'format': 'xml',

@@ -22,5 +22,9 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
 
+# Only minify assets when publishing.
+if 'assets' not in PLUGINS:
+    PLUGINS.append('assets')
+
 DISQUS_SITENAME = 'gocalfblog'
 GOOGLE_ANALYTICS = 'UA-24210758-2'
