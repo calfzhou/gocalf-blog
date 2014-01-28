@@ -166,9 +166,12 @@ THEME = 'elegant-theme'
 STATIC_PATHS.append('theme/images')
 USE_FAVICON = True
 
+TWITTER_USERNAME = 'calfzhou'
+GOOGLE_PLUS_PROFILE_URL = 'https://plus.google.com/112983042847560253980/posts'
+
 DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives', 'search', '404')
 
-PLUGINS = ['tipue_search', 'sitemap', 'extract_toc', 'neighbors', 'related_posts', 'multi_part']
+PLUGINS = ['tipue_search', 'sitemap', 'extract_toc', 'neighbors', 'related_posts', 'multi_part', 'share_post']
 
 SITEMAP = {
     'format': 'xml',
