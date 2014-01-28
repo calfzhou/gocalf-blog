@@ -284,7 +284,7 @@
 
 .. raw:: html
 
-    <script>
+    <script type="text/javascript">
     function translateNumber(numberText) {
         var CHINESE_NEGATIVE = "负";
         var CHINESE_ZERO = "零";
