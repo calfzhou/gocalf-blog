@@ -6,6 +6,7 @@ Hello world!
 :category: 建站
 :tags: WordPress
 :slug: hello-world
+:lang: en
 :summary: Welcome to WordPress.
 
 Welcome to WordPress.
