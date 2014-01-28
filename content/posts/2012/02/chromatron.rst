@@ -7,6 +7,7 @@
 :tags: Puzzle
 :keywords: Chromatron, 光线反射, 反光镜, 显像管, 游戏攻略, 益智游戏
 :slug: chromatron
+:featured_image: http://www.gocalf.com/blog/images/2012/02/chromatron_icon.png
 :summary: Chromatron，翻译过来是彩色显像管。顾名思义，这个游戏是关于光线反射的。在网络中还流传着很多这个游戏的Flash版，都是山寨的，抄袭了这个游戏的关卡和操作方式。这是个相当古老的游戏了，好多年前就玩了它的第一代和第二代，后来又陆续玩了第三代和第四代。第三代有几关是前些日子才玩出来的，整理一下留作纪念。
 
 Chromatron，翻译过来是彩色显像管。顾名思义，这个游戏是关于光线反射的。在网络中还流传着很多这个游戏的Flash版，都是山寨的，抄袭了这个游戏的关卡和操作方式。

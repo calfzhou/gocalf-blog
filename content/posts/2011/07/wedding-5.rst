@@ -9,6 +9,7 @@
 :slug: wedding-5
 :status: draft
 :parts: my-wedding
+:featured_image: http://www.gocalf.com/blog/images/2011/07/wedding-icon.jpg
 :summary: 婚礼照片第五部分。
 
 第五部分：婚宴。

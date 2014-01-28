@@ -7,6 +7,7 @@
 :tags: Hosting, Blog
 :keywords: BlueHost, GoDaddy, MediaWiki, WordPress, htaccess
 :slug: lets-start
+:featured_image: http://www.gocalf.com/blog/images/2011/06/start.png
 :summary: GoCalf博客正式开张，顺带介绍一下建站的初始步骤。
 
 像我这种很懒又很挑剔的人，最大的痛苦就是to-do

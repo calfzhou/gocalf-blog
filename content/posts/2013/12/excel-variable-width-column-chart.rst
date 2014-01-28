@@ -7,6 +7,7 @@
 :tags: Excel
 :keywords: Microsoft Excel, Variable Width Column Chart, Marimekko Chart, 不等宽柱状图, Excel Table, Area Chart
 :slug: excel-variable-width-column-chart
+:featured_image: http://www.gocalf.com/blog/images/2013/12/variable_width_icon.png
 :summary: 介绍一下我是怎么在Microsoft Office Excel中制作不等宽柱状图（Variable Width Column Chart）的。
 :depends: highcharts
 

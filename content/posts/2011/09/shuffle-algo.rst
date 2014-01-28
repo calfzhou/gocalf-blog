@@ -7,6 +7,7 @@
 :tags: Interview Question, Probability
 :keywords: Shuffle, 随机排列, 洗牌算法, 等概率, 算法题, 面试题
 :slug: shuffle-algo
+:featured_image: http://www.gocalf.com/blog/images/2011/09/cards_shuffle.png
 :summary: 问题描述：假设有一个数组，包含n个元素。现在要重新排列这些数据，要求每个元素被放到任何一个位置的概率都相等（即1/n），并且直接在数组上重排（in place），不要生成新的数组。用O(n)时间、O(1)辅助空间。
 :depends: mathjax
 

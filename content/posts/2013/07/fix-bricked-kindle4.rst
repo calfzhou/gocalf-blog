@@ -7,6 +7,7 @@ Kindle4修砖记
 :tags: Kindle
 :keywords: Kindle 4, unbrick, USB Net, Your Kindle Needs Repair, 修砖
 :slug: fix-bricked-kindle4
+:featured_image: http://www.gocalf.com/blog/images/2013/07/kindle_needs_repair.png
 :summary: 入手一年的Kindle4突然变成砖头了，屏幕显示“Your Kindle Needs Repair”，花了大半个晚上的时间才修好它，简单记录一下。
 
 .. contents::

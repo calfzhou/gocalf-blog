@@ -7,6 +7,7 @@ WordPress数学公式插件LaTeX
 :tags: WordPress LaTeX, WordPress Plugin
 :keywords: MimeTeX, LaTeX for WordPress, MathJax, LaTeX
 :slug: latex-wordpress
+:featured_image: http://www.gocalf.com/blog/images/2011/07/wordpress_latex.png
 :summary: 为WordPress添加数学公式。
 :depends: mathjax
 

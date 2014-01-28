@@ -9,6 +9,7 @@
 :slug: wedding-3
 :status: draft
 :parts: my-wedding
+:featured_image: http://www.gocalf.com/blog/images/2011/07/wedding-icon.jpg
 :summary: 婚礼照片第三部分。
 
 第三部分：婚礼准备。

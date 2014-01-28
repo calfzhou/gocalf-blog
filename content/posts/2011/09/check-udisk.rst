@@ -7,6 +7,7 @@ U盘检测软件：ChipGenius，MyDiskTest
 :tags: FlashDisk, Disk Check
 :keywords: ChipGenius, MyDiskTest, U盘检测, 优盘检测, 移动存储, 金士顿U盘
 :slug: check-udisk
+:featured_image: http://www.gocalf.com/blog/images/2011/09/usbdrive.png
 :summary: 以前买到过一个假冒的8GB U盘，是用劣质的4GB芯片改装的，后来用软件检测出来了，今天来分享一下。
 
 几年前的事情了。有一次去北邮玩，看到校园里有卖U盘的摊位，问了问价格，8GB的金士顿U盘99块钱。正好头一天有个同事跟我说最近U盘降价了，8GB才99，于是心里一痒痒就买了一个。回来用着就感觉不对劲，读写速度超慢不说，放的东西多了之后就有好多读不出来。赶紧找了软件来检测，果然是假货，是用4GB的假冒机芯改装的。今天分享一下检测用的软件和方法。

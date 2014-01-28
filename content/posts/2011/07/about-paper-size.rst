@@ -7,6 +7,7 @@
 :tags: Paper Size
 :keywords: 开本, A4纸大小, 16开纸, 32开纸, 纸张大小
 :slug: about-paper-size
+:featured_image: http://www.gocalf.com/blog/images/2011/07/paper.png
 :summary: 小时候常说的16开、32开的纸是多大？现在打印复印用的A3、A4、B5纸又分别是多大？看到书架里高矮宽窄各不同的书本，赶紧上网查了一番，总结于此。
 :depends: mathjax
 

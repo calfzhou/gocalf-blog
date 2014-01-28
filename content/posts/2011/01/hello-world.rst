@@ -7,6 +7,7 @@ Hello world!
 :tags: WordPress
 :slug: hello-world
 :lang: en
+:featured_image: http://www.gocalf.com/blog/images/2011/01/wordpress_logo.png
 :summary: Welcome to WordPress.
 
 Welcome to WordPress.

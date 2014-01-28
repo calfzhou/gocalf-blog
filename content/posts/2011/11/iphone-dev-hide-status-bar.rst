@@ -7,6 +7,7 @@ iOS隐藏系统状态栏
 :tags: iOS Develop
 :keywords: iPhone开发, ObjC, setStatusBarHidden, Status Bar, UIApplication, 隐藏状态栏
 :slug: iphone-dev-hide-status-bar
+:featured_image: http://www.gocalf.com/blog/images/2011/11/hide_status_bar.png
 :summary: 最近在写iPhone上的程序，第一次在Mac下进行开发，也是第一次写手机上的程序，虽然之前看了少许相关的书籍，但在开发的过程中还是遇到了很多的问题。在这个系列中记录一些遇到的实际的问题，方便淡忘了之后再次查阅。今天的问题是怎么在App中隐藏系统状态栏（Status Bar）。
 
 .. contents::

@@ -7,6 +7,7 @@
 :tags: WordPress LaTeX, WordPress Plugin
 :keywords: MathJax, LaTeX for WordPress, LaTeX
 :slug: latex-plugin-more
+:featured_image: http://www.gocalf.com/blog/images/2011/07/tex.png
 :summary: 对LaTeX for WordPress插件做了一点小小的改动，修复了在启用MathJax时无法显示公式源码的问题。还将公式的shortcode限定为latex。
 :depends: mathjax
 

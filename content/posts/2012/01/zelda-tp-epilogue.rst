@@ -8,6 +8,7 @@
 :keywords: Wii, 塞尔达传说, 游戏攻略, 黎明公主
 :slug: zelda-tp-epilogue
 :parts: twilight-princess
+:featured_image: http://www.gocalf.com/blog/images/2012/01/tp_epilogue_logo.jpg
 :summary: 加农终于倒下了，但他仍然不甘心自己的失败，扬言终有一天黎明和黑暗世界都将被血洗，且自己也不会被杀死在这里。
 
 终章 世界秩序的平衡（光与影）

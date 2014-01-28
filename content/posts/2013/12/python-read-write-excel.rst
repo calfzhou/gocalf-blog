@@ -7,6 +7,7 @@
 :tags: Excel
 :keywords: XlsxWriter, python-excel, xlrd, xlwt, OpenPyXL, Win32Com, Microsoft Excel
 :slug: python-read-write-excel
+:featured_image: http://www.gocalf.com/blog/images/2013/12/python-excel.png
 :summary: 前段时间需要用Python来处理Microsft Excel文件，尝试了一些不同的方法，记录下来留个印象。
 :depends: fontawesome
 

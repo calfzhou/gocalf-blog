@@ -7,6 +7,7 @@
 :tags: Algorithm Complexity, Master Theorem
 :keywords: Master定理, 上界, 下界, 函数渐进阶, 时间复杂度, 算法复杂度
 :slug: algorithm-complexity-and-master-theorem
+:featured_image: http://www.gocalf.com/blog/images/2011/11/master_theorem.png
 :summary: 平时设计或者阅读一个算法的时候，必然会提到算法的复杂度（包括时间复杂度和空间复杂度）。比如我们说一个二分查找算法的平均时间复杂度为O(log n)，快速排序可能是O(n log n)。那这里的O是什么意思？这样的表达是否准确呢？今天来复习一下与算法复杂度相关的知识：函数渐进阶；记号O、Ω、θ和o；Master定理。
 :depends: mathjax
 

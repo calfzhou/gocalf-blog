@@ -9,6 +9,7 @@
 :slug: wedding-video-1
 :status: draft
 :parts: my-wedding
+:featured_image: http://www.gocalf.com/blog/images/2011/07/wedding-icon.jpg
 :summary: 为了这个婚礼的开场视频，两个人翻箱倒柜地忆童年折腾了好久。用心做的成长相册，分享一下吧~ ：）
 
 为了这个婚礼的开场视频，两个人翻箱倒柜地忆童年折腾了好久。用心做的成长相册，分享一下吧~ ：）

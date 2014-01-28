@@ -8,6 +8,7 @@
 :keywords: Wii, 塞尔达传说, 游戏攻略, 黎明公主
 :slug: zelda-tp-ch4
 :parts: twilight-princess
+:featured_image: http://www.gocalf.com/blog/images/2011/11/tp_ch04_logo.jpg
 :summary: 林克和米德娜来到精灵之泉，最后一位光之精灵拉内鲁被解放了，但是就在这时魔法师赞特出现，并嘲笑林克和米德娜所做的一切都是没有意义的。随后其将米德娜打伤并把一块水晶碎片插入林克头部，让林克无法变回人形。
 
 第四章 沙漠深处的审判（死者之沙漠）

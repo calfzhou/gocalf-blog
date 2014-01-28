@@ -9,6 +9,7 @@
 :slug: wedding-2
 :status: draft
 :parts: my-wedding
+:featured_image: http://www.gocalf.com/blog/images/2011/07/wedding-icon.jpg
 :summary: 婚礼照片第二部分。
 
 第二部分：迎亲

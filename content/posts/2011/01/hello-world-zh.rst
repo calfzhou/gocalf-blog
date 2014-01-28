@@ -7,6 +7,7 @@
 :tags: WordPress
 :slug: hello-world
 :lang: zh
+:featured_image: http://www.gocalf.com/blog/images/2011/01/wordpress_logo.png
 :summary: 欢迎使用WordPress。
 
 欢迎使用WordPress。
