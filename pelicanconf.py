@@ -164,7 +164,7 @@ SOCIAL = (
 THEME = 'elegant-theme'
 
 STATIC_PATHS.append('theme/images')
-USE_FAVICON = True
+USE_SHORTCUT_ICONS = True
 
 TWITTER_USERNAME = 'calfzhou'
 GOOGLE_PLUS_PROFILE_URL = 'https://plus.google.com/112983042847560253980/posts'
