@@ -30,7 +30,7 @@ DISPLAY_CATEGORIES_ON_MENU = False
 
 #DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives')  # No authors
 
-PLUGIN_PATH = 'plugins'
+PLUGIN_PATH = ['plugins']
 PLUGINS = ['neighbors']
 
 PYGMENTS_RST_OPTIONS = {'linenos': 'none'}
