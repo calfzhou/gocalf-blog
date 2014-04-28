@@ -29,7 +29,7 @@ Singleton.h：
     #ifndef _SINGLETON_H_
     #define _SINGLETON_H_
 
-    #include 
+    #include <memory>
 
     class Singleton
     {
@@ -42,8 +42,8 @@ Singleton.h：
 
         // Use auto_ptr to make sure that the allocated memory for instance
         // will be released when program exits (after main() ends).
-        static std::auto_ptr s_instance;
-        friend class std::auto_ptr;
+        static std::auto_ptr<Singleton> s_instance;
+        friend class std::auto_ptr<Singleton>;
 
         Singleton(const Singleton&);
         Singleton& operator =(const Singleton&);
@@ -56,13 +56,13 @@ Singleton.cpp：
 .. code-block:: cpp
 
     #include "Singleton.h"
-    #include 
-    #include 
+    #include <iostream>
+    #include <boost/thread.hpp>
 
     using namespace std;
     using namespace boost;
 
-    auto_ptr Singleton::s_instance;
+    auto_ptr<Singleton> Singleton::s_instance;
 
     Singleton::Singleton()
     {
@@ -104,10 +104,10 @@ Library）之后，我才意识到模板类可以帮助我（话说我真的是�
     #ifndef _ISingleton_H_
     #define _ISingleton_H_
 
-    #include 
-    #include 
+    #include <memory>
+    #include <boost/thread.hpp>
 
-    template 
+    template <typename T>
     class ISingleton
     {
     public:
@@ -132,15 +132,15 @@ Library）之后，我才意识到模板类可以帮助我（话说我真的是�
 
         // Use auto_ptr to make sure that the allocated memory for instance
         // will be released when program exits (after main() ends).
-        static std::auto_ptr s_instance;
+        static std::auto_ptr<T> s_instance;
 
     private:
         ISingleton(const Singleton&);
         ISingleton& operator =(const ISingleton&);
     };
 
-    template 
-    std::auto_ptr ISingleton::s_instance;
+    template <typename T>
+    std::auto_ptr<T> ISingleton<T>::s_instance;
 
     #endif
 
@@ -150,11 +150,11 @@ Library）之后，我才意识到模板类可以帮助我（话说我真的是�
 
     #include "Singleton.h"
     #include "ISingleton.h"
-    #include 
+    #include <iostream>
 
     using namespace std;
 
-    class MySingleton : public ISingleton
+    class MySingleton : public ISingleton<MySingleton>
     {
     public:
         // blah blah
@@ -170,8 +170,8 @@ Library）之后，我才意识到模板类可以帮助我（话说我真的是�
             cout << "Destruct MySingleton" << endl;
         }
 
-        friend ISingleton;
-        friend class auto_ptr;
+        friend ISingleton<MySingleton>;
+        friend class auto_ptr<MySingleton>;
 
         MySingleton(const MySingleton&);
         MySingleton& operator =(const MySingleton&);
