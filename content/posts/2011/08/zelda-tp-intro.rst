@@ -26,12 +26,12 @@ Twilight Princess
 
 .. figure:: {filename}/images/2011/08/zelda_tp_logo_mid.png
     :alt: Zelda Twilight Princess Logo
-    
+
     《塞尔达传说：黎明公主》LOGO
 
 .. figure:: {filename}/images/2011/08/zelda_tp_cover-545x700.jpg
     :alt: Zelda Twilight Princess Cover
-    
+
     《塞尔达传说：黎明公主》封面、海报
 
 随着美版Wii的首发，玩家们期盼已久的《塞尔达传说：黎明公主》终于与大家见面了，这款被任天堂寄予厚望的作品一再延期，也从最初预计的

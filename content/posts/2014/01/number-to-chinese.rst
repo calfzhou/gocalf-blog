@@ -159,7 +159,7 @@
                 setattr(TestTranslateNumberToChinese, 'test_number_{}'.format(number),
                         create_number_test_function(number, expected))
 
-    add_tests()   
+    add_tests()
 
 上面的示意中，假设测试用例保存在一个叫做“number_data.txt”的TSV文件中。每行用TAB分割为两列，分别是阿拉伯数字和期望的中文读法。
 
@@ -304,7 +304,7 @@
             result += CHINESE_NEGATIVE;
             numberText = numberText.substring(1);
         }
-        
+
         var groupIsZero = true;
         var needZero = false;
         for (var i = 0; i < numberText.length; ++i) {
@@ -312,33 +312,33 @@
             var digit = parseInt(numberText[i]);
             var unit = position % CHINESE_UNITS.length;
             var group = position / CHINESE_UNITS.length;
-    
+
             if (digit != 0) {
                 if (needZero) {
                     result += CHINESE_ZERO;
                 }
-        
+
                 if (digit != 1 || unit != 1 || !groupIsZero || (group == 0 && needZero)) {
                     result += CHINESE_DIGITS[digit];
                 }
-        
+
                 result += CHINESE_UNITS[unit];
             }
-        
+
             groupIsZero = groupIsZero && (digit == 0);
-        
+
             if (unit == 0 && !groupIsZero) {
                 result += CHINESE_GROUP_UNITS[group];
             }
-        
+
             needZero = (digit == 0 && (unit != 0 || groupIsZero));
-        
+
             if (unit == 0) {
                 groupIsZero = true;
             }
         }
         return result;
-    }   
+    }
     function doNumberTranslation() {
         numberText = document.getElementById('number-input').value;
         chinese = translateNumber(numberText);
@@ -356,6 +356,6 @@
     <div>
         <textarea id="chinese-output" type="text" readonly="readonly" rows="3" class="form-control"></textarea>
     </div>
-    
+
 .. _个十百千万亿兆后面是什么: http://www.douban.com/group/topic/5404723/
 .. _DataSource Attribute: http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.testtools.unittesting.datasourceattribute.aspx

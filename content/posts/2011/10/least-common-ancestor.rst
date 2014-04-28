@@ -70,23 +70,23 @@ log(n)，最坏情况h = n）。
         return None
       if node1 is node2:
         return node1
-      
+
       # Gets each node's depth.
       depth = lambda node: depth(node.parent) + 1 if node else 0
       depth1 = depth(node1)
       depth2 = depth(node2)
-      
+
       # Pulls up the lower node and makes the two nodes in the same depth.
       mindepth = min(depth1, depth2)
       for i in xrange(depth1 - mindepth): node1 = node1.parent
       for i in xrange(depth2 - mindepth): node2 = node2.parent
-      
+
       # Finds the common ancestor.
       while node1 and node2:
         if node1 is node2: return node1
         node1 = node1.parent
         node2 = node2.parent
-      
+
       return None
 
 这样时间复杂度是O(h)，空间复杂度是O(1)。

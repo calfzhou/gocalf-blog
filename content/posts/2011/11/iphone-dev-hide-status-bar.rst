@@ -56,7 +56,7 @@ hidden”（不用手动输入，可以直接在下拉菜单中选取）。这�
 
 .. figure:: {filename}/images/2011/11/status_bar_initially_hidden.png
     :alt: status_bar_initially_hidden
-    
+
     在Info.plist中设置状态栏为隐藏
 
 也可以以文本方式修改，在根节点中添加UIStatusBarHidden键值，值设为true即可：

@@ -33,14 +33,14 @@ Gate）、互补器（Complementor）等等。所有的元件如下图示。
 
 .. figure:: {filename}/images/2012/02/chromatron_elems.png
     :alt: chromatron_elems
-    
+
     Chromatron中的各种光学元件
 
 别的关卡都可以不谈，但有一关是一定要说一下的，这一关太有趣了。虽然它也有传统的解法，但其中有一种解法却非常神奇。见下图：
 
 .. figure:: {filename}/images/2012/02/chromatron_2_49.png
     :alt: chromatron_2_49
-    
+
     Chromatron 2代49关：反馈消除
 
 注意到那几个没有光线经过的反射镜了吗？看起来它们摆在那儿是多余的，但一旦移动它们，你就输了。游戏中对这一关的说明是：

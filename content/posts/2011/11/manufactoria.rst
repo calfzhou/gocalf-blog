@@ -40,7 +40,7 @@ Matrix67的这篇博客是一年多之前发的了，后来我又找到了这个
 
 .. figure:: {filename}/images/2011/11/manufactoria-main.png
     :alt: manufactoria-main
-    
+
     Manufactoria主界面（添加了关卡序号）
 
 我的各关卡解决方案（第30和31关没有时间优化了，其他关都是尽可能优化过的）：

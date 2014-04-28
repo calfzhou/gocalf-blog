@@ -316,7 +316,7 @@ Mathematica提供了RandomSample函数，支持带权选取，当然它是在遍
 
 .. figure:: {filename}/images/2011/09/mathematica_random_sample.png
     :alt: mathematica_random_sample
-    
+
     Mathematica RandomSample随机选取m个元素，第i个元素被选中的概率
 
 苦苦思考了好几天，但并没有想到一个直观的方法可以给之前的RandomSample加上权重处理。因为那概率式子太复杂，实在不知道该怎么去凑。不过在下一篇文章中将会介绍一个神奇的算法（当然不是我想出来的），并且会给出我的证明。

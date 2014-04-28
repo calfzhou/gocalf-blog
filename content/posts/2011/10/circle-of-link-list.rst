@@ -28,7 +28,7 @@ L - a次移动，P1向前移动了L - a个位置（相当于后退了a），到�
 .. figure:: {filename}/images/2011/10/two_pointers_in_ring.svg
     :alt: two_pointers_in_ring
     :width: 428
-    
+
     慢指针（P1）转一周之内，必然与快指针（P2）相遇
 
 在知道链表内有环后，求环长是一件非常简单的事情，只要从刚才那个相遇点开始，固定P2，继续移动P1，直到P1与P2再次相遇，所经过的步数就是环长。

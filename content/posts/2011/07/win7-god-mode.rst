@@ -20,19 +20,19 @@ Windows7上帝模式
 
 .. figure:: {filename}/images/2011/07/godmode1.png
     :alt: 创建GodMode文件夹
-    
+
     创建GodMode文件夹
 
 回车之后，“上帝”就现身了。
 
 .. figure:: {filename}/images/2011/07/godmode2.png
     :alt: 创建GodMode文件夹
-    
+
     Win7 God Mode Overview
 
 进入此文件夹，一坨坨系统设置就在那里恭候大驾了。
 
 .. figure:: {filename}/images/2011/07/godmode3.png
     :alt: 创建GodMode文件夹
-    
+
     Windows 7 上帝模式

@@ -277,7 +277,7 @@ Excel的com接口的具体细节我就不介绍了，需要的话直接查阅相
 .. code-block:: python
     :linenos: none
     :hl_lines: 2
-    
+
     orig_display_alerts = excel.DisplayAlerts
     excel.DisplayAlerts = False
     try:
@@ -297,7 +297,7 @@ Excel的com接口的具体细节我就不介绍了，需要的话直接查阅相
 .. code-block:: python
     :linenos: none
     :hl_lines: 1
-    
+
     number_of_workbooks = excel.Workbooks.Count
     if number_of_workbooks > 0:
         logging.debug(
@@ -309,7 +309,7 @@ Excel的com接口的具体细节我就不介绍了，需要的话直接查阅相
             'no workbook opened in excel process, quiting excel application instance ...'
         )
         excel.Quit()
-        
+
     del excel
 
 关于枚举常量

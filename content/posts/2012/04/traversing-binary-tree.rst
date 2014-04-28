@@ -22,7 +22,7 @@
 
 .. figure:: {filename}/images/2012/04/bin-tree.png
     :alt: bin-tree
-    
+
     一棵二叉树
 
 如上图所示的一棵二叉树，对应的遍历结果分别是：

@@ -62,7 +62,7 @@ A10    26x37     B10    31x44      C10    28x40
 .. figure:: {filename}/images/2011/07/paper_24k.svg
     :alt: paper_24k
     :width: 346
-    
+
     889x1194 24开本
 
 对于给定的原始尺寸，可以用下面这段程序（Python）来算出1～10次对折后的尺寸：

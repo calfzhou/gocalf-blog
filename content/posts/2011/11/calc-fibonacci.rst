@@ -200,7 +200,7 @@ n)的矩阵法。散点为实际测量到的运行时间，实线为拟合方程
 
 .. figure:: {filename}/images/2011/11/compare_a.png
     :alt: compare_a
-    
+
     三种算法的运行时间比较
 
 当n >
@@ -208,7 +208,7 @@ n)的矩阵法。散点为实际测量到的运行时间，实线为拟合方程
 
 .. figure:: {filename}/images/2011/11/compare_b.png
     :alt: compare_b
-    
+
     三种算法的运行时间比较（对数坐标轴）
 
 五、大整数情况下的复杂度
@@ -253,14 +253,14 @@ Python内置了大整数支持，因此上面的程序都可以直接接受任�
 
 .. figure:: {filename}/images/2011/11/compare_c.png
     :alt: compare_c
-    
+
     递推法（蓝色）与矩阵法（绿色）运行时间比较（大整数）
 
 从图中可以看出，递推法的增长速度也是很快的，当n增大到60多的时候，它的运行时间就超过矩阵法了。矩阵法的增长速度非常慢，看起来像是线性的，让我们把n调的更大来看一下。
 
 .. figure:: {filename}/images/2011/11/compare_d.png
     :alt: compare_d
-    
+
     矩阵法的运行时间（更大的n）
 
 六、更快的算法？
@@ -277,7 +277,7 @@ n)上下，而且对于相同的n，运算速度远远高于我的矩阵法。�
 
 .. figure:: {filename}/images/2011/11/compare_e.png
     :alt: compare_e
-    
+
     矩阵法（绿色）与Mathematica Fibonacci函数（橙色）运行时间比较
 
 好吧，这个问题留待以后慢慢研究。

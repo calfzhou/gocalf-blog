@@ -75,7 +75,7 @@
     米德娜最终还是选择了将镜子彻底粉碎并回到自己的世界中去，告别了海拉尔，也永别了林克
 
 .. figure:: {filename}/images/2012/01/tp_epilogue_09.jpg
-    :alt: tp_epilogue_09 
+    :alt: tp_epilogue_09
     :target: {filename}/images/2012/01/tp_epilogue_09.jpg
     :width: 500
 

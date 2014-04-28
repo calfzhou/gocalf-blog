@@ -56,22 +56,22 @@ stretchableImage方法有两个整数参数，分别用来指定图片的左边�
     {
       [super viewDidLoad];
       // Do any additional setup after loading the view, typically from a nib.
-      
+
       UIImage* image = [UIImage imageNamed:@"circle.png"];
       UIImage* stretchableImage = [image stretchableImageWithLeftCapWidth:10
                                                              topCapHeight:10];
-      
+
       UIImageView* imageView1 = [[[UIImageView alloc] initWithImage:image]
                                  autorelease];
       imageView1.center = CGPointMake(20, 20);
       [self.view addSubview:imageView1];
-      
+
       UIImageView* imageView2 = [[[UIImageView alloc] initWithImage:image]
                                  autorelease];
       imageView2.frame = CGRectMake(0, 0, 260, 200);
       imageView2.center = CGPointMake(160, 120);
       [self.view addSubview:imageView2];
-      
+
       UIImageView* imageView3 = [[[UIImageView alloc]
                                   initWithImage:stretchableImage]
                                  autorelease];
@@ -84,7 +84,7 @@ stretchableImage方法有两个整数参数，分别用来指定图片的左边�
 
 .. figure:: {filename}/images/2012/03/resizable_image.png
     :alt: resizable_image
-    
+
     UIImage拉伸示意（左上角：原始图片；上：直接拉伸；下：按照端帽拉伸）
 
 .. _UIImage: https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/

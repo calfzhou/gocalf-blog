@@ -31,7 +31,7 @@ iPad 2 iOS 4.3.3 可以越狱了
    .. figure:: {filename}/images/2011/07/cydia-ipad2-ios433-225x300.jpg
         :alt: cydia-ipad2-ios433
         :target: {filename}/images/2011/07/cydia-ipad2-ios433.jpg
-        
+
         Cydia on iPad2 iOS 4.3.3
 
 #. 如果想装盗版的软件，可以添加hackluo.us源，地址是\ http://cydia.hackluo.us\ 。

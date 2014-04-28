@@ -62,12 +62,12 @@ disk image...，将生成的文件（.dmg）保存在某个NTFS分区上即可�
 
 .. figure:: {filename}/images/2011/07/hfs_explorer_hfs.png
     :alt: hfs_explorer_hfs
-    
+
     HFS-Explorer选择Partition
-    
+
 .. figure:: {filename}/images/2011/07/hfs_explorer_view.png
     :alt: hfs_explorer_view
-    
+
     在HFS-Explorer中查看安装盘镜像
 
 使用HFS-Explorer把下载的安装盘镜像处理一下生成另外一个镜像，主要有三个作用：
@@ -84,18 +84,18 @@ partition type to AF: Success”、“All done, have fun!”时就算成功了�
 
 .. figure:: {filename}/images/2011/07/lepoard-inshelper.png
     :alt: lepoard-inshelper
-    
+
     Leopard硬盘安装助手
 
 .. compound::
 
     接下来要替换OSInstall，这需要安装工具MacDriver（v8.0.4.10），这是个收费软件。装好之后重启系统，就可以进入刚才用硬盘安装助手写入的HFS安装分区了。让Windows显示隐藏文件和系统文件，下载一个PC用的OSInstall，替换掉
-    
+
     .. code-block:: text
         :linenos: none
-    
+
         X:\System\Library\PrivateFrameworks\Install.framework\Frameworks\OSInstall.framework\Versions\A\
-    
+
     里面的同名文件。这样做的目的是使得Mac可以安装在MBR分区表下（否则Mac只能装在GPT（GUID）分区表下，但Windows默认都是用MBR）。（还是直接下载一个已经替换好了的镜像吧，省的麻烦。）
 
 最后还要装引导程序。以前我用的是变色龙引导程序，但这次总是出错，就改用BootThink了。觉得这个比变色龙还要好些吧。不过如果原有系统是Win

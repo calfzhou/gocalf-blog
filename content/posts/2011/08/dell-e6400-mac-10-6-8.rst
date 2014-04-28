@@ -81,7 +81,7 @@ used.（或者是AppleACPIPlatform.kext）。这不是刚才替换的那两个�
 
 .. figure:: {filename}/images/2011/08/mac_10.6.8_screenshot.png
     :alt: Mac OS 10.6.8 on Dell E6400
-    
+
     Mac OS 10.6.8 on Dell E6400
 
 最后把用到的kext之类的都放在这里吧。

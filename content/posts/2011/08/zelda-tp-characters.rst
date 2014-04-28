@@ -31,7 +31,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
 
 .. figure:: {filename}/images/2011/08/zelda_tp_Link.jpg
     :alt: zelda_tp_Link
-    
+
     《塞尔达传说：黎明公主》主角：林克（Link）
 
 .. _zelda:
@@ -45,7 +45,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
 
 .. figure:: {filename}/images/2011/08/zelda_tp_Zelda.jpg
     :alt: zelda_tp_Zelda
-    
+
     善良温和的光之世界领主：塞尔达（Zelda）
 
 .. _midna:
@@ -59,7 +59,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
 
 .. figure:: {filename}/images/2011/08/zelda_tp_Midna.jpg
     :alt: zelda_tp_Midna
-    
+
     米德娜（Midna）
 
 .. ilia:
@@ -73,7 +73,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
 
 .. figure:: {filename}/images/2011/08/zelda_tp_Ilia.jpg
     :alt: zelda_tp_Ilia
-    
+
     伊莉娅（Ilia）
 
 .. _ooccoo:
@@ -87,7 +87,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
 
 .. figure:: {filename}/images/2011/08/zelda_tp_Ooccoo.jpg
     :alt: zelda_tp_Ooccoo
-    
+
     欧库 & 小欧库（Ooccoo & Ooccoo Jr.）
 
 .. _gorcoron:
@@ -99,7 +99,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
 
 .. figure:: {filename}/images/2011/08/zelda_tp_GorCoron.jpg
     :alt: zelda_tp_GorCoron
-    
+
     戈隆长老：戈·克隆（Gor Coron）
 
 .. _kingorcsbulblin:
@@ -111,7 +111,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
 
 .. figure:: {filename}/images/2011/08/zelda_tp_KingOrcsBulblin.jpg
     :alt: zelda_tp_KingOrcsBulblin
-    
+
     兽王：布尔布林（King Orcs Bulblin）
 
 .. _shadowbeing:
@@ -123,7 +123,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
 
 .. figure:: {filename}/images/2011/08/zelda_tp_ShadowBeing.jpg
     :alt: zelda_tp_ShadowBeing
-    
+
     暗影使者（Shadow Being）
 
 .. _zant:
@@ -135,7 +135,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
 
 .. figure:: {filename}/images/2011/08/zelda_tp_Zant.jpg
     :alt: zelda_tp_Zant
-    
+
     赞特（Zant）
 
 .. _ganondorf:
@@ -149,7 +149,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
 
 .. figure:: {filename}/images/2011/08/zelda_tp_Ganondorf.jpg
     :alt: zelda_tp_Ganondorf
-    
+
     加农道夫（Ganondorf）
 
 .. _twilightprincess:
@@ -163,7 +163,7 @@ Princess`_\ ）是我玩的唯一的一个塞尔达传说系列的游戏，之�
 
 .. figure:: {filename}/images/2011/08/zelda_tp_TwilightPrincess-700x466.jpg
     :alt: zelda_tp_TwilightPrincess
-    
+
     黎明公主（Twilight Princess）
 
 虽然已经好久没玩了，但依稀还能记得那些人物们的对话、语气，好怀念啊。

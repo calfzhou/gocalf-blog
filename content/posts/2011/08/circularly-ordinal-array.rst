@@ -36,7 +36,7 @@ n)。
 
 .. figure:: {filename}/images/2011/08/coa_special_case1.png
     :alt: coa_special_case1.png
-    
+
     有重复元素时的特殊情况：第一个、中间的和最后一个元素彼此相等
 
 还是简单点儿，限定元素各不相同吧……

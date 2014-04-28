@@ -26,7 +26,7 @@ WordPress数学公式插件LaTeX
 `LaTeX for WordPress`_\ 的使用非常简单，这里就直接从其\ `主页`_\ 上抄袭过来：
 
     You can type the formula in LaTeX, in title, posts, pages and comments:
-    
+
     -   ``\(\alpha+\beta\geq\gamma\)`` or ``$$\alpha+\beta\geq\gamma$$`` add an inline formula
     -   ``\[\alpha+\beta\geq\gamma\]`` or ``$$!\alpha+\beta\geq\gamma$$`` add an latex equation in math mode (it will be displayed centerly in a single line).
     -   ``$$\alpha+\beta\geq\gamma!$$`` display the source of the latex formula. Just add a ``!`` before the second ``$$``.

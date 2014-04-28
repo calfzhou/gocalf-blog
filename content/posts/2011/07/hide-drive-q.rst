@@ -17,7 +17,7 @@ Computer）中看到一个盘符为\ **Q**\ 的本地磁盘分区，在磁盘管
 
 .. figure:: {filename}/images/2011/07/disk-q-unaccess.png
     :alt: disk-q-unaccess
-    
+
     无法访问的虚拟磁盘分区Q
 
 这个磁盘分区Q是Microsoft Application Virtualization
@@ -25,7 +25,7 @@ Desktop（App-V）使用的一个虚拟分区，我也不记得是装了什么�
 
 .. figure:: {filename}/images/2011/07/disk-q-registry.png
     :alt: disk-q-registry
-    
+
     修改注册表，添加高亮的两个DWORD值
 
 #. 按Win+R，输入regedit并回车，打开注册表编辑器；
@@ -41,7 +41,7 @@ Desktop（App-V）使用的一个虚拟分区，我也不记得是装了什么�
 
 .. figure:: {filename}/images/2011/07/disk-q-hidden.png
     :alt: disk-q-hidden
-    
+
     虚拟分区Q被隐藏
 
 如果对注册表不是非常熟悉的话，请千万谨慎操作。另外可以参考微软官方文档\ `How to hide and to restrict access to the App-V (SoftGrid) client drive letter`_\ ，这里有更加细致入微的步骤说明，以及其他殊途同归的方法。
@@ -53,7 +53,7 @@ mask第三位），那C盘就消失了：
 
 .. figure:: {filename}/images/2011/07/disk-c-hidden.png
     :alt: disk-c-hidden
-    
+
     用16进制4隐藏磁盘分区C
 
 在微软的Knowledge
