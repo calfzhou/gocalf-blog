@@ -33,5 +33,5 @@ Canvas也一无所知。就像电视上有个广告词：“我们不生产水�
 
     <iframe frameborder="0" height="320" scrolling="no" src="{filename}/assets/2011/07/doodle_0722.html" title="The Star" width="100%"></iframe>
 
-.. _Alexander Calder: http://en.wikipedia.org/wiki/Alexander_Calder
+.. _Alexander Calder: https://artsy.net/artist/alexander-calder
 .. _doodle\_0722\_html: {filename}/assets/2011/07/doodle_0722.html
