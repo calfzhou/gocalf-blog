@@ -15,7 +15,7 @@ Canvas的浏览器里，可以看到3D的动态Doodle，还可以拖动哦。为
 
 .. more
 
-今天（2011年7月22日）是伟大的动态雕塑发明人亚历山大·考尔德（\ `Alexander
+今天（2011年7月22日）是伟大的动态雕塑发明人\ `亚历山大·考尔德`_\ （\ `Alexander
 Calder`_\ ）诞辰113周年，Google用它的Doodle为大家在浏览器上展示了Calder的动态雕塑作品The
 Star (1960)。原作如下图示。
 
@@ -33,5 +33,6 @@ Canvas也一无所知。就像电视上有个广告词：“我们不生产水�
 
     <iframe frameborder="0" height="320" scrolling="no" src="{filename}/assets/2011/07/doodle_0722.html" title="The Star" width="100%"></iframe>
 
+.. _亚历山大·考尔德: http://en.wikipedia.org/wiki/Alexander_Calder
 .. _Alexander Calder: https://artsy.net/artist/alexander-calder
 .. _doodle\_0722\_html: {filename}/assets/2011/07/doodle_0722.html
