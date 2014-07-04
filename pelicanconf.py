@@ -13,10 +13,10 @@ TIMEZONE = 'Asia/Shanghai'
 
 DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 
-PAGE_DIR = 'pages'
-PAGE_EXCLUDES = ()
-ARTICLE_DIR = 'posts'
-ARTICLE_EXCLUDES = ()
+PAGE_PATHS = ['pages']
+PAGE_EXCLUDES = []
+ARTICLE_PATHS = ['posts']
+ARTICLE_EXCLUDES = []
 STATIC_PATHS = [
     'images',
     'assets',
@@ -30,7 +30,7 @@ DISPLAY_CATEGORIES_ON_MENU = False
 
 #DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives')  # No authors
 
-PLUGIN_PATH = ['plugins']
+PLUGIN_PATHS = ['plugins']
 PLUGINS = ['neighbors']
 
 PYGMENTS_RST_OPTIONS = {'linenos': 'none'}
