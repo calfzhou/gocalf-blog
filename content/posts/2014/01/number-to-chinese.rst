@@ -7,6 +7,7 @@
 :tags: Python, Unit Test, Natural Language
 :keywords: Python, 中文数字, 数据驱动测试, DDT, Data Driven Test, unit test
 :slug: number-to-chinese
+:lang: zh
 :summary: 一个简单的开发问题，（用Python）编写一段程序，将一个任意给定的整数转换成对应的中文读法。比如输入数字-12345，输出字符串“一万二千三百四十五”。
 :depends: bootstrap
 

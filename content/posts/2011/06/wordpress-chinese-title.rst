@@ -7,6 +7,7 @@
 :tags: WordPress Theme
 :keywords: Cufon, LightWord, WordPress, 中文, 字体
 :slug: wordpress-chinese-title
+:lang: zh
 :featured_image: http://www.gocalf.com/blog/images/2011/07/hanzi.png
 :summary: 如果在WordPress主题中使用了Cufón，中文标题有可能无法显示，这时候只能忍痛割爱，关掉Cufón。
 

@@ -7,6 +7,7 @@
 :tags: My Wedding
 :keywords: 婚礼, 成长相册
 :slug: wedding-video-1
+:lang: zh
 :status: draft
 :parts: my-wedding
 :featured_image: http://www.gocalf.com/blog/images/2011/07/wedding-icon.jpg

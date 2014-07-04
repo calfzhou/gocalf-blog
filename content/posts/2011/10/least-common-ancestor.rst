@@ -7,6 +7,7 @@
 :tags: Interview Question, Data Structure, Binary Tree
 :keywords: Least Common Ancestor, 二叉树, 微软面试, 最小公共祖先, 算法题, 面试题
 :slug: least-common-ancestor
+:lang: zh
 :featured_image: http://www.gocalf.com/blog/images/2011/10/bin_tree.png
 :summary: 据说这是微软的一道面试题，谁知道呢。问题描述：找出二叉树上任意两个指定结点的最近共同父结点（LCA，Least Common Ancestor）。
 

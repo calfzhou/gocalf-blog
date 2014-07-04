@@ -7,6 +7,7 @@
 :tags: Twilight Princess
 :keywords: Wii, 塞尔达传说, 游戏攻略, 黎明公主
 :slug: zelda-tp-ch7
+:lang: zh
 :parts: twilight-princess
 :featured_image: http://www.gocalf.com/blog/images/2011/12/tp_ch07_logo.jpg
 :summary: 再次前去特尔玛的酒馆，得知夏德（Shad）也出去调查了，于是和阿雪等人谈话，再调查桌子上的地图，原来夏德最近去了卡卡里科村，于是前去找夏德了解最后一个镜子碎片的信息。

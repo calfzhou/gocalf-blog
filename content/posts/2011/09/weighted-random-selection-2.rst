@@ -7,6 +7,7 @@
 :tags: Interview Question, Probability, Random Sample
 :keywords: Weighted Random Sample, 单次遍历, 带权选取, 最小堆, 算法题, 随机选取, 面试题
 :slug: weighted-random-selection-2
+:lang: zh
 :parts: random-selection
 :featured_image: http://www.gocalf.com/blog/images/2011/09/colorpicker_weight_2.png
 :summary: 本文介绍一个有趣的算法，用来解决带权随机选取问题：有一组数量未知的数据，每个元素有非负权重。要求只遍历一次，随机选取其中的一个元素，任何一个元素被选到的概率与其权重成正比。

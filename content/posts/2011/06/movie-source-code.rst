@@ -7,6 +7,7 @@
 :tags: Movie, Science Fiction
 :keywords: Quantum, Source Code, 平行宇宙, 时间旅行
 :slug: movie-source-code
+:lang: zh
 :featured_image: http://www.gocalf.com/blog/images/2011/07/source_code.jpg
 :summary: 一篇物理学家写的关于电影《源代码》的文章，觉得非常不错，转载于此。
 

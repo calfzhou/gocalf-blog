@@ -7,6 +7,7 @@
 :tags: Twilight Princess
 :keywords: Wii, 塞尔达传说, 游戏攻略, 黎明公主
 :slug: zelda-tp-ch9
+:lang: zh
 :parts: twilight-princess
 :featured_image: http://www.gocalf.com/blog/images/2011/12/tp_ch09_logo.jpg
 :summary: 赶到城堡，米德娜用自己刚刚觉醒的力量解除了城堡外面的结界，让林克得以进入城堡。

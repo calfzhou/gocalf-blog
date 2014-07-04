@@ -7,6 +7,7 @@ Google图标：动态雕塑家Calder诞辰113周年
 :tags: Google, Doodle
 :keywords: Google Doodle, HTML5, Canvas, 动态雕塑, Alexander Calder
 :slug: google-doodle-calder
+:lang: zh
 :featured_image: http://www.gocalf.com/blog/images/2011/07/calder11-sr.png
 :summary: 现在Google经常会在它的Doodle中加入各种有趣的元素，今天这个就用到了HTML5的Canvas，在支持HTML5 Canvas的浏览器里，可以看到3D的动态Doodle，还可以拖动哦。为了便于以后查看和保存，我把这个Doodle相关的脚本扒下来，在此留存。
 

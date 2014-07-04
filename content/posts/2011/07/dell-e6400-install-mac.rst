@@ -7,6 +7,7 @@ Dell E6400安装MacOS雪豹10.6
 :tags: Hackintosh
 :keywords: BootThink, PC, Dell E6400, MacOS, 黑苹果, 雪豹, PC机装Mac, Driver
 :slug: dell-e6400-install-mac
+:lang: zh
 :featured_image: http://www.gocalf.com/blog/images/2011/07/mac_os_x.png
 :summary: 半年前在Dell Latitude E6400上安装了Mac OS X Snow Leopard 10.6（与Windows 7并存），除了WiFi之外都挺好的，折腾了好久才搞定，现在又有些记不清了，所以要赶紧留下印记，以免过几天就忘光了。
 

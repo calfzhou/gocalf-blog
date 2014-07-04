@@ -7,6 +7,7 @@ U盘检测软件：ChipGenius，MyDiskTest
 :tags: FlashDisk, Disk Check
 :keywords: ChipGenius, MyDiskTest, U盘检测, 优盘检测, 移动存储, 金士顿U盘
 :slug: check-udisk
+:lang: zh
 :featured_image: http://www.gocalf.com/blog/images/2011/09/usbdrive.png
 :summary: 以前买到过一个假冒的8GB U盘，是用劣质的4GB芯片改装的，后来用软件检测出来了，今天来分享一下。
 
