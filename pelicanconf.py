@@ -11,8 +11,6 @@ RELATIVE_URLS = True
 
 TIMEZONE = 'Asia/Shanghai'
 
-DEFAULT_DATE_FORMAT = '%Y-%m-%d'
-
 PAGE_PATHS = ['pages']
 PAGE_EXCLUDES = []
 ARTICLE_PATHS = ['posts']
@@ -23,7 +21,10 @@ STATIC_PATHS = [
     #'favicon.png',
 ]
 
+USE_FOLDER_AS_CATEGORY = False
 DEFAULT_CATEGORY = 'uncategorized'
+
+SLUGIFY_SOURCE = 'basename'
 
 DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
@@ -38,12 +39,19 @@ PYGMENTS_RST_OPTIONS = {'linenos': 'none'}
 # Disable future dates, then content with dates in the future will get a default status of draft.
 WITH_FUTURE_DATES = False
 
+AUTORELOAD_IGNORE_CACHE = True
+
 # URL settings #
 
 ARTICLE_URL = '{slug}.html'
 ARTICLE_SAVE_AS = '{slug}.html'
 ARTICLE_LANG_URL = '{slug}-{lang}.html'
 ARTICLE_LANG_SAVE_AS = '{slug}-{lang}.html'
+
+DRAFT_URL = 'drafts/{slug}.html'
+DRAFT_SAVE_AS = 'drafts/{slug}.html'
+DRAFT_LANG_URL = 'drafts/{slug}-{lang}.html'
+DRAFT_LANG_SAVE_AS = 'drafts/{slug}-{lang}.html'
 
 PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
@@ -89,6 +97,7 @@ SLUG_SUBSTITUTIONS = (
 )
 
 # Date format and locale #
+DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 
 # Template pages #
 
