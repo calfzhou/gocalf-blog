@@ -1,3 +1,6 @@
 /output
-/*.pyc
-cache
+*.py[cod]
+/cache
+.DS_Store
+.AppleDouble
+.LSOverride
