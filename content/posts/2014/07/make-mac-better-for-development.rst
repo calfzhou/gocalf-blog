@@ -40,7 +40,7 @@ Homebrew
 
 `Homebrew`_ installs the stuff you need that Apple didn't.
 
-我电脑上的大部分工具都是通过homebrew安装和管理的，非常方便。虽然提供类似功能的还有\ `Fink`_\ 和\ `macports`_\ ，但我认为Homebrew是最方便的。具体的这里就不在这里比较了，大家可以自行调研。当然，至少选择一个来帮助自己安装盒管理软件包，会让很多事情变得更容易。
+我电脑上的大部分工具都是通过homebrew安装和管理的，非常方便。虽然提供类似功能的还有\ `Fink`_\ 和\ `macports`_\ ，但我认为Homebrew是最方便的。具体的就不在这里比较了，大家可以自行调研。当然，至少选择一个来帮助自己安装盒管理软件包，会让很多事情变得更容易。
 
 安装Homebrew非常方便，首先要安装\ `Command Line Tools for Xcode`_\ ，然后运行
 
