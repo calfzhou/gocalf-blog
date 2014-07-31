@@ -36,8 +36,8 @@ PLUGINS = ['neighbors']
 
 PYGMENTS_RST_OPTIONS = {'linenos': 'none'}
 
-# Disable future dates, then content with dates in the future will get a default status of draft.
-WITH_FUTURE_DATES = False
+# Enable future dates, then content with dates in the future will NOT get a default status of draft.
+WITH_FUTURE_DATES = True
 
 AUTORELOAD_IGNORE_CACHE = True
 
