@@ -1,7 +1,7 @@
 用Python读写Excel文件
 #####################
 :date: 2013-12-03 20:50
-:modified: 2013-12-03 20:50
+:modified: 2014-07-31 09:54
 :author: Calf
 :category: 程序开发
 :tags: Excel
@@ -316,7 +316,7 @@ Excel的com接口的具体细节我就不介绍了，需要的话直接查阅相
 关于枚举常量
 ------------
 
-Excel API中有各种各样的枚举常量，我还没有找到在Python中直接引用这些常亮的方法，目前的办法是找到所需的常数的值，自己定义这些常数。比如我用到了如下这些枚举常量：
+Excel API中有各种各样的枚举常量，我还没有找到在Python中直接引用这些常量的方法，目前的办法是找到所需的常数的值，自己定义这些常数。比如我用到了如下这些枚举常量：
 
 .. code-block:: python
 
@@ -338,6 +338,16 @@ Excel API中有各种各样的枚举常量，我还没有找到在Python中直�
 
 要想知道某一个枚举常量的数值，可以查阅MSDN中\ `Excel Enumerations`_\ 相关的资料。
 
+【2014年7月31日更新】感谢\ `@依云`_\ 提醒，在Python也能够直接引用相关的常量，即通过\ ``win32com.client.constants``\ 获取常量的值。不过这里还有一点比较tricky的地方，如果直接用Dispatch或者DispatchEx得到Excel对象，是无法从constants中取出常量值的，需要\ `手动运行makepy`_\ ，或者通过\ ``win32com.client.gencache.EnsureDispatch``\ 获得Excel对象：
+
+.. code-block:: python
+
+    import win32com
+    from win32com.client import constants
+    excel = win32com.client.gencache.EnsureDispatch('Excel.Application')
+    print constants.xlOpenXMLWorkbook  # will be 51
+    print constants.xlCenter  # will be -4108
+
 .. _XlsxWriter: https://github.com/jmcnamara/XlsxWriter
 .. _xlrd: https://pypi.python.org/pypi/xlrd
 .. _xlwt: https://pypi.python.org/pypi/xlwt
@@ -352,3 +362,5 @@ Excel API中有各种各样的枚举常量，我还没有找到在Python中直�
 .. _Python COM: http://docs.activestate.com/activepython/2.4/pywin32/com.html
 .. _constant memory模式: http://xlsxwriter.readthedocs.org/en/latest/working_with_memory.html
 .. _Excel Enumerations: http://msdn.microsoft.com/en-us/library/office/ff838815.aspx
+.. _@依云: http://www.gocalf.com/blog/python-read-write-excel.html#comment-1329532357
+.. _手动运行makepy: http://timgolden.me.uk/python/win32_how_do_i/generate-a-static-com-proxy.html
