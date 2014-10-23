@@ -219,7 +219,7 @@ Shell Commands
 
 用惯了Linux（CentOS）里面的shell命令，就无法忍受Mac系统中那些落后的shell命令了，像ls、date、ps、echo、grep等等，功能都特别少。在忍无可忍之后，终于决定用\ `GNU Coreutils`_\ 替换它们。用\ ``brew install coreutils``\ 就可以搞定了，安装完成后，根据提示，将/usr/local/opt/coreutils/libexec/gnubin和/usr/local/opt/coreutils/libexec/gnuman分别添加到\ ``$PATH``\ 和\ ``$MANPATH``\ 中即可。
 
-grep命令不在coreutils，可以通过\ ``brew install grep --default-names``\ 搞定。当然还有很多其他特别有用的命令，就不一一细说了，反正想到什么，只要用\ ``brew info``\ 或者\ ``brew search``\ 找找看就行。
+grep命令不在coreutils，可以通过\ ``brew install grep --default-names``\ 搞定（如果说找不到grep可以先\ ``brew tap homebrew/dupes``\ ）。当然还有很多其他特别有用的命令，就不一一细说了，反正想到什么，只要用\ ``brew info``\ 或者\ ``brew search``\ 找找看就行。
 
 编辑器和IDE
 ===========
