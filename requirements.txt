@@ -6,3 +6,6 @@ beautifulsoup4
 # For plugin assets.
 webassets
 cssmin
+
+# For GitHub publish.
+ghp-import
