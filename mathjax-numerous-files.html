@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Calf" />
+        <meta name="copyright" content="Calf" />
+
+        <link rel="author" href=https://plus.google.com/112983042847560253980/posts />
+        <meta name="twitter:creator" content="@calfzhou">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="MathJax, 建站, LaTeX, Web Font, Hosting" />
+
+<meta property="og:title" content="关于安装MathJax后占用文件过多的问题 "/>
+<meta property="og:url" content="http://www.gocalf.com/blog/mathjax-numerous-files.html" />
+<meta property="og:description" content="MathJax在安装目录下有三万多个文件，百分之九十九以上都是由图片字体`mathjax/fonts/HTML-CSS/TeX/png`贡献的，这些图片是为不支持的Web Font的浏览器准备的。如果太多的文件影响到服务器空间，可以按照本文的方法删掉以节省空间，减少文件总数。" />
+<meta property="og:site_name" content="GoCalf Blog" />
+<meta property="og:article:author" content="Calf" />
+<meta property="og:article:published_time" content="2011-07-28T22:39:00+08:00" />
+<meta property="" content="2011-08-03T22:26:00+08:00" />
+<meta name="twitter:title" content="关于安装MathJax后占用文件过多的问题 ">
+<meta name="twitter:description" content="MathJax在安装目录下有三万多个文件，百分之九十九以上都是由图片字体`mathjax/fonts/HTML-CSS/TeX/png`贡献的，这些图片是为不支持的Web Font的浏览器准备的。如果太多的文件影响到服务器空间，可以按照本文的方法删掉以节省空间，减少文件总数。">
+<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/07/mathjax.png" />
+<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/07/mathjax.png" >
+
+        <title>关于安装MathJax后占用文件过多的问题  · GoCalf Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="http://www.gocalf.com/blog/theme/css/style.min.css?6600dc28">
+        <link rel="shortcut icon" href="http://www.gocalf.com/blog/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
+        <link rel="icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="http://www.gocalf.com/blog/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24210758-2', 'auto');
+    ga('send', 'pageview');
+</script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://www.gocalf.com/blog/"><span class=site-name>GoCalf Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://www.gocalf.com/blog">Home</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/about.html">About</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/categories.html">Categories</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/tags.html">Tags</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://www.gocalf.com/blog/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://www.gocalf.com/blog/mathjax-numerous-files.html"> 关于安装MathJax后占用文件过多的问题  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <p>在<a class="reference external" href="http://www.gocalf.com/blog/latex-wordpress.html">WordPress数学公式插件LaTeX</a>中介绍了GoCalf博客中使用的LaTeX插件，是Zhiqiang开发的<a class="reference external" href="http://wordpress.org/extend/plugins/latex/">LaTeX for WordPress</a>插件。这个插件利用MathJax来渲染LaTeX公式，效果非常好，后来我在自己的空间里安装了MathJax引擎。可是前两天发现我的空间里竟然有五万多个文件，几乎就要收到BlueHost的警告了，查看了一下文件分布，发现光MathJax就有三万多个文件！怎么能减少文件数目呢？</p>
+<!-- more -->
+<p>对MathJax的安装路径扫描了一下，发现mathjax/fonts/HTML-CSS/TeX/png下面有无数的小文件，都是图片，每个图片是一个字符。非常奇怪，MathJax不是用JavaScript、CSS和Web
+Font来显示公式么，怎么会有这么多图片格式的字符。</p>
+<p>带着这个疑问到MathJax官方网站上看了看，果然找到了这样一个FAQ：<a class="reference external" href="http://www.mathjax.org/resources/faqs/#fonts-too-big">The MathJax font folder is too big. Is there any way to compress it?</a></p>
+<p>原来这些图片格式的字符是为了让那些古老的不支持Web
+Font的浏览器也可以正常地显示LaTeX公式，好吧，可怕的向下兼容。在MathJax将其改进之前，我决定先删掉这些图片。先要关闭这种图片字体的功能，直接修改插件的源代码blog/wp-content/plugins/latex/latex.php，找到关于MathJax配置的代码，修改为：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>function add_latex_mathjax_code(){
+    echo &#39;<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/x-mathjax-config&quot;</span><span class="p">&gt;</span>
+        <span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span><span class="p">({</span>
+            <span class="s2">&quot;HTML-CSS&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">scale</span><span class="o">:</span> <span class="mi">85</span><span class="p">,</span>
+<span class="hll">                <span class="nx">imageFont</span><span class="o">:</span> <span class="kc">null</span>
+</span>            <span class="p">}</span>
+        <span class="p">});&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;&#39;.get_option(&quot;</span><span class="na">mathjax_server</span><span class="err">&quot;).&#39;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>&#39;;
+}
+</pre></div>
+</td></tr></table><p>其中第6行就是新添加的内容（还有第5行末尾的逗号），这样MathJax就不会再使用图片字体，然后把上面提到的那个目录整个删掉就可以了。当然TeX目录下还有其他几个文件夹，如eot、otf和svg，这些可不要删，要不然在什么浏览器上都无法显示公式了。</p>
+<p>试了一下，至少IE6+、Chrome、FireFox、Safari（包括iPhone、iPad版）都可以正常显示公式。</p>
+<p>呼，一下子清理掉三万多文件，不错。</p>
+
+            <section>
+    <p id="post-share-links">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%E5%85%B3%E4%BA%8E%E5%AE%89%E8%A3%85MathJax%E5%90%8E%E5%8D%A0%E7%94%A8%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%9A%E7%9A%84%E9%97%AE%E9%A2%98&url=http%3A//www.gocalf.com/blog/mathjax-numerous-files.html" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//www.gocalf.com/blog/mathjax-numerous-files.html" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//www.gocalf.com/blog/mathjax-numerous-files.html" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=%E5%85%B3%E4%BA%8E%E5%AE%89%E8%A3%85MathJax%E5%90%8E%E5%8D%A0%E7%94%A8%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%9A%E7%9A%84%E9%97%AE%E9%A2%98&amp;body=http%3A//www.gocalf.com/blog/mathjax-numerous-files.html" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://www.gocalf.com/blog/mathjax-numerous-files.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gocalfblog';
+        var disqus_identifier = 'http://www.gocalf.com/blog/mathjax-numerous-files.html';
+    var disqus_url = 'http://www.gocalf.com/blog/mathjax-numerous-files.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://www.gocalf.com/blog/about-paper-size.html" title="Previous: 纸张的尺寸">纸张的尺寸</a></li>
+                <li class="next-article"><a href="http://www.gocalf.com/blog/bluehost-mailbox.html" title="Next: 解决BlueHost邮箱无法接收邮件的问题">解决BlueHost邮箱无法接收邮件的问题</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-07-28T22:39:00+08:00">Jul 28, 2011</time>
+
+<h4>Last Updated</h4>
+<time datetime="2011-08-03T22:26:00+08:00">Aug 3, 2011</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.gocalf.com/blog/categories.html#site-ref">建站</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.gocalf.com/blog/tags.html#mathjax-ref">MathJax
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="mailto:calf.zhou+blog@gmail.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://weibo.com/calfzhou" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://github.com/calfzhou" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/calfzhou" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/calfzhou" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">GoCalf Blog</span> - 1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'gocalfblog';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

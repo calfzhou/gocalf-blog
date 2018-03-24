@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Calf" />
+        <meta name="copyright" content="Calf" />
+
+        <link rel="author" href=https://plus.google.com/112983042847560253980/posts />
+        <meta name="twitter:creator" content="@calfzhou">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="iOS Develop, 程序开发, iPhone 开发, ObjC, progress bar, UIAlertView, UIProgressView, 进度条" />
+
+<meta property="og:title" content="iOS在UIAlertView中显示进度条 "/>
+<meta property="og:url" content="http://www.gocalf.com/blog/iphone-dev-progressview-in-alertview.html" />
+<meta property="og:description" content="今天这个问题是，在一个iPhone程序中，我要在后台做大量的数据处理，希望在界面上显示一个进度条（Progress Bar）使得用户了解处理进度。这个进度条应该是在一个模态的窗口中，使界面上其他控件无法被操作。怎么用最简单的方法来实现这个功能？UIAlertView是一个现成的模态窗口，如果能把进度条嵌入到它里面就好了。" />
+<meta property="og:site_name" content="GoCalf Blog" />
+<meta property="og:article:author" content="Calf" />
+<meta property="og:article:published_time" content="2011-12-09T18:27:00+08:00" />
+<meta property="" content="2011-12-21T10:31:00+08:00" />
+<meta name="twitter:title" content="iOS在UIAlertView中显示进度条 ">
+<meta name="twitter:description" content="今天这个问题是，在一个iPhone程序中，我要在后台做大量的数据处理，希望在界面上显示一个进度条（Progress Bar）使得用户了解处理进度。这个进度条应该是在一个模态的窗口中，使界面上其他控件无法被操作。怎么用最简单的方法来实现这个功能？UIAlertView是一个现成的模态窗口，如果能把进度条嵌入到它里面就好了。">
+<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/12/progress_icon.png" />
+<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/12/progress_icon.png" >
+
+        <title>iOS在UIAlertView中显示进度条  · GoCalf Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="http://www.gocalf.com/blog/theme/css/style.min.css?6600dc28">
+        <link rel="shortcut icon" href="http://www.gocalf.com/blog/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
+        <link rel="icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="http://www.gocalf.com/blog/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24210758-2', 'auto');
+    ga('send', 'pageview');
+</script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://www.gocalf.com/blog/"><span class=site-name>GoCalf Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://www.gocalf.com/blog">Home</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/about.html">About</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/categories.html">Categories</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/tags.html">Tags</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://www.gocalf.com/blog/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://www.gocalf.com/blog/iphone-dev-progressview-in-alertview.html"> iOS在UIAlertView中显示进度条  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <p>今天这个问题是，在一个iPhone程序中，我要在后台做大量的数据处理，希望在界面上显示一个进度条（Progress
+Bar）使得用户了解处理进度。这个进度条应该是在一个模态的窗口中，使界面上其他控件无法被操作。怎么用最简单的方法来实现这个功能？<a class="reference external" href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIAlertView_Class/UIAlertView/UIAlertView.html">UIAlertView</a>是一个现成的模态窗口，如果能把进度条嵌入到它里面就好了。</p>
+<!-- more -->
+<p>以下内容适用于iOS 2.0+。</p>
+<p>我们知道，如果要显示一个alert窗口（比如用来显示错误或警告信息、询问用户是否确认某操作等等），只要简单地创建一个UIAlertView对象，再调用其show方法即可。示意代码如下：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="bp">UIAlertView</span><span class="o">*</span> <span class="n">alertView</span> <span class="o">=</span> <span class="p">[[[</span><span class="bp">UIAlertView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTitle</span><span class="p">:</span><span class="s">@&quot;Title&quot;</span>
+                                                     <span class="nl">message</span><span class="p">:</span><span class="s">@&quot;Message&quot;</span>
+                                                    <span class="nl">delegate</span><span class="p">:</span><span class="nb">nil</span>
+                                           <span class="nl">cancelButtonTitle</span><span class="p">:</span><span class="s">@&quot;OK&quot;</span>
+                                           <span class="nl">otherButtonTitles</span><span class="p">:</span><span class="nb">nil</span><span class="p">]</span>
+                          <span class="n">autorelease</span><span class="p">];</span>
+<span class="p">[</span><span class="n">alertView</span> <span class="n">show</span><span class="p">];</span>
+</pre></div>
+</td></tr></table><p>如果要添加一个进度条，只要先创建并设置好一个<a class="reference external" href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIProgressView_Class/Reference/Reference.html">UIProgressView</a>的实例，再利用addSubbiew方法添加到alertView中即可。</p>
+<p>在实际应用中，我可能需要在类中保存进度条的对象实例，以便更新其状态，因此先在自己的ViewController类中添加成员变量：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">//  MySampleViewController.h</span>
+<span class="cp">#import &lt;UIKit/UIKit.h&gt;</span>
+
+<span class="k">@interface</span> <span class="nc">MySampleViewController</span> : <span class="bp">UIViewController</span> <span class="p">{</span>
+<span class="k">@private</span>
+    <span class="bp">UIProgressView</span><span class="o">*</span> <span class="n">progressView_</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">@end</span>
+</pre></div>
+</td></tr></table><p>接下来写一个叫做showProgressAlert的方法来创建并显示带有进度条的alert窗口，其中高亮的部分就是把进度条添加到alertView中：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">showProgressAlert:</span><span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">title</span> <span class="nf">withMessage:</span><span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">message</span> <span class="p">{</span>
+    <span class="bp">UIAlertView</span><span class="o">*</span> <span class="n">alertView</span> <span class="o">=</span> <span class="p">[[[</span><span class="bp">UIAlertView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTitle</span><span class="p">:</span><span class="n">title</span>
+                                                         <span class="nl">message</span><span class="p">:</span><span class="n">message</span>
+                                                        <span class="nl">delegate</span><span class="p">:</span><span class="nb">nil</span>
+                                               <span class="nl">cancelButtonTitle</span><span class="p">:</span><span class="nb">nil</span>
+                                               <span class="nl">otherButtonTitles</span><span class="p">:</span><span class="nb">nil</span><span class="p">]</span>
+                              <span class="n">autorelease</span><span class="p">];</span>
+
+<span class="hll">    <span class="n">progressView_</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UIProgressView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithProgressViewStyle</span><span class="p">:</span><span class="n">UIProgressViewStyleBar</span><span class="p">];</span>
+</span><span class="hll">    <span class="n">progressView_</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">225</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">[</span><span class="n">alertView</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">progressView_</span><span class="p">];</span>
+</span>
+    <span class="p">[</span><span class="n">alertView</span> <span class="n">show</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table><p>为了让数据处理的子进程能够方便地修改进度条的值，再添加一个简单的方法：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateProgress:</span><span class="p">(</span><span class="bp">NSNumber</span><span class="o">*</span><span class="p">)</span><span class="nv">progress</span> <span class="p">{</span>
+    <span class="n">progressView_</span><span class="p">.</span><span class="n">progress</span> <span class="o">=</span> <span class="p">[</span><span class="n">progress</span> <span class="n">floatValue</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table><p>另外，数据处理完毕后，我们还需要让进度条以及alertView消失，由于之前并没有保存alertView的实例，可以通过进度条的superview访问之：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">dismissProgressAlert</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">progressView_</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">([</span><span class="n">progressView_</span><span class="p">.</span><span class="n">superview</span> <span class="nl">isKindOfClass</span><span class="p">:[</span><span class="bp">UIAlertView</span> <span class="k">class</span><span class="p">]])</span> <span class="p">{</span>
+        <span class="bp">UIAlertView</span><span class="o">*</span> <span class="n">alertView</span> <span class="o">=</span> <span class="p">(</span><span class="bp">UIAlertView</span><span class="o">*</span><span class="p">)</span><span class="n">progressView_</span><span class="p">.</span><span class="n">superview</span><span class="p">;</span>
+        <span class="p">[</span><span class="n">alertView</span> <span class="nl">dismissWithClickedButtonIndex</span><span class="p">:</span><span class="mi">0</span> <span class="nl">animated</span><span class="p">:</span><span class="nb">NO</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="p">[</span><span class="n">progressView_</span> <span class="k">release</span><span class="p">];</span>
+    <span class="n">progressView_</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table><p>假设处理数据的方法叫processData，当然它会在一个单独的线程中运行，下面的片段示意了如何更新进度条状态，以及最后如何让它消失。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">processData:</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nv">total</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">total</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Update UI to show progess.</span>
+        <span class="kt">float</span> <span class="n">progress</span> <span class="o">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">i</span> <span class="o">/</span> <span class="n">total</span><span class="p">;</span>
+        <span class="bp">NSNumber</span><span class="o">*</span> <span class="n">progressNumber</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSNumber</span> <span class="nl">numberWithFloat</span><span class="p">:</span><span class="n">progress</span><span class="p">];</span>
+        <span class="p">[</span><span class="nb">self</span> <span class="nl">performSelectorOnMainThread</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">updateProgress</span><span class="p">:)</span>
+                               <span class="nl">withObject</span><span class="p">:</span><span class="n">progressNumber</span>
+                            <span class="nl">waitUntilDone</span><span class="p">:</span><span class="nb">NO</span><span class="p">];</span>
+
+        <span class="c1">// Process.</span>
+        <span class="c1">// do it.</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Finished.</span>
+    <span class="p">[</span><span class="nb">self</span> <span class="nl">performSelectorOnMainThread</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">dismissProgressAlert</span><span class="p">)</span>
+                           <span class="nl">withObject</span><span class="p">:</span><span class="nb">nil</span>
+                        <span class="nl">waitUntilDone</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+    <span class="c1">// Other finalizations.</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table><p>在实际使用中，带进度条的alert view大概长得是这样的：</p>
+<div class="figure">
+<img alt="progress_alert" src="http://www.gocalf.com/blog/images/2011/12/progress_alert.png" />
+<p class="caption">带进度条的alert窗口</p>
+</div>
+<hr class="docutils" />
+<p>参考：</p>
+<ul class="simple">
+<li><a class="reference external" href="https://discussions.apple.com/thread/1737797">UIProgressView in UIAlertView?</a></li>
+</ul>
+
+            <section>
+    <p id="post-share-links">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=iOS%E5%9C%A8UIAlertView%E4%B8%AD%E6%98%BE%E7%A4%BA%E8%BF%9B%E5%BA%A6%E6%9D%A1&url=http%3A//www.gocalf.com/blog/iphone-dev-progressview-in-alertview.html" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//www.gocalf.com/blog/iphone-dev-progressview-in-alertview.html" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//www.gocalf.com/blog/iphone-dev-progressview-in-alertview.html" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=iOS%E5%9C%A8UIAlertView%E4%B8%AD%E6%98%BE%E7%A4%BA%E8%BF%9B%E5%BA%A6%E6%9D%A1&amp;body=http%3A//www.gocalf.com/blog/iphone-dev-progressview-in-alertview.html" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://www.gocalf.com/blog/iphone-dev-progressview-in-alertview.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gocalfblog';
+        var disqus_identifier = 'http://www.gocalf.com/blog/iphone-dev-progressview-in-alertview.html';
+    var disqus_url = 'http://www.gocalf.com/blog/iphone-dev-progressview-in-alertview.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+<section>
+    <h2>Related Posts</h2>
+<ul class="related-posts-list">
+<li><a href="http://www.gocalf.com/blog/iphone-dev-hide-status-bar.html" title="iOS隐藏系统状态栏">iOS隐藏系统状态栏</a></li>
+<li><a href="http://www.gocalf.com/blog/iphone-dev-range-slider.html" title="iOS自定义范围滑动条控件">iOS自定义范围滑动条控件</a></li>
+<li><a href="http://www.gocalf.com/blog/iphone-dev-resizable-image.html" title="iOS可拉伸的图片">iOS可拉伸的图片</a></li>
+</ul>
+<hr />
+</section>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://www.gocalf.com/blog/zelda-tp-ch7.html" title="Previous: 黎明公主攻略：第七章 天堂神殿的挽歌">黎明公主攻略：第七章 天堂神殿的挽歌</a></li>
+                <li class="next-article"><a href="http://www.gocalf.com/blog/zelda-tp-ch8.html" title="Next: 黎明公主攻略：第八章 黎明之前的黑暗">黎明公主攻略：第八章 黎明之前的黑暗</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-12-09T18:27:00+08:00">Dec 9, 2011</time>
+
+<h4>Last Updated</h4>
+<time datetime="2011-12-21T10:31:00+08:00">Dec 21, 2011</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.gocalf.com/blog/categories.html#programming-ref">程序开发</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.gocalf.com/blog/tags.html#ios-develop-ref">iOS Develop
+                    <span>4</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="mailto:calf.zhou+blog@gmail.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://weibo.com/calfzhou" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://github.com/calfzhou" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/calfzhou" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/calfzhou" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">GoCalf Blog</span> - 1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'gocalfblog';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

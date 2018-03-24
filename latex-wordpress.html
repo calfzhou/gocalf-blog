@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Calf" />
+        <meta name="copyright" content="Calf" />
+
+        <link rel="author" href=https://plus.google.com/112983042847560253980/posts />
+        <meta name="twitter:creator" content="@calfzhou">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="WordPress LaTeX, WordPress Plugin, 建站, MimeTeX, LaTeX for WordPress, MathJax, LaTeX" />
+
+<meta property="og:title" content="WordPress数学公式插件LaTeX "/>
+<meta property="og:url" content="http://www.gocalf.com/blog/latex-wordpress.html" />
+<meta property="og:description" content="为WordPress添加数学公式。" />
+<meta property="og:site_name" content="GoCalf Blog" />
+<meta property="og:article:author" content="Calf" />
+<meta property="og:article:published_time" content="2011-07-02T22:32:00+08:00" />
+<meta property="" content="2011-08-03T20:19:00+08:00" />
+<meta name="twitter:title" content="WordPress数学公式插件LaTeX ">
+<meta name="twitter:description" content="为WordPress添加数学公式。">
+<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/07/wordpress_latex.png" />
+<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/07/wordpress_latex.png" >
+
+        <title>WordPress数学公式插件LaTeX  · GoCalf Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="http://www.gocalf.com/blog/theme/css/style.min.css?6600dc28">
+        <link rel="shortcut icon" href="http://www.gocalf.com/blog/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
+        <link rel="icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="http://www.gocalf.com/blog/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24210758-2', 'auto');
+    ga('send', 'pageview');
+</script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://www.gocalf.com/blog/"><span class=site-name>GoCalf Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://www.gocalf.com/blog">Home</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/about.html">About</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/categories.html">Categories</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/tags.html">Tags</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://www.gocalf.com/blog/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://www.gocalf.com/blog/latex-wordpress.html"> WordPress数学公式插件LaTeX  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <p>几年前在我与几个同学一起维护的博客<a class="reference external" href="http://www.zhongqingju.com">钟磬居</a>（链接已失效）中，我们使用了<a class="reference external" href="http://en.dahnielson.com/2006/09/mimetex-plugin.html">dahnielson_mimetex</a>（链接已失效）来渲染LaTeX公式（原博文备份至：<a class="reference external" href="http://www.gocalf.com/blog/wordpress-latex-old.html">为你的WordPress站点添加LaTeX支持</a>）。</p>
+<p>当时提到三种在博客文章中显示LaTex公式的方法：</p>
+<ol class="arabic simple">
+<li>利用LaTeX软件或在线服务（如<a class="reference external" href="http://www.forkosh.com/mimetex.html">mimetex</a>，<a class="reference external" href="http://www.codecogs.com/components/equationeditor/equationeditor.php">LaTeX Equation Editor</a>）生成公式的图片，将图片上传到自己的站点或者PicasaWeb，然后在文章中插入该图片；</li>
+<li>为自己的站点安装LaTeX的相关软件，使其可以解析LaTeX并生成图片；</li>
+<li>利用插件（<a class="reference external" href="http://en.dahnielson.com/2006/09/mimetex-plugin.html">dahnielson_mimetex</a>），动态地向公开的服务发出请求，获取公式图片并显示。</li>
+</ol>
+<p>这次还是采用第三种方法，只是改用了更为方便强大的插件：<a class="reference external" href="http://zhiqiang.org/">Zhiqiang</a>开发的<a class="reference external" href="http://wordpress.org/extend/plugins/latex/">LaTeX for WordPress</a>（参见其博文：<a class="reference external" href="http://zhiqiang.org/blog/it/latex-for-wordpress.html">在博客上写数学公式的插件LaTeX for WordPress</a>）。</p>
+<!-- more -->
+<p><a class="reference external" href="http://wordpress.org/extend/plugins/latex/">LaTeX for WordPress</a>的使用非常简单，这里就直接从其<a class="reference external" href="http://wordpress.org/extend/plugins/latex/">主页</a>上抄袭过来：</p>
+<blockquote>
+<p>You can type the formula in LaTeX, in title, posts, pages and comments:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">\(\alpha+\beta\geq\gamma\)</span></tt> or&nbsp;<tt class="docutils literal"><span class="pre">$$\alpha+\beta\geq\gamma$$</span></tt> add an inline formula</li>
+<li><tt class="docutils literal"><span class="pre">\[\alpha+\beta\geq\gamma\]</span></tt> or&nbsp;<tt class="docutils literal"><span class="pre">$$!\alpha+\beta\geq\gamma$$</span></tt> add an latex equation in math mode (it will be displayed centerly in a single line).</li>
+<li><tt class="docutils literal"><span class="pre">$$\alpha+\beta\geq\gamma!$$</span></tt> display the source of the latex formula. Just add a&nbsp;<tt class="docutils literal">!</tt> before the second&nbsp;<tt class="docutils literal">$$</tt>.</li>
+</ul>
+</blockquote>
+<p>上面的公式显示为： <span class="math">\(\alpha+\beta\geq\gamma\)</span></p>
+<p>一个例子：</p>
+<div class="highlight"><pre><span></span><span class="sb">$$</span><span class="nv">\begin</span><span class="nb">{array}{rcl}</span>
+<span class="nb">p &amp; </span><span class="o">=</span><span class="nb"> &amp; </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{</span><span class="m">5</span><span class="nb">}</span><span class="o">+</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">2</span><span class="nb">}{</span><span class="m">5</span><span class="nb">}</span><span class="nv">\times\left</span><span class="o">(</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{</span><span class="m">5</span><span class="nb">}</span><span class="o">+</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">2</span><span class="nb">}{</span><span class="m">5</span><span class="nb">}</span><span class="nv">\times\left</span><span class="o">(</span><span class="nv">\cdots\right</span><span class="o">)</span><span class="nv">\right</span><span class="o">)</span><span class="nb"> </span><span class="nv">\\</span><span class="nb"></span>
+<span class="nb">&amp; </span><span class="o">=</span><span class="nb"> &amp; </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{</span><span class="m">5</span><span class="nb">}</span><span class="nv">\times\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">0</span><span class="nb">}^</span><span class="nv">\infty</span><span class="nb"> </span><span class="nv">\left</span><span class="o">(</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">2</span><span class="nb">}{</span><span class="m">5</span><span class="nb">}</span><span class="nv">\right</span><span class="o">)</span><span class="nb">^i </span><span class="nv">\\</span><span class="nb"></span>
+<span class="nb">&amp; </span><span class="o">=</span><span class="nb"> &amp; </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{</span><span class="m">5</span><span class="nb">}</span><span class="nv">\times\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{</span><span class="m">1</span><span class="o">-</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">2</span><span class="nb">}{</span><span class="m">5</span><span class="nb">}} </span><span class="nv">\\</span><span class="nb"></span>
+<span class="nb">&amp; </span><span class="o">=</span><span class="nb"> &amp; </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{</span><span class="m">5</span><span class="nb">}</span><span class="nv">\times\frac</span><span class="nb">{</span><span class="m">5</span><span class="nb">}{</span><span class="m">3</span><span class="nb">} </span><span class="nv">\\</span><span class="nb"></span>
+<span class="nb">&amp; </span><span class="o">=</span><span class="nb"> &amp; </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{</span><span class="m">3</span><span class="nb">}</span>
+<span class="nv">\end</span><span class="nb">{array}</span><span class="s">$$</span>
+</pre></div>
+<div class="math">
+\begin{equation*}
+\begin{array}{rcl}
+p &amp; = &amp; \frac{1}{5}+\frac{2}{5}\times\left(\frac{1}{5}+\frac{2}{5}\times\left(\cdots\right)\right) \\
+&amp; = &amp; \frac{1}{5}\times\sum_{i=0}^\infty \left(\frac{2}{5}\right)^i \\
+&amp; = &amp; \frac{1}{5}\times\frac{1}{1-\frac{2}{5}} \\
+&amp; = &amp; \frac{1}{5}\times\frac{5}{3} \\
+&amp; = &amp; \frac{1}{3}
+\end{array}
+\end{equation*}
+</div>
+<p>另外这个插件默认并且推荐使用<a class="reference external" href="http://www.mathjax.org/">MathJax</a>来渲染公式。<a class="reference external" href="http://www.mathjax.org/">MathJax</a>是一个开源的基于JavaScript的公式渲染引擎。它使用CSS和网页中的字体来显示公式，而不是图片或者Flash。这带来的好处是公式内的文字是可以选取的，而且在缩放网页的时候，公式的字体也可同时被缩放。而且利用它的JavaScript还可以很方便地对整个公式进行缩放和拷贝。可以在MathJax网站上查看（<a class="reference external" href="http://www.mathjax.org/demos/copy-and-paste/">http://www.mathjax.org/demos/copy-and-paste/</a>）如何把MathJax渲染出来的公式复制到Mathematica、Microsoft
+Word、MathType和Wikipeida中。这里简单概括一下：</p>
+<ul class="simple">
+<li>Mathematica：复制公式的MathML源代码（右键点击公式，选择Format-&gt;MathML，然后点击Show
+Source，在弹出的代码窗口中全选复制），在Mathematica中粘贴，软件将会自动识别出这是一个公式。</li>
+<li>Microsoft
+Word：将公式的MathML源代码粘贴到Word中，然后在粘贴选择器（Paste
+Options）中选取仅保留文本（Paste Text Only）。</li>
+<li>MathType：将公式的TeX源代码（在右键菜单中选择Format-&gt;TeX）粘贴到MathType中即可。</li>
+<li>Wikipedia：将公式的TeX源码粘贴到Wikipedia编辑窗口中，放在<tt class="docutils literal"><span class="pre">&lt;math&gt;&lt;/math&gt;</span></tt>内即可。</li>
+</ul>
+<p>如果是在Google
+Reader中查看公式的文章，MathJax无法被载入，这种情况下插件还会提供图片格式的公式以便阅读。</p>
+<p>另外插件提供了方便的后台设置，在博客后台可以直接修改公式图片和MathJax的服务器地址，可以设置打开或者关闭MathJax。</p>
+<p>如果怕公开的LaTeX公式图片服务器或者MathJax服务器访问速度慢、被封、关闭等情况，也可以自己搭建相关的服务，然后在插件的设置中修改服务器地址即可。</p>
+
+            <section>
+    <p id="post-share-links">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=WordPress%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%8F%92%E4%BB%B6LaTeX&url=http%3A//www.gocalf.com/blog/latex-wordpress.html" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//www.gocalf.com/blog/latex-wordpress.html" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//www.gocalf.com/blog/latex-wordpress.html" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=WordPress%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%8F%92%E4%BB%B6LaTeX&amp;body=http%3A//www.gocalf.com/blog/latex-wordpress.html" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://www.gocalf.com/blog/latex-wordpress.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gocalfblog';
+        var disqus_identifier = 'http://www.gocalf.com/blog/latex-wordpress.html';
+    var disqus_url = 'http://www.gocalf.com/blog/latex-wordpress.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+<section>
+    <h2>Related Posts</h2>
+<ul class="related-posts-list">
+<li><a href="http://www.gocalf.com/blog/wordpress-latex-old.html" title="为你的WordPress站点添加LaTeX支持">为你的WordPress站点添加LaTeX支持</a></li>
+<li><a href="http://www.gocalf.com/blog/latex-plugin-more.html" title="关于LaTeX插件再啰嗦几句">关于LaTeX插件再啰嗦几句</a></li>
+</ul>
+<hr />
+</section>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://www.gocalf.com/blog/movie-source-code.html" title="Previous: 电影《源代码》（Source Code）">电影《源代码》（Source Code）</a></li>
+                <li class="next-article"><a href="http://www.gocalf.com/blog/wordpress-latex-old.html" title="Next: 为你的WordPress站点添加LaTeX支持">为你的WordPress站点添加LaTeX支持</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-07-02T22:32:00+08:00">Jul 2, 2011</time>
+
+<h4>Last Updated</h4>
+<time datetime="2011-08-03T20:19:00+08:00">Aug 3, 2011</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.gocalf.com/blog/categories.html#site-ref">建站</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.gocalf.com/blog/tags.html#wordpress-latex-ref">WordPress LaTeX
+                    <span>3</span>
+</a></li>
+                <li><a href="http://www.gocalf.com/blog/tags.html#wordpress-plugin-ref">WordPress Plugin
+                    <span>3</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="mailto:calf.zhou+blog@gmail.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://weibo.com/calfzhou" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://github.com/calfzhou" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/calfzhou" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/calfzhou" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">GoCalf Blog</span> - 1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'gocalfblog';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+    MathJax.Hub.Config({
+        config: ["MMLorHTML.js"],
+        jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+        TeX: {
+            extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
+            equationNumbers: { autoNumber: "AMS" }
+        },
+        extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+        tex2jax: { 
+            //inlineMath: [ [\'$\',\'$\'] ],
+            //displayMath: [ [\'$$\',\'$$\'] ],
+            inlineMath: [ ["\\(", "\\)"] ],
+            displayMath: [ ],
+            processClass: "math",
+            processEscapes: true
+        },
+        "HTML-CSS": {
+            styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+        }
+       });
+</script>    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

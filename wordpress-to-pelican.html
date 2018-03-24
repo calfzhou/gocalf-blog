@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Calf" />
+        <meta name="copyright" content="Calf" />
+
+        <link rel="author" href=https://plus.google.com/112983042847560253980/posts />
+        <meta name="twitter:creator" content="@calfzhou">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Static Blog, Pelican, 建站, WordPress, 静态博客, Octopress, Markdown, reStructuredText, Pelican Theme, Elegant" />
+
+<meta property="og:title" content="博客从WordPress迁移到Pelican "/>
+<meta property="og:url" content="http://www.gocalf.com/blog/wordpress-to-pelican.html" />
+<meta property="og:description" content="经过一段时间的整理，现在正式把GoCalf博客从WordPress迁移到Pelican了。" />
+<meta property="og:site_name" content="GoCalf Blog" />
+<meta property="og:article:author" content="Calf" />
+<meta property="og:article:published_time" content="2013-11-06T21:15:00+08:00" />
+<meta property="" content="2013-11-12T14:00:00+08:00" />
+<meta name="twitter:title" content="博客从WordPress迁移到Pelican ">
+<meta name="twitter:description" content="经过一段时间的整理，现在正式把GoCalf博客从WordPress迁移到Pelican了。">
+<meta property="og:image" content="http://www.gocalf.com/blog/images/2013/11/wordpress_to_pelican.png" />
+<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2013/11/wordpress_to_pelican.png" >
+
+        <title>博客从WordPress迁移到Pelican  · GoCalf Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="http://www.gocalf.com/blog/theme/css/style.min.css?6600dc28">
+        <link rel="shortcut icon" href="http://www.gocalf.com/blog/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
+        <link rel="icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="http://www.gocalf.com/blog/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24210758-2', 'auto');
+    ga('send', 'pageview');
+</script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://www.gocalf.com/blog/"><span class=site-name>GoCalf Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://www.gocalf.com/blog">Home</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/about.html">About</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/categories.html">Categories</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/tags.html">Tags</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://www.gocalf.com/blog/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://www.gocalf.com/blog/wordpress-to-pelican.html"> 博客从WordPress迁移到Pelican  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc" id="">
+
+<ul class="simple">
+<li><a class="reference internal" href="#wordpress-vs" id="id4">WordPress vs. 静态博客</a></li>
+<li><a class="reference internal" href="#octopress-vs-pelican" id="id5">Octopress vs. Pelican</a></li>
+<li><a class="reference internal" href="#markdown-vs-restructuredtext" id="id6">Markdown vs. reStructuredText</a></li>
+<li><a class="reference internal" href="#id2" id="id7">革命尚未成功</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+            
+<p>经过一段时间的整理，现在正式把<a class="reference external" href="http://www.gocalf.com/blog">GoCalf博客</a>从<a class="reference external" href="http://wordpress.org/">WordPress</a>迁移到<a class="reference external" href="http://blog.getpelican.com/">Pelican</a>了，简单记录一下，还有一些未完成的事情等着以后再慢慢搞。</p>
+<!-- more -->
+<div class="section" id="wordpress-vs">
+<h2><a class="toc-backref" href="#id4">WordPress vs. 静态博客</a></h2>
+<p>最开始的动机只是想寻找一个最适合自己的个人wiki系统，之前把一些备忘信息用<a class="reference external" href="http://tiddlywiki.com/">TiddlyWiki</a>保存在U盘上，这样在任何地方，用任何操作系统的电脑都可以查看和编辑。但是后来懒到每次都懒的把U盘拿过来插上，所以并没有发挥太大的作用。后来开始用<a class="reference external" href="https://www.dropbox.com/">DropBox</a>，其他很多东西都移到DropBox里了，这个却一直没有动。现在<a class="reference external" href="http://office.microsoft.com/en-us/onenote/">OneNote</a>和<a class="reference external" href="https://evernote.com/">Evernote</a>和<a class="reference external" href="http://note.youdao.com/">有道云笔记</a>同时在用，却没有一个是我真正想要的。</p>
+<p>扯远了。</p>
+<p>总之在进行个人wiki的技术选型时，产生了把<a class="reference external" href="http://www.gocalf.com/blog">GoCalf博客</a>改成静态博客的念头。</p>
+<p>接触<a class="reference external" href="http://wordpress.org/">WordPress</a>很多年了，这个东西确实非常的强大，丰富的插件使得它几乎可以实现任何我想要的功能。但也总会有人说不要过多地依赖插件，它们会让你的博客变得非常的慢。当然插件太多也挺麻烦的，经常想要某个功能，会发现很多很多相关的插件，对于有选择困难的我来说，这实在是太痛苦了。得考虑插件本身实现的功能是否足够强大，得考虑插件是否还在持续地被维护，得考虑各种兼容性问题等等。像我一直使用的代码高亮插件<a class="reference external" href="http://wordpress.org/plugins/codecolorer/">CodeColorer</a>，在我最早开始用WordPress的时候，觉得这个插件是最好的，但最近两年它都不再更新了。它有一些小的bug，向作者反馈后没有收到任何回音，而我又懒得自己改。但是要换别的插件也很麻烦，因为我特别喜欢使用它独特的标记语法，别的插件都不支持。</p>
+<p>让我想要放弃WordPress的另一个原因是，不知道是不是心理作用，每次用WordPress写东西都感觉像是非常复杂的一件事，甚至有点儿害怕用它。就是感觉特别的麻烦，加上服务器放在境外，访问速度也不是很乐观，就更加不方便了。在写的过程中，也总是会担心这样或那样的小错误，最让我头疼的就是HTML特殊字符的转义了，在代码片段或者数学公式中遇到特殊字符，有时候是要转义的，有时候不用转义，有时候打开一篇老文章，不做任何改动再保存，格式就会出问题。</p>
+<p>可能是因为它太过强大了。</p>
+<p>看了一些静态博客方面的文章，感觉挺好的，用任何一个自己喜欢的文本编辑器按照自己习惯的格式去书写，至少在这个过程中完全不用考虑任何展示方面的事情。</p>
+<p>写文章的过程变得很简洁，不需要趴在服务器上去写，不用担心异常断网等情况带来的不便，只需要有一台机器，有一个自己喜欢的编辑器，写完之后用一个简单的命令就可以进行发布。</p>
+<p>静态博客还有一个重要的优势是，它几乎不占用什么服务器的运算资源，所有的HTML页面都是在发布前夕在本地生成的，最终在服务器上趴着的只有一个个静态HTML页面，所有的插件都是在发布前在本地进行运算的，不会因为插件众多而拖垮服务器。没有数据库，没有PHP，任何一个可以托管静态页面的地方都可以放下整个博客。</p>
+<p>另外博客的备份也变得简单了，没有数据库了，也不用从服务器上把文件都拷贝回来。所有的源文件都在本地，可以用任何喜欢的方式进行备份。我现在利用GitHub进行备份，连修改历史都有了。</p>
+<p>不知道是不是冥冥之中注定了要走上静态之路，就在我正试着把WordPress上的文章往静态博客转移的时候，我的WordPress站点出了些奇怪的问题。已有的文章进入编辑模式后看不到任何内容，这时候如果保存一下，那文章就变成白纸了。有一篇文章的内容莫名其妙地丢失了，我记得我只是打开编辑模式看了看，并没有保存，但它真的没有了。感觉像是CKEditor插件出问题了，把它禁用之后，发现还是不行。如果写新的文章，换行什么的都失效了，虽然编辑框里一个个段落都存在，保存之后所有的段落都粘在一起了。再次启用CKEditor之后，发现编辑器并没有相应地发生变化。一切都乱套了。</p>
+<p>最后放弃了修复这些问题，让它们全都消失好了。</p>
+<p>静态博客会有一个问题，就是没法直接加入动态的东西。比如评论，比如搜索。搜索暂时没有考虑，对于评论，可以利用社交化评论系统，比如我现在用的<a class="reference external" href="http://disqus.com/">Disqus</a>，在生成的html页面中嵌入一段JavaScript代码，当浏览器打开这个页面的时候，JavaScript代码会从Disqus服务器上获取相关的评论信息并展示出来。也可以自己做一个简单的评论系统，不过对于垃圾评论满天飞的互联网，要想做好还是很难的。</p>
+<p>总的来说，静态博客的好处是，你只需要关注要写的内容本身。</p>
+</div>
+<div class="section" id="octopress-vs-pelican">
+<h2><a class="toc-backref" href="#id5">Octopress vs. Pelican</a></h2>
+<p>刚开始接触到的静态博客是<a class="reference external" href="http://octopress.org/">Octopress</a>，是基于<a class="reference external" href="http://jekyllrb.com/">Jekyll</a>的，后者是用Ruby写的静态博客系统。据说Octopress与Jekyll的关系就像jQuery与JavaScript的关系一样。</p>
+<p>现在Octopress很火的，在<a class="reference external" href="https://github.com/imathis/octopress/wiki/Octopress-Sites">Octopress Sites</a>中可以看到很多基于Octopress搭建的博客，我也针对一些我需要的特性对它进行了一些勘察。不过很快地，我就把目光转向了基于Python的<a class="reference external" href="http://blog.getpelican.com/">Pelican</a>。</p>
+<p>Pelican的使用量相对来说少一些（<a class="reference external" href="https://github.com/getpelican/pelican/wiki/Powered-by-Pelican">Pelican Sites</a>），选择它的主要原因是我更熟悉Python。Ruby的代码我几乎没有看过，也没有尝试去读或者写，这样如果在使用Octopress过程中，需要做一些修改，或者写一些插件，就会比较困难。但如果使用Pelican，我可以自己修改它的代码，可以自己写插件。后来发现这个选择是对的，我已经对Pelican及其插件做了一些修改，而且已经计划写一些至少自己能用的上的新插件。</p>
+<p>Pelican当前的版本是3.3.0，虽然没有和Octopress具体地对比，但它有些功能是我很喜欢的，比如<a class="reference external" href="http://docs.getpelican.com/en/latest/getting_started.html#linking-to-internal-content">linking to internal content</a>用于把不同的文章、或者文章和附件联系起来，而不需要关心它们发布后在什么位置；比如内置了对多语言博客的支持（<a class="reference external" href="http://docs.getpelican.com/en/latest/getting_started.html#translations">translations</a>）；还有草稿模式等等。</p>
+<p>相对的，它的缺点主要是插件还不够丰富，只好用“自己写”来弥补了。另外大多数Pelican主题都不好看，这个问题回头再慢慢解决吧。</p>
+<p>现在我的这个博客看起来有点儿像Octopress，是因为我用了<a class="reference external" href="http://docs.getpelican.com/en/latest/getting_started.html#translations">Octopress Theme for Pelican</a>。这只是暂时的啦，以后有时间了会自己整一个主题。</p>
+<p>有一个问题是比较讨厌的，不知道Octopress是否也一样，就是编译速度比较慢。静态博客是要把用标记语言书写的文章转换成HTML页面，用Pelican的时候，几十篇文章就需要几秒钟的时间才能编译完成，如果有上百篇文章，等待过程会让人焦虑的。目前即使只是一篇文章中改变了一个字，编译的时候也会重新编译所有的页面。这一点期待开发团队的改进吧。感觉一个可行的方案是生成一些中间文件，把每篇文章对应的HTML片段单独保存，如果文章内容和相关的参数都没变，这一部分就不用重新生成。最终的HTML页面，是把框架跟内容片段连在一起生成的，这个过程应该会很快。</p>
+</div>
+<div class="section" id="markdown-vs-restructuredtext">
+<h2><a class="toc-backref" href="#id6">Markdown vs. reStructuredText</a></h2>
+<p><a class="reference external" href="http://daringfireball.net/projects/markdown/">Markdown</a>和<a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>都是非常不错的标记语言，也是众多静态博客玩家首选的语言之一二。开始我一直准备用Markdown，GitHub对它的强力支持是很主要的原因。当然Markdown自身确实也有很多的优势，它非常的简洁，书写和阅读都非常舒服。我甚至已经把所有的文章都转成Markdown格式了，但最后还是转投reStructuredText的怀抱。</p>
+<p>Markdown很简洁，如果是写文学的东西，用它最合适不过了。但它有点儿太简洁了，如果是写技术文章，它的处理能力就有点儿捉襟见肘了。比如没有原生的表格，没有数学公式的支持，段落嵌套很困难，虽然能直接嵌入HTML代码，但很难做到复杂的嵌套。</p>
+<p>reStructuredText则要强大的多，也并没有失去太多的简便性。Python的官方文档就是用它写出来的。很多技术博客或者技术书籍是用它写出来的。</p>
+<p>Markdown的扩展性也让人难以忍受，它天生似乎就没打算让别人对它做太多的扩展。它没有一个约定俗成的扩展语法。在Octopress中广泛使用的是Liquid-style Tags，大多数Octopress插件的语法都是基于这个的。我没有仔细研究过，看起来这个是从Ruby那里来的。当然在Pelican里面也有相应的liquid tags插件，但我实在不能忍受liquid tag常用的语法。以Octopress中<a class="reference external" href="http://octopress.org/docs/plugins/image-tag/">Image Tag</a>插件为例，它的语法是：</p>
+<div class="highlight"><pre><span></span>{% img [class names] /path/to/image [width] [height] [title text [alt text]] %}
+</pre></div>
+<p>如果去看这个插件的源代码，可以发现它用正则表达式来解析这个语法，相关的代码如下：</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">markup</span> <span class="o">=~</span> <span class="sr">/(?&lt;class&gt;\S.*\s+)?(?&lt;src&gt;(?:https?:\/\/|\/|\S+\/)\S+)(?:\s+(?&lt;width&gt;\d+))?(?:\s+(?&lt;height&gt;\d+))?(?&lt;title&gt;\s+.+)?/i</span>
+  <span class="vi">@img</span> <span class="o">=</span> <span class="n">attributes</span><span class="o">.</span><span class="n">reduce</span><span class="p">({})</span> <span class="p">{</span> <span class="o">|</span><span class="n">img</span><span class="p">,</span> <span class="kp">attr</span><span class="o">|</span> <span class="n">img</span><span class="o">[</span><span class="kp">attr</span><span class="o">]</span> <span class="o">=</span> <span class="vg">$~</span><span class="o">[</span><span class="kp">attr</span><span class="o">].</span><span class="n">strip</span> <span class="k">if</span> <span class="vg">$~</span><span class="o">[</span><span class="kp">attr</span><span class="o">]</span><span class="p">;</span> <span class="n">img</span> <span class="p">}</span>
+  <span class="k">if</span> <span class="sr">/(?:"|')(?&lt;title&gt;[^"']+)?(?:"|')\s+(?:"|')(?&lt;alt&gt;[^"']+)?(?:"|')/</span> <span class="o">=~</span> <span class="vi">@img</span><span class="o">[</span><span class="s1">'title'</span><span class="o">]</span>
+    <span class="o">...</span>
+  <span class="k">else</span>
+    <span class="o">...</span>
+  <span class="k">end</span>
+  <span class="o">...</span>
+<span class="k">end</span>
+</pre></div>
+<p>复杂的正则表达式隐含着太多未知的危机。可怕之处在于每个参数都不是命名的，依靠位置（或者顺序）来识别每个参数值的含义。但是绝大多数参数又都是可以省略的，这种情况下只能借助参数可能的内容格式来进行识别。如果参数个数比较多，参数值的格式要求比较松，那识别起来将会非常的麻烦。</p>
+<p>reStructuredText没有这样的问题，它有明确的扩展方式，通过role和directive，分别是行内和区块扩展。directive的格式非常清晰，匿名或者是必备的参数、可选的命名的参数、内容段落等等。</p>
+<p>另外reStructuredText直接提供了众多的role和directive，比如LaTeX公式，甚至可以直接通过选项来控制是否使用MathJax来渲染LaTeX公式。在改用reStructuredText后，发现之前启用的很多插件都没有必要了，reStructuredText已经提供了支持。</p>
+<p>reStructuredText的段落嵌套非常的强大，而Markdown似乎忘记了这一点。</p>
+<p>当然Markdown也有比reStructuredText强大的地方，最明显的就是Markdown行内格式的嵌套非常方便。用<tt class="docutils literal">***</tt>包围起来的文字会同时有粗体和斜体效果。reStructuredText到目前还不太支持role的嵌套，想要做出同时粗体和斜体的文字，或者粗体的链接，都是比较困难或者麻烦的。还有其他一些小的细节，我就不具体说了。</p>
+<p>总的来说，Markdown更简洁，更适合于书写纯文字的东西；reStructuredText更强大，适合于书写复杂的技术文章。</p>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id7">革命尚未成功</a></h2>
+<p>新版的博客已经上线了，但仍然有一些工作需要进行。</p>
+<ul class="simple">
+<li>MathJax插件：reStructuredText内置了对LaTeX公式的支持，行内公式用<a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/roles.html#math">math role</a>实现，区块公式用<a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#math">math directive</a>实现，而且通过<a class="reference external" href="http://docutils.sourceforge.net/docs/user/config.html#math-output">--math-output</a>配置可以让它用MathJax进行渲染。但是MathJax是要在浏览器里执行JavaScript的，如果无法执行JavaScript（比如在RSS中）就没法正常显示了。之前在WordPress中，利用插件先生成图片，如果无法执行JavaScript就会直接显示图片。所以这里也需要一个类似的插件，在编译的时候生成图片备用。</li>
+<li>Graphviz插件：Pelican中似乎没有直接能用的graphviz directive，需要去找一个或者写一个插件。在编译的时候调用dot命令生成好图片就可以了。</li>
+<li>Chart插件：有时候提供一些数据的展示，图表是非常必需的。之前都是先用Excel或这Mathematica之类的软件画好，再把图片放上去。如果有插件直接把数据通过JavaScript展示出来就更好了。准备写个插件，调用<a class="reference external" href="http://nvd3.org/">NVD3</a>进行绘图。</li>
+<li>Featured Image：WordPress自带了这个，而且大多数主题都支持它，就是每篇文章有一张特色图片。这个需要去考察一下看看有没有现成的插件，当然主题也需要能够支持它。</li>
+<li>系列文章插件：系列文章是个很好的东西，把一系列非常相关的文章按照时间组织在一起。之前就一直在用，Pelican倒是也有一个相关的插件，但还不完全是我想要的。等有空的时候再研究研究。</li>
+<li>主题：对CSS的把控力几乎为零，所以主题的制作还是很让人头疼的一件事情。我会继续寻找一个更好的主题，或者如果有精力，会考虑自己做一个主题。<ul>
+<li>[2013-11-12] 现在改用<a class="reference external" href="http://oncrashreboot.com/elegant-best-pelican-theme-features">Elegant</a>主题，非常的清新，而且作者很活跃，一直在不断地完善该主题。</li>
+</ul>
+</li>
+</ul>
+</div>
+
+            <section>
+    <p id="post-share-links">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%E5%8D%9A%E5%AE%A2%E4%BB%8EWordPress%E8%BF%81%E7%A7%BB%E5%88%B0Pelican&url=http%3A//www.gocalf.com/blog/wordpress-to-pelican.html" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//www.gocalf.com/blog/wordpress-to-pelican.html" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//www.gocalf.com/blog/wordpress-to-pelican.html" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=%E5%8D%9A%E5%AE%A2%E4%BB%8EWordPress%E8%BF%81%E7%A7%BB%E5%88%B0Pelican&amp;body=http%3A//www.gocalf.com/blog/wordpress-to-pelican.html" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://www.gocalf.com/blog/wordpress-to-pelican.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gocalfblog';
+        var disqus_identifier = 'http://www.gocalf.com/blog/wordpress-to-pelican.html';
+    var disqus_url = 'http://www.gocalf.com/blog/wordpress-to-pelican.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://www.gocalf.com/blog/fix-bricked-kindle4.html" title="Previous: Kindle4修砖记">Kindle4修砖记</a></li>
+                <li class="next-article"><a href="http://www.gocalf.com/blog/scale-embedded-svg.html" title="Next: 让页面中嵌入的SVG图片可以缩放">让页面中嵌入的SVG图片可以缩放</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2013-11-06T21:15:00+08:00">Nov 6, 2013</time>
+
+<h4>Last Updated</h4>
+<time datetime="2013-11-12T14:00:00+08:00">Nov 12, 2013</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.gocalf.com/blog/categories.html#site-ref">建站</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.gocalf.com/blog/tags.html#pelican-ref">Pelican
+                    <span>1</span>
+</a></li>
+                <li><a href="http://www.gocalf.com/blog/tags.html#static-blog-ref">Static Blog
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="mailto:calf.zhou+blog@gmail.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://weibo.com/calfzhou" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://github.com/calfzhou" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/calfzhou" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/calfzhou" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">GoCalf Blog</span> - 1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'gocalfblog';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

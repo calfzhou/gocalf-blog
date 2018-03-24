@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Calf" />
+        <meta name="copyright" content="Calf" />
+
+        <link rel="author" href=https://plus.google.com/112983042847560253980/posts />
+        <meta name="twitter:creator" content="@calfzhou">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Interview Question, Probability, Random Sample, 算法, Random Selection, Weighted Random Sample, 单次遍历, 带权选取, 算法题, 随机选取, 面试题" />
+
+<meta property="og:title" content="单次遍历，带权随机选取问题（一） "/>
+<meta property="og:url" content="http://www.gocalf.com/blog/weighted-random-selection.html" />
+<meta property="og:description" content="问题描述：有一组数量未知的数据，每个元素有非负权重。要求只遍历一次，随机选取其中的一个元素，任何一个元素被选到的概率与其权重成正比。" />
+<meta property="og:site_name" content="GoCalf Blog" />
+<meta property="og:article:author" content="Calf" />
+<meta property="og:article:published_time" content="2011-09-21T23:07:00+08:00" />
+<meta property="" content="2011-09-27T13:20:00+08:00" />
+<meta name="twitter:title" content="单次遍历，带权随机选取问题（一） ">
+<meta name="twitter:description" content="问题描述：有一组数量未知的数据，每个元素有非负权重。要求只遍历一次，随机选取其中的一个元素，任何一个元素被选到的概率与其权重成正比。">
+<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/09/colorpicker_weight.png" />
+<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/09/colorpicker_weight.png" >
+
+        <title>单次遍历，带权随机选取问题（一）  · GoCalf Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="http://www.gocalf.com/blog/theme/css/style.min.css?6600dc28">
+        <link rel="shortcut icon" href="http://www.gocalf.com/blog/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
+        <link rel="icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="http://www.gocalf.com/blog/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24210758-2', 'auto');
+    ga('send', 'pageview');
+</script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://www.gocalf.com/blog/"><span class=site-name>GoCalf Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://www.gocalf.com/blog">Home</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/about.html">About</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/categories.html">Categories</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/tags.html">Tags</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://www.gocalf.com/blog/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://www.gocalf.com/blog/weighted-random-selection.html"> 单次遍历，带权随机选取问题（一）  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <p>在<a class="reference external" href="http://www.gocalf.com/blog/random-selection.html">单次遍历，等概率随机选取问题</a>中已经剧透了今天的内容，那就是带权随机选取（Weighted
+Random Sample）问题。</p>
+<p>问题描述：有一组数量未知的数据，每个元素有非负权重。要求只遍历一次，随机选取其中的一个元素，任何一个元素被选到的概率与其权重成正比。</p>
+<!-- more -->
+<p>设元素总数为n，当然在遍历结束前n是未知的。设第i（1 &lt;= i &lt;=
+n）个元素的权重为w<sub>i</sub>（&gt;
+0），则权重总和为<span class="math">\(w=\sum_{i=1}^{n}{w_i}\)</span>，也是在遍历结束时才知道的。根据题目要求，第i个元素被选取的概率应该等于<span class="math">\(p_i=\frac{w_i}{w}\)</span>。</p>
+<p>虽然加了个权重，但解法依旧非常简单，在<a class="reference external" href="http://www.gocalf.com/blog/random-selection.html">单次遍历，等概率随机选取问题</a>中的RandomSelect函数上稍作修改就得到本问题的解法，依旧是O(n)时间，O(1)辅助空间：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">Random</span>
+
+<span class="k">def</span> <span class="nf">WeightedRandomSelect</span><span class="p">(</span><span class="n">rand</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+  <span class="n">selection</span> <span class="o">=</span> <span class="bp">None</span>
+  <span class="n">totalweight</span> <span class="o">=</span> <span class="mf">0.0</span>
+  <span class="k">if</span> <span class="n">rand</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">rand</span> <span class="o">=</span> <span class="n">Random</span><span class="p">()</span>
+  <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="c1"># Outputs the current selection and gets next item</span>
+    <span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">selection</span>
+    <span class="n">totalweight</span> <span class="o">+=</span> <span class="n">weight</span>
+    <span class="k">if</span> <span class="n">rand</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="n">totalweight</span> <span class="o">&lt;</span> <span class="n">weight</span><span class="p">:</span>
+      <span class="n">selection</span> <span class="o">=</span> <span class="n">item</span>
+</pre></div>
+</td></tr></table><p>其中Python的<tt class="docutils literal">random.random()</tt>返回[0,
+1)之间的随机小数。</p>
+<p>看一下是否满足概率要求。如果最终被选取的是第i（1 &lt;= i &lt;=
+n）个元素，那必须是遍历到它的时候，恰好被选中，即<tt class="docutils literal">rand.random()
+* totalweight &lt; weight</tt>，其概率为：</p>
+<div class="math">
+\begin{equation*}
+\frac{w_i}{w}=\frac{w_i}{\sum_{k=1}^{i}{w_k}}
+\end{equation*}
+</div>
+<p>另外，还要在处理以后的任何一个元素时，第i个元素都没有被替换掉，即对于任意的j（i
+&lt; j &lt;= n），第j个元素都不会被选中，其概率为：</p>
+<div class="math">
+\begin{equation*}
+\frac{w-w_j}{w}=\frac{\sum_{k=1}^{j-1}{w_k}}{\sum_{k=1}^{j}{w_k}}
+\end{equation*}
+</div>
+<p>因此，第i个元素最终被选取的概率为：</p>
+<div class="math">
+\begin{equation*}
+p_i=\frac{w_i}{\sum_{k=1}^{i}{w_k}}\times\frac{\sum_{k=1}^{i}{w_k}}{\sum_{k=1}^{i+1}{w_k}}\times\frac{\sum_{k=1}^{i+1}{w_k}}{\sum_{k=1}^{i+2}{w_k}}\times\cdots\times\frac{\sum_{k=1}^{n-1}{w_k}}{\sum_{k=1}^{n}{w_k}}=\frac{w_i}{\sum_{k=1}^{n}{w_k}}
+\end{equation*}
+</div>
+<p>下面这段程序调用WeightedRandomSelect对一组具有等差数列权重的元素进行选取。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Sample code to use WeightedRandomSelect function</span>
+<span class="c1"># Use an arithmetic sequence as weights</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="c1"># weights are [1, 2, 3, ..., 10]</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="n">repeat</span> <span class="o">=</span> <span class="mi">100000</span>
+<span class="n">occurrences</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="n">rand</span> <span class="o">=</span> <span class="n">Random</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">repeat</span><span class="p">):</span>
+  <span class="n">selector</span> <span class="o">=</span> <span class="n">WeightedRandomSelect</span><span class="p">(</span><span class="n">rand</span><span class="p">)</span>
+  <span class="n">selector</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+  <span class="n">selection</span> <span class="o">=</span> <span class="bp">None</span>
+  <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">selection</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">send</span><span class="p">((</span><span class="n">item</span><span class="p">,</span> <span class="n">weights</span><span class="p">[</span><span class="n">item</span><span class="p">]))</span>
+  <span class="n">occurrences</span><span class="p">[</span><span class="n">selection</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span> <span class="n">occurrences</span>
+</pre></div>
+</td></tr></table><p>某次运行结果为：</p>
+<div class="highlight"><pre><span></span>[1723, 3644, 5405, 7326, 9027, 10903, 12678, 14784, 16345, 18165]
+</pre></div>
+<p>而对于这组权重的概率理论值为：</p>
+<div class="highlight"><pre><span></span>1 : 2 : 3 : 4 : 5 : 6 : 7 : 8 : 9 : 10
+= 0.0181818 : 0.0363636 : 0.0545455 : 0.0727273 : 0.0909091 : 0.109091 : 0.127273 : 0.145455 : 0.163636 : 0.181818
+</pre></div>
+<p>可见程序是正确的。</p>
+<div class="section" id="m">
+<h2>扩展：选取m个元素，概率理论值</h2>
+<p>来看看选取多个元素的问题。当选取多个元素时，可以认为选取过程是逐步进行的，即无放回的多次选取。每一次选取时，任何一个元素被选中的概率都与其权重成正比，但总的权重则又剩余的元素集合决定。</p>
+<p>当m=2的时候，第i个元素被选中可以是两种情况：第一次就被选中；第一次未被选中，第二次被选中。可以得到其概率为这两种情况的概率之和，即：</p>
+<div class="math">
+\begin{equation*}
+p_i(2)=\frac{w_i}{w}+\sum_{j\neq i}\left(\frac{w_j}{w}\times\frac{w_i}{w-w_j}\right)
+\end{equation*}
+</div>
+<p>值得注意的是，即便w<sub>i</sub>和w不变，如果其他元素的概率分布不同，最后得到的结果也不同，因此上面这个式子无法把其中的求和化简掉。</p>
+<p>从另一方面来看，第i个元素被选中的概率等于1减去它不被选中的概率。用<span class="math">\(\bar p\)</span>表示不被选中的概率，则有：</p>
+<div class="math">
+\begin{equation*}
+\bar p_i(2)=\sum_{j\neq i}\left(\frac{w_j}{w}\times\frac{w-w_j-w_i}{w-w_j}\right)
+\end{equation*}
+</div>
+<p>显然，<span class="math">\(p_i(2)+\bar p_i(2)=1\)</span>。</p>
+<p>当m&gt;2时，其概率表达式将会变得异常复杂，因为跟概率分布有关，所以算式无法化简。未被选中的概率计算式要稍微简单些，大概是这个样子的：</p>
+<div class="math">
+\begin{equation*}
+\bar p_i(m)=\sum_{j_1}\left(\frac{w_{j_1}}{w}\sum_{j_2}\left(\frac{w_{j_2}}{w-w_{j_1}}\sum_{j_3}\left(\frac{w_{j_2}}{w-w_{j_1}-w_{j_2}}\cdots\sum_{j_m}\frac{w_{j_m}}{w-\sum_{k=1}^{m-1}w_{j_k}}\right)\right)\right)
+\end{equation*}
+</div>
+<p>其中，<span class="math">\(\forall 1\leq k\leq m,j_k\notin\{i,j_1,j_2,\cdots,j_{k-1}\}\)</span>。</p>
+<p>对于给定的一组权重，可以用下面这段程序计算出任意m、i（程序中的i是从0开始的）对应的概率数值（请无视其coding
+style）：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Foo</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">totalweight</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">times</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">times</span> <span class="o">==</span> <span class="n">m</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="mf">0.0</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">:</span>
+    <span class="n">ids</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">/</span> <span class="n">totalweight</span> \
+         <span class="o">*</span> <span class="n">Foo</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">totalweight</span> <span class="o">-</span> <span class="n">weights</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">times</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">p</span>
+
+<span class="k">def</span> <span class="nf">CalcSampleProbability</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+  <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;invalid i&#39;</span>
+  <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;invalid m&#39;</span>
+  <span class="n">ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+  <span class="n">ids</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">),</span> <span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p</span>
+</pre></div>
+</td></tr></table><p>可惜算法的复杂度非常高，CalcSampleProbability需要O(n^m)时间来完成一次计算。期待高手改进。</p>
+<p>来看一下等权重、等差数列权重和等比数列权重的n选m概率分布图（图中i依旧采用1
+&lt;= i &lt;= n的取值范围）：</p>
+<div id="equal-p-chart" class="highcharts" style="height: 480px; width: 640px"></div>
+<script type="text/javascript">
+$(function () {
+    $('#equal-p-chart').highcharts({
+        chart: { type: 'line', backgroundColor: null },
+        title: { text: '等值权重随机选取m个元素，第i个元素被选中的概率' },
+        xAxis: { categories: ['i=1', 'i=2', 'i=3', 'i=4', 'i=5', 'i=6', 'i=7', 'i=8', 'i=9', 'i=10'] },
+        yAxis: { min: 0, max: 1, tickInterval: 0.1, title: { text: null } },
+        series: [{
+            name: 'm=1',
+            data: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+        }, {
+            name: 'm=2',
+            data: [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+        }, {
+            name: 'm=3',
+            data: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]
+        }, {
+            name: 'm=4',
+            data: [0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4]
+        }, {
+            name: 'm=5',
+            data: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+        }, {
+            name: 'm=6',
+            data: [0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6]
+        }, {
+            name: 'm=7',
+            data: [0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7]
+        }, {
+            name: 'm=8',
+            data: [0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8]
+        }, {
+            name: 'm=9',
+            data: [0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9]
+        }, {
+            name: 'm=10',
+            data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        }]
+    });
+});
+</script><div id="arithmetic-p-chart" class="highcharts" style="height: 480px; width: 640px"></div>
+<script type="text/javascript">
+$(function () {
+    $('#arithmetic-p-chart').highcharts({
+        chart: { type: 'line', backgroundColor: null },
+        title: { text: '等差分布权重随机选取m个元素，第i个元素被选中的概率' },
+        xAxis: { categories: ['i=1', 'i=2', 'i=3', 'i=4', 'i=5', 'i=6', 'i=7', 'i=8', 'i=9', 'i=10'] },
+        yAxis: { min: 0, max: 1, tickInterval: 0.1, title: { text: null } },
+        series: [{
+            name: 'm=1',
+            data: [0.0181818, 0.0363636, 0.0545455, 0.0727273, 0.0909091, 0.109091, 0.127273, 0.145455, 0.163636, 0.181818]
+        }, {
+            name: 'm=2',
+            data: [0.0387314, 0.0767641, 0.114058, 0.150568, 0.18625, 0.221051, 0.254916, 0.287787, 0.319597, 0.350277]
+        }, {
+            name: 'm=3',
+            data: [0.0623607, 0.122317, 0.17976, 0.234582, 0.286682, 0.335965, 0.382357, 0.425805, 0.466296, 0.503875]
+        }, {
+            name: 'm=4',
+            data: [0.0901537, 0.174687, 0.253418, 0.326208, 0.392976, 0.453728, 0.508577, 0.55777, 0.601688, 0.640794]
+        }, {
+            name: 'm=5',
+            data: [0.123873, 0.236513, 0.337709, 0.427439, 0.505932, 0.573733, 0.631737, 0.681121, 0.723108, 0.758835]
+        }, {
+            name: 'm=6',
+            data: [0.166654, 0.312339, 0.436946, 0.541013, 0.625933, 0.694068, 0.748498, 0.792059, 0.827084, 0.855406]
+        }, {
+            name: 'm=7',
+            data: [0.224802, 0.410906, 0.558505, 0.670021, 0.750968, 0.809768, 0.852948, 0.885072, 0.909277, 0.927732]
+        }, {
+            name: 'm=8',
+            data: [0.313537, 0.551687, 0.714389, 0.811455, 0.871435, 0.909967, 0.935546, 0.952993, 0.965166, 0.973825]
+        }, {
+            name: 'm=9',
+            data: [0.481584, 0.784844, 0.89107, 0.938902, 0.963394, 0.977002, 0.985015, 0.989947, 0.99309, 0.995152]
+        }, {
+            name: 'm=10',
+            data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        }]
+    });
+});
+</script><div id="geometric-p-chart" class="highcharts" style="height: 480px; width: 640px"></div>
+<script type="text/javascript">
+$(function () {
+    $('#geometric-p-chart').highcharts({
+        chart: { type: 'line', backgroundColor: null },
+        title: { text: '等比分布权重随机选取m个元素，第i个元素被选中的概率' },
+        xAxis: { categories: ['i=1', 'i=2', 'i=3', 'i=4', 'i=5', 'i=6', 'i=7', 'i=8', 'i=9', 'i=10'] },
+        yAxis: { min: 0, max: 1, tickInterval: 0.1, title: { text: null } },
+        series: [{
+            name: 'm=1',
+            data: [0.000977517, 0.00195503, 0.00391007, 0.00782014, 0.0156403, 0.0312805, 0.0625611, 0.125122, 0.250244, 0.500489]
+        }, {
+            name: 'm=2',
+            data: [0.0025488, 0.00509568, 0.0101837, 0.0203364, 0.0405476, 0.0805822, 0.159009, 0.308474, 0.569214, 0.804008]
+        }, {
+            name: 'm=3',
+            data: [0.00537735, 0.0107444, 0.0214475, 0.0427281, 0.0847763, 0.166729, 0.321243, 0.584598, 0.817744, 0.944612]
+        }, {
+            name: 'm=4',
+            data: [0.0108642, 0.021685, 0.0431948, 0.0856766, 0.1684, 0.324092, 0.588553, 0.82115, 0.946757, 0.989628]
+        }, {
+            name: 'm=5',
+            data: [0.021834, 0.0434907, 0.0862602, 0.169534, 0.326218, 0.592157, 0.823804, 0.947919, 0.989983, 0.9988]
+        }, {
+            name: 'm=6',
+            data: [0.0440274, 0.0873236, 0.171618, 0.330194, 0.599069, 0.828695, 0.949851, 0.990437, 0.998866, 0.999919]
+        }, {
+            name: 'm=7',
+            data: [0.0895401, 0.175965, 0.338491, 0.613516, 0.838615, 0.953664, 0.991303, 0.998981, 0.999928, 0.999997]
+        }, {
+            name: 'm=8',
+            data: [0.18552, 0.356749, 0.645339, 0.859134, 0.961175, 0.992947, 0.999194, 0.999944, 0.999998, 1]
+        }, {
+            name: 'm=9',
+            data: [0.401858, 0.724258, 0.902929, 0.975573, 0.995862, 0.999551, 0.99997, 0.999999, 1, 1]
+        }, {
+            name: 'm=10',
+            data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        }]
+    });
+});
+</script><p>Mathematica提供了RandomSample函数，支持带权选取，当然它是在遍历之前就已经知道元素个数的。给它一组等差分布的权重，可以看出十万次随机选取后得到的概率分布与上面的理论分布非常接近。</p>
+<div class="highlight"><pre><span></span>count = 10;
+weights = Range[count];
+elems = Range[count];
+retry = 100000;
+map = Table[
+    freq = ConstantArray[0, count];
+    For [i = 0, i &lt; retry, i++,
+        freq += BinCounts[RandomSample[weights -&gt; elems, m], {1, count + 1, 1}]
+    ];
+    freq, {m, 1, count, 1}
+];
+ListLinePlot[map / retry, PlotMarkers -&gt; Automatic]
+</pre></div>
+<div class="figure">
+<img alt="mathematica_random_sample" src="http://www.gocalf.com/blog/images/2011/09/mathematica_random_sample.png" />
+<p class="caption">Mathematica RandomSample随机选取m个元素，第i个元素被选中的概率</p>
+</div>
+<p>苦苦思考了好几天，但并没有想到一个直观的方法可以给之前的RandomSample加上权重处理。因为那概率式子太复杂，实在不知道该怎么去凑。不过在下一篇文章中将会介绍一个神奇的算法（当然不是我想出来的），并且会给出我的证明。</p>
+<p>现在发文章的速度越来越慢了，实在因为能力有限，每次为了一两个式子都要演算很久。再接再厉。</p>
+</div>
+
+            <section>
+    <p id="post-share-links">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%E5%8D%95%E6%AC%A1%E9%81%8D%E5%8E%86%EF%BC%8C%E5%B8%A6%E6%9D%83%E9%9A%8F%E6%9C%BA%E9%80%89%E5%8F%96%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89&url=http%3A//www.gocalf.com/blog/weighted-random-selection.html" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//www.gocalf.com/blog/weighted-random-selection.html" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//www.gocalf.com/blog/weighted-random-selection.html" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=%E5%8D%95%E6%AC%A1%E9%81%8D%E5%8E%86%EF%BC%8C%E5%B8%A6%E6%9D%83%E9%9A%8F%E6%9C%BA%E9%80%89%E5%8F%96%E9%97%AE%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89&amp;body=http%3A//www.gocalf.com/blog/weighted-random-selection.html" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://www.gocalf.com/blog/weighted-random-selection.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gocalfblog';
+        var disqus_identifier = 'http://www.gocalf.com/blog/weighted-random-selection.html';
+    var disqus_url = 'http://www.gocalf.com/blog/weighted-random-selection.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+<section>
+    <h2>Related Posts</h2>
+<ul class="related-posts-list">
+<li><a href="http://www.gocalf.com/blog/build-rand3-from-rand5.html" title="利用等概率Rand5产生等概率Rand3">利用等概率Rand5产生等概率Rand3</a></li>
+<li><a href="http://www.gocalf.com/blog/random-selection.html" title="单次遍历，等概率随机选取问题">单次遍历，等概率随机选取问题</a></li>
+<li><a href="http://www.gocalf.com/blog/weighted-random-selection-2.html" title="单次遍历，带权随机选取问题（二）">单次遍历，带权随机选取问题（二）</a></li>
+<li><a href="http://www.gocalf.com/blog/unbalanced-coin.html" title="利用不均匀硬币产生等概率">利用不均匀硬币产生等概率</a></li>
+<li><a href="http://www.gocalf.com/blog/the-probability-of-two-boys.html" title="条件概率：两个都是男孩的概率">条件概率：两个都是男孩的概率</a></li>
+</ul>
+<hr />
+</section>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://www.gocalf.com/blog/zelda-tp-ch1.html" title="Previous: 黎明公主攻略：初章 英雄传说的扉页">黎明公主攻略：初章 英雄传说的扉页</a></li>
+                <li class="next-article"><a href="http://www.gocalf.com/blog/weighted-random-selection-2.html" title="Next: 单次遍历，带权随机选取问题（二）">单次遍历，带权随机选取问题（二）</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-09-21T23:07:00+08:00">Sep 21, 2011</time>
+
+<h4>Last Updated</h4>
+<time datetime="2011-09-27T13:20:00+08:00">Sep 27, 2011</time>
+
+    <h4>random-selection</h4>
+    <ul class="multi-parts-list">
+            <li >
+                <a href="http://www.gocalf.com/blog/random-selection.html" title="单次遍历，等概率随机选取问题">Part 1</a>
+            </li>
+            <li class="active-part">
+                Part 2
+            </li>
+            <li >
+                <a href="http://www.gocalf.com/blog/weighted-random-selection-2.html" title="单次遍历，带权随机选取问题（二）">Part 3</a>
+            </li>
+    </ul>
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.gocalf.com/blog/categories.html#algorithm-ref">算法</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.gocalf.com/blog/tags.html#interview-question-ref">Interview Question
+                    <span>18</span>
+</a></li>
+                <li><a href="http://www.gocalf.com/blog/tags.html#probability-ref">Probability
+                    <span>7</span>
+</a></li>
+                <li><a href="http://www.gocalf.com/blog/tags.html#random-sample-ref">Random Sample
+                    <span>3</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="mailto:calf.zhou+blog@gmail.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://weibo.com/calfzhou" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://github.com/calfzhou" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/calfzhou" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/calfzhou" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">GoCalf Blog</span> - 1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'gocalfblog';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+    MathJax.Hub.Config({
+        config: ["MMLorHTML.js"],
+        jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+        TeX: {
+            extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
+            equationNumbers: { autoNumber: "AMS" }
+        },
+        extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+        tex2jax: { 
+            //inlineMath: [ [\'$\',\'$\'] ],
+            //displayMath: [ [\'$$\',\'$$\'] ],
+            inlineMath: [ ["\\(", "\\)"] ],
+            displayMath: [ ],
+            processClass: "math",
+            processEscapes: true
+        },
+        "HTML-CSS": {
+            styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+        }
+       });
+</script>        <script src="http://code.highcharts.com/highcharts.js"></script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

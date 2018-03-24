@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Calf" />
+        <meta name="copyright" content="Calf" />
+
+        <link rel="author" href=https://plus.google.com/112983042847560253980/posts />
+        <meta name="twitter:creator" content="@calfzhou">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="WordPress LaTeX, WordPress Plugin, 建站, MathJax, LaTeX for WordPress, LaTeX" />
+
+<meta property="og:title" content="关于LaTeX插件再啰嗦几句 "/>
+<meta property="og:url" content="http://www.gocalf.com/blog/latex-plugin-more.html" />
+<meta property="og:description" content="对LaTeX for WordPress插件做了一点小小的改动，修复了在启用MathJax时无法显示公式源码的问题。还将公式的shortcode限定为latex。" />
+<meta property="og:site_name" content="GoCalf Blog" />
+<meta property="og:article:author" content="Calf" />
+<meta property="og:article:published_time" content="2011-07-11T23:43:00+08:00" />
+<meta property="" content="2011-08-03T20:52:00+08:00" />
+<meta name="twitter:title" content="关于LaTeX插件再啰嗦几句 ">
+<meta name="twitter:description" content="对LaTeX for WordPress插件做了一点小小的改动，修复了在启用MathJax时无法显示公式源码的问题。还将公式的shortcode限定为latex。">
+<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/07/tex.png" />
+<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/07/tex.png" >
+
+        <title>关于LaTeX插件再啰嗦几句  · GoCalf Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="http://www.gocalf.com/blog/theme/css/style.min.css?6600dc28">
+        <link rel="shortcut icon" href="http://www.gocalf.com/blog/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
+        <link rel="icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="http://www.gocalf.com/blog/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24210758-2', 'auto');
+    ga('send', 'pageview');
+</script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://www.gocalf.com/blog/"><span class=site-name>GoCalf Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://www.gocalf.com/blog">Home</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/about.html">About</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/categories.html">Categories</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/tags.html">Tags</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://www.gocalf.com/blog/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://www.gocalf.com/blog/latex-plugin-more.html"> 关于LaTeX插件再啰嗦几句  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <p>在<a class="reference external" href="http://www.gocalf.com/blog/latex-wordpress.html">WordPress数学公式插件LaTeX</a>中推荐了Zhiqiang同学的WordPress插件<a class="reference external" href="http://wordpress.org/extend/plugins/latex/">LaTeX for WordPress</a>，这个插件可以方便地以MathJax或者图片方式展示文章中的LaTeX公式，效果美观，使用方便。</p>
+<p>不过由于使用习惯不同，我在使用这个插件的过程中也遇到了一些问题，于是对这个插件做了一点小小的修改，记录在此。</p>
+<p>这次修改主要要解决两个问题：</p>
+<ol class="arabic simple">
+<li>在启用MathJax的情况下，修复<tt class="docutils literal"><span class="pre">$$...!$$</span></tt>无法显示公式源码的问题。</li>
+<li>限制公式的修饰符为<tt class="docutils literal">[latex]</tt>和<tt class="docutils literal">[/latex]</tt>。</li>
+</ol>
+<!-- more -->
+<p>根据<a class="reference external" href="http://wordpress.org/extend/plugins/latex/">LaTeX for WordPress</a>主页上的说明，如果不想对公式进行渲染，只显示公式的源码，需要在第二个<tt class="docutils literal">$$</tt>前面加<tt class="docutils literal">!</tt>。但在实际使用中发现开启了MathJax的时候无法实现这一效果。仔细看了一下MathJax的文档，原来虽然插件把<tt class="docutils literal"><span class="pre">$$a^2+b^2+c^2!$$</span></tt>这样的代码转换成了<tt class="docutils literal"><span class="pre">\(a^2+b^2+c^2!\)</span></tt>，但后者又被MathJax的JavaScript给渲染成<span class="math">\(a^2+b^2+c^2\)</span>了。而要解决这个问题也很简单，只要给页面的body标签添加一个tex2jax_ignore的class，就可以阻止MathJax的处理（参见<a class="reference external" href="http://www.mathjax.org/docs/1.1/options/tex2jax.html">The tex2jax Preprocessor</a>）。</p>
+<p>以我现在使用的LightWord主题为例，修改/wp-content/themes/lightword/header.php，把<code class="php"><span class="x">&lt;body </span><span class="cp">&lt;?php</span> <span class="nx">body\_class</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&gt;</span></code>改成<code class="php"><span class="x">&lt;body </span><span class="cp">&lt;?php</span> <span class="nx">body\_class</span><span class="p">(</span><span class="s1">'tex2jax\_ignore'</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&gt;</span></code>即可。</p>
+<p>至于公式的修饰符，插件支持<tt class="docutils literal"><span class="pre">\(...\)</span></tt>、<tt class="docutils literal"><span class="pre">\[...\]</span></tt>、<tt class="docutils literal"><span class="pre">$$...$$</span></tt>、<tt class="docutils literal"><span class="pre">[latex]...[/latex]</span></tt>、<tt class="docutils literal"><span class="pre">[tex]...[/tex]</span></tt>，但我还是担心这样的代码在一些程序源代码中也很容易出现（比如正则表达式），所以还是决定只用latex作为标记。这个修改很简单，只要对/wp-content/plugins/latex/latex.php（v3.1）做如下改动即可：</p>
+<div class="highlight"><pre><span></span>108c108,109
+&lt; $regex = &#39;#\$\$(.*?)\$\$#si&#39;;
+<span class="gd">---</span>
+&gt; //$regex = &#39;#\$\$(.*?)\$\$#si&#39;;
+&gt; $regex = &#39;#\[latex\](.*?)\[/latex\]#si&#39;;
+110c111
+&lt; $toParse = str_replace(array(&quot;\(&quot;, &quot;\)&quot;, &quot;\[&quot;, &quot;\]&quot;, &quot;[latex]&quot;, &quot;[tex]&quot;, &quot;[/latex]&quot;, &quot;[/tex]&quot;), array(&quot;$$&quot;, &quot; $$&quot;, &quot;$$!&quot;, &quot; $$&quot;, &quot;$$&quot;, &quot; $$&quot;, &quot;$$&quot;, &quot; $$&quot;), $toParse);
+<span class="gd">---</span>
+&gt; //$toParse = str_replace(array(&quot;\(&quot;, &quot;\)&quot;, &quot;\[&quot;, &quot;\]&quot;, &quot;[latex]&quot;, &quot;[/latex]&quot;, &quot;[tex]&quot;, &quot;[/tex]&quot;), array(&quot;$$&quot;, &quot; $$&quot;, &quot;$$!&quot;, &quot; $$&quot;, &quot;$$&quot;, &quot; $$&quot;, &quot;$$&quot;, &quot; $$&quot;), $toParse);
+</pre></div>
+<p>这样修改之后，依旧支持插件原本的inline、single
+line以及显示源码的处理。要在单独的一行中显示公式，就在<tt class="docutils literal">[latex]</tt>后面加<tt class="docutils literal">!</tt>；如果要显示公式源码，就在<tt class="docutils literal">[/latex]</tt>前面加<tt class="docutils literal">!</tt>。</p>
+<p>当然也期待Zhiqiang进一步完善插件，给用户提供更方便的设置选项。</p>
+
+            <section>
+    <p id="post-share-links">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%E5%85%B3%E4%BA%8ELaTeX%E6%8F%92%E4%BB%B6%E5%86%8D%E5%95%B0%E5%97%A6%E5%87%A0%E5%8F%A5&url=http%3A//www.gocalf.com/blog/latex-plugin-more.html" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//www.gocalf.com/blog/latex-plugin-more.html" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//www.gocalf.com/blog/latex-plugin-more.html" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=%E5%85%B3%E4%BA%8ELaTeX%E6%8F%92%E4%BB%B6%E5%86%8D%E5%95%B0%E5%97%A6%E5%87%A0%E5%8F%A5&amp;body=http%3A//www.gocalf.com/blog/latex-plugin-more.html" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://www.gocalf.com/blog/latex-plugin-more.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gocalfblog';
+        var disqus_identifier = 'http://www.gocalf.com/blog/latex-plugin-more.html';
+    var disqus_url = 'http://www.gocalf.com/blog/latex-plugin-more.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+<section>
+    <h2>Related Posts</h2>
+<ul class="related-posts-list">
+<li><a href="http://www.gocalf.com/blog/latex-wordpress.html" title="WordPress数学公式插件LaTeX">WordPress数学公式插件LaTeX</a></li>
+<li><a href="http://www.gocalf.com/blog/wordpress-latex-old.html" title="为你的WordPress站点添加LaTeX支持">为你的WordPress站点添加LaTeX支持</a></li>
+</ul>
+<hr />
+</section>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://www.gocalf.com/blog/ipad2-433-jailbreak.html" title="Previous: iPad 2 iOS 4.3.3 可以越狱了">iPad 2 iOS 4.3.3 可以越狱了</a></li>
+                <li class="next-article"><a href="http://www.gocalf.com/blog/puzzle-wwwdot-google-dotcom.html" title="Next: 数学趣题WWWDOT-GOOGLE=DOTCOM">数学趣题WWWDOT-GOOGLE=DOTCOM</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-07-11T23:43:00+08:00">Jul 11, 2011</time>
+
+<h4>Last Updated</h4>
+<time datetime="2011-08-03T20:52:00+08:00">Aug 3, 2011</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.gocalf.com/blog/categories.html#site-ref">建站</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.gocalf.com/blog/tags.html#wordpress-latex-ref">WordPress LaTeX
+                    <span>3</span>
+</a></li>
+                <li><a href="http://www.gocalf.com/blog/tags.html#wordpress-plugin-ref">WordPress Plugin
+                    <span>3</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="mailto:calf.zhou+blog@gmail.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://weibo.com/calfzhou" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://github.com/calfzhou" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/calfzhou" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/calfzhou" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">GoCalf Blog</span> - 1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'gocalfblog';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+    MathJax.Hub.Config({
+        config: ["MMLorHTML.js"],
+        jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+        TeX: {
+            extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
+            equationNumbers: { autoNumber: "AMS" }
+        },
+        extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+        tex2jax: { 
+            //inlineMath: [ [\'$\',\'$\'] ],
+            //displayMath: [ [\'$$\',\'$$\'] ],
+            inlineMath: [ ["\\(", "\\)"] ],
+            displayMath: [ ],
+            processClass: "math",
+            processEscapes: true
+        },
+        "HTML-CSS": {
+            styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+        }
+       });
+</script>    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Calf" />
+        <meta name="copyright" content="Calf" />
+
+        <link rel="author" href=https://plus.google.com/112983042847560253980/posts />
+        <meta name="twitter:creator" content="@calfzhou">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="iOS Develop, 程序开发, End Cap, iPhone开发, ObjC, Resizable Image, Stretchable Image, UIImage, 图片拉伸, 端帽" />
+
+<meta property="og:title" content="iOS可拉伸的图片 "/>
+<meta property="og:url" content="http://www.gocalf.com/blog/iphone-dev-resizable-image.html" />
+<meta property="og:description" content="还记得在Windows下用MFC或WTL写用户界面程序的时候，为了给可改变大小的对话框加上背景图案，需要对设计师提供的图片进行裁剪。把图片切成九块，其中四个角是不拉伸的，四条棱边可以在一个方向上拉伸，中间区域则可任意拉伸。其过程是相当烦琐的。在Mac下，一切都变的及其简单，UIImage类已经为我们提供了处理拉伸的方法。" />
+<meta property="og:site_name" content="GoCalf Blog" />
+<meta property="og:article:author" content="Calf" />
+<meta property="og:article:published_time" content="2012-03-10T22:57:00+08:00" />
+<meta property="" content="2012-03-10T22:57:00+08:00" />
+<meta name="twitter:title" content="iOS可拉伸的图片 ">
+<meta name="twitter:description" content="还记得在Windows下用MFC或WTL写用户界面程序的时候，为了给可改变大小的对话框加上背景图案，需要对设计师提供的图片进行裁剪。把图片切成九块，其中四个角是不拉伸的，四条棱边可以在一个方向上拉伸，中间区域则可任意拉伸。其过程是相当烦琐的。在Mac下，一切都变的及其简单，UIImage类已经为我们提供了处理拉伸的方法。">
+<meta property="og:image" content="http://www.gocalf.com/blog/images/2012/03/resizable_image_icon.png" />
+<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2012/03/resizable_image_icon.png" >
+
+        <title>iOS可拉伸的图片  · GoCalf Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="http://www.gocalf.com/blog/theme/css/style.min.css?6600dc28">
+        <link rel="shortcut icon" href="http://www.gocalf.com/blog/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
+        <link rel="icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="http://www.gocalf.com/blog/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24210758-2', 'auto');
+    ga('send', 'pageview');
+</script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://www.gocalf.com/blog/"><span class=site-name>GoCalf Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://www.gocalf.com/blog">Home</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/about.html">About</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/categories.html">Categories</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/tags.html">Tags</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://www.gocalf.com/blog/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://www.gocalf.com/blog/iphone-dev-resizable-image.html"> iOS可拉伸的图片  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <p>还记得在Windows下用MFC或WTL写用户界面程序的时候，为了给可改变大小的对话框加上背景图案，需要对设计师提供的图片进行裁剪。把图片切成九块，其中四个角是不拉伸的，四条棱边可以在一个方向上拉伸，中间区域则可任意拉伸。其过程是相当烦琐的。在Mac下，一切都变的及其简单，<a class="reference external" href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/">UIImage</a>类已经为我们提供了处理拉伸的方法。</p>
+<!-- more -->
+<p>以下内容适用于iOS 2.0+，或在iOS 5.0+中使用替换的方法。</p>
+<p>UIImage有一个叫做端帽（end
+cap）的概念，利用它来指定图片中哪一部分（通常在图片的中央）是可以拉伸的，哪些部分（四周一圈）不可拉伸。在iOS
+5.0以前，通过<a class="reference external" href="https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIImage_Class/DeprecationAppendix/AppendixADeprecatedAPI.html#//apple_ref/occ/instm/UIImage/stretchableImageWithLeftCapWidth:topCapHeight:">stretchableImageWithLeftCapWidth:topCapHeight:</a>来得到可以按照指定方式拉伸的图片。特别要注意的一点，我在第一次用它的时候没有注意到，就是这个方法并不会改变当前的UIImage实例，而是会返回一个新的实例。这样的设计可能是为了让通过imageNamed方法得到的UIImage实例能够最大限度地复用吧。</p>
+<p>stretchableImage方法有两个整数参数，分别用来指定图片的左边和上边分别有多少点（points）是不能被拉伸的（端帽宽度）。并没有参数用来指定右边和下边的端帽宽度，开始我<strong>误以为</strong>右边和下边的端帽宽度就分别等于左边和上边的端帽宽度，然而仔细阅读官方文档之后发现并非如此：</p>
+<blockquote>
+<p>The middle (stretchable) portion is assumed to be 1 pixel wide. The
+right end cap is therefore computed by adding the size of the left
+end cap and the middle portion together and then subtracting that
+value from the width of the image:</p>
+<div class="highlight"><pre><span></span><span class="n">rightCapWidth</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span> <span class="o">-</span> <span class="p">(</span><span class="n">image</span><span class="p">.</span><span class="n">leftCapWidth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+<p>The middle (stretchable) portion is assumed to be 1 pixel wide. The
+bottom end cap is therefore computed by adding the size of the top
+end cap and the middle portion together and then subtracting that
+value from the height of the image:</p>
+<div class="highlight"><pre><span></span><span class="n">bottomCapHeight</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="p">(</span><span class="n">image</span><span class="p">.</span><span class="n">topCapHeight</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</blockquote>
+<p>原来已经规定了中间可拉伸区域必须是1x1的，因此右边和下边的端帽宽度就由图片的宽度和高度、左边和上边的端帽宽度决定。在设计非对称图案时需要注意一下。</p>
+<p>从iOS
+5.0开始，stretchableImage方法被弃用，取而代之的是<a class="reference external" href="https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIImage_Class/Reference/Reference.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets:">resizableImageWithCapInsets:</a>。后者只需要一个UIEdgeInsets类型的参数，通过此参数，可以设置四个端帽的宽度。而中心剩余的部分都是可以拉伸的（不再局限于1x1大小）。</p>
+<p>下面这个程序片段给试图添加了三个UIImageView，分别显示原始大小的图片、无端帽拉伸之后的图片、和指定了正确的端帽宽度（用stretchableImage）后拉伸的图片。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
+<span class="p">{</span>
+  <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
+  <span class="c1">// Do any additional setup after loading the view, typically from a nib.</span>
+
+  <span class="bp">UIImage</span><span class="o">*</span> <span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&quot;circle.png&quot;</span><span class="p">];</span>
+<span class="hll">  <span class="bp">UIImage</span><span class="o">*</span> <span class="n">stretchableImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span> <span class="nl">stretchableImageWithLeftCapWidth</span><span class="p">:</span><span class="mi">10</span>
+</span><span class="hll">                                                         <span class="nl">topCapHeight</span><span class="p">:</span><span class="mi">10</span><span class="p">];</span>
+</span>
+  <span class="bp">UIImageView</span><span class="o">*</span> <span class="n">imageView1</span> <span class="o">=</span> <span class="p">[[[</span><span class="bp">UIImageView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithImage</span><span class="p">:</span><span class="n">image</span><span class="p">]</span>
+                             <span class="n">autorelease</span><span class="p">];</span>
+  <span class="n">imageView1</span><span class="p">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">CGPointMake</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+  <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">imageView1</span><span class="p">];</span>
+
+  <span class="bp">UIImageView</span><span class="o">*</span> <span class="n">imageView2</span> <span class="o">=</span> <span class="p">[[[</span><span class="bp">UIImageView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithImage</span><span class="p">:</span><span class="n">image</span><span class="p">]</span>
+                             <span class="n">autorelease</span><span class="p">];</span>
+  <span class="n">imageView2</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">260</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+  <span class="n">imageView2</span><span class="p">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">CGPointMake</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+  <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">imageView2</span><span class="p">];</span>
+
+  <span class="bp">UIImageView</span><span class="o">*</span> <span class="n">imageView3</span> <span class="o">=</span> <span class="p">[[[</span><span class="bp">UIImageView</span> <span class="n">alloc</span><span class="p">]</span>
+                              <span class="nl">initWithImage</span><span class="p">:</span><span class="n">stretchableImage</span><span class="p">]</span>
+                             <span class="n">autorelease</span><span class="p">];</span>
+  <span class="n">imageView3</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">260</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+  <span class="n">imageView3</span><span class="p">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">CGPointMake</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">340</span><span class="p">);</span>
+  <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">imageView3</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table><p>运行后效果如下图示：</p>
+<div class="figure">
+<img alt="resizable_image" src="http://www.gocalf.com/blog/images/2012/03/resizable_image.png" />
+<p class="caption">UIImage拉伸示意（左上角：原始图片；上：直接拉伸；下：按照端帽拉伸）</p>
+</div>
+
+            <section>
+    <p id="post-share-links">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=iOS%E5%8F%AF%E6%8B%89%E4%BC%B8%E7%9A%84%E5%9B%BE%E7%89%87&url=http%3A//www.gocalf.com/blog/iphone-dev-resizable-image.html" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//www.gocalf.com/blog/iphone-dev-resizable-image.html" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//www.gocalf.com/blog/iphone-dev-resizable-image.html" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=iOS%E5%8F%AF%E6%8B%89%E4%BC%B8%E7%9A%84%E5%9B%BE%E7%89%87&amp;body=http%3A//www.gocalf.com/blog/iphone-dev-resizable-image.html" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://www.gocalf.com/blog/iphone-dev-resizable-image.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gocalfblog';
+        var disqus_identifier = 'http://www.gocalf.com/blog/iphone-dev-resizable-image.html';
+    var disqus_url = 'http://www.gocalf.com/blog/iphone-dev-resizable-image.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+<section>
+    <h2>Related Posts</h2>
+<ul class="related-posts-list">
+<li><a href="http://www.gocalf.com/blog/iphone-dev-hide-status-bar.html" title="iOS隐藏系统状态栏">iOS隐藏系统状态栏</a></li>
+<li><a href="http://www.gocalf.com/blog/iphone-dev-progressview-in-alertview.html" title="iOS在UIAlertView中显示进度条">iOS在UIAlertView中显示进度条</a></li>
+<li><a href="http://www.gocalf.com/blog/iphone-dev-range-slider.html" title="iOS自定义范围滑动条控件">iOS自定义范围滑动条控件</a></li>
+</ul>
+<hr />
+</section>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://www.gocalf.com/blog/hackintosh-fix-uuid.html" title="Previous: 解决黑苹果Unable to Determine UUID错误">解决黑苹果Unable to Determine UUID错误</a></li>
+                <li class="next-article"><a href="http://www.gocalf.com/blog/traversing-binary-tree.html" title="Next: 程序基本功之遍历二叉树">程序基本功之遍历二叉树</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2012-03-10T22:57:00+08:00">Mar 10, 2012</time>
+
+<h4>Last Updated</h4>
+<time datetime="2012-03-10T22:57:00+08:00">Mar 10, 2012</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.gocalf.com/blog/categories.html#programming-ref">程序开发</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.gocalf.com/blog/tags.html#ios-develop-ref">iOS Develop
+                    <span>4</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="mailto:calf.zhou+blog@gmail.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://weibo.com/calfzhou" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://github.com/calfzhou" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/calfzhou" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/calfzhou" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">GoCalf Blog</span> - 1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'gocalfblog';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

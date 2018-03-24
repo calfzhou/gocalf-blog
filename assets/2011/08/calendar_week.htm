@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>星期万年历·表格</title>
+  <link rel="stylesheet" type="text/css" href="calendar_week.css" />
+  <script type="text/jscript" src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/jscript" src="calendar_week.js"></script>
+</head>
+<body>
+  <table id="calendar">
+    <caption>星期万年历·表格</caption>
+    <tr><td class="empty" colspan="4" rowspan="19"/><th class="year2" colspan="7">年份后两位数字</th>
+      <td class="empty" colspan="6" rowspan="19"><div style="margin-left:8px;text-align:left;"><span style="font-weight:bold">使用方法说明</span><br /><br />
+E.G.：2011年8月10日星期几？<br />
+1.在百年数区域里找到20，在年份后两位数字区域里找到11。由20所在横行向右，11所在竖行向下，交于F。<br />
+2.在月份区域里找到8，向左在同一横行里找到F。<br />
+3.在日期区域里找到10，在同一横行向左，同时由（第2步中找到的）F所在竖行向下，与10所在横行相交于星期区域里的"三"。<br />
+所以2011年8月10日星期三。<br />
+<br />
+注：月份区域里的1'、2'表示闰年的1、2月。<br />
+闰年定义：年份后两位数字不为00且可被4整除的；年份后两位数字为00且百年数可被4整除的。</div></td>
+    </tr>
+    <tr><td class="year2">00</td><td class="year2">01</td><td class="year2">02</td><td class="year2">03</td><td class="year2">&nbsp;</td><td class="year2">04</td><td class="year2">05</td></tr>
+    <tr><td class="year2">06</td><td class="year2">07</td><td class="year2">&nbsp;</td><td class="year2">08</td><td class="year2">09</td><td class="year2">10</td><td class="year2">11</td></tr>
+    <tr><td class="year2">&nbsp;</td><td class="year2">12</td><td class="year2">13</td><td class="year2">14</td><td class="year2">15</td><td class="year2">&nbsp;</td><td class="year2">16</td></tr>
+    <tr><td class="year2">17</td><td class="year2">18</td><td class="year2">19</td><td class="year2">&nbsp;</td><td class="year2">20</td><td class="year2">21</td><td class="year2">22</td></tr>
+    <tr><td class="year2">23</td><td class="year2">&nbsp;</td><td class="year2">24</td><td class="year2">25</td><td class="year2">26</td><td class="year2">27</td><td class="year2">&nbsp;</td></tr>
+    <tr><td class="year2">28</td><td class="year2">29</td><td class="year2">30</td><td class="year2">31</td><td class="year2">&nbsp;</td><td class="year2">32</td><td class="year2">33</td></tr>
+    <tr><td class="year2">34</td><td class="year2">35</td><td class="year2">&nbsp;</td><td class="year2">36</td><td class="year2">37</td><td class="year2">38</td><td class="year2">39</td></tr>
+    <tr><td class="year2">&nbsp;</td><td class="year2">40</td><td class="year2">41</td><td class="year2">42</td><td class="year2">43</td><td class="year2">&nbsp;</td><td class="year2">44</td></tr>
+    <tr><td class="year2">45</td><td class="year2">46</td><td class="year2">47</td><td class="year2">&nbsp;</td><td class="year2">48</td><td class="year2">49</td><td class="year2">50</td></tr>
+    <tr><td class="year2">51</td><td class="year2">&nbsp;</td><td class="year2">52</td><td class="year2">53</td><td class="year2">54</td><td class="year2">55</td><td class="year2">&nbsp;</td></tr>
+    <tr><td class="year2">56</td><td class="year2">57</td><td class="year2">58</td><td class="year2">59</td><td class="year2">&nbsp;</td><td class="year2">60</td><td class="year2">61</td></tr>
+    <tr><td class="year2">62</td><td class="year2">63</td><td class="year2">&nbsp;</td><td class="year2">64</td><td class="year2">65</td><td class="year2">66</td><td class="year2">67</td></tr>
+    <tr><td class="year2">&nbsp;</td><td class="year2">68</td><td class="year2">69</td><td class="year2">70</td><td class="year2">71</td><td class="year2">&nbsp;</td><td class="year2">72</td></tr>
+    <tr><td class="year2">73</td><td class="year2">74</td><td class="year2">75</td><td class="year2">&nbsp;</td><td class="year2">76</td><td class="year2">77</td><td class="year2">78</td></tr>
+    <tr><td class="year2">79</td><td class="year2">&nbsp;</td><td class="year2">80</td><td class="year2">81</td><td class="year2">82</td><td class="year2">83</td><td class="year2">&nbsp;</td></tr>
+    <tr><td class="year2">84</td><td class="year2">85</td><td class="year2">86</td><td class="year2">87</td><td class="year2">&nbsp;</td><td class="year2">88</td><td class="year2">89</td></tr>
+    <tr><td class="year2">90</td><td class="year2">91</td><td class="year2">&nbsp;</td><td class="year2">92</td><td class="year2">93</td><td class="year2">94</td><td class="year2">95</td></tr>
+    <tr><td class="year2">96</td><td class="year2">97</td><td class="year2">98</td><td class="year2">99</td><td class="year2">&nbsp;</td><td class="year2">&nbsp;</td><td class="year2">&nbsp;</td></tr>
+    <tr><th class="year1" rowspan="7">百<br /><br />年<br /><br />数</th><td class="year1">4n+3</td><td class="year1">15</td><td class="year1">19</td><td class="cross">A</td><td class="cross">B</td><td class="cross">C</td><td class="cross">D</td><td class="cross">E</td><td class="cross">F</td><td class="cross">G</td><td class="month">1</td><td class="month">10</td><td class="month">&nbsp;</td><th class="month" rowspan="7">月<br /><br /><br />份</th><td class="empty" colspan="3" rowspan="7" /></tr>
+    <tr><td class="year1">4n</td><td class="year1">16</td><td class="year1">20</td><td class="cross">G</td><td class="cross">A</td><td class="cross">B</td><td class="cross">C</td><td class="cross">D</td><td class="cross">E</td><td class="cross">F</td><td class="month">5</td><td class="month">&nbsp;</td><td class="month">&nbsp;</td></tr>
+    <tr><td class="year1">&nbsp;</td><td class="year1">&nbsp;</td><td class="year1">&nbsp;</td><td class="cross">F</td><td class="cross">G</td><td class="cross">A</td><td class="cross">B</td><td class="cross">C</td><td class="cross">D</td><td class="cross">E</td><td class="month">2'</td><td class="month">8</td><td class="month">&nbsp;</td></tr>
+    <tr><td class="year1">4n+1</td><td class="year1">17</td><td class="year1">21</td><td class="cross">E</td><td class="cross">F</td><td class="cross">G</td><td class="cross">A</td><td class="cross">B</td><td class="cross">C</td><td class="cross">D</td><td class="month">2</td><td class="month">3</td><td class="month">11</td></tr>
+    <tr><td class="year1">&nbsp;</td><td class="year1">&nbsp;</td><td class="year1">&nbsp;</td><td class="cross">D</td><td class="cross">E</td><td class="cross">F</td><td class="cross">G</td><td class="cross">A</td><td class="cross">B</td><td class="cross">C</td><td class="month">6</td><td class="month">&nbsp;</td><td class="month">&nbsp;</td></tr>
+    <tr><td class="year1">4n+2</td><td class="year1">18</td><td class="year1">22</td><td class="cross">C</td><td class="cross">D</td><td class="cross">E</td><td class="cross">F</td><td class="cross">G</td><td class="cross">A</td><td class="cross">B</td><td class="month">9</td><td class="month">12</td><td class="month">&nbsp;</td></tr>
+    <tr><td class="year1">&nbsp;</td><td class="year1">&nbsp;</td><td class="year1">&nbsp;</td><td class="cross">B</td><td class="cross">C</td><td class="cross">D</td><td class="cross">E</td><td class="cross">F</td><td class="cross">G</td><td class="cross">A</td><td class="month">1'</td><td class="month">4</td><td class="month">7</td></tr>
+    <tr><td class="empty" colspan="4" rowspan="7"></td><td class="week">一</td><td class="week">二</td><td class="week">三</td><td class="week">四</td><td class="week">五</td><td class="week">六</td><td class="week">日</td><td class="day">1</td><td class="day">8</td><td class="day">15</td><td class="day">22</td><td class="day">29</td><th class="day" rowspan="7">日<br /><br /><br />期</th></tr>
+    <tr><td class="week">二</td><td class="week">三</td><td class="week">四</td><td class="week">五</td><td class="week">六</td><td class="week">日</td><td class="week">一</td><td class="day">2</td><td class="day">9</td><td class="day">16</td><td class="day">23</td><td class="day">30</td></tr>
+    <tr><td class="week">三</td><td class="week">四</td><td class="week">五</td><td class="week">六</td><td class="week">日</td><td class="week">一</td><td class="week">二</td><td class="day">3</td><td class="day">10</td><td class="day">17</td><td class="day">24</td><td class="day">31</td></tr>
+    <tr><td class="week">四</td><td class="week">五</td><td class="week">六</td><td class="week">日</td><td class="week">一</td><td class="week">二</td><td class="week">三</td><td class="day">4</td><td class="day">11</td><td class="day">18</td><td class="day">25</td><td class="day">&nbsp;</td></tr>
+    <tr><td class="week">五</td><td class="week">六</td><td class="week">日</td><td class="week">一</td><td class="week">二</td><td class="week">三</td><td class="week">四</td><td class="day">5</td><td class="day">12</td><td class="day">19</td><td class="day">26</td><td class="day">&nbsp;</td></tr>
+    <tr><td class="week">六</td><td class="week">日</td><td class="week">一</td><td class="week">二</td><td class="week">三</td><td class="week">四</td><td class="week">五</td><td class="day">6</td><td class="day">13</td><td class="day">20</td><td class="day">27</td><td class="day">&nbsp;</td></tr>
+    <tr><td class="week">日</td><td class="week">一</td><td class="week">二</td><td class="week">三</td><td class="week">四</td><td class="week">五</td><td class="week">六</td><td class="day">7</td><td class="day">14</td><td class="day">21</td><td class="day">28</td><td class="day">&nbsp;</td></tr>
+    <tr><td class="empty" colspan="4" /><th class="week" colspan="7">星期</th><td class="empty" colspan="6" /></tr>
+  </table>
+<script type="text/javascript">
+  var rows = updateTableCellIndex(document.getElementById("calendar"));
+  var currYear1, currYear2, currMonth, currDay;
+  var activedClassName = "actived";
+  $("td.year2").click(function () { if (!isEmpty(this)) { currYear2 = this; lookupDayOfWeek(); } });
+  $("td.year1").click(function () { if (!isEmpty(this)) { currYear1 = this; lookupDayOfWeek(); } });
+  $("td.month").click(function () { if (!isEmpty(this)) { currMonth = this; lookupDayOfWeek(); } });
+  $("td.day").click(function () { if (!isEmpty(this)) { currDay = this; lookupDayOfWeek(); } });
+  $("td.year2").mouseenter(function () { if (!isEmpty(this)) { var temp = currYear2; currYear2 = this; lookupDayOfWeek(); currYear2 = temp; } });
+  $("td.year1").mouseenter(function () { if (!isEmpty(this)) { var temp = currYear1; currYear1 = this; lookupDayOfWeek(); currYear1 = temp; } });
+  $("td.month").mouseenter(function () { if (!isEmpty(this)) { var temp = currMonth; currMonth = this; lookupDayOfWeek(); currMonth = temp; } });
+  $("td.day").mouseenter(function () { if (!isEmpty(this)) { var temp = currDay; currDay = this; lookupDayOfWeek(); currDay = temp; } });
+  $(".empty,th").mouseenter(function () { lookupDayOfWeek(); });
+  $("table").mouseleave(function () { lookupDayOfWeek(); });
+  lookupToday();
+</script>
+</body>
+</html>

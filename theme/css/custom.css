@@ -1,0 +1,36 @@
+body {
+    background-color: #f6f6f6;
+    font-family: 'Microsoft YaHei', Tahoma, 'PT Serif', Georgia, Times, 'Times New Roman', Serif;
+    text-shadow: 1px 1px 3px rgba(50, 50, 50, 0.15);
+}
+.article-content {
+    font-family: 'Microsoft YaHei', 'PT Serif', Georgia, 'Times New Roman', Times, Serif;
+    text-align: left;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Microsoft YaHei', Baskerville, Garamond, Georgia, 'DejaVu Serif', 'Times New Roman', Times, Serif;
+}
+div#contents p.topic-title.first {
+    display: none;
+}
+div.math {
+    overflow: auto;
+}
+div.figure img {
+    width: inherit;
+}
+div.figure p.caption {
+    margin: 5px 1.5em 5px 1.5em;
+}
+.article-content img {
+    border: 0px;
+    padding: 0px;
+}
+object[type="image/svg+xml"] {
+    max-width: 100%;
+}
+div.highcharts {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}

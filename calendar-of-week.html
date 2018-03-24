@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Calf" />
+        <meta name="copyright" content="Calf" />
+
+        <link rel="author" href=https://plus.google.com/112983042847560253980/posts />
+        <meta name="twitter:creator" content="@calfzhou">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Perpetual Calendar, 有用知识, Day of Week, 万年历, 星期几" />
+
+<meta property="og:title" content="星期万年历 "/>
+<meta property="og:url" content="http://www.gocalf.com/blog/calendar-of-week.html" />
+<meta property="og:description" content="小学的时候看到过计算某年某月某日是星期几的方法，当时觉得好神奇啊，当时一直不明白为什么一个简简单单的式子或者一张表格就能够算出任何一天是星期几呢。让我们回忆一下孩童时期的乐趣吧，或许以后可以用来逗孩子玩呢。" />
+<meta property="og:site_name" content="GoCalf Blog" />
+<meta property="og:article:author" content="Calf" />
+<meta property="og:article:published_time" content="2011-08-10T22:25:00+08:00" />
+<meta property="" content="2011-08-10T22:25:00+08:00" />
+<meta name="twitter:title" content="星期万年历 ">
+<meta name="twitter:description" content="小学的时候看到过计算某年某月某日是星期几的方法，当时觉得好神奇啊，当时一直不明白为什么一个简简单单的式子或者一张表格就能够算出任何一天是星期几呢。让我们回忆一下孩童时期的乐趣吧，或许以后可以用来逗孩子玩呢。">
+<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/08/calendar_day_of_week.png" />
+<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/08/calendar_day_of_week.png" >
+
+        <title>星期万年历  · GoCalf Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="http://www.gocalf.com/blog/theme/css/style.min.css?6600dc28">
+        <link rel="shortcut icon" href="http://www.gocalf.com/blog/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
+        <link rel="icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="http://www.gocalf.com/blog/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24210758-2', 'auto');
+    ga('send', 'pageview');
+</script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://www.gocalf.com/blog/"><span class=site-name>GoCalf Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://www.gocalf.com/blog">Home</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/about.html">About</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/categories.html">Categories</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/tags.html">Tags</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://www.gocalf.com/blog/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://www.gocalf.com/blog/calendar-of-week.html"> 星期万年历  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc" id="">
+
+<ul class="simple">
+<li><a class="reference internal" href="#id3" id="id6">公式法计算星期几</a></li>
+<li><a class="reference internal" href="#id4" id="id7">表格法计算星期几</a></li>
+<li><a class="reference internal" href="#id5" id="id8">啰嗦两句</a></li>
+<li><a class="reference internal" href="#iframe" id="id9">附：放在IFRAME里面的星期万年历表格</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+            
+<p>还记得小学的时候看到过计算某年某月某日是星期几的方法，当时觉得好神奇啊，当时一直不明白为什么一个简简单单的式子或者一张表格就能够算出任何一天是星期几呢，这些方法伴随我度过了整个童年。</p>
+<p>长大后就知道了它们的原理，因为星期是七天为一个周期，只要已知某一天是星期几，要算任何一天是星期几只要求出两个日子之间的天数就可以了。现在的编程语言几乎全都包含了获得星期的方法，程序员们再也不用为此发愁。但还是让我们回忆一下孩童时期的乐趣吧，或许以后可以用来逗孩子玩呢。</p>
+<!-- more -->
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id6">公式法计算星期几</a></h2>
+<p>这是我最早知道的计算某一天是星期几的方法，还曾经在同学的Casio可编程计算器上做了个简单的程序来自动计算，真是有趣的回忆。</p>
+<p>设Y是公元年数（比如今年的话，Y等于2011），D是从同年元旦到指定的这天未为止的天数（包含这一天，比如1月1号的话，D就是1），那么指定日期的星期数为：</p>
+<div class="math">
+\begin{equation*}
+W=\left((Y-1)+\left\lfloor\frac{Y-1}{4}\right\rfloor-\left\lfloor\frac{Y-1}{100}\right\rfloor+\left\lfloor\frac{Y-1}{400}\right\rfloor+D\right)\bmod7
+\end{equation*}
+</div>
+<p>结果0代表周日，1～6分别代表星期一～星期六。</p>
+<p>以今天为例，2011年8月10日，先求出今年元旦到今天有多少天（包含今天），显然D=31+28+31+30+31+30+31+10=222，代入公式得到：</p>
+<div class="math">
+\begin{equation*}
+\begin{array}{rcl}
+W &amp; = &amp; \left((2011-1)+\left\lfloor\frac{2011-1}{4}\right\rfloor-\left\lfloor\frac{2011-1}{100}\right\rfloor+\left\lfloor\frac{2011-1}{400}\right\rfloor+222\right)\bmod7 \\
+&amp; = &amp; (2010+502-20+5+222)\bmod7 \\
+&amp; = &amp; 2719\bmod7 \\
+&amp; = &amp; 3
+\end{array}
+\end{equation*}
+</div>
+<p>今天是周三，没错呢。</p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id7">表格法计算星期几</a></h2>
+<p>上面的公式虽然简单明了，但对于小学时候的我却还是非常头疼的，四则运算不过关的人伤不起啊！下面这个表格法则没有任何计算了，我还特意添加了JavaScript使得它更容易使用。</p>
+<p>使用方法非常简单，比如还是看今天是星期几，按照以下三步进行：</p>
+<ol class="arabic simple">
+<li>在百年数区域里找到20，在年份后两位数字区域里找到11。由20所在横行向右，11所在竖行向下，交于F。</li>
+<li>在月份区域里找到8，向左在同一横行里找到F。</li>
+<li>在日期区域里找到10，在同一横行向左，同时由（第2步中找到的）F所在竖行向下，与10所在横行相交于星期区域里的“三”。</li>
+</ol>
+<p>可见同样求出今天是星期三。</p>
+<p>另外注意在月份区域中的1'和2'分别表示闰年的1月和2月。比如算2000年1月某天是星期几，就要在月份区域里选择1'。</p>
+<p>猛烈点击<a class="reference external" href="http://www.gocalf.com/blog/assets/2011/08/calendar_week.htm">这里（calendar_week.html）</a>可以在新的页面中打开星期万年历表格。如果你的浏览器支持IFRAME，可以在文章底部看到同样的表格。</p>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id8">啰嗦两句</a></h2>
+<p>根据公式或者表格都可以算出公元1年1月1日是星期一，那天到底是不是星期一呢？我不知道，而且也没有实际的意义，因为这个历法是罗马教皇格里高利十三世在1582年10月15日启用的，而英国及其殖民地直到1752年9月14日才使用现在的历法，所以算这之前甚至公元前某日是星期几毫无意义。另外，1582年2月24日教皇下令去除1582年10月5日至14日，1752年英国国会下令去除1752年9月3日至13日，所以1752年9月14日是星期四，但1752年9月2日却是星期三而不是星期六。
+这也是为什么我在表格的百年数区域里从15开始写。</p>
+</div>
+<div class="section" id="iframe">
+<h2><a class="toc-backref" href="#id9">附：放在IFRAME里面的星期万年历表格</a></h2>
+<iframe frameborder="0" height="1060" name="星期万年历" scrolling="yes" src="http://www.gocalf.com/blog/assets/2011/08/calendar_week.htm" title="Week Calendar" width="100%"></iframe></div>
+
+            <section>
+    <p id="post-share-links">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%E6%98%9F%E6%9C%9F%E4%B8%87%E5%B9%B4%E5%8E%86&url=http%3A//www.gocalf.com/blog/calendar-of-week.html" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//www.gocalf.com/blog/calendar-of-week.html" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//www.gocalf.com/blog/calendar-of-week.html" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=%E6%98%9F%E6%9C%9F%E4%B8%87%E5%B9%B4%E5%8E%86&amp;body=http%3A//www.gocalf.com/blog/calendar-of-week.html" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://www.gocalf.com/blog/calendar-of-week.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gocalfblog';
+        var disqus_identifier = 'http://www.gocalf.com/blog/calendar-of-week.html';
+    var disqus_url = 'http://www.gocalf.com/blog/calendar-of-week.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://www.gocalf.com/blog/cpp-const-and-pointer.html" title="Previous: C++中的常量指针和指针常量">C++中的常量指针和指针常量</a></li>
+                <li class="next-article"><a href="http://www.gocalf.com/blog/cpp-singleton.html" title="Next: 可以继承的C++ Singleton基类">可以继承的C++ Singleton基类</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-08-10T22:25:00+08:00">Aug 10, 2011</time>
+
+<h4>Last Updated</h4>
+<time datetime="2011-08-10T22:25:00+08:00">Aug 10, 2011</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.gocalf.com/blog/categories.html#knowledge-ref">有用知识</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.gocalf.com/blog/tags.html#perpetual-calendar-ref">Perpetual Calendar
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="mailto:calf.zhou+blog@gmail.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://weibo.com/calfzhou" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://github.com/calfzhou" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/calfzhou" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/calfzhou" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">GoCalf Blog</span> - 1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'gocalfblog';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+    MathJax.Hub.Config({
+        config: ["MMLorHTML.js"],
+        jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+        TeX: {
+            extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
+            equationNumbers: { autoNumber: "AMS" }
+        },
+        extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+        tex2jax: { 
+            //inlineMath: [ [\'$\',\'$\'] ],
+            //displayMath: [ [\'$$\',\'$$\'] ],
+            inlineMath: [ ["\\(", "\\)"] ],
+            displayMath: [ ],
+            processClass: "math",
+            processEscapes: true
+        },
+        "HTML-CSS": {
+            styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+        }
+       });
+</script>    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

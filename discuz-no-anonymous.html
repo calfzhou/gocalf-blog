@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Calf" />
+        <meta name="copyright" content="Calf" />
+
+        <link rel="author" href=https://plus.google.com/112983042847560253980/posts />
+        <meta name="twitter:creator" content="@calfzhou">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Discuz!, 建站, Anonymous, PHP, 匿名访问, 权限控制, 游客, 论坛" />
+
+<meta property="og:title" content="彻底禁止游客访问Discuz! 7.0搭建的论坛 "/>
+<meta property="og:url" content="http://www.gocalf.com/blog/discuz-no-anonymous.html" />
+<meta property="og:description" content="以前搭建了一个供内部交流用的Discuz!论坛，不希望没有账号的人（包括搜索引擎）看到论坛内的任何信息（包括首页等等）。在管理员设置里找了半天，发现可以“禁止IP”、“禁止用户访问”，甚至可以让“版主”、“超级版主”等用户组访问无法访问任何页面，却偏偏没有对游客的限制。对于大多数开放的论坛并无所谓，但对于我们这种特殊的论坛，就只好自己修改代码了。来看看是如何修改的。" />
+<meta property="og:site_name" content="GoCalf Blog" />
+<meta property="og:article:author" content="Calf" />
+<meta property="og:article:published_time" content="2011-08-15T21:17:00+08:00" />
+<meta property="" content="2011-08-15T21:17:00+08:00" />
+<meta name="twitter:title" content="彻底禁止游客访问Discuz! 7.0搭建的论坛 ">
+<meta name="twitter:description" content="以前搭建了一个供内部交流用的Discuz!论坛，不希望没有账号的人（包括搜索引擎）看到论坛内的任何信息（包括首页等等）。在管理员设置里找了半天，发现可以“禁止IP”、“禁止用户访问”，甚至可以让“版主”、“超级版主”等用户组访问无法访问任何页面，却偏偏没有对游客的限制。对于大多数开放的论坛并无所谓，但对于我们这种特殊的论坛，就只好自己修改代码了。来看看是如何修改的。">
+<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/08/no_anonymous.png" />
+<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/08/no_anonymous.png" >
+
+        <title>彻底禁止游客访问Discuz! 7.0搭建的论坛  · GoCalf Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="http://www.gocalf.com/blog/theme/css/style.min.css?6600dc28">
+        <link rel="shortcut icon" href="http://www.gocalf.com/blog/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
+        <link rel="icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="http://www.gocalf.com/blog/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24210758-2', 'auto');
+    ga('send', 'pageview');
+</script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://www.gocalf.com/blog/"><span class=site-name>GoCalf Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://www.gocalf.com/blog">Home</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/about.html">About</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/categories.html">Categories</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/tags.html">Tags</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://www.gocalf.com/blog/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://www.gocalf.com/blog/discuz-no-anonymous.html"> 彻底禁止游客访问Discuz! 7.0搭建的论坛  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <p>以前搭建了一个供内部交流用的Discuz!论坛，不希望没有账号的人（包括搜索引擎）看到论坛内的任何信息（包括首页等等）。在管理员设置里找了半天，发现可以“禁止IP”、“禁止用户访问”，甚至可以让“版主”、“超级版主”等用户组访问无法访问任何页面，却偏偏没有对游客的限制。对于大多数开放的论坛并无所谓，但对于我们这种特殊的论坛，就只好自己修改代码了。来看看是如何修改的。</p>
+<!-- more -->
+<p>此次修改针对的是Discuz!
+7.0，其他版本可能也大同小异吧。只要改一点点就好了。</p>
+<p>文件/include/common.func.php中的代码几乎在访问论坛任何页面时都会被执行，它包含了很多对用户权限的控制，只要在恰当的位置添加对游客的访问限制即可。</p>
+<p>要关注的代码段落是365行至378行：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="x">if((!empty($_DCACHE[&#39;advs&#39;]) || $globaladvs) &amp;&amp; !defined(&#39;IN_ADMINCP&#39;)) {</span>
+<span class="x">  require_once DISCUZ_ROOT.&#39;./include/advertisements.inc.php&#39;;</span>
+<span class="x">}</span>
+
+<span class="x">if(isset($allowvisit) &amp;&amp; $allowvisit == 0 &amp;&amp; !(CURSCRIPT == &#39;member&#39; &amp;&amp; ($action == &#39;groupexpiry&#39; || $action == &#39;activate&#39;))) {</span>
+<span class="x">  showmessage(&#39;user_banned&#39;, NULL, &#39;HALTED&#39;);</span>
+<span class="x">} elseif(!(in_array(CURSCRIPT, array(&#39;logging&#39;, &#39;wap&#39;, &#39;seccode&#39;, &#39;ajax&#39;)) || $adminid == 1)) {</span>
+<span class="x">  if($bbclosed) {</span>
+<span class="x">    clearcookies();</span>
+<span class="x">    $closedreason = $db-&gt;result_first(&quot;SELECT value FROM {$tablepre}settings WHERE variable=&#39;closedreason&#39;&quot;);</span>
+<span class="x">    showmessage($closedreason ? $closedreason : &#39;board_closed&#39;, NULL, &#39;NOPERM&#39;);</span>
+<span class="x">  }</span>
+<span class="x">  periodscheck(&#39;visitbanperiods&#39;);</span>
+<span class="x">}</span>
+</pre></div>
+</td></tr></table><p>从369行开始的那段代码是对被禁止的用户组或者账户进行屏蔽，以及处理论坛暂时关闭的情况，就在它前面加上对游客的限制即可。判断是游客还是已登录用户的方法就是看有没有uid信息，游客是没有uid的。另外，虽然游客不能访问论坛的任何页面，但总要让他能够注册或者登录，所以要把相关页面的权限放开。除了371行所列的那几项之外，还需要开放register，除非论坛注册也不对外开放。</p>
+<p>修改的内容如下，只是多加了一个判断而已：</p>
+<div class="highlight"><pre><span></span>368a369,374
+&gt; /* Forbid tourists visiting the bbs. Add by calf, Apr 15, 2009 */
+&gt; if(!$discuz_uid &amp;&amp; !(defined(&#39;CURSCRIPT&#39;) &amp;&amp; in_array(CURSCRIPT, array(&#39;logging&#39;, &#39;wap&#39;, &#39;seccode&#39;, &#39;ajax&#39;, &#39;register&#39;)))) {
+&gt;   showmessage(&#39;not_loggedin&#39;, NULL, &#39;NOPERM&#39;);
+&gt; }
+&gt; /* End of Add */
+&gt;
+</pre></div>
+<p>这样修改后，未登录状态下访问论坛会得到类似于“您无权进行当前操作，这可能因以下原因之一造成：对不起，您还没有登录，无法进行此操作。”的提示信息，并直接跳转到登录界面。</p>
+
+            <section>
+    <p id="post-share-links">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%E5%BD%BB%E5%BA%95%E7%A6%81%E6%AD%A2%E6%B8%B8%E5%AE%A2%E8%AE%BF%E9%97%AEDiscuz%21%207.0%E6%90%AD%E5%BB%BA%E7%9A%84%E8%AE%BA%E5%9D%9B&url=http%3A//www.gocalf.com/blog/discuz-no-anonymous.html" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//www.gocalf.com/blog/discuz-no-anonymous.html" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//www.gocalf.com/blog/discuz-no-anonymous.html" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=%E5%BD%BB%E5%BA%95%E7%A6%81%E6%AD%A2%E6%B8%B8%E5%AE%A2%E8%AE%BF%E9%97%AEDiscuz%21%207.0%E6%90%AD%E5%BB%BA%E7%9A%84%E8%AE%BA%E5%9D%9B&amp;body=http%3A//www.gocalf.com/blog/discuz-no-anonymous.html" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://www.gocalf.com/blog/discuz-no-anonymous.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gocalfblog';
+        var disqus_identifier = 'http://www.gocalf.com/blog/discuz-no-anonymous.html';
+    var disqus_url = 'http://www.gocalf.com/blog/discuz-no-anonymous.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://www.gocalf.com/blog/cpp-singleton.html" title="Previous: 可以继承的C++ Singleton基类">可以继承的C++ Singleton基类</a></li>
+                <li class="next-article"><a href="http://www.gocalf.com/blog/circularly-ordinal-array.html" title="Next: 在循环有序数组中查找指定元素">在循环有序数组中查找指定元素</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-08-15T21:17:00+08:00">Aug 15, 2011</time>
+
+<h4>Last Updated</h4>
+<time datetime="2011-08-15T21:17:00+08:00">Aug 15, 2011</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.gocalf.com/blog/categories.html#site-ref">建站</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.gocalf.com/blog/tags.html#discuz-ref">Discuz!
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="mailto:calf.zhou+blog@gmail.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://weibo.com/calfzhou" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://github.com/calfzhou" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/calfzhou" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/calfzhou" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">GoCalf Blog</span> - 1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'gocalfblog';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

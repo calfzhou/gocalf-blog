@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Calf" />
+        <meta name="copyright" content="Calf" />
+
+        <link rel="author" href=https://plus.google.com/112983042847560253980/posts />
+        <meta name="twitter:creator" content="@calfzhou">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Mac Develop, Homebrew, 程序开发, Mac OS X, iTerm, Solarized Color, Homebrew, goagent, python, virtualenv, GNU, coreutils, bash prompt, dircolors, vim, Sublime Text, git, git flow, svn, hostname, maven, develop environment" />
+
+<meta property="og:title" content="在苹果系统上打造舒服的开发环境 "/>
+<meta property="og:url" content="http://www.gocalf.com/blog/make-mac-better-for-development.html" />
+<meta property="og:description" content="对Mac OS X做一番处理，使之更加适合程序开发。" />
+<meta property="og:site_name" content="GoCalf Blog" />
+<meta property="og:article:author" content="Calf" />
+<meta property="og:article:published_time" content="2014-07-26T11:00:00+08:00" />
+<meta property="" content="2014-07-26T11:00:00+08:00" />
+<meta name="twitter:title" content="在苹果系统上打造舒服的开发环境 ">
+<meta name="twitter:description" content="对Mac OS X做一番处理，使之更加适合程序开发。">
+
+        <title>在苹果系统上打造舒服的开发环境  · GoCalf Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="http://www.gocalf.com/blog/theme/css/style.min.css?6600dc28">
+        <link rel="shortcut icon" href="http://www.gocalf.com/blog/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
+        <link rel="icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="http://www.gocalf.com/blog/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24210758-2', 'auto');
+    ga('send', 'pageview');
+</script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://www.gocalf.com/blog/"><span class=site-name>GoCalf Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://www.gocalf.com/blog">Home</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/about.html">About</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/categories.html">Categories</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/tags.html">Tags</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://www.gocalf.com/blog/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://www.gocalf.com/blog/make-mac-better-for-development.html"> 在苹果系统上打造舒服的开发环境  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc" id="">
+
+<ul class="simple">
+<li><a class="reference internal" href="#id3" id="id10">基础设施</a><ul>
+<li><a class="reference internal" href="#iterm" id="id11">iTerm</a></li>
+<li><a class="reference internal" href="#homebrew" id="id12">Homebrew</a></li>
+<li><a class="reference internal" href="#python" id="id13">Python</a></li>
+<li><a class="reference internal" href="#id4" id="id14">科学上网</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shell" id="id15">友好的Shell</a><ul>
+<li><a class="reference internal" href="#bash-profile" id="id16">Bash Profile</a></li>
+<li><a class="reference internal" href="#dir-colors" id="id17">Dir Colors</a></li>
+<li><a class="reference internal" href="#bash-prompt" id="id18">Bash Prompt</a></li>
+<li><a class="reference internal" href="#bash-completion" id="id19">Bash Completion</a></li>
+<li><a class="reference internal" href="#shell-commands" id="id20">Shell Commands</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ide" id="id21">编辑器和IDE</a><ul>
+<li><a class="reference internal" href="#vim" id="id22">VIM</a></li>
+<li><a class="reference internal" href="#sublime-text" id="id23">Sublime Text</a></li>
+<li><a class="reference internal" href="#python-ide" id="id24">Python IDE</a></li>
+<li><a class="reference internal" href="#java-ide" id="id25">Java IDE</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5" id="id26">版本控制</a><ul>
+<li><a class="reference internal" href="#git" id="id27">Git</a></li>
+<li><a class="reference internal" href="#svn" id="id28">SVN</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+            
+<p>用苹果系统已经有一段时间了，越来越喜欢这个系统，不管是一般的使用、做设计、做开发，都非常适合。最近也对系统做了一些调整，使得开发环境更加的舒服，记录下来，免得忘了。</p>
+<p>实际的过程是漫长而曲折的，跟下面所写的顺序完全没有关系。如果按照下面的步骤操作，中间难免会遇到一些问题（大多是由于墙导致的），那时再自行Google吧。</p>
+<!-- more -->
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id10">基础设施</a></h2>
+<div class="section" id="iterm">
+<h3><a class="toc-backref" href="#id11">iTerm</a></h3>
+<p>对于几乎离不开shell的开发者来说，一款优秀的终端程序是基础的基础。</p>
+<p>毫无疑问，我用的是<a class="reference external" href="http://www.iterm2.com/">iTerm2</a>。如果说访问互联网世界的入口是Chrome，那么访问程序世界的入口就是iTerm了。</p>
+<div class="figure">
+<img alt="iterm2_logo" src="http://www.gocalf.com/blog/images/2014/07/iterm2_logo.png"/>
+</div>
+<p>字体选择一款好看的等宽字体即可，比如常用的Consolas、 Curier New等。我用的是<a class="reference external" href="https://github.com/adobe/source-code-pro">Source Code Pro</a>。中文使用Microsoft YaHei字体。</p>
+<p>配色当然首选<a class="reference external" href="https://github.com/altercation/solarized">Solarized</a>的暗色系，在Github上可以找到专门提供给iTerm2用的配色文件<a class="reference external" href="https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors">Solarized Dark.itemcolors</a>。</p>
+</div>
+<div class="section" id="homebrew">
+<h3><a class="toc-backref" href="#id12">Homebrew</a></h3>
+<p><a class="reference external" href="http://brew.sh/">Homebrew</a> installs the stuff you need that Apple didn't.</p>
+<p>我电脑上的大部分工具都是通过homebrew安装和管理的，非常方便。虽然提供类似功能的还有<a class="reference external" href="http://www.finkproject.org/">Fink</a>和<a class="reference external" href="http://www.macports.org/">macports</a>，但我认为Homebrew是最方便的。具体的就不在这里比较了，大家可以自行调研。当然，至少选择一个来帮助自己安装盒管理软件包，会让很多事情变得更容易。</p>
+<p>安装Homebrew非常方便，首先要安装<a class="reference external" href="https://developer.apple.com/downloads/index.action">Command Line Tools for Xcode</a>，然后运行</p>
+<div class="highlight"><pre><span></span>ruby -e <span class="s2">"</span><span class="k">$(</span>curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install<span class="k">)</span><span class="s2">"</span>
+</pre></div>
+<p>在使用Homebrew的过程中，要注意经常更新它。在brew的世界中，24小时就已经是非常久了。所以在安装某个包或者做其他操作之前，一般都要运行`brew update`和`brew doctor`，前者用于更新Homebrew自身和各个软件包，后者用于排查可能会遇到的问题。我之前没注意这个（也是因为那时候还没太依赖于Homebrew），有一次安装一个程序，总是提示我有一个依赖没有装，但那个依赖明明就在那儿，百思不得其解，还跑到github上发issue去问，被拍了一顿。其实只要brew update一下就知道，我安装的那个依赖包太老了，升级了就好了。</p>
+<p>在安装某个程序前，我一般也要先<tt class="docutils literal">brew info $FORMULA</tt>一下看看，了解一下有没有什么值得注意的参数，安装后有什么需要手动进行的后续操作。</p>
+<p>Homebrew默认会掌控系统中的<tt class="docutils literal">/usr/local</tt>目录，目前我这个目录也就只是给Homebrew用了，其他的东西都不往里放。在使用Homebrew的过程中，一般都避免使用sudo进行操作，实际上现在的版本用了sudo也就没法使了。</p>
+</div>
+<div class="section" id="python">
+<h3><a class="toc-backref" href="#id13">Python</a></h3>
+<p>苹果系统自带了好几个版本的Python，装在/Library/Python中。不过版本都不新，为了便于维护，还是自己装一个Python吧。用<tt class="docutils literal">brew install python</tt>可以安装最新的Python 2.x，用<tt class="docutils literal">brew install python3</tt>可以安装最新的Python 3.x。</p>
+<p>Homebrew的Python已经安装了pip，用于管理Python的软件包。根据<tt class="docutils literal">brew info python</tt>提供的提示，运行下列命令对pip进行更新：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pip install --upgrade setuptools
+pip install --upgrade pip
+</pre></div>
+</td></tr></table><p>我现在使用<a class="reference external" href="http://virtualenv.readthedocs.org/en/latest/">virtualenv</a>来管理Python的环境，用<a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a>来方便地使用virtualenv。分别用pip进行安装：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>pip install virtualenv
+pip install virtualenvwrapper
+</pre></div>
+</td></tr></table><p>virtualenvwrapper提供了很多方便的命令，还支持命令的tab completion，这些都包含在virtualenvwrapper.sh文件中。在<tt class="docutils literal"><span class="pre">~/.bash_profile</span></tt>中引入该文件来激活相关的命令和功能：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">VIRTUAL_ENV_DISABLE_PROMPT</span><span class="o">=</span><span class="m">1</span>
+<span class="nb">export</span> <span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.virtualenvs
+<span class="nb">export</span> <span class="nv">PROJECT_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/projects
+<span class="o">[</span> -f <span class="s2">"/usr/local/bin/virtualenvwrapper.sh"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> <span class="s2">"/usr/local/bin/virtualenvwrapper.sh"</span>
+</pre></div>
+</td></tr></table><p>准备好后就可以用<tt class="docutils literal">mkvirtualenv ENVNAME</tt>来创建一个新的virtualenv，用<tt class="docutils literal">workon</tt>命令来切换环境，用<tt class="docutils literal">deactive</tt>退出虚拟环境。更多的命令可以查看<a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/">virtualenvwrapper</a>的文档。</p>
+<p>另外，<a class="reference external" href="http://ipython.org/">ipython</a>是非常好用的Python的交互式终端，比Python自身的命令行提供了更丰富和方便的功能，建议使用。通过<tt class="docutils literal">pip install ipython</tt>即可安装。不过目前我还没想清楚要不要把它装在某个虚拟环境中。按理说应该是要在任何一个虚拟环境中都能用ipython的，否则就要给每个虚拟环境都装一次，岂不是很浪费空间？这个问题以后再考虑吧。</p>
+<p>ipython除了shell console外，还提供Qt console，详细的信息查看官方的介绍吧。</p>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id14">科学上网</a></h3>
+<p>由于一些众所周不知的原因，这个世界上存在着一些不存在的网站。本来不应该为不存在的事物所烦恼，但对于开发人员来说，不存在的世界中却存在着一些非常有价值的资源。所以，需要用科学的方法访问互联网。</p>
+<p>我目前主要用到了<a class="reference external" href="https://code.google.com/p/goagent/">goagent</a>、SSH tunnel、<a class="reference external" href="https://github.com/rofl0r/proxychains-ng/">proxychains-ng</a>、<a class="reference external" href="https://github.com/jedisct1/dnscrypt-proxy">dnscrypt-proxy</a>和<a class="reference external" href="http://unbound.net/">unbound</a>。</p>
+<p>goagent需要在Google App Engine上用自己的账号安装服务端，在本地用python运行客户端。具体的安装方法参见官网介绍。我创建一个virtualenv给它使用，在这个虚拟环境中安装相关的Python依赖。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>mkvirtualenv goagent
+pip install pyopenssl
+pip install pycrypto
+pip install gevent
+</pre></div>
+</td></tr></table><p>用goagent访问HTTPS网站的时候，需要安装证书。现在的goagent已经可以自动安装证书了（需要用sudo权限运行）。如果是第一次使用goagent，可以先将goagent的local目录中的ca.cer、ca.key和certs目录内的文件都删除，删除浏览器或系统中的goagent ca证书，然后用sudo权限启动goagent，它会自行安装证书到系统中。我建议一直使用sudo权限运行goagent。</p>
+<p>在Mac系统中，利用系统的launchd来控制goagent的随系统（以root权限）启动。可以在/Library/LaunchDaemons中创建一个扩展名为.plist的文件，内容为（需要根据你的实际环境进行调整）：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="cp">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span>
+<span class="nt">&lt;plist</span> <span class="na">version=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;dict&gt;</span>
+    <span class="nt">&lt;key&gt;</span>Label<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>com.github.calfzhou.goagent.local<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>ProgramArguments<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;array&gt;</span>
+        <span class="nt">&lt;string&gt;</span>YOUR_OWN_PATH/.virtualenvs/goagent/bin/python<span class="nt">&lt;/string&gt;</span>
+        <span class="nt">&lt;string&gt;</span>proxy.py<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;/array&gt;</span>
+    <span class="nt">&lt;key&gt;</span>RunAtLoad<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;true/&gt;</span>
+    <span class="nt">&lt;key&gt;</span>ServiceDescription<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>Goagnet proxy<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>StandardErrorPath<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>/dev/null<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>StandardOutPath<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>/dev/null<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>WorkingDirectory<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>YOUR_OWN_PATH/goagent/local<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;/dict&gt;</span>
+<span class="nt">&lt;/plist&gt;</span>
+</pre></div>
+</td></tr></table><p>给系统的网络连接设置代理，进入System Preferences -&gt; Network，选择使用的网络，点击Advanced...，在Proxies页中勾选“Automatic Proxy Configuration”，在URL内填入“<a class="reference external" href="http://127.0.0.1:8086/proxy.pac">http://127.0.0.1:8086/proxy.pac</a>”，保存生效。</p>
+<p>对于Chrome浏览器，推荐使用<a class="reference external" href="https://chrome.google.com/webstore/detail/proxy-switchysharp/dpplabbmogkhghncfbfdeeokoefdjegm">Proxy SwichySharp</a>插件。鉴于Google所有的服务都访问不顺畅，这个链接可能不太容易访问到，可以考虑使用<a class="reference external" href="http://chrome-extension-downloader.com/">chrome extension downloader</a>网站来直接下载插件的.crx文件。用非Chrome浏览器打开该网站，输入Proxy SwichySharp的ID（dpplabbmogkhghncfbfdeeokoefdjegm），下载保存，然后在Chrome的extensions页面中把.crx文件拖进去即可。goagent里也提供了该插件的.crx文件以及配置文件，可以直接使用（作者想的真周到啊）。</p>
+<p>系统的网络连接代理和Chrome的代理插件基本能解决大部分网页访问的需求，比如苹果自带的Safari就会默认通过系统的代理，也就能科学地上网了。不过wget、curl等shell命令却无法直接使用这些代理，它们会根据环境变量<tt class="docutils literal">http_proxy</tt>和<tt class="docutils literal">https_proxy</tt>来访问网络。为了方便，在~/.bash_profile中添加：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Setup or dismiss (goagent) proxy for curl, wget, etc.</span>
+<span class="nb">alias</span> <span class="nv">gaproxy</span><span class="o">=</span><span class="s1">'export http_proxy=http://127.0.0.1:8087 https_proxy=http://127.0.0.1:8087'</span>
+<span class="nb">alias</span> <span class="nv">noproxy</span><span class="o">=</span><span class="s1">'unset http_proxy https_proxy'</span>
+</pre></div>
+</td></tr></table><p>在需要wget或者curl某个不存在的网页前，通过<tt class="docutils literal">gaproxy</tt>命令开启代理，使用完毕后通过<tt class="docutils literal">noproxy</tt>关闭代理即可。</p>
+<p>有的时候goagent会抽疯，一个备选的代理是必需的。我一般会利用SSH隧道，通过gocalf网站所在的主机建立socks代理。如果你也有一台在国外的服务器，可以通过这个命令在本地开启socks5代理服务：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ssh -D LOCAL_PORT<span class="o">(</span><span class="m">7070</span><span class="o">)</span> -p REMOTE_SSH_PORT<span class="o">(</span><span class="m">22</span><span class="o">)</span> USER_NAME@SERVER_ADDRESS
+</pre></div>
+</td></tr></table><p>对于不支持<tt class="docutils literal">http_proxy</tt>和<tt class="docutils literal">https_proxy</tt>的程序，我会使用<a class="reference external" href="https://github.com/rofl0r/proxychains-ng/">proxychains-ng</a>。通过<tt class="docutils literal">brew install <span class="pre">proxychains-ng</span></tt>即可安装，运行的命令是<tt class="docutils literal">proxychains4</tt>。这个有点儿像Windows里的SocksCap，但是更强大些，比如想从一个不存在的svn站点下载代码，可以用<tt class="docutils literal">proxychains4 svn checkout xxxx</tt>实现。</p>
+<p>最近发现<a class="reference external" href="https://www.dropbox.com/">Dropbox</a>的客户端即使设置上goagent代理也不好使（网页倒是没问题），所幸Dropbox（还有Facebook等）不存在的原因只是域名解析被人为破坏了，只要能解析出正确的ID地址，不用代理也能够访问。为了防止域名解析被恶意破坏，我又祭出了<a class="reference external" href="https://github.com/jedisct1/dnscrypt-proxy">dnscrypt-proxy</a>这个法宝。不幸的是，dnscrytp-proxy的下载站点本身就是不存在的，要用前面提到的<tt class="docutils literal">gaproxy</tt>激活代理后才能下载成功：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>gaproxy
+brew install dnscrypt-proxy
+noproxy
+</pre></div>
+</td></tr></table><p>安装后根据提示设置成开机自动启动即可。默认的话它会监听127.0.0.1的53端口提供DNS服务，上游使用OpenDNS服务（可自行配置），并使用加密通信来防止DNS污染。将网络连接的DNS设置为127.0.0.1（System Preferences -&gt; Network -&gt; 当前使用的网络 -&gt; Advanced... -&gt; DNS -&gt; DNS Servers），就会发现即使没有goagent，Dropbox、Facebook等网站也变得存在了。</p>
+<p>dnscrypt-proxy有个缺点就是没有缓存功能，每次来个域名都要去远程服务器上解析一次，速度很慢，非常影响上网的体验，建议配合具备DNS缓存的工具一起使用，比如<a class="reference external" href="http://unbound.net/">unbound</a>、<a class="reference external" href="http://www.thekelleys.org.uk/dnsmasq/doc.html">dnsmasq</a>等。二者都可以通过Homebrew安装，非常方便。当然要配合使用，就需要一些配置，在性能方面也需要做一些优化，这里就不再仔细说了。</p>
+</div>
+</div>
+<div class="section" id="shell">
+<h2><a class="toc-backref" href="#id15">友好的Shell</a></h2>
+<p>有了iTerm还不够，要让shell变得好用，还需要再做一些配置。</p>
+<div class="section" id="bash-profile">
+<h3><a class="toc-backref" href="#id16">Bash Profile</a></h3>
+<p><tt class="docutils literal"><span class="pre">~/.bash_profile</span></tt>的作用就不用我多说了，在这里可以对shell进行很多的个性化配置。参考<a class="reference external" href="https://github.com/mathiasbynens/dotfiles">mathiasbynens的dotfiles</a>项目，我也为自己打造了舒适的shell环境，相关的配置保存在<a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/bash">GitHub - calfzhou - dotfiles - bash</a>里面，对Mac和Linux都是可以的，让我在不同的服务器上也有相同的操作体验。涉及到的内容很多，就不逐一介绍了，比较重要的几点下面会提到。</p>
+</div>
+<div class="section" id="dir-colors">
+<h3><a class="toc-backref" href="#id17">Dir Colors</a></h3>
+<p>虽然iTerm本身已经设置好了Solarized配色，但是ls的时候并不一定有颜色。ls没有颜色绝对是让人难以忍受的，在<a class="reference external" href="https://github.com/calfzhou/dotfiles/blob/master/bash/bash_inc/aliases">bash_inc/alias</a>里除了根据系统中ls支持的参数让ls的输出显示出颜色外，还通过配置<tt class="docutils literal">LS_COLOR</tt>让色彩更丰富，可以让不同类型的文件有不同的颜色，看起来非常的清晰。推荐使用<a class="reference external" href="https://github.com/seebi/dircolors-solarized">dircolors-solarized</a>提供的配色文件，在Mac OS X的采用了Solarized Dark配色的iTerm2里看起来会是这个样子：</p>
+<div class="figure">
+<img alt="dircolors-solaized-dark" src="http://www.gocalf.com/blog/images/2014/07/dircolors_solarized_dark.png"/>
+<p class="caption">iTerm2中Solarized Dark系的dircolors效果</p>
+</div>
+</div>
+<div class="section" id="bash-prompt">
+<h3><a class="toc-backref" href="#id18">Bash Prompt</a></h3>
+<p>在使用shell的过程中，命令提示符会一直陪伴着我们，是时候扔掉默认的提示符了。<a class="reference external" href="https://github.com/calfzhou/dotfiles/blob/master/bash/bash_inc/bash_prompt">我的命令提示符</a>用不同的颜色分别显示出当前时刻、当前用户、当前主机（通过颜色标识是否通过是通过SSH登录的）、当前使用的Python virtualenv（如果有的话）、当前目录、当前目录所在的git分支和状态（如果是git项目的目录的话）。</p>
+<p>关于主机名，Mac系统下默认应该是localhost，可以通过scutil命令修改成想要的值：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>$ sudo scutil --set HostName MYNAME
+$ hostname
+MYNAME
+</pre></div>
+</td></tr></table><p>配合上iTerm的配色、ls的颜色等，我的shell看起来是这样的：</p>
+<div class="figure">
+<img alt="my-shell-demo" src="http://www.gocalf.com/blog/images/2014/07/my-shell-demo.png"/>
+<p class="caption">我的iTerm2的效果</p>
+</div>
+</div>
+<div class="section" id="bash-completion">
+<h3><a class="toc-backref" href="#id19">Bash Completion</a></h3>
+<p>在shell里面输入命令的时候，如果只记得开头几个字母，后面的记不清楚了也没关系，输入几个字母后，按TAB键就可以自动补全或者提示出所有可行的命令。在输入文件名的时候也可以通过TAB键自动补全或者提示出有效的文件文来，这个功能是非常方便的。Homebrew又额外提供了一些bash completion功能，可以通过<tt class="docutils literal">brew install <span class="pre">bash-completion</span></tt>进行安装，并会生成/usr/local/etc/bash_completion文件，在<tt class="docutils literal"><span class="pre">~/.bash_profile</span></tt>中source一下这个文件，就可以把Homebrew提供的命令补全包含进来。如果通过Homebrew安装了别的工具包，比如git、svn等，它们也会有各自相应的命令补全文件，存放在/usr/local/etc/bash_completion.d目录中，都会被刚才那个文件自动引入。</p>
+</div>
+<div class="section" id="shell-commands">
+<h3><a class="toc-backref" href="#id20">Shell Commands</a></h3>
+<p>用惯了Linux（CentOS）里面的shell命令，就无法忍受Mac系统中那些落后的shell命令了，像ls、date、ps、echo、grep等等，功能都特别少。在忍无可忍之后，终于决定用<a class="reference external" href="http://www.gnu.org/software/coreutils/">GNU Coreutils</a>替换它们。用<tt class="docutils literal">brew install coreutils</tt>就可以搞定了，安装完成后，根据提示，将/usr/local/opt/coreutils/libexec/gnubin和/usr/local/opt/coreutils/libexec/gnuman分别添加到<tt class="docutils literal">$PATH</tt>和<tt class="docutils literal">$MANPATH</tt>中即可。</p>
+<p>grep命令不在coreutils，可以通过<tt class="docutils literal">brew install grep <span class="pre">--default-names</span></tt>搞定（如果说找不到grep可以先<tt class="docutils literal">brew tap homebrew/dupes</tt>）。当然还有很多其他特别有用的命令，就不一一细说了，反正想到什么，只要用<tt class="docutils literal">brew info</tt>或者<tt class="docutils literal">brew search</tt>找找看就行。</p>
+</div>
+</div>
+<div class="section" id="ide">
+<h2><a class="toc-backref" href="#id21">编辑器和IDE</a></h2>
+<div class="section" id="vim">
+<h3><a class="toc-backref" href="#id22">VIM</a></h3>
+<p>其实我也不是VIM重度使用者，现在写超过两个文件的Python代码、Java代码等都会使用专门的IDE。我看很多人都喜欢用VIM来写复杂的项目代码，但他们的VIM都没有做任何额外的设置，自身对VIM的快捷键和命令也不熟悉，只是把VIM当成一个连移动光标都很费劲的编辑器来用，写代码的效率可想而知。而且像Python这种脚本语言，很多错误只有到运行到那句话的时候才会有效果，VIM没有足够的只能针对某一个语言做太多的静态分析。</p>
+<p><tt class="docutils literal"><span class="pre">~/.vimrc</span></tt>用于对VIM进行各种设置，如果没有这个文件，赶紧创建一个吧。复杂的语法高亮、配色、插件等都可以放在<tt class="docutils literal"><span class="pre">~/.vim</span></tt>里面。VIM自身对插件没有很好地管理，我选择了<a class="reference external" href="https://github.com/tpope/vim-pathogen">vim-pathogen</a>来管理所需要的VIM扩展。只要把<a class="reference external" href="https://github.com/tpope/vim-pathogen/blob/master/autoload/pathogen.vim">pathogen.vim</a>放在<tt class="docutils literal"><span class="pre">~/.vim/autoload</span></tt>目录中，把所需的扩展包放在<tt class="docutils literal"><span class="pre">~/.vim/bundle</span></tt>目录下即可。</p>
+<p>同样地，我也把自己的VIM设置和依赖放在GitHub上（<a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/vim">GitHub - calfzhou - dotfiles - vim</a>），在别的server上直接clone下来保持一致的操作体验。</p>
+<p>我现在使用<a class="reference external" href="https://github.com/Rykka/riv.vim">riv.vim</a>扩展来写reStructuredText文件（.rst），操作起来非常方便。</p>
+<p>如果不满意苹果系统自带的较低版本的VIM，或者想用GUI界面的VIM，可以利用Homebrew进行安装，Formula是<tt class="docutils literal">vim</tt>和<tt class="docutils literal">macvim</tt>。</p>
+</div>
+<div class="section" id="sublime-text">
+<h3><a class="toc-backref" href="#id23">Sublime Text</a></h3>
+<p><a class="reference external" href="http://www.sublimetext.com/">Sublime Text</a>是我现在主要使用的GUI编辑器，但看其首页的动画演示就会觉得非常cool。以前还经常用Ultra Edit和Notepad++，现在基本都不用了。在GUI程序中，我一般会使用Solarized Light配色方案，总感觉大部分GUI程序用暗色系就很丑（PyCharm系列除外）。</p>
+<p>具体的配置也就不多说了。注意Sublime Text原生不支持GBK编码的文件，需要安装扩展包，即使这样，在编辑GBK编码的文件时，它会生成一个临时文件进行操作，保存的时候再写回去，体验上还是有些不爽。</p>
+<p>还有一个地方我也一直没搞清楚，就是中文字体不是刚刚好跟两个英文字母一样宽。在编辑reStructuredText文件的时候，还是会比较麻烦的。</p>
+</div>
+<div class="section" id="python-ide">
+<h3><a class="toc-backref" href="#id24">Python IDE</a></h3>
+<p>以前一直用VIM做Python开发，是因为没找到好用的Python IDE，现在我用<a class="reference external" href="http://www.jetbrains.com/">JetBrains</a>出的<a class="reference external" href="http://www.jetbrains.com/pycharm/">PyCharm</a>。不要跟我争，这绝对是世界上最好用的Python IDE，没有之一。</p>
+<p>PyCharm里强烈推荐自带的Darcula配色，感觉在GUI界面中，这个配色比Solarized Dark要舒服一些。PyCharm的默认配置基本就很好用了，它对Python代码的可读性检测方面要求还是比较严格的，空行、空格不合适都会有提示。如果Python项目中包含其他类型的文件（如shell脚本、html页面等），它也有相应的插件可以对这些文件进行语法高亮。</p>
+<p>一直觉得如果JetBrains出一个通用的编辑器，应该能把Sublime Text甩出好几条街去。</p>
+</div>
+<div class="section" id="java-ide">
+<h3><a class="toc-backref" href="#id25">Java IDE</a></h3>
+<p>好多人都用Eclipse写Java代码（包括Android开发），真想不通为什么那么难用的IDE还那么受欢迎。可能学校里交Java的时候都用的Eclipse吧，就像直到现在都还有很多人用VS6做C++开发一样。对于Android开发，可能跟之前Google推Eclipse with ADT有关吧。不过现在Google也认识到了Eclipse的不足，转身投入<a class="reference external" href="http://www.jetbrains.com/">JetBrains</a>的<a class="reference external" href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a>的怀抱了。JetBrains出品的个个都是精品啊，微软里面很多项目组也都在使用JetBrains出的<a class="reference external" href="http://www.jetbrains.com/resharper/">ReSharper</a>。</p>
+<p>我现在也是用IntelliJ IDEA来做Java开发，使用体验跟PyCharm类似。Java项目的依赖管理用Maven，Homebrew里也提供了安装。建议目前使用Maven 3.0.*：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brew tap homebrew/versions
+brew install maven30
+</pre></div>
+</td></tr></table><p>当然如果要用最新的3.2.*，可以直接<tt class="docutils literal">brew install maven</tt>。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id26">版本控制</a></h2>
+<div class="section" id="git">
+<h3><a class="toc-backref" href="#id27">Git</a></h3>
+<p>用Homebrew可以方便地安装最新的Git。如果像上面介绍的那样，用Homebrew安装并使用了bash-completion，那么装好git后，git指令也会按TAB键补全了，再也不动担心记不住git指令。</p>
+<p><tt class="docutils literal"><span class="pre">~/.gitconfig</span></tt>可以用来定义很多个性化的设置，可以直接编辑或者通过<tt class="docutils literal">git config <span class="pre">--global</span></tt>进行设置。类似的，我也把我的配置文件保存在GitHub上（<a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/git">GitHub - calfzhou - dotfiles - git</a>），以便在不同的地方有同样的操作体验。</p>
+<p>顺便提一下，用git管理项目版本的话，推荐使用<a class="reference external" href="https://github.com/nvie/gitflow">git-flow</a>管理分支和版本，通过Homebrew可以直接安装它，同样也会带有TAB自动补全功能。关于这种分支管理的模型，可以阅读<a class="reference external" href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a>。</p>
+<p>如果想在公开的git仓库中保存一些比较隐私的信息，可以利用<a class="reference external" href="https://github.com/shadowhand/git-encrypt">git-encrypt</a>来加密其中的一部分文件。这个也可以直接通过Homebrew安装。大致的介绍在之前的文章<a class="reference external" href="http://www.gocalf.com/blog/git-encrypt.html">用Git和云存储保存隐私信息</a>中略有介绍。</p>
+<p>如果还想用个GUI的Git客户端，我用的是<a class="reference external" href="http://rowanj.github.io/gitx/">GitX-dev</a>，主要用来直观地观察分支的演化情况。</p>
+<div class="figure">
+<img alt="gitx-dev" src="http://www.gocalf.com/blog/images/2014/07/gitx-dev.png"/>
+<p class="caption">GitX-dev界面演示</p>
+</div>
+</div>
+<div class="section" id="svn">
+<h3><a class="toc-backref" href="#id28">SVN</a></h3>
+<p>用了Git，就再也不想用SVN了。不过有时候也难免会需要用，用Homebrew安装个新版本的SVN吧，同样也会有TAB键补全哦。</p>
+</div>
+</div>
+
+            <section>
+    <p id="post-share-links">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%E5%9C%A8%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%89%93%E9%80%A0%E8%88%92%E6%9C%8D%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83&url=http%3A//www.gocalf.com/blog/make-mac-better-for-development.html" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//www.gocalf.com/blog/make-mac-better-for-development.html" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//www.gocalf.com/blog/make-mac-better-for-development.html" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=%E5%9C%A8%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%89%93%E9%80%A0%E8%88%92%E6%9C%8D%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83&amp;body=http%3A//www.gocalf.com/blog/make-mac-better-for-development.html" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://www.gocalf.com/blog/make-mac-better-for-development.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gocalfblog';
+        var disqus_identifier = 'http://www.gocalf.com/blog/make-mac-better-for-development.html';
+    var disqus_url = 'http://www.gocalf.com/blog/make-mac-better-for-development.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://www.gocalf.com/blog/number-to-chinese.html" title="Previous: 将整数数字转换成中文">将整数数字转换成中文</a></li>
+                <li class="next-article"><a href="http://www.gocalf.com/blog/move-wordpress-blog.html" title="Next: 迁移WordPress博客">迁移WordPress博客</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-07-26T11:00:00+08:00">Jul 26, 2014</time>
+
+<h4>Last Updated</h4>
+<time datetime="2014-07-26T11:00:00+08:00">Jul 26, 2014</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.gocalf.com/blog/categories.html#programming-ref">程序开发</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.gocalf.com/blog/tags.html#homebrew-ref">Homebrew
+                    <span>1</span>
+</a></li>
+                <li><a href="http://www.gocalf.com/blog/tags.html#mac-develop-ref">Mac Develop
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="mailto:calf.zhou+blog@gmail.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://weibo.com/calfzhou" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://github.com/calfzhou" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/calfzhou" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/calfzhou" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">GoCalf Blog</span> - 1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'gocalfblog';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

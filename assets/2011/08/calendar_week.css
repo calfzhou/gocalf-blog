@@ -1,0 +1,14 @@
+﻿th{min-width:30px;text-align:center;border:3px solid black;}
+td{width:30px;text-align:center;border:3px double black;}
+td.empty{border:0px;}
+.year2{background-color:#6F6;}
+.year1{background-color:#FF6;}
+.cross{background-color:#CCC;}
+.month{background-color:#6FF;}
+.week{background-color:#66F;}
+.day{background-color:#F6F;}
+td.year2:hover{cursor:pointer;border:3px solid red;}
+td.year1:hover{cursor:pointer;border:3px solid red;}
+td.month:hover{cursor:pointer;border:3px solid red;}
+td.day:hover{cursor:pointer;border:3px solid red;}
+td.actived{background-color:#F99;}

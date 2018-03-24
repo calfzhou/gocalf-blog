@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Calf" />
+        <meta name="copyright" content="Calf" />
+
+        <link rel="author" href=https://plus.google.com/112983042847560253980/posts />
+        <meta name="twitter:creator" content="@calfzhou">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Interview Question, Probability, 算法, 不均匀硬币, 概率, 算法题, 面试题" />
+
+<meta property="og:title" content="利用不均匀硬币产生等概率 "/>
+<meta property="og:url" content="http://www.gocalf.com/blog/unbalanced-coin.html" />
+<meta property="og:description" content="问题描述：有一枚不均匀的硬币，已知抛出此硬币后，正面向上的概率为p（0 &lt; p &lt; 1）。请利用这枚硬币产生出概率相等的两个事件。" />
+<meta property="og:site_name" content="GoCalf Blog" />
+<meta property="og:article:author" content="Calf" />
+<meta property="og:article:published_time" content="2011-10-08T22:49:00+08:00" />
+<meta property="" content="2011-10-09T15:05:00+08:00" />
+<meta name="twitter:title" content="利用不均匀硬币产生等概率 ">
+<meta name="twitter:description" content="问题描述：有一枚不均匀的硬币，已知抛出此硬币后，正面向上的概率为p（0 &lt; p &lt; 1）。请利用这枚硬币产生出概率相等的两个事件。">
+<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/10/unbalanced_coin.png" />
+<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/10/unbalanced_coin.png" >
+
+        <title>利用不均匀硬币产生等概率  · GoCalf Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="http://www.gocalf.com/blog/theme/css/style.min.css?6600dc28">
+        <link rel="shortcut icon" href="http://www.gocalf.com/blog/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
+        <link rel="icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="http://www.gocalf.com/blog/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24210758-2', 'auto');
+    ga('send', 'pageview');
+</script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://www.gocalf.com/blog/"><span class=site-name>GoCalf Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://www.gocalf.com/blog">Home</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/about.html">About</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/categories.html">Categories</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/tags.html">Tags</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://www.gocalf.com/blog/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://www.gocalf.com/blog/unbalanced-coin.html"> 利用不均匀硬币产生等概率  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <p>问题描述：有一枚不均匀的硬币，已知抛出此硬币后，正面向上的概率为p（0
+&lt; p &lt; 1）。请利用这枚硬币产生出概率相等的两个事件。</p>
+<p>这个问题跟之前的<a class="reference external" href="http://www.gocalf.com/blog/build-rand3-from-rand5.html">利用等概率Rand5产生等概率Rand3</a>非常像，但却简单的多。几个月前还为这个事情头疼了一下，现在想来真是不应该。</p>
+<!-- more -->
+<p>某一次抛出硬币，正面向上的概率是p，反面向上的概率是1 -
+p，当p不等于0.5时，这两个事件的概率就不一样了。怎么能凑出等概率呢？还是要利用概率的加法和乘法法则。这里用乘法，也就是连续的独立事件。</p>
+<p>连续抛两次硬币，正反面的出现有四种情况，概率依次为：</p>
+<ol class="arabic simple">
+<li>两次均为正面：p * p</li>
+<li>第一次正面，第二次反面：p * (1 - p)</li>
+<li>第一次反面，第二次正面：(1 - p) * p</li>
+<li>两次均为反面：(1 - p) * (1 - p)</li>
+</ol>
+<p>这不，中间两种情况的概率是完全一样的。于是问题的解法就是连续抛两次硬币，如果两次得到的相同则重新抛两次；否则根据第一次（或第二次）的正面反面情况，就可以得到两个概率相等的事件。</p>
+<p>用Python程序模拟一下这个过程，首先是一个叫做UnbalancedCoin的类，用来模拟这枚不均匀的硬币。Flip方法表示抛一次硬币，返回值True代表正面，False代表反面。根据要求，这个函数返回True和False的概率分别是p和1
+-
+p。函数MakeEqualProb利用参数coin（这枚不均匀硬币）构造出两个事件（依旧用True和False表示），并且这两个事件的概率都是0.5。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">Random</span>
+
+<span class="k">class</span> <span class="nc">UnbalancedCoin</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">rand</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="mf">0.0</span> <span class="o">&lt;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;invalid p&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_p</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="k">if</span> <span class="n">rand</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+      <span class="n">rand</span> <span class="o">=</span> <span class="n">Random</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_rand</span> <span class="o">=</span> <span class="n">rand</span>
+
+  <span class="k">def</span> <span class="nf">Flip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rand</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_p</span>
+
+<span class="k">def</span> <span class="nf">MakeEqualProb</span><span class="p">(</span><span class="n">coin</span><span class="p">):</span>
+  <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">coin</span><span class="o">.</span><span class="n">Flip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">coin</span><span class="o">.</span><span class="n">Flip</span><span class="p">():</span>
+      <span class="k">return</span> <span class="n">a</span>
+</pre></div>
+</td></tr></table><p>对于不同的p值，模拟实验十万次，得到如下的（结果为True的）概率分布，其中蓝线是不均匀硬币抛出后正面向上的概率，红线是构造出来的两个事件之一（第一次正面向上，第二次反面向上）的概率。</p>
+<div id="coin-prob-chart" class="highcharts" style="height: 400px; width: 600px"></div>
+<script type="text/javascript">
+$(function () {
+    $('#coin-prob-chart').highcharts({
+        chart: { type: 'line', backgroundColor: null },
+        colors: ['#3399ff', '#ff3300'],
+        title: { text: null },
+        xAxis: { min: 0, max: 1, tickInterval: 0.1 },
+        yAxis: { min: 0, max: 1, tickInterval: 0.1, title: { text: null } },
+        series: [{
+            name: 'UnbalancedCoin',
+            data: [
+                [0.1, 0.09989], [0.2, 0.20059], [0.3, 0.30313], [0.4, 0.40019], [0.5, 0.50013],
+                [0.6, 0.59973], [0.7, 0.70198], [0.8, 0.80152], [0.9, 0.90012]
+            ]
+        }, {
+            name: 'MakeEqualProb',
+            data: [
+                [0.1, 0.49899], [0.2, 0.49846], [0.3, 0.50038], [0.4, 0.49917], [0.5, 0.50181],
+                [0.6, 0.50022], [0.7, 0.49805], [0.8, 0.49997], [0.9, 0.49956]
+            ]
+        }]
+    });
+});
+</script><p>如果问题改变一下，把“一枚”改成“一种”，那解决办法就更简单有趣了，把两枚同样的不均匀硬币正面相对粘在一起，就可以得到一个均匀的组合币，抛出这枚组合币就可以得到等概率的两个事件。</p>
+
+            <section>
+    <p id="post-share-links">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%E5%88%A9%E7%94%A8%E4%B8%8D%E5%9D%87%E5%8C%80%E7%A1%AC%E5%B8%81%E4%BA%A7%E7%94%9F%E7%AD%89%E6%A6%82%E7%8E%87&url=http%3A//www.gocalf.com/blog/unbalanced-coin.html" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//www.gocalf.com/blog/unbalanced-coin.html" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//www.gocalf.com/blog/unbalanced-coin.html" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=%E5%88%A9%E7%94%A8%E4%B8%8D%E5%9D%87%E5%8C%80%E7%A1%AC%E5%B8%81%E4%BA%A7%E7%94%9F%E7%AD%89%E6%A6%82%E7%8E%87&amp;body=http%3A//www.gocalf.com/blog/unbalanced-coin.html" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://www.gocalf.com/blog/unbalanced-coin.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gocalfblog';
+        var disqus_identifier = 'http://www.gocalf.com/blog/unbalanced-coin.html';
+    var disqus_url = 'http://www.gocalf.com/blog/unbalanced-coin.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+<section>
+    <h2>Related Posts</h2>
+<ul class="related-posts-list">
+<li><a href="http://www.gocalf.com/blog/build-rand3-from-rand5.html" title="利用等概率Rand5产生等概率Rand3">利用等概率Rand5产生等概率Rand3</a></li>
+<li><a href="http://www.gocalf.com/blog/random-selection.html" title="单次遍历，等概率随机选取问题">单次遍历，等概率随机选取问题</a></li>
+<li><a href="http://www.gocalf.com/blog/weighted-random-selection.html" title="单次遍历，带权随机选取问题（一）">单次遍历，带权随机选取问题（一）</a></li>
+<li><a href="http://www.gocalf.com/blog/weighted-random-selection-2.html" title="单次遍历，带权随机选取问题（二）">单次遍历，带权随机选取问题（二）</a></li>
+<li><a href="http://www.gocalf.com/blog/the-probability-of-two-boys.html" title="条件概率：两个都是男孩的概率">条件概率：两个都是男孩的概率</a></li>
+</ul>
+<hr />
+</section>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://www.gocalf.com/blog/bbs-top-10.html" title="Previous: 水木社区、小百合、饮水思源、日月光华十大博客">水木社区、小百合、饮水思源、日月光华十大博客</a></li>
+                <li class="next-article"><a href="http://www.gocalf.com/blog/zelda-tp-ch2.html" title="Next: 黎明公主攻略：第二章 死亡山颠的咆哮">黎明公主攻略：第二章 死亡山颠的咆哮</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-10-08T22:49:00+08:00">Oct 8, 2011</time>
+
+<h4>Last Updated</h4>
+<time datetime="2011-10-09T15:05:00+08:00">Oct 9, 2011</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.gocalf.com/blog/categories.html#algorithm-ref">算法</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.gocalf.com/blog/tags.html#interview-question-ref">Interview Question
+                    <span>18</span>
+</a></li>
+                <li><a href="http://www.gocalf.com/blog/tags.html#probability-ref">Probability
+                    <span>7</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="mailto:calf.zhou+blog@gmail.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://weibo.com/calfzhou" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://github.com/calfzhou" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/calfzhou" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/calfzhou" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">GoCalf Blog</span> - 1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'gocalfblog';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>

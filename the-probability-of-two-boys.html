@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Calf" />
+        <meta name="copyright" content="Calf" />
+
+        <link rel="author" href=https://plus.google.com/112983042847560253980/posts />
+        <meta name="twitter:creator" content="@calfzhou">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Interview Question, Probability, 数学, 条件概率, 概率题, 贝叶斯公式, 面试题" />
+
+<meta property="og:title" content="条件概率：两个都是男孩的概率 "/>
+<meta property="og:url" content="http://www.gocalf.com/blog/the-probability-of-two-boys.html" />
+<meta property="og:description" content="这个问题其实不难，只是很多时候，尤其在没有任何提示的时候，容易想错。条件概率的题目一定要看清楚条件信息。问题描述：老王有两个孩子，已知至少有一个孩子是在星期二出生的男孩。问：两个孩子都是男孩的概率是多大？【假设生男生女的概率相等】" />
+<meta property="og:site_name" content="GoCalf Blog" />
+<meta property="og:article:author" content="Calf" />
+<meta property="og:article:published_time" content="2011-12-30T21:07:00+08:00" />
+<meta property="" content="2013-10-14T11:19:00+08:00" />
+<meta name="twitter:title" content="条件概率：两个都是男孩的概率 ">
+<meta name="twitter:description" content="这个问题其实不难，只是很多时候，尤其在没有任何提示的时候，容易想错。条件概率的题目一定要看清楚条件信息。问题描述：老王有两个孩子，已知至少有一个孩子是在星期二出生的男孩。问：两个孩子都是男孩的概率是多大？【假设生男生女的概率相等】">
+<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/12/two_babies.png" />
+<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/12/two_babies.png" >
+
+        <title>条件概率：两个都是男孩的概率  · GoCalf Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="http://www.gocalf.com/blog/theme/css/style.min.css?6600dc28">
+        <link rel="shortcut icon" href="http://www.gocalf.com/blog/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
+        <link rel="icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="http://www.gocalf.com/blog/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-24210758-2', 'auto');
+    ga('send', 'pageview');
+</script>
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://www.gocalf.com/blog/"><span class=site-name>GoCalf Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://www.gocalf.com/blog">Home</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/about.html">About</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/categories.html">Categories</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/tags.html">Tags</a></li>
+                            <li ><a href="http://www.gocalf.com/blog/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://www.gocalf.com/blog/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://www.gocalf.com/blog/the-probability-of-two-boys.html"> 条件概率：两个都是男孩的概率  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc" id="">
+
+<ul class="simple">
+<li><a class="reference internal" href="#id3" id="id6">思维缜密的项目经理的解题思路</a></li>
+<li><a class="reference internal" href="#id4" id="id7">博学多才的数据挖掘专家的解题思路</a></li>
+<li><a class="reference internal" href="#id5" id="id8">苦逼的无证程序员的解题方法</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+            
+<p>这个问题其实不难，只是很多时候，尤其在没有任何提示的时候，容易想错。条件概率的题目一定要看清楚条件信息。</p>
+<p>问题描述：老王有两个孩子，已知至少有一个孩子是在星期二出生的男孩。问：两个孩子都是男孩的概率是多大？【假设生男生女的概率相等】</p>
+<!-- more -->
+<p>刚看到题目的时候，我也愣了一下：一个孩子星期二出生，对于另一个孩子是不是男孩有什么影响吗？</p>
+<p>先说一下，这道题的答案是 <strong>13 /
+27</strong>，如果你算出来的不是这个数，那建议你继续往下看看。</p>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id6">思维缜密的项目经理的解题思路</a></h2>
+<p>项目经理小李，虽然数学功底不深，编程技术不精，但有个很大的好处是处事不惊，有条不紊。看到题目之后，略加思索，就用最简单的办法弄懂了这个问题，并求出了结果。</p>
+<p>首先看如果只知道老王有两个孩子，其他信息都不知道的情况下，两个孩子都是男孩的概率显然是1/4。</p>
+<p>再来看看没有“星期二”这个条件的情况，题目变成：老王有两个孩子，已知至少有一个孩子是男孩，问两个孩子都是男孩的概率是多大？那结果显然是1/3。因为在“至少有一个男孩”这样的条件下，只有三种可能：兄妹俩、姐弟俩、兄弟俩。这三种情况是等概率的，而只有一种情况是两个男孩，因此是1/3。</p>
+<p>最后再把星期二也考虑进来。还是在上面的基础上扩展，先按照两个孩子的四种可能的性别组合进行划分，然后在每种组合里看看满足有至少一个周二男孩的情况数目：</p>
+<ul class="simple">
+<li>姐妹俩：不用看了，不满足至少有一个周二男孩的条件。</li>
+<li>兄妹俩：那哥哥一定是周二出生的了，妹妹出生的星期数有7种可能。</li>
+<li>姐弟俩：弟弟一定是周二出生，姐姐出生的星期数有7种可能。</li>
+<li>兄弟俩：兄弟二人出生的星期数总共有7 * 7 = 49种可能，但其中有6 * 6 =
+36种都不满足至少有一个人是周二出生的条件，因此实际上有49 - 36 =
+13种可能。</li>
+</ul>
+<p>因此，满足条件的情况（这里的情况是指综合考虑孩子的性别和出生星期数）总数为7
++ 7 + 13 =
+27。而其中有13中可能对应于两个孩子都是男孩。因此题目所求概率是<strong>13 /
+27</strong>。</p>
+<p>没错，13 /
+27就是这道题的答案，出现这样的数字是因为已知条件所提供的信息使得样本空间发生了变化（变小了一点儿）。这就是条件概率带来的影响。</p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id7">博学多才的数据挖掘专家的解题思路</a></h2>
+<p>小陈是一个有丰富的数据挖掘和机器学习经验的专家，在听到这个题目的时候，想都没想，干脆地说：“这题简单，用贝叶斯公式就能搞定”。</p>
+<p>根据题目，可以认定两个事件，事件A是：至少有一个周二出生的男孩；事件B是：两个孩子都是男孩。题目要求的是P(B|A)即在事件A发生的条件下，事件B发生的概率。根据贝叶斯公式，容易知道：</p>
+<div class="math">
+\begin{equation*}
+P(B|A)=\frac{P(AB)}{P(A)}=\frac{P(A|B)P(B)}{P(A)}
+\end{equation*}
+</div>
+<p>依次算出等号右边的各个概率值：</p>
+<ul class="simple">
+<li>在已知两个孩子都是男孩的条件下，至少有一个是周二出生的男孩：<span class="math">\(P(A|B)=1-{(\frac{6}{7})}^2=\frac{13}{49}\)</span></li>
+<li>两个孩子都是男孩：<span class="math">\(P(B)=\frac{1}{4}\)</span></li>
+<li>至少有一个孩子是周二出生的男孩：<span class="math">\(P(A)=1-{(\frac{1}{2}\times\frac{6}{7}+\frac{1}{2})}^2=\frac{27}{196}\)</span></li>
+</ul>
+<p>因此可以求出：<span class="math">\(P(B|A)=\frac{P(A|B)P(B)}{P(A)}=\frac{13}{49}\times\frac{1}{4}\div\frac{27}{196}=\frac{13}{27}\)</span></p>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id8">苦逼的无证程序员的解题方法</a></h2>
+<p>无证程序员小周看到题目后，二话不说，写了一小段程序（Python）来计算概率的近似值：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">Random</span>
+
+<span class="k">def</span> <span class="nf">IsTwoBoys</span><span class="p">(</span><span class="n">rand</span><span class="p">):</span>
+  <span class="n">genders</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'M'</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">)</span>
+  <span class="n">weekdays</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+  <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">children</span> <span class="o">=</span> <span class="p">[(</span><span class="n">rand</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">genders</span><span class="p">),</span> <span class="n">rand</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">weekdays</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'M'</span> <span class="ow">and</span> <span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span>
+        <span class="p">(</span><span class="n">children</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'M'</span> <span class="ow">and</span> <span class="n">children</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)):</span>
+      <span class="k">return</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">children</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'M'</span> <span class="k">else</span> <span class="bp">False</span>
+
+<span class="n">cnt</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="n">twoboys</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">rand</span> <span class="o">=</span> <span class="n">Random</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">cnt</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">IsTwoBoys</span><span class="p">(</span><span class="n">rand</span><span class="p">):</span>
+    <span class="n">twoboys</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span> <span class="s1">'p(twoboys) ='</span><span class="p">,</span> <span class="n">twoboys</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">,</span> <span class="n">cnt</span><span class="p">,</span> <span class="s1">'='</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">twoboys</span><span class="p">)</span> <span class="o">/</span> <span class="n">cnt</span>
+</pre></div>
+</td></tr></table><p>运行结果，题目所求概率值近似为：0.48213，与13 / 27 = 0.(481)非常接近。</p>
+</div>
+
+            <section>
+    <p id="post-share-links">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87%EF%BC%9A%E4%B8%A4%E4%B8%AA%E9%83%BD%E6%98%AF%E7%94%B7%E5%AD%A9%E7%9A%84%E6%A6%82%E7%8E%87&url=http%3A//www.gocalf.com/blog/the-probability-of-two-boys.html" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//www.gocalf.com/blog/the-probability-of-two-boys.html" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//www.gocalf.com/blog/the-probability-of-two-boys.html" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87%EF%BC%9A%E4%B8%A4%E4%B8%AA%E9%83%BD%E6%98%AF%E7%94%B7%E5%AD%A9%E7%9A%84%E6%A6%82%E7%8E%87&amp;body=http%3A//www.gocalf.com/blog/the-probability-of-two-boys.html" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://www.gocalf.com/blog/the-probability-of-two-boys.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gocalfblog';
+        var disqus_identifier = 'http://www.gocalf.com/blog/the-probability-of-two-boys.html';
+    var disqus_url = 'http://www.gocalf.com/blog/the-probability-of-two-boys.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+<section>
+    <h2>Related Posts</h2>
+<ul class="related-posts-list">
+<li><a href="http://www.gocalf.com/blog/build-rand3-from-rand5.html" title="利用等概率Rand5产生等概率Rand3">利用等概率Rand5产生等概率Rand3</a></li>
+<li><a href="http://www.gocalf.com/blog/random-selection.html" title="单次遍历，等概率随机选取问题">单次遍历，等概率随机选取问题</a></li>
+<li><a href="http://www.gocalf.com/blog/weighted-random-selection.html" title="单次遍历，带权随机选取问题（一）">单次遍历，带权随机选取问题（一）</a></li>
+<li><a href="http://www.gocalf.com/blog/weighted-random-selection-2.html" title="单次遍历，带权随机选取问题（二）">单次遍历，带权随机选取问题（二）</a></li>
+<li><a href="http://www.gocalf.com/blog/unbalanced-coin.html" title="利用不均匀硬币产生等概率">利用不均匀硬币产生等概率</a></li>
+</ul>
+<hr />
+</section>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://www.gocalf.com/blog/zelda-tp-ch9.html" title="Previous: 黎明公主攻略：第九章 斩破黑暗的利刃">黎明公主攻略：第九章 斩破黑暗的利刃</a></li>
+                <li class="next-article"><a href="http://www.gocalf.com/blog/zelda-tp-epilogue.html" title="Next: 黎明公主攻略：终章 世界秩序的平衡">黎明公主攻略：终章 世界秩序的平衡</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2011-12-30T21:07:00+08:00">Dec 30, 2011</time>
+
+<h4>Last Updated</h4>
+<time datetime="2013-10-14T11:19:00+08:00">Oct 14, 2013</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="http://www.gocalf.com/blog/categories.html#math-ref">数学</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://www.gocalf.com/blog/tags.html#interview-question-ref">Interview Question
+                    <span>18</span>
+</a></li>
+                <li><a href="http://www.gocalf.com/blog/tags.html#probability-ref">Probability
+                    <span>7</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="mailto:calf.zhou+blog@gmail.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://weibo.com/calfzhou" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://github.com/calfzhou" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/calfzhou" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="https://twitter.com/calfzhou" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">GoCalf Blog</span> - 1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'gocalfblog';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type= "text/javascript">
+    MathJax.Hub.Config({
+        config: ["MMLorHTML.js"],
+        jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+        TeX: {
+            extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
+            equationNumbers: { autoNumber: "AMS" }
+        },
+        extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+        tex2jax: { 
+            //inlineMath: [ [\'$\',\'$\'] ],
+            //displayMath: [ [\'$$\',\'$$\'] ],
+            inlineMath: [ ["\\(", "\\)"] ],
+            displayMath: [ ],
+            processClass: "math",
+            processEscapes: true
+        },
+        "HTML-CSS": {
+            styles: { ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+        }
+       });
+</script>    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
