@@ -7,7 +7,7 @@ Dell E6400升级到MacOS 10.6.8
 :tags: Hackintosh
 :keywords: BootThink, Dell E6400,  MacOS, PC, PC机装Mac, 雪豹, 黑苹果
 :slug: dell-e6400-mac-10-6-8
-:lang: zh
+:lang: zh_cn
 :featured_image: http://www.gocalf.com/blog/images/2011/08/mac_10.6.8.png
 :summary: 半年前安装黑苹果的经历，装的是10.6.3。最近由于有些软件需要较高版本的系统，不得不对系统进行升级，升级到雪豹的最后一个版本10.6.8。升级后自然又遇到了一堆问题并逐一解决。解决得算是基本完美了，只差我那全球无解的Intel WiFi Link 5300 AGN无线网卡和不能休眠的问题。
 

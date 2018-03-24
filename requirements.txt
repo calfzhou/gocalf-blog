@@ -1,8 +1,8 @@
-# For tipuesearch and extract_toc plugin.
+pelican==3.7.1
+
+# For plugins extract_toc, share_post, and tipue_search.
 beautifulsoup4
 
-# For assets plugin.
+# For plugin assets.
 webassets
 cssmin
-
-#-r pelican/dev_requirements.txt

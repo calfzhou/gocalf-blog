@@ -1,4 +1,4 @@
-Hello world!
+你好，世界！
 ############
 :date: 2011-01-07 09:11
 :modified: 2011-08-03 19:52
@@ -6,13 +6,12 @@ Hello world!
 :category: 建站
 :tags: WordPress
 :slug: hello-world
-:lang: en
+:lang: zh_cn
 :featured_image: http://www.gocalf.com/blog/images/2011/01/wordpress_logo.png
-:summary: Welcome to WordPress.
+:summary: 欢迎使用WordPress。
 
-Welcome to WordPress.
+欢迎使用WordPress。
 
 .. more
 
-This is your first post. Edit or delete it, then
-start blogging!
+这是系统自动生成的演示文章。编辑或者删除它，然后开始您的博客！

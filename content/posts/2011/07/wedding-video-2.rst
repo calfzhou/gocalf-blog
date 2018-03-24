@@ -7,9 +7,9 @@
 :tags: My Wedding
 :keywords: 婚礼, 录像
 :slug: wedding-video-2
-:lang: zh
+:lang: zh_cn
 :status: draft
-:parts: my-wedding
+:series: my-wedding
 :featured_image: http://www.gocalf.com/blog/images/2011/07/wedding-icon.jpg
 :summary: 婚礼的录像有一个多小时，忒长鸟~~，在此，仅截取开头四分钟的小片头展示一下吧，每个环节都有一滴滴。hoho~~
 

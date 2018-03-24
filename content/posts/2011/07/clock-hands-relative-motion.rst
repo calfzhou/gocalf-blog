@@ -7,7 +7,7 @@
 :tags: Puzzle, Interview Question
 :keywords: Clock Hand, Math Puzzle, Relative Motion, 智力题
 :slug: clock-hands-relative-motion
-:lang: zh
+:lang: zh_cn
 :featured_image: http://www.gocalf.com/blog/images/2011/07/clock_icon.png
 :summary: 某人6点多从家出发，出门时时针和分针是110度角，7点前回到家，时针和分针还是110度角。问这人出门多久？本文以这个简单的问题入手，介绍了利用相对运动解决时针、分针相关问题的方法。
 

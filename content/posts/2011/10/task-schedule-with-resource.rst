@@ -7,7 +7,7 @@
 :tags: Interview Question, Task Schedule, Greedy Algorithm
 :keywords: Google面试, 任务, 算法题, 调度, 资源, 面试题
 :slug: task-schedule-with-resource
-:lang: zh
+:lang: zh_cn
 :featured_image: http://www.gocalf.com/blog/images/2011/10/task_with_resource.png
 :summary: 问题描述：有n个任务，第i个任务运行时需要使用R[i]的资源，运行完毕后需要占用O[i]的资源（O[i] <= R[i]），假设现在我们总共有s的资源，要求设计一个调度算法，能保证所有任务能顺利执行；如果无法执行完，需要说明理由。
 

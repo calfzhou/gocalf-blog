@@ -7,8 +7,8 @@
 :tags: Twilight Princess
 :keywords: Game, Wii, 任天堂, 塞尔达传说, 游戏攻略, 黄昏公主, 黎明公主
 :slug: zelda-tp-characters
-:lang: zh
-:parts: twilight-princess
+:lang: zh_cn
+:series: twilight-princess
 :featured_image: http://www.gocalf.com/blog/images/2011/08/zelda_tp_link_logo.jpg
 :summary: 今天来介绍一下《塞尔达传说：黎明公主》中的几位角色，有好的也有敌人。
 

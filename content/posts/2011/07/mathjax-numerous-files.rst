@@ -7,7 +7,7 @@
 :tags: MathJax
 :keywords: LaTeX, Web Font, Hosting
 :slug: mathjax-numerous-files
-:lang: zh
+:lang: zh_cn
 :featured_image: http://www.gocalf.com/blog/images/2011/07/mathjax.png
 :summary: MathJax在安装目录下有三万多个文件，百分之九十九以上都是由图片字体`mathjax/fonts/HTML-CSS/TeX/png`贡献的，这些图片是为不支持的Web Font的浏览器准备的。如果太多的文件影响到服务器空间，可以按照本文的方法删掉以节省空间，减少文件总数。
 

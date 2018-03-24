@@ -7,7 +7,7 @@
 :tags: WordPress, Blog
 :keywords: Hosting, WordPress, MySql, Blog, Backup
 :slug: move-wordpress-blog
-:lang: zh
+:lang: zh_cn
 :summary: 记录一下前些日子迁移一个WordPress博客的过程。
 
 之前一直害怕折腾WordPress搭出来的博客，主要是对PHP和MySql都不太熟悉，对相关的备份啊、迁移啊也不太熟悉。前段时间，不得不对一个WordPress博客做了迁移，从一台服务器挪到了另外一台上，还挺顺利的，记录一下。

@@ -7,7 +7,7 @@
 :tags: Probability, Interview Question
 :keywords: Algorithm, 极限, 概率, 等概率, 随机数, 面试题, Rand3, Rand5
 :slug: build-rand3-from-rand5
-:lang: zh
+:lang: zh_cn
 :featured_image: http://www.gocalf.com/blog/images/2011/08/dice_5.png
 :summary: 问题描述：现在有一个叫做Rand5的函数，可以生成等概率的[0, 5)范围内的随机整数，要求利用此函数写一个Rand3函数（除此之外，不能再使用任何能产生随机数的函数或数据源），生成等概率的[0, 3)范围内的随机整数。
 :depends: mathjax

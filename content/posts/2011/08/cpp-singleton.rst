@@ -7,7 +7,7 @@
 :tags: Interview Question, C++, Design Pattern
 :keywords: Singleton, 单例, 模板类, 继承, 设计模式, 面试题
 :slug: cpp-singleton
-:lang: zh
+:lang: zh_cn
 :featured_image: http://www.gocalf.com/blog/images/2011/08/singleton_class.png
 :summary: 单例模式是设计模式中的一种，它用来保证系统中最多只能存在一个它的实例，其做法是由类自身来创建和持有它的对象实例，把对实例的创建权和管理权都控制在自己手中，以便控制实例数目。本文介绍可以继承的单例类。
 

@@ -39,8 +39,6 @@ PYGMENTS_RST_OPTIONS = {'linenos': 'none'}
 # Enable future dates, then content with dates in the future will NOT get a default status of draft.
 WITH_FUTURE_DATES = True
 
-AUTORELOAD_IGNORE_CACHE = True
-
 # URL settings #
 
 ARTICLE_URL = '{slug}.html'
@@ -131,7 +129,7 @@ TAG_CLOUD_MAX_ITEMS = 32
 
 # Translations #
 
-DEFAULT_LANG = 'zh'
+DEFAULT_LANG = 'zh_cn'
 TRANSLATION_FEED_ATOM = None
 TRANSLATION_FEED_RSS = None
 
@@ -180,13 +178,13 @@ GOOGLE_PLUS_PROFILE_URL = 'https://plus.google.com/112983042847560253980/posts'
 
 DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives', 'search', '404')
 
-PLUGINS = ['tipue_search', 'sitemap', 'extract_toc', 'neighbors', 'related_posts', 'multi_part', 'share_post']
+PLUGINS = ['tipue_search', 'sitemap', 'extract_toc', 'neighbors', 'related_posts', 'series', 'share_post']
 
 SITEMAP = {
     'format': 'xml',
 }
 
-MD_EXTENSIONS = ['codehilite(css_class=highlight)', 'extra', 'headerid', 'toc', 'fenced_code', 'footnotes']
+# MD_EXTENSIONS = ['codehilite(css_class=highlight)', 'extra', 'headerid', 'toc', 'fenced_code', 'footnotes']
 PYGMENTS_RST_OPTIONS = {'linenos': 'table'}
 
 CATEGORY_URL = 'categories.html#{slug}-ref'

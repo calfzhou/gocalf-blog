@@ -7,7 +7,7 @@
 :tags: Static Blog, Pelican
 :keywords: WordPress, 静态博客, Octopress, Markdown, reStructuredText, Pelican Theme, Elegant
 :slug: wordpress-to-pelican
-:lang: zh
+:lang: zh_cn
 :featured_image: http://www.gocalf.com/blog/images/2013/11/wordpress_to_pelican.png
 :summary: 经过一段时间的整理，现在正式把GoCalf博客从WordPress迁移到Pelican了。
 

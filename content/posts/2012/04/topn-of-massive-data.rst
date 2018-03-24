@@ -7,7 +7,7 @@
 :tags: Interview Question, Selection Algorithm
 :keywords: 哈希排序, 堆排序, 快速选择, 海量数据, 选择算法, 面试题
 :slug: topn-of-massive-data
-:lang: zh
+:lang: zh_cn
 :featured_image: http://www.gocalf.com/blog/images/2012/04/topn-selection.png
 :summary: 问题描述：现在有非常大量的一堆对象，比如有几十亿甚至上百亿个。对象本身是什么可以忽略，每个对象都有唯一标识符和一个正整数属性值，属性值范围有限（不大于一亿）。在单核机器上，内存和磁盘空间充足，用什么方法可以最快地输出属性值最小的若干（如一万）个对象，要求输出结果按照属性值排序。
 

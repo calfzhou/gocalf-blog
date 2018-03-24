@@ -1,6 +1,6 @@
 PY=python
 PELICAN=pelican
-PELICANOPTS=
+PELICANOPTS=--ignore-cache
 
 BASEDIR=$(CURDIR)
 PELICAN=python $(BASEDIR)/local-pelican.py

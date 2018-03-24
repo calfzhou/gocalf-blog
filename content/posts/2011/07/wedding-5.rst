@@ -7,9 +7,9 @@
 :tags: My Wedding
 :keywords: 婚礼, 照片
 :slug: wedding-5
-:lang: zh
+:lang: zh_cn
 :status: draft
-:parts: my-wedding
+:series: my-wedding
 :featured_image: http://www.gocalf.com/blog/images/2011/07/wedding-icon.jpg
 :summary: 婚礼照片第五部分。
 

@@ -7,7 +7,7 @@
 :tags: Interview Question
 :keywords: Google面试题, 数组内积, 算法题, 面试题
 :slug: max-inner-product
-:lang: zh
+:lang: zh_cn
 :featured_image: http://www.gocalf.com/blog/images/2011/10/max_inner_prod.png
 :summary: 问题描述：有两个长度均为n的整数数组A和B，现在要从这两个数组中各抽出s个数字，分别构成两个新的数组C和D，要求数组C和D的内积最大。
 :depends: mathjax

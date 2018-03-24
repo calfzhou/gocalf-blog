@@ -7,8 +7,8 @@
 :tags: Twilight Princess
 :keywords: Wii, 塞尔达传说, 游戏攻略, 黎明公主
 :slug: zelda-tp-ch5
-:lang: zh
-:parts: twilight-princess
+:lang: zh_cn
+:series: twilight-princess
 :featured_image: http://www.gocalf.com/blog/images/2011/11/tp_ch05_logo.jpg
 :summary: 来到镜之古墓，在接近中间的高台时，暗影怪物再次出现，消灭他们后用陀螺仪到达顶部转动机关使其降下，之后一群镜子看守者会出现，并讲述这里以前曾发生的故事。
 

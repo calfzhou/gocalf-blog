@@ -7,7 +7,7 @@
 :tags: Puzzle, Natural Language
 :keywords: Self Descriptive Sentence, Autogram, Self Counting, Chinese Sentence
 :slug: self-descriptive-sentence
-:lang: zh
+:lang: zh_cn
 :summary: 自描述语句（Self-Descriptive Sentence），也叫做autogram，是一种自己描述自己的语句，今天就介绍一种简单的生成这种句子的方法。
 
 .. contents::

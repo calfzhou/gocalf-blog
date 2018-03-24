@@ -7,9 +7,9 @@
 :tags: My Wedding
 :keywords: 婚礼, 照片
 :slug: wedding-1
-:lang: zh
+:lang: zh_cn
 :status: draft
-:parts: my-wedding
+:series: my-wedding
 :featured_image: http://www.gocalf.com/blog/images/2011/07/wedding-icon.jpg
 :summary: 婚礼已经过去一个半月了，照片和录像昨天才拿到手。翻看完了，又重新感动了一遍，这些仿佛就是昨天刚过的事情。半年多的精心准备，只为那一天的来临。不禁感慨，再美好的瞬间，再翘首期盼的时刻，也会终将过去成为回忆，做梦一般。
 

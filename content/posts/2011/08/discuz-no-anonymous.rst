@@ -7,7 +7,7 @@
 :tags: Discuz!
 :keywords: Anonymous, PHP, 匿名访问, 权限控制, 游客, 论坛
 :slug: discuz-no-anonymous
-:lang: zh
+:lang: zh_cn
 :featured_image: http://www.gocalf.com/blog/images/2011/08/no_anonymous.png
 :summary: 以前搭建了一个供内部交流用的Discuz!论坛，不希望没有账号的人（包括搜索引擎）看到论坛内的任何信息（包括首页等等）。在管理员设置里找了半天，发现可以“禁止IP”、“禁止用户访问”，甚至可以让“版主”、“超级版主”等用户组访问无法访问任何页面，却偏偏没有对游客的限制。对于大多数开放的论坛并无所谓，但对于我们这种特殊的论坛，就只好自己修改代码了。来看看是如何修改的。
 

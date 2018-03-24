@@ -7,7 +7,7 @@
 :tags: Mac Develop, Homebrew
 :keywords: Mac OS X, iTerm, Solarized Color, Homebrew, goagent, python, virtualenv, GNU, coreutils, bash prompt, dircolors, vim, Sublime Text, git, git flow, svn, hostname, maven, develop environment
 :slug: make-mac-better-for-development
-:lang: zh
+:lang: zh_cn
 :summary: 对Mac OS X做一番处理，使之更加适合程序开发。
 
 .. contents::
