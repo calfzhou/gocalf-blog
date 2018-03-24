@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://www.gocalf.com/blog/</loc>
-<lastmod>2018-03-24T14:20:59-00:00</lastmod>
+<lastmod>2018-03-24T14:25:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.gocalf.com/blog/archives.html</loc>
-<lastmod>2018-03-24T14:20:59-00:00</lastmod>
+<lastmod>2018-03-24T14:25:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.gocalf.com/blog/tags.html</loc>
-<lastmod>2018-03-24T14:20:59-00:00</lastmod>
+<lastmod>2018-03-24T14:25:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.gocalf.com/blog/categories.html</loc>
-<lastmod>2018-03-24T14:20:59-00:00</lastmod>
+<lastmod>2018-03-24T14:25:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
