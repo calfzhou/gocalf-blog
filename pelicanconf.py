@@ -77,7 +77,7 @@ YEAR_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/index.html'
 MONTH_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/{date:%m}/index.html'
 DAY_ARCHIVE_SAVE_AS = False
 
-SLUG_SUBSTITUTIONS = (
+SLUG_REGEX_SUBSTITUTIONS = (
     # Categories
     ('hu lian wang', 'web'),
     ('jian zhan', 'site'),
