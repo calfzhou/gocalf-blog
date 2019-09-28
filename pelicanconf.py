@@ -11,6 +11,8 @@ RELATIVE_URLS = True
 
 TIMEZONE = 'Asia/Shanghai'
 
+PATH = 'content'
+
 PAGE_PATHS = ['pages']
 PAGE_EXCLUDES = []
 ARTICLE_PATHS = ['posts']
@@ -29,10 +31,9 @@ SLUGIFY_SOURCE = 'basename'
 DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
 
-#DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives')  # No authors
+# DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives')  # No authors
 
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['neighbors']
 
 PYGMENTS_RST_OPTIONS = {'linenos': 'none'}
 
@@ -104,14 +105,11 @@ DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 # Feed settings #
 
 # Feed generation is usually not desired when developing
-FEED_ATOM = None
-FEED_RSS = None
 FEED_ALL_ATOM = None
-FEED_ALL_RSS = None
 CATEGORY_FEED_ATOM = None
-CATEGORY_FEED_RSS = None
-TAG_FEED_ATOM = None
-TAG_FEED_RSS = None
+TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
 
 # Pagination #
 
@@ -130,33 +128,28 @@ TAG_CLOUD_MAX_ITEMS = 32
 # Translations #
 
 DEFAULT_LANG = 'zh_cn'
-TRANSLATION_FEED_ATOM = None
-TRANSLATION_FEED_RSS = None
 
 # Ordering content #
+
 NEWEST_FIRST_ARCHIVES = True
 
-# Themes #
-
-THEME = 'octopress-theme'
-#THEME = 'notmyidea'
-
-SITESUBTITLE = '1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.'
-#DISQUS_SITENAME = 'gocalfblog'
-#GOOGLE_ANALYTICS = 'UA-XXXXXXXX-X'
-MENUITEMS = [
-    ('Home', 'http://www.gocalf.com/blog'),
-]
+# Blogroll #
 
 LINKS = (
-    ('Bebluesky', 'http://www.bebluesky.com/'),  # 快乐生活，幽它一默
-    ('Python俱乐部', 'http://www.pythonclub.org/'),  # 以提供Python知识为目标，原创并收集Python编程相关的知识
-    ('东华博客', 'http://www.truevue.org/'),  # 关注生活，关注科技，关注互联网，了解互联网，了解科技，了解生活！
-    ('阅微堂', 'http://zhiqiang.org/blog/'), # 数学、金融、计算机
+    # 快乐生活，幽它一默
+    ('Bebluesky', 'http://www.bebluesky.com/'),
+    # 以提供Python知识为目标，原创并收集Python编程相关的知识
+    ('Python俱乐部', 'http://www.pythonclub.org/'),
+    # 关注生活，关注科技，关注互联网，了解互联网，了解科技，了解生活！
+    ('东华博客', 'http://www.truevue.org/'),
+    # 数学、金融、计算机
+    ('阅微堂', 'http://zhiqiang.org/blog/'),
     ('Pelican', 'http://getpelican.com/'),
     ('Python.org', 'http://python.org/'),
     ('Jinja2', 'http://jinja.pocoo.org/'),
 )
+
+# Social widget #
 
 SOCIAL = (
     ('Email', 'mailto:calf.zhou+blog@gmail.com'),
@@ -170,15 +163,20 @@ SOCIAL = (
 
 THEME = 'elegant-theme'
 
+SITESUBTITLE = '1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.'
+MENUITEMS = [
+    ('Home', 'http://www.gocalf.com/blog'),
+]
+
 STATIC_PATHS.append('theme/images')
 USE_SHORTCUT_ICONS = True
 
 TWITTER_USERNAME = 'calfzhou'
-GOOGLE_PLUS_PROFILE_URL = 'https://plus.google.com/112983042847560253980/posts'
 
 DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives', 'search', '404')
 
-PLUGINS = ['tipue_search', 'sitemap', 'extract_toc', 'neighbors', 'related_posts', 'series', 'share_post']
+PLUGINS = ['tipue_search', 'sitemap', 'extract_toc',
+           'neighbors', 'related_posts', 'series', 'share_post']
 
 SITEMAP = {
     'format': 'xml',
