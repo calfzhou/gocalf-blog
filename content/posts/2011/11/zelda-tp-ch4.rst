@@ -22,9 +22,9 @@
 
 .. more
 
-.. figure:: {filename}/images/2011/11/tp_ch04_01.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_01.jpg
     :alt: tp_ch04_01
-    :target: {filename}/images/2011/11/tp_ch04_01.jpg
+    :target: {static}/images/2011/11/tp_ch04_01.jpg
     :width: 500
 
     米德娜被魔法师赞特打伤
@@ -34,27 +34,27 @@
 
 时间越来越少了，看着米德娜的身体慢慢的由黑色变成了灰色。林克不顾一切的冲入了王城城下町中，在人们惊恐的目光中，主角心中只有一个信念就是要找到塞尔达公主。因为王城守卫森严，林克完全无法进入王城，和动物说话后，得知特尔玛的酒馆有一只知道办法的猫。为了救米德娜，林克将她带到特尔玛的酒馆寻求帮助，却被酒保赶了出来。无助的林克准备带着受伤的米德娜离开时，特尔玛的猫出现并决定帮忙，它告诉林克，酒馆后面有条密道可以通向海拉尔城堡，并把窗户打开让林克从上面过去。进到酒馆后，可以利用阁楼之间连接的绳子移动，一直走到最里面的洞钻进去，来到了一间密室。林克通过开感知战胜房间角落的灵魂妖怪并取得它身上的魂魄，再去和房间北面的乔瓦尼说话，他会为林克打开通往城堡下水道的洞（当身上的鬼魂数到达一定数字的时候可以来这里换取东西，以后回来可以从城下町的东南的门外很多猫的地方变狼挖进来）。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_02.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_02.jpg
     :alt: tp_ch04_02
-    :target: {filename}/images/2011/11/tp_ch04_02.jpg
+    :target: {static}/images/2011/11/tp_ch04_02.jpg
     :width: 500
 
     林克通过开感知发现房间角落的灵魂妖怪
 
 林克来到下水道，捡起地上的木棍并在旁边的灯上引燃火可以烧掉挡路的蜘蛛网，随后进入之前被关押的监狱，林克跳入水中向左边游，向后来到螺旋楼梯处，虽然没有米德娜的帮助，林克还是可以利用楼梯间的绳索上到顶部。在顶部，没有了米德娜，林克只好借助风的力量才能通过一些地方，还记得第一次见到塞尔达公主的地方吗，赶紧到那里请求公主的帮助吧。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_03.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_03.jpg
     :alt: tp_ch04_03
-    :target: {filename}/images/2011/11/tp_ch04_03.jpg
+    :target: {static}/images/2011/11/tp_ch04_03.jpg
     :width: 500
 
     没有米德娜的帮助，林克需要利用楼梯间的绳索上到顶部
 
 公主看出林克被恶魔力量封印而不能变回人型，她告诉林克要解除封印，必须得去法隆森林找到圣剑才可以，不过那里的具体情况公主也不清楚，为了拯救米德娜，公主将自己的力量传给米德娜，难过的林克也无能为力，只有消灭黑暗源头才能拯救世界。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_04.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_04.jpg
     :alt: tp_ch04_04
-    :target: {filename}/images/2011/11/tp_ch04_04.jpg
+    :target: {static}/images/2011/11/tp_ch04_04.jpg
     :width: 500
 
     公主将自己的力量传给米德娜
@@ -64,9 +64,9 @@
 
 恢复活力的米德娜带着林克传送回到了北法隆森林，刚一到这里就看到一只被攻击的猴子，救下她后朝右边走，米德娜的传送会帮助林克进入神圣之森，这里又有一个嚎叫之岩，用过后会在海拉尔城南面找到他。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_05.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_05.jpg
     :alt: tp_ch04_05
-    :target: {filename}/images/2011/11/tp_ch04_05.jpg
+    :target: {static}/images/2011/11/tp_ch04_05.jpg
     :width: 500
 
     恢复活力的米德娜带着林克进入神圣之森
@@ -76,27 +76,27 @@
 
 进入到神圣之森，这里的地形比较具有迷惑性，在入口处能发现一块印有Triforce（黄金三角力量）的石碑，按提示哼出正确的旋律，一个提灯吹喇叭的小妖怪（Skull Kid）出现，林克一直追着，他会不断打开新的道路。不过每次被攻击后其都会跑掉并躲起来，林克借助地上的灯光，可以帮助确定他逃向哪个房间，到最后无路可逃，小妖怪会在一个象斗技场一样的地方和林克决战，林克只有在其吹喇叭的时候才能打到他，否则他会不停瞬移，战而胜之后其再次逃跑，林克穿过这里，一路来到有两个雕塑的空地。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_06.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_06.jpg
     :alt: tp_ch04_06
-    :target: {filename}/images/2011/11/tp_ch04_06.jpg
+    :target: {static}/images/2011/11/tp_ch04_06.jpg
     :width: 500
 
     提灯吹喇叭的小妖怪（Skull Kid）
 
 林克正准备进入北面的门时，雕塑被激活了，他们会根据林克的移动方向移动，只要将他们移到两个发光的地板处就可以打开门，随后取得征服者之剑（Master Sword）并解开封印，以后的林克就可以随时在狼和人形态之间切换了。具体的走法是：左下右右上左上上左下下右上，或者：右下上上上左左下下下右上。之后所有开通的门都会关闭，森之圣域还无法自由活动，到游戏后期再回来吧。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_07.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_07.jpg
     :alt: tp_ch04_07
-    :target: {filename}/images/2011/11/tp_ch04_07.jpg
+    :target: {static}/images/2011/11/tp_ch04_07.jpg
     :width: 500
 
     取得征服者之剑（Master Sword）
 
 林克回到之前的斗技场，炸开中央的岩石并利用感知能发现地洞，挖下去后可以取得\ `心之碎片42`_\ 和一个魂魄。随后让米德娜帮助传送回海拉尔城。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_08.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_08.jpg
     :alt: tp_ch04_08
-    :target: {filename}/images/2011/11/tp_ch04_08.jpg
+    :target: {static}/images/2011/11/tp_ch04_08.jpg
     :width: 500
 
     炸开斗技场中央的岩石，就可以利用感知发现地洞
@@ -111,16 +111,16 @@
 
 林克根据得到的标志到地图右下角的哨塔找到奥鲁并获得奥鲁的信物（Auru's memo），之后再来到湖中间的大炮处并将奥鲁的信物出示给他看，他会将林克发射到戈鲁多沙漠（Gerudo Desert）。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_09.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_09.jpg
     :alt: tp_ch04_09
-    :target: {filename}/images/2011/11/tp_ch04_09.jpg
+    :target: {static}/images/2011/11/tp_ch04_09.jpg
     :width: 500
 
     在湖中央“乘坐”奥鲁的大炮
 
-.. figure:: {filename}/images/2011/11/tp_ch04_10.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_10.jpg
     :alt: tp_ch04_10
-    :target: {filename}/images/2011/11/tp_ch04_10.jpg
+    :target: {static}/images/2011/11/tp_ch04_10.jpg
     :width: 500
 
     来到戈鲁多沙漠（Gerudo Desert）
@@ -130,9 +130,9 @@
 
 林克一直朝地图右上跑可以见到营地，先干掉两个骑猪的兽人后，夺过他们的坐骑野猪，可以用其冲破前面的栅栏继续向北前进。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_11.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_11.jpg
     :alt: tp_ch04_11
-    :target: {filename}/images/2011/11/tp_ch04_11.jpg
+    :target: {static}/images/2011/11/tp_ch04_11.jpg
     :width: 500
 
     戈鲁多沙漠（Gerudo Desert）北方的营地
@@ -142,9 +142,9 @@
 
 一路朝西北方向前进，林克在最里面干掉一个腰部闪闪发亮的兽人卫兵后掉落一把小钥匙，林克将广场上的烤猪打掉会掉落一片\ `心之碎片18`_\ 。随后回到路上的一个锁住的门，打开进入后和兽人头领布尔布林决斗（用背斩很容易就能解决掉），战胜后用猪冲破栅栏来到仲裁者之地（Arbiter's Grounds）。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_12.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_12.jpg
     :alt: tp_ch04_12
-    :target: {filename}/images/2011/11/tp_ch04_12.jpg
+    :target: {static}/images/2011/11/tp_ch04_12.jpg
     :width: 500
 
     在仲裁者之地外围
@@ -152,21 +152,21 @@
 仲裁者之地（沙漠刑场迷宫）
 --------------------------
 
-.. figure:: {filename}/images/2011/11/tp_ch04_13.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_13.jpg
     :alt: tp_ch04_13
 
     仲裁者之地（沙漠刑场迷宫）一层、二层地图
 
-.. figure:: {filename}/images/2011/11/tp_ch04_14.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_14.jpg
     :alt: tp_ch04_14
 
     仲裁者之地（沙漠刑场迷宫）地下一层、二层地图
 
 这里到处都是流沙，林克站在上面会不断下沉，所以要尽量快速通过，另外中间的旋涡状的流沙碰到就会直接沉下去。右边墙上有一个可以抓的地方，用飞爪抓过去，然后朝房间左边走，在房间左上角能看到开关，用飞爪抓过来可以打开北面的门，进去后来到房间1。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_15.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_15.jpg
     :alt: tp_ch04_15
-    :target: {filename}/images/2011/11/tp_ch04_15.jpg
+    :target: {static}/images/2011/11/tp_ch04_15.jpg
     :width: 500
 
     中间的旋涡状的流沙碰到就会直接沉下去
@@ -175,18 +175,18 @@
 
 **房间2：**\ 房间很黑，而且有很多骷髅兵，注意不要在流沙里和它们纠缠太久，朝北走有道被拦住的门，将两边的灯点亮可以打开，前进去房间4。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_16.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_16.jpg
     :alt: tp_ch04_16
-    :target: {filename}/images/2011/11/tp_ch04_16.jpg
+    :target: {static}/images/2011/11/tp_ch04_16.jpg
     :width: 500
 
     把门两边的油灯点亮便可打开门
 
 **房间3：**\ 这里会出现3个灵魂灯怪并将北面四个灯的火取走使大门关上，于是接下来的任务就需要去取回四个灯火，先在这里解决第一个灯怪并得到他的一个魂魄，随后调查灯怪尸体可以获得灯怪的气味并在感知状态下追踪，根据气味找到房间西南角落的沙，挖开后能发现一个开关，拉开出现一个地道，在房间左上的箱子里有一块\ `心之碎片19`_\ ，而右上对应位置的箱子里有迷宫的地图，随后进入地道来到房间4（B1）。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_17.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_17.jpg
     :alt: tp_ch04_17
-    :target: {filename}/images/2011/11/tp_ch04_17.jpg
+    :target: {static}/images/2011/11/tp_ch04_17.jpg
     :width: 500
 
     跟着灯怪气味寻找其他的灯怪
@@ -197,18 +197,18 @@
 
 **房间6：**\ 这个房间除了流沙还有隐藏在沙里的陷阱，利用狼的感知的话可以看到这些陷阱，朝右上前进翻到台上，可以看到一个箱子，将箱子拉出来后上到上面去，这里有一条铁链，拉出来以后前面不远处的吊灯会慢慢上升，拉的时候注意不要掉到下面和碰到右边的刺，升到最高处后会放开链条并迅速通过，否则灯会掉下来并砸到林克头上（建议变狼再拉，狼跑的速度比人快），然后朝南边走一直上楼。这里也有一个可以推动的柱子，将其向两边不同方向推动会在西边和南边都出现箱子，其中西边的箱子里面有把小钥匙而南边的箱子里面有指南针，接着去东边开门进入房间7。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_18.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_18.jpg
     :alt: tp_ch04_18
-    :target: {filename}/images/2011/11/tp_ch04_18.jpg
+    :target: {static}/images/2011/11/tp_ch04_18.jpg
     :width: 500
 
     拉动铁链
 
 **房间7：**\ 房间7有很多小骷髅和几个会恐吓的大骷髅，把他们全部干掉后打开感知，跟随气味可以发现一个和房间3中一样的机关，拉开后找到第3个灯怪，再朝北面走去房间8。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_19.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_19.jpg
     :alt: tp_ch04_19
-    :target: {filename}/images/2011/11/tp_ch04_19.jpg
+    :target: {static}/images/2011/11/tp_ch04_19.jpg
     :width: 500
 
 **房间8：**\ 这里林克会突然发现移动速度下降，打开感知发现有许多老鼠幽灵爬在身上，把他们干掉后到南边的箱子里拿把小钥匙，再走东边的门回到房间3的上层，然后从吊灯上跳到对面来到房间9。
@@ -219,9 +219,9 @@
 
 **房间11：**\ 这里有两排灯柱，后面的一排有5盏，点燃最右边的一盏和前面的那盏后可以打开西面的门（点错的话会被小骷髅们围殴），然后进入房间12。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_20.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_20.jpg
     :alt: tp_ch04_20
-    :target: {filename}/images/2011/11/tp_ch04_20.jpg
+    :target: {static}/images/2011/11/tp_ch04_20.jpg
     :width: 500
 
 **房间12：**\ 这里会遇到最后一个灯怪，他会分4个分身出来，因此这个时候是攻击不到他的，不过注意观察会发现等他要攻击的时候，有一个分身颜色会逐渐变深，这个就是其本体，攻击之，消灭后取得最后一个灯火，回到房间3，这时北面的门会打开，进入来到房间13。
@@ -232,16 +232,16 @@
 
 **房间15：**\ 房间里有许多老鼠灵魂，另外还有许多陷阱，打开感知能一一发现，然后找没有陷阱的路一直朝南面走，在尽头处能找到一个链条，拉动后可将档在南边的门打开，放开链条机关会复位，所以要迅速通过并进入房间16。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_21.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_21.jpg
     :alt: tp_ch04_21
-    :target: {filename}/images/2011/11/tp_ch04_21.jpg
+    :target: {static}/images/2011/11/tp_ch04_21.jpg
     :width: 500
 
 **房间16：**\ 这个房间内一共有3个会复活的骷髅，将他们全部消灭后可打开门，利用飞爪到南边的台子上能得到欧库，然后朝北面到房间17。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_22.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_22.jpg
     :alt: tp_ch04_22
-    :target: {filename}/images/2011/11/tp_ch04_22.jpg
+    :target: {static}/images/2011/11/tp_ch04_22.jpg
     :width: 500
 
     小BOSS
@@ -250,9 +250,9 @@
 
 **房间18：**\ 这个房间要充分利用陀螺仪的特性，先从正对面的轨道到2楼，在最左边的箱子处有\ `心之碎片20`_\ ，然后再用陀螺仪往回走，躲过中间的旋转机关后到两边都是轨道的地带，这里注意按B键左右跳来通过轨道上的断裂处，随后在轨道尽头会自己飞出来到一个封闭的小沙丘里，这里有另一条向上的轨道，用陀螺仪在上面移动来到3楼，有另一个双边轨道，上面有很多机关，注意左右跳跃躲避那些旋转机关后到门前面，进入后回到房间13。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_23.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_23.jpg
     :alt: tp_ch04_23
-    :target: {filename}/images/2011/11/tp_ch04_23.jpg
+    :target: {static}/images/2011/11/tp_ch04_23.jpg
     :width: 500
 
 **房间13：**\ 这时是从房间右边的门回到房间，并取得大钥匙，回到房间正中，地上有一个和陀螺仪相吻合的凹槽，在上面用陀螺仪后可以将北面的墙壁移开并出现新的路，利用墙上轨道一直到顶端，破坏罐子可抓到一只精灵，跳到中间的高台上再用陀螺仪启动机关会升起另一段轨道，用陀螺仪上去一直通到最上部来到最终 BOSS的房间。
@@ -261,9 +261,9 @@
 
 进入房间后见到了赞特，他将正中的巨龙遗骸复活并让其与林克战斗，在周围有一条环行轨道，可在上面利用陀螺仪转到斯塔罗德的背后再跳离轨道，朝斯塔罗德的脊椎处撞去同时再按B键进行攻击可以将其椎骨打碎，3次攻击后斯塔罗德就会倒下，但是他并没有被消灭，其头骨会再次复活和林克战斗，普通攻击对斯塔罗德的头骨是无效的，同样利用陀螺仪在中间巨柱上的轨道向上移动，其间斯塔罗德会吐火球攻击林克，这时要跳到另一边的轨道上躲避，最后到达和斯塔罗德水平相当的位置再次用陀螺仪弹出后进行攻击，斯塔罗德的头部会落地，这时再用剑砍其头顶的剑，如此几次以后则可将其彻底消灭。
 
-.. figure:: {filename}/images/2011/11/tp_ch04_24.jpg
+.. figure:: {static}/images/2011/11/tp_ch04_24.jpg
     :alt: tp_ch04_24
-    :target: {filename}/images/2011/11/tp_ch04_24.jpg
+    :target: {static}/images/2011/11/tp_ch04_24.jpg
     :width: 500
 
     BOSS：化石怪——斯塔罗德

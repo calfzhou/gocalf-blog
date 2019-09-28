@@ -39,7 +39,7 @@ Matrix67的这篇博客是一年多之前发的了，后来我又找到了这个
 
 下面这张图是游戏当前版本（v1.30）的关卡分布图，为了方便查找，我特意用红色字体添加了关卡序号在每关图标的左上角处。其中第29到31关是隐藏关，要通过了第24关才能显示出来。
 
-.. figure:: {filename}/images/2011/11/manufactoria-main.png
+.. figure:: {static}/images/2011/11/manufactoria-main.png
     :alt: manufactoria-main
 
     Manufactoria主界面（添加了关卡序号）
@@ -208,4 +208,4 @@ Level 31: Metatron! OUTPUT: Read the tape as two numbers, A and B, split by a gr
 .. _Manufactoria: http://www.matrix67.com/blog/archives/3306
 .. _官方网站: http://pleasingfungus.com/
 .. _`http://pleasingfungus.com/#!/Manufactoria`: http://pleasingfungus.com/#!/Manufactoria
-.. _Manufactoria.swf: {filename}/assets/2011/11/Manufactoria.swf
+.. _Manufactoria.swf: {static}/assets/2011/11/Manufactoria.swf

@@ -21,7 +21,7 @@
 
 概念就不用多解释了，前、中、后是指根结点的访问时机，在左、右子树之前、中间、或之后。层序就是从根结点开始从上至下、从左到右地依次访问。
 
-.. figure:: {filename}/images/2012/04/bin-tree.png
+.. figure:: {static}/images/2012/04/bin-tree.png
     :alt: bin-tree
 
     一棵二叉树

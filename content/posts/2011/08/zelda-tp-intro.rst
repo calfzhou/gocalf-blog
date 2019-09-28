@@ -25,12 +25,12 @@ Legend of Zelda: Twilight Princess`_\ ），真的是很不错的游戏呢。
 Twilight Princess
 则有多种翻译，有“曙光公主”、“黎明公主”、“黄昏公主”等等，似乎“黄昏公主”是比较普遍的叫法，但因为我的游戏里显示的是“黎明公主”，我就实在难以接受其他的名称了。所以我整理的攻略中将全部使用“黎明公主”这一说法。
 
-.. figure:: {filename}/images/2011/08/zelda_tp_logo_mid.png
+.. figure:: {static}/images/2011/08/zelda_tp_logo_mid.png
     :alt: Zelda Twilight Princess Logo
 
     《塞尔达传说：黎明公主》LOGO
 
-.. figure:: {filename}/images/2011/08/zelda_tp_cover-545x700.jpg
+.. figure:: {static}/images/2011/08/zelda_tp_cover-545x700.jpg
     :alt: Zelda Twilight Princess Cover
 
     《塞尔达传说：黎明公主》封面、海报
@@ -119,5 +119,5 @@ NGC平台转移到了Wii上面，其重要性不言而喻。新生的塞尔达�
 .. _鬼魂之魂: {filename}../../2012/01/zelda-tp-appendix.rst#ghostsoul
 .. _钓鱼: {filename}../../2012/01/zelda-tp-appendix.rst#fishing
 .. _试炼的洞窟: {filename}../../2012/01/zelda-tp-appendix.rst#trialscave
-.. _GoldenFinger\_JP.zip: {filename}/assets/2011/08/GoldenFinger_JP.zip
+.. _GoldenFinger\_JP.zip: {static}/assets/2011/08/GoldenFinger_JP.zip
 .. _《塞尔达传说：黄昏公主》图文全攻略: http://wii.tgbus.com/glmj/gl/200611/20061129114849.shtml

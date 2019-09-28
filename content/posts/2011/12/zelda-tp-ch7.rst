@@ -32,18 +32,18 @@
 
 回到特尔玛的酒馆，林克将雷那多的的信给特尔玛看了后，她表示自己也无法帮助伊莉娅恢复记忆，不过她知道有个人或许可以帮上忙，那就是住在城西的医生，另外她还给了林克一张医生欠钱的帐单，告诉林克把帐单给医生看了之后他就一定不会拒绝林克了。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_01.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_01.jpg
     :alt: tp_ch07_01
-    :target: {filename}/images/2011/12/tp_ch07_01.jpg
+    :target: {static}/images/2011/12/tp_ch07_01.jpg
     :width: 500
 
     特尔玛告诉林克医生的事情
 
 在城西找到医生，林克将帐单给医生看过后，他也表示这种事情他不能帮上忙，不过可以提供点线索给林克，那就是伊莉娅的木雕，把它给伊莉娅看过后说不定能帮助她想起点什么，把房间的箱子推开，林克变成狼形态利用感知嗅到木雕的味道，然后可以一路追踪气味，结果气味将林克引向了特尔玛的猫，猫告诉林克，之前确实是它拿了木雕，不过前不久一群城南出没的野狗将木雕抢走了，要是想找的话去找那些野狗拿吧。如果在夜晚林克到城南的旷野上去的话就可以见到那群野狗，战胜他们后就能得到木雕了。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_02.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_02.jpg
     :alt: tp_ch07_02
-    :target: {filename}/images/2011/12/tp_ch07_02.jpg
+    :target: {static}/images/2011/12/tp_ch07_02.jpg
     :width: 500
 
     医生看到了账单却也没能提供太多的帮助
@@ -53,9 +53,9 @@
 
 林克回到卡卡里科村，将木雕给伊莉娅看，果然让她回忆起了一点点细节，而戈隆人认出了这个木雕来自于一个隐秘的隐士之村，并答应帮林克打通通往那里的道路，查看地图得到前往村子的具体位置，然后前往村子。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_03.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_03.jpg
     :alt: tp_ch07_03
-    :target: {filename}/images/2011/12/tp_ch07_03.jpg
+    :target: {static}/images/2011/12/tp_ch07_03.jpg
     :width: 500
 
     伊莉娅看到木雕，回忆出一些细节
@@ -65,9 +65,9 @@
 
 来到了村子，林克却发现村里到处都充斥着兽人，首先要将这些兽人全部干掉。解决完总共20只兽人后，一个叫因帕兹的老妇人出现在了自己的房子外，将一个伊莉娅的符咒交给林克，并告诉他，这个东西一定可以帮助伊莉娅恢复记忆。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_04.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_04.jpg
     :alt: tp_ch07_04
-    :target: {filename}/images/2011/12/tp_ch07_04.jpg
+    :target: {static}/images/2011/12/tp_ch07_04.jpg
     :width: 500
 
     来到被兽人占领的隐士之村
@@ -77,9 +77,9 @@
 
 林克带着伊莉娅的符咒回到卡卡里科村并将符咒给伊莉娅看了之后，伊莉娅果然完全恢复了记忆，她不但记起了和林克在一起的时候的事，也想起了关于天空城的一些事，但是她不是很清晰，不过她记得隐士之村的老妇人知道些关于天空城的具体情况。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_05.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_05.jpg
     :alt: tp_ch07_05
-    :target: {filename}/images/2011/12/tp_ch07_05.jpg
+    :target: {static}/images/2011/12/tp_ch07_05.jpg
     :width: 500
 
     伊莉娅终于恢复了记忆
@@ -89,18 +89,18 @@
 
 林克再次回到隐士村，将支配者权杖给老妇人看，她确定林克就是传说中自己一直在等待的人，她告诉林克其实这个村子是很久以前海拉尔的一位贵族建立的，当时预言将来当这个世界出现危机的时候会有一位手持支配力量的勇士来到这里，而老妇人就是世代守护这里的隐士的后代，之后便将古代天空之书交给林克，并告诉书上记载了关于天空城的一切。但是林克看不懂上面的文字，于是将古代天空之书带回卡卡里科村并交给夏德看，夏德看到书后兴奋异常，然后对前面的古代雕像念起了咒语，却什么也没发生，不过他告诉林克要仔细研究下这本书，随后告诉林克这本只写了一部分，要想到天空之城，必须收集齐全部的天空之书才能知道去天空城的方法，并将所有失落在海拉尔大陆的古代天空之书的位置标记在了林克的地图上。而支配权杖此时也重新获得了力量。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_06.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_06.jpg
     :alt: tp_ch07_06
-    :target: {filename}/images/2011/12/tp_ch07_06.jpg
+    :target: {static}/images/2011/12/tp_ch07_06.jpg
     :width: 500
 
     夏德告诉林克需要收集到全部的古代天空之书
 
 **第一本：**\ 第一本古代天空之书在南艾尔丁地区，就在从卡卡里科村出来朝左转不远的地方，有个山壁上有块石头，炸开后能看到一座上古雕像，用支配权杖将其移开林克得到第一本古代天空之书。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_07.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_07.jpg
     :alt: tp_ch07_07
-    :target: {filename}/images/2011/12/tp_ch07_07.jpg
+    :target: {static}/images/2011/12/tp_ch07_07.jpg
     :width: 500
 
     炸掉山壁上的石块，移开上古雕像，得到第一本古代天空之书
@@ -109,9 +109,9 @@
 
 **第三本：**\ 第三本就在海拉尔城东出来沿路走的尽头的废墟处，操纵雕像放在雕像本来放置的柱子和旁边的看台中间，然后可以从跳台上跳过去取得。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_08.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_08.jpg
     :alt: tp_ch07_08
-    :target: {filename}/images/2011/12/tp_ch07_08.jpg
+    :target: {static}/images/2011/12/tp_ch07_08.jpg
     :width: 500
 
     在废墟看台附近得到第三本古代天空之书
@@ -127,9 +127,9 @@
 
 找齐全部的古代天空之书后，林克将天空之书带回卡卡里科村村给夏德看，他会念出咒语让前面的雕像能被支配权杖操控，移开它后见到了一门冲天炮，此时与夏德谈话将他支出房间，然后在米德娜的帮助下将冲天炮传送到海利亚湖。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_09.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_09.jpg
     :alt: tp_ch07_09
-    :target: {filename}/images/2011/12/tp_ch07_09.jpg
+    :target: {static}/images/2011/12/tp_ch07_09.jpg
     :width: 500
 
     巨大的冲天炮，需要送到海利亚湖去维修
@@ -139,9 +139,9 @@
 
 和费尔谈话，他答应帮助林克修理冲天炮，不过需要300卢比，付钱以后，林克终于来到了天空之城。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_10.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_10.jpg
     :alt: tp_ch07_10
-    :target: {filename}/images/2011/12/tp_ch07_10.jpg
+    :target: {static}/images/2011/12/tp_ch07_10.jpg
     :width: 500
 
     费尔帮助修好了冲天炮，林克终于来到天空之城
@@ -149,17 +149,17 @@
 天空之城迷宫
 ------------
 
-.. figure:: {filename}/images/2011/12/tp_ch07_11.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_11.jpg
     :alt: tp_ch07_11
 
     天空之城迷宫第一层地图
 
-.. figure:: {filename}/images/2011/12/tp_ch07_12.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_12.jpg
     :alt: tp_ch07_12
 
     天空之城第二层地图
 
-.. figure:: {filename}/images/2011/12/tp_ch07_13.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_13.jpg
     :alt: tp_ch07_13
 
     天空之城第三层到第五层地图
@@ -170,25 +170,25 @@
 
 **房间2：**\ 先去东面的门，出去到阳台朝右走，可以用飞爪抓藤条过去，并发现一个用陀螺仪的机关，打开后东面的桥会伸过来，过去后到房间3。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_14.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_14.jpg
     :alt: tp_ch07_14
-    :target: {filename}/images/2011/12/tp_ch07_14.jpg
+    :target: {static}/images/2011/12/tp_ch07_14.jpg
     :width: 500
 
     利用飞抓抓住对面的藤条过去
 
 **房间3：**\ 从右边用飞爪过去可以到对面取得小钥匙，然后返回房间2，过桥后龙会把桥撞断，之后进房间2走西面的门出去。阳台左边又有一个陀螺仪机关，打开后会出现到房间4的桥，过去到房间4。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_15.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_15.jpg
     :alt: tp_ch07_15
-    :target: {filename}/images/2011/12/tp_ch07_15.jpg
+    :target: {static}/images/2011/12/tp_ch07_15.jpg
     :width: 500
 
 **房间4：**\ 房间里有很多鼓风机，直接过去的话会被吹下去，首先去左边攻击状态转换开关关闭最里面的鼓风机，然后可以用穿钢之靴或者拿链子球通过第一个鼓风机，最后利用飞爪抓上藤条过第2个鼓风机，走房间西面的门到房间5。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_16.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_16.jpg
     :alt: tp_ch07_16
-    :target: {filename}/images/2011/12/tp_ch07_16.jpg
+    :target: {static}/images/2011/12/tp_ch07_16.jpg
     :width: 500
 
     要小心不要被鼓风机吹下去
@@ -199,106 +199,106 @@
 
 **房间7：**\ 消灭掉房间内的所有怪后南面楼上的门会打开，用飞爪上去后再抓头顶的球状机关，可以将房间正中的鼓风机打开，抓一只欧库能飞到对面到房间8。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_17.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_17.jpg
     :alt: tp_ch07_17
-    :target: {filename}/images/2011/12/tp_ch07_17.jpg
+    :target: {static}/images/2011/12/tp_ch07_17.jpg
     :width: 500
 
     抓住头顶的球状机关打开鼓风机
 
 **房间8：**\ 进门后利用欧库和房间里的鼓风机，朝房间东北飞过墙壁到房间8的上半部分，这里还有一个球形机关，打开后会启动对面的鼓风机，然后可以利用其进入对面2楼，通过房间西北角的门到房间9。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_18.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_18.jpg
     :alt: tp_ch07_18
-    :target: {filename}/images/2011/12/tp_ch07_18.jpg
+    :target: {static}/images/2011/12/tp_ch07_18.jpg
     :width: 500
 
     利用欧库和房间里的鼓风机，朝房间东北飞过墙壁到房间8的上半部分
 
 **房间9：**\ 进门后处于房间的高层，下面有两个朝外吹的鼓风机，抓住一只欧库后向下跳，途中要注意两个鼓风机，一直朝最下层、最西面的门移动，除了用欧库，这里也可以用飞爪下去，之后进去房间10进行小BOSS战。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_19.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_19.jpg
     :alt: tp_ch07_19
-    :target: {filename}/images/2011/12/tp_ch07_19.jpg
+    :target: {static}/images/2011/12/tp_ch07_19.jpg
     :width: 500
 
     可以用欧库或者飞爪下去
 
 **房间10：**\ 首先用飞爪拉下房间中的机关并穿上钢之靴令鼓风机停下，然后下去可以见到小BOSS。小BOSS是一只机敏的龙人，普通情况下的弓箭、飞爪攻击都无法命中其，必须等到他准备攻击，也就是翅膀明显加快速度的时候，用飞爪把他抓过来攻击。之后他会到处乱飞，但是攻击方式不变，所以还是很好应对。战胜后去房间南边取得双飞爪（Double Clawshot）。然后从天花板上用双飞爪出去回到房间9。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_20.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_20.jpg
     :alt: tp_ch07_20
-    :target: {filename}/images/2011/12/tp_ch07_20.jpg
+    :target: {static}/images/2011/12/tp_ch07_20.jpg
     :width: 500
 
     和小BOSS——龙人——战斗
 
 **房间9：**\ 利用双飞爪一路爬升，中途打开中间的球状开关，之后不要松手，否则门会复位，直接用双飞爪抓到门里面去，进入房间11。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_21.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_21.jpg
     :alt: tp_ch07_21
-    :target: {filename}/images/2011/12/tp_ch07_21.jpg
+    :target: {static}/images/2011/12/tp_ch07_21.jpg
     :width: 500
 
     打开球状开关，然后直接利用飞爪进入打开的门里
 
 **房间11：**\ 两边都有可以抓的地方，但是一旦抓上去后会慢慢滑落，所以要抓紧时间朝房间东面行动，出门后来到一座桥下方，这里利用下面的铁丝网朝桥东移动，途中注意先将铁丝网上的食人花用双飞爪打落，之后回到房间2东面的阳台上，这里可以用双飞爪抓天上直升机一样的植物通过断桥回到房间3。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_22.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_22.jpg
     :alt: tp_ch07_22
-    :target: {filename}/images/2011/12/tp_ch07_22.jpg
+    :target: {static}/images/2011/12/tp_ch07_22.jpg
     :width: 500
 
     利用铁丝网向前移动，注意沿途的食人花
 
 **房间3：**\ 利用双飞爪，从房间东面下到楼下，然后可以见到之前那种会滑落的机关，之后来到下面第三层的西面，朝西北方向用飞爪，注意天花板上的食人花要提前用飞爪打掉，之后攻击状态转换开关后进入大门，再用双飞爪一路向上回到东北的门进入房间12。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_23.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_23.jpg
     :alt: tp_ch07_23
-    :target: {filename}/images/2011/12/tp_ch07_23.jpg
+    :target: {static}/images/2011/12/tp_ch07_23.jpg
     :width: 500
 
     攻击转换开关以便进入大门
 
 **房间12：**\ 进门后遇到一个大型食人花，干掉后朝上用飞爪上去，到2F以后沿着边缘小心前进，需注意的是到尽头的一段路要抓住台沿爬过去，后面可以取得\ `心之碎片27`_\ 。然后再继续用飞爪向上爬，达最顶层后从南面的门到房间13。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_24.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_24.jpg
     :alt: tp_ch07_24
-    :target: {filename}/images/2011/12/tp_ch07_24.jpg
+    :target: {static}/images/2011/12/tp_ch07_24.jpg
     :width: 500
 
     利用飞爪一路来到顶层
 
 **房间13：**\ 利用空中的飞行植物一路朝西北方向前进，途中可以在最南面的平台上取得\ `心之碎片28`_\ ，然后进入西北的门到房间14。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_25.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_25.jpg
     :alt: tp_ch07_25
-    :target: {filename}/images/2011/12/tp_ch07_25.jpg
+    :target: {static}/images/2011/12/tp_ch07_25.jpg
     :width: 500
 
     利用空中的飞行植物前进
 
 **房间14：**\ 先从藤条上到房间上层，然后从右边沿着绳索一直到2层西面的门进入房间15。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_26.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_26.jpg
     :alt: tp_ch07_26
-    :target: {filename}/images/2011/12/tp_ch07_26.jpg
+    :target: {static}/images/2011/12/tp_ch07_26.jpg
     :width: 500
 
 **房间15：**\ 关掉大型球状开关可关掉鼓风机并能取得大钥匙，然后从楼下关闭的鼓风机回到房间2，这里暂时不要放掉飞爪，朝房间2北面门上的天花板处观察能发现机关，打开后会启动鼓风机并可以朝北面过去到达房间16。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_27.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_27.jpg
     :alt: tp_ch07_27
-    :target: {filename}/images/2011/12/tp_ch07_27.jpg
+    :target: {static}/images/2011/12/tp_ch07_27.jpg
     :width: 500
 
     注意寻找鼓风机的机关
 
 **房间16：**\ 这里首先会遇到两个龙人，战胜后将门上的状态转换开关打开，一直朝上可以上到最顶部见到最终BOSS。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_28.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_28.jpg
     :alt: tp_ch07_28
-    :target: {filename}/images/2011/12/tp_ch07_28.jpg
+    :target: {static}/images/2011/12/tp_ch07_28.jpg
     :width: 500
 
     将转换开关打开
@@ -307,16 +307,16 @@
 
 首先向上爬到屋顶的平台，阿戈洛克会出现，第一阶段穿上钢之靴并抓它的尾部可以将其拽到地上并攻击其背后的水晶，几下之后阿戈洛克会飞到高处喷射火焰并且不再靠近林克，这时需要利用周围的几个柱子用飞爪朝上爬到最顶部，然后再向上抓飞行植物，之后阿戈洛克喷火时朝一个方向不停用飞爪移动到其背部，再用飞爪抓到背上攻击水晶，再几个回合之后，阿戈洛克会喷射两次火焰，注意在喷完第一次以后要反向用飞爪抓行到其背部进行攻击，最后击败阿戈洛克并取得第三块镜子碎片。
 
-.. figure:: {filename}/images/2011/12/tp_ch07_29.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_29.jpg
     :alt: tp_ch07_29
-    :target: {filename}/images/2011/12/tp_ch07_29.jpg
+    :target: {static}/images/2011/12/tp_ch07_29.jpg
     :width: 500
 
     BOSS：巨龙——阿戈洛克（Twilit Dragon—Argorok）
 
-.. figure:: {filename}/images/2011/12/tp_ch07_30.jpg
+.. figure:: {static}/images/2011/12/tp_ch07_30.jpg
     :alt: tp_ch07_30
-    :target: {filename}/images/2011/12/tp_ch07_30.jpg
+    :target: {static}/images/2011/12/tp_ch07_30.jpg
     :width: 500
 
     与巨龙战斗

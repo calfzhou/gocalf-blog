@@ -61,12 +61,12 @@ system from
 file...），选择下载的安装盘镜像，在弹出的对话框里选择Apple\_HFS那项。加载之后点击菜单Tool->Create
 disk image...，将生成的文件（.dmg）保存在某个NTFS分区上即可。
 
-.. figure:: {filename}/images/2011/07/hfs_explorer_hfs.png
+.. figure:: {static}/images/2011/07/hfs_explorer_hfs.png
     :alt: hfs_explorer_hfs
 
     HFS-Explorer选择Partition
 
-.. figure:: {filename}/images/2011/07/hfs_explorer_view.png
+.. figure:: {static}/images/2011/07/hfs_explorer_view.png
     :alt: hfs_explorer_view
 
     在HFS-Explorer中查看安装盘镜像
@@ -83,7 +83,7 @@ administrator）。载入刚才用HFS-Explorer生成的镜像文件，选择之�
 V8）。点击“开始！”按钮，然后耐心等待。当进度条走满，日志中出现“Change
 partition type to AF: Success”、“All done, have fun!”时就算成功了。
 
-.. figure:: {filename}/images/2011/07/lepoard-inshelper.png
+.. figure:: {static}/images/2011/07/lepoard-inshelper.png
     :alt: lepoard-inshelper
 
     Leopard硬盘安装助手

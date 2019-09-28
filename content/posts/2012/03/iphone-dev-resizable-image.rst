@@ -83,7 +83,7 @@ stretchableImage方法有两个整数参数，分别用来指定图片的左边�
 
 运行后效果如下图示：
 
-.. figure:: {filename}/images/2012/03/resizable_image.png
+.. figure:: {static}/images/2012/03/resizable_image.png
     :alt: resizable_image
 
     UIImage拉伸示意（左上角：原始图片；上：直接拉伸；下：按照端帽拉伸）

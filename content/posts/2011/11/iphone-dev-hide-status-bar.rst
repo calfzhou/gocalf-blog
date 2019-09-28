@@ -55,7 +55,7 @@ in iOS 3.2）。
 Property List下面新加一项“Status bar is initially
 hidden”（不用手动输入，可以直接在下拉菜单中选取）。这是个BOOL类型的键值，将Value栏中的复选框勾选上即可。
 
-.. figure:: {filename}/images/2011/11/status_bar_initially_hidden.png
+.. figure:: {static}/images/2011/11/status_bar_initially_hidden.png
     :alt: status_bar_initially_hidden
 
     在Info.plist中设置状态栏为隐藏

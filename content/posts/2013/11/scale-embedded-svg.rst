@@ -41,7 +41,7 @@
 
 用\ ``<object>``\ 标签的时候，SVG图片似乎就不会随着该标签的宽度和高度设置而有任何缩放，比如下面这张图。
 
-.. figure:: {filename}/images/2013/11/svg_demo.svg
+.. figure:: {static}/images/2013/11/svg_demo.svg
     :alt: svg_demo
 
     不会随着页面宽度而缩放的SVG图片
@@ -58,7 +58,7 @@
 
 用这个方法处理一下上面那张图，可以看到它填满整个正文区宽度了：
 
-.. figure:: {filename}/images/2013/11/svg_demo_scale.svg
+.. figure:: {static}/images/2013/11/svg_demo_scale.svg
     :alt: svg_demo_scale
 
     会随着页面宽度而缩放的SVG图片
@@ -67,7 +67,7 @@
 
 解决的办法很简单，给这个\ ``<object>``\ 标签添加一个\ ``width``\ 属性，指定好默认的宽度就可以了。\ `reStructuredText`_\ 中的\ `figure directive`_\ 和\ `image directive`_\ 都可以非常方便地指定图片的宽度（或高度）。添加之后的效果如下：
 
-.. figure:: {filename}/images/2013/11/svg_demo_scale.svg
+.. figure:: {static}/images/2013/11/svg_demo_scale.svg
     :alt: svg_demo_scale
     :width: 491
 

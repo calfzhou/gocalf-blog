@@ -22,18 +22,18 @@
 
 .. more
 
-.. figure:: {filename}/images/2011/11/tp_ch05_01.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_01.jpg
     :alt: tp_ch05_01
-    :target: {filename}/images/2011/11/tp_ch05_01.jpg
+    :target: {static}/images/2011/11/tp_ch05_01.jpg
     :width: 500
 
     来到镜之古墓
 
 原来之前这里曾关押过一名用有强大恶魔力量的黑暗盗贼——\ `加农道夫（Ganondorf）`_\ 。在经过审判后，镜子看守者决定将其处死，然而，拥有强大力量的加农道夫在被刺穿身体后并没有死亡，他反而依靠自己的力量挣脱枷锁并杀死了一名镜子看守，其余几名镜子看守急忙联合自己的全部力量终于将其封印在了黎明世界中，而由于镜子看守的死亡，他所守护的那面镜子也裂成碎片并遗落到世界各地。现在要打开通往黎明世界的入口，就必须找回三片失落镜子碎片。在几名镜子看守的恳求下，林克答应帮助找回三片失落的碎片。而米德娜也被林克的举动所感动，告诉林克自己最初本来只打算利用林克帮自己夺回暗影皇冠（Fused Shadow），然而在长期和林克相处之下慢慢被林克感化。随后林克便离开镜之古墓，回到海拉尔城特尔玛的酒馆。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_02.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_02.jpg
     :alt: tp_ch05_02
-    :target: {filename}/images/2011/11/tp_ch05_02.jpg
+    :target: {static}/images/2011/11/tp_ch05_02.jpg
     :width: 500
 
     在镜子看守的恳求下，林克答应帮助找回三片失落的碎片
@@ -48,9 +48,9 @@
 
 找到阿雪后，她告诉林克，前面的暴风雪太大，普通人根本不可能通过，只有一种叫Reekfish的特殊红鱼能通过前面的暴风雪地带。拿到阿雪的草图（Ashei's Sketch），林克决定找到这种鱼。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_03.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_03.jpg
     :alt: tp_ch05_03
-    :target: {filename}/images/2011/11/tp_ch05_03.jpg
+    :target: {static}/images/2011/11/tp_ch05_03.jpg
     :width: 500
 
     得到阿雪的草图
@@ -62,9 +62,9 @@
 
 在之前得到佐拉盔甲的地方找到了拉里斯王子，他告诉林克红鱼是种很特别的鱼，生活在佐拉原住地下面湖泊的子母岩（Mother-and- Child Rock）附近，并且需要特别的鱼饵才钓得到，随后王子将鱼饵交给林克，拿到鱼饵后再回到佐拉原住地，到瀑布下面的湖泊的子母岩旁边的岸上钓红鱼（即一大一小露出水面的岩石），得手后变狼调查红鱼后，可以得到追踪红鱼气味的能力，随即前往冰山。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_04.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_04.jpg
     :alt: tp_ch05_04
-    :target: {filename}/images/2011/11/tp_ch05_04.jpg
+    :target: {static}/images/2011/11/tp_ch05_04.jpg
     :width: 500
 
     使用特殊的鱼饵钓到了红鱼
@@ -76,9 +76,9 @@
 
 进入山洞林克跟随气味一直出去，继续追踪会发现一处嚎叫岩石，然后在四周寻找会发现红鱼被一个雪人抓住了，林克前去和雪人谈话，谈论中林克得知雪人叫亚托（Yeto），并且他家中有一片镜子碎片，随后雪人邀请林克去自己家共进晚餐，随后滑着雪板离开。撞击旁边的树后同样能得到一块滑雪板，随后顺着路一直滑到尽头的雪山废墟（Snowpeak Ruins）。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_05.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_05.jpg
     :alt: tp_ch05_05
-    :target: {filename}/images/2011/11/tp_ch05_05.jpg
+    :target: {static}/images/2011/11/tp_ch05_05.jpg
     :width: 500
 
     跟随着红鱼的气味，林克遇到了雪人亚托，后者邀请林克去他家
@@ -86,7 +86,7 @@
 雪山废墟迷宫
 ------------
 
-.. figure:: {filename}/images/2011/11/tp_ch05_06.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_06.jpg
     :alt: tp_ch05_06
 
     雪山废墟迷宫地图
@@ -95,16 +95,16 @@
 
 **房间2：**\ 这里遇到了亚托的妻子亚塔（Yeta）。亚塔告诉林克，家里确实有一块镜子碎片，就放在自己的卧室里，而且自己得到这块碎片以后自己的身体就日渐削弱，所以老公才去给自己抓鱼吃滋补身体，另外亚塔将废墟的地图交给林克并将钥匙所在位置标记在地图上。去西面的房间找到亚托，他会让林克先尝一口汤，这里开始可以用空瓶装汤回血，这点很重要，因为这个迷宫的怪物和坛子是不会掉回血物品的。南面的坛子里有这个迷宫的欧库。走北面的门进入房间4。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_07.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_07.jpg
     :alt: tp_ch05_07
-    :target: {filename}/images/2011/11/tp_ch05_07.jpg
+    :target: {static}/images/2011/11/tp_ch05_07.jpg
     :width: 500
 
     亚托请林克喝汤
 
-.. figure:: {filename}/images/2011/11/tp_ch05_08.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_08.jpg
     :alt: tp_ch05_08
-    :target: {filename}/images/2011/11/tp_ch05_08.jpg
+    :target: {static}/images/2011/11/tp_ch05_08.jpg
     :width: 500
 
     亚塔告诉林克家里镜子碎片的事情
@@ -113,9 +113,9 @@
 
 **房间5：**\ 这里用狼开感知可以发现地洞，挖出去能到房间6。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_09.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_09.jpg
     :alt: tp_ch05_09
-    :target: {filename}/images/2011/11/tp_ch05_09.jpg
+    :target: {static}/images/2011/11/tp_ch05_09.jpg
     :width: 500
 
     利用狼的感知发现地洞
@@ -124,18 +124,18 @@
 
 **房间7：**\ 干掉所有的冰螺怪后打开门，接着去房间8
 
-.. figure:: {filename}/images/2011/11/tp_ch05_10.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_10.jpg
     :alt: tp_ch05_10
-    :target: {filename}/images/2011/11/tp_ch05_10.jpg
+    :target: {static}/images/2011/11/tp_ch05_10.jpg
     :width: 500
 
     消灭冰螺怪
 
 **房间8：**\ 这里会遇到两个冰骷髅，站到一定距离的话他们会扔冰矛攻击林克，不过可以站到更远的地方用炸弹箭攻击他们，当然也可以直接冲上去砍掉，干掉他们两个后朝南面到亚塔标记的房间9。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_11.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_11.jpg
     :alt: tp_ch05_11
-    :target: {filename}/images/2011/11/tp_ch05_11.jpg
+    :target: {static}/images/2011/11/tp_ch05_11.jpg
     :width: 500
 
 **房间9：**\ 看到了箱子，打开后却只有一个蓝瓜，于是回到房间2问亚塔。
@@ -146,27 +146,27 @@
 
 **房间6：**\ 这次到的是房间6右边的部分，中间有门大炮，当然现在还不能使用，房间没什么能做的，直接到东北的窗子爬过去到房间10。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_12.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_12.jpg
     :alt: tp_ch05_12
-    :target: {filename}/images/2011/11/tp_ch05_12.jpg
+    :target: {static}/images/2011/11/tp_ch05_12.jpg
     :width: 500
 
     爬窗子进入房间10
 
 **房间10：**\ 从过道中过去，小心两边的冰块和地上的冰螺怪，途中的铁球记得一起搬走，这个是炮弹，在房间东北有门大炮，将炮弹放进去，然后再放一颗炸弹进去可以发射，发射之前记得先把炮口调整到最南面。之后大炮会轰出一条路，接着走南面的门到房间11。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_13.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_13.jpg
     :alt: tp_ch05_13
-    :target: {filename}/images/2011/11/tp_ch05_13.jpg
+    :target: {static}/images/2011/11/tp_ch05_13.jpg
     :width: 500
 
     把炮弹放入大炮内，用炸点发射炮弹，轰出一条路来
 
 **房间11：**\ 房间西南角的箱子里有指南针，一定要拿到，过去的路很危险，要注意不要做大幅度运动，先朝南面走，路上的冰螺可以用飞爪打掉，冰蝙蝠可以在远处先用弓射掉，先朝南走在第一段路的尽头不要直走，靠近岔道的时候直接朝右边跳，否则走上去就会直接滑下去，再向前前进一段后可以用陀螺仪过最后的岔口，也可以朝右边绕过去拿指南针，之后能利用飞爪回到进来的门而不用再走一次，返回到房间6。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_14.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_14.jpg
     :alt: tp_ch05_14
-    :target: {filename}/images/2011/11/tp_ch05_14.jpg
+    :target: {static}/images/2011/11/tp_ch05_14.jpg
     :width: 500
 
     生命值不高的时候林克看起来就弱弱的，一定要提前用瓶子装上汤来回复体力
@@ -175,18 +175,18 @@
 
 **房间12：**\ 房间12有炮弹，先将门旁边的机器拉下来，让勺子处于房间12这边，然后抱一个炮弹放到上面去，再回到房间6，在对应位置拉下把手可以把炮弹取出来，之后可以利用大炮将北面的怪物干掉，随后进入房间13。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_15.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_15.jpg
     :alt: tp_ch05_15
-    :target: {filename}/images/2011/11/tp_ch05_15.jpg
+    :target: {static}/images/2011/11/tp_ch05_15.jpg
     :width: 500
 
     将门旁边的机器拉下来
 
 **房间13：**\ 这里是小BOSS战斗，BOSS使用一个链子球进行攻击，只有背面对BOSS的攻击才有效果，注意躲避他的攻击，可以利用天花板用飞爪躲避，在 BOSS做出攻击后会有一段硬直时间，利用此时迅速砍其后面露出的尾巴，胜利后可取得BOSS的武器链子球（Ball and Chain），能用其砸开冰块和不结实的地板，还能干掉之前需要用大炮才能干掉的大冰怪。随后去北面标记的房间里拿钥匙，结果却是一个奶酪，只好再回到房间2找亚塔。亚塔告诉林克可能又是丈夫把钥匙放别处去了，不过现在他正在找奶酪做汤，让林克先把奶酪交给丈夫而自己再回忆下钥匙的位置。去房间3把奶酪交给亚托后，汤可以恢复更多的生命了，回到房间2找亚塔，她再次为林克标记新的钥匙位置并将房间东面的门打开，进入房间14。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_16.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_16.jpg
     :alt: tp_ch05_16
-    :target: {filename}/images/2011/11/tp_ch05_16.jpg
+    :target: {static}/images/2011/11/tp_ch05_16.jpg
     :width: 500
 
     和小BOSS作战
@@ -195,9 +195,9 @@
 
 **房间15：**\ 用链子球砸中间的吊灯下部让吊灯晃动起来，然后跳过去到对面的箱子取得小钥匙，回来的时候可以用西南墙上的飞爪，回到房间14，打开房间西南的锁到房间1的楼上。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_17.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_17.jpg
     :alt: tp_ch05_17
-    :target: {filename}/images/2011/11/tp_ch05_17.jpg
+    :target: {static}/images/2011/11/tp_ch05_17.jpg
     :width: 500
 
     在宝箱中拿到小钥匙
@@ -206,18 +206,18 @@
 
 **房间16：**\ 将箱子推下去到房间4，把中间的冰块和被冻上的箱子都砸开，随后想办法把箱子推到正中的机关上打开房间2楼东面的门，再从刚才推下楼的箱子上可以爬回2楼，从东面的门进去到下一个房间，一路朝北走，在挡路的墙前面用飞爪过去，可以到房间8的楼上，然后利用链子球打吊灯，过去房间南面取得一把小钥匙后回到房间16，用钥匙打开右边的门再到房间17。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_18.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_18.jpg
     :alt: tp_ch05_18
-    :target: {filename}/images/2011/11/tp_ch05_18.jpg
+    :target: {static}/images/2011/11/tp_ch05_18.jpg
     :width: 500
 
     这里要用飞抓才能过去
 
 **房间17：**\ 干掉房子中间的大冰怪，再把东面的冰块打开，把箱子推下去，可来到房间14，将之前放在门口的的炮弹搬上楼，并用大炮朝房间17发射，之后再到房间17，利用北面墙上的机器将炮弹送出去到阳台上，再出去到阳台上将炮弹放进大炮然后朝东北方发射，可以干掉楼梯上挡路的大冰怪，之后可从那里上去到房间18。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_19.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_19.jpg
     :alt: tp_ch05_19
-    :target: {filename}/images/2011/11/tp_ch05_19.jpg
+    :target: {static}/images/2011/11/tp_ch05_19.jpg
     :width: 500
 
     利用大炮干掉大冰怪
@@ -230,9 +230,9 @@
 
 战胜布里泽塔后，亚托会冲进来，而布里泽塔也变回亚塔，一番亲热后林克也得到了第一片镜子碎片。
 
-.. figure:: {filename}/images/2011/11/tp_ch05_20.jpg
+.. figure:: {static}/images/2011/11/tp_ch05_20.jpg
     :alt: tp_ch05_20
-    :target: {filename}/images/2011/11/tp_ch05_20.jpg
+    :target: {static}/images/2011/11/tp_ch05_20.jpg
     :width: 500
 
     BOSS：冰怪——布里泽塔

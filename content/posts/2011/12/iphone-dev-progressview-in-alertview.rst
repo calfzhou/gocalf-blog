@@ -118,7 +118,7 @@ Bar）使得用户了解处理进度。这个进度条应该是在一个模态�
 
 在实际使用中，带进度条的alert view大概长得是这样的：
 
-.. figure:: {filename}/images/2011/12/progress_alert.png
+.. figure:: {static}/images/2011/12/progress_alert.png
     :alt: progress_alert
 
     带进度条的alert窗口

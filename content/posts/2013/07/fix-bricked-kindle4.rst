@@ -74,11 +74,11 @@ Ethernet驱动，\ `点此下载`_\ 。）
 
 装好驱动，进入网络中心，看到有一块新的网卡设备。点击右键查看属性，在IPv4选项中，将IP地址设置为“192.168.15.200”，子网掩码是默认的“255.255.255.0”。
 
-用SSH客户端（我用的是Putty）登录Kindle，IP地址为192.168.15.244，用户名是root。密码可以先试试“mario”（针对4.0系统），如果不行，就将序列号输入到下面的文本框中得到密码（针对4.0.1系统）（若无法显示请猛击\ `这里 <{filename}/assets/2013/07/kindle_root_password.html>`__\ ）。
+用SSH客户端（我用的是Putty）登录Kindle，IP地址为192.168.15.244，用户名是root。密码可以先试试“mario”（针对4.0系统），如果不行，就将序列号输入到下面的文本框中得到密码（针对4.0.1系统）（若无法显示请猛击\ `这里 <{static}/assets/2013/07/kindle_root_password.html>`__\ ）。
 
 .. raw:: html
 
-    <iframe frameborder="0" height="50" scrolling="no" src="{filename}/assets/2013/07/kindle_root_password.html" width="100%"></iframe>
+    <iframe frameborder="0" height="50" scrolling="no" src="{static}/assets/2013/07/kindle_root_password.html" width="100%"></iframe>
 
 其实root密码就是“fiona”加上序列号MD5值中的一部分。生成代码如下（Python
 2.7.\*）：

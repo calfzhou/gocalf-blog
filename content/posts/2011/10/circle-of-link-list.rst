@@ -26,7 +26,7 @@
 L)，显然x = L - a。下面这张图可以清晰地表明这种关系，经过x =
 L - a次移动，P1向前移动了L - a个位置（相当于后退了a），到达P1′处，而P2向前移动了2L - 2a个位置（相当于后退了2a），到达P2′处，显然P1′和P2′是同一点。
 
-.. figure:: {filename}/images/2011/10/two_pointers_in_ring.svg
+.. figure:: {static}/images/2011/10/two_pointers_in_ring.svg
     :alt: two_pointers_in_ring
     :width: 428
 

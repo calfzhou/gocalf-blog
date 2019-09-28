@@ -74,6 +74,6 @@
 
 .. raw:: html
 
-    <iframe frameborder="0" height="1060" name="星期万年历" scrolling="yes" src="{filename}/assets/2011/08/calendar_week.htm" title="Week Calendar" width="100%"></iframe>
+    <iframe frameborder="0" height="1060" name="星期万年历" scrolling="yes" src="{static}/assets/2011/08/calendar_week.htm" title="Week Calendar" width="100%"></iframe>
 
-.. _这里（calendar\_week.html）: {filename}/assets/2011/08/calendar_week.htm
+.. _这里（calendar\_week.html）: {static}/assets/2011/08/calendar_week.htm

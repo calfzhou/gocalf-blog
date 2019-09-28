@@ -19,6 +19,6 @@
 
 .. raw:: html
 
-    <video width='480' height='320' preload='auto' controls poster='{filename}/images/2011/07/wedding_video.jpg'>
-       <source src='{filename}/assets/2011/07/wedding_video.mp4' type='video/mp4'/>
+    <video width='480' height='320' preload='auto' controls poster='{static}/images/2011/07/wedding_video.jpg'>
+       <source src='{static}/assets/2011/07/wedding_video.mp4' type='video/mp4'/>
     </video>
