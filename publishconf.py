@@ -11,7 +11,7 @@ sys.path.append(os.curdir)
 from pelicanconf import *
 
 # If your site is available via HTTPS, make sure SITEURL begins with https://
-SITEURL = 'http://blog.gocalf.com'
+SITEURL = 'https://blog.gocalf.com'
 
 STATIC_PATHS.append('CNAME')
 
