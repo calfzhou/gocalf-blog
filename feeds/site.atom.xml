@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>GoCalf Blog - 建站</title><link href="https://blog.gocalf.com/" rel="alternate"></link><link href="https://blog.gocalf.com/feeds/site.atom.xml" rel="self"></link><id>https://blog.gocalf.com/</id><updated>2014-07-31T11:16:00+08:00</updated><subtitle>1/100 ALGO&amp;amp;MATH; 1/100 IT&amp;amp;GAME; 1/100 INFO&amp;amp;SHARING; 1/100 WHO KNOWS</subtitle><entry><title>迁移WordPress博客</title><link href="https://blog.gocalf.com/move-wordpress-blog" rel="alternate"></link><published>2014-07-31T11:16:00+08:00</published><updated>2014-07-31T11:16:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2014-07-31:/move-wordpress-blog</id><summary type="html">&lt;p class="first last"&gt;记录一下前些日子迁移一个WordPress博客的过程。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;之前一直害怕折腾WordPress搭出来的博客，主要是对PHP和MySql都不太熟悉，对相关的备份啊、迁移啊也不太熟悉。前段时间，不得不对一个WordPress博客做了迁移，从一台服务器挪到了另外一台上，还挺顺利的，记录一下。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;准备好目标环境&lt;/h2&gt;
+&lt;p&gt;现在目标机器上装好相关的环境，PHP、MySQL之类的，然后安装WordPress。我已经把源机器上的WordPress升级到最新版本了，所以在目标机器上也装上最新版本就行了。&lt;/p&gt;
+&lt;p&gt;没试过在不同版本的WordPress之间做数据迁移，感觉如果没有特别的原因，还是尽量保持两边的版本一致吧。&lt;/p&gt;
+&lt;p&gt;当然需要给WordPress创建一个数据库（比如叫做&lt;tt class="docutils literal"&gt;my_wordpress&lt;/tt&gt;）以及用户（比如&lt;tt class="docutils literal"&gt;wp_user&lt;/tt&gt;）：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mysql -uroot -p
+mysql&amp;gt; CREATE DATABASE my_wordpress;
+mysql&amp;gt; GRANT ALL PRIVILEGES ON my_wordpress.* TO wp_user@localhost IDENTIFIED BY &amp;quot;use-your-real-password&amp;quot;;
+mysql&amp;gt; FLUSH PRIVILEGES;
+mysql&amp;gt; EXIT
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;暂停博客&lt;/h2&gt;
+&lt;p&gt;在对源博客数据打包前，先要暂停它的服务，避免不必要的数据错误或者遗失。我选择了&lt;a class="reference external" href="http://sivel.net/2009/06/wordpress-maintenance-mode-without-a-plugin/"&gt;最省事的方法&lt;/a&gt;，直接在博客根目录下创建一个名为&lt;tt class="docutils literal"&gt;.maintenance&lt;/tt&gt;的文件，内容为：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;?php&lt;/span&gt; &lt;span class="nv"&gt;$upgrading&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;time&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="cp"&gt;?&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;这样再访问源博客的时候，页面会提示“正在执行例行维护，请一分钟后回来”。当然了，这里的“一分钟”是写死的，什么时候来看都是同样的提示。&lt;/p&gt;
+&lt;p&gt;原理是WordPress会检查根目录下是否存在名为&lt;tt class="docutils literal"&gt;.maintenance&lt;/tt&gt;的文件，如果存在，则会检查当前时刻与该文件提供的&lt;tt class="docutils literal"&gt;$upgrading&lt;/tt&gt;数值之间的差异，如果当前时刻减去&lt;tt class="docutils literal"&gt;$upgrading&lt;/tt&gt;小于十分钟，则会显示正在维护，否则就正常访问。现在&lt;tt class="docutils literal"&gt;$upgrading&lt;/tt&gt;的值永远跟当前时刻一致，计算出来的差值一直都是0，所以会一致在维护状态中。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;打包源博客数据&lt;/h2&gt;
+&lt;p&gt;WordPress博客的文章、评论等数据都保存在数据库中，直接dump出来就可以做备份或者迁移。我就直接用mysqldump命令来导出现有的数据：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mysqldump -uDB_USER_NAME -pDB_USER_PASSWORD DB_NAME &lt;span class="p"&gt;|&lt;/span&gt; gzip &amp;gt; my-worpress.sql.gz
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;命令中大写的部分需要用自己的用户名、密码和数据库名替换。导出的文件用gzip压缩一下以便通过网络复制到目标机器。&lt;/p&gt;
+&lt;p&gt;附件、插件、主题等都保存在wp-content目录中，直接压缩打包：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;tar -zcf content.tar.gz wp-content
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;在目标机器恢复数据&lt;/h2&gt;
+&lt;p&gt;上面打包好的两个文件可以通过scp、ftp等工具传送到新的机器上，然后分别将数据恢复出来即可。&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gunzip &amp;lt; my-worpress.sql.gz &lt;span class="p"&gt;|&lt;/span&gt; mysql -uwp_user -pYOUR_PASSWORD my_wordpress
+tar -zxf content.tar.gz
+cp -Rp wp-content/* PATH-TO-YOUR-WORDPRESS-wp-content-FOLDER
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;配置文件&lt;/h2&gt;
+&lt;p&gt;如果源博客的&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;wp-config.php&lt;/span&gt;&lt;/tt&gt;里面做过一些特别的修改，把它们也写到新博客的配置文件里即可。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h2&gt;善后&lt;/h2&gt;
+&lt;p&gt;最后把目标机器上的web server配置好，把域名解析切换过去就好了。&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="WordPress"></category><category term="Blog"></category></entry><entry><title>让页面中嵌入的SVG图片可以缩放</title><link href="https://blog.gocalf.com/scale-embedded-svg" rel="alternate"></link><published>2013-11-19T21:52:00+08:00</published><updated>2013-11-19T21:52:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-11-19:/scale-embedded-svg</id><summary type="html">&lt;p class="first last"&gt;在HTMl页面中用&amp;lt;object&amp;gt;标签嵌入的SVG图片如何能跟随窗口大小自动缩放呢？&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;以前不知道出于什么原因，一直仅仅钟爱于PNG图片，对矢量图完全没有兴趣。最近突然觉得矢量图才是王道啊。&lt;/p&gt;
+&lt;p&gt;我目前主要使用&lt;a class="reference external" href="http://www.w3.org/Graphics/SVG/"&gt;SVG（Scalable Vector Graphics）&lt;/a&gt;格式的矢量图，而且把以前的一些位图附件也用SVG重绘了。&lt;/p&gt;
+&lt;p&gt;随即发现一个问题，位图会随着页面宽度的变窄而自动缩小，但是SVG图片却并没有变化，页面宽度变窄后，它们就害羞似的藏起一半脸来。怎么让SVG图片也能随着页面宽度变化而自动缩放呢？&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;这里主要针对已经以&lt;tt class="docutils literal"&gt;.svg&lt;/tt&gt;扩展名保存的SVG图片文件。把这种格式的图片嵌入到HTML页面中主要有&lt;a class="reference external" href="http://www.w3schools.com/svg/svg_inhtml.asp"&gt;三种方法&lt;/a&gt;，即用&lt;tt class="docutils literal"&gt;&amp;lt;embed&amp;gt;&lt;/tt&gt;、&lt;tt class="docutils literal"&gt;&amp;lt;object&amp;gt;&lt;/tt&gt;或者&lt;tt class="docutils literal"&gt;&amp;lt;iframe&amp;gt;&lt;/tt&gt;标签，具体的语法分别是：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;embed&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;path-to-image.svg&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;image/svg+xml&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;object&lt;/span&gt; &lt;span class="na"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;path-to-image.svg&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;image/svg+xml&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;object&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;iframe&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;path-to-image.svg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;iframe&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;当然，对于大多数浏览器，你也可以直接用&lt;tt class="docutils literal"&gt;&amp;lt;img&amp;gt;&lt;/tt&gt;标签，即：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;img&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;path-to-image.svg&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;alt&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;some text&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;如果用&lt;tt class="docutils literal"&gt;&amp;lt;img&amp;gt;&lt;/tt&gt;标签，那事情就简单了，它跟其他&lt;tt class="docutils literal"&gt;&amp;lt;img&amp;gt;&lt;/tt&gt;标签里的位图一样，都可以在CSS的控制下随着页面而缩放，当然跟位图不同的是，它在缩放的时候不会有锯齿出现。&lt;/p&gt;
+&lt;p&gt;通常情况下，还是推荐使用&lt;tt class="docutils literal"&gt;&amp;lt;object&amp;gt;&lt;/tt&gt;标签来嵌入SVG图片，&lt;a class="reference external" href="http://docutils.sourceforge.net/rst.html"&gt;reStructuredText&lt;/a&gt;中默认的&lt;a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#figure"&gt;figure directive&lt;/a&gt;和&lt;a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#image"&gt;image directive&lt;/a&gt;在遇到SVG图片时也是使用&lt;tt class="docutils literal"&gt;&amp;lt;object&amp;gt;&lt;/tt&gt;标签的。&lt;/p&gt;
+&lt;p&gt;用&lt;tt class="docutils literal"&gt;&amp;lt;object&amp;gt;&lt;/tt&gt;标签的时候，SVG图片似乎就不会随着该标签的宽度和高度设置而有任何缩放，比如下面这张图。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;object data="https://blog.gocalf.com/images/2013/11/svg_demo.svg" type="image/svg+xml"&gt;
+svg_demo&lt;/object&gt;
+&lt;p class="caption"&gt;不会随着页面宽度而缩放的SVG图片&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;在询问了万能的Google之后，发现了解决的办法。原来如果SVG的根结点如果设置了&lt;tt class="docutils literal"&gt;width&lt;/tt&gt;和&lt;tt class="docutils literal"&gt;height&lt;/tt&gt;属性，图片就不会自动缩放，所要做的就是去掉这两个属性（在&lt;a class="reference external" href="http://inkscape.org/"&gt;Inkscape&lt;/a&gt;中删除它们会使得它们被修改为&lt;tt class="docutils literal"&gt;100%&lt;/tt&gt;），然后根据图片中内容所占用的区域，设置&lt;tt class="docutils literal"&gt;viewBox&lt;/tt&gt;。有人说还要设置&lt;tt class="docutils literal"&gt;preserveAspectRatio&lt;/tt&gt;，不过我还没有仔细研究这个属性的具体影响，反正目前看起来加不加都行。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;preserveAspectRatio=&amp;quot;xMinYMin meet&amp;quot;
+viewBox=&amp;quot;0 0 {width} {height}&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;把其中的&lt;tt class="docutils literal"&gt;{width}&lt;/tt&gt;和&lt;tt class="docutils literal"&gt;{height}&lt;/tt&gt;用实际的数值替换掉就可以了。&lt;/p&gt;
+&lt;p&gt;用这个方法处理一下上面那张图，可以看到它填满整个正文区宽度了：&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;object data="https://blog.gocalf.com/images/2013/11/svg_demo_scale.svg" type="image/svg+xml"&gt;
+svg_demo_scale&lt;/object&gt;
+&lt;p class="caption"&gt;会随着页面宽度而缩放的SVG图片&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;好像还有点儿不太对劲儿，一般的位图嵌入页面后，如果页面足够宽，它也只是按照它自身的宽度和高度展示，但上面这张矢量图却总是占满全部宽度，有时候它有点儿太大了。&lt;/p&gt;
+&lt;p&gt;解决的办法很简单，给这个&lt;tt class="docutils literal"&gt;&amp;lt;object&amp;gt;&lt;/tt&gt;标签添加一个&lt;tt class="docutils literal"&gt;width&lt;/tt&gt;属性，指定好默认的宽度就可以了。&lt;a class="reference external" href="http://docutils.sourceforge.net/rst.html"&gt;reStructuredText&lt;/a&gt;中的&lt;a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#figure"&gt;figure directive&lt;/a&gt;和&lt;a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#image"&gt;image directive&lt;/a&gt;都可以非常方便地指定图片的宽度（或高度）。添加之后的效果如下：&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;object data="https://blog.gocalf.com/images/2013/11/svg_demo_scale.svg" style="width: 491px;" type="image/svg+xml"&gt;
+svg_demo_scale&lt;/object&gt;
+&lt;p class="caption"&gt;会随着页面宽度而缩放，但是又不会变得过大的SVG图片&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;看起来好像跟第一张图片一样啊。&lt;/p&gt;
+&lt;p&gt;关键的区别在于，我们可以通过CSS来指定矢量图的最大宽度，让它不要超出页面（或者父级区块）的范围，比如：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;object&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="nt"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;image/svg+xml&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;max-width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="kt"&gt;%&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;你可以试着改变浏览器窗口大小来查看效果。当窗口很窄的时候，第三张图会跟着缩小，但第一张图不会。&lt;/p&gt;
+</content><category term="HTML"></category><category term="SVG"></category></entry><entry><title>博客从WordPress迁移到Pelican</title><link href="https://blog.gocalf.com/wordpress-to-pelican" rel="alternate"></link><published>2013-11-06T21:15:00+08:00</published><updated>2013-11-12T14:00:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-11-06:/wordpress-to-pelican</id><summary type="html">&lt;p class="first last"&gt;经过一段时间的整理，现在正式把GoCalf博客从WordPress迁移到Pelican了。&lt;/p&gt;
+</summary><content type="html">
+&lt;p&gt;经过一段时间的整理，现在正式把&lt;a class="reference external" href="http://www.gocalf.com/blog"&gt;GoCalf博客&lt;/a&gt;从&lt;a class="reference external" href="http://wordpress.org/"&gt;WordPress&lt;/a&gt;迁移到&lt;a class="reference external" href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt;了，简单记录一下，还有一些未完成的事情等着以后再慢慢搞。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;div class="section" id="wordpress-vs"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;WordPress vs. 静态博客&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;最开始的动机只是想寻找一个最适合自己的个人wiki系统，之前把一些备忘信息用&lt;a class="reference external" href="http://tiddlywiki.com/"&gt;TiddlyWiki&lt;/a&gt;保存在U盘上，这样在任何地方，用任何操作系统的电脑都可以查看和编辑。但是后来懒到每次都懒的把U盘拿过来插上，所以并没有发挥太大的作用。后来开始用&lt;a class="reference external" href="https://www.dropbox.com/"&gt;DropBox&lt;/a&gt;，其他很多东西都移到DropBox里了，这个却一直没有动。现在&lt;a class="reference external" href="http://office.microsoft.com/en-us/onenote/"&gt;OneNote&lt;/a&gt;和&lt;a class="reference external" href="https://evernote.com/"&gt;Evernote&lt;/a&gt;和&lt;a class="reference external" href="http://note.youdao.com/"&gt;有道云笔记&lt;/a&gt;同时在用，却没有一个是我真正想要的。&lt;/p&gt;
+&lt;p&gt;扯远了。&lt;/p&gt;
+&lt;p&gt;总之在进行个人wiki的技术选型时，产生了把&lt;a class="reference external" href="http://www.gocalf.com/blog"&gt;GoCalf博客&lt;/a&gt;改成静态博客的念头。&lt;/p&gt;
+&lt;p&gt;接触&lt;a class="reference external" href="http://wordpress.org/"&gt;WordPress&lt;/a&gt;很多年了，这个东西确实非常的强大，丰富的插件使得它几乎可以实现任何我想要的功能。但也总会有人说不要过多地依赖插件，它们会让你的博客变得非常的慢。当然插件太多也挺麻烦的，经常想要某个功能，会发现很多很多相关的插件，对于有选择困难的我来说，这实在是太痛苦了。得考虑插件本身实现的功能是否足够强大，得考虑插件是否还在持续地被维护，得考虑各种兼容性问题等等。像我一直使用的代码高亮插件&lt;a class="reference external" href="http://wordpress.org/plugins/codecolorer/"&gt;CodeColorer&lt;/a&gt;，在我最早开始用WordPress的时候，觉得这个插件是最好的，但最近两年它都不再更新了。它有一些小的bug，向作者反馈后没有收到任何回音，而我又懒得自己改。但是要换别的插件也很麻烦，因为我特别喜欢使用它独特的标记语法，别的插件都不支持。&lt;/p&gt;
+&lt;p&gt;让我想要放弃WordPress的另一个原因是，不知道是不是心理作用，每次用WordPress写东西都感觉像是非常复杂的一件事，甚至有点儿害怕用它。就是感觉特别的麻烦，加上服务器放在境外，访问速度也不是很乐观，就更加不方便了。在写的过程中，也总是会担心这样或那样的小错误，最让我头疼的就是HTML特殊字符的转义了，在代码片段或者数学公式中遇到特殊字符，有时候是要转义的，有时候不用转义，有时候打开一篇老文章，不做任何改动再保存，格式就会出问题。&lt;/p&gt;
+&lt;p&gt;可能是因为它太过强大了。&lt;/p&gt;
+&lt;p&gt;看了一些静态博客方面的文章，感觉挺好的，用任何一个自己喜欢的文本编辑器按照自己习惯的格式去书写，至少在这个过程中完全不用考虑任何展示方面的事情。&lt;/p&gt;
+&lt;p&gt;写文章的过程变得很简洁，不需要趴在服务器上去写，不用担心异常断网等情况带来的不便，只需要有一台机器，有一个自己喜欢的编辑器，写完之后用一个简单的命令就可以进行发布。&lt;/p&gt;
+&lt;p&gt;静态博客还有一个重要的优势是，它几乎不占用什么服务器的运算资源，所有的HTML页面都是在发布前夕在本地生成的，最终在服务器上趴着的只有一个个静态HTML页面，所有的插件都是在发布前在本地进行运算的，不会因为插件众多而拖垮服务器。没有数据库，没有PHP，任何一个可以托管静态页面的地方都可以放下整个博客。&lt;/p&gt;
+&lt;p&gt;另外博客的备份也变得简单了，没有数据库了，也不用从服务器上把文件都拷贝回来。所有的源文件都在本地，可以用任何喜欢的方式进行备份。我现在利用GitHub进行备份，连修改历史都有了。&lt;/p&gt;
+&lt;p&gt;不知道是不是冥冥之中注定了要走上静态之路，就在我正试着把WordPress上的文章往静态博客转移的时候，我的WordPress站点出了些奇怪的问题。已有的文章进入编辑模式后看不到任何内容，这时候如果保存一下，那文章就变成白纸了。有一篇文章的内容莫名其妙地丢失了，我记得我只是打开编辑模式看了看，并没有保存，但它真的没有了。感觉像是CKEditor插件出问题了，把它禁用之后，发现还是不行。如果写新的文章，换行什么的都失效了，虽然编辑框里一个个段落都存在，保存之后所有的段落都粘在一起了。再次启用CKEditor之后，发现编辑器并没有相应地发生变化。一切都乱套了。&lt;/p&gt;
+&lt;p&gt;最后放弃了修复这些问题，让它们全都消失好了。&lt;/p&gt;
+&lt;p&gt;静态博客会有一个问题，就是没法直接加入动态的东西。比如评论，比如搜索。搜索暂时没有考虑，对于评论，可以利用社交化评论系统，比如我现在用的&lt;a class="reference external" href="http://disqus.com/"&gt;Disqus&lt;/a&gt;，在生成的html页面中嵌入一段JavaScript代码，当浏览器打开这个页面的时候，JavaScript代码会从Disqus服务器上获取相关的评论信息并展示出来。也可以自己做一个简单的评论系统，不过对于垃圾评论满天飞的互联网，要想做好还是很难的。&lt;/p&gt;
+&lt;p&gt;总的来说，静态博客的好处是，你只需要关注要写的内容本身。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="octopress-vs-pelican"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;Octopress vs. Pelican&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;刚开始接触到的静态博客是&lt;a class="reference external" href="http://octopress.org/"&gt;Octopress&lt;/a&gt;，是基于&lt;a class="reference external" href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt;的，后者是用Ruby写的静态博客系统。据说Octopress与Jekyll的关系就像jQuery与JavaScript的关系一样。&lt;/p&gt;
+&lt;p&gt;现在Octopress很火的，在&lt;a class="reference external" href="https://github.com/imathis/octopress/wiki/Octopress-Sites"&gt;Octopress Sites&lt;/a&gt;中可以看到很多基于Octopress搭建的博客，我也针对一些我需要的特性对它进行了一些勘察。不过很快地，我就把目光转向了基于Python的&lt;a class="reference external" href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;Pelican的使用量相对来说少一些（&lt;a class="reference external" href="https://github.com/getpelican/pelican/wiki/Powered-by-Pelican"&gt;Pelican Sites&lt;/a&gt;），选择它的主要原因是我更熟悉Python。Ruby的代码我几乎没有看过，也没有尝试去读或者写，这样如果在使用Octopress过程中，需要做一些修改，或者写一些插件，就会比较困难。但如果使用Pelican，我可以自己修改它的代码，可以自己写插件。后来发现这个选择是对的，我已经对Pelican及其插件做了一些修改，而且已经计划写一些至少自己能用的上的新插件。&lt;/p&gt;
+&lt;p&gt;Pelican当前的版本是3.3.0，虽然没有和Octopress具体地对比，但它有些功能是我很喜欢的，比如&lt;a class="reference external" href="http://docs.getpelican.com/en/latest/getting_started.html#linking-to-internal-content"&gt;linking to internal content&lt;/a&gt;用于把不同的文章、或者文章和附件联系起来，而不需要关心它们发布后在什么位置；比如内置了对多语言博客的支持（&lt;a class="reference external" href="http://docs.getpelican.com/en/latest/getting_started.html#translations"&gt;translations&lt;/a&gt;）；还有草稿模式等等。&lt;/p&gt;
+&lt;p&gt;相对的，它的缺点主要是插件还不够丰富，只好用“自己写”来弥补了。另外大多数Pelican主题都不好看，这个问题回头再慢慢解决吧。&lt;/p&gt;
+&lt;p&gt;现在我的这个博客看起来有点儿像Octopress，是因为我用了&lt;a class="reference external" href="http://docs.getpelican.com/en/latest/getting_started.html#translations"&gt;Octopress Theme for Pelican&lt;/a&gt;。这只是暂时的啦，以后有时间了会自己整一个主题。&lt;/p&gt;
+&lt;p&gt;有一个问题是比较讨厌的，不知道Octopress是否也一样，就是编译速度比较慢。静态博客是要把用标记语言书写的文章转换成HTML页面，用Pelican的时候，几十篇文章就需要几秒钟的时间才能编译完成，如果有上百篇文章，等待过程会让人焦虑的。目前即使只是一篇文章中改变了一个字，编译的时候也会重新编译所有的页面。这一点期待开发团队的改进吧。感觉一个可行的方案是生成一些中间文件，把每篇文章对应的HTML片段单独保存，如果文章内容和相关的参数都没变，这一部分就不用重新生成。最终的HTML页面，是把框架跟内容片段连在一起生成的，这个过程应该会很快。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="markdown-vs-restructuredtext"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;Markdown vs. reStructuredText&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://daringfireball.net/projects/markdown/"&gt;Markdown&lt;/a&gt;和&lt;a class="reference external" href="http://docutils.sourceforge.net/rst.html"&gt;reStructuredText&lt;/a&gt;都是非常不错的标记语言，也是众多静态博客玩家首选的语言之一二。开始我一直准备用Markdown，GitHub对它的强力支持是很主要的原因。当然Markdown自身确实也有很多的优势，它非常的简洁，书写和阅读都非常舒服。我甚至已经把所有的文章都转成Markdown格式了，但最后还是转投reStructuredText的怀抱。&lt;/p&gt;
+&lt;p&gt;Markdown很简洁，如果是写文学的东西，用它最合适不过了。但它有点儿太简洁了，如果是写技术文章，它的处理能力就有点儿捉襟见肘了。比如没有原生的表格，没有数学公式的支持，段落嵌套很困难，虽然能直接嵌入HTML代码，但很难做到复杂的嵌套。&lt;/p&gt;
+&lt;p&gt;reStructuredText则要强大的多，也并没有失去太多的简便性。Python的官方文档就是用它写出来的。很多技术博客或者技术书籍是用它写出来的。&lt;/p&gt;
+&lt;p&gt;Markdown的扩展性也让人难以忍受，它天生似乎就没打算让别人对它做太多的扩展。它没有一个约定俗成的扩展语法。在Octopress中广泛使用的是Liquid-style Tags，大多数Octopress插件的语法都是基于这个的。我没有仔细研究过，看起来这个是从Ruby那里来的。当然在Pelican里面也有相应的liquid tags插件，但我实在不能忍受liquid tag常用的语法。以Octopress中&lt;a class="reference external" href="http://octopress.org/docs/plugins/image-tag/"&gt;Image Tag&lt;/a&gt;插件为例，它的语法是：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{% img [class names] /path/to/image [width] [height] [title text [alt text]] %}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;如果去看这个插件的源代码，可以发现它用正则表达式来解析这个语法，相关的代码如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;markup&lt;/span&gt; &lt;span class="o"&gt;=~&lt;/span&gt; &lt;span class="sr"&gt;/(?&amp;lt;class&amp;gt;\S.*\s+)?(?&amp;lt;src&amp;gt;(?:https?:\/\/|\/|\S+\/)\S+)(?:\s+(?&amp;lt;width&amp;gt;\d+))?(?:\s+(?&amp;lt;height&amp;gt;\d+))?(?&amp;lt;title&amp;gt;\s+.+)?/i&lt;/span&gt;
+  &lt;span class="vi"&gt;@img&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;attributes&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reduce&lt;/span&gt;&lt;span class="p"&gt;({})&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;img&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kp"&gt;attr&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;img&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="kp"&gt;attr&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="vg"&gt;$~&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="kp"&gt;attr&lt;/span&gt;&lt;span class="o"&gt;].&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vg"&gt;$~&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="kp"&gt;attr&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;img&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="sr"&gt;/(?:"|')(?&amp;lt;title&amp;gt;[^"']+)?(?:"|')\s+(?:"|')(?&amp;lt;alt&amp;gt;[^"']+)?(?:"|')/&lt;/span&gt; &lt;span class="o"&gt;=~&lt;/span&gt; &lt;span class="vi"&gt;@img&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'title'&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+    &lt;span class="o"&gt;...&lt;/span&gt;
+  &lt;span class="k"&gt;else&lt;/span&gt;
+    &lt;span class="o"&gt;...&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+  &lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;复杂的正则表达式隐含着太多未知的危机。可怕之处在于每个参数都不是命名的，依靠位置（或者顺序）来识别每个参数值的含义。但是绝大多数参数又都是可以省略的，这种情况下只能借助参数可能的内容格式来进行识别。如果参数个数比较多，参数值的格式要求比较松，那识别起来将会非常的麻烦。&lt;/p&gt;
+&lt;p&gt;reStructuredText没有这样的问题，它有明确的扩展方式，通过role和directive，分别是行内和区块扩展。directive的格式非常清晰，匿名或者是必备的参数、可选的命名的参数、内容段落等等。&lt;/p&gt;
+&lt;p&gt;另外reStructuredText直接提供了众多的role和directive，比如LaTeX公式，甚至可以直接通过选项来控制是否使用MathJax来渲染LaTeX公式。在改用reStructuredText后，发现之前启用的很多插件都没有必要了，reStructuredText已经提供了支持。&lt;/p&gt;
+&lt;p&gt;reStructuredText的段落嵌套非常的强大，而Markdown似乎忘记了这一点。&lt;/p&gt;
+&lt;p&gt;当然Markdown也有比reStructuredText强大的地方，最明显的就是Markdown行内格式的嵌套非常方便。用&lt;tt class="docutils literal"&gt;***&lt;/tt&gt;包围起来的文字会同时有粗体和斜体效果。reStructuredText到目前还不太支持role的嵌套，想要做出同时粗体和斜体的文字，或者粗体的链接，都是比较困难或者麻烦的。还有其他一些小的细节，我就不具体说了。&lt;/p&gt;
+&lt;p&gt;总的来说，Markdown更简洁，更适合于书写纯文字的东西；reStructuredText更强大，适合于书写复杂的技术文章。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;革命尚未成功&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;新版的博客已经上线了，但仍然有一些工作需要进行。&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;MathJax插件：reStructuredText内置了对LaTeX公式的支持，行内公式用&lt;a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/roles.html#math"&gt;math role&lt;/a&gt;实现，区块公式用&lt;a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#math"&gt;math directive&lt;/a&gt;实现，而且通过&lt;a class="reference external" href="http://docutils.sourceforge.net/docs/user/config.html#math-output"&gt;--math-output&lt;/a&gt;配置可以让它用MathJax进行渲染。但是MathJax是要在浏览器里执行JavaScript的，如果无法执行JavaScript（比如在RSS中）就没法正常显示了。之前在WordPress中，利用插件先生成图片，如果无法执行JavaScript就会直接显示图片。所以这里也需要一个类似的插件，在编译的时候生成图片备用。&lt;/li&gt;
+&lt;li&gt;Graphviz插件：Pelican中似乎没有直接能用的graphviz directive，需要去找一个或者写一个插件。在编译的时候调用dot命令生成好图片就可以了。&lt;/li&gt;
+&lt;li&gt;Chart插件：有时候提供一些数据的展示，图表是非常必需的。之前都是先用Excel或这Mathematica之类的软件画好，再把图片放上去。如果有插件直接把数据通过JavaScript展示出来就更好了。准备写个插件，调用&lt;a class="reference external" href="http://nvd3.org/"&gt;NVD3&lt;/a&gt;进行绘图。&lt;/li&gt;
+&lt;li&gt;Featured Image：WordPress自带了这个，而且大多数主题都支持它，就是每篇文章有一张特色图片。这个需要去考察一下看看有没有现成的插件，当然主题也需要能够支持它。&lt;/li&gt;
+&lt;li&gt;系列文章插件：系列文章是个很好的东西，把一系列非常相关的文章按照时间组织在一起。之前就一直在用，Pelican倒是也有一个相关的插件，但还不完全是我想要的。等有空的时候再研究研究。&lt;/li&gt;
+&lt;li&gt;主题：对CSS的把控力几乎为零，所以主题的制作还是很让人头疼的一件事情。我会继续寻找一个更好的主题，或者如果有精力，会考虑自己做一个主题。&lt;ul&gt;
+&lt;li&gt;[2013-11-12] 现在改用&lt;a class="reference external" href="http://oncrashreboot.com/elegant-best-pelican-theme-features"&gt;Elegant&lt;/a&gt;主题，非常的清新，而且作者很活跃，一直在不断地完善该主题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</content><category term="Static Blog"></category><category term="Pelican"></category></entry><entry><title>彻底禁止游客访问Discuz! 7.0搭建的论坛</title><link href="https://blog.gocalf.com/discuz-no-anonymous" rel="alternate"></link><published>2011-08-15T21:17:00+08:00</published><updated>2011-08-15T21:17:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-15:/discuz-no-anonymous</id><summary type="html">&lt;p class="first last"&gt;以前搭建了一个供内部交流用的Discuz!论坛，不希望没有账号的人（包括搜索引擎）看到论坛内的任何信息（包括首页等等）。在管理员设置里找了半天，发现可以“禁止IP”、“禁止用户访问”，甚至可以让“版主”、“超级版主”等用户组访问无法访问任何页面，却偏偏没有对游客的限制。对于大多数开放的论坛并无所谓，但对于我们这种特殊的论坛，就只好自己修改代码了。来看看是如何修改的。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;以前搭建了一个供内部交流用的Discuz!论坛，不希望没有账号的人（包括搜索引擎）看到论坛内的任何信息（包括首页等等）。在管理员设置里找了半天，发现可以“禁止IP”、“禁止用户访问”，甚至可以让“版主”、“超级版主”等用户组访问无法访问任何页面，却偏偏没有对游客的限制。对于大多数开放的论坛并无所谓，但对于我们这种特殊的论坛，就只好自己修改代码了。来看看是如何修改的。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;此次修改针对的是Discuz!
+7.0，其他版本可能也大同小异吧。只要改一点点就好了。&lt;/p&gt;
+&lt;p&gt;文件/include/common.func.php中的代码几乎在访问论坛任何页面时都会被执行，它包含了很多对用户权限的控制，只要在恰当的位置添加对游客的访问限制即可。&lt;/p&gt;
+&lt;p&gt;要关注的代码段落是365行至378行：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;if((!empty($_DCACHE[&amp;#39;advs&amp;#39;]) || $globaladvs) &amp;amp;&amp;amp; !defined(&amp;#39;IN_ADMINCP&amp;#39;)) {&lt;/span&gt;
+&lt;span class="x"&gt;  require_once DISCUZ_ROOT.&amp;#39;./include/advertisements.inc.php&amp;#39;;&lt;/span&gt;
+&lt;span class="x"&gt;}&lt;/span&gt;
+
+&lt;span class="x"&gt;if(isset($allowvisit) &amp;amp;&amp;amp; $allowvisit == 0 &amp;amp;&amp;amp; !(CURSCRIPT == &amp;#39;member&amp;#39; &amp;amp;&amp;amp; ($action == &amp;#39;groupexpiry&amp;#39; || $action == &amp;#39;activate&amp;#39;))) {&lt;/span&gt;
+&lt;span class="x"&gt;  showmessage(&amp;#39;user_banned&amp;#39;, NULL, &amp;#39;HALTED&amp;#39;);&lt;/span&gt;
+&lt;span class="x"&gt;} elseif(!(in_array(CURSCRIPT, array(&amp;#39;logging&amp;#39;, &amp;#39;wap&amp;#39;, &amp;#39;seccode&amp;#39;, &amp;#39;ajax&amp;#39;)) || $adminid == 1)) {&lt;/span&gt;
+&lt;span class="x"&gt;  if($bbclosed) {&lt;/span&gt;
+&lt;span class="x"&gt;    clearcookies();&lt;/span&gt;
+&lt;span class="x"&gt;    $closedreason = $db-&amp;gt;result_first(&amp;quot;SELECT value FROM {$tablepre}settings WHERE variable=&amp;#39;closedreason&amp;#39;&amp;quot;);&lt;/span&gt;
+&lt;span class="x"&gt;    showmessage($closedreason ? $closedreason : &amp;#39;board_closed&amp;#39;, NULL, &amp;#39;NOPERM&amp;#39;);&lt;/span&gt;
+&lt;span class="x"&gt;  }&lt;/span&gt;
+&lt;span class="x"&gt;  periodscheck(&amp;#39;visitbanperiods&amp;#39;);&lt;/span&gt;
+&lt;span class="x"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;从369行开始的那段代码是对被禁止的用户组或者账户进行屏蔽，以及处理论坛暂时关闭的情况，就在它前面加上对游客的限制即可。判断是游客还是已登录用户的方法就是看有没有uid信息，游客是没有uid的。另外，虽然游客不能访问论坛的任何页面，但总要让他能够注册或者登录，所以要把相关页面的权限放开。除了371行所列的那几项之外，还需要开放register，除非论坛注册也不对外开放。&lt;/p&gt;
+&lt;p&gt;修改的内容如下，只是多加了一个判断而已：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;368a369,374
+&amp;gt; /* Forbid tourists visiting the bbs. Add by calf, Apr 15, 2009 */
+&amp;gt; if(!$discuz_uid &amp;amp;&amp;amp; !(defined(&amp;#39;CURSCRIPT&amp;#39;) &amp;amp;&amp;amp; in_array(CURSCRIPT, array(&amp;#39;logging&amp;#39;, &amp;#39;wap&amp;#39;, &amp;#39;seccode&amp;#39;, &amp;#39;ajax&amp;#39;, &amp;#39;register&amp;#39;)))) {
+&amp;gt;   showmessage(&amp;#39;not_loggedin&amp;#39;, NULL, &amp;#39;NOPERM&amp;#39;);
+&amp;gt; }
+&amp;gt; /* End of Add */
+&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这样修改后，未登录状态下访问论坛会得到类似于“您无权进行当前操作，这可能因以下原因之一造成：对不起，您还没有登录，无法进行此操作。”的提示信息，并直接跳转到登录界面。&lt;/p&gt;
+</content><category term="Discuz!"></category></entry><entry><title>解决BlueHost邮箱无法接收邮件的问题</title><link href="https://blog.gocalf.com/bluehost-mailbox" rel="alternate"></link><published>2011-07-31T22:04:00+08:00</published><updated>2011-08-03T22:33:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-31:/bluehost-mailbox</id><summary type="html">&lt;p class="first last"&gt;在之前的一篇文章中提到GoCalf网站的Email部分还没弄好，当时遇到的问题是可以发出邮件，却无法接收邮件。问题根源在于DNS没有设置好（空间跟域名来自不同的提供商），今天花了一点儿时间把这个问题解决了。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;在之前的&lt;a class="reference external" href="https://blog.gocalf.com/lets-start"&gt;一篇文章&lt;/a&gt;中提到&lt;a class="reference external" href="http://www.gocalf.com/"&gt;GoCalf&lt;/a&gt;网站的Email部分还没弄好，当时遇到的问题是可以发出邮件，却无法接收邮件。问题根源在于DNS没有设置好（空间跟域名来自不同的提供商），今天花了一点儿时间把这个问题解决了。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;我的域名是&lt;a class="reference external" href="http://www.godaddy.com"&gt;GoDaddy&lt;/a&gt;提供的，而服务器空间则在&lt;a class="reference external" href="http://www.bluehost.com/"&gt;BlueHost&lt;/a&gt;上，域名解析（DNS）是在GoDaddy上进行的。之前已经将二级域名mail的A记录指向GoCalf空间的IP地址了，可以登录邮箱，能发出邮件，但怎么都收不到信。在Gmail（或别的邮件服务器）中给BlueHost上的邮件帐户发邮件，会收到无法送达的失败提示：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;Delivery to the following recipient failed permanently:&lt;/div&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&amp;nbsp; &amp;nbsp; &lt;a class="reference external" href="mailto:xxx&amp;#64;xxxxxxxx.com"&gt;xxx&amp;#64;xxxxxxxx.com&lt;/a&gt;&lt;/div&gt;
+&lt;div class="line"&gt;Technical details of permanent failure:&lt;/div&gt;
+&lt;div class="line"&gt;Google tried to deliver your message, but it was rejected by the
+recipient domain. We recommend contacting the other email provider
+for further information about the cause of this error. The error
+that the other server returned was: 550 550 #5.1.0 Address rejected
+&lt;a class="reference external" href="mailto:xxx&amp;#64;xxxxxxxx.com"&gt;xxx&amp;#64;xxxxxxxx.com&lt;/a&gt; (state 14).&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;看起来应该是DNS的问题（跨服务商就是这点比较麻烦啊）。仔细察看了GoDaddy上DNS
+Manager里面的内容，发现Mail
+Exchanger（MX）的配置内容有问题，并没有指向GoCalf的空间地址，因此将MX记录改为指向mail.gocalf.com。改动大概需要一个小时才能生效，生效之后再次发送邮件就可以在BlueHost里收到了。&lt;/p&gt;
+&lt;p&gt;附GoDaddy里面DNS设置截图：&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="GoDaddy中DNS设置" src="https://blog.gocalf.com/images/2011/07/godaddy_dns.png" /&gt;
+&lt;p class="caption"&gt;将二级域名mail指向&amp;#64;地址；MX记录指向mail.&amp;lt;yourdomain&amp;gt;.com&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="BlueHost"></category><category term="Mail Exchanger"></category></entry><entry><title>关于安装MathJax后占用文件过多的问题</title><link href="https://blog.gocalf.com/mathjax-numerous-files" rel="alternate"></link><published>2011-07-28T22:39:00+08:00</published><updated>2011-08-03T22:26:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-28:/mathjax-numerous-files</id><summary type="html">&lt;p class="first last"&gt;MathJax在安装目录下有三万多个文件，百分之九十九以上都是由图片字体`mathjax/fonts/HTML-CSS/TeX/png`贡献的，这些图片是为不支持的Web Font的浏览器准备的。如果太多的文件影响到服务器空间，可以按照本文的方法删掉以节省空间，减少文件总数。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;在&lt;a class="reference external" href="https://blog.gocalf.com/latex-wordpress"&gt;WordPress数学公式插件LaTeX&lt;/a&gt;中介绍了GoCalf博客中使用的LaTeX插件，是Zhiqiang开发的&lt;a class="reference external" href="http://wordpress.org/extend/plugins/latex/"&gt;LaTeX for WordPress&lt;/a&gt;插件。这个插件利用MathJax来渲染LaTeX公式，效果非常好，后来我在自己的空间里安装了MathJax引擎。可是前两天发现我的空间里竟然有五万多个文件，几乎就要收到BlueHost的警告了，查看了一下文件分布，发现光MathJax就有三万多个文件！怎么能减少文件数目呢？&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;对MathJax的安装路径扫描了一下，发现mathjax/fonts/HTML-CSS/TeX/png下面有无数的小文件，都是图片，每个图片是一个字符。非常奇怪，MathJax不是用JavaScript、CSS和Web
+Font来显示公式么，怎么会有这么多图片格式的字符。&lt;/p&gt;
+&lt;p&gt;带着这个疑问到MathJax官方网站上看了看，果然找到了这样一个FAQ：&lt;a class="reference external" href="http://www.mathjax.org/resources/faqs/#fonts-too-big"&gt;The MathJax font folder is too big. Is there any way to compress it?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;原来这些图片格式的字符是为了让那些古老的不支持Web
+Font的浏览器也可以正常地显示LaTeX公式，好吧，可怕的向下兼容。在MathJax将其改进之前，我决定先删掉这些图片。先要关闭这种图片字体的功能，直接修改插件的源代码blog/wp-content/plugins/latex/latex.php，找到关于MathJax配置的代码，修改为：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;function add_latex_mathjax_code(){
+    echo &amp;#39;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/x-mathjax-config&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nx"&gt;MathJax&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Hub&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;HTML-CSS&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="nx"&gt;scale&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;85&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="hll"&gt;                &lt;span class="nx"&gt;imageFont&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;
+&lt;/span&gt;            &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="p"&gt;});&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;#39;.get_option(&amp;quot;&lt;/span&gt;&lt;span class="na"&gt;mathjax_server&lt;/span&gt;&lt;span class="err"&gt;&amp;quot;).&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;&amp;#39;;
+}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;其中第6行就是新添加的内容（还有第5行末尾的逗号），这样MathJax就不会再使用图片字体，然后把上面提到的那个目录整个删掉就可以了。当然TeX目录下还有其他几个文件夹，如eot、otf和svg，这些可不要删，要不然在什么浏览器上都无法显示公式了。&lt;/p&gt;
+&lt;p&gt;试了一下，至少IE6+、Chrome、FireFox、Safari（包括iPhone、iPad版）都可以正常显示公式。&lt;/p&gt;
+&lt;p&gt;呼，一下子清理掉三万多文件，不错。&lt;/p&gt;
+</content><category term="MathJax"></category></entry><entry><title>关于LaTeX插件再啰嗦几句</title><link href="https://blog.gocalf.com/latex-plugin-more" rel="alternate"></link><published>2011-07-11T23:43:00+08:00</published><updated>2011-08-03T20:52:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-11:/latex-plugin-more</id><summary type="html">&lt;p class="first last"&gt;对LaTeX for WordPress插件做了一点小小的改动，修复了在启用MathJax时无法显示公式源码的问题。还将公式的shortcode限定为latex。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;在&lt;a class="reference external" href="https://blog.gocalf.com/latex-wordpress"&gt;WordPress数学公式插件LaTeX&lt;/a&gt;中推荐了Zhiqiang同学的WordPress插件&lt;a class="reference external" href="http://wordpress.org/extend/plugins/latex/"&gt;LaTeX for WordPress&lt;/a&gt;，这个插件可以方便地以MathJax或者图片方式展示文章中的LaTeX公式，效果美观，使用方便。&lt;/p&gt;
+&lt;p&gt;不过由于使用习惯不同，我在使用这个插件的过程中也遇到了一些问题，于是对这个插件做了一点小小的修改，记录在此。&lt;/p&gt;
+&lt;p&gt;这次修改主要要解决两个问题：&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;在启用MathJax的情况下，修复&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$$...!$$&lt;/span&gt;&lt;/tt&gt;无法显示公式源码的问题。&lt;/li&gt;
+&lt;li&gt;限制公式的修饰符为&lt;tt class="docutils literal"&gt;[latex]&lt;/tt&gt;和&lt;tt class="docutils literal"&gt;[/latex]&lt;/tt&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;根据&lt;a class="reference external" href="http://wordpress.org/extend/plugins/latex/"&gt;LaTeX for WordPress&lt;/a&gt;主页上的说明，如果不想对公式进行渲染，只显示公式的源码，需要在第二个&lt;tt class="docutils literal"&gt;$$&lt;/tt&gt;前面加&lt;tt class="docutils literal"&gt;!&lt;/tt&gt;。但在实际使用中发现开启了MathJax的时候无法实现这一效果。仔细看了一下MathJax的文档，原来虽然插件把&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$$a^2+b^2+c^2!$$&lt;/span&gt;&lt;/tt&gt;这样的代码转换成了&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;\(a^2+b^2+c^2!\)&lt;/span&gt;&lt;/tt&gt;，但后者又被MathJax的JavaScript给渲染成&lt;span class="math"&gt;\(a^2+b^2+c^2\)&lt;/span&gt;了。而要解决这个问题也很简单，只要给页面的body标签添加一个tex2jax_ignore的class，就可以阻止MathJax的处理（参见&lt;a class="reference external" href="http://www.mathjax.org/docs/1.1/options/tex2jax.html"&gt;The tex2jax Preprocessor&lt;/a&gt;）。&lt;/p&gt;
+&lt;p&gt;以我现在使用的LightWord主题为例，修改/wp-content/themes/lightword/header.php，把&lt;code class="php"&gt;&lt;span class="x"&gt;&amp;lt;body &lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;?php&lt;/span&gt; &lt;span class="nx"&gt;body\_class&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="cp"&gt;?&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;改成&lt;code class="php"&gt;&lt;span class="x"&gt;&amp;lt;body &lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;?php&lt;/span&gt; &lt;span class="nx"&gt;body\_class&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'tex2jax\_ignore'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="cp"&gt;?&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;即可。&lt;/p&gt;
+&lt;p&gt;至于公式的修饰符，插件支持&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;\(...\)&lt;/span&gt;&lt;/tt&gt;、&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;\[...\]&lt;/span&gt;&lt;/tt&gt;、&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$$...$$&lt;/span&gt;&lt;/tt&gt;、&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;[latex]...[/latex]&lt;/span&gt;&lt;/tt&gt;、&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;[tex]...[/tex]&lt;/span&gt;&lt;/tt&gt;，但我还是担心这样的代码在一些程序源代码中也很容易出现（比如正则表达式），所以还是决定只用latex作为标记。这个修改很简单，只要对/wp-content/plugins/latex/latex.php（v3.1）做如下改动即可：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;108c108,109
+&amp;lt; $regex = &amp;#39;#\$\$(.*?)\$\$#si&amp;#39;;
+&lt;span class="gd"&gt;---&lt;/span&gt;
+&amp;gt; //$regex = &amp;#39;#\$\$(.*?)\$\$#si&amp;#39;;
+&amp;gt; $regex = &amp;#39;#\[latex\](.*?)\[/latex\]#si&amp;#39;;
+110c111
+&amp;lt; $toParse = str_replace(array(&amp;quot;\(&amp;quot;, &amp;quot;\)&amp;quot;, &amp;quot;\[&amp;quot;, &amp;quot;\]&amp;quot;, &amp;quot;[latex]&amp;quot;, &amp;quot;[tex]&amp;quot;, &amp;quot;[/latex]&amp;quot;, &amp;quot;[/tex]&amp;quot;), array(&amp;quot;$$&amp;quot;, &amp;quot; $$&amp;quot;, &amp;quot;$$!&amp;quot;, &amp;quot; $$&amp;quot;, &amp;quot;$$&amp;quot;, &amp;quot; $$&amp;quot;, &amp;quot;$$&amp;quot;, &amp;quot; $$&amp;quot;), $toParse);
+&lt;span class="gd"&gt;---&lt;/span&gt;
+&amp;gt; //$toParse = str_replace(array(&amp;quot;\(&amp;quot;, &amp;quot;\)&amp;quot;, &amp;quot;\[&amp;quot;, &amp;quot;\]&amp;quot;, &amp;quot;[latex]&amp;quot;, &amp;quot;[/latex]&amp;quot;, &amp;quot;[tex]&amp;quot;, &amp;quot;[/tex]&amp;quot;), array(&amp;quot;$$&amp;quot;, &amp;quot; $$&amp;quot;, &amp;quot;$$!&amp;quot;, &amp;quot; $$&amp;quot;, &amp;quot;$$&amp;quot;, &amp;quot; $$&amp;quot;, &amp;quot;$$&amp;quot;, &amp;quot; $$&amp;quot;), $toParse);
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这样修改之后，依旧支持插件原本的inline、single
+line以及显示源码的处理。要在单独的一行中显示公式，就在&lt;tt class="docutils literal"&gt;[latex]&lt;/tt&gt;后面加&lt;tt class="docutils literal"&gt;!&lt;/tt&gt;；如果要显示公式源码，就在&lt;tt class="docutils literal"&gt;[/latex]&lt;/tt&gt;前面加&lt;tt class="docutils literal"&gt;!&lt;/tt&gt;。&lt;/p&gt;
+&lt;p&gt;当然也期待Zhiqiang进一步完善插件，给用户提供更方便的设置选项。&lt;/p&gt;
+</content><category term="WordPress LaTeX"></category><category term="WordPress Plugin"></category></entry><entry><title>为你的WordPress站点添加LaTeX支持</title><link href="https://blog.gocalf.com/wordpress-latex-old" rel="alternate"></link><published>2011-07-02T23:55:00+08:00</published><updated>2011-08-03T22:20:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-02:/wordpress-latex-old</id><summary type="html">&lt;p class="first last"&gt;如果你的博客跟我们这个一样，也是用WordPress系统搭建的；如果你跟我一样，也希望可以在Blog中用LaTeX书写数学公式，那么这篇文章或许对你有所帮助。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;注：本文是通过Google
+Reader从已故的博客&lt;a class="reference external" href="http://www.zhongqingju.com"&gt;钟磬居&lt;/a&gt;（链接已失效）中恢复出来的（原文地址&lt;a class="reference external" href="http://www.zhongqingju.com/?p=604"&gt;http://www.zhongqingju.com/?p=604&lt;/a&gt;）。目前在GoCalf博客中效力的LaTeX插件是&lt;a class="reference external" href="http://zhiqiang.org/"&gt;Zhiqiang&lt;/a&gt;开发的&lt;a class="reference external" href="http://wordpress.org/extend/plugins/latex/"&gt;LaTeX for WordPress&lt;/a&gt;。相关内容请见：&lt;a class="reference external" href="https://blog.gocalf.com/latex-wordpress"&gt;WordPress数学公式插件LaTeX&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;======== 分隔符 ========&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;关键词：WordPress，Blog，LaTeX，插件；&lt;/li&gt;
+&lt;li&gt;适用人群：了解LaTex，需要在WordPress搭建的Blog内用LaTeX书写数学公式的人；&lt;/li&gt;
+&lt;li&gt;平台：WordPress 2.x。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果你的博客跟我们这个一样，也是用WordPress系统搭建的；如果你跟我一样，也希望可以在Blog中用LaTeX书写数学公式，那么这篇文章或许对你有所帮助。&lt;/p&gt;
+&lt;p&gt;我们这个博客没有内建的对LaTeX的支持，为了能够在文章中显示数学公式，有三种方法可以使用：&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;利用LaTeX软件或在线服务（如&lt;a class="reference external" href="http://www.forkosh.com/mimetex.html"&gt;mimetex&lt;/a&gt;，&lt;a class="reference external" href="http://www.codecogs.com/components/equationeditor/equationeditor.php"&gt;LaTeX Equation Editor&lt;/a&gt;）生成公式的图片，将图片上传到自己的站点或者PicasaWeb，然后在文章中插入该图片；&lt;/li&gt;
+&lt;li&gt;为自己的站点安装LaTeX的相关软件，使其可以解析LaTeX并生成图片；&lt;/li&gt;
+&lt;li&gt;利用插件（&lt;a class="reference external" href="http://en.dahnielson.com/2006/09/mimetex-plugin.html"&gt;dahnielson_mimetex&lt;/a&gt;），动态地向公开的服务发出请求，获取公式图片并显示。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;如果你一年也写不了一两个数学公式，那么用第一种方法最方便了，避免了在服务器上安装各种各样的软件或插件。但如果需要频繁写公式，那这个方法显然太麻烦，每个公式要到生成一张图片，上传，插入；修改公式的时候还要再重复一遍。&lt;/p&gt;
+&lt;p&gt;第二个方法比较可靠的，但也相当麻烦（对于我这种新手来说）。需要在服务器上安装LaTeX和ImageMagick这两个软件，然后&lt;a class="reference external" href="http://sixthform.info/steve/wordpress/wp-content/uploads/wp-latexrender.zip"&gt;下载wp-latexrender插件&lt;/a&gt;并安装，进行一系列配置之后，你的站点就可以解析LaTeX并生成图片了。如果你的服务器上已经装了这两个软件，那就不用等了，直接用吧，要不然的话还是看看下一个方法。&lt;/p&gt;
+&lt;p&gt;第三个方法是用&lt;a class="reference external" href="http://en.dahnielson.com/2006/09/mimetex-plugin.html"&gt;dahnielson_mimetex&lt;/a&gt;插件，它会向指定的服务器发送请求，获取公式所对应的图片。可惜插件默认使用的服务失效了，如果你的站点可以执行cgi程序，那么可以访问&lt;a class="reference external" href="http://www.forkosh.com/mimetex.html"&gt;这里&lt;/a&gt;了解如何安装cgi
+mimetex。如果你的站点没法执行cgi程序，那么可以试一试我现在使用的方法：&lt;/p&gt;
+&lt;p&gt;wordpress.com的用户都可以在博客中使用一对&lt;tt class="docutils literal"&gt;$&lt;/tt&gt;来书写LaTeX，在&lt;a class="reference external" href="http://support.wordpress.com/latex/"&gt;http://support.wordpress.com/latex/&lt;/a&gt;中有介绍。我的方法就是修改dahnielson_mimetex，让其调用wordpress.com的LaTeX服务来生成图片。由于后者比mimetex多了一些控制图片颜色和大小的参数，因此要在dahnielson_mimetex中做出相应的修改。&lt;/p&gt;
+&lt;p&gt;首先下载&lt;a class="reference external" href="http://en.dahnielson.com/2006/09/mimetex-plugin.html"&gt;dahnielson_mimetex v1.2&lt;/a&gt;，将其安装到博客上，然后对其进行如下的编辑。&lt;/p&gt;
+&lt;p&gt;一共只有五处简单的修改，第一处是修改description，把新加的参数写进去，以免日后忘记：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;5,7c5,7
+&amp;lt; Description: Use &amp;amp;lt;tex&amp;amp;gt;&amp;amp;lt;/text&amp;amp;gt; tags to embed LaTeX math in posts, see the &amp;lt;a href=&amp;quot;http://www.forkosh.com/mimetex.html&amp;quot;&amp;gt;mimeTeX manual&amp;lt;/a&amp;gt; for details.
+&amp;lt; Version: 1.2
+&amp;lt; Author: Anders Dahnielson
+&lt;span class="gd"&gt;---&lt;/span&gt;
+&amp;gt; Description: Use &amp;amp;lt;tex bg=&amp;quot;000000~ffffff&amp;quot; fg=&amp;quot;000000~ffffff&amp;quot; sz=&amp;quot;-4~4&amp;quot; escaped=&amp;quot;true|false&amp;quot;&amp;amp;gt;&amp;amp;lt;/tex&amp;amp;gt; tags to embed LaTeX math in posts.
+&amp;gt; Version: 1.2.1
+&amp;gt; Author: Anders Dahnielson; Modified by calf (April 12, 2009)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这个插件最初的语法只是&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;&amp;lt;tex&amp;gt;&amp;lt;/text&amp;gt;&lt;/span&gt;&lt;/tt&gt;，我给它添加了四个参数：&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;bg&lt;/dt&gt;
+&lt;dd&gt;设定图片的背景色，格式为六个十六进制字符，范围000000到ffffff，默认值为ffffff即白色&lt;/dd&gt;
+&lt;dt&gt;fg&lt;/dt&gt;
+&lt;dd&gt;设定图片的前景色，格式为六个十六进制字符，范围000000到ffffff，默认值为000000即黑色&lt;/dd&gt;
+&lt;dt&gt;sz&lt;/dt&gt;
+&lt;dd&gt;设定图片的大小，格式为整数，范围-4到4，默认值为0即正常大小&lt;/dd&gt;
+&lt;dt&gt;escaped&lt;/dt&gt;
+&lt;dd&gt;设定公式中的&amp;lt;、&amp;gt;、&amp;amp;等符号是否是html转义的（即用&amp;amp;lt;、&amp;amp;gt;、&amp;amp;amp;表示），可取值为true或false，默认值为false即未转义的&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;第二处修改是正则表达式，在dahnielson_mimetex类的parse函数中，修改过的正则表达式可以匹配刚刚提到的四个参数：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;32c32,33
+&amp;lt; $regex = &amp;#39;#&amp;lt;tex&amp;gt;(.*?)&amp;lt;/tex&amp;gt;#si&amp;#39;;
+&lt;span class="gd"&gt;---&lt;/span&gt;
+&amp;gt; $regex = &amp;#39;#&amp;lt;tex(?:s|bg=[&amp;quot;&amp;#39;]([w]+)[&amp;quot;&amp;#39;]|fg=[&amp;quot;&amp;#39;]([w]+)[&amp;quot;&amp;#39;]|&amp;#39;.
+&amp;gt; &amp;#39;sz=[&amp;quot;&amp;#39;]([0-9+-]+)[&amp;quot;&amp;#39;]|escaped=[&amp;quot;&amp;#39;](true|false)?[&amp;quot;&amp;#39;])*&amp;gt;(.*?)&amp;lt;/tex&amp;gt;#si&amp;#39;;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;第三处修改是提取公式文本和参数，也就是对上面正则表达式的匹配结果做处理：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;38,40c39,50
+&amp;lt; $formula_text = $match[1];
+&amp;lt; $formula_hash = md5($formula_text);
+&amp;lt; $formula_filename = &amp;#39;tex_&amp;#39;.$formula_hash.&amp;#39;.gif&amp;#39;;
+&lt;span class="gd"&gt;---&lt;/span&gt;
+&amp;gt; $formula_bg = $match[1];
+&amp;gt; if (!$formula_bg) $formula_bg = &amp;#39;ffffff&amp;#39;;
+&amp;gt; $formula_fg = $match[2];
+&amp;gt; if (!$formula_fg) $formula_fg = &amp;#39;000000&amp;#39;;
+&amp;gt; $formula_sz = $match[3];
+&amp;gt; if (!$formula_sz) $formula_sz = &amp;#39;0&amp;#39;;
+&amp;gt; $escaped = $match[4];
+&amp;gt; $formula_text = $match[5];
+&amp;gt; if ($escaped == &amp;#39;true&amp;#39;) $formula_text = htmlspecialchars_decode($formula_text);
+&amp;gt; $formula_text_html = htmlspecialchars($formula_text);
+&amp;gt; $formula_hash = md5($formula_text.&amp;#39;_&amp;#39;.$formula_bg.&amp;#39;_&amp;#39;.$formula_fg.&amp;#39;_&amp;#39;.$formula_sz.&amp;#39;_1.2.1&amp;#39;);
+&amp;gt; $formula_filename = &amp;#39;tex_&amp;#39;.$formula_hash.&amp;#39;.png&amp;#39;;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这里我添加了一个变量&lt;tt class="docutils literal"&gt;$formula_text_html&lt;/tt&gt;，用来记录html转义过的公式内容，稍后会看到这样做的目的。&lt;/p&gt;
+&lt;p&gt;第四处是设置LaTeX服务地址，原先forkosh.dreamhost.com的服务已经不能用了（很简短的公式还行，稍微复杂的公式都没法得到想要的结果），改成l.wordpress.com的服务：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;49c59,61
+&amp;lt; $mimetex_host = curl_init(&amp;#39;http://www.forkosh.dreamhost.com/cgi-bin/mimetexpublic.cgi?formdata=&amp;#39;.urlencode($formula_text));
+&lt;span class="gd"&gt;---&lt;/span&gt;
+&amp;gt; $req_url = &amp;#39;http://l.wordpress.com/latex.php?latex=&amp;#39;.urlencode($formula_text).
+&amp;gt; &amp;#39;&amp;amp;bg=&amp;#39;.urlencode($formula_bg).&amp;#39;&amp;amp;fg=&amp;#39;.urlencode($formula_fg).&amp;#39;&amp;amp;s=&amp;#39;.urlencode($formula_sz);
+&amp;gt; $mimetex_host = curl_init($req_url);
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;最后一处修改是展示获取到的图片。我给img标签加了class属性，便于修改样式。添加了title属性，当鼠标放在图片上时，可以看到公式内容。注意这里alt和title都是用html转义后的公式内容，这样可以避免公式中的一些特殊字符把html结构搞乱：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;58c70
+&amp;lt; return &amp;quot;&amp;lt;img src=&amp;quot;$cache_formula_url&amp;quot; alt=&amp;quot;$formula_text&amp;quot; /&amp;gt;&amp;quot;;
+&lt;span class="gd"&gt;---&lt;/span&gt;
+&amp;gt; return &amp;quot;&amp;lt;img class=&amp;quot;mimetex&amp;quot; src=&amp;quot;$cache_formula_url&amp;quot; alt=&amp;quot;$formula_text_html&amp;quot; title=&amp;quot;$formula_text_html&amp;quot; /&amp;gt;&amp;quot;;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;下载&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/07/dahnielson_mimetex_v12.zip"&gt;修改前的插件&lt;/a&gt;（MD5：61aa23a9907c8fb777ef61c186070878）；&lt;/li&gt;
+&lt;li&gt;下载&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/07/dahnielson_mimetex_v121.zip"&gt;修改后的插件&lt;/a&gt;（MD5：3d17d45b6f2375d9ded05988bfa470c0）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;修改好后就可以使用了，如果是第一次用这个插件，别忘了给你的站点开一个有写权限的cache目录（/wp-content/cache/）。&lt;/p&gt;
+&lt;p&gt;试用一下吧，在文章中输入这样的内容：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;tex fg=&amp;quot;0000ff&amp;quot; sz=&amp;quot;2&amp;quot;&amp;gt;&lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;array&lt;span class="nb"&gt;}{&lt;/span&gt;rcl&lt;span class="nb"&gt;}&lt;/span&gt;
+p &lt;span class="nb"&gt;&amp;amp;&lt;/span&gt; = &lt;span class="nb"&gt;&amp;amp;&lt;/span&gt; &lt;span class="k"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;1&lt;span class="nb"&gt;}{&lt;/span&gt;5&lt;span class="nb"&gt;}&lt;/span&gt;+&lt;span class="k"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;2&lt;span class="nb"&gt;}{&lt;/span&gt;5&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="k"&gt;\times\left&lt;/span&gt;(&lt;span class="k"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;1&lt;span class="nb"&gt;}{&lt;/span&gt;5&lt;span class="nb"&gt;}&lt;/span&gt;+&lt;span class="k"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;2&lt;span class="nb"&gt;}{&lt;/span&gt;5&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="k"&gt;\times\left&lt;/span&gt;(&lt;span class="k"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;1&lt;span class="nb"&gt;}{&lt;/span&gt;5&lt;span class="nb"&gt;}&lt;/span&gt;+&lt;span class="k"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;2&lt;span class="nb"&gt;}{&lt;/span&gt;5&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="k"&gt;\times\left&lt;/span&gt;(&lt;span class="k"&gt;\cdots\right&lt;/span&gt;)&lt;span class="k"&gt;\right&lt;/span&gt;)&lt;span class="k"&gt;\right&lt;/span&gt;) &lt;span class="k"&gt;\\&lt;/span&gt;
+&lt;span class="nb"&gt;&amp;amp;&lt;/span&gt; = &lt;span class="nb"&gt;&amp;amp;&lt;/span&gt; &lt;span class="k"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;1&lt;span class="nb"&gt;}{&lt;/span&gt;5&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="k"&gt;\times\sum&lt;/span&gt;&lt;span class="nb"&gt;_{&lt;/span&gt;i=0&lt;span class="nb"&gt;}^&lt;/span&gt;&lt;span class="k"&gt;\infty&lt;/span&gt; &lt;span class="k"&gt;\left&lt;/span&gt;(&lt;span class="k"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;2&lt;span class="nb"&gt;}{&lt;/span&gt;5&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="k"&gt;\right&lt;/span&gt;)&lt;span class="nb"&gt;^&lt;/span&gt;i &lt;span class="k"&gt;\\&lt;/span&gt;
+&lt;span class="nb"&gt;&amp;amp;&lt;/span&gt; = &lt;span class="nb"&gt;&amp;amp;&lt;/span&gt; &lt;span class="k"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;1&lt;span class="nb"&gt;}{&lt;/span&gt;5&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="k"&gt;\times\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;1&lt;span class="nb"&gt;}{&lt;/span&gt;1-&lt;span class="k"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;2&lt;span class="nb"&gt;}{&lt;/span&gt;5&lt;span class="nb"&gt;}}&lt;/span&gt; &lt;span class="k"&gt;\\&lt;/span&gt;
+&lt;span class="nb"&gt;&amp;amp;&lt;/span&gt; = &lt;span class="nb"&gt;&amp;amp;&lt;/span&gt; &lt;span class="k"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;1&lt;span class="nb"&gt;}{&lt;/span&gt;5&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="k"&gt;\times\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;5&lt;span class="nb"&gt;}{&lt;/span&gt;3&lt;span class="nb"&gt;}&lt;/span&gt; &lt;span class="k"&gt;\\&lt;/span&gt;
+&lt;span class="nb"&gt;&amp;amp;&lt;/span&gt; = &lt;span class="nb"&gt;&amp;amp;&lt;/span&gt; &lt;span class="k"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;1&lt;span class="nb"&gt;}{&lt;/span&gt;3&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;array&lt;span class="nb"&gt;}&lt;/span&gt;&amp;lt;/tex&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;可以得到图片：&lt;/p&gt;
+&lt;img alt="0313Freq.gif" src="https://blog.gocalf.com/images/2011/07/0313Freq.gif" /&gt;
+</content><category term="WordPress LaTeX"></category><category term="WordPress Plugin"></category></entry><entry><title>WordPress数学公式插件LaTeX</title><link href="https://blog.gocalf.com/latex-wordpress" rel="alternate"></link><published>2011-07-02T22:32:00+08:00</published><updated>2011-08-03T20:19:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-02:/latex-wordpress</id><summary type="html">&lt;p class="first last"&gt;为WordPress添加数学公式。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;几年前在我与几个同学一起维护的博客&lt;a class="reference external" href="http://www.zhongqingju.com"&gt;钟磬居&lt;/a&gt;（链接已失效）中，我们使用了&lt;a class="reference external" href="http://en.dahnielson.com/2006/09/mimetex-plugin.html"&gt;dahnielson_mimetex&lt;/a&gt;（链接已失效）来渲染LaTeX公式（原博文备份至：&lt;a class="reference external" href="https://blog.gocalf.com/wordpress-latex-old"&gt;为你的WordPress站点添加LaTeX支持&lt;/a&gt;）。&lt;/p&gt;
+&lt;p&gt;当时提到三种在博客文章中显示LaTex公式的方法：&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;利用LaTeX软件或在线服务（如&lt;a class="reference external" href="http://www.forkosh.com/mimetex.html"&gt;mimetex&lt;/a&gt;，&lt;a class="reference external" href="http://www.codecogs.com/components/equationeditor/equationeditor.php"&gt;LaTeX Equation Editor&lt;/a&gt;）生成公式的图片，将图片上传到自己的站点或者PicasaWeb，然后在文章中插入该图片；&lt;/li&gt;
+&lt;li&gt;为自己的站点安装LaTeX的相关软件，使其可以解析LaTeX并生成图片；&lt;/li&gt;
+&lt;li&gt;利用插件（&lt;a class="reference external" href="http://en.dahnielson.com/2006/09/mimetex-plugin.html"&gt;dahnielson_mimetex&lt;/a&gt;），动态地向公开的服务发出请求，获取公式图片并显示。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这次还是采用第三种方法，只是改用了更为方便强大的插件：&lt;a class="reference external" href="http://zhiqiang.org/"&gt;Zhiqiang&lt;/a&gt;开发的&lt;a class="reference external" href="http://wordpress.org/extend/plugins/latex/"&gt;LaTeX for WordPress&lt;/a&gt;（参见其博文：&lt;a class="reference external" href="http://zhiqiang.org/blog/it/latex-for-wordpress.html"&gt;在博客上写数学公式的插件LaTeX for WordPress&lt;/a&gt;）。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://wordpress.org/extend/plugins/latex/"&gt;LaTeX for WordPress&lt;/a&gt;的使用非常简单，这里就直接从其&lt;a class="reference external" href="http://wordpress.org/extend/plugins/latex/"&gt;主页&lt;/a&gt;上抄袭过来：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You can type the formula in LaTeX, in title, posts, pages and comments:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;\(\alpha+\beta\geq\gamma\)&lt;/span&gt;&lt;/tt&gt; or&amp;nbsp;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$$\alpha+\beta\geq\gamma$$&lt;/span&gt;&lt;/tt&gt; add an inline formula&lt;/li&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;\[\alpha+\beta\geq\gamma\]&lt;/span&gt;&lt;/tt&gt; or&amp;nbsp;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$$!\alpha+\beta\geq\gamma$$&lt;/span&gt;&lt;/tt&gt; add an latex equation in math mode (it will be displayed centerly in a single line).&lt;/li&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$$\alpha+\beta\geq\gamma!$$&lt;/span&gt;&lt;/tt&gt; display the source of the latex formula. Just add a&amp;nbsp;&lt;tt class="docutils literal"&gt;!&lt;/tt&gt; before the second&amp;nbsp;&lt;tt class="docutils literal"&gt;$$&lt;/tt&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;上面的公式显示为： &lt;span class="math"&gt;\(\alpha+\beta\geq\gamma\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;一个例子：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sb"&gt;$$&lt;/span&gt;&lt;span class="nv"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{array}{rcl}&lt;/span&gt;
+&lt;span class="nb"&gt;p &amp;amp; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt; &amp;amp; &lt;/span&gt;&lt;span class="nv"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="nb"&gt;}{&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="nb"&gt;}{&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="nv"&gt;\times\left&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="nb"&gt;}{&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="nb"&gt;}{&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="nv"&gt;\times\left&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;\cdots\right&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;\right&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nb"&gt; &lt;/span&gt;&lt;span class="nv"&gt;\\&lt;/span&gt;&lt;span class="nb"&gt;&lt;/span&gt;
+&lt;span class="nb"&gt;&amp;amp; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt; &amp;amp; &lt;/span&gt;&lt;span class="nv"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="nb"&gt;}{&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="nv"&gt;\times\sum&lt;/span&gt;&lt;span class="nb"&gt;_{i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="nb"&gt;}^&lt;/span&gt;&lt;span class="nv"&gt;\infty&lt;/span&gt;&lt;span class="nb"&gt; &lt;/span&gt;&lt;span class="nv"&gt;\left&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="nb"&gt;}{&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="nv"&gt;\right&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nb"&gt;^i &lt;/span&gt;&lt;span class="nv"&gt;\\&lt;/span&gt;&lt;span class="nb"&gt;&lt;/span&gt;
+&lt;span class="nb"&gt;&amp;amp; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt; &amp;amp; &lt;/span&gt;&lt;span class="nv"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="nb"&gt;}{&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="nv"&gt;\times\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="nb"&gt;}{&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="nb"&gt;}{&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="nb"&gt;}} &lt;/span&gt;&lt;span class="nv"&gt;\\&lt;/span&gt;&lt;span class="nb"&gt;&lt;/span&gt;
+&lt;span class="nb"&gt;&amp;amp; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt; &amp;amp; &lt;/span&gt;&lt;span class="nv"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="nb"&gt;}{&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="nb"&gt;}&lt;/span&gt;&lt;span class="nv"&gt;\times\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="nb"&gt;}{&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="nb"&gt;} &lt;/span&gt;&lt;span class="nv"&gt;\\&lt;/span&gt;&lt;span class="nb"&gt;&lt;/span&gt;
+&lt;span class="nb"&gt;&amp;amp; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt; &amp;amp; &lt;/span&gt;&lt;span class="nv"&gt;\frac&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="nb"&gt;}{&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="nv"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{array}&lt;/span&gt;&lt;span class="s"&gt;$$&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\begin{array}{rcl}
+p &amp;amp; = &amp;amp; \frac{1}{5}+\frac{2}{5}\times\left(\frac{1}{5}+\frac{2}{5}\times\left(\cdots\right)\right) \\
+&amp;amp; = &amp;amp; \frac{1}{5}\times\sum_{i=0}^\infty \left(\frac{2}{5}\right)^i \\
+&amp;amp; = &amp;amp; \frac{1}{5}\times\frac{1}{1-\frac{2}{5}} \\
+&amp;amp; = &amp;amp; \frac{1}{5}\times\frac{5}{3} \\
+&amp;amp; = &amp;amp; \frac{1}{3}
+\end{array}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;另外这个插件默认并且推荐使用&lt;a class="reference external" href="http://www.mathjax.org/"&gt;MathJax&lt;/a&gt;来渲染公式。&lt;a class="reference external" href="http://www.mathjax.org/"&gt;MathJax&lt;/a&gt;是一个开源的基于JavaScript的公式渲染引擎。它使用CSS和网页中的字体来显示公式，而不是图片或者Flash。这带来的好处是公式内的文字是可以选取的，而且在缩放网页的时候，公式的字体也可同时被缩放。而且利用它的JavaScript还可以很方便地对整个公式进行缩放和拷贝。可以在MathJax网站上查看（&lt;a class="reference external" href="http://www.mathjax.org/demos/copy-and-paste/"&gt;http://www.mathjax.org/demos/copy-and-paste/&lt;/a&gt;）如何把MathJax渲染出来的公式复制到Mathematica、Microsoft
+Word、MathType和Wikipeida中。这里简单概括一下：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Mathematica：复制公式的MathML源代码（右键点击公式，选择Format-&amp;gt;MathML，然后点击Show
+Source，在弹出的代码窗口中全选复制），在Mathematica中粘贴，软件将会自动识别出这是一个公式。&lt;/li&gt;
+&lt;li&gt;Microsoft
+Word：将公式的MathML源代码粘贴到Word中，然后在粘贴选择器（Paste
+Options）中选取仅保留文本（Paste Text Only）。&lt;/li&gt;
+&lt;li&gt;MathType：将公式的TeX源代码（在右键菜单中选择Format-&amp;gt;TeX）粘贴到MathType中即可。&lt;/li&gt;
+&lt;li&gt;Wikipedia：将公式的TeX源码粘贴到Wikipedia编辑窗口中，放在&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;&amp;lt;math&amp;gt;&amp;lt;/math&amp;gt;&lt;/span&gt;&lt;/tt&gt;内即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果是在Google
+Reader中查看公式的文章，MathJax无法被载入，这种情况下插件还会提供图片格式的公式以便阅读。&lt;/p&gt;
+&lt;p&gt;另外插件提供了方便的后台设置，在博客后台可以直接修改公式图片和MathJax的服务器地址，可以设置打开或者关闭MathJax。&lt;/p&gt;
+&lt;p&gt;如果怕公开的LaTeX公式图片服务器或者MathJax服务器访问速度慢、被封、关闭等情况，也可以自己搭建相关的服务，然后在插件的设置中修改服务器地址即可。&lt;/p&gt;
+</content><category term="WordPress LaTeX"></category><category term="WordPress Plugin"></category></entry><entry><title>解决WordPress中文title无法显示的问题</title><link href="https://blog.gocalf.com/wordpress-chinese-title" rel="alternate"></link><published>2011-06-30T22:50:00+08:00</published><updated>2011-08-03T20:10:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-06-30:/wordpress-chinese-title</id><summary type="html">&lt;p class="first last"&gt;如果在WordPress主题中使用了Cufón，中文标题有可能无法显示，这时候只能忍痛割爱，关掉Cufón。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;博客刚刚开张，就遇到了第一个问题，中文标题无法显示。&lt;/p&gt;
+&lt;p&gt;建好WordPress之后，系统自动发了一篇名为Hello
+world!的文章（为程序员量身定制的么？），当时一切正常。但当我发了一篇中文标题的文章后，总觉得怪怪的，原来中文标题没有显示出来。于是查看网页源码，又Google了一下，发现是Cufon造成的。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;Cufon（应该写做Cufón）是通过JavaScript在网页中进行文字渲染的，可通过以下两个链接了解它：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Scalable_Inman_Flash_Replacement"&gt;http://en.wikipedia.org/wiki/Scalable_Inman_Flash_Replacement&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://cufon.shoqolate.com/generate/"&gt;http://cufon.shoqolate.com/generate/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;关键问题是Cufon对中文字体的支持不是很理想（不是做不到，只是中文字体包实在太大了）。目前的work
+around就是暂时禁用Cufon。我现在使用的主题是大名鼎鼎的LightWord，它使用了Cufon。不过在它的配置项中有关于Cufon的设置，非常方便，在后台进入Appearance-&amp;gt;LightWord
+Settings，在General settings中就可以看到Cufon
+settings，改为Disabled即可。&lt;/p&gt;
+&lt;p&gt;关闭Cufon之后，明显感觉到英文标题没有以前好看了，不过为了能显示中文，只好先忍痛割爱了。当然如果愿意，也可以准备一个中文字体，在上面提到的第二个链接中可以自行创建。在WordPress的安装目录./wp-content/themes/lightword/js/中可以看到相关JavaScript，比如LightWord主题使用的是vera字体，在目录中可以看到vera.font.js和vera_extra.font.js两个文件。&lt;/p&gt;
+</content><category term="WordPress Theme"></category></entry><entry><title>要不就先开始吧</title><link href="https://blog.gocalf.com/lets-start" rel="alternate"></link><published>2011-06-28T23:33:00+08:00</published><updated>2011-08-03T20:04:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-06-28:/lets-start</id><summary type="html">&lt;p class="first last"&gt;GoCalf博客正式开张，顺带介绍一下建站的初始步骤。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;像我这种很懒又很挑剔的人，最大的痛苦就是to-do
+list越来越长。然则我已经懒到这所谓的to-do
+list只是隐约显于心中，并非实际存在。&lt;/p&gt;
+&lt;p&gt;唯一的避免方法就是尽快行动起来，切不可一再拖拉。&lt;/p&gt;
+&lt;p&gt;GoCalf的blog和wiki就此开张吧。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;今天就先记录一下建站的初始步骤：&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;在GoDaddy购买域名，在BlueHost购买空间，去GoDaddy里把域名的ip地址指向BlueHost空间。GoDaddy域名赠送的小空间留作他用。&lt;/li&gt;
+&lt;li&gt;Default web root: &lt;tt class="docutils literal"&gt;$HOME/public_html/&lt;/tt&gt;。&lt;/li&gt;
+&lt;li&gt;在web root中&lt;tt class="docutils literal"&gt;mkdir blog&lt;/tt&gt;、&lt;tt class="docutils literal"&gt;mkdir wiki&lt;/tt&gt;。&lt;/li&gt;
+&lt;li&gt;在cPanel中开通子域名blog、wiki，分别指向相应的目录。&lt;/li&gt;
+&lt;li&gt;在GoDaddy中开通相同的子域名指向A地址。&lt;/li&gt;
+&lt;li&gt;在cPanel中安装WordPress、MediaWiki至相应目录。&lt;/li&gt;
+&lt;li&gt;在cPanel中添加redirect：&lt;ul&gt;
+&lt;li&gt;blog.gocalf.com -&amp;gt; gocalf.com/blog&lt;/li&gt;
+&lt;li&gt;wiki.gocalf.com -&amp;gt; gocalf.com/wiki&lt;/li&gt;
+&lt;li&gt;gocalf.com -&amp;gt; www.gocalf.com&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;为防止web root混乱：&lt;tt class="docutils literal"&gt;mkdir &amp;lt;sitename&amp;gt;&lt;/tt&gt;，在.htaccess中添加重定向：&lt;ul&gt;
+&lt;li&gt;www.gocalf.com/* -&amp;gt; www.gocalf.com/&amp;lt;sitename&amp;gt;/$1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;mkdir ~/local&lt;/tt&gt;作为安装软件目录。&lt;/li&gt;
+&lt;li&gt;安装SVN（略去若干字）。&lt;ul&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;mkdir ~/public_html/svn&lt;/tt&gt;&lt;/li&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;svnserve &lt;span class="pre"&gt;-d&lt;/span&gt; &lt;span class="pre"&gt;-r&lt;/span&gt; ~/public_html/svn&lt;/tt&gt;&lt;/li&gt;
+&lt;li&gt;不过现在外部无法访问此SVN，需要独立IP且开放端口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;全站禁止list directory，在.htaccess中添加：&lt;tt class="docutils literal"&gt;Options &lt;span class="pre"&gt;-Indexes&lt;/span&gt;&lt;/tt&gt;，并禁止访问svn目录。&lt;/li&gt;
+&lt;li&gt;Setting Email：Not Finished.&lt;/li&gt;
+&lt;li&gt;显示中文界面：Not Started.&lt;/li&gt;
+&lt;/ol&gt;
+</content><category term="Hosting"></category><category term="Blog"></category></entry><entry><title>你好，世界！</title><link href="https://blog.gocalf.com/hello-world" rel="alternate"></link><published>2011-01-07T09:11:00+08:00</published><updated>2011-08-03T19:52:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-01-07:/hello-world</id><summary type="html">&lt;p class="first last"&gt;欢迎使用WordPress。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;欢迎使用WordPress。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;这是系统自动生成的演示文章。编辑或者删除它，然后开始您的博客！&lt;/p&gt;
+</content><category term="WordPress"></category></entry></feed>

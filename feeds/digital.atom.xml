@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>GoCalf Blog - 数码电子</title><link href="https://blog.gocalf.com/" rel="alternate"></link><link href="https://blog.gocalf.com/feeds/digital.atom.xml" rel="self"></link><id>https://blog.gocalf.com/</id><updated>2013-07-29T10:13:00+08:00</updated><subtitle>1/100 ALGO&amp;amp;MATH; 1/100 IT&amp;amp;GAME; 1/100 INFO&amp;amp;SHARING; 1/100 WHO KNOWS</subtitle><entry><title>Kindle4修砖记</title><link href="https://blog.gocalf.com/fix-bricked-kindle4" rel="alternate"></link><published>2013-07-29T10:13:00+08:00</published><updated>2013-07-29T10:13:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-07-29:/fix-bricked-kindle4</id><summary type="html">&lt;p class="first last"&gt;入手一年的Kindle4突然变成砖头了，屏幕显示“Your Kindle Needs Repair”，花了大半个晚上的时间才修好它，简单记录一下。&lt;/p&gt;
+</summary><content type="html">
+&lt;p&gt;入手一年的Kindle4突然不能用了，屏幕显示“Your Kindle Needs
+Repair”，原来就是传说中的变成砖头了。&lt;/p&gt;
+&lt;p&gt;花了大半个晚上的时间才修好它，简单记录一下。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;先说下机器的情况。这是美版的Kindle4广告版，曾经装过多看，但早就删掉了，现在用的是原生系统，应该是4.0.1吧。&lt;/p&gt;
+&lt;p&gt;之前都好好的，用多看系统的时候经常死机，后来回到原生系统就不再死机了。最近有一段时间没用，一直扔在抽屉里。那天想用的时候发现一点儿电都没有，于是开始充电。充电的时候手欠，按了电源键想开机，然后就这样了，重启了无数次都没有任何改变。&lt;/p&gt;
+&lt;p&gt;搜了一下，好多修砖的攻略都说只适用于装了多看系统的Kindle，实在没搞明白，想来老外应该不会都用多看吧，那他们怎么修呢？&lt;/p&gt;
+&lt;p&gt;修砖需要用到的一些工具，我观察到的都是Windows程序，所以一切操作都在Windows
+7的虚拟机中进行。如果是Windows XP，可能在驱动方面会稍微麻烦一些。&lt;/p&gt;
+&lt;div class="section" id="kindle"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;1. 让Kindle进入诊断模式&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;工具：Kindle Select Boot，我是在&lt;a class="reference external" href="http://www.mobileread.com/forums/showthread.php?t=169645"&gt;这里&lt;/a&gt;下载到的。&lt;/p&gt;
+&lt;p&gt;用USB先把Kindle连接到电脑上（我用的虚拟机，所以还要把设备接到虚拟机里），一直按住Kindle底部的电源键，等指示灯熄灭后，不松开电源键按住方向键下（↓），然后松开电源键，再松开方向键。这使得Kindle进入了USB恢复模式。&lt;/p&gt;
+&lt;p&gt;想要知道这个操作是否成功，可以在Windows系统的Device
+Manager（硬件管理器）里查看Human Interface
+Devices下，是否出现了HID-compliant device。如果还是USB Human Interface
+Device就得再来一次了。&lt;/p&gt;
+&lt;p&gt;运行KindleSelectBoot文件包中的MfgTool.exe，在界面的上半部会看到一个HID-compliant
+device的信息，在下半部的Profile那里选择Kindle
+diags（当时没截图，现在也懒得再折腾一次Kindle了）。点击右下角的Start按钮，就可以让Kindle进入诊断模式。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="mmcblk0p1-imgkindle"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;2. 将mmcblk0p1.img拷贝到Kindle中&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;需要下载一个叫做mmcblk0p1.img的文件，其实我也不清楚这到底是什么，看起来是个镜像文件。我下载的是&lt;a class="reference external" href="http://60.211.209.221/cdn.baidupcs.com/file/01589c0ba1f05e9e4f55e35d02ffc05b?xcode=053458c9324860ffda9317ddb745a10aa9749899cf109a05&amp;amp;fid=2601356780-250528-1879823735&amp;amp;time=1374668763&amp;amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-7N%2BEg07f9BuUIjG8wPMKIV8gURM%3D&amp;amp;to=cb&amp;amp;fm=N,B,T&amp;amp;expires=8h&amp;amp;rt=sh&amp;amp;r=586640283&amp;amp;logid=1498755034&amp;amp;sh=1&amp;amp;wsiphost=ipdbm"&gt;mmcblk0p1_410.img&lt;/a&gt;（点击下载），RAR压缩包的大小是144MB，解压后358MB。&lt;/p&gt;
+&lt;p&gt;在Kindle诊断模式菜单中选择“U) USB device
+mode”，电脑就会将Kindle识别为U盘，将下载解压后的.img文件拷贝到Kindle根目录下。&lt;/p&gt;
+&lt;p&gt;虽说整个修砖过程对Kindle内的电子书没有影响，我还是趁这个机会赶紧把数据备份了一下。&lt;/p&gt;
+&lt;p&gt;拷贝完成后，在Kindle上按左方向键退出U盘模式，并返回主菜单。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="sshkindle"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;3. SSH登录到Kindle&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;在SSH登录之前，先要确认一下Kindle系统的版本和序列号（Serial
+Number），以便获取root密码。系统版本我是没注意到，序列号在Kindle诊断模式主菜单第一项里就能找到。&lt;/p&gt;
+&lt;p&gt;记下序列号后，在Kindle诊断模式菜单中依次选择：“N) Misc individual
+diagnostics”、“U) Utilities”、“Z) Enable USBnet”，然后按方向键右键返回。&lt;/p&gt;
+&lt;p&gt;在电脑的硬件管理器中可以看到有一个叫RNDIS\Ethernet
+card的硬件，点击升级驱动，然后选择手动浏览驱动-&amp;gt;自选驱动-&amp;gt;网络适配器，在厂商中选择“Microsoft
+Corporation”，驱动选择“Remote NDIS Compatible
+Device”，强制安装驱动即可。（如果是Windows XP，则需要下载安装RNDIS
+Ethernet驱动，&lt;a class="reference external" href="http://b.billgong.com/wp-content/uploads/2012/03/RNDIS-Ethernet-Driver.zip"&gt;点此下载&lt;/a&gt;。）&lt;/p&gt;
+&lt;p&gt;装好驱动，进入网络中心，看到有一块新的网卡设备。点击右键查看属性，在IPv4选项中，将IP地址设置为“192.168.15.200”，子网掩码是默认的“255.255.255.0”。&lt;/p&gt;
+&lt;p&gt;用SSH客户端（我用的是Putty）登录Kindle，IP地址为192.168.15.244，用户名是root。密码可以先试试“mario”（针对4.0系统），如果不行，就将序列号输入到下面的文本框中得到密码（针对4.0.1系统）（若无法显示请猛击&lt;a class="reference external" href="https://blog.gocalf.com/assets/2013/07/kindle_root_password.html"&gt;这里&lt;/a&gt;）。&lt;/p&gt;
+&lt;iframe frameborder="0" height="50" scrolling="no" src="https://blog.gocalf.com/assets/2013/07/kindle_root_password.html" width="100%"&gt;&lt;/iframe&gt;&lt;p&gt;其实root密码就是“fiona”加上序列号MD5值中的一部分。生成代码如下（Python
+2.7.*）：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;hashlib&lt;/span&gt;
+&lt;span class="n"&gt;serial_number&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'USE YOUR OWN SERIAL NUMBER'&lt;/span&gt;
+&lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'fiona&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;hashlib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;serial_number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hexdigest&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;4. 进行系统恢复&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;SSH登录成功后，在终端中运行如下命令来恢复系统（大概需要几分钟的时间）：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dd &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/mnt/us/mmcblk0p1_410.img &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/mmcblk0p1 &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4K
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;成功后，我又运行了另外几个命令以免还是不能重启，有的命令根本就没执行成功，可能要看具体的情况了：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dd &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/zero &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/mmcblk0p3 &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4K
+rm /var/local/system/.framework_reboots
+rm /var/local/system/.framework_retries
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;5. 完成&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;这些都弄完了，长按电源键重启Kindle，终于恢复了。&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Kindle"></category></entry><entry><title>iPad 2 iOS 4.3.3 可以越狱了</title><link href="https://blog.gocalf.com/ipad2-433-jailbreak" rel="alternate"></link><published>2011-07-07T14:32:00+08:00</published><updated>2011-08-03T20:41:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-07:/ipad2-433-jailbreak</id><summary type="html">&lt;p class="first last"&gt;iOS 4.3.3可以越狱了。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;原以为iPad
+2的越狱会遥遥无期，没想到突然就传出已经可以越狱的消息，大神Comex又一次找到了PDF漏洞，跟去年的iPhone4越狱一样，无需连接电脑只要有WiFi就可以。&lt;/p&gt;
+&lt;p&gt;不过现在还只有iOS 4.3.3可以越狱，低版本没有这个漏洞。低版本的就备份一下shsh之后赶紧升级吧。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;步骤非常简单：&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;确认当前固件版本是iOS 4.3.3 (8J2)（Settings-&amp;gt;General-&amp;gt;About-&amp;gt;Version）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;开启浏览器Safari。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;在地址栏中敲入&lt;a class="reference external" href="http://www.jailbreakme.com"&gt;http://www.jailbreakme.com&lt;/a&gt;（上次iPhone
+4也是这样的），打开页面。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;在左侧Cydia图标下方可以看到有个FREE按钮（据说以后iOS越狱将要收费，似乎看到前兆了），点击。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;FREE按钮变成INSTALL，再点击。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Safari被自动关闭，在桌面上可以看到出现了Cydia的图标，并且正在下载中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;等待下载完成，打开Cydia，越狱成功。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="https://blog.gocalf.com/images/2011/07/cydia-ipad2-ios433.jpg"&gt;&lt;img alt="cydia-ipad2-ios433" src="https://blog.gocalf.com/images/2011/07/cydia-ipad2-ios433-225x300.jpg" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;Cydia on iPad2 iOS 4.3.3&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;如果想装盗版的软件，可以添加hackluo.us源，地址是&lt;a class="reference external" href="http://cydia.hackluo.us"&gt;http://cydia.hackluo.us&lt;/a&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;在这个源中找到AppSync for
+4.0+，安装即可。&lt;a class="reference external" href="http://bbs.weiphone.com"&gt;weiphone网&lt;/a&gt;上说安装威锋源&lt;a class="reference external" href="http://apt.weiphone.com"&gt;http://apt.weiphone.com&lt;/a&gt;的AppSync-for-4.0+，不过很多人都反映这个在安装的时候会出现Size
+Mismatch。我还是推荐从hackluo.us源安装。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;另外还可以安装Installous
+4（也在hackluo.us源中），利用这个软件就可以方便地搜索、下载、安装和更新盗版的app了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;最后还是要罗嗦一句，提倡正版。大多数apps都不贵，如果觉得好就买一个吧。越狱是为了把iPad玩的更好，而不仅仅是为了装盗版软件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content><category term="iOS JailBreak"></category></entry></feed>

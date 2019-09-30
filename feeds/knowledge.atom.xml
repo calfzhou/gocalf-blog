@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>GoCalf Blog - 有用知识</title><link href="https://blog.gocalf.com/" rel="alternate"></link><link href="https://blog.gocalf.com/feeds/knowledge.atom.xml" rel="self"></link><id>https://blog.gocalf.com/</id><updated>2019-09-30T16:00:00+08:00</updated><subtitle>1/100 ALGO&amp;amp;MATH; 1/100 IT&amp;amp;GAME; 1/100 INFO&amp;amp;SHARING; 1/100 WHO KNOWS</subtitle><entry><title>用Git和云存储保存隐私信息</title><link href="https://blog.gocalf.com/git-encrypt" rel="alternate"></link><published>2013-12-17T14:07:00+08:00</published><updated>2013-12-17T14:07:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-12-17:/git-encrypt</id><summary type="html">&lt;p class="first last"&gt;网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在Dropbox和GitHub中存储一些个人文件和代码。但如果涉及到隐私的信息非要放上去就必须要加密处理，今天我说一下如何用git来保存这些隐私信息。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在&lt;a class="reference external" href="https://www.dropbox.com/"&gt;Dropbox&lt;/a&gt;和&lt;a class="reference external" href="https://github.com/"&gt;GitHub&lt;/a&gt;中存储一些个人文件和代码。隐私问题比较麻烦，会有一些特别隐私的信息（比如银行密码、心情日记等）是不适合直接存放在云端的。但又确实想要借助云平台的便利性，就必须要做加密处理。操作的方法很多，今天我说一下用Git来保存这些隐私信息。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;等等，你说什么？还有115网盘、百度云盘、金山快盘等等国内知名云存储，空间又大、速度又快、功能又强。如果你这么觉得，那么再见，bye bye，さようなら。&lt;/p&gt;
+&lt;p&gt;我是不会用国内的云存储存放任何个人相关的东西的，最多放少量的网上下载的图书视频软件之类的。&lt;/p&gt;
+&lt;p&gt;好吧，言归正传，说咱们的加密。&lt;/p&gt;
+&lt;p&gt;当然你可以用虚拟加密磁盘（比如&lt;a class="reference external" href="http://www.truecrypt.org/"&gt;TrueCrypt&lt;/a&gt;）之类的工具，或者直接用设置了密码的压缩包（我之前就是这么干的），但是在用起来都还是有些麻烦。比如我那些打了加密压缩包的东西，我就懒得再去看了，尤其懒得修改，实在太麻烦了。&lt;/p&gt;
+&lt;p&gt;我选择用Git来保存个人文档的另一个原因是，可以方便地进行版本控制，尤其如果需要在不同的电脑上进行操作，又难以完全实时进行同步的话。而且今天介绍的这个方法可以透明地对指定文件进行加密和解密（transparent encryption），也就是你在本地操作的时候根本不需要每次阅读前都解密，做了修改之后还要再做加密处理。工具会保证最终存在云端的那份是妥善加密的。&lt;/p&gt;
+&lt;p&gt;找到了两个实现此功能的工具，分别是&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;git-crypt: &lt;a class="reference external" href="https://www.agwa.name/projects/git-crypt/"&gt;https://www.agwa.name/projects/git-crypt/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;git-encrypt: &lt;a class="reference external" href="https://github.com/shadowhand/git-encrypt"&gt;https://github.com/shadowhand/git-encrypt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;分别是用C++和Shell写的。最后我选择了后者，当然以后也许会改变，反正加密解密算法跟工具是分离的，换工具并不会带来太多问题。&lt;/p&gt;
+&lt;p&gt;简单介绍一下如何使用，更准确的操作方式就直接去看项目的官方文档好了。&lt;/p&gt;
+&lt;p&gt;首先安装，我选择的git-encrypt是用Shell写的，所谓安装就是clone一下它的repo，建立一个符号链接使得通过$PATH可以找到它即可。当然，你的系统中必须安装了OpenSSL，它是加密解密的核心啊。&lt;/p&gt;
+&lt;p&gt;项目中有两个脚本文件，我只用其中的“gitcrypt”，另一个感觉不太好用。&lt;/p&gt;
+&lt;p&gt;假设云端存储用Dropbox，在本地对应的目录是&lt;tt class="docutils literal"&gt;~/dropbox&lt;/tt&gt;。（以下操作都是针对Linux平台的，Windows的话可以去看一下官方文档）。先进入dropbox目录并创建一个新的git仓库（如果没有一个现成的）：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/dropbox
+mkdir myrepo.git
+&lt;span class="nb"&gt;cd&lt;/span&gt; myrepo.git
+git init --bare
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;这个仓库将会被同步到云端，任何提交到该仓库的隐私信息都应该是被加密过的。当然千万不要把密钥也存在这里。&lt;/p&gt;
+&lt;p&gt;然后去工作目录，比如叫&lt;tt class="docutils literal"&gt;~/personal&lt;/tt&gt;，创建一个本地仓库（或者从dropbox中clone一个过来）：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/personal
+mkdir myrepo
+&lt;span class="nb"&gt;cd&lt;/span&gt; myrepo
+git init
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;然后就要做好加密解密的准备工作了，直接在本地仓库的根目录运行&lt;tt class="docutils literal"&gt;gitcrypt init&lt;/tt&gt;命令，根据提示输入相应的信息。它首先会问你是否需要生成一个随机的salt值和密码，你可以同意或拒绝，拒绝的话就自己提供salt值和密码。如果你只有这个本地仓库，那建议直接使用随机生成的，那样足够复杂，更安全些。如果还需要在别的机器上clone这个仓库，那还是自己设置一下，免得忘了密码。然后选择加密算法，默认的是aes-256-ecb（ECB加密模式比较简单，相对容易破解，推荐使用aes-256-cbc；当然OpenSSL提供了很多加密算法，大家可以自行选择；另外，发现一篇很直观的文章，可以看看，&lt;a class="reference external" href="http://blog.csdn.net/aaaaatiger/article/details/2525561"&gt;分组对称加密模式&lt;/a&gt;）。接下来会问你是否使用&lt;tt class="docutils literal"&gt;.git/info/attribute&lt;/tt&gt;，选择是就好了。最后问你需要对什么文件进行加密，默认是&lt;tt class="docutils literal"&gt;*&lt;/tt&gt;表示所有文件。你可以根据需要进行设置，比如我这里让它加密所有以“private-”开头的文件，就输入&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;private-*&lt;/span&gt;&lt;/tt&gt;。&lt;/p&gt;
+&lt;p&gt;好了，完成了。接下来就正常地在仓库里提交各种文件，但只要文件名是以“private-”开头的，都会被加密后再被提交。&lt;/p&gt;
+&lt;p&gt;有一点要提一下，前面设置的salt值和密码，都是明文存储在&lt;tt class="docutils literal"&gt;.git/config&lt;/tt&gt;中的，如果你的本地仓库也不那么安全的话，就牢记这两个信息，并在不需要的时候把仓库或者这个信息删掉，等到下次要用的时候再加上。&lt;/p&gt;
+&lt;p&gt;假设我创建两个文件，分别叫做&lt;tt class="docutils literal"&gt;diary.txt&lt;/tt&gt;和&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;private-diary.txt&lt;/span&gt;&lt;/tt&gt;。其中后者是绝对不想让别人看到的。假设内容分别如下：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cat diary.txt
+今天天气不错，挺风和日丽的。
+我心情也还好，没有什么烦心事。
+$ cat private-diary.txt
+一点儿都不开心，那个人烦死了，老骚扰我。
+我想暴走啊，想暴走。
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;好，然后将这两个文件都提交到仓库中，并将修改推到云端：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git add *.txt
+git commit -m &lt;span class="s1"&gt;&amp;#39;Add some diaries.&amp;#39;&lt;/span&gt;
+git remote add origin ~/dropbox/myrepo.git
+git push origin master
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;有人会问，不对啊，还没给私密日记加密啊。好，我们来把云端仓库再clone一份看看。&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone ~/dropbox/myrepo.git ~/personal/myrepo2
+$ cd ~/personal/myrepo2
+$ ls
+diary.txt  private-diary.txt
+$ cat diary.txt
+今天天气不错，挺风和日丽的。
+我心情也还好，没有什么烦心事。
+$ cat private-diary.txt
+U2FsdGVkX1/lfLd83fEEk8Gnaiixe5hdSPR7qgP+SFD9PSX6yNSX8osvd73gKqQG
+Q4ndGa6A0RAuClmMO1E5tRnxKhk2jIHmiR6qyGKjx73BR2164PHnf3NioZM0tN25
+88FtrD+Mqhq+b3MEsXLu2A==
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;可见，如果别人clone了你的云端仓库，他也只能看到加密后的信息。&lt;/p&gt;
+&lt;p&gt;如果这份clone的主人也是你，你现在想在这里查看或者修改你的文档，只要再运行一次&lt;tt class="docutils literal"&gt;gitcrypt init&lt;/tt&gt;，输入同样的salt和密码，保持其它设置也都一致，最后再运行一次&lt;tt class="docutils literal"&gt;git reset &lt;span class="pre"&gt;--hard&lt;/span&gt; HEAD&lt;/tt&gt;就好了。&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gitcrypt init
+blah blah (use the exact same configuration)
+$ git reset --hard HEAD
+HEAD is now at 10c8613 Add some diaries.
+$ cat private-diary.txt
+一点儿都不开心，那个人烦死了，老骚扰我。
+我想暴走啊，想暴走。
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;关于salt和密码。解密的时候只要有密码就够了，加密的时候则需要同时提供salt和密码。用salt一方面可以在密码太简单的情况下加大破解难度（参见&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Rainbow_table"&gt;Rainbow table&lt;/a&gt;），另一方面使用相同的salt可以让每次加密得到的密文是一致的。如果你在第二次clone后改用不同的salt，并不会影响密文的解密，但是git会认为那些文件被修改了，而diff的时候去看不到任何差异。我觉得这个不太合理啊，期待这个工具的更新。&lt;/p&gt;
+&lt;p&gt;最后，一些关于transparent git encryption的讨论：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://syncom.appspot.com/papers/git_encryption.txt"&gt;GIT transparent encryption&lt;/a&gt; or &lt;a class="reference external" href="https://gist.github.com/shadowhand/873637"&gt;https://gist.github.com/shadowhand/873637&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://git.661346.n2.nabble.com/Transparently-encrypt-repository-contents-with-GPG-td2470145.html"&gt;Transparently encrypt repository contents with GPG&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;当然也有反对的声音，所以建议大家先多了解了解再决定要不要使用这个方法。&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://article.gmane.org/gmane.comp.version-control.git/113221"&gt;Don't do this&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content><category term="Git"></category><category term="Encrypt"></category></entry><entry><title>在Excel中制作不等宽柱状图</title><link href="https://blog.gocalf.com/excel-variable-width-column-chart" rel="alternate"></link><published>2013-12-13T14:35:00+08:00</published><updated>2019-09-30T16:00:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-12-13:/excel-variable-width-column-chart</id><summary type="html">&lt;p class="first last"&gt;介绍一下我是怎么在Microsoft Office Excel中制作不等宽柱状图（Variable Width Column Chart）的。&lt;/p&gt;
+</summary><content type="html">
+&lt;p&gt;柱状图大家应该都很熟悉，在Excel中可以很容易创建一个柱状图，每个柱子的高度表达了某个对象的数值大小。但有的时候，需要在柱状图中同时表达两个维度的数据，除了高度之外，希望柱子的宽度也能表达该对象的另外一个数值大小，以便直观地比较这两个维度。我曾经就需要做一个这样的图，不过在Excel中并没有直接提供相关的功能，需要一些小技巧。&lt;/p&gt;
+&lt;p&gt;今天就来介绍一下我是怎么制作不等宽柱状图（Variable Width Column Chart）的。也有人称其为Marimekko
+Chart，我没有仔细去考证，二者好像也并不完全一样。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;注：以下操作是基于Microsoft Office Excel 2013进行的，其他版本可能会有一些差异，但思路是相通的。&lt;/p&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;数据和目标效果&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;假设我们有这样一组数据，一共五个对象，每个对象都有两个数值属性（x和y）。我们希望用柱子的宽度表示x的大小（这里只考虑x是非负数的情况），高度表示y的大小。&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="43%"/&gt;
+&lt;col width="29%"/&gt;
+&lt;col width="29%"/&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Item&lt;/th&gt;
+&lt;th class="head"&gt;X&lt;/th&gt;
+&lt;th class="head"&gt;Y&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;A&lt;/td&gt;
+&lt;td&gt;5.2&lt;/td&gt;
+&lt;td&gt;5.6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;B&lt;/td&gt;
+&lt;td&gt;3.9&lt;/td&gt;
+&lt;td&gt;10.1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;C&lt;/td&gt;
+&lt;td&gt;11.5&lt;/td&gt;
+&lt;td&gt;1.2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;D&lt;/td&gt;
+&lt;td&gt;2.4&lt;/td&gt;
+&lt;td&gt;17.8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;E&lt;/td&gt;
+&lt;td&gt;8.1&lt;/td&gt;
+&lt;td&gt;8.4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;最后做成的图是这样的：&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="variable_width_column_chart" src="https://blog.gocalf.com/images/2013/12/variable_width_column_chart.png"/&gt;
+&lt;p class="caption"&gt;在Excel中根据上述数据制作的不等宽柱状图&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;那么应该怎么产生这样的效果呢？内置的柱状图并没有办法调节每个柱子的宽度，所以看起来不应该是从这个角度去做。&lt;/p&gt;
+&lt;p&gt;一个柱子是有宽度和高度的，二者共同构成了这个柱子的面积。在Excel内置的图表类型中，面积图最接近这个需求。因此可以想到用面积图来模拟不同宽度的柱子。为了区分不同的对象，我们可以为每一个对象画一个面积图，把多个这样的面积图叠加起来，并让每一个柱子在横轴方向的位置不重叠，就能得到想要的样子了。下面就跟着我具体操作一遍。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;基础数据和第一次扩展&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;首先在Excel中把原始数据录入进去。我个人比较喜欢把数据组织成Excel表（Excel
+2007才开始有此功能）。这是将一块普通的单元格区域转换成一种有内在联系的表结构，可以更加方便地管理和操作表中的数据。如果你还没有接触过，可以参考&lt;a class="reference external" href="http://office.microsoft.com/en-us/excel-help/overview-of-excel-tables-HA010048546.aspx"&gt;官方的文档&lt;/a&gt;（&lt;a class="reference external" href="http://office.microsoft.com/zh-cn/excel-help/overview-of-excel-tables-HA010048546.aspx"&gt;中文文档&lt;/a&gt;），你一定会爱上它。对于今天要做的不等宽柱状图，Excel表并不是必需的，但它会使得公式更加直观。我今天给出的每一个公式，都会用两种形式（使用Excel表和不使用Excel表）给出，以方便那些确实不习惯Excel表的童鞋。一定要注意，如果你用Excel表，那么对于任何一列，其每一行的公式都是一样的。而如果不用Excel表，我所给出的公式只是该列第一行的公式，你要特别小心公式中什么地方应该加“$”，什么时候不加“$”，后续行的公式会自动根据有没有“$”进行变换。&lt;/p&gt;
+&lt;p&gt;假设我们把上面表格中的基础数据放在从A1开始的单元格中（这些数据会占据A1到C6范围的单元格），选中这些单元格，点击Ribbon中HOME -&amp;gt;
+Format as Table，然后随便选择一个样式，将这片区域转换成Excel表。给这个表起个名字，比如叫作TableData，在Ribbon中点击（TABLE
+TOOLS）DESIGN，在Table Name的文本框中输入TableData。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="create_data_table" src="https://blog.gocalf.com/images/2013/12/create_data_table.png"/&gt;
+&lt;p class="caption"&gt;选择原始数据单元格范围，转换成Excel表&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;接下来对这个数据表格做一些简单的扩充——增加几个有用的列。&lt;/p&gt;
+&lt;p&gt;首先增加一列，叫作Width。在这一列中我们对将要作为柱状图宽度的X数据进行一些变换，主要是为了（在不直接修改原数据的情况下）更方便地控制展示效果。具体应该怎么变换，取决于原数据本身的分布情况，我一般会把原数据缩放到平均在几十到几百这个范围（后面会讲到为什么这样做）。在这里我用把X放大10倍作为Width，因此这一列的公式为：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;=[@X]*10
+=$B2*10
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;然后再添加两列，分别叫作Right和Left，这两列用于计算每个柱子的右边界和坐边界在横轴上的位置。在写这两列的公式之前，先要考虑一下柱子的间距。假设我们需要让每两个相邻的柱子之间有相等的间隔，我们可以自己指定这个间隔的绝对数值，或者设定一个相对于柱子宽度的比例然后用公式进行自动调节。我在这里设置间隔为柱子平均宽度的20%，因此其公式为：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;=CEILING(AVERAGE(TableData[Width])*0.2,1)
+=CEILING(AVERAGE($D$2:$D$6)*0.2,1)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;其中CEILING函数做了个上取整，这不是必须的，大家可以自行把握。另外注意我是对上面新加的Width列求的平均值，而不是原数据中的X。&lt;/p&gt;
+&lt;p&gt;为了方便以后引用，我们给存放这个数值的单元格起个名字。比如我现在把它放在B8这个单元格里，选中这个单元格，点击Ribbon的FORMULAS -&amp;gt;
+Define Name来为其指定一个名字，比如叫作“Gap”。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="define_gap_name" src="https://blog.gocalf.com/images/2013/12/define_gap_name.png"/&gt;
+&lt;p class="caption"&gt;给间隔数据所在的单元格定义名字&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;有了这个柱子之间的间隔，就很容易写出Right和Left的计算公式了。假设第一个柱子的左边界的（横轴）坐标为0，那任何一个柱子的左边界的坐标就等于它左边所有柱子的宽度之和加上若干（=左边的柱子个数）个间隔。而这个柱子的右边界的坐标等于其左边界坐标加上它自身的宽度。实际写公式的时候，为了方便，我先计算右边界的坐标，然后减去宽度得到左边界坐标。&lt;/p&gt;
+&lt;p&gt;Right列的计算公式是：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;=SUM(TableData[[#Headers],[Width]]:[@Width])+(COUNT(TableData[[#Headers],[Width]]:[@Width])-1)*Gap
+=SUM($D$1:$D2)+(COUNT($D$1:$D2)-1)*Gap
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;Left列的计算公式是：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;=[@Right]-[@Width]
+=$E2-$D2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;面积图数据扩展&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;前面提到了，我们要用一系列面积图来模拟不等宽柱状图，每一个柱子对应一条面积图曲线。而为了描述一个柱子，需要有四个坐标数据，即柱子矩形的四个顶点。因此原始数据中每一行就要扩展成为4行新的数据（分别对应一个柱子的左下、左上、右上、右下顶点）。那我们就来创建一个新的Excel表来计算这些数据。&lt;/p&gt;
+&lt;p&gt;假设我们把这个数据表叫作TableArea，放在从A10开始的单元格范围内。&lt;/p&gt;
+&lt;p&gt;第一列叫作Index，是一列递增的索引值，用于识别所在行的柱子序号和顶点编号。因为每一行原始数据在这里要对应4行新数据，所以这里需要4 * 5 = 20行，对应的编号分别为0，1，2，……，19。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="create_area_table" src="https://blog.gocalf.com/images/2013/12/create_area_table.png"/&gt;
+&lt;p class="caption"&gt;新加的Excel表——TableArea&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;接下来添加一些辅助列，主要是为了简化后续的计算公式。一个一个地介绍。&lt;/p&gt;
+&lt;p&gt;TableArea的第二列叫作ItemId，用于计算这一行数据对应于原始数据表中的第几行（设第一行为1），计算公式为：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;=INT([@Index]/4)+1
+=INT($A11/4)+1
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;第三列叫作IsLeft，其值为TRUE或者FALSE，表示该行数据是否对应一个柱子的左边界，计算公式为：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;=MOD([@Index],4)&amp;lt;2
+=MOD($A11,4)&amp;lt;2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;第四列叫作IsBottom，其值也是TRUE或者FALSE，表示该行数据是否对应一个柱子的下边界（对于高度为非负数的柱子），计算公式为：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;=MOD([@Index]+1,4)&amp;lt;2
+=MOD($A11+1,4)&amp;lt;2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;第五列叫作ItemName，是把该行所对应的对象的名字映射过来得到的，计算公式为：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;=OFFSET(TableData[[#Headers],[Item]],[@ItemId],0,1,1)
+=OFFSET($A$1,$B11,0,1,1)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;第六列叫作ItemHeight，是把该行所对应的对象的Y数据（即柱子高度）映射过来得到的，计算公式为：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;=OFFSET(TableData[[#Headers],[Y]],[@ItemId],0,1,1)
+=OFFSET($C$1,$B11,0,1,1)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;接下来就是画面积图实际使用的数据了。&lt;/p&gt;
+&lt;p&gt;第七列叫作X，这个X跟原始数据中的X可不是一回事儿。这里的X表示该行所对应的柱子顶点的横轴坐标。如果该行对应一个柱子的左边界，那其值为TableData的Left列数值；反之，如果该行对应一个柱子的右边界，其值为TableData的Right列数值。此列的计算公式为：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;=OFFSET(IF([@IsLeft],TableData[[#Headers],[Left]],TableData[[#Headers],[Right]]),[@ItemId],0,1,1)
+=OFFSET(IF($C11,$F$1,$E$1),$B11,0,1,1)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;所有的柱子都共享上面那一列横坐标数据，但我们需要为每一个柱子准备一列数据来提供相应的纵坐标，因此在X列后面添加5列，名字分别是原始数据中五个对象的名字，即A、B、C、D和E。它们的公式差不多，以A列为例，它的数据包含对象A的柱子面积图每个顶点的纵坐标。如果当前行对应的对象是A，而且当前行对应柱子的上边界时，相应的数据就应该是A对象的Y数据，否则就应该为0。计算公式为：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;=IF(OR([@ItemName]&amp;lt;&amp;gt;TableArea[[#Headers],[A]],[@IsBottom]),0,[@ItemHeight])
+=IF(OR($E11&amp;lt;&amp;gt;H$10,$D11),0,$F11)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;对于其他几列，只要把公式中的“[A]”改为对应的列名即可。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="data_ready" src="https://blog.gocalf.com/images/2013/12/data_ready.png"/&gt;
+&lt;p class="caption"&gt;准备完毕的两个Excel表&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;作图&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;现在来创建不等宽柱状体的主体结构。&lt;/p&gt;
+&lt;p&gt;在TableArea中选择所有的纵坐标列（A列到E列，包括列头和每一行数据），然后点击Ribbon的Insert -&amp;gt;
+Insert Area Chart -&amp;gt; Area，插入一张新的面积图。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="create_area_chart" src="https://blog.gocalf.com/images/2013/12/create_area_chart.png"/&gt;
+&lt;p class="caption"&gt;创建面积图&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;在面积图上点击鼠标右键，选择Select Data，在Horizontal (Category) Axis
+Labels中可以看到默认的横坐标数据是从1开始的递增整数，需要修改为真实的坐标值。点击Edit，选择TableArea的X列所有数据，保存即可。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="change_horizontal_axis_label" src="https://blog.gocalf.com/images/2013/12/change_horizontal_axis_label.png"/&gt;
+&lt;p class="caption"&gt;修改横坐标值&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;这时候图中的每个柱子都是梯形的，而且宽度跟X列的数据值也没有对应关系，接下来要把等宽的梯形改成不等宽的矩形。这也是制作不等宽柱状图中最重要的一步。用鼠标右键点击横坐标轴，选择Format
+Axis，将AXIS OPTIONS -&amp;gt; Axis Type由默认的Automatically select based on data改成Date Axis。&lt;/p&gt;
+&lt;p&gt;对于Date Axis，我们需要让横坐标数据最小粒度在一天以上，如果都是小于1的数，显示上会有些问题。所以在数据准备的时候，我把X数据进行适当的缩放得到Width，用Width来生成横坐标数据。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="use_date_axis" src="https://blog.gocalf.com/images/2013/12/use_date_axis.png"/&gt;
+&lt;p class="caption"&gt;改成Date Axis&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="trapezoid_vs_rectangle" src="https://blog.gocalf.com/images/2013/12/trapezoid_vs_rectangle.png"/&gt;
+&lt;p class="caption"&gt;应用Date Axis之前（等宽梯形）和之后（不等宽矩形）的图形对比&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;然后把横轴的刻度和标签隐藏起来，即把TICK MARKS -&amp;gt; Major type从默认的Outside改为None，把LABELS -&amp;gt; Label
+Position从默认的Next to Axis改为None。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="hide_axis_mark_and_label" src="https://blog.gocalf.com/images/2013/12/hide_axis_mark_and_label.png"/&gt;
+&lt;p class="caption"&gt;隐藏横轴的刻度和标签&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;修改一下图的标题之后，不等宽柱状图的主体结构就完成了。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="chart_demo" src="https://blog.gocalf.com/images/2013/12/chart_demo.png"/&gt;
+&lt;p class="caption"&gt;不等宽柱状图的主体结构&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;添加数据标签&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;有了主体结构后，大家可以根据需要自行美化图表了，这里我介绍一下如何添加目标效果中的位于柱子上方的数据标签，算作抛砖引玉吧。&lt;/p&gt;
+&lt;p&gt;先在TableData中添加一列叫作Mid，用于计算每个柱子中心点的横坐标，公式为&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;=([@Left]+[@Right])/2
+=($F2+$E2)/2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;用鼠标右键点击图表，选择Select Data，然后点击Legend Entries (Series) -&amp;gt; Add增加新的一组数据。在弹出的Edit
+Series框中，把Series name设置为Label，把Series values设置为TableData中Y列整列数据。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="add_label_series" src="https://blog.gocalf.com/images/2013/12/add_label_series.png"/&gt;
+&lt;p class="caption"&gt;添加一个Series用于展示标签&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;这时候图表会变的比较难看，没有关系。右键点击新加入的Series，选择Change Series Chart
+Type，在Combo -&amp;gt; Custom Combination -&amp;gt; Choose the chart type and axis for your data
+series中找到新加的Label这个Series，把它的Chart Type从Area改成散点图（X Y (Scatter) -&amp;gt; Scatter）。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="change_series_chart_type" src="https://blog.gocalf.com/images/2013/12/change_series_chart_type.png"/&gt;
+&lt;p class="caption"&gt;将新增加的Serise改为散点图&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;再次进入Select Data，编辑Label这个Series的数据，这时候就可以编辑它的横轴数据了，把Series
+X values设置为TableData中Mid列整列数据。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="set_label_series_x_data" src="https://blog.gocalf.com/images/2013/12/set_label_series_x_data.png"/&gt;
+&lt;p class="caption"&gt;设置新增加的Series的横轴坐标&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;修改之后，这些数据点就刚好落在每一个柱子的上边界中点位置了。右键点击这个Series，选择Add
+Data Labels -&amp;gt; Add Data Labels；再右键点击出现的标签，选择Format Data Labels，点击LABEL
+OPTIONS -&amp;gt; Label Contains -&amp;gt; Value From Cells复选框，弹出Data Label
+Range对话框，将数据范围设置为TableData的X列整列数据。然后将Label Position改为Above。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="set_label_options" src="https://blog.gocalf.com/images/2013/12/set_label_options.png"/&gt;
+&lt;p class="caption"&gt;修改数据标签的显示属性&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;最后隐藏一些不必要的东西即可。比如可以将Label Series的Marker设置为None，把Legend区域内Label字样直接删除。&lt;/p&gt;
+&lt;p&gt;搞定。&lt;/p&gt;
+&lt;p&gt;另外，可以在此下载上述操作所生成的Excel文件：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;使用Excel表的示例文件：&lt;a class="reference external" href="https://blog.gocalf.com/assets/2013/12/variable_width_column.xlsx"&gt;variable_width_column.xlsx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;不用Excel表的示例文件：&lt;a class="reference external" href="https://blog.gocalf.com/assets/2013/12/variable_width_column_no_table.xlsx"&gt;variable_width_column_no_table.xlsx&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="highcharts"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;Highcharts版本&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.gocalf.com/"&gt;GoCalf博客&lt;/a&gt;使用&lt;a class="reference external" href="http://www.highcharts.com/"&gt;Highcharts&lt;/a&gt;渲染动态图表。Highchart也并不直接支持不等宽柱状图，但是可以用完全相同的方法来进行模拟。具体的过程不再赘述，效果参见下图，源代码可以通过本页面的HTML源码获得，或者查看&lt;a class="reference external" href="http://jsfiddle.net/calfzhou/TUt2U/"&gt;我共享的jsfiddle&lt;/a&gt;：&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://jsfiddle.net/calfzhou/TUt2U/"&gt;http://jsfiddle.net/calfzhou/TUt2U/&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highcharts" id="variable-width-column-chart" style="height: 400px; width: 640px"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+$(function () {
+    var rawData = [
+        { name: 'A', x: 5.2, y: 5.6 },
+        { name: 'B', x: 3.9, y: 10.1 },
+        { name: 'C', x: 11.5, y: 1.2 },
+        { name: 'D', x: 2.4, y: 17.8 },
+        { name: 'E', x: 8.1, y: 8.4 }
+    ];
+    function makeSeries(listOfData) {
+        var sumX = 0.0;
+        for (var i = 0; i &lt; listOfData.length; i++) {
+            sumX += listOfData[i].x;
+        }
+        var gap = sumX / rawData.length * 0.2;
+        var allSeries = []
+        var x = 0.0;
+        for (var i = 0; i &lt; listOfData.length; i++) {
+            var data = listOfData[i];
+            allSeries[i] = {
+                name: data.name,
+                data: [
+                    [x, 0], [x, data.y],
+                    {
+                        x: x + data.x / 2.0,
+                        y: data.y,
+                        dataLabels: { enabled: true, format: data.x + ' x {y}' }
+                    },
+                    [x + data.x, data.y], [x + data.x, 0]
+                ],
+                w: data.x,
+                h: data.y
+            };
+            x += data.x + gap;
+        }
+        return allSeries;
+    }
+    $('#variable-width-column-chart').highcharts({
+        chart: { type: 'area', backgroundColor: null },
+        colors: ['#3399ff', '#ff3300', '#9fd42e', '#ff9900', '#ff6633'],
+        title: { text: 'Variable Width Column Chart' },
+        xAxis: {
+            tickLength: 0,
+            labels: { enabled: false}
+        },
+        yAxis: {
+            title: { enabled: false}
+        },
+        plotOptions: {
+            area: {
+                marker: {
+                    enabled: false,
+                    states: {
+                        hover: { enabled: false }
+                    }
+                }
+            }
+        },
+        tooltip: {
+            followPointer: true,
+            useHTML: true,
+            headerFormat: '&lt;span style="color: {series.color}"&gt;{series.name}&lt;/span&gt;: ',
+            pointFormat: '&lt;span&gt;{series.options.w} x {series.options.h}&lt;/span&gt;'
+        },
+        series: makeSeries(rawData)
+    });
+});
+&lt;/script&gt;&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;注解&lt;/p&gt;
+&lt;p class="last"&gt;Highcharts从6.0.0版本开始也加入了varwide类型，详见&lt;a class="reference external" href="https://www.highcharts.com/demo/variwide"&gt;varwide demo&lt;/a&gt;。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="Excel"></category></entry><entry><title>Excel从右向左查找</title><link href="https://blog.gocalf.com/excel-find-from-right" rel="alternate"></link><published>2013-04-03T18:09:00+08:00</published><updated>2013-04-03T18:09:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-04-03:/excel-find-from-right</id><summary type="html">&lt;p class="first last"&gt;今天看一个小问题，是前几天遇到的，就是要在Excel里面实现从右向左查找。比如给定字符串“abc,defg,hi,jkl”，需要找到最右一个逗号的位置（即12），或者最右一个逗号右边的部分（即“jkl”）。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;发现我已经有几乎整整一年没更新博客了。在Google
+Reader都快要关闭的时代，个人博客还有多少存在的意义呢。&lt;/p&gt;
+&lt;p&gt;今天看一个小问题，是前几天遇到的，就是要在Excel里面实现从右向左查找。比如给定字符串“abc,defg,hi,jkl”，需要找到最右一个逗号的位置（即12），或者最右一个逗号右边的部分（即“jkl”）。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;Excel里面字符串查找用的&lt;a class="reference external" href="http://office.microsoft.com/en-au/excel-help/find-findb-functions-HP010342526.aspx"&gt;FIND&lt;/a&gt;函数，只能从左向右（可以指定起始位置）地进行字符串查找。如果想要找到最右边的待查字符串，就要稍微费点儿劲儿了。为了方便起见，下面称待查字符串为分隔符。&lt;/p&gt;
+&lt;p&gt;如果分隔符的个数是已知且确定的（比如IP地址中的小数点），可以通过多个FIND函数嵌套来实现。但这个其实是&lt;strong&gt;从左到右查找第n个&lt;/strong&gt;。如果分隔符的个数不确定，这个方法就不太合适的。&lt;/p&gt;
+&lt;p&gt;我的处理方法是这样的，假设单元格A1存放着包含分隔符的完整字符串（如上面提到的“abc,defg,hi,jkl”），那么查找最右一个逗号的公式为：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;=FIND(CHAR(1),SUBSTITUTE(A1,&amp;quot;,&amp;quot;,CHAR(1),LEN(A1)-LEN(SUBSTITUTE(A1,&amp;quot;,&amp;quot;,&amp;quot;&amp;quot;))))
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这个公式的结果显然是12。&lt;/p&gt;
+&lt;p&gt;看起来很复杂，其实一步步拆解开并不是太难，基本的原理是这样的：&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;SUBSTITUTE(A1,&amp;quot;,&amp;quot;,&amp;quot;&amp;quot;)&lt;/span&gt;&lt;/tt&gt;：把原字符串中的逗号全部删除（替换成空字符串），得到临时字符串text1；&lt;/li&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;LEN(A1)-LEN(text1)&lt;/span&gt;&lt;/tt&gt;：用原字符串的长度减去text1的长度，即可知道原字符串中总共有多少个逗号，num2；&lt;/li&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;SUBSTITUTE(A1,&amp;quot;,&amp;quot;,CHAR(1),num2)&lt;/span&gt;&lt;/tt&gt;：利用SUBSTITUE函数，把原字符串中的最后一个逗号替换成特殊字符CHAR(1)，得到临时字符串text3；&lt;/li&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;FIND(CHAR(1),text3)&lt;/span&gt;&lt;/tt&gt;：在text3中查找特殊字符CHAR(1)，其位置就是原字符串中最后一个逗号的位置pos。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;真是一个奇妙的方法。&lt;/p&gt;
+&lt;p&gt;找到位置后，要取出左边或者右边的内容就很简单了，公式分别是（用pos代替那个复杂的FIND函数）：&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;=LEFT(A1,pos-1)&lt;/span&gt;&lt;/tt&gt;，&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;=RIGHT(A1,LEN(A1)-pos)&lt;/span&gt;&lt;/tt&gt;。&lt;/p&gt;
+&lt;p&gt;补充：&lt;/p&gt;
+&lt;p&gt;上面那个公式只是适用于单个字符的查找，如果分隔符是多个字符，就需要稍微修改一下。假设单元格B1里面存放着分隔符本身，那么公式可以修改为：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;=FIND(CHAR(1),SUBSTITUTE(A1,B1,CHAR(1),(LEN(A1)-LEN(SUBSTITUTE(A1,B1,&amp;quot;&amp;quot;)))/LEN(B1)))
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;唯一的变化就是上述的第2步，原字符串的长度减去text1的长度后，要除以分隔符本身的长度，才是分隔符的个数。&lt;/p&gt;
+&lt;p&gt;在这种情况下，取（最右分隔符）右边的子串的公式也要相应地修改为：&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;=RIGHT(A1,LEN(A1)+1-LEN(B1)-pos)&lt;/span&gt;&lt;/tt&gt;。&lt;/p&gt;
+</content><category term="Excel"></category></entry><entry><title>星期万年历</title><link href="https://blog.gocalf.com/calendar-of-week" rel="alternate"></link><published>2011-08-10T22:25:00+08:00</published><updated>2011-08-10T22:25:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-10:/calendar-of-week</id><summary type="html">&lt;p class="first last"&gt;小学的时候看到过计算某年某月某日是星期几的方法，当时觉得好神奇啊，当时一直不明白为什么一个简简单单的式子或者一张表格就能够算出任何一天是星期几呢。让我们回忆一下孩童时期的乐趣吧，或许以后可以用来逗孩子玩呢。&lt;/p&gt;
+</summary><content type="html">
+&lt;p&gt;还记得小学的时候看到过计算某年某月某日是星期几的方法，当时觉得好神奇啊，当时一直不明白为什么一个简简单单的式子或者一张表格就能够算出任何一天是星期几呢，这些方法伴随我度过了整个童年。&lt;/p&gt;
+&lt;p&gt;长大后就知道了它们的原理，因为星期是七天为一个周期，只要已知某一天是星期几，要算任何一天是星期几只要求出两个日子之间的天数就可以了。现在的编程语言几乎全都包含了获得星期的方法，程序员们再也不用为此发愁。但还是让我们回忆一下孩童时期的乐趣吧，或许以后可以用来逗孩子玩呢。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;公式法计算星期几&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;这是我最早知道的计算某一天是星期几的方法，还曾经在同学的Casio可编程计算器上做了个简单的程序来自动计算，真是有趣的回忆。&lt;/p&gt;
+&lt;p&gt;设Y是公元年数（比如今年的话，Y等于2011），D是从同年元旦到指定的这天未为止的天数（包含这一天，比如1月1号的话，D就是1），那么指定日期的星期数为：&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+W=\left((Y-1)+\left\lfloor\frac{Y-1}{4}\right\rfloor-\left\lfloor\frac{Y-1}{100}\right\rfloor+\left\lfloor\frac{Y-1}{400}\right\rfloor+D\right)\bmod7
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;结果0代表周日，1～6分别代表星期一～星期六。&lt;/p&gt;
+&lt;p&gt;以今天为例，2011年8月10日，先求出今年元旦到今天有多少天（包含今天），显然D=31+28+31+30+31+30+31+10=222，代入公式得到：&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\begin{array}{rcl}
+W &amp;amp; = &amp;amp; \left((2011-1)+\left\lfloor\frac{2011-1}{4}\right\rfloor-\left\lfloor\frac{2011-1}{100}\right\rfloor+\left\lfloor\frac{2011-1}{400}\right\rfloor+222\right)\bmod7 \\
+&amp;amp; = &amp;amp; (2010+502-20+5+222)\bmod7 \\
+&amp;amp; = &amp;amp; 2719\bmod7 \\
+&amp;amp; = &amp;amp; 3
+\end{array}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;今天是周三，没错呢。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;表格法计算星期几&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;上面的公式虽然简单明了，但对于小学时候的我却还是非常头疼的，四则运算不过关的人伤不起啊！下面这个表格法则没有任何计算了，我还特意添加了JavaScript使得它更容易使用。&lt;/p&gt;
+&lt;p&gt;使用方法非常简单，比如还是看今天是星期几，按照以下三步进行：&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;在百年数区域里找到20，在年份后两位数字区域里找到11。由20所在横行向右，11所在竖行向下，交于F。&lt;/li&gt;
+&lt;li&gt;在月份区域里找到8，向左在同一横行里找到F。&lt;/li&gt;
+&lt;li&gt;在日期区域里找到10，在同一横行向左，同时由（第2步中找到的）F所在竖行向下，与10所在横行相交于星期区域里的“三”。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;可见同样求出今天是星期三。&lt;/p&gt;
+&lt;p&gt;另外注意在月份区域中的1'和2'分别表示闰年的1月和2月。比如算2000年1月某天是星期几，就要在月份区域里选择1'。&lt;/p&gt;
+&lt;p&gt;猛烈点击&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/calendar_week.htm"&gt;这里（calendar_week.html）&lt;/a&gt;可以在新的页面中打开星期万年历表格。如果你的浏览器支持IFRAME，可以在文章底部看到同样的表格。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;啰嗦两句&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;根据公式或者表格都可以算出公元1年1月1日是星期一，那天到底是不是星期一呢？我不知道，而且也没有实际的意义，因为这个历法是罗马教皇格里高利十三世在1582年10月15日启用的，而英国及其殖民地直到1752年9月14日才使用现在的历法，所以算这之前甚至公元前某日是星期几毫无意义。另外，1582年2月24日教皇下令去除1582年10月5日至14日，1752年英国国会下令去除1752年9月3日至13日，所以1752年9月14日是星期四，但1752年9月2日却是星期三而不是星期六。
+这也是为什么我在表格的百年数区域里从15开始写。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="iframe"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;附：放在IFRAME里面的星期万年历表格&lt;/a&gt;&lt;/h2&gt;
+&lt;iframe frameborder="0" height="1060" name="星期万年历" scrolling="yes" src="https://blog.gocalf.com/assets/2011/08/calendar_week.htm" title="Week Calendar" width="100%"&gt;&lt;/iframe&gt;&lt;/div&gt;
+</content><category term="Perpetual Calendar"></category></entry><entry><title>纸张的尺寸</title><link href="https://blog.gocalf.com/about-paper-size" rel="alternate"></link><published>2011-07-27T22:11:00+08:00</published><updated>2013-10-30T16:48:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-27:/about-paper-size</id><summary type="html">&lt;p class="first last"&gt;小时候常说的16开、32开的纸是多大？现在打印复印用的A3、A4、B5纸又分别是多大？看到书架里高矮宽窄各不同的书本，赶紧上网查了一番，总结于此。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;记得小时候买书本，都会提到多少多少开，成语词典好像是64开，小学课本是32开，到高中教材改革，课本变成了16开。随着打印机、复印机的广泛应用，现在似乎很少说多少开了，张口就是A4纸，A3纸，还有B5、C5之类的。它们的尺寸分别是多少？大小关系呢？&lt;/p&gt;
+&lt;p&gt;看到书架里高矮宽窄各不同的书本，赶紧上网查了一番，总结于此。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;先说现在的复印纸。有A、B、C三个系列，它们的尺寸遵循国际标准&lt;a class="reference external" href="http://en.wikipedia.org/wiki/A4_paper"&gt;ISO 216&lt;/a&gt;和&lt;a class="reference external" href="http://en.wikipedia.org/wiki/ISO_269"&gt;ISO 269&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;A系列从A0开始，这是一整张纸，将其沿长边对折，每半都是A1，继续沿长边对折得到A2，以此类推。由于每次对折之后，纸张的长宽比保持不变，可知（a、b分别代表短边、长边）&lt;span class="math"&gt;\(a:b=\frac{b}{2}:a\Rightarrow a:b=1:\sqrt2\)&lt;/span&gt;。A0的面积是&lt;span class="math"&gt;\(1m^2\)&lt;/span&gt;，由此可以推算出其尺寸为841x1189（单位是毫米，下同）：&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\left\{\begin{matrix} \sqrt{10^6/\sqrt2}\approx 841\\ \sqrt2\sqrt{10^6/\sqrt2}\approx 1189 \end{matrix} \right.
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;将A0纸张长边减半，就可以得到A1的尺寸（不能整除时下取整），为594x841。常用的A3纸是297x420，A4纸是210x297。维基百科上还给出了边长的通项公式：纸张An的尺寸是&lt;span class="math"&gt;\(a_n \times a_{n+1}\)&lt;/span&gt;，其中&lt;span class="math"&gt;\(a_n=\left \lfloor 1000\times 2^{1/4-n/2}+0.2 \right \rfloor\)&lt;/span&gt;，是一个等比数列（这里加0.2下取整是使得A0的面积尽可能接近一平米，其他编号的纸张面积最接近但不超过前一编号纸张的一半）。&lt;/p&gt;
+&lt;p&gt;B系列的尺寸被定义为相同编号的A系列纸张，与前一编号的A系列纸张的几何平均（乘积的开方）。即B1的尺寸是A1和A0的几何平均。直接根据A0的通项公式可以得到纸张Bn的尺寸是&lt;span class="math"&gt;\(b_n\times b_{n+1}\)&lt;/span&gt;，其中&lt;span class="math"&gt;\(b_n=\left \lfloor 1000\times 2^{1/2-n/2}+0.2 \right \rfloor\)&lt;/span&gt;。可见B纸的边长是相同编号的A纸的&lt;span class="math"&gt;\(\sqrt[4]{2}\)&lt;/span&gt;倍，面积是&lt;span class="math"&gt;\(\sqrt2\)&lt;/span&gt;倍。B0的尺寸是1000x1414，B4是250x353。&lt;/p&gt;
+&lt;p&gt;C系列是信封系列，其尺寸是相同编号的A纸与B纸的几何平均。可以推算出其通项公式为&lt;span class="math"&gt;\(c_n=\left \lfloor 1000\times 2^{3/8-n/2}+0.2 \right \rfloor\)&lt;/span&gt;。C0的尺寸是917x1297，C4为229x324。C4刚好比A4大一点儿，正好可以给A4纸当信封。&lt;/p&gt;
+&lt;p&gt;下面这个表列出了A、B、C三个系列纸张的尺寸：&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="13%" /&gt;
+&lt;col width="20%" /&gt;
+&lt;col width="13%" /&gt;
+&lt;col width="23%" /&gt;
+&lt;col width="13%" /&gt;
+&lt;col width="20%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head" colspan="2"&gt;A系列&lt;/th&gt;
+&lt;th class="head" colspan="2"&gt;B系列&lt;/th&gt;
+&lt;th class="head" colspan="2"&gt;C系列&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;A0&lt;/td&gt;
+&lt;td&gt;841x1189&lt;/td&gt;
+&lt;td&gt;B0&lt;/td&gt;
+&lt;td&gt;1000x1414&lt;/td&gt;
+&lt;td&gt;C0&lt;/td&gt;
+&lt;td&gt;917x1297&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;A1&lt;/td&gt;
+&lt;td&gt;594x841&lt;/td&gt;
+&lt;td&gt;B1&lt;/td&gt;
+&lt;td&gt;707x1000&lt;/td&gt;
+&lt;td&gt;C1&lt;/td&gt;
+&lt;td&gt;648x917&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;A2&lt;/td&gt;
+&lt;td&gt;420x594&lt;/td&gt;
+&lt;td&gt;B2&lt;/td&gt;
+&lt;td&gt;500x707&lt;/td&gt;
+&lt;td&gt;C2&lt;/td&gt;
+&lt;td&gt;458x648&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;A3&lt;/td&gt;
+&lt;td&gt;297x420&lt;/td&gt;
+&lt;td&gt;B3&lt;/td&gt;
+&lt;td&gt;353x500&lt;/td&gt;
+&lt;td&gt;C3&lt;/td&gt;
+&lt;td&gt;324x458&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;A4&lt;/td&gt;
+&lt;td&gt;210x297&lt;/td&gt;
+&lt;td&gt;B4&lt;/td&gt;
+&lt;td&gt;250x353&lt;/td&gt;
+&lt;td&gt;C4&lt;/td&gt;
+&lt;td&gt;229x324&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;A5&lt;/td&gt;
+&lt;td&gt;148x210&lt;/td&gt;
+&lt;td&gt;B5&lt;/td&gt;
+&lt;td&gt;176x250&lt;/td&gt;
+&lt;td&gt;C5&lt;/td&gt;
+&lt;td&gt;162x229&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;A6&lt;/td&gt;
+&lt;td&gt;105x148&lt;/td&gt;
+&lt;td&gt;B6&lt;/td&gt;
+&lt;td&gt;125x176&lt;/td&gt;
+&lt;td&gt;C6&lt;/td&gt;
+&lt;td&gt;114x162&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;A7&lt;/td&gt;
+&lt;td&gt;74x105&lt;/td&gt;
+&lt;td&gt;B7&lt;/td&gt;
+&lt;td&gt;88x125&lt;/td&gt;
+&lt;td&gt;C7&lt;/td&gt;
+&lt;td&gt;81x114&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;A8&lt;/td&gt;
+&lt;td&gt;52x74&lt;/td&gt;
+&lt;td&gt;B8&lt;/td&gt;
+&lt;td&gt;62x88&lt;/td&gt;
+&lt;td&gt;C8&lt;/td&gt;
+&lt;td&gt;57x81&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;A9&lt;/td&gt;
+&lt;td&gt;37x52&lt;/td&gt;
+&lt;td&gt;B9&lt;/td&gt;
+&lt;td&gt;44x62&lt;/td&gt;
+&lt;td&gt;C9&lt;/td&gt;
+&lt;td&gt;40x57&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;A10&lt;/td&gt;
+&lt;td&gt;26x37&lt;/td&gt;
+&lt;td&gt;B10&lt;/td&gt;
+&lt;td&gt;31x44&lt;/td&gt;
+&lt;td&gt;C10&lt;/td&gt;
+&lt;td&gt;28x40&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;本来想下载ISO 216标准完整版阅读一下，没想到很贵呢，要&lt;a class="reference external" href="http://webstore.ansi.org/RecordDetail.aspx?sku=ISO+216%3a2007"&gt;七十多美元&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;再来看小时候常说的开本，什么16开、32开。其实很容易理解啦，16开就是把一张大纸裁成16等份（对折4次，类似于A4），32开就是把16开纸再对折1次（类似于A5）。而整张的大纸的尺寸在我国也有好几种，最常见的有（宽长比差不多都是&lt;span class="math"&gt;\(1:\sqrt2\)&lt;/span&gt;）：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;787号纸（正度纸）：787x1092&lt;/li&gt;
+&lt;li&gt;850号纸（大度纸）：850x1168&lt;/li&gt;
+&lt;li&gt;880号纸：880x1230&lt;/li&gt;
+&lt;li&gt;889号纸（也有说这个是大度纸，搞不清楚）：889x1194&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;不过如果按照对折的办法去算开纸的尺寸，比如787号纸的16开是196x273，这个尺寸一般要比16开的书大，因为书籍还要修边裁剪啥的。比如我手边的交规课本就是787号纸16开的，实际尺寸是186x259。除了常见的对开（就是2开）、4开、8开、16开、32开、64开（袖珍手册），偶尔也能看到其他开本。比如我手边有一本讲PPT的书是889号纸24开的，实际尺寸是180x210，貌似是把4开本沿短边对折后再沿长边三折：&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;object data="https://blog.gocalf.com/images/2011/07/paper_24k.svg" style="width: 346px;" type="image/svg+xml"&gt;
+paper_24k&lt;/object&gt;
+&lt;p class="caption"&gt;889x1194 24开本&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;对于给定的原始尺寸，可以用下面这段程序（Python）来算出1～10次对折后的尺寸：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;Kai&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;
+  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;xrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;x&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;
+    &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
+
+&lt;span class="n"&gt;Kai&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;841&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1189&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;下面的表格列出了这四种纸张各个开本的未修边尺寸（有些格子里列出了常见的修边后的尺寸）：&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="14%" /&gt;
+&lt;col width="22%" /&gt;
+&lt;col width="22%" /&gt;
+&lt;col width="20%" /&gt;
+&lt;col width="20%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;开本&lt;/th&gt;
+&lt;th class="head"&gt;787号纸&lt;/th&gt;
+&lt;th class="head"&gt;850号纸&lt;/th&gt;
+&lt;th class="head"&gt;880号纸&lt;/th&gt;
+&lt;th class="head"&gt;889号纸&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;全张&lt;/td&gt;
+&lt;td&gt;787x1092&lt;/td&gt;
+&lt;td&gt;850x1168&lt;/td&gt;
+&lt;td&gt;880x1230&lt;/td&gt;
+&lt;td&gt;889x1194&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;2开&lt;/td&gt;
+&lt;td&gt;546x787&lt;/td&gt;
+&lt;td&gt;584x850&lt;/td&gt;
+&lt;td&gt;615x880&lt;/td&gt;
+&lt;td&gt;597x889&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;4开&lt;/td&gt;
+&lt;td&gt;393x546&lt;/td&gt;
+&lt;td&gt;425x584&lt;/td&gt;
+&lt;td&gt;440x615&lt;/td&gt;
+&lt;td&gt;444x597&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;8开&lt;/td&gt;
+&lt;td&gt;273x393
+(260x368)&lt;/td&gt;
+&lt;td&gt;292x425
+(285x420)&lt;/td&gt;
+&lt;td&gt;307x440&lt;/td&gt;
+&lt;td&gt;298x444&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;16开&lt;/td&gt;
+&lt;td&gt;196x273
+(184x260)&lt;/td&gt;
+&lt;td&gt;212x292
+(210x285)&lt;/td&gt;
+&lt;td&gt;220x307&lt;/td&gt;
+&lt;td&gt;222x298&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;32开&lt;/td&gt;
+&lt;td&gt;136x196
+(130x184)&lt;/td&gt;
+&lt;td&gt;146x212
+(140x203)&lt;/td&gt;
+&lt;td&gt;153x220&lt;/td&gt;
+&lt;td&gt;149x222&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;64开&lt;/td&gt;
+&lt;td&gt;98x136&lt;/td&gt;
+&lt;td&gt;106x146&lt;/td&gt;
+&lt;td&gt;110x153&lt;/td&gt;
+&lt;td&gt;111x149&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;128开&lt;/td&gt;
+&lt;td&gt;68x98&lt;/td&gt;
+&lt;td&gt;73x106&lt;/td&gt;
+&lt;td&gt;76x110&lt;/td&gt;
+&lt;td&gt;74x111&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</content><category term="Paper Size"></category></entry></feed>

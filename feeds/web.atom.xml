@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>GoCalf Blog - 互联网</title><link href="https://blog.gocalf.com/" rel="alternate"></link><link href="https://blog.gocalf.com/feeds/web.atom.xml" rel="self"></link><id>https://blog.gocalf.com/</id><updated>2011-10-09T14:59:00+08:00</updated><subtitle>1/100 ALGO&amp;amp;MATH; 1/100 IT&amp;amp;GAME; 1/100 INFO&amp;amp;SHARING; 1/100 WHO KNOWS</subtitle><entry><title>水木社区、小百合、饮水思源、日月光华十大博客</title><link href="https://blog.gocalf.com/bbs-top-10" rel="alternate"></link><published>2011-09-29T23:21:00+08:00</published><updated>2011-10-09T14:59:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-09-29:/bbs-top-10</id><summary type="html">&lt;p class="first last"&gt;gdh同学利用Google Blogspot和Google Picasa制作了四个博客，分别收集了清华水木社区、南大小百合、上海交通大学饮水思源和复旦大学日月光华的全站十大，不但保留了文章全文，还存储了图片，几乎是与这几个BBS同步更新的，非常方便。欢迎参观，猛烈点击小广告。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;如果你喜欢订阅几大校园BBS全站十大，强烈推荐&lt;a class="reference external" href="http://www.truevue.org/"&gt;gdh&lt;/a&gt;做的十大博客（需翻墙）：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;水木十大：&lt;a class="reference external" href="http://smthot.blogspot.com/"&gt;http://smthot.blogspot.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;小百合十大：&lt;a class="reference external" href="http://lilytop.blogspot.com/"&gt;http://lilytop.blogspot.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;饮水思源十大：&lt;a class="reference external" href="http://sjtutop.blogspot.com/"&gt;http://sjtutop.blogspot.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;日月光华十大：&lt;a class="reference external" href="http://fudantop.blogspot.com/"&gt;http://fudantop.blogspot.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;之前就一直用&lt;a class="reference external" href="https://www.google.com/reader"&gt;Google Reader&lt;/a&gt;订阅着水木的十大，不过非常郁闷的是水木RSS中的文章不完整，稍微长点儿文章就被截断了，再有就是图片附件都看不到，要点开进入到水木才能看得到。但经常有很不错的文章，却因为种种原因被删除或者合集了，再想看到原文原图就很困难了，带来了不少遗憾。&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.truevue.org/"&gt;gdh&lt;/a&gt;同学利用Google Blogspot和Google
+Picasa制作了四个博客，分别收集了清华水木社区、南大小百合、上海交通大学饮水思源和复旦大学日月光华的全站十大，不但保留了文章全文，还存储了图片，几乎是与这几个个BBS同步更新的，非常方便。欢迎大家前往以上博客参观，猛烈点击小广告，也可以直接把上述地址扔到Google
+Reader中进行订阅。&lt;/p&gt;
+&lt;p&gt;原文地址：&lt;a class="reference external" href="http://www.truevue.org/web/smth-top-10-smthot"&gt;水木十大博客&lt;/a&gt;&lt;/p&gt;
+</content><category term="RSS Feed"></category></entry><entry><title>Google图标：动态雕塑家Calder诞辰113周年</title><link href="https://blog.gocalf.com/google-doodle-calder" rel="alternate"></link><published>2011-07-22T18:33:00+08:00</published><updated>2011-08-03T21:45:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-22:/google-doodle-calder</id><summary type="html">&lt;p class="first last"&gt;现在Google经常会在它的Doodle中加入各种有趣的元素，今天这个就用到了HTML5的Canvas，在支持HTML5 Canvas的浏览器里，可以看到3D的动态Doodle，还可以拖动哦。为了便于以后查看和保存，我把这个Doodle相关的脚本扒下来，在此留存。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;现在Google经常会在它的Doodle中加入各种有趣的元素，今天这个就用到了HTML5的Canvas，在支持HTML5
+Canvas的浏览器里，可以看到3D的动态Doodle，还可以拖动哦。为了便于以后查看和保存，我把这个Doodle相关的脚本扒下来，在此留存。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;今天（2011年7月22日）是伟大的动态雕塑发明人&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Alexander_Calder"&gt;亚历山大·考尔德&lt;/a&gt;（&lt;a class="reference external" href="https://artsy.net/artist/alexander-calder"&gt;Alexander
+Calder&lt;/a&gt;）诞辰113周年，Google用它的Doodle为大家在浏览器上展示了Calder的动态雕塑作品The
+Star (1960)。原作如下图示。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="calder_the_star" src="https://blog.gocalf.com/images/2011/07/calder_the_star.jpg" /&gt;
+&lt;p class="caption"&gt;亚历山大·考尔德动态雕塑作品 The Star (1960)&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;当然我对艺术是一窍不通了，对HTML5
+Canvas也一无所知。就像电视上有个广告词：“我们不生产水，我们只是大自然的搬运工”。我今天也只是把这个Doodle从Google主页上搬下来，以满足收藏的欲望。由于没有搜索框，我把雕塑阴影的位置调高了一些。&lt;/p&gt;
+&lt;p&gt;注意，在IE8或IE6（该淘汰了）中是无法看到Canvas的，只能看到静态的图片，请使用其他浏览器。另外可以点击&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/07/doodle_0722.html"&gt;doodle_0722_html&lt;/a&gt;在单独的HTML页面中查看（方便下载）。&lt;/p&gt;
+&lt;iframe frameborder="0" height="320" scrolling="no" src="https://blog.gocalf.com/assets/2011/07/doodle_0722.html" title="The Star" width="100%"&gt;&lt;/iframe&gt;</content><category term="Google"></category><category term="Doodle"></category></entry></feed>

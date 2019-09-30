@@ -4,556 +4,556 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>http://www.gocalf.com/blog/</loc>
-<lastmod>2018-03-24T14:25:11-00:00</lastmod>
+<loc>https://blog.gocalf.com/</loc>
+<lastmod>2019-09-30T22:07:32-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/archives.html</loc>
-<lastmod>2018-03-24T14:25:11-00:00</lastmod>
+<loc>https://blog.gocalf.com/archives.html</loc>
+<lastmod>2019-09-30T22:07:32-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/tags.html</loc>
-<lastmod>2018-03-24T14:25:11-00:00</lastmod>
+<loc>https://blog.gocalf.com/tags.html</loc>
+<lastmod>2019-09-30T22:07:32-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/categories.html</loc>
-<lastmod>2018-03-24T14:25:11-00:00</lastmod>
+<loc>https://blog.gocalf.com/categories.html</loc>
+<lastmod>2019-09-30T22:07:32-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/about.html</loc>
+<loc>https://blog.gocalf.com/about</loc>
 <lastmod>2011-01-07T09:11:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.1</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/self-descriptive-sentence.html</loc>
+<loc>https://blog.gocalf.com/self-descriptive-sentence</loc>
 <lastmod>2014-08-28T23:25:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/move-wordpress-blog.html</loc>
+<loc>https://blog.gocalf.com/move-wordpress-blog</loc>
 <lastmod>2014-07-31T11:16:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/make-mac-better-for-development.html</loc>
+<loc>https://blog.gocalf.com/make-mac-better-for-development</loc>
 <lastmod>2014-07-26T11:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/number-to-chinese.html</loc>
+<loc>https://blog.gocalf.com/number-to-chinese</loc>
 <lastmod>2014-01-28T09:30:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/git-encrypt.html</loc>
+<loc>https://blog.gocalf.com/git-encrypt</loc>
 <lastmod>2013-12-17T14:07:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/excel-variable-width-column-chart.html</loc>
-<lastmod>2013-12-13T22:40:00+08:00</lastmod>
+<loc>https://blog.gocalf.com/excel-variable-width-column-chart</loc>
+<lastmod>2019-09-30T16:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/python-read-write-excel.html</loc>
+<loc>https://blog.gocalf.com/python-read-write-excel</loc>
 <lastmod>2014-07-31T09:54:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/scale-embedded-svg.html</loc>
+<loc>https://blog.gocalf.com/scale-embedded-svg</loc>
 <lastmod>2013-11-19T21:52:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/wordpress-to-pelican.html</loc>
+<loc>https://blog.gocalf.com/wordpress-to-pelican</loc>
 <lastmod>2013-11-12T14:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/fix-bricked-kindle4.html</loc>
+<loc>https://blog.gocalf.com/fix-bricked-kindle4</loc>
 <lastmod>2013-07-29T10:13:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/excel-find-from-right.html</loc>
+<loc>https://blog.gocalf.com/excel-find-from-right</loc>
 <lastmod>2013-04-03T18:09:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/topn-of-massive-data.html</loc>
+<loc>https://blog.gocalf.com/topn-of-massive-data</loc>
 <lastmod>2012-04-17T15:09:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/traversing-binary-tree.html</loc>
+<loc>https://blog.gocalf.com/traversing-binary-tree</loc>
 <lastmod>2012-04-04T16:51:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/iphone-dev-resizable-image.html</loc>
+<loc>https://blog.gocalf.com/iphone-dev-resizable-image</loc>
 <lastmod>2012-03-10T22:57:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/hackintosh-fix-uuid.html</loc>
+<loc>https://blog.gocalf.com/hackintosh-fix-uuid</loc>
 <lastmod>2012-03-02T23:09:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/chromatron.html</loc>
+<loc>https://blog.gocalf.com/chromatron</loc>
 <lastmod>2012-12-04T16:51:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/iphone-dev-range-slider.html</loc>
+<loc>https://blog.gocalf.com/iphone-dev-range-slider</loc>
 <lastmod>2012-12-04T16:58:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/zelda-tp-appendix.html</loc>
+<loc>https://blog.gocalf.com/zelda-tp-appendix</loc>
 <lastmod>2012-01-22T23:12:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/zelda-tp-epilogue.html</loc>
+<loc>https://blog.gocalf.com/zelda-tp-epilogue</loc>
 <lastmod>2012-01-10T20:46:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/the-probability-of-two-boys.html</loc>
+<loc>https://blog.gocalf.com/the-probability-of-two-boys</loc>
 <lastmod>2013-10-14T11:19:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/zelda-tp-ch9.html</loc>
+<loc>https://blog.gocalf.com/zelda-tp-ch9</loc>
 <lastmod>2011-12-25T19:01:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/get-46-from-11-12-13-and-14.html</loc>
+<loc>https://blog.gocalf.com/get-46-from-11-12-13-and-14</loc>
 <lastmod>2011-12-15T18:15:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/zelda-tp-ch8.html</loc>
+<loc>https://blog.gocalf.com/zelda-tp-ch8</loc>
 <lastmod>2011-12-13T21:43:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/iphone-dev-progressview-in-alertview.html</loc>
+<loc>https://blog.gocalf.com/iphone-dev-progressview-in-alertview</loc>
 <lastmod>2011-12-21T10:31:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/zelda-tp-ch7.html</loc>
+<loc>https://blog.gocalf.com/zelda-tp-ch7</loc>
 <lastmod>2011-12-08T23:11:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/zelda-tp-ch6.html</loc>
+<loc>https://blog.gocalf.com/zelda-tp-ch6</loc>
 <lastmod>2011-12-01T19:53:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/iphone-dev-hide-status-bar.html</loc>
+<loc>https://blog.gocalf.com/iphone-dev-hide-status-bar</loc>
 <lastmod>2011-12-02T13:01:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/5x5-sudoku-in-vcube7.html</loc>
+<loc>https://blog.gocalf.com/5x5-sudoku-in-vcube7</loc>
 <lastmod>2011-11-26T15:49:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/calc-fibonacci.html</loc>
+<loc>https://blog.gocalf.com/calc-fibonacci</loc>
 <lastmod>2012-12-04T17:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/zelda-tp-ch5.html</loc>
+<loc>https://blog.gocalf.com/zelda-tp-ch5</loc>
 <lastmod>2011-11-22T19:47:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/algorithm-complexity-and-master-theorem.html</loc>
+<loc>https://blog.gocalf.com/algorithm-complexity-and-master-theorem</loc>
 <lastmod>2011-11-16T14:16:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/zelda-tp-ch4.html</loc>
+<loc>https://blog.gocalf.com/zelda-tp-ch4</loc>
 <lastmod>2011-11-10T11:32:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/zelda-tp-ch3.html</loc>
+<loc>https://blog.gocalf.com/zelda-tp-ch3</loc>
 <lastmod>2011-11-04T22:58:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/manufactoria.html</loc>
+<loc>https://blog.gocalf.com/manufactoria</loc>
 <lastmod>2011-11-03T21:42:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/max-inner-product.html</loc>
+<loc>https://blog.gocalf.com/max-inner-product</loc>
 <lastmod>2011-10-30T15:05:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/least-common-ancestor.html</loc>
+<loc>https://blog.gocalf.com/least-common-ancestor</loc>
 <lastmod>2012-04-05T23:31:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/task-schedule-with-resource.html</loc>
+<loc>https://blog.gocalf.com/task-schedule-with-resource</loc>
 <lastmod>2011-10-21T18:50:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/circle-of-link-list.html</loc>
+<loc>https://blog.gocalf.com/circle-of-link-list</loc>
 <lastmod>2011-10-14T12:56:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/zelda-tp-ch2.html</loc>
+<loc>https://blog.gocalf.com/zelda-tp-ch2</loc>
 <lastmod>2011-10-12T21:54:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/unbalanced-coin.html</loc>
+<loc>https://blog.gocalf.com/unbalanced-coin</loc>
 <lastmod>2011-10-09T15:05:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/bbs-top-10.html</loc>
+<loc>https://blog.gocalf.com/bbs-top-10</loc>
 <lastmod>2011-10-09T14:59:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/weighted-random-selection-2.html</loc>
+<loc>https://blog.gocalf.com/weighted-random-selection-2</loc>
 <lastmod>2011-09-28T10:05:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/weighted-random-selection.html</loc>
+<loc>https://blog.gocalf.com/weighted-random-selection</loc>
 <lastmod>2011-09-27T13:20:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/zelda-tp-ch1.html</loc>
+<loc>https://blog.gocalf.com/zelda-tp-ch1</loc>
 <lastmod>2011-10-11T20:30:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/check-udisk.html</loc>
+<loc>https://blog.gocalf.com/check-udisk</loc>
 <lastmod>2011-09-08T22:13:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/random-selection.html</loc>
+<loc>https://blog.gocalf.com/random-selection</loc>
 <lastmod>2011-09-23T20:49:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/shuffle-algo.html</loc>
+<loc>https://blog.gocalf.com/shuffle-algo</loc>
 <lastmod>2011-09-01T22:01:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/zelda-tp-characters.html</loc>
+<loc>https://blog.gocalf.com/zelda-tp-characters</loc>
 <lastmod>2011-09-13T21:52:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/dell-e6400-mac-10-6-8.html</loc>
+<loc>https://blog.gocalf.com/dell-e6400-mac-10-6-8</loc>
 <lastmod>2012-03-02T21:45:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/zelda-tp-intro.html</loc>
+<loc>https://blog.gocalf.com/zelda-tp-intro</loc>
 <lastmod>2011-09-13T22:19:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/circularly-ordinal-array.html</loc>
+<loc>https://blog.gocalf.com/circularly-ordinal-array</loc>
 <lastmod>2012-12-04T17:02:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/discuz-no-anonymous.html</loc>
+<loc>https://blog.gocalf.com/discuz-no-anonymous</loc>
 <lastmod>2011-08-15T21:17:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/cpp-singleton.html</loc>
+<loc>https://blog.gocalf.com/cpp-singleton</loc>
 <lastmod>2011-08-22T00:32:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/calendar-of-week.html</loc>
+<loc>https://blog.gocalf.com/calendar-of-week</loc>
 <lastmod>2011-08-10T22:25:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/cpp-const-and-pointer.html</loc>
+<loc>https://blog.gocalf.com/cpp-const-and-pointer</loc>
 <lastmod>2011-08-18T14:06:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/build-rand3-from-rand5.html</loc>
+<loc>https://blog.gocalf.com/build-rand3-from-rand5</loc>
 <lastmod>2013-11-07T22:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/bluehost-mailbox.html</loc>
+<loc>https://blog.gocalf.com/bluehost-mailbox</loc>
 <lastmod>2011-08-03T22:33:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/mathjax-numerous-files.html</loc>
+<loc>https://blog.gocalf.com/mathjax-numerous-files</loc>
 <lastmod>2011-08-03T22:26:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/about-paper-size.html</loc>
+<loc>https://blog.gocalf.com/about-paper-size</loc>
 <lastmod>2013-10-30T16:48:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/dell-e6400-install-mac.html</loc>
+<loc>https://blog.gocalf.com/dell-e6400-install-mac</loc>
 <lastmod>2012-03-02T21:46:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/google-doodle-calder.html</loc>
+<loc>https://blog.gocalf.com/google-doodle-calder</loc>
 <lastmod>2011-08-03T21:45:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/clock-hands-relative-motion.html</loc>
+<loc>https://blog.gocalf.com/clock-hands-relative-motion</loc>
 <lastmod>2011-08-03T20:59:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/hide-drive-q.html</loc>
+<loc>https://blog.gocalf.com/hide-drive-q</loc>
 <lastmod>2011-08-03T20:57:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/win7-god-mode.html</loc>
+<loc>https://blog.gocalf.com/win7-god-mode</loc>
 <lastmod>2011-08-03T20:57:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/puzzle-wwwdot-google-dotcom.html</loc>
+<loc>https://blog.gocalf.com/puzzle-wwwdot-google-dotcom</loc>
 <lastmod>2011-08-03T20:56:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/latex-plugin-more.html</loc>
+<loc>https://blog.gocalf.com/latex-plugin-more</loc>
 <lastmod>2011-08-03T20:52:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/ipad2-433-jailbreak.html</loc>
+<loc>https://blog.gocalf.com/ipad2-433-jailbreak</loc>
 <lastmod>2011-08-03T20:41:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/wordpress-latex-old.html</loc>
+<loc>https://blog.gocalf.com/wordpress-latex-old</loc>
 <lastmod>2011-08-03T22:20:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/latex-wordpress.html</loc>
+<loc>https://blog.gocalf.com/latex-wordpress</loc>
 <lastmod>2011-08-03T20:19:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/movie-source-code.html</loc>
+<loc>https://blog.gocalf.com/movie-source-code</loc>
 <lastmod>2011-08-03T20:12:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/wordpress-chinese-title.html</loc>
+<loc>https://blog.gocalf.com/wordpress-chinese-title</loc>
 <lastmod>2011-08-03T20:10:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/lets-start.html</loc>
+<loc>https://blog.gocalf.com/lets-start</loc>
 <lastmod>2011-08-03T20:04:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/hello-world.html</loc>
+<loc>https://blog.gocalf.com/hello-world</loc>
 <lastmod>2011-08-03T19:52:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 <url>
-<loc>http://www.gocalf.com/blog/hello-world-en.html</loc>
+<loc>https://blog.gocalf.com/hello-world-en</loc>
 <lastmod>2011-08-03T19:52:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
-<priority>0.5</priority>
+<priority>0.8</priority>
 </url>
 
 </urlset>

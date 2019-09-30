@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="zh_cn">
     <head>
-        <meta charset="utf-8"> 
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
-        <meta name="copyright" content="Calf" />
 
-        <link rel="author" href=https://plus.google.com/112983042847560253980/posts />
+        <meta name="description" content="对Mac OS X做一番处理，使之更加适合程序开发。
+" />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
@@ -15,31 +15,33 @@
 <meta name="keywords" content="Mac Develop, Homebrew, 程序开发, Mac OS X, iTerm, Solarized Color, Homebrew, goagent, python, virtualenv, GNU, coreutils, bash prompt, dircolors, vim, Sublime Text, git, git flow, svn, hostname, maven, develop environment" />
 
 <meta property="og:title" content="在苹果系统上打造舒服的开发环境 "/>
-<meta property="og:url" content="http://www.gocalf.com/blog/make-mac-better-for-development.html" />
+<meta property="og:url" content="https://blog.gocalf.com/make-mac-better-for-development" />
 <meta property="og:description" content="对Mac OS X做一番处理，使之更加适合程序开发。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2014-07-26T11:00:00+08:00" />
-<meta property="" content="2014-07-26T11:00:00+08:00" />
+<meta property="og:article:modified_time" content="2014-07-26T11:00:00+08:00" />
 <meta name="twitter:title" content="在苹果系统上打造舒服的开发环境 ">
 <meta name="twitter:description" content="对Mac OS X做一番处理，使之更加适合程序开发。">
 
         <title>在苹果系统上打造舒服的开发环境  · GoCalf Blog
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" href="http://www.gocalf.com/blog/theme/css/style.min.css?6600dc28">
-        <link rel="shortcut icon" href="http://www.gocalf.com/blog/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
-        <link rel="icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="http://www.gocalf.com/blog/theme/images/apple-touch-icon-152x152.png" type="image/png" />
-        <link href="http://www.gocalf.com/blog/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+<link rel="stylesheet" href="https://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
+
+        <link rel="shortcut icon" href="https://blog.gocalf.com/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="https://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="https://blog.gocalf.com/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="https://blog.gocalf.com/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="https://blog.gocalf.com/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="https://blog.gocalf.com/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://blog.gocalf.com/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="https://blog.gocalf.com/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="https://blog.gocalf.com/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://blog.gocalf.com/theme/images/apple-touch-icon-180x180.png" type="image/png" />
+        <link href="https://blog.gocalf.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Full Atom Feed" />
+        <link href="https://blog.gocalf.com/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -48,40 +50,50 @@
     ga('create', 'UA-24210758-2', 'auto');
     ga('send', 'pageview');
 </script>
-        <script src="http://code.jquery.com/jquery.min.js"></script>
+
+
+        <script src="//code.jquery.com/jquery.min.js"></script>
     </head>
     <body class="tex2jax_ignore">
-        <div id="content-sans-footer">
-        <div class="navbar navbar-static-top">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="http://www.gocalf.com/blog/"><span class=site-name>GoCalf Blog</span></a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav pull-right top-menu">
-                            <li ><a href="http://www.gocalf.com/blog">Home</a></li>
-                            <li ><a href="http://www.gocalf.com/blog/about.html">About</a></li>
-                            <li ><a href="http://www.gocalf.com/blog/categories.html">Categories</a></li>
-                            <li ><a href="http://www.gocalf.com/blog/tags.html">Tags</a></li>
-                            <li ><a href="http://www.gocalf.com/blog/archives.html">Archives</a></li>
-                            <li><form class="navbar-search" action="http://www.gocalf.com/blog/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
-                        </ul>
+        <div id="content">
+            <div class="navbar navbar-static-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="https://blog.gocalf.com/"><span class=site-name>GoCalf Blog</span></a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right top-menu">
+                                <li >
+                                    <a href=
+                                       https://blog.gocalf.com
+                                    >Home</a>
+                                </li>
+                                <li ><a href="https://blog.gocalf.com/about">About</a></li>
+                                <li ><a href="https://blog.gocalf.com/categories">Categories</a></li>
+                                <li ><a href="https://blog.gocalf.com/tags">Tags</a></li>
+                                <li ><a href="https://blog.gocalf.com/archives">Archives</a></li>
+                                <li><form class="navbar-search" action="https://blog.gocalf.com/search" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span1"></div>
-                <div class="span10">
-<article>
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span1"></div>
+                    <div class="span10">
+<article itemscope>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://www.gocalf.com/blog/make-mac-better-for-development.html"> 在苹果系统上打造舒服的开发环境  </a></h1>
+        <h1>
+            <a href="https://blog.gocalf.com/make-mac-better-for-development">
+                在苹果系统上打造舒服的开发环境
+            </a>
+        </h1>
     </header>
 </div>
 
@@ -124,7 +136,6 @@
         </nav>
     </div>
     <div class="span8 article-content">
-
             
             
 <p>用苹果系统已经有一段时间了，越来越喜欢这个系统，不管是一般的使用、做设计、做开发，都非常适合。最近也对系统做了一些调整，使得开发环境更加的舒服，记录下来，免得忘了。</p>
@@ -137,7 +148,7 @@
 <p>对于几乎离不开shell的开发者来说，一款优秀的终端程序是基础的基础。</p>
 <p>毫无疑问，我用的是<a class="reference external" href="http://www.iterm2.com/">iTerm2</a>。如果说访问互联网世界的入口是Chrome，那么访问程序世界的入口就是iTerm了。</p>
 <div class="figure">
-<img alt="iterm2_logo" src="http://www.gocalf.com/blog/images/2014/07/iterm2_logo.png"/>
+<img alt="iterm2_logo" src="https://blog.gocalf.com/images/2014/07/iterm2_logo.png"/>
 </div>
 <p>字体选择一款好看的等宽字体即可，比如常用的Consolas、 Curier New等。我用的是<a class="reference external" href="https://github.com/adobe/source-code-pro">Source Code Pro</a>。中文使用Microsoft YaHei字体。</p>
 <p>配色当然首选<a class="reference external" href="https://github.com/altercation/solarized">Solarized</a>的暗色系，在Github上可以找到专门提供给iTerm2用的配色文件<a class="reference external" href="https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors">Solarized Dark.itemcolors</a>。</p>
@@ -276,7 +287,7 @@ noproxy
 <h3><a class="toc-backref" href="#id17">Dir Colors</a></h3>
 <p>虽然iTerm本身已经设置好了Solarized配色，但是ls的时候并不一定有颜色。ls没有颜色绝对是让人难以忍受的，在<a class="reference external" href="https://github.com/calfzhou/dotfiles/blob/master/bash/bash_inc/aliases">bash_inc/alias</a>里除了根据系统中ls支持的参数让ls的输出显示出颜色外，还通过配置<tt class="docutils literal">LS_COLOR</tt>让色彩更丰富，可以让不同类型的文件有不同的颜色，看起来非常的清晰。推荐使用<a class="reference external" href="https://github.com/seebi/dircolors-solarized">dircolors-solarized</a>提供的配色文件，在Mac OS X的采用了Solarized Dark配色的iTerm2里看起来会是这个样子：</p>
 <div class="figure">
-<img alt="dircolors-solaized-dark" src="http://www.gocalf.com/blog/images/2014/07/dircolors_solarized_dark.png"/>
+<img alt="dircolors-solaized-dark" src="https://blog.gocalf.com/images/2014/07/dircolors_solarized_dark.png"/>
 <p class="caption">iTerm2中Solarized Dark系的dircolors效果</p>
 </div>
 </div>
@@ -292,7 +303,7 @@ MYNAME
 </pre></div>
 </td></tr></table><p>配合上iTerm的配色、ls的颜色等，我的shell看起来是这样的：</p>
 <div class="figure">
-<img alt="my-shell-demo" src="http://www.gocalf.com/blog/images/2014/07/my-shell-demo.png"/>
+<img alt="my-shell-demo" src="https://blog.gocalf.com/images/2014/07/my-shell-demo.png"/>
 <p class="caption">我的iTerm2的效果</p>
 </div>
 </div>
@@ -346,10 +357,10 @@ brew install maven30
 <p>用Homebrew可以方便地安装最新的Git。如果像上面介绍的那样，用Homebrew安装并使用了bash-completion，那么装好git后，git指令也会按TAB键补全了，再也不动担心记不住git指令。</p>
 <p><tt class="docutils literal"><span class="pre">~/.gitconfig</span></tt>可以用来定义很多个性化的设置，可以直接编辑或者通过<tt class="docutils literal">git config <span class="pre">--global</span></tt>进行设置。类似的，我也把我的配置文件保存在GitHub上（<a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/git">GitHub - calfzhou - dotfiles - git</a>），以便在不同的地方有同样的操作体验。</p>
 <p>顺便提一下，用git管理项目版本的话，推荐使用<a class="reference external" href="https://github.com/nvie/gitflow">git-flow</a>管理分支和版本，通过Homebrew可以直接安装它，同样也会带有TAB自动补全功能。关于这种分支管理的模型，可以阅读<a class="reference external" href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a>。</p>
-<p>如果想在公开的git仓库中保存一些比较隐私的信息，可以利用<a class="reference external" href="https://github.com/shadowhand/git-encrypt">git-encrypt</a>来加密其中的一部分文件。这个也可以直接通过Homebrew安装。大致的介绍在之前的文章<a class="reference external" href="http://www.gocalf.com/blog/git-encrypt.html">用Git和云存储保存隐私信息</a>中略有介绍。</p>
+<p>如果想在公开的git仓库中保存一些比较隐私的信息，可以利用<a class="reference external" href="https://github.com/shadowhand/git-encrypt">git-encrypt</a>来加密其中的一部分文件。这个也可以直接通过Homebrew安装。大致的介绍在之前的文章<a class="reference external" href="https://blog.gocalf.com/git-encrypt">用Git和云存储保存隐私信息</a>中略有介绍。</p>
 <p>如果还想用个GUI的Git客户端，我用的是<a class="reference external" href="http://rowanj.github.io/gitx/">GitX-dev</a>，主要用来直观地观察分支的演化情况。</p>
 <div class="figure">
-<img alt="gitx-dev" src="http://www.gocalf.com/blog/images/2014/07/gitx-dev.png"/>
+<img alt="gitx-dev" src="https://blog.gocalf.com/images/2014/07/gitx-dev.png"/>
 <p class="caption">GitX-dev界面演示</p>
 </div>
 </div>
@@ -359,59 +370,81 @@ brew install maven30
 </div>
 </div>
 
-            <section>
-    <p id="post-share-links">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%E5%9C%A8%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%89%93%E9%80%A0%E8%88%92%E6%9C%8D%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83&url=http%3A//www.gocalf.com/blog/make-mac-better-for-development.html" target="_blank" title="Share on Twitter">Twitter</a>
-    ❄
-    <a href="http://www.facebook.com/sharer/sharer.php?u=http%3A//www.gocalf.com/blog/make-mac-better-for-development.html" target="_blank" title="Share on Facebook">Facebook</a>
-    ❄
-    <a href="https://plus.google.com/share?url=http%3A//www.gocalf.com/blog/make-mac-better-for-development.html" target="_blank" title="Share on Google Plus">Google+</a>
-    ❄
-    <a href="mailto:?subject=%E5%9C%A8%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%89%93%E9%80%A0%E8%88%92%E6%9C%8D%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83&amp;body=http%3A//www.gocalf.com/blog/make-mac-better-for-development.html" target="_blank" title="Share via Email">Email</a>
-    </p>
-</section>
 
-            <section>
-<div class="accordion" id="accordion2">
-    <div class="accordion-group">
-        <div class="accordion-heading">
-            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://www.gocalf.com/blog/make-mac-better-for-development.html#disqus_thread">
-                Comments
-            </a>
-        </div>
-        <div id="disqus_thread" class="accordion-body collapse">
-            <div class="accordion-inner">
-                <div class="comments">
-                    <div id="disqus_thread"></div>
-<script type="text/javascript">
+
+                <p id="post-share-links">
+    Like this post? Share on:
+    <a href="https://twitter.com/intent/tweet?text=%E5%9C%A8%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%89%93%E9%80%A0%E8%88%92%E6%9C%8D%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83&url=https%3A//blog.gocalf.com/make-mac-better-for-development&via=calfzhou&hashtags=mac develop,homebrew" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//blog.gocalf.com/make-mac-better-for-development" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="mailto:?subject=%E5%9C%A8%E8%8B%B9%E6%9E%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E6%89%93%E9%80%A0%E8%88%92%E6%9C%8D%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83&amp;body=https%3A//blog.gocalf.com/make-mac-better-for-development" target="_blank" title="Share via Email">Email</a>
+    </p>
+
+            
+            
+
+
+
+
+
+
+<section>
+    <h6 style="display:none;">Comments</h6>
+    <p id="comment-message">So what do you think? Did I miss something? Is any part unclear? Leave your comments below. </p>
+
+    <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle disqus-comment-count comment-count"
+                   data-toggle="collapse"
+                   data-parent="#accordion2"
+                   data-disqus-identifier="https://blog.gocalf.com/make-mac-better-for-development"
+                   href="https://blog.gocalf.com/make-mac-better-for-development#comment_thread"
+                   id="comment-accordion-toggle">
+                    Comments
+                </a>
+            </div>
+            <div id="comment_thread" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <div class="comments">
+                        <div id="disqus_thread"></div>
+                        <script>
     var disqus_shortname = 'gocalfblog';
-        var disqus_identifier = 'http://www.gocalf.com/blog/make-mac-better-for-development.html';
-    var disqus_url = 'http://www.gocalf.com/blog/make-mac-better-for-development.html';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+
+    var disqus_identifier = 'https://blog.gocalf.com/make-mac-better-for-development';
+    var disqus_url = 'https://blog.gocalf.com/make-mac-better-for-development';
 
     (function() {
-         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-     })();
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </section>
 
             <hr/>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://www.gocalf.com/blog/number-to-chinese.html" title="Previous: 将整数数字转换成中文">将整数数字转换成中文</a></li>
-                <li class="next-article"><a href="http://www.gocalf.com/blog/move-wordpress-blog.html" title="Next: 迁移WordPress博客">迁移WordPress博客</a> »</li>
+                <li class="previous-article">« <a href="https://blog.gocalf.com/number-to-chinese" title="Previous: 将整数数字转换成中文">将整数数字转换成中文</a></li>
+                <li class="next-article"><a href="https://blog.gocalf.com/move-wordpress-blog" title="Next: 迁移WordPress博客">迁移WordPress博客</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -419,50 +452,77 @@ brew install maven30
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-07-26T11:00:00+08:00">Jul 26, 2014</time>
-
-<h4>Last Updated</h4>
-<time datetime="2014-07-26T11:00:00+08:00">Jul 26, 2014</time>
+            <time itemprop="dateCreated" datetime="2014-07-26T11:00:00+08:00">Jul 26, 2014</time>
 
             <h4>Category</h4>
-            <a class="category-link" href="http://www.gocalf.com/blog/categories.html#programming-ref">程序开发</a>
+            <a class="category-link" href="https://blog.gocalf.com/categories#programming-ref">程序开发</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="http://www.gocalf.com/blog/tags.html#homebrew-ref">Homebrew
+                <li><a href="https://blog.gocalf.com/tags#homebrew-ref">Homebrew
                     <span>1</span>
 </a></li>
-                <li><a href="http://www.gocalf.com/blog/tags.html#mac-develop-ref">Mac Develop
+                <li><a href="https://blog.gocalf.com/tags#mac develop-ref">Mac Develop
                     <span>1</span>
 </a></li>
             </ul>
-<h4>Contact</h4>
-    <a href="mailto:calf.zhou+blog@gmail.com" title="My Email Address" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-envelope sidebar-social-links"></i></a>
-    <a href="http://weibo.com/calfzhou" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-weibo sidebar-social-links"></i></a>
-    <a href="https://github.com/calfzhou" title="My Github Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-github sidebar-social-links"></i></a>
-    <a href="https://www.facebook.com/calfzhou" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-facebook sidebar-social-links"></i></a>
-    <a href="https://twitter.com/calfzhou" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-twitter sidebar-social-links"></i></a>
+<h4>Stay in Touch</h4>
+<div id="sidebar-social-link">
+    <a href="mailto:calf.zhou+blog@gmail.com" title="" target="_blank" rel="nofollow">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Gmail" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#fff"/><rect width="362" height="272" x="75" y="120" fill="#f2f2f2" rx="8%"/><path fill="#d54c3f" d="M120 392H97c-12 0-22-10-22-23V143h45z"/><path fill="#b63524" d="M392 392h23c12 0 22-10 22-23V143h-45z"/><path fill-opacity=".05" d="M256 286L120 392V187z"/><path fill-opacity=".08" d="M82 159l235 233h75V159z"/><path stroke-linecap="round" fill="none" stroke="#de5145" stroke-width="45" d="M97 143l159 115 159-115"/><path fill="#f2f2f2" d="M415 120c-5 0-10 2-13 4L256 230 110 124c-3-2-8-4-13-4z"/></svg>
+    </a>
+    <a href="https://github.com/calfzhou" title="" target="_blank" rel="nofollow">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="GitHub" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1B1817"/><path fill="#fff" d="M335 499c14 0 12 17 12 17H165s-2-17 12-17c13 0 16-6 16-12l-1-50c-71 16-86-28-86-28-12-30-28-37-28-37-24-16 1-16 1-16 26 2 40 26 40 26 22 39 59 28 74 22 2-17 9-28 16-35-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-32 3-67 0 0 21-7 70 26 42-12 86-12 128 0 49-33 70-26 70-26 14 35 6 61 3 67 16 18 26 41 26 69 0 98-60 120-117 126 10 8 18 24 18 48l-1 70c0 6 3 12 16 12z"/></svg>
+    </a>
+    <a href="https://t.me/calfzhou" title="" target="_blank" rel="nofollow">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Telegram" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#37aee2"/><path fill="#c8daea" d="M199 404c-11 0-10-4-13-14l-32-105 245-144"/><path fill="#a9c9dd" d="M199 404c7 0 11-4 16-8l45-43-56-34"/><path fill="#f6fbfe" d="M204 319l135 99c14 9 26 4 30-14l55-258c5-22-9-32-24-25L79 245c-21 8-21 21-4 26l83 26 190-121c9-5 17-3 11 4"/></svg>
+    </a>
+    <a href="https://www.facebook.com/calfzhou" title="" target="_blank" rel="nofollow">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Facebook" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1877f2"/><path d="M355.6 330l11.4-74h-71v-48c0-20.2 9.9-40 41.7-40H370v-63s-29.3-5-57.3-5c-58.5 0-96.7 35.4-96.7 99.6V256h-65v74h65v182h80V330h59.6z" fill="#fff"/></svg>
+    </a>
+    <a href="https://twitter.com/calfzhou" title="" target="_blank" rel="nofollow">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Twitter" role="img" viewBox="0 0 512 512"><rect width="512" height="512" rx="15%" fill="#1da1f3"/><path fill="#fff" d="M437 152a72 72 0 0 1-40 12 72 72 0 0 0 32-40 72 72 0 0 1-45 17 72 72 0 0 0-122 65 200 200 0 0 1-145-74 72 72 0 0 0 22 94 72 72 0 0 1-32-7 72 72 0 0 0 56 69 72 72 0 0 1-32 1 72 72 0 0 0 67 50 200 200 0 0 1-105 29 200 200 0 0 0 309-179 200 200 0 0 0 35-37"/></svg>
+    </a>
+</div>
+            
+
+
+
+
+
+            
+
+
+
+
+
         </div>
         </section>
 </div>
 </article>
+                    </div>
+                    <div class="span1"></div>
                 </div>
-                <div class="span1"></div>
             </div>
         </div>
-        <div id="push"></div>
-    </div>
 <footer>
-<div id="footer">
-    <ul class="footer-content">
-        <li class="elegant-subtitle"><span class="site-name">GoCalf Blog</span> - 1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.</li>
-        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
-    </ul>
-</div>
+    <div>
+        &copy; 2019 gocalf.com
+    </div>
+
+    <div>
+        <span class="site-name">GoCalf Blog</span> - 1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS
+    </div>
+
+
+
+    <div id="fpowered">
+        Powered by: <a href="http://getpelican.com/" title="Pelican Home Page" target="_blank" rel="nofollow">Pelican</a>
+        Theme: <a href="https://elegant.oncrashreboot.com/" title="Theme Elegant Home Page" target="_blank" rel="nofollow">Elegant</a>
+        Hosted on:
+        <a href=https://pages.github.com/ target="_blank" rel="nofollow">
+            GitHub Pages
+        </a>
+    </div>
 </footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
         <script>
             function validateForm(query)
@@ -471,46 +531,31 @@ brew install maven30
             }
         </script>
 
-            <script type="text/javascript">
-var disqus_shortname = 'gocalfblog';
-(function () {
-    var s = document.createElement('script'); s.async = true;
-    s.type = 'text/javascript';
-    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-}());
-</script>
-<script  language="javascript" type="text/javascript">
-function uncollapse() {
-    if (window.location.hash.match(/^#comment-\d+$/)) {
-        $('#disqus_thread').collapse('show');
+    <script>
+    (function () {
+        if (window.location.hash.match(/^#comment-\d+$/)) {
+            $('#comment_thread').collapse('show');
+        }
+    })();
+    window.onhashchange=function(){
+        if (window.location.hash.match(/^#comment-\d+$/))
+            window.location.reload(true);
     }
-}
-</script>
-<script type="text/javascript" language="JavaScript">
-uncollapse();
-window.onhashchange=function(){
-    if (window.location.hash.match(/^#comment-\d+$/))
-        window.location.reload(true);
-}
-</script>
-<script>
-$('#disqus_thread').on('shown', function () {
-    var link = document.getElementsByClassName('accordion-toggle');
-    var old_innerHTML = link[0].innerHTML;
-    $(link[0]).fadeOut(500, function() {
-        $(this).text('Click here to hide comments').fadeIn(500);
-    });
-    $('#disqus_thread').on('hidden', function () {
-        $(link[0]).fadeOut(500, function() {
-            $(this).text(old_innerHTML).fadeIn(500);
+    $('#comment_thread').on('shown', function () {
+        var link = document.getElementById('comment-accordion-toggle');
+        var old_innerHTML = link.innerHTML;
+        $(link).fadeOut(200, function() {
+            $(this).text('Click here to hide comments').fadeIn(200);
         });
+        $('#comment_thread').on('hidden', function () {
+            $(link).fadeOut(200, function() {
+                $(this).text(old_innerHTML).fadeIn(200);
+            });
+        })
     })
-})
 </script>
-
 
     </body>
     <!-- Theme: Elegant built for Pelican
-    License : http://oncrashreboot.com/pelican-elegant -->
+        License : MIT -->
 </html>
