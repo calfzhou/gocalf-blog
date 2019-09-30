@@ -15,7 +15,7 @@
 <meta name="keywords" content="Interview Question, Probability, Random Sample, 算法, Coroutines and Generators, 单次遍历, 等概率, 算法题, 随机选取, 面试题" />
 
 <meta property="og:title" content="单次遍历，等概率随机选取问题 "/>
-<meta property="og:url" content="https://blog.gocalf.com/random-selection" />
+<meta property="og:url" content="http://blog.gocalf.com/random-selection" />
 <meta property="og:description" content="问题描述：假设我们有一堆数据（可能在一个链表里，也可能在文件里），数量未知。要求只遍历一次这些数据，随机选取其中的一个元素，任何一个元素被选到的概率相等。O(n)时间，O(1)辅助空间（n是数据总数，但事先不知道）。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
@@ -29,21 +29,21 @@
         <title>单次遍历，等概率随机选取问题  · GoCalf Blog
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
+<link rel="stylesheet" href="http://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
 
-        <link rel="shortcut icon" href="https://blog.gocalf.com/theme/images/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="https://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="https://blog.gocalf.com/theme/images/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="https://blog.gocalf.com/theme/images/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="https://blog.gocalf.com/theme/images/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="https://blog.gocalf.com/theme/images/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="https://blog.gocalf.com/theme/images/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="https://blog.gocalf.com/theme/images/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="https://blog.gocalf.com/theme/images/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="https://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="https://blog.gocalf.com/theme/images/apple-touch-icon-180x180.png" type="image/png" />
-        <link href="https://blog.gocalf.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Full Atom Feed" />
-        <link href="https://blog.gocalf.com/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+        <link rel="shortcut icon" href="http://blog.gocalf.com/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="http://blog.gocalf.com/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://blog.gocalf.com/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://blog.gocalf.com/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://blog.gocalf.com/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://blog.gocalf.com/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://blog.gocalf.com/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://blog.gocalf.com/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://blog.gocalf.com/theme/images/apple-touch-icon-180x180.png" type="image/png" />
+        <link href="http://blog.gocalf.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Full Atom Feed" />
+        <link href="http://blog.gocalf.com/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -66,19 +66,19 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </a>
-                        <a class="brand" href="https://blog.gocalf.com/"><span class=site-name>GoCalf Blog</span></a>
+                        <a class="brand" href="http://blog.gocalf.com/"><span class=site-name>GoCalf Blog</span></a>
                         <div class="nav-collapse collapse">
                             <ul class="nav pull-right top-menu">
                                 <li >
                                     <a href=
-                                       https://blog.gocalf.com
+                                       http://blog.gocalf.com
                                     >Home</a>
                                 </li>
-                                <li ><a href="https://blog.gocalf.com/about">About</a></li>
-                                <li ><a href="https://blog.gocalf.com/categories">Categories</a></li>
-                                <li ><a href="https://blog.gocalf.com/tags">Tags</a></li>
-                                <li ><a href="https://blog.gocalf.com/archives">Archives</a></li>
-                                <li><form class="navbar-search" action="https://blog.gocalf.com/search" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                                <li ><a href="http://blog.gocalf.com/about">About</a></li>
+                                <li ><a href="http://blog.gocalf.com/categories">Categories</a></li>
+                                <li ><a href="http://blog.gocalf.com/tags">Tags</a></li>
+                                <li ><a href="http://blog.gocalf.com/archives">Archives</a></li>
+                                <li><form class="navbar-search" action="http://blog.gocalf.com/search" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                             </ul>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
 <div class="row-fluid">
     <header class="page-header span10 offset2">
         <h1>
-            <a href="https://blog.gocalf.com/random-selection">
+            <a href="http://blog.gocalf.com/random-selection">
                 单次遍历，等概率随机选取问题
             </a>
         </h1>
@@ -105,7 +105,7 @@
             <p>又是一道概率问题，不过跟之前的题目一样，这也是一道非常简单的题目。</p>
 <p>问题描述：假设我们有一堆数据（可能在一个链表里，也可能在文件里），数量未知。要求只遍历一次这些数据，随机选取其中的一个元素，任何一个元素被选到的概率相等。O(n)时间，O(1)辅助空间（n是数据总数，但事先不知道）。</p>
 <!-- more -->
-<p>如果元素总数为n，那么每个元素被选到的概率应该是1/n。然而n只有在遍历结束的时候才能知道，在遍历的过程中，n的值还不知道，可以利用乘法规则来逐渐凑出这个概率值。在<a class="reference external" href="https://blog.gocalf.com/build-rand3-from-rand5">《利用等概率Rand5产生等概率Rand3》</a>中提到过，如果要通过有限步概率的加法和乘法运算，最终得到分子为1、分母为n的概率，那必须在某一次运算中引入一个n在分母上，而分母和分子上其他的因数则通过加法、乘法、约分等规则去除。</p>
+<p>如果元素总数为n，那么每个元素被选到的概率应该是1/n。然而n只有在遍历结束的时候才能知道，在遍历的过程中，n的值还不知道，可以利用乘法规则来逐渐凑出这个概率值。在<a class="reference external" href="http://blog.gocalf.com/build-rand3-from-rand5">《利用等概率Rand5产生等概率Rand3》</a>中提到过，如果要通过有限步概率的加法和乘法运算，最终得到分子为1、分母为n的概率，那必须在某一次运算中引入一个n在分母上，而分母和分子上其他的因数则通过加法、乘法、约分等规则去除。</p>
 <p>很容易能够想到这样一个简单的式子来凑出1/n：</p>
 <div class="math">
 \begin{equation*}
@@ -319,11 +319,11 @@ p_i=\left\{\begin{array}{ll} \frac{m}{i}\times\frac{i}{i+1}\times\frac{i+1}{i+2}
 
                 <p id="post-share-links">
     Like this post? Share on:
-    <a href="https://twitter.com/intent/tweet?text=%E5%8D%95%E6%AC%A1%E9%81%8D%E5%8E%86%EF%BC%8C%E7%AD%89%E6%A6%82%E7%8E%87%E9%9A%8F%E6%9C%BA%E9%80%89%E5%8F%96%E9%97%AE%E9%A2%98&url=https%3A//blog.gocalf.com/random-selection&via=calfzhou&hashtags=interview question,probability,random sample" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="https://twitter.com/intent/tweet?text=%E5%8D%95%E6%AC%A1%E9%81%8D%E5%8E%86%EF%BC%8C%E7%AD%89%E6%A6%82%E7%8E%87%E9%9A%8F%E6%9C%BA%E9%80%89%E5%8F%96%E9%97%AE%E9%A2%98&url=http%3A//blog.gocalf.com/random-selection&via=calfzhou&hashtags=interview question,probability,random sample" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//blog.gocalf.com/random-selection" target="_blank" title="Share on Facebook">Facebook</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//blog.gocalf.com/random-selection" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="mailto:?subject=%E5%8D%95%E6%AC%A1%E9%81%8D%E5%8E%86%EF%BC%8C%E7%AD%89%E6%A6%82%E7%8E%87%E9%9A%8F%E6%9C%BA%E9%80%89%E5%8F%96%E9%97%AE%E9%A2%98&amp;body=https%3A//blog.gocalf.com/random-selection" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=%E5%8D%95%E6%AC%A1%E9%81%8D%E5%8E%86%EF%BC%8C%E7%AD%89%E6%A6%82%E7%8E%87%E9%9A%8F%E6%9C%BA%E9%80%89%E5%8F%96%E9%97%AE%E9%A2%98&amp;body=http%3A//blog.gocalf.com/random-selection" target="_blank" title="Share via Email">Email</a>
     </p>
 
             
@@ -344,8 +344,8 @@ p_i=\left\{\begin{array}{ll} \frac{m}{i}\times\frac{i}{i+1}\times\frac{i+1}{i+2}
                 <a class="accordion-toggle disqus-comment-count comment-count"
                    data-toggle="collapse"
                    data-parent="#accordion2"
-                   data-disqus-identifier="https://blog.gocalf.com/random-selection"
-                   href="https://blog.gocalf.com/random-selection#comment_thread"
+                   data-disqus-identifier="http://blog.gocalf.com/random-selection"
+                   href="http://blog.gocalf.com/random-selection#comment_thread"
                    id="comment-accordion-toggle">
                     Comments
                 </a>
@@ -363,8 +363,8 @@ p_i=\left\{\begin{array}{ll} \frac{m}{i}\times\frac{i}{i+1}\times\frac{i+1}{i+2}
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 
-    var disqus_identifier = 'https://blog.gocalf.com/random-selection';
-    var disqus_url = 'https://blog.gocalf.com/random-selection';
+    var disqus_identifier = 'http://blog.gocalf.com/random-selection';
+    var disqus_url = 'http://blog.gocalf.com/random-selection';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -388,19 +388,19 @@ p_i=\left\{\begin{array}{ll} \frac{m}{i}\times\frac{i}{i+1}\times\frac{i+1}{i+2}
 <section>
     <h2>Keep Reading</h2>
 <ul class="related-posts-list">
-<li><a href="https://blog.gocalf.com/shuffle-algo" title="等概率随机排列数组（洗牌算法）">等概率随机排列数组（洗牌算法）</a></li>
-<li><a href="https://blog.gocalf.com/weighted-random-selection" title="单次遍历，带权随机选取问题（一）">单次遍历，带权随机选取问题（一）</a></li>
-<li><a href="https://blog.gocalf.com/weighted-random-selection-2" title="单次遍历，带权随机选取问题（二）">单次遍历，带权随机选取问题（二）</a></li>
-<li><a href="https://blog.gocalf.com/unbalanced-coin" title="利用不均匀硬币产生等概率">利用不均匀硬币产生等概率</a></li>
-<li><a href="https://blog.gocalf.com/the-probability-of-two-boys" title="条件概率：两个都是男孩的概率">条件概率：两个都是男孩的概率</a></li>
+<li><a href="http://blog.gocalf.com/shuffle-algo" title="等概率随机排列数组（洗牌算法）">等概率随机排列数组（洗牌算法）</a></li>
+<li><a href="http://blog.gocalf.com/weighted-random-selection" title="单次遍历，带权随机选取问题（一）">单次遍历，带权随机选取问题（一）</a></li>
+<li><a href="http://blog.gocalf.com/weighted-random-selection-2" title="单次遍历，带权随机选取问题（二）">单次遍历，带权随机选取问题（二）</a></li>
+<li><a href="http://blog.gocalf.com/unbalanced-coin" title="利用不均匀硬币产生等概率">利用不均匀硬币产生等概率</a></li>
+<li><a href="http://blog.gocalf.com/the-probability-of-two-boys" title="条件概率：两个都是男孩的概率">条件概率：两个都是男孩的概率</a></li>
 </ul>
 <hr />
 </section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="https://blog.gocalf.com/shuffle-algo" title="Previous: 等概率随机排列数组（洗牌算法）">等概率随机排列数组（洗牌算法）</a></li>
-                <li class="next-article"><a href="https://blog.gocalf.com/check-udisk" title="Next: U盘检测软件：ChipGenius，MyDiskTest">U盘检测软件：ChipGenius，MyDiskTest</a> »</li>
+                <li class="previous-article">« <a href="http://blog.gocalf.com/shuffle-algo" title="Previous: 等概率随机排列数组（洗牌算法）">等概率随机排列数组（洗牌算法）</a></li>
+                <li class="next-article"><a href="http://blog.gocalf.com/check-udisk" title="Next: U盘检测软件：ChipGenius，MyDiskTest">U盘检测软件：ChipGenius，MyDiskTest</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -418,23 +418,23 @@ p_i=\left\{\begin{array}{ll} \frac{m}{i}\times\frac{i}{i+1}\times\frac{i+1}{i+2}
             Part 1: 单次遍历，等概率随机选取问题
             </li>
             <li >
-            <a href="https://blog.gocalf.com/weighted-random-selection" title="单次遍历，带权随机选取问题（一）">Part 2: 单次遍历，带权随机选取问题（一）</a>
+            <a href="http://blog.gocalf.com/weighted-random-selection" title="单次遍历，带权随机选取问题（一）">Part 2: 单次遍历，带权随机选取问题（一）</a>
             </li>
             <li >
-            <a href="https://blog.gocalf.com/weighted-random-selection-2" title="单次遍历，带权随机选取问题（二）">Part 3: 单次遍历，带权随机选取问题（二）</a>
+            <a href="http://blog.gocalf.com/weighted-random-selection-2" title="单次遍历，带权随机选取问题（二）">Part 3: 单次遍历，带权随机选取问题（二）</a>
             </li>
     </ul>
             <h4>Category</h4>
-            <a class="category-link" href="https://blog.gocalf.com/categories#algorithm-ref">算法</a>
+            <a class="category-link" href="http://blog.gocalf.com/categories#algorithm-ref">算法</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="https://blog.gocalf.com/tags#interview question-ref">Interview Question
+                <li><a href="http://blog.gocalf.com/tags#interview question-ref">Interview Question
                     <span>18</span>
 </a></li>
-                <li><a href="https://blog.gocalf.com/tags#probability-ref">Probability
+                <li><a href="http://blog.gocalf.com/tags#probability-ref">Probability
                     <span>7</span>
 </a></li>
-                <li><a href="https://blog.gocalf.com/tags#random sample-ref">Random Sample
+                <li><a href="http://blog.gocalf.com/tags#random sample-ref">Random Sample
                     <span>3</span>
 </a></li>
             </ul>

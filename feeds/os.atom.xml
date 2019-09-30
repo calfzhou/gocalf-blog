@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>GoCalf Blog - 操作系统</title><link href="https://blog.gocalf.com/" rel="alternate"></link><link href="https://blog.gocalf.com/feeds/os.atom.xml" rel="self"></link><id>https://blog.gocalf.com/</id><updated>2012-03-02T23:09:00+08:00</updated><subtitle>1/100 ALGO&amp;amp;MATH; 1/100 IT&amp;amp;GAME; 1/100 INFO&amp;amp;SHARING; 1/100 WHO KNOWS</subtitle><entry><title>解决黑苹果Unable to Determine UUID错误</title><link href="https://blog.gocalf.com/hackintosh-fix-uuid" rel="alternate"></link><published>2012-03-02T23:09:00+08:00</published><updated>2012-03-02T23:09:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2012-03-02:/hackintosh-fix-uuid</id><summary type="html">&lt;p class="first last"&gt;前几天在写app的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行genstrings命令来扫描源代码中NSLocalizedString宏所使用到的文字。由于使用的是黑苹果，在运行genstrings时遇到了“Unable to Determine UUID”的错误，解决方法倒也容易。&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;前几天在写app的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行genstrings命令来扫描源代码中NSLocalizedString宏所使用到的文字。由于使用的是黑苹果（安装过程参见&lt;a class="reference external" href="https://blog.gocalf.com/dell-e6400-install-mac"&gt;Dell E6400安装MacOS雪豹10.6&lt;/a&gt;和&lt;a class="reference external" href="https://blog.gocalf.com/dell-e6400-mac-10-6-8"&gt;Dell E6400升级到MacOS 10.6.8&lt;/a&gt;），在运行genstrings时遇到了“Unable
+<feed xmlns="http://www.w3.org/2005/Atom"><title>GoCalf Blog - 操作系统</title><link href="http://blog.gocalf.com/" rel="alternate"></link><link href="http://blog.gocalf.com/feeds/os.atom.xml" rel="self"></link><id>http://blog.gocalf.com/</id><updated>2012-03-02T23:09:00+08:00</updated><subtitle>1/100 ALGO&amp;amp;MATH; 1/100 IT&amp;amp;GAME; 1/100 INFO&amp;amp;SHARING; 1/100 WHO KNOWS</subtitle><entry><title>解决黑苹果Unable to Determine UUID错误</title><link href="http://blog.gocalf.com/hackintosh-fix-uuid" rel="alternate"></link><published>2012-03-02T23:09:00+08:00</published><updated>2012-03-02T23:09:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2012-03-02:/hackintosh-fix-uuid</id><summary type="html">&lt;p class="first last"&gt;前几天在写app的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行genstrings命令来扫描源代码中NSLocalizedString宏所使用到的文字。由于使用的是黑苹果，在运行genstrings时遇到了“Unable to Determine UUID”的错误，解决方法倒也容易。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;前几天在写app的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行genstrings命令来扫描源代码中NSLocalizedString宏所使用到的文字。由于使用的是黑苹果（安装过程参见&lt;a class="reference external" href="http://blog.gocalf.com/dell-e6400-install-mac"&gt;Dell E6400安装MacOS雪豹10.6&lt;/a&gt;和&lt;a class="reference external" href="http://blog.gocalf.com/dell-e6400-mac-10-6-8"&gt;Dell E6400升级到MacOS 10.6.8&lt;/a&gt;），在运行genstrings时遇到了“Unable
 to Determine UUID”的错误，解决方法倒也容易。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;运行genstrings的语句是：&lt;/p&gt;
@@ -51,8 +51,8 @@ sudo vi NetworkInterfaces.plist
 &lt;span class="nt"&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;添加好后保存此文件，然后重启系统。问题就解决了。&lt;/p&gt;
-</content><category term="Hackintosh"></category></entry><entry><title>Dell E6400升级到MacOS 10.6.8</title><link href="https://blog.gocalf.com/dell-e6400-mac-10-6-8" rel="alternate"></link><published>2011-08-26T23:48:00+08:00</published><updated>2012-03-02T21:45:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-26:/dell-e6400-mac-10-6-8</id><summary type="html">&lt;p class="first last"&gt;半年前安装黑苹果的经历，装的是10.6.3。最近由于有些软件需要较高版本的系统，不得不对系统进行升级，升级到雪豹的最后一个版本10.6.8。升级后自然又遇到了一堆问题并逐一解决。解决得算是基本完美了，只差我那全球无解的Intel WiFi Link 5300 AGN无线网卡和不能休眠的问题。&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;在&lt;a class="reference external" href="https://blog.gocalf.com/dell-e6400-install-mac"&gt;Dell E6400安装MacOS雪豹10.6&lt;/a&gt;中介绍了半年前安装黑苹果的经历，当时安装的版本其实是10.6.3。最近由于有些软件需要较高版本的系统，不得不对系统进行升级，升级到雪豹的最后一个版本10.6.8。升级后自然又遇到了一堆问题并逐一解决。解决得算是基本完美了，只差我那全球无解的Intel
+</content><category term="Hackintosh"></category></entry><entry><title>Dell E6400升级到MacOS 10.6.8</title><link href="http://blog.gocalf.com/dell-e6400-mac-10-6-8" rel="alternate"></link><published>2011-08-26T23:48:00+08:00</published><updated>2012-03-02T21:45:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-26:/dell-e6400-mac-10-6-8</id><summary type="html">&lt;p class="first last"&gt;半年前安装黑苹果的经历，装的是10.6.3。最近由于有些软件需要较高版本的系统，不得不对系统进行升级，升级到雪豹的最后一个版本10.6.8。升级后自然又遇到了一堆问题并逐一解决。解决得算是基本完美了，只差我那全球无解的Intel WiFi Link 5300 AGN无线网卡和不能休眠的问题。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;在&lt;a class="reference external" href="http://blog.gocalf.com/dell-e6400-install-mac"&gt;Dell E6400安装MacOS雪豹10.6&lt;/a&gt;中介绍了半年前安装黑苹果的经历，当时安装的版本其实是10.6.3。最近由于有些软件需要较高版本的系统，不得不对系统进行升级，升级到雪豹的最后一个版本10.6.8。升级后自然又遇到了一堆问题并逐一解决。解决得算是基本完美了，只差我那全球无解的Intel
 WiFi Link 5300 AGN无线网卡和不能休眠的问题。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;还是上次那台机器，硬件配置完全没有变，就不再重复了。黑苹果之所以难装，除了核心的破解之外就全是驱动的问题了，来看看这次都遇到了哪些问题又是如何解决的。&lt;/p&gt;
@@ -101,64 +101,64 @@ Clock的驱动，应该是修改过的，主要是解决某些主板上，睡眠
 &lt;p&gt;除了wifi不能用之外还有个问题，就是这次没办法休眠了（10.6.3的时候好像是可以的）。不过据说10.6.8和Lion的休眠都很难，得拼人品。我是放弃了，因为SleepEnabler.kext跟10.6.8也不兼容呢，等更新吧。现在如果休眠的话，屏幕变黑，然后就什么都没有了，睡不下去，也叫不起来，只能强制关机。还好我很少用休眠。&lt;/p&gt;
 &lt;p&gt;呼，冒险升了次级，结果还是比较满意的，截图纪念。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="Mac OS 10.6.8 on Dell E6400" src="https://blog.gocalf.com/images/2011/08/mac_10.6.8_screenshot.png" /&gt;
+&lt;img alt="Mac OS 10.6.8 on Dell E6400" src="http://blog.gocalf.com/images/2011/08/mac_10.6.8_screenshot.png" /&gt;
 &lt;p class="caption"&gt;Mac OS 10.6.8 on Dell E6400&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;最后把用到的kext之类的都放在这里吧。&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;放在BootThink的Darwin目录下：&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/dsdt.aml_.zip"&gt;dsdt.aml&lt;/a&gt;：可以搞定关机、重启、休眠、断电、原生电源管理、原生显卡驱动、解决BIOS重置、以及将BCM无线网卡识别为内置。&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/dsdt.aml_.zip"&gt;dsdt.aml&lt;/a&gt;：可以搞定关机、重启、休眠、断电、原生电源管理、原生显卡驱动、解决BIOS重置、以及将BCM无线网卡识别为内置。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;放在BootThink的Darwin\System\LibrarySL\Extensions目录下：&lt;ul&gt;
 &lt;li&gt;系统补丁&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/FakeSMC.kext_.zip"&gt;FakeSMC.kext&lt;/a&gt;：黑苹果机必须的！一方面是对Mac
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/FakeSMC.kext_.zip"&gt;FakeSMC.kext&lt;/a&gt;：黑苹果机必须的！一方面是对Mac
 OS必须的AppleSMC.kext（System Management
 Controller）的模拟；另一方面仿造苹果的Dont Steal Mac OS
 X.kext（苹果系统与苹果机器EFI模块之间的通信加密解密）。&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/Disabler.kext_.zip"&gt;Disabler.kext&lt;/a&gt;：屏蔽不能正常启动的补丁。&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/Disabler.kext_.zip"&gt;Disabler.kext&lt;/a&gt;：屏蔽不能正常启动的补丁。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Audio&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/IOAudioFamily.kext_.zip"&gt;IOAudioFamily.kext&lt;/a&gt;：基本的声卡驱动框架。&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/OSvKernDSPLib.kext_.zip"&gt;OSvKernDSPLib.kext&lt;/a&gt;：内核的数字音频信号处理库。&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/HDAEnabler.kext_.zip"&gt;HDAEnabler.kext&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/VoodooHDA.kext_.zip"&gt;VoodooHDA.kext&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/IOAudioFamily.kext_.zip"&gt;IOAudioFamily.kext&lt;/a&gt;：基本的声卡驱动框架。&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/OSvKernDSPLib.kext_.zip"&gt;OSvKernDSPLib.kext&lt;/a&gt;：内核的数字音频信号处理库。&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/HDAEnabler.kext_.zip"&gt;HDAEnabler.kext&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/VoodooHDA.kext_.zip"&gt;VoodooHDA.kext&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Ethernet&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/IONetworkingFamily.kext_.zip"&gt;IONetworkingFamily.kext&lt;/a&gt;：基本的网卡驱动，有些网卡可以直接驱动。里面包含AppleBCM5701Ethernet.kext，AppleIntel8254XEthernet.kext，AppleRTL8139Ethernet.kext，AppleRTL8169Ethernet.kext，AppleUSBEthernet.kext，AppleUSBGigEthernet.kext，AppleYukon2.kext，Intel82574L.kext，nvenet.kext。&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/Intel82566MM.kext_.zip"&gt;Intel82566MM.kext&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/IONetworkingFamily.kext_.zip"&gt;IONetworkingFamily.kext&lt;/a&gt;：基本的网卡驱动，有些网卡可以直接驱动。里面包含AppleBCM5701Ethernet.kext，AppleIntel8254XEthernet.kext，AppleRTL8139Ethernet.kext，AppleRTL8169Ethernet.kext，AppleUSBEthernet.kext，AppleUSBGigEthernet.kext，AppleYukon2.kext，Intel82574L.kext，nvenet.kext。&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/Intel82566MM.kext_.zip"&gt;Intel82566MM.kext&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;PS/2（鼠标、键盘、触摸板）&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/ApplePS2Controller.kext_.zip"&gt;ApplePS2Controller.kext&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/AppleACPIPS2Nub.kext_.zip"&gt;AppleACPIPS2Nub.kext&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/ApplePS2Controller.kext_.zip"&gt;ApplePS2Controller.kext&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/AppleACPIPS2Nub.kext_.zip"&gt;AppleACPIPS2Nub.kext&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;电源管理、Battery&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/AppleACPIPlatform.kext_.zip"&gt;AppleACPIPlatform.kext&lt;/a&gt;：（升级到10.6.8后要复制到Mac分区的/System/Library/Extensions，修改权限并更新缓存）这是Advanced
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/AppleACPIPlatform.kext_.zip"&gt;AppleACPIPlatform.kext&lt;/a&gt;：（升级到10.6.8后要复制到Mac分区的/System/Library/Extensions，修改权限并更新缓存）这是Advanced
 Configuration and Power
 Interface高级配置和电源管理接口驱动，进行电源管理，睡眠，Real-Time
 Clock控制等，其下还包含AppleACPIButtons.kext，AppleACPIEC.kext，AppleACPIPCI.kext。&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/IOACPIFamily.kext_.zip"&gt;IOACPIFamily.kext&lt;/a&gt;：作用于支持ACPI电源管理标准的驱动，例如电源按钮、电池、PS/2、USB、HPET等。这里的这个解决了部分笔记本风扇不正常问题，只支持32位。&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/VoodooBattery.kext_.zip"&gt;VoodooBattery.kext&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/IOACPIFamily.kext_.zip"&gt;IOACPIFamily.kext&lt;/a&gt;：作用于支持ACPI电源管理标准的驱动，例如电源按钮、电池、PS/2、USB、HPET等。这里的这个解决了部分笔记本风扇不正常问题，只支持32位。&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/VoodooBattery.kext_.zip"&gt;VoodooBattery.kext&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Bluetooth&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/DellBluetoothHCI.kext_.zip"&gt;DellBluetoothHCI.kext&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/DellBluetoothHCI.kext_.zip"&gt;DellBluetoothHCI.kext&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;SD Reader&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/VoodooSDHC.kext_.zip"&gt;VoodooSDHC.kext&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/VoodooSDHC.kext_.zip"&gt;VoodooSDHC.kext&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;PCMCIA&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/IOPCIFamily.kext_.zip"&gt;IOPCIFamily.kext&lt;/a&gt;：（升级到10.6.8后要复制到Mac分区的/System/Library/Extensions，修改权限并更新缓存）PCI设备的基本驱动。&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/IOPCIFamily.kext_.zip"&gt;IOPCIFamily.kext&lt;/a&gt;：（升级到10.6.8后要复制到Mac分区的/System/Library/Extensions，修改权限并更新缓存）PCI设备的基本驱动。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Chip set&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/AHCIPortInjector.kext_.zip"&gt;AHCIPortInjector.kext&lt;/a&gt;：可以识别Intel芯片组的AHCI（如果无法正确识别AHCI，启动时有可能会hang在Still
+&lt;li&gt;&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/AHCIPortInjector.kext_.zip"&gt;AHCIPortInjector.kext&lt;/a&gt;：可以识别Intel芯片组的AHCI（如果无法正确识别AHCI，启动时有可能会hang在Still
 Waiting for Root Device）。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -166,7 +166,7 @@ Waiting for Root Device）。&lt;/li&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;继续啃苹果咯～&lt;/p&gt;
-</content><category term="Hackintosh"></category></entry><entry><title>Dell E6400安装MacOS雪豹10.6</title><link href="https://blog.gocalf.com/dell-e6400-install-mac" rel="alternate"></link><published>2011-07-24T18:08:00+08:00</published><updated>2012-03-02T21:46:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-24:/dell-e6400-install-mac</id><summary type="html">&lt;p class="first last"&gt;半年前在Dell Latitude E6400上安装了Mac OS X Snow Leopard 10.6（与Windows 7并存），除了WiFi之外都挺好的，折腾了好久才搞定，现在又有些记不清了，所以要赶紧留下印记，以免过几天就忘光了。&lt;/p&gt;
+</content><category term="Hackintosh"></category></entry><entry><title>Dell E6400安装MacOS雪豹10.6</title><link href="http://blog.gocalf.com/dell-e6400-install-mac" rel="alternate"></link><published>2011-07-24T18:08:00+08:00</published><updated>2012-03-02T21:46:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-24:/dell-e6400-install-mac</id><summary type="html">&lt;p class="first last"&gt;半年前在Dell Latitude E6400上安装了Mac OS X Snow Leopard 10.6（与Windows 7并存），除了WiFi之外都挺好的，折腾了好久才搞定，现在又有些记不清了，所以要赶紧留下印记，以免过几天就忘光了。&lt;/p&gt;
 </summary><content type="html">
 &lt;p&gt;半年前在Dell Latitude E6400上安装了Mac OS X Snow Leopard 10.6（与Windows
 7并存），除了WiFi之外都挺好的，折腾了好久才搞定，现在又有些记不清了，所以要赶紧留下印记，以免过几天就忘光了。&lt;/p&gt;
@@ -210,11 +210,11 @@ system from
 file...），选择下载的安装盘镜像，在弹出的对话框里选择Apple_HFS那项。加载之后点击菜单Tool-&amp;gt;Create
 disk image...，将生成的文件（.dmg）保存在某个NTFS分区上即可。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="hfs_explorer_hfs" src="https://blog.gocalf.com/images/2011/07/hfs_explorer_hfs.png"/&gt;
+&lt;img alt="hfs_explorer_hfs" src="http://blog.gocalf.com/images/2011/07/hfs_explorer_hfs.png"/&gt;
 &lt;p class="caption"&gt;HFS-Explorer选择Partition&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="hfs_explorer_view" src="https://blog.gocalf.com/images/2011/07/hfs_explorer_view.png"/&gt;
+&lt;img alt="hfs_explorer_view" src="http://blog.gocalf.com/images/2011/07/hfs_explorer_view.png"/&gt;
 &lt;p class="caption"&gt;在HFS-Explorer中查看安装盘镜像&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;使用HFS-Explorer把下载的安装盘镜像处理一下生成另外一个镜像，主要有三个作用：&lt;/p&gt;
@@ -229,7 +229,7 @@ administrator）。载入刚才用HFS-Explorer生成的镜像文件，选择之�
 V8）。点击“开始！”按钮，然后耐心等待。当进度条走满，日志中出现“Change
 partition type to AF: Success”、“All done, have fun!”时就算成功了。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="lepoard-inshelper" src="https://blog.gocalf.com/images/2011/07/lepoard-inshelper.png"/&gt;
+&lt;img alt="lepoard-inshelper" src="http://blog.gocalf.com/images/2011/07/lepoard-inshelper.png"/&gt;
 &lt;p class="caption"&gt;Leopard硬盘安装助手&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="compound"&gt;
@@ -395,18 +395,18 @@ quit
 &lt;p&gt;重启电脑，进入BootThink，这时候就可以看到安装好的Mac系统分区了，引导它启动即可（如果装的是32位，也没改com.apple.Boot.plist，就需要输入-x32以32位模式启动）。&lt;/p&gt;
 &lt;p&gt;运气不背的话就可以顺利进入Mac系统了，声音、图像、有线网络、触摸板等全都正常，唯一的遗憾是无线网卡不能使用（也不知道这半年来出了新的驱动没）。可以买个USB/PCMCIA无线网卡，也可以像我一样扯根网线。&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Hackintosh"></category></entry><entry><title>隐藏磁盘分区Q</title><link href="https://blog.gocalf.com/hide-drive-q" rel="alternate"></link><published>2011-07-15T23:34:00+08:00</published><updated>2011-08-03T20:57:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-15:/hide-drive-q</id><summary type="html">&lt;p class="first last"&gt;本文介绍如果隐藏Windows 7中那讨厌的无法访问的磁盘分区Q。&lt;/p&gt;
+</content><category term="Hackintosh"></category></entry><entry><title>隐藏磁盘分区Q</title><link href="http://blog.gocalf.com/hide-drive-q" rel="alternate"></link><published>2011-07-15T23:34:00+08:00</published><updated>2011-08-03T20:57:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-15:/hide-drive-q</id><summary type="html">&lt;p class="first last"&gt;本文介绍如果隐藏Windows 7中那讨厌的无法访问的磁盘分区Q。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;在Windows 7操作系统中，有些用户可能会在我的电脑（My
 Computer）中看到一个盘符为&lt;strong&gt;Q&lt;/strong&gt;的本地磁盘分区，在磁盘管理中看不到它，无法访问它，也无法删除它。这个恼人的分区图标虽然不会有什么实际的影响，但似乎总是在眼前晃悠，不得不让人想要立刻干掉它。其实要去掉它是非常容易的，让我们一起来看一下。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="disk-q-unaccess" src="https://blog.gocalf.com/images/2011/07/disk-q-unaccess.png" /&gt;
+&lt;img alt="disk-q-unaccess" src="http://blog.gocalf.com/images/2011/07/disk-q-unaccess.png" /&gt;
 &lt;p class="caption"&gt;无法访问的虚拟磁盘分区Q&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;这个磁盘分区Q是Microsoft Application Virtualization
 Desktop（App-V）使用的一个虚拟分区，我也不记得是装了什么之后它就出现了。要隐藏它只要以下几个简单的步骤：&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="disk-q-registry" src="https://blog.gocalf.com/images/2011/07/disk-q-registry.png" /&gt;
+&lt;img alt="disk-q-registry" src="http://blog.gocalf.com/images/2011/07/disk-q-registry.png" /&gt;
 &lt;p class="caption"&gt;修改注册表，添加高亮的两个DWORD值&lt;/p&gt;
 &lt;/div&gt;
 &lt;ol class="arabic simple"&gt;
@@ -421,7 +421,7 @@ Desktop（App-V）使用的一个虚拟分区，我也不记得是装了什么�
 &lt;/ol&gt;
 &lt;p&gt;再次进入我的电脑，就可以看到那讨厌的Q分区消失了。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="disk-q-hidden" src="https://blog.gocalf.com/images/2011/07/disk-q-hidden.png" /&gt;
+&lt;img alt="disk-q-hidden" src="http://blog.gocalf.com/images/2011/07/disk-q-hidden.png" /&gt;
 &lt;p class="caption"&gt;虚拟分区Q被隐藏&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;如果对注册表不是非常熟悉的话，请千万谨慎操作。另外可以参考微软官方文档&lt;a class="reference external" href="http://support.microsoft.com/kb/931626/en-us"&gt;How to hide and to restrict access to the App-V (SoftGrid) client drive letter&lt;/a&gt;，这里有更加细致入微的步骤说明，以及其他殊途同归的方法。&lt;/p&gt;
@@ -430,28 +430,28 @@ mask的话，就是从最低位开始的第17位；而Q在字母表中恰好也�
 :-p），就根据分区盘符的字母顺序修改上述两个16进制数值即可。比如改成16进制的4（bit
 mask第三位），那C盘就消失了：&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="disk-c-hidden" src="https://blog.gocalf.com/images/2011/07/disk-c-hidden.png" /&gt;
+&lt;img alt="disk-c-hidden" src="http://blog.gocalf.com/images/2011/07/disk-c-hidden.png" /&gt;
 &lt;p class="caption"&gt;用16进制4隐藏磁盘分区C&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;在微软的Knowledge
 Base中也提供了类似的隐藏磁盘分区的方法，其中也有详细的磁盘分区盘符与二进制数之间的对应关系，详情请见&lt;a class="reference external" href="http://support.microsoft.com/kb/231289"&gt;Using Group Policy Objects to hide specified drives&lt;/a&gt;。&lt;/p&gt;
-</content><category term="Windows 7"></category></entry><entry><title>Windows7上帝模式</title><link href="https://blog.gocalf.com/win7-god-mode" rel="alternate"></link><published>2011-07-14T17:48:00+08:00</published><updated>2011-08-03T20:57:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-14:/win7-god-mode</id><summary type="html">&lt;p class="first last"&gt;在Windows 7里，“上帝”能做什么？&lt;/p&gt;
+</content><category term="Windows 7"></category></entry><entry><title>Windows7上帝模式</title><link href="http://blog.gocalf.com/win7-god-mode" rel="alternate"></link><published>2011-07-14T17:48:00+08:00</published><updated>2011-08-03T20:57:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-14:/win7-god-mode</id><summary type="html">&lt;p class="first last"&gt;在Windows 7里，“上帝”能做什么？&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;在Windows 7里，“上帝”能做什么？&lt;/p&gt;
 &lt;p&gt;一个简单的方法就可以调出调整Windows 7系统里全部功能的面板，这个小小的技巧可以让你控制你电脑中的一切。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;启动“上帝模式”的方法非常简单，随便找个地方建立一个文件夹，将其命名为&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}&lt;/span&gt;&lt;/tt&gt;，当然这里的“GodMode”不是必须的，可以选择任何喜欢的名字，起作用的是小数点后面的GUID。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="创建GodMode文件夹" src="https://blog.gocalf.com/images/2011/07/godmode1.png" /&gt;
+&lt;img alt="创建GodMode文件夹" src="http://blog.gocalf.com/images/2011/07/godmode1.png" /&gt;
 &lt;p class="caption"&gt;创建GodMode文件夹&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;回车之后，“上帝”就现身了。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="创建GodMode文件夹" src="https://blog.gocalf.com/images/2011/07/godmode2.png" /&gt;
+&lt;img alt="创建GodMode文件夹" src="http://blog.gocalf.com/images/2011/07/godmode2.png" /&gt;
 &lt;p class="caption"&gt;Win7 God Mode Overview&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;进入此文件夹，一坨坨系统设置就在那里恭候大驾了。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="创建GodMode文件夹" src="https://blog.gocalf.com/images/2011/07/godmode3.png" /&gt;
+&lt;img alt="创建GodMode文件夹" src="http://blog.gocalf.com/images/2011/07/godmode3.png" /&gt;
 &lt;p class="caption"&gt;Windows 7 上帝模式&lt;/p&gt;
 &lt;/div&gt;
 </content><category term="Windows 7"></category></entry></feed>

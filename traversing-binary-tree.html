@@ -15,7 +15,7 @@
 <meta name="keywords" content="Interview Question, Data Structure, Binary Tree, 算法, 二叉树, 栈, 递归, 遍历二叉树, 队列, 非递归遍历, 面试题" />
 
 <meta property="og:title" content="程序基本功之遍历二叉树 "/>
-<meta property="og:url" content="https://blog.gocalf.com/traversing-binary-tree" />
+<meta property="og:url" content="http://blog.gocalf.com/traversing-binary-tree" />
 <meta property="og:description" content="最近工作忙，没时间思考复杂的问题了。正好要招人就得有面试的嘛，自己也温习一下，要不然怎么去问别人。今天复习一下二叉树的遍历，前序（pre-order，NLR）、中序（in-order，LNR）、后序（post-order，LRN）、层序（level-order），用和不用递归。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
@@ -29,21 +29,21 @@
         <title>程序基本功之遍历二叉树  · GoCalf Blog
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
+<link rel="stylesheet" href="http://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
 
-        <link rel="shortcut icon" href="https://blog.gocalf.com/theme/images/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="https://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="https://blog.gocalf.com/theme/images/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="https://blog.gocalf.com/theme/images/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="https://blog.gocalf.com/theme/images/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="https://blog.gocalf.com/theme/images/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="https://blog.gocalf.com/theme/images/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="https://blog.gocalf.com/theme/images/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="https://blog.gocalf.com/theme/images/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="https://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="https://blog.gocalf.com/theme/images/apple-touch-icon-180x180.png" type="image/png" />
-        <link href="https://blog.gocalf.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Full Atom Feed" />
-        <link href="https://blog.gocalf.com/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+        <link rel="shortcut icon" href="http://blog.gocalf.com/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="http://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="http://blog.gocalf.com/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://blog.gocalf.com/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://blog.gocalf.com/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="http://blog.gocalf.com/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://blog.gocalf.com/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="http://blog.gocalf.com/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://blog.gocalf.com/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="http://blog.gocalf.com/theme/images/apple-touch-icon-180x180.png" type="image/png" />
+        <link href="http://blog.gocalf.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Full Atom Feed" />
+        <link href="http://blog.gocalf.com/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -66,19 +66,19 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </a>
-                        <a class="brand" href="https://blog.gocalf.com/"><span class=site-name>GoCalf Blog</span></a>
+                        <a class="brand" href="http://blog.gocalf.com/"><span class=site-name>GoCalf Blog</span></a>
                         <div class="nav-collapse collapse">
                             <ul class="nav pull-right top-menu">
                                 <li >
                                     <a href=
-                                       https://blog.gocalf.com
+                                       http://blog.gocalf.com
                                     >Home</a>
                                 </li>
-                                <li ><a href="https://blog.gocalf.com/about">About</a></li>
-                                <li ><a href="https://blog.gocalf.com/categories">Categories</a></li>
-                                <li ><a href="https://blog.gocalf.com/tags">Tags</a></li>
-                                <li ><a href="https://blog.gocalf.com/archives">Archives</a></li>
-                                <li><form class="navbar-search" action="https://blog.gocalf.com/search" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                                <li ><a href="http://blog.gocalf.com/about">About</a></li>
+                                <li ><a href="http://blog.gocalf.com/categories">Categories</a></li>
+                                <li ><a href="http://blog.gocalf.com/tags">Tags</a></li>
+                                <li ><a href="http://blog.gocalf.com/archives">Archives</a></li>
+                                <li><form class="navbar-search" action="http://blog.gocalf.com/search" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                             </ul>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
 <div class="row-fluid">
     <header class="page-header span10 offset2">
         <h1>
-            <a href="https://blog.gocalf.com/traversing-binary-tree">
+            <a href="http://blog.gocalf.com/traversing-binary-tree">
                 程序基本功之遍历二叉树
             </a>
         </h1>
@@ -123,7 +123,7 @@
 <!-- more -->
 <p>概念就不用多解释了，前、中、后是指根结点的访问时机，在左、右子树之前、中间、或之后。层序就是从根结点开始从上至下、从左到右地依次访问。</p>
 <div class="figure">
-<img alt="bin-tree" src="https://blog.gocalf.com/images/2012/04/bin-tree.png"/>
+<img alt="bin-tree" src="http://blog.gocalf.com/images/2012/04/bin-tree.png"/>
 <p class="caption">一棵二叉树</p>
 </div>
 <p>如上图所示的一棵二叉树，对应的遍历结果分别是：</p>
@@ -275,11 +275,11 @@
 
                 <p id="post-share-links">
     Like this post? Share on:
-    <a href="https://twitter.com/intent/tweet?text=%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E5%8A%9F%E4%B9%8B%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91&url=https%3A//blog.gocalf.com/traversing-binary-tree&via=calfzhou&hashtags=interview question,data structure,binary tree" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="https://twitter.com/intent/tweet?text=%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E5%8A%9F%E4%B9%8B%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91&url=http%3A//blog.gocalf.com/traversing-binary-tree&via=calfzhou&hashtags=interview question,data structure,binary tree" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//blog.gocalf.com/traversing-binary-tree" target="_blank" title="Share on Facebook">Facebook</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//blog.gocalf.com/traversing-binary-tree" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="mailto:?subject=%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E5%8A%9F%E4%B9%8B%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91&amp;body=https%3A//blog.gocalf.com/traversing-binary-tree" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E5%8A%9F%E4%B9%8B%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91&amp;body=http%3A//blog.gocalf.com/traversing-binary-tree" target="_blank" title="Share via Email">Email</a>
     </p>
 
             
@@ -300,8 +300,8 @@
                 <a class="accordion-toggle disqus-comment-count comment-count"
                    data-toggle="collapse"
                    data-parent="#accordion2"
-                   data-disqus-identifier="https://blog.gocalf.com/traversing-binary-tree"
-                   href="https://blog.gocalf.com/traversing-binary-tree#comment_thread"
+                   data-disqus-identifier="http://blog.gocalf.com/traversing-binary-tree"
+                   href="http://blog.gocalf.com/traversing-binary-tree#comment_thread"
                    id="comment-accordion-toggle">
                     Comments
                 </a>
@@ -319,8 +319,8 @@
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 
-    var disqus_identifier = 'https://blog.gocalf.com/traversing-binary-tree';
-    var disqus_url = 'https://blog.gocalf.com/traversing-binary-tree';
+    var disqus_identifier = 'http://blog.gocalf.com/traversing-binary-tree';
+    var disqus_url = 'http://blog.gocalf.com/traversing-binary-tree';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -344,19 +344,19 @@
 <section>
     <h2>Keep Reading</h2>
 <ul class="related-posts-list">
-<li><a href="https://blog.gocalf.com/circle-of-link-list" title="检测单向链表是否存在环">检测单向链表是否存在环</a></li>
-<li><a href="https://blog.gocalf.com/least-common-ancestor" title="求二叉树中两结点的最小公共祖先">求二叉树中两结点的最小公共祖先</a></li>
-<li><a href="https://blog.gocalf.com/calc-fibonacci" title="计算斐波纳契数，分析算法复杂度">计算斐波纳契数，分析算法复杂度</a></li>
-<li><a href="https://blog.gocalf.com/the-probability-of-two-boys" title="条件概率：两个都是男孩的概率">条件概率：两个都是男孩的概率</a></li>
-<li><a href="https://blog.gocalf.com/topn-of-massive-data" title="从大量整数中选取最小/大的若干个">从大量整数中选取最小/大的若干个</a></li>
+<li><a href="http://blog.gocalf.com/circle-of-link-list" title="检测单向链表是否存在环">检测单向链表是否存在环</a></li>
+<li><a href="http://blog.gocalf.com/least-common-ancestor" title="求二叉树中两结点的最小公共祖先">求二叉树中两结点的最小公共祖先</a></li>
+<li><a href="http://blog.gocalf.com/calc-fibonacci" title="计算斐波纳契数，分析算法复杂度">计算斐波纳契数，分析算法复杂度</a></li>
+<li><a href="http://blog.gocalf.com/the-probability-of-two-boys" title="条件概率：两个都是男孩的概率">条件概率：两个都是男孩的概率</a></li>
+<li><a href="http://blog.gocalf.com/topn-of-massive-data" title="从大量整数中选取最小/大的若干个">从大量整数中选取最小/大的若干个</a></li>
 </ul>
 <hr />
 </section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="https://blog.gocalf.com/iphone-dev-resizable-image" title="Previous: iOS可拉伸的图片">iOS可拉伸的图片</a></li>
-                <li class="next-article"><a href="https://blog.gocalf.com/topn-of-massive-data" title="Next: 从大量整数中选取最小/大的若干个">从大量整数中选取最小/大的若干个</a> »</li>
+                <li class="previous-article">« <a href="http://blog.gocalf.com/iphone-dev-resizable-image" title="Previous: iOS可拉伸的图片">iOS可拉伸的图片</a></li>
+                <li class="next-article"><a href="http://blog.gocalf.com/topn-of-massive-data" title="Next: 从大量整数中选取最小/大的若干个">从大量整数中选取最小/大的若干个</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -367,16 +367,16 @@
             <time itemprop="dateCreated" datetime="2012-04-04T16:51:00+08:00">Apr 4, 2012</time>
 
             <h4>Category</h4>
-            <a class="category-link" href="https://blog.gocalf.com/categories#algorithm-ref">算法</a>
+            <a class="category-link" href="http://blog.gocalf.com/categories#algorithm-ref">算法</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="https://blog.gocalf.com/tags#binary tree-ref">Binary Tree
+                <li><a href="http://blog.gocalf.com/tags#binary tree-ref">Binary Tree
                     <span>2</span>
 </a></li>
-                <li><a href="https://blog.gocalf.com/tags#data structure-ref">Data Structure
+                <li><a href="http://blog.gocalf.com/tags#data structure-ref">Data Structure
                     <span>3</span>
 </a></li>
-                <li><a href="https://blog.gocalf.com/tags#interview question-ref">Interview Question
+                <li><a href="http://blog.gocalf.com/tags#interview question-ref">Interview Question
                     <span>18</span>
 </a></li>
             </ul>
