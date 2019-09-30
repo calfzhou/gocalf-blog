@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 AUTHOR = 'Calf'
 SITENAME = 'GoCalf Blog'
 SITESUBTITLE = '1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS'
-SITEURL = 'https://blog.gocalf.com'
+SITEURL = 'http://blog.gocalf.com'
 
 # Regional Settings
 TIMEZONE = 'Asia/Shanghai'
