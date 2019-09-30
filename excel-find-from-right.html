@@ -15,7 +15,7 @@
 <meta name="keywords" content="Excel, 有用知识, Excel字符串查找, Excel技巧, Find from Right, rfind" />
 
 <meta property="og:title" content="Excel从右向左查找 "/>
-<meta property="og:url" content="http://blog.gocalf.com/excel-find-from-right" />
+<meta property="og:url" content="https://blog.gocalf.com/excel-find-from-right" />
 <meta property="og:description" content="今天看一个小问题，是前几天遇到的，就是要在Excel里面实现从右向左查找。比如给定字符串“abc,defg,hi,jkl”，需要找到最右一个逗号的位置（即12），或者最右一个逗号右边的部分（即“jkl”）。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
@@ -29,21 +29,21 @@
         <title>Excel从右向左查找  · GoCalf Blog
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
+<link rel="stylesheet" href="https://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
 
-        <link rel="shortcut icon" href="http://blog.gocalf.com/theme/images/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="http://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="http://blog.gocalf.com/theme/images/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="http://blog.gocalf.com/theme/images/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="http://blog.gocalf.com/theme/images/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="http://blog.gocalf.com/theme/images/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="http://blog.gocalf.com/theme/images/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="http://blog.gocalf.com/theme/images/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="http://blog.gocalf.com/theme/images/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="http://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="http://blog.gocalf.com/theme/images/apple-touch-icon-180x180.png" type="image/png" />
-        <link href="http://blog.gocalf.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Full Atom Feed" />
-        <link href="http://blog.gocalf.com/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+        <link rel="shortcut icon" href="https://blog.gocalf.com/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="https://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="https://blog.gocalf.com/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="https://blog.gocalf.com/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="https://blog.gocalf.com/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="https://blog.gocalf.com/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://blog.gocalf.com/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="https://blog.gocalf.com/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="https://blog.gocalf.com/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://blog.gocalf.com/theme/images/apple-touch-icon-180x180.png" type="image/png" />
+        <link href="https://blog.gocalf.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Full Atom Feed" />
+        <link href="https://blog.gocalf.com/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -66,19 +66,19 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </a>
-                        <a class="brand" href="http://blog.gocalf.com/"><span class=site-name>GoCalf Blog</span></a>
+                        <a class="brand" href="https://blog.gocalf.com/"><span class=site-name>GoCalf Blog</span></a>
                         <div class="nav-collapse collapse">
                             <ul class="nav pull-right top-menu">
                                 <li >
                                     <a href=
-                                       http://blog.gocalf.com
+                                       https://blog.gocalf.com
                                     >Home</a>
                                 </li>
-                                <li ><a href="http://blog.gocalf.com/about">About</a></li>
-                                <li ><a href="http://blog.gocalf.com/categories">Categories</a></li>
-                                <li ><a href="http://blog.gocalf.com/tags">Tags</a></li>
-                                <li ><a href="http://blog.gocalf.com/archives">Archives</a></li>
-                                <li><form class="navbar-search" action="http://blog.gocalf.com/search" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                                <li ><a href="https://blog.gocalf.com/about">About</a></li>
+                                <li ><a href="https://blog.gocalf.com/categories">Categories</a></li>
+                                <li ><a href="https://blog.gocalf.com/tags">Tags</a></li>
+                                <li ><a href="https://blog.gocalf.com/archives">Archives</a></li>
+                                <li><form class="navbar-search" action="https://blog.gocalf.com/search" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                             </ul>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
 <div class="row-fluid">
     <header class="page-header span10 offset2">
         <h1>
-            <a href="http://blog.gocalf.com/excel-find-from-right">
+            <a href="https://blog.gocalf.com/excel-find-from-right">
                 Excel从右向左查找
             </a>
         </h1>
@@ -132,11 +132,11 @@ Reader都快要关闭的时代，个人博客还有多少存在的意义呢。</
 
                 <p id="post-share-links">
     Like this post? Share on:
-    <a href="https://twitter.com/intent/tweet?text=Excel%E4%BB%8E%E5%8F%B3%E5%90%91%E5%B7%A6%E6%9F%A5%E6%89%BE&url=http%3A//blog.gocalf.com/excel-find-from-right&via=calfzhou&hashtags=excel" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="https://twitter.com/intent/tweet?text=Excel%E4%BB%8E%E5%8F%B3%E5%90%91%E5%B7%A6%E6%9F%A5%E6%89%BE&url=https%3A//blog.gocalf.com/excel-find-from-right&via=calfzhou&hashtags=excel" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//blog.gocalf.com/excel-find-from-right" target="_blank" title="Share on Facebook">Facebook</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//blog.gocalf.com/excel-find-from-right" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="mailto:?subject=Excel%E4%BB%8E%E5%8F%B3%E5%90%91%E5%B7%A6%E6%9F%A5%E6%89%BE&amp;body=http%3A//blog.gocalf.com/excel-find-from-right" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=Excel%E4%BB%8E%E5%8F%B3%E5%90%91%E5%B7%A6%E6%9F%A5%E6%89%BE&amp;body=https%3A//blog.gocalf.com/excel-find-from-right" target="_blank" title="Share via Email">Email</a>
     </p>
 
             
@@ -157,8 +157,8 @@ Reader都快要关闭的时代，个人博客还有多少存在的意义呢。</
                 <a class="accordion-toggle disqus-comment-count comment-count"
                    data-toggle="collapse"
                    data-parent="#accordion2"
-                   data-disqus-identifier="http://blog.gocalf.com/excel-find-from-right"
-                   href="http://blog.gocalf.com/excel-find-from-right#comment_thread"
+                   data-disqus-identifier="https://blog.gocalf.com/excel-find-from-right"
+                   href="https://blog.gocalf.com/excel-find-from-right#comment_thread"
                    id="comment-accordion-toggle">
                     Comments
                 </a>
@@ -176,8 +176,8 @@ Reader都快要关闭的时代，个人博客还有多少存在的意义呢。</
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 
-    var disqus_identifier = 'http://blog.gocalf.com/excel-find-from-right';
-    var disqus_url = 'http://blog.gocalf.com/excel-find-from-right';
+    var disqus_identifier = 'https://blog.gocalf.com/excel-find-from-right';
+    var disqus_url = 'https://blog.gocalf.com/excel-find-from-right';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -201,16 +201,16 @@ Reader都快要关闭的时代，个人博客还有多少存在的意义呢。</
 <section>
     <h2>Keep Reading</h2>
 <ul class="related-posts-list">
-<li><a href="http://blog.gocalf.com/python-read-write-excel" title="用Python读写Excel文件">用Python读写Excel文件</a></li>
-<li><a href="http://blog.gocalf.com/excel-variable-width-column-chart" title="在Excel中制作不等宽柱状图">在Excel中制作不等宽柱状图</a></li>
+<li><a href="https://blog.gocalf.com/python-read-write-excel" title="用Python读写Excel文件">用Python读写Excel文件</a></li>
+<li><a href="https://blog.gocalf.com/excel-variable-width-column-chart" title="在Excel中制作不等宽柱状图">在Excel中制作不等宽柱状图</a></li>
 </ul>
 <hr />
 </section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://blog.gocalf.com/topn-of-massive-data" title="Previous: 从大量整数中选取最小/大的若干个">从大量整数中选取最小/大的若干个</a></li>
-                <li class="next-article"><a href="http://blog.gocalf.com/fix-bricked-kindle4" title="Next: Kindle4修砖记">Kindle4修砖记</a> »</li>
+                <li class="previous-article">« <a href="https://blog.gocalf.com/topn-of-massive-data" title="Previous: 从大量整数中选取最小/大的若干个">从大量整数中选取最小/大的若干个</a></li>
+                <li class="next-article"><a href="https://blog.gocalf.com/fix-bricked-kindle4" title="Next: Kindle4修砖记">Kindle4修砖记</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -221,10 +221,10 @@ Reader都快要关闭的时代，个人博客还有多少存在的意义呢。</
             <time itemprop="dateCreated" datetime="2013-04-03T18:09:00+08:00">Apr 3, 2013</time>
 
             <h4>Category</h4>
-            <a class="category-link" href="http://blog.gocalf.com/categories#knowledge-ref">有用知识</a>
+            <a class="category-link" href="https://blog.gocalf.com/categories#knowledge-ref">有用知识</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="http://blog.gocalf.com/tags#excel-ref">Excel
+                <li><a href="https://blog.gocalf.com/tags#excel-ref">Excel
                     <span>3</span>
 </a></li>
             </ul>

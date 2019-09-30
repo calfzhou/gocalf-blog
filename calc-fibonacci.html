@@ -15,7 +15,7 @@
 <meta name="keywords" content="Interview Question, Algorithm Complexity, Fibonacci, 算法, 大整数运算, 斐波纳契数列, 矩阵乘方, 算法复杂度, 算法题, 面试题" />
 
 <meta property="og:title" content="计算斐波纳契数，分析算法复杂度 "/>
-<meta property="og:url" content="http://blog.gocalf.com/calc-fibonacci" />
+<meta property="og:url" content="https://blog.gocalf.com/calc-fibonacci" />
 <meta property="og:description" content="问题描述：Fibonacci数（Fibonacci Number）的定义是：F(n) = F(n - 1) + F(n - 2)，并且F(0) = 0，F(1) = 1。对于任意指定的整数n（n &gt;= 0），计算F(n)，并分析算法的时间、空间复杂度。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
@@ -29,21 +29,21 @@
         <title>计算斐波纳契数，分析算法复杂度  · GoCalf Blog
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
+<link rel="stylesheet" href="https://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
 
-        <link rel="shortcut icon" href="http://blog.gocalf.com/theme/images/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="http://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" href="http://blog.gocalf.com/theme/images/apple-touch-icon.png"  type="image/png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="http://blog.gocalf.com/theme/images/apple-touch-icon-57x57.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="http://blog.gocalf.com/theme/images/apple-touch-icon-72x72.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="http://blog.gocalf.com/theme/images/apple-touch-icon-76x76.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="http://blog.gocalf.com/theme/images/apple-touch-icon-114x114.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="http://blog.gocalf.com/theme/images/apple-touch-icon-120x120.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="http://blog.gocalf.com/theme/images/apple-touch-icon-144x144.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="http://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="http://blog.gocalf.com/theme/images/apple-touch-icon-180x180.png" type="image/png" />
-        <link href="http://blog.gocalf.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Full Atom Feed" />
-        <link href="http://blog.gocalf.com/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
+        <link rel="shortcut icon" href="https://blog.gocalf.com/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="https://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="https://blog.gocalf.com/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="https://blog.gocalf.com/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="https://blog.gocalf.com/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="https://blog.gocalf.com/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://blog.gocalf.com/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="https://blog.gocalf.com/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="https://blog.gocalf.com/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://blog.gocalf.com/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://blog.gocalf.com/theme/images/apple-touch-icon-180x180.png" type="image/png" />
+        <link href="https://blog.gocalf.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Full Atom Feed" />
+        <link href="https://blog.gocalf.com/feeds/atom.xml" type="application/atom+xml" rel="alternate" title="GoCalf Blog - Atom Feed" />
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -66,19 +66,19 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </a>
-                        <a class="brand" href="http://blog.gocalf.com/"><span class=site-name>GoCalf Blog</span></a>
+                        <a class="brand" href="https://blog.gocalf.com/"><span class=site-name>GoCalf Blog</span></a>
                         <div class="nav-collapse collapse">
                             <ul class="nav pull-right top-menu">
                                 <li >
                                     <a href=
-                                       http://blog.gocalf.com
+                                       https://blog.gocalf.com
                                     >Home</a>
                                 </li>
-                                <li ><a href="http://blog.gocalf.com/about">About</a></li>
-                                <li ><a href="http://blog.gocalf.com/categories">Categories</a></li>
-                                <li ><a href="http://blog.gocalf.com/tags">Tags</a></li>
-                                <li ><a href="http://blog.gocalf.com/archives">Archives</a></li>
-                                <li><form class="navbar-search" action="http://blog.gocalf.com/search" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                                <li ><a href="https://blog.gocalf.com/about">About</a></li>
+                                <li ><a href="https://blog.gocalf.com/categories">Categories</a></li>
+                                <li ><a href="https://blog.gocalf.com/tags">Tags</a></li>
+                                <li ><a href="https://blog.gocalf.com/archives">Archives</a></li>
+                                <li><form class="navbar-search" action="https://blog.gocalf.com/search" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                             </ul>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
 <div class="row-fluid">
     <header class="page-header span10 offset2">
         <h1>
-            <a href="http://blog.gocalf.com/calc-fibonacci">
+            <a href="https://blog.gocalf.com/calc-fibonacci">
                 计算斐波纳契数，分析算法复杂度
             </a>
         </h1>
@@ -124,7 +124,7 @@
 0），计算F(n)的精确值，并分析算法的时间、空间复杂度。</p>
 <p>假设系统中已经提供任意精度长整数的运算，可以直接使用。</p>
 <!-- more -->
-<p>这其实是个老生常谈的问题了，不过可能在复杂度分析的时候，很多人忽略了一些事情。另外这个问题恰好有几种复杂度迥异的算法，在刚刚介绍完<a class="reference external" href="http://blog.gocalf.com/algorithm-complexity-and-master-theorem">算法复杂度</a>之后，正好来直观地理解一下。</p>
+<p>这其实是个老生常谈的问题了，不过可能在复杂度分析的时候，很多人忽略了一些事情。另外这个问题恰好有几种复杂度迥异的算法，在刚刚介绍完<a class="reference external" href="https://blog.gocalf.com/algorithm-complexity-and-master-theorem">算法复杂度</a>之后，正好来直观地理解一下。</p>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id10">一、递归法</a></h2>
 <p>一个看起来很直观、用起来很恐怖的算法就是递归法。根据Fibonacci的递推公式，对于输入的n，直接递归地调用相同的函数分别求出F(n
@@ -198,7 +198,7 @@ a^{(n-1)/2}\times a^{(n-1)/2}\times a&amp;,\text{ if }x\text{ is odd}
 \end{cases}
 \end{equation*}
 </div>
-<p>可见复杂度满足T(n) = T(n / 2) + O(1)，根据<a class="reference external" href="http://blog.gocalf.com/algorithm-complexity-and-master-theorem">Master定理</a>可得：T(n) =
+<p>可见复杂度满足T(n) = T(n / 2) + O(1)，根据<a class="reference external" href="https://blog.gocalf.com/algorithm-complexity-and-master-theorem">Master定理</a>可得：T(n) =
 O(log n)。</p>
 <p>在实现的时候，可以用循环代替递归实现这里的二分分治，好处是降低了空间复杂度（用递归的话，空间复杂度为O(log
 n)）。下面的Python程序直接利用的numpy库中的矩阵乘法（当然这个库也实现了矩阵的幂运算，我把它单独写出来是为了强调这里的分治算法）。另外如果不用第三方库，我也给出了矩阵乘法的简单实现。</p>
@@ -339,7 +339,7 @@ n)</strong>，空间复杂度是<strong>O(1)</strong>。</p>
 <h2><a class="toc-backref" href="#id13">四、运行时间大比拼</a></h2>
 <p>至此，我们得到的时间复杂度分别是O(1.618 ^ n)、O(n)和O(log
 n)的算法，让我们来直观地比较比较它们。</p>
-<p>用Python的timeit模块对以上三个算法的运行时间进行了测量，记录了每个算法对于不同的n的每千次运算所消耗的时间（单位是秒），部分数据记录在<a class="reference external" href="http://blog.gocalf.com/assets/2011/11/fibonacci_data.zip">fibonacci_data</a>。利用Mathematica可以很方便地对这些数据进行拟合，对于较小的n，用三个复杂度表达式分别去拟合，得到的效果都非常好。尤其值得注意的是，对于第一个算法，我用a
+<p>用Python的timeit模块对以上三个算法的运行时间进行了测量，记录了每个算法对于不同的n的每千次运算所消耗的时间（单位是秒），部分数据记录在<a class="reference external" href="https://blog.gocalf.com/assets/2011/11/fibonacci_data.zip">fibonacci_data</a>。利用Mathematica可以很方便地对这些数据进行拟合，对于较小的n，用三个复杂度表达式分别去拟合，得到的效果都非常好。尤其值得注意的是，对于第一个算法，我用a
 * b ^ n去拟合，结果得到b等于1.61816，这与黄金分割数的正确值相差无几。</p>
 <ul class="simple">
 <li>递归法拟合结果：0.000501741 * 1.61816 ^ n，RSquare = 0.999993。</li>
@@ -350,13 +350,13 @@ n)的算法，让我们来直观地比较比较它们。</p>
 n)的递归法；蓝色为O(n)的递推法；绿色为O(log
 n)的矩阵法。散点为实际测量到的运行时间，实线为拟合方程的曲线。</p>
 <div class="figure">
-<img alt="compare_a" src="http://blog.gocalf.com/images/2011/11/compare_a.png"/>
+<img alt="compare_a" src="https://blog.gocalf.com/images/2011/11/compare_a.png"/>
 <p class="caption">三种算法的运行时间比较</p>
 </div>
 <p>当n &gt;
 10的时候，指数时间就已经超出画面范围了。另外在这张图里，身为对数时间复杂度的矩阵法似乎没有任何优势，其耗时远远高于线性时间复杂度的递推法。这是因为n还不够大，体现不出log(n)的优势。在考虑更大的n之前，先来看看指数时间复杂度会增大到什么程度。</p>
 <div class="figure">
-<img alt="compare_b" src="http://blog.gocalf.com/images/2011/11/compare_b.png"/>
+<img alt="compare_b" src="https://blog.gocalf.com/images/2011/11/compare_b.png"/>
 <p class="caption">三种算法的运行时间比较（对数坐标轴）</p>
 </div>
 </div>
@@ -383,7 +383,7 @@ F_n=\frac{1}{\sqrt5}\left(\frac{1+\sqrt5}{2}\right)^n-\frac{1}{\sqrt5}\left(\fra
 ^ 2)时间复杂度，较好的Karatsuba算法是O(n ^ (log 3 / log
 2))时间，更快的快速傅立叶变换法是O(n log n)时间。Python
 2.5中使用的是Karatsuba算法（Python
-3里面似乎是快速傅立叶变换法）（参见<a class="reference external" href="http://www.endless-loops.com/2011/01/python%E6%BA%90%E7%A0%81%E4%B8%AD%E7%9A%84%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90-%E4%B9%8B-%E5%A4%A7%E6%95%B4%E6%95%B0%E4%B9%98%E6%B3%95-378.html">Python源码中的算法分析 之 大整数乘法</a>）。以Karatsuba算法为例，矩阵法的时间复杂度递推方程为：<span class="math">\(T(n)=T(n/2)+O(n^{\log_2{3}})\)</span>，应用<a class="reference external" href="http://blog.gocalf.com/algorithm-complexity-and-master-theorem">Master定理</a>求得<span class="math">\(T(n)=O(n^{\log_2{3}})\)</span>。因此对于很大的n，矩阵法的时间复杂度为<strong>O(n
+3里面似乎是快速傅立叶变换法）（参见<a class="reference external" href="http://www.endless-loops.com/2011/01/python%E6%BA%90%E7%A0%81%E4%B8%AD%E7%9A%84%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90-%E4%B9%8B-%E5%A4%A7%E6%95%B4%E6%95%B0%E4%B9%98%E6%B3%95-378.html">Python源码中的算法分析 之 大整数乘法</a>）。以Karatsuba算法为例，矩阵法的时间复杂度递推方程为：<span class="math">\(T(n)=T(n/2)+O(n^{\log_2{3}})\)</span>，应用<a class="reference external" href="https://blog.gocalf.com/algorithm-complexity-and-master-theorem">Master定理</a>求得<span class="math">\(T(n)=O(n^{\log_2{3}})\)</span>。因此对于很大的n，矩阵法的时间复杂度为<strong>O(n
 ^ 1.585)</strong>，空间复杂度<strong>O(n)</strong>。</p>
 <p>利用Mathematica对大n情况下这两种算法每千次运行时间进行拟合，分别得到：</p>
 <ul class="simple">
@@ -394,12 +394,12 @@ F_n=\frac{1}{\sqrt5}\left(\frac{1+\sqrt5}{2}\right)^n-\frac{1}{\sqrt5}\left(\fra
 </ul>
 <p>看一下n在4000以内时，两种复杂度的对比情况：</p>
 <div class="figure">
-<img alt="compare_c" src="http://blog.gocalf.com/images/2011/11/compare_c.png"/>
+<img alt="compare_c" src="https://blog.gocalf.com/images/2011/11/compare_c.png"/>
 <p class="caption">递推法（蓝色）与矩阵法（绿色）运行时间比较（大整数）</p>
 </div>
 <p>从图中可以看出，递推法的增长速度也是很快的，当n增大到60多的时候，它的运行时间就超过矩阵法了。矩阵法的增长速度非常慢，看起来像是线性的，让我们把n调的更大来看一下。</p>
 <div class="figure">
-<img alt="compare_d" src="http://blog.gocalf.com/images/2011/11/compare_d.png"/>
+<img alt="compare_d" src="https://blog.gocalf.com/images/2011/11/compare_d.png"/>
 <p class="caption">矩阵法的运行时间（更大的n）</p>
 </div>
 </div>
@@ -413,22 +413,22 @@ Fibonacci[n] uses an iterative method based on the binary digit
 sequence of n.</blockquote>
 <p>来看看它到底有多快：</p>
 <div class="figure">
-<img alt="compare_e" src="http://blog.gocalf.com/images/2011/11/compare_e.png"/>
+<img alt="compare_e" src="https://blog.gocalf.com/images/2011/11/compare_e.png"/>
 <p class="caption">矩阵法（绿色）与Mathematica Fibonacci函数（橙色）运行时间比较</p>
 </div>
 <p>好吧，这个问题留待以后慢慢研究。</p>
-<p>最后相关的Mathematica命令文件放在这里：<a class="reference external" href="http://blog.gocalf.com/assets/2011/11/fibonacci_timecost.zip">fibonacci_timecost</a></p>
+<p>最后相关的Mathematica命令文件放在这里：<a class="reference external" href="https://blog.gocalf.com/assets/2011/11/fibonacci_timecost.zip">fibonacci_timecost</a></p>
 </div>
 
 
 
                 <p id="post-share-links">
     Like this post? Share on:
-    <a href="https://twitter.com/intent/tweet?text=%E8%AE%A1%E7%AE%97%E6%96%90%E6%B3%A2%E7%BA%B3%E5%A5%91%E6%95%B0%EF%BC%8C%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6&url=http%3A//blog.gocalf.com/calc-fibonacci&via=calfzhou&hashtags=interview question,algorithm complexity,fibonacci" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="https://twitter.com/intent/tweet?text=%E8%AE%A1%E7%AE%97%E6%96%90%E6%B3%A2%E7%BA%B3%E5%A5%91%E6%95%B0%EF%BC%8C%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6&url=https%3A//blog.gocalf.com/calc-fibonacci&via=calfzhou&hashtags=interview question,algorithm complexity,fibonacci" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//blog.gocalf.com/calc-fibonacci" target="_blank" title="Share on Facebook">Facebook</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//blog.gocalf.com/calc-fibonacci" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="mailto:?subject=%E8%AE%A1%E7%AE%97%E6%96%90%E6%B3%A2%E7%BA%B3%E5%A5%91%E6%95%B0%EF%BC%8C%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6&amp;body=http%3A//blog.gocalf.com/calc-fibonacci" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=%E8%AE%A1%E7%AE%97%E6%96%90%E6%B3%A2%E7%BA%B3%E5%A5%91%E6%95%B0%EF%BC%8C%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6&amp;body=https%3A//blog.gocalf.com/calc-fibonacci" target="_blank" title="Share via Email">Email</a>
     </p>
 
             
@@ -449,8 +449,8 @@ sequence of n.</blockquote>
                 <a class="accordion-toggle disqus-comment-count comment-count"
                    data-toggle="collapse"
                    data-parent="#accordion2"
-                   data-disqus-identifier="http://blog.gocalf.com/calc-fibonacci"
-                   href="http://blog.gocalf.com/calc-fibonacci#comment_thread"
+                   data-disqus-identifier="https://blog.gocalf.com/calc-fibonacci"
+                   href="https://blog.gocalf.com/calc-fibonacci#comment_thread"
                    id="comment-accordion-toggle">
                     Comments
                 </a>
@@ -468,8 +468,8 @@ sequence of n.</blockquote>
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 
-    var disqus_identifier = 'http://blog.gocalf.com/calc-fibonacci';
-    var disqus_url = 'http://blog.gocalf.com/calc-fibonacci';
+    var disqus_identifier = 'https://blog.gocalf.com/calc-fibonacci';
+    var disqus_url = 'https://blog.gocalf.com/calc-fibonacci';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -493,19 +493,19 @@ sequence of n.</blockquote>
 <section>
     <h2>Keep Reading</h2>
 <ul class="related-posts-list">
-<li><a href="http://blog.gocalf.com/least-common-ancestor" title="求二叉树中两结点的最小公共祖先">求二叉树中两结点的最小公共祖先</a></li>
-<li><a href="http://blog.gocalf.com/max-inner-product" title="求内积最大的子数组">求内积最大的子数组</a></li>
-<li><a href="http://blog.gocalf.com/the-probability-of-two-boys" title="条件概率：两个都是男孩的概率">条件概率：两个都是男孩的概率</a></li>
-<li><a href="http://blog.gocalf.com/traversing-binary-tree" title="程序基本功之遍历二叉树">程序基本功之遍历二叉树</a></li>
-<li><a href="http://blog.gocalf.com/topn-of-massive-data" title="从大量整数中选取最小/大的若干个">从大量整数中选取最小/大的若干个</a></li>
+<li><a href="https://blog.gocalf.com/least-common-ancestor" title="求二叉树中两结点的最小公共祖先">求二叉树中两结点的最小公共祖先</a></li>
+<li><a href="https://blog.gocalf.com/max-inner-product" title="求内积最大的子数组">求内积最大的子数组</a></li>
+<li><a href="https://blog.gocalf.com/the-probability-of-two-boys" title="条件概率：两个都是男孩的概率">条件概率：两个都是男孩的概率</a></li>
+<li><a href="https://blog.gocalf.com/traversing-binary-tree" title="程序基本功之遍历二叉树">程序基本功之遍历二叉树</a></li>
+<li><a href="https://blog.gocalf.com/topn-of-massive-data" title="从大量整数中选取最小/大的若干个">从大量整数中选取最小/大的若干个</a></li>
 </ul>
 <hr />
 </section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://blog.gocalf.com/zelda-tp-ch5" title="Previous: 黎明公主攻略：第五章 冰封魔镜的罪恶">黎明公主攻略：第五章 冰封魔镜的罪恶</a></li>
-                <li class="next-article"><a href="http://blog.gocalf.com/5x5-sudoku-in-vcube7" title="Next: 七阶魔方花样：5x5数独">七阶魔方花样：5x5数独</a> »</li>
+                <li class="previous-article">« <a href="https://blog.gocalf.com/zelda-tp-ch5" title="Previous: 黎明公主攻略：第五章 冰封魔镜的罪恶">黎明公主攻略：第五章 冰封魔镜的罪恶</a></li>
+                <li class="next-article"><a href="https://blog.gocalf.com/5x5-sudoku-in-vcube7" title="Next: 七阶魔方花样：5x5数独">七阶魔方花样：5x5数独</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -518,16 +518,16 @@ sequence of n.</blockquote>
 <time datetime="2012-12-04T17:00:00+08:00">Dec 4, 2012</time>
 
             <h4>Category</h4>
-            <a class="category-link" href="http://blog.gocalf.com/categories#algorithm-ref">算法</a>
+            <a class="category-link" href="https://blog.gocalf.com/categories#algorithm-ref">算法</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="http://blog.gocalf.com/tags#algorithm complexity-ref">Algorithm Complexity
+                <li><a href="https://blog.gocalf.com/tags#algorithm complexity-ref">Algorithm Complexity
                     <span>2</span>
 </a></li>
-                <li><a href="http://blog.gocalf.com/tags#fibonacci-ref">Fibonacci
+                <li><a href="https://blog.gocalf.com/tags#fibonacci-ref">Fibonacci
                     <span>1</span>
 </a></li>
-                <li><a href="http://blog.gocalf.com/tags#interview question-ref">Interview Question
+                <li><a href="https://blog.gocalf.com/tags#interview question-ref">Interview Question
                     <span>18</span>
 </a></li>
             </ul>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>GoCalf Blog - 有用知识</title><link href="http://blog.gocalf.com/" rel="alternate"></link><link href="http://blog.gocalf.com/feeds/knowledge.atom.xml" rel="self"></link><id>http://blog.gocalf.com/</id><updated>2019-09-30T16:00:00+08:00</updated><subtitle>1/100 ALGO&amp;amp;MATH; 1/100 IT&amp;amp;GAME; 1/100 INFO&amp;amp;SHARING; 1/100 WHO KNOWS</subtitle><entry><title>用Git和云存储保存隐私信息</title><link href="http://blog.gocalf.com/git-encrypt" rel="alternate"></link><published>2013-12-17T14:07:00+08:00</published><updated>2013-12-17T14:07:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-12-17:/git-encrypt</id><summary type="html">&lt;p class="first last"&gt;网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在Dropbox和GitHub中存储一些个人文件和代码。但如果涉及到隐私的信息非要放上去就必须要加密处理，今天我说一下如何用git来保存这些隐私信息。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>GoCalf Blog - 有用知识</title><link href="https://blog.gocalf.com/" rel="alternate"></link><link href="https://blog.gocalf.com/feeds/knowledge.atom.xml" rel="self"></link><id>https://blog.gocalf.com/</id><updated>2019-09-30T16:00:00+08:00</updated><subtitle>1/100 ALGO&amp;amp;MATH; 1/100 IT&amp;amp;GAME; 1/100 INFO&amp;amp;SHARING; 1/100 WHO KNOWS</subtitle><entry><title>用Git和云存储保存隐私信息</title><link href="https://blog.gocalf.com/git-encrypt" rel="alternate"></link><published>2013-12-17T14:07:00+08:00</published><updated>2013-12-17T14:07:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-12-17:/git-encrypt</id><summary type="html">&lt;p class="first last"&gt;网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在Dropbox和GitHub中存储一些个人文件和代码。但如果涉及到隐私的信息非要放上去就必须要加密处理，今天我说一下如何用git来保存这些隐私信息。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在&lt;a class="reference external" href="https://www.dropbox.com/"&gt;Dropbox&lt;/a&gt;和&lt;a class="reference external" href="https://github.com/"&gt;GitHub&lt;/a&gt;中存储一些个人文件和代码。隐私问题比较麻烦，会有一些特别隐私的信息（比如银行密码、心情日记等）是不适合直接存放在云端的。但又确实想要借助云平台的便利性，就必须要做加密处理。操作的方法很多，今天我说一下用Git来保存这些隐私信息。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;等等，你说什么？还有115网盘、百度云盘、金山快盘等等国内知名云存储，空间又大、速度又快、功能又强。如果你这么觉得，那么再见，bye bye，さようなら。&lt;/p&gt;
@@ -109,7 +109,7 @@ $ cat private-diary.txt
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="http://article.gmane.org/gmane.comp.version-control.git/113221"&gt;Don't do this&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content><category term="Git"></category><category term="Encrypt"></category></entry><entry><title>在Excel中制作不等宽柱状图</title><link href="http://blog.gocalf.com/excel-variable-width-column-chart" rel="alternate"></link><published>2013-12-13T14:35:00+08:00</published><updated>2019-09-30T16:00:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-12-13:/excel-variable-width-column-chart</id><summary type="html">&lt;p class="first last"&gt;介绍一下我是怎么在Microsoft Office Excel中制作不等宽柱状图（Variable Width Column Chart）的。&lt;/p&gt;
+</content><category term="Git"></category><category term="Encrypt"></category></entry><entry><title>在Excel中制作不等宽柱状图</title><link href="https://blog.gocalf.com/excel-variable-width-column-chart" rel="alternate"></link><published>2013-12-13T14:35:00+08:00</published><updated>2019-09-30T16:00:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-12-13:/excel-variable-width-column-chart</id><summary type="html">&lt;p class="first last"&gt;介绍一下我是怎么在Microsoft Office Excel中制作不等宽柱状图（Variable Width Column Chart）的。&lt;/p&gt;
 </summary><content type="html">
 &lt;p&gt;柱状图大家应该都很熟悉，在Excel中可以很容易创建一个柱状图，每个柱子的高度表达了某个对象的数值大小。但有的时候，需要在柱状图中同时表达两个维度的数据，除了高度之外，希望柱子的宽度也能表达该对象的另外一个数值大小，以便直观地比较这两个维度。我曾经就需要做一个这样的图，不过在Excel中并没有直接提供相关的功能，需要一些小技巧。&lt;/p&gt;
 &lt;p&gt;今天就来介绍一下我是怎么制作不等宽柱状图（Variable Width Column Chart）的。也有人称其为Marimekko
@@ -156,7 +156,7 @@ Chart，我没有仔细去考证，二者好像也并不完全一样。&lt;/p&gt
 &lt;/table&gt;
 &lt;p&gt;最后做成的图是这样的：&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="variable_width_column_chart" src="http://blog.gocalf.com/images/2013/12/variable_width_column_chart.png"/&gt;
+&lt;img alt="variable_width_column_chart" src="https://blog.gocalf.com/images/2013/12/variable_width_column_chart.png"/&gt;
 &lt;p class="caption"&gt;在Excel中根据上述数据制作的不等宽柱状图&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;那么应该怎么产生这样的效果呢？内置的柱状图并没有办法调节每个柱子的宽度，所以看起来不应该是从这个角度去做。&lt;/p&gt;
@@ -170,7 +170,7 @@ Chart，我没有仔细去考证，二者好像也并不完全一样。&lt;/p&gt
 Format as Table，然后随便选择一个样式，将这片区域转换成Excel表。给这个表起个名字，比如叫作TableData，在Ribbon中点击（TABLE
 TOOLS）DESIGN，在Table Name的文本框中输入TableData。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="create_data_table" src="http://blog.gocalf.com/images/2013/12/create_data_table.png"/&gt;
+&lt;img alt="create_data_table" src="https://blog.gocalf.com/images/2013/12/create_data_table.png"/&gt;
 &lt;p class="caption"&gt;选择原始数据单元格范围，转换成Excel表&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;接下来对这个数据表格做一些简单的扩充——增加几个有用的列。&lt;/p&gt;
@@ -188,7 +188,7 @@ TOOLS）DESIGN，在Table Name的文本框中输入TableData。&lt;/p&gt;
 &lt;p&gt;为了方便以后引用，我们给存放这个数值的单元格起个名字。比如我现在把它放在B8这个单元格里，选中这个单元格，点击Ribbon的FORMULAS -&amp;gt;
 Define Name来为其指定一个名字，比如叫作“Gap”。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="define_gap_name" src="http://blog.gocalf.com/images/2013/12/define_gap_name.png"/&gt;
+&lt;img alt="define_gap_name" src="https://blog.gocalf.com/images/2013/12/define_gap_name.png"/&gt;
 &lt;p class="caption"&gt;给间隔数据所在的单元格定义名字&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;有了这个柱子之间的间隔，就很容易写出Right和Left的计算公式了。假设第一个柱子的左边界的（横轴）坐标为0，那任何一个柱子的左边界的坐标就等于它左边所有柱子的宽度之和加上若干（=左边的柱子个数）个间隔。而这个柱子的右边界的坐标等于其左边界坐标加上它自身的宽度。实际写公式的时候，为了方便，我先计算右边界的坐标，然后减去宽度得到左边界坐标。&lt;/p&gt;
@@ -209,7 +209,7 @@ Define Name来为其指定一个名字，比如叫作“Gap”。&lt;/p&gt;
 &lt;p&gt;假设我们把这个数据表叫作TableArea，放在从A10开始的单元格范围内。&lt;/p&gt;
 &lt;p&gt;第一列叫作Index，是一列递增的索引值，用于识别所在行的柱子序号和顶点编号。因为每一行原始数据在这里要对应4行新数据，所以这里需要4 * 5 = 20行，对应的编号分别为0，1，2，……，19。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="create_area_table" src="http://blog.gocalf.com/images/2013/12/create_area_table.png"/&gt;
+&lt;img alt="create_area_table" src="https://blog.gocalf.com/images/2013/12/create_area_table.png"/&gt;
 &lt;p class="caption"&gt;新加的Excel表——TableArea&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;接下来添加一些辅助列，主要是为了简化后续的计算公式。一个一个地介绍。&lt;/p&gt;
@@ -251,7 +251,7 @@ Define Name来为其指定一个名字，比如叫作“Gap”。&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;对于其他几列，只要把公式中的“[A]”改为对应的列名即可。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="data_ready" src="http://blog.gocalf.com/images/2013/12/data_ready.png"/&gt;
+&lt;img alt="data_ready" src="https://blog.gocalf.com/images/2013/12/data_ready.png"/&gt;
 &lt;p class="caption"&gt;准备完毕的两个Excel表&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -261,35 +261,35 @@ Define Name来为其指定一个名字，比如叫作“Gap”。&lt;/p&gt;
 &lt;p&gt;在TableArea中选择所有的纵坐标列（A列到E列，包括列头和每一行数据），然后点击Ribbon的Insert -&amp;gt;
 Insert Area Chart -&amp;gt; Area，插入一张新的面积图。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="create_area_chart" src="http://blog.gocalf.com/images/2013/12/create_area_chart.png"/&gt;
+&lt;img alt="create_area_chart" src="https://blog.gocalf.com/images/2013/12/create_area_chart.png"/&gt;
 &lt;p class="caption"&gt;创建面积图&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;在面积图上点击鼠标右键，选择Select Data，在Horizontal (Category) Axis
 Labels中可以看到默认的横坐标数据是从1开始的递增整数，需要修改为真实的坐标值。点击Edit，选择TableArea的X列所有数据，保存即可。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="change_horizontal_axis_label" src="http://blog.gocalf.com/images/2013/12/change_horizontal_axis_label.png"/&gt;
+&lt;img alt="change_horizontal_axis_label" src="https://blog.gocalf.com/images/2013/12/change_horizontal_axis_label.png"/&gt;
 &lt;p class="caption"&gt;修改横坐标值&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;这时候图中的每个柱子都是梯形的，而且宽度跟X列的数据值也没有对应关系，接下来要把等宽的梯形改成不等宽的矩形。这也是制作不等宽柱状图中最重要的一步。用鼠标右键点击横坐标轴，选择Format
 Axis，将AXIS OPTIONS -&amp;gt; Axis Type由默认的Automatically select based on data改成Date Axis。&lt;/p&gt;
 &lt;p&gt;对于Date Axis，我们需要让横坐标数据最小粒度在一天以上，如果都是小于1的数，显示上会有些问题。所以在数据准备的时候，我把X数据进行适当的缩放得到Width，用Width来生成横坐标数据。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="use_date_axis" src="http://blog.gocalf.com/images/2013/12/use_date_axis.png"/&gt;
+&lt;img alt="use_date_axis" src="https://blog.gocalf.com/images/2013/12/use_date_axis.png"/&gt;
 &lt;p class="caption"&gt;改成Date Axis&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="trapezoid_vs_rectangle" src="http://blog.gocalf.com/images/2013/12/trapezoid_vs_rectangle.png"/&gt;
+&lt;img alt="trapezoid_vs_rectangle" src="https://blog.gocalf.com/images/2013/12/trapezoid_vs_rectangle.png"/&gt;
 &lt;p class="caption"&gt;应用Date Axis之前（等宽梯形）和之后（不等宽矩形）的图形对比&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;然后把横轴的刻度和标签隐藏起来，即把TICK MARKS -&amp;gt; Major type从默认的Outside改为None，把LABELS -&amp;gt; Label
 Position从默认的Next to Axis改为None。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="hide_axis_mark_and_label" src="http://blog.gocalf.com/images/2013/12/hide_axis_mark_and_label.png"/&gt;
+&lt;img alt="hide_axis_mark_and_label" src="https://blog.gocalf.com/images/2013/12/hide_axis_mark_and_label.png"/&gt;
 &lt;p class="caption"&gt;隐藏横轴的刻度和标签&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;修改一下图的标题之后，不等宽柱状图的主体结构就完成了。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="chart_demo" src="http://blog.gocalf.com/images/2013/12/chart_demo.png"/&gt;
+&lt;img alt="chart_demo" src="https://blog.gocalf.com/images/2013/12/chart_demo.png"/&gt;
 &lt;p class="caption"&gt;不等宽柱状图的主体结构&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -304,20 +304,20 @@ Position从默认的Next to Axis改为None。&lt;/p&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;用鼠标右键点击图表，选择Select Data，然后点击Legend Entries (Series) -&amp;gt; Add增加新的一组数据。在弹出的Edit
 Series框中，把Series name设置为Label，把Series values设置为TableData中Y列整列数据。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="add_label_series" src="http://blog.gocalf.com/images/2013/12/add_label_series.png"/&gt;
+&lt;img alt="add_label_series" src="https://blog.gocalf.com/images/2013/12/add_label_series.png"/&gt;
 &lt;p class="caption"&gt;添加一个Series用于展示标签&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;这时候图表会变的比较难看，没有关系。右键点击新加入的Series，选择Change Series Chart
 Type，在Combo -&amp;gt; Custom Combination -&amp;gt; Choose the chart type and axis for your data
 series中找到新加的Label这个Series，把它的Chart Type从Area改成散点图（X Y (Scatter) -&amp;gt; Scatter）。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="change_series_chart_type" src="http://blog.gocalf.com/images/2013/12/change_series_chart_type.png"/&gt;
+&lt;img alt="change_series_chart_type" src="https://blog.gocalf.com/images/2013/12/change_series_chart_type.png"/&gt;
 &lt;p class="caption"&gt;将新增加的Serise改为散点图&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;再次进入Select Data，编辑Label这个Series的数据，这时候就可以编辑它的横轴数据了，把Series
 X values设置为TableData中Mid列整列数据。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="set_label_series_x_data" src="http://blog.gocalf.com/images/2013/12/set_label_series_x_data.png"/&gt;
+&lt;img alt="set_label_series_x_data" src="https://blog.gocalf.com/images/2013/12/set_label_series_x_data.png"/&gt;
 &lt;p class="caption"&gt;设置新增加的Series的横轴坐标&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;修改之后，这些数据点就刚好落在每一个柱子的上边界中点位置了。右键点击这个Series，选择Add
@@ -325,15 +325,15 @@ Data Labels -&amp;gt; Add Data Labels；再右键点击出现的标签，选择F
 OPTIONS -&amp;gt; Label Contains -&amp;gt; Value From Cells复选框，弹出Data Label
 Range对话框，将数据范围设置为TableData的X列整列数据。然后将Label Position改为Above。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="set_label_options" src="http://blog.gocalf.com/images/2013/12/set_label_options.png"/&gt;
+&lt;img alt="set_label_options" src="https://blog.gocalf.com/images/2013/12/set_label_options.png"/&gt;
 &lt;p class="caption"&gt;修改数据标签的显示属性&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;最后隐藏一些不必要的东西即可。比如可以将Label Series的Marker设置为None，把Legend区域内Label字样直接删除。&lt;/p&gt;
 &lt;p&gt;搞定。&lt;/p&gt;
 &lt;p&gt;另外，可以在此下载上述操作所生成的Excel文件：&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;使用Excel表的示例文件：&lt;a class="reference external" href="http://blog.gocalf.com/assets/2013/12/variable_width_column.xlsx"&gt;variable_width_column.xlsx&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;不用Excel表的示例文件：&lt;a class="reference external" href="http://blog.gocalf.com/assets/2013/12/variable_width_column_no_table.xlsx"&gt;variable_width_column_no_table.xlsx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;使用Excel表的示例文件：&lt;a class="reference external" href="https://blog.gocalf.com/assets/2013/12/variable_width_column.xlsx"&gt;variable_width_column.xlsx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;不用Excel表的示例文件：&lt;a class="reference external" href="https://blog.gocalf.com/assets/2013/12/variable_width_column_no_table.xlsx"&gt;variable_width_column_no_table.xlsx&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="highcharts"&gt;
@@ -413,7 +413,7 @@ $(function () {
 &lt;p class="last"&gt;Highcharts从6.0.0版本开始也加入了varwide类型，详见&lt;a class="reference external" href="https://www.highcharts.com/demo/variwide"&gt;varwide demo&lt;/a&gt;。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="Excel"></category></entry><entry><title>Excel从右向左查找</title><link href="http://blog.gocalf.com/excel-find-from-right" rel="alternate"></link><published>2013-04-03T18:09:00+08:00</published><updated>2013-04-03T18:09:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-04-03:/excel-find-from-right</id><summary type="html">&lt;p class="first last"&gt;今天看一个小问题，是前几天遇到的，就是要在Excel里面实现从右向左查找。比如给定字符串“abc,defg,hi,jkl”，需要找到最右一个逗号的位置（即12），或者最右一个逗号右边的部分（即“jkl”）。&lt;/p&gt;
+</content><category term="Excel"></category></entry><entry><title>Excel从右向左查找</title><link href="https://blog.gocalf.com/excel-find-from-right" rel="alternate"></link><published>2013-04-03T18:09:00+08:00</published><updated>2013-04-03T18:09:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-04-03:/excel-find-from-right</id><summary type="html">&lt;p class="first last"&gt;今天看一个小问题，是前几天遇到的，就是要在Excel里面实现从右向左查找。比如给定字符串“abc,defg,hi,jkl”，需要找到最右一个逗号的位置（即12），或者最右一个逗号右边的部分（即“jkl”）。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;发现我已经有几乎整整一年没更新博客了。在Google
 Reader都快要关闭的时代，个人博客还有多少存在的意义呢。&lt;/p&gt;
 &lt;p&gt;今天看一个小问题，是前几天遇到的，就是要在Excel里面实现从右向左查找。比如给定字符串“abc,defg,hi,jkl”，需要找到最右一个逗号的位置（即12），或者最右一个逗号右边的部分（即“jkl”）。&lt;/p&gt;
@@ -439,7 +439,7 @@ Reader都快要关闭的时代，个人博客还有多少存在的意义呢。&l
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;唯一的变化就是上述的第2步，原字符串的长度减去text1的长度后，要除以分隔符本身的长度，才是分隔符的个数。&lt;/p&gt;
 &lt;p&gt;在这种情况下，取（最右分隔符）右边的子串的公式也要相应地修改为：&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;=RIGHT(A1,LEN(A1)+1-LEN(B1)-pos)&lt;/span&gt;&lt;/tt&gt;。&lt;/p&gt;
-</content><category term="Excel"></category></entry><entry><title>星期万年历</title><link href="http://blog.gocalf.com/calendar-of-week" rel="alternate"></link><published>2011-08-10T22:25:00+08:00</published><updated>2011-08-10T22:25:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-10:/calendar-of-week</id><summary type="html">&lt;p class="first last"&gt;小学的时候看到过计算某年某月某日是星期几的方法，当时觉得好神奇啊，当时一直不明白为什么一个简简单单的式子或者一张表格就能够算出任何一天是星期几呢。让我们回忆一下孩童时期的乐趣吧，或许以后可以用来逗孩子玩呢。&lt;/p&gt;
+</content><category term="Excel"></category></entry><entry><title>星期万年历</title><link href="https://blog.gocalf.com/calendar-of-week" rel="alternate"></link><published>2011-08-10T22:25:00+08:00</published><updated>2011-08-10T22:25:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-10:/calendar-of-week</id><summary type="html">&lt;p class="first last"&gt;小学的时候看到过计算某年某月某日是星期几的方法，当时觉得好神奇啊，当时一直不明白为什么一个简简单单的式子或者一张表格就能够算出任何一天是星期几呢。让我们回忆一下孩童时期的乐趣吧，或许以后可以用来逗孩子玩呢。&lt;/p&gt;
 </summary><content type="html">
 &lt;p&gt;还记得小学的时候看到过计算某年某月某日是星期几的方法，当时觉得好神奇啊，当时一直不明白为什么一个简简单单的式子或者一张表格就能够算出任何一天是星期几呢，这些方法伴随我度过了整个童年。&lt;/p&gt;
 &lt;p&gt;长大后就知道了它们的原理，因为星期是七天为一个周期，只要已知某一天是星期几，要算任何一天是星期几只要求出两个日子之间的天数就可以了。现在的编程语言几乎全都包含了获得星期的方法，程序员们再也不用为此发愁。但还是让我们回忆一下孩童时期的乐趣吧，或许以后可以用来逗孩子玩呢。&lt;/p&gt;
@@ -478,7 +478,7 @@ W &amp;amp; = &amp;amp; \left((2011-1)+\left\lfloor\frac{2011-1}{4}\right\rfloor
 &lt;/ol&gt;
 &lt;p&gt;可见同样求出今天是星期三。&lt;/p&gt;
 &lt;p&gt;另外注意在月份区域中的1'和2'分别表示闰年的1月和2月。比如算2000年1月某天是星期几，就要在月份区域里选择1'。&lt;/p&gt;
-&lt;p&gt;猛烈点击&lt;a class="reference external" href="http://blog.gocalf.com/assets/2011/08/calendar_week.htm"&gt;这里（calendar_week.html）&lt;/a&gt;可以在新的页面中打开星期万年历表格。如果你的浏览器支持IFRAME，可以在文章底部看到同样的表格。&lt;/p&gt;
+&lt;p&gt;猛烈点击&lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/calendar_week.htm"&gt;这里（calendar_week.html）&lt;/a&gt;可以在新的页面中打开星期万年历表格。如果你的浏览器支持IFRAME，可以在文章底部看到同样的表格。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;啰嗦两句&lt;/a&gt;&lt;/h2&gt;
@@ -487,8 +487,8 @@ W &amp;amp; = &amp;amp; \left((2011-1)+\left\lfloor\frac{2011-1}{4}\right\rfloor
 &lt;/div&gt;
 &lt;div class="section" id="iframe"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;附：放在IFRAME里面的星期万年历表格&lt;/a&gt;&lt;/h2&gt;
-&lt;iframe frameborder="0" height="1060" name="星期万年历" scrolling="yes" src="http://blog.gocalf.com/assets/2011/08/calendar_week.htm" title="Week Calendar" width="100%"&gt;&lt;/iframe&gt;&lt;/div&gt;
-</content><category term="Perpetual Calendar"></category></entry><entry><title>纸张的尺寸</title><link href="http://blog.gocalf.com/about-paper-size" rel="alternate"></link><published>2011-07-27T22:11:00+08:00</published><updated>2013-10-30T16:48:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-27:/about-paper-size</id><summary type="html">&lt;p class="first last"&gt;小时候常说的16开、32开的纸是多大？现在打印复印用的A3、A4、B5纸又分别是多大？看到书架里高矮宽窄各不同的书本，赶紧上网查了一番，总结于此。&lt;/p&gt;
+&lt;iframe frameborder="0" height="1060" name="星期万年历" scrolling="yes" src="https://blog.gocalf.com/assets/2011/08/calendar_week.htm" title="Week Calendar" width="100%"&gt;&lt;/iframe&gt;&lt;/div&gt;
+</content><category term="Perpetual Calendar"></category></entry><entry><title>纸张的尺寸</title><link href="https://blog.gocalf.com/about-paper-size" rel="alternate"></link><published>2011-07-27T22:11:00+08:00</published><updated>2013-10-30T16:48:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-27:/about-paper-size</id><summary type="html">&lt;p class="first last"&gt;小时候常说的16开、32开的纸是多大？现在打印复印用的A3、A4、B5纸又分别是多大？看到书架里高矮宽窄各不同的书本，赶紧上网查了一番，总结于此。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;记得小时候买书本，都会提到多少多少开，成语词典好像是64开，小学课本是32开，到高中教材改革，课本变成了16开。随着打印机、复印机的广泛应用，现在似乎很少说多少开了，张口就是A4纸，A3纸，还有B5、C5之类的。它们的尺寸分别是多少？大小关系呢？&lt;/p&gt;
 &lt;p&gt;看到书架里高矮宽窄各不同的书本，赶紧上网查了一番，总结于此。&lt;/p&gt;
 &lt;!-- more --&gt;
@@ -608,7 +608,7 @@ W &amp;amp; = &amp;amp; \left((2011-1)+\left\lfloor\frac{2011-1}{4}\right\rfloor
 &lt;/ul&gt;
 &lt;p&gt;不过如果按照对折的办法去算开纸的尺寸，比如787号纸的16开是196x273，这个尺寸一般要比16开的书大，因为书籍还要修边裁剪啥的。比如我手边的交规课本就是787号纸16开的，实际尺寸是186x259。除了常见的对开（就是2开）、4开、8开、16开、32开、64开（袖珍手册），偶尔也能看到其他开本。比如我手边有一本讲PPT的书是889号纸24开的，实际尺寸是180x210，貌似是把4开本沿短边对折后再沿长边三折：&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;object data="http://blog.gocalf.com/images/2011/07/paper_24k.svg" style="width: 346px;" type="image/svg+xml"&gt;
+&lt;object data="https://blog.gocalf.com/images/2011/07/paper_24k.svg" style="width: 346px;" type="image/svg+xml"&gt;
 paper_24k&lt;/object&gt;
 &lt;p class="caption"&gt;889x1194 24开本&lt;/p&gt;
 &lt;/div&gt;
