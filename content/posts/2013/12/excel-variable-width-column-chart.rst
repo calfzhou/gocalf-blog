@@ -1,7 +1,7 @@
 在Excel中制作不等宽柱状图
 #########################
 :date: 2013-12-13 14:35
-:modified: 2013-12-13 22:40
+:modified: 2019-09-30 16:00
 :author: Calf
 :category: 有用知识
 :tags: Excel
@@ -366,6 +366,9 @@ http://jsfiddle.net/calfzhou/TUt2U/
     });
     </script>
 
+.. NOTE::
+    Highcharts从6.0.0版本开始也加入了varwide类型，详见\ `varwide demo`_\ 。
+
 .. _官方的文档: http://office.microsoft.com/en-us/excel-help/overview-of-excel-tables-HA010048546.aspx
 .. _中文文档: http://office.microsoft.com/zh-cn/excel-help/overview-of-excel-tables-HA010048546.aspx
 .. _variable_width_column.xlsx: {static}/assets/2013/12/variable_width_column.xlsx
@@ -373,3 +376,4 @@ http://jsfiddle.net/calfzhou/TUt2U/
 .. _GoCalf博客: http://www.gocalf.com/
 .. _Highcharts: http://www.highcharts.com/
 .. _我共享的jsfiddle: http://jsfiddle.net/calfzhou/TUt2U/
+.. _varwide demo: https://www.highcharts.com/demo/variwide
