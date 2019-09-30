@@ -20,7 +20,7 @@ Canvas的浏览器里，可以看到3D的动态Doodle，还可以拖动哦。为
 Calder`_\ ）诞辰113周年，Google用它的Doodle为大家在浏览器上展示了Calder的动态雕塑作品The
 Star (1960)。原作如下图示。
 
-.. figure:: {filename}/images/2011/07/calder_the_star.jpg
+.. figure:: {static}/images/2011/07/calder_the_star.jpg
     :alt: calder_the_star
 
     亚历山大·考尔德动态雕塑作品 The Star (1960)
@@ -32,8 +32,8 @@ Canvas也一无所知。就像电视上有个广告词：“我们不生产水�
 
 .. raw:: html
 
-    <iframe frameborder="0" height="320" scrolling="no" src="{filename}/assets/2011/07/doodle_0722.html" title="The Star" width="100%"></iframe>
+    <iframe frameborder="0" height="320" scrolling="no" src="{static}/assets/2011/07/doodle_0722.html" title="The Star" width="100%"></iframe>
 
 .. _亚历山大·考尔德: http://en.wikipedia.org/wiki/Alexander_Calder
 .. _Alexander Calder: https://artsy.net/artist/alexander-calder
-.. _doodle\_0722\_html: {filename}/assets/2011/07/doodle_0722.html
+.. _doodle\_0722\_html: {static}/assets/2011/07/doodle_0722.html

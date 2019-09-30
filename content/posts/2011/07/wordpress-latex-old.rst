@@ -124,8 +124,8 @@ escaped
     ---
     > return "<img class="mimetex" src="$cache_formula_url" alt="$formula_text_html" title="$formula_text_html" />";
 
-- 下载\ `修改前的插件 <{filename}/assets/2011/07/dahnielson_mimetex_v12.zip>`_\ （MD5：61aa23a9907c8fb777ef61c186070878）；
-- 下载\ `修改后的插件 <{filename}/assets/2011/07/dahnielson_mimetex_v121.zip>`_\ （MD5：3d17d45b6f2375d9ded05988bfa470c0）。
+- 下载\ `修改前的插件 <{static}/assets/2011/07/dahnielson_mimetex_v12.zip>`_\ （MD5：61aa23a9907c8fb777ef61c186070878）；
+- 下载\ `修改后的插件 <{static}/assets/2011/07/dahnielson_mimetex_v121.zip>`_\ （MD5：3d17d45b6f2375d9ded05988bfa470c0）。
 
 修改好后就可以使用了，如果是第一次用这个插件，别忘了给你的站点开一个有写权限的cache目录（/wp-content/cache/）。
 
@@ -144,7 +144,7 @@ escaped
 
 可以得到图片：
 
-.. image:: {filename}/images/2011/07/0313Freq.gif
+.. image:: {static}/images/2011/07/0313Freq.gif
     :alt: 0313Freq.gif
 
 .. _钟磬居: http://www.zhongqingju.com

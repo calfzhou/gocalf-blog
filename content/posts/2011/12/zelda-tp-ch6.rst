@@ -22,9 +22,9 @@
 
 .. more
 
-.. figure:: {filename}/images/2011/12/tp_ch06_01.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_01.jpg
     :alt: tp_ch06_01
-    :target: {filename}/images/2011/12/tp_ch06_01.jpg
+    :target: {static}/images/2011/12/tp_ch06_01.jpg
     :width: 500
 
     林克打听鲁斯尔的去向
@@ -34,9 +34,9 @@
 
 林克在回到之前米德娜传送进神圣之森的位置见到了鲁斯尔，他告诉林克，在这里的深处有一座神殿，那里隐藏着一个秘密，并且还提供了一只金鸡（Golden Cucco）帮助林克进入神圣之森（利用金鸡往森之神殿门口的右边飞）。
 
-.. figure:: {filename}/images/2011/12/tp_ch06_02.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_02.jpg
     :alt: tp_ch06_02
-    :target: {filename}/images/2011/12/tp_ch06_02.jpg
+    :target: {static}/images/2011/12/tp_ch06_02.jpg
     :width: 500
 
     鲁斯尔给林克一只金鸡
@@ -46,16 +46,16 @@
 
 林克一路进入到森林深处并再次见到了那个提灯吹喇叭的小妖怪（Skull Kid），它又开始和林克玩捉迷藏，林克只好不停的找它并攻击以打开新的道路，不过这次他会藏得更隐蔽，第一次他躲到柱子后面，第二次他会站到水中间的一块岩石上，第三次他则躲到树上，这里林克需要先爬到高处才能在对面的树顶看到他，用弓把他打下来，林克还是依靠他的提灯发出的火光追踪他。随后来到先前与他战斗之地，取胜后来到之前得到征服者之剑的地方，把剑插回取剑的地方会打开通往时之神殿（Temple of Time）的路。出来后会出现五个暗影使者，林克先杀死其中三个以后，再迅速杀死另外两个即可顺利解决。
 
-.. figure:: {filename}/images/2011/12/tp_ch06_03.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_03.jpg
     :alt: tp_ch06_03
-    :target: {filename}/images/2011/12/tp_ch06_03.jpg
+    :target: {static}/images/2011/12/tp_ch06_03.jpg
     :width: 500
 
     提灯吹喇叭的小妖怪把林克引到时之神殿前
 
-.. figure:: {filename}/images/2011/12/tp_ch06_04.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_04.jpg
     :alt: tp_ch06_04
-    :target: {filename}/images/2011/12/tp_ch06_04.jpg
+    :target: {static}/images/2011/12/tp_ch06_04.jpg
     :width: 500
 
     把剑插回取剑的地方，打开通往时之神殿（Temple of Time）的路
@@ -65,39 +65,39 @@
 
 林克进入后直接走到一个可以插剑的地方，插进去后出现通往房间1的路。
 
-.. figure:: {filename}/images/2011/12/tp_ch06_05.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_05.jpg
     :alt: tp_ch06_05
 
     时之神殿迷宫一至四层地图
 
-.. figure:: {filename}/images/2011/12/tp_ch06_06.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_06.jpg
     :alt: tp_ch06_06
 
     时之神殿迷宫五至八层地图
 
 **房间1：**\ 进入房间1，在米德娜的提示下切换狼形态并打开感知，发现门口旁边的上古铜像少了一座，但是目前并不知道雕像去了哪儿，在门前的台子上有一个无法破坏的上古铜壶，将它搬到另一边的台子并放到地上的机关上，随后会升起一个台阶，爬上去到路的尽头点亮两个灯座，就会出现箱子并得到一把小钥匙，用它可以打开南面的门并进入房间2，回来后能得到这个迷宫的欧库。
 
-.. figure:: {filename}/images/2011/12/tp_ch06_07.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_07.jpg
     :alt: tp_ch06_07
-    :target: {filename}/images/2011/12/tp_ch06_07.jpg
+    :target: {static}/images/2011/12/tp_ch06_07.jpg
     :width: 500
 
     把上古铜壶搬到台子地上的机关上
 
 **房间2：**\ 房间正中有一个机关，搬个坛子放在上面可以打开门，南面的箱子里有箭，随后向西进第一道门后用箭把坛子射掉可通过第二道门，沿着路走上去后会遇见一个时之守卫，他的弱点在背部，干掉他后能取得这个迷宫的地图，将南面台子上的两个上古铜壶分别放到门左边的两个机关上可以将门打开，沿路可到房间3。
 
-.. figure:: {filename}/images/2011/12/tp_ch06_08.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_08.jpg
     :alt: tp_ch06_08
-    :target: {filename}/images/2011/12/tp_ch06_08.jpg
+    :target: {static}/images/2011/12/tp_ch06_08.jpg
     :width: 500
 
     将南面台子上的两个上古铜壶分别放到门左边的两个机关上可以将门打开
 
 **房间3：**\ 走左边沿旋梯一路上升，用陀螺仪通过中间的断裂处到顶部可以见到一个电梯，转动中间的把手让电梯降到最底部，将底部的上古铜壶搬到电梯上并运到上层，放到南边的机关上，再将西边的另一个铜壶放到另一边，这时要迅速站到前面的白色墙壁上，之后墙壁会升起将林克送上去，接着向南进入房间4。
 
-.. figure:: {filename}/images/2011/12/tp_ch06_09.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_09.jpg
     :alt: tp_ch06_09
-    :target: {filename}/images/2011/12/tp_ch06_09.jpg
+    :target: {static}/images/2011/12/tp_ch06_09.jpg
     :width: 500
 
     将底部的上古铜壶搬到电梯上并运到上层，放到南边的机关上，再将西边的另一个铜壶放到另一边
@@ -110,18 +110,18 @@
 
 **房间7：**\ 进门后朝西边前进通过一条走廊来到陷阱房间，注意躲避陷阱，箱子里有小钥匙，在电网前的机关处，可到旁边取一个铜壶放到陷阱上，然后继续前进，干掉两个时之守卫后会出现新的路，爬上去打开锁的门后进入房间8。
 
-.. figure:: {filename}/images/2011/12/tp_ch06_10.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_10.jpg
     :alt: tp_ch06_10
-    :target: {filename}/images/2011/12/tp_ch06_10.jpg
+    :target: {static}/images/2011/12/tp_ch06_10.jpg
     :width: 500
 
     这个房间里有陷阱
 
 **房间8：**\ 这里是小BOSS铁甲战士，小BOSS也分两个阶段，首先要先攻击他剥落外面的盔甲。等到盔甲全部剥落后他会丢掉盾牌进行白刃战，总的来说难度不高，两个阶段都可以用背后斩进行有效攻击。胜利后可以在箱子里取得支配权杖（Dominion Rod）。作用是将其光球打入上古雕像和铜壶后可以让其按照林克的行动而行动。在支配权杖上方就是失踪的上古雕像，用支配权杖将其取下后带到门口的钟下就会被传送回房间7，随后进入房间7。
 
-.. figure:: {filename}/images/2011/12/tp_ch06_11.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_11.jpg
     :alt: tp_ch06_11
-    :target: {filename}/images/2011/12/tp_ch06_11.jpg
+    :target: {static}/images/2011/12/tp_ch06_11.jpg
     :width: 500
 
     与小BOSS铁甲战士战斗
@@ -130,9 +130,9 @@
 
 **房间6：**\ 先把雕像移到天平上，把左边天平上的铜壶扔到右边，再从楼下上去到另一边，墙壁上的铜壶用支配权杖取下两个放到天平上，然后让雕像过来，接着再将4个铜壶扔到对面后林克离开天平，使天平平衡后将雕像移动到楼下的钟处，随后，再到升到最高的天平上，钟的正上方有可以抓的地方，用飞爪上去后再利用陀螺仪到房间9。
 
-.. figure:: {filename}/images/2011/12/tp_ch06_12.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_12.jpg
     :alt: tp_ch06_12
-    :target: {filename}/images/2011/12/tp_ch06_12.jpg
+    :target: {static}/images/2011/12/tp_ch06_12.jpg
     :width: 500
 
     利用支配权杖控制雕像移动来完成任务
@@ -141,9 +141,9 @@
 
 **房间5：**\ 房间5的墙壁可以用雕像全部破坏掉，另外让雕像在里面踩下机关关闭电网后可以取得\ `心之碎片24`_\ ，随后将雕像带回楼下的钟处，传送回房间3。
 
-.. figure:: {filename}/images/2011/12/tp_ch06_13.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_13.jpg
     :alt: tp_ch06_13
-    :target: {filename}/images/2011/12/tp_ch06_13.jpg
+    :target: {static}/images/2011/12/tp_ch06_13.jpg
     :width: 500
 
 **房间3：**\ 先去房间4，拿一个铜壶扔到最左下的走道上去，接着再用支配权杖将其移动到走道尽头的机关上，然后把对面对称位置的铜壶也移到尽头的机关上可以打开隐藏箱子并得到\ `心之碎片25`_\ 。回到房间3将升降梯转到最高处把雕像移过来，接着将升降梯转到最下层，消灭掉所有的小蜘蛛后电网会自动关闭，然后再将雕像移动到1楼把栅栏破坏，其中另一边的栅栏后有灵魂灯怪，最后将雕像传送回房间2。
@@ -152,27 +152,27 @@
 
 **房间1：**\ 将雕像放回到门的另一边后能打开北面的门，随后可以进入房间10。
 
-.. figure:: {filename}/images/2011/12/tp_ch06_14.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_14.jpg
     :alt: tp_ch06_14
-    :target: {filename}/images/2011/12/tp_ch06_14.jpg
+    :target: {static}/images/2011/12/tp_ch06_14.jpg
     :width: 500
 
     让雕像归位便可打开门
 
 **房间10：**\ 注意躲避陷阱一直朝北面移动，到机关前面，将一个铜壶扔过去并用支配权杖控制使其打开第一道门，随后再操控让其离开并打开第2道门，之后可以进入BOSS房间。
 
-.. figure:: {filename}/images/2011/12/tp_ch06_15.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_15.jpg
     :alt: tp_ch06_15
-    :target: {filename}/images/2011/12/tp_ch06_15.jpg
+    :target: {static}/images/2011/12/tp_ch06_15.jpg
     :width: 500
 
     注意躲避陷阱
 
 **BOSS战：**\ 蜘蛛怪——阿摩戈玛（Twilit Arachnid—Armogohma）
 
-.. figure:: {filename}/images/2011/12/tp_ch06_16.jpg
+.. figure:: {static}/images/2011/12/tp_ch06_16.jpg
     :alt: tp_ch06_16
-    :target: {filename}/images/2011/12/tp_ch06_16.jpg
+    :target: {static}/images/2011/12/tp_ch06_16.jpg
     :width: 500
 
     BOSS：蜘蛛怪——阿摩戈玛（Twilit Arachnid—Armogohma）

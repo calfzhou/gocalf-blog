@@ -44,7 +44,7 @@ Slider的功能）介绍一下。它最多只算是个toy，还有很多需要�
 
 说了这么多，来看看它的样子吧。外表很简单，我用的背景、滑块和滑条图片都跟UISlider是一样的：
 
-.. figure:: {filename}/images/2012/02/range_slider.png
+.. figure:: {static}/images/2012/02/range_slider.png
     :alt: range_slider
 
     我的Range Slider

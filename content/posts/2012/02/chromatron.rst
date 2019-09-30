@@ -32,14 +32,14 @@ Tangler），它将输入的光线变成两条向相反方向射出的光线，�
 Teleporter），成对使用时，可以将其中一个接收到的光线传送到另一个。还有逻辑门（Logic
 Gate）、互补器（Complementor）等等。所有的元件如下图示。
 
-.. figure:: {filename}/images/2012/02/chromatron_elems.png
+.. figure:: {static}/images/2012/02/chromatron_elems.png
     :alt: chromatron_elems
 
     Chromatron中的各种光学元件
 
 别的关卡都可以不谈，但有一关是一定要说一下的，这一关太有趣了。虽然它也有传统的解法，但其中有一种解法却非常神奇。见下图：
 
-.. figure:: {filename}/images/2012/02/chromatron_2_49.png
+.. figure:: {static}/images/2012/02/chromatron_2_49.png
     :alt: chromatron_2_49
 
     Chromatron 2代49关：反馈消除
@@ -281,7 +281,7 @@ Gate）、互补器（Complementor）等等。所有的元件如下图示。
 
 如果没玩过这个游戏，那就赶快开始吧！
 
-.. _Chromatron 1代 v1.14: {filename}/assets/2012/02/chromatron1_v1.14.zip
-.. _Chromatron 2代 v1.5: {filename}/assets/2012/02/chromatron2_v1.5.zip
-.. _Chromatron 3代 v1.1: {filename}/assets/2012/02/chromatron3_v1.1.zip
-.. _Chromatron 4代 v1.0: {filename}/assets/2012/02/chromatron4_v1.0.zip
+.. _Chromatron 1代 v1.14: {static}/assets/2012/02/chromatron1_v1.14.zip
+.. _Chromatron 2代 v1.5: {static}/assets/2012/02/chromatron2_v1.5.zip
+.. _Chromatron 3代 v1.1: {static}/assets/2012/02/chromatron3_v1.1.zip
+.. _Chromatron 4代 v1.0: {static}/assets/2012/02/chromatron4_v1.0.zip

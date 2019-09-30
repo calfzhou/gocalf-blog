@@ -19,14 +19,14 @@
 
 看一看照片，你能发现其中的规律么？
 
-.. figure:: {filename}/images/2011/11/cube7_corner.png
+.. figure:: {static}/images/2011/11/cube7_corner.png
     :alt: cube7_corner
 
     七阶魔方花样（你能看出其中的规律么？）
 
 如果边角处看不清楚，那再来看看六个面的特写：
 
-.. figure:: {filename}/images/2011/11/cube7_face.png
+.. figure:: {static}/images/2011/11/cube7_face.png
     :alt: cube7_face
 
     七阶魔方花样，六个面特写——混乱中亦有规律
@@ -37,7 +37,7 @@
 
 怎么设计这样的花样？关键在于，什么样的花样可以用魔方表现出来？
 
-.. figure:: {filename}/images/2011/11/cube7_blocks.png
+.. figure:: {static}/images/2011/11/cube7_blocks.png
     :alt: cube7_blocks
 
     七阶魔方面块的不同位置

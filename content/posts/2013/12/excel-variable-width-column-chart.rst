@@ -1,7 +1,7 @@
 在Excel中制作不等宽柱状图
 #########################
 :date: 2013-12-13 14:35
-:modified: 2013-12-13 22:40
+:modified: 2019-09-30 16:00
 :author: Calf
 :category: 有用知识
 :tags: Excel
@@ -40,7 +40,7 @@ E       8.1  8.4
 
 最后做成的图是这样的：
 
-.. figure:: {filename}/images/2013/12/variable_width_column_chart.png
+.. figure:: {static}/images/2013/12/variable_width_column_chart.png
     :alt: variable_width_column_chart
 
     在Excel中根据上述数据制作的不等宽柱状图
@@ -59,7 +59,7 @@ E       8.1  8.4
 Format as Table，然后随便选择一个样式，将这片区域转换成Excel表。给这个表起个名字，比如叫作TableData，在Ribbon中点击（TABLE
 TOOLS）DESIGN，在Table Name的文本框中输入TableData。
 
-.. figure:: {filename}/images/2013/12/create_data_table.png
+.. figure:: {static}/images/2013/12/create_data_table.png
     :alt: create_data_table
 
     选择原始数据单元格范围，转换成Excel表
@@ -85,7 +85,7 @@ TOOLS）DESIGN，在Table Name的文本框中输入TableData。
 为了方便以后引用，我们给存放这个数值的单元格起个名字。比如我现在把它放在B8这个单元格里，选中这个单元格，点击Ribbon的FORMULAS ->
 Define Name来为其指定一个名字，比如叫作“Gap”。
 
-.. figure:: {filename}/images/2013/12/define_gap_name.png
+.. figure:: {static}/images/2013/12/define_gap_name.png
     :alt: define_gap_name
 
     给间隔数据所在的单元格定义名字
@@ -115,7 +115,7 @@ Left列的计算公式是：
 
 第一列叫作Index，是一列递增的索引值，用于识别所在行的柱子序号和顶点编号。因为每一行原始数据在这里要对应4行新数据，所以这里需要4 * 5 = 20行，对应的编号分别为0，1，2，……，19。
 
-.. figure:: {filename}/images/2013/12/create_area_table.png
+.. figure:: {static}/images/2013/12/create_area_table.png
     :alt: create_area_table
 
     新加的Excel表——TableArea
@@ -175,7 +175,7 @@ TableArea的第二列叫作ItemId，用于计算这一行数据对应于原始�
 
 对于其他几列，只要把公式中的“[A]”改为对应的列名即可。
 
-.. figure:: {filename}/images/2013/12/data_ready.png
+.. figure:: {static}/images/2013/12/data_ready.png
     :alt: data_ready
 
     准备完毕的两个Excel表
@@ -188,7 +188,7 @@ TableArea的第二列叫作ItemId，用于计算这一行数据对应于原始�
 在TableArea中选择所有的纵坐标列（A列到E列，包括列头和每一行数据），然后点击Ribbon的Insert ->
 Insert Area Chart -> Area，插入一张新的面积图。
 
-.. figure:: {filename}/images/2013/12/create_area_chart.png
+.. figure:: {static}/images/2013/12/create_area_chart.png
     :alt: create_area_chart
 
     创建面积图
@@ -196,7 +196,7 @@ Insert Area Chart -> Area，插入一张新的面积图。
 在面积图上点击鼠标右键，选择Select Data，在Horizontal (Category) Axis
 Labels中可以看到默认的横坐标数据是从1开始的递增整数，需要修改为真实的坐标值。点击Edit，选择TableArea的X列所有数据，保存即可。
 
-.. figure:: {filename}/images/2013/12/change_horizontal_axis_label.png
+.. figure:: {static}/images/2013/12/change_horizontal_axis_label.png
     :alt: change_horizontal_axis_label
 
     修改横坐标值
@@ -206,12 +206,12 @@ Axis，将AXIS OPTIONS -> Axis Type由默认的Automatically select based on dat
 
 对于Date Axis，我们需要让横坐标数据最小粒度在一天以上，如果都是小于1的数，显示上会有些问题。所以在数据准备的时候，我把X数据进行适当的缩放得到Width，用Width来生成横坐标数据。
 
-.. figure:: {filename}/images/2013/12/use_date_axis.png
+.. figure:: {static}/images/2013/12/use_date_axis.png
     :alt: use_date_axis
 
     改成Date Axis
 
-.. figure:: {filename}/images/2013/12/trapezoid_vs_rectangle.png
+.. figure:: {static}/images/2013/12/trapezoid_vs_rectangle.png
     :alt: trapezoid_vs_rectangle
 
     应用Date Axis之前（等宽梯形）和之后（不等宽矩形）的图形对比
@@ -219,14 +219,14 @@ Axis，将AXIS OPTIONS -> Axis Type由默认的Automatically select based on dat
 然后把横轴的刻度和标签隐藏起来，即把TICK MARKS -> Major type从默认的Outside改为None，把LABELS -> Label
 Position从默认的Next to Axis改为None。
 
-.. figure:: {filename}/images/2013/12/hide_axis_mark_and_label.png
+.. figure:: {static}/images/2013/12/hide_axis_mark_and_label.png
     :alt: hide_axis_mark_and_label
 
     隐藏横轴的刻度和标签
 
 修改一下图的标题之后，不等宽柱状图的主体结构就完成了。
 
-.. figure:: {filename}/images/2013/12/chart_demo.png
+.. figure:: {static}/images/2013/12/chart_demo.png
     :alt: chart_demo
 
     不等宽柱状图的主体结构
@@ -246,7 +246,7 @@ Position从默认的Next to Axis改为None。
 用鼠标右键点击图表，选择Select Data，然后点击Legend Entries (Series) -> Add增加新的一组数据。在弹出的Edit
 Series框中，把Series name设置为Label，把Series values设置为TableData中Y列整列数据。
 
-.. figure:: {filename}/images/2013/12/add_label_series.png
+.. figure:: {static}/images/2013/12/add_label_series.png
     :alt: add_label_series
 
     添加一个Series用于展示标签
@@ -255,7 +255,7 @@ Series框中，把Series name设置为Label，把Series values设置为TableData
 Type，在Combo -> Custom Combination -> Choose the chart type and axis for your data
 series中找到新加的Label这个Series，把它的Chart Type从Area改成散点图（X Y (Scatter) -> Scatter）。
 
-.. figure:: {filename}/images/2013/12/change_series_chart_type.png
+.. figure:: {static}/images/2013/12/change_series_chart_type.png
     :alt: change_series_chart_type
 
     将新增加的Serise改为散点图
@@ -263,7 +263,7 @@ series中找到新加的Label这个Series，把它的Chart Type从Area改成散�
 再次进入Select Data，编辑Label这个Series的数据，这时候就可以编辑它的横轴数据了，把Series
 X values设置为TableData中Mid列整列数据。
 
-.. figure:: {filename}/images/2013/12/set_label_series_x_data.png
+.. figure:: {static}/images/2013/12/set_label_series_x_data.png
     :alt: set_label_series_x_data
 
     设置新增加的Series的横轴坐标
@@ -273,7 +273,7 @@ Data Labels -> Add Data Labels；再右键点击出现的标签，选择Format D
 OPTIONS -> Label Contains -> Value From Cells复选框，弹出Data Label
 Range对话框，将数据范围设置为TableData的X列整列数据。然后将Label Position改为Above。
 
-.. figure:: {filename}/images/2013/12/set_label_options.png
+.. figure:: {static}/images/2013/12/set_label_options.png
     :alt: set_label_options
 
     修改数据标签的显示属性
@@ -366,10 +366,14 @@ http://jsfiddle.net/calfzhou/TUt2U/
     });
     </script>
 
+.. NOTE::
+    Highcharts从6.0.0版本开始也加入了varwide类型，详见\ `varwide demo`_\ 。
+
 .. _官方的文档: http://office.microsoft.com/en-us/excel-help/overview-of-excel-tables-HA010048546.aspx
 .. _中文文档: http://office.microsoft.com/zh-cn/excel-help/overview-of-excel-tables-HA010048546.aspx
-.. _variable_width_column.xlsx: {filename}/assets/2013/12/variable_width_column.xlsx
-.. _variable_width_column_no_table.xlsx: {filename}/assets/2013/12/variable_width_column_no_table.xlsx
+.. _variable_width_column.xlsx: {static}/assets/2013/12/variable_width_column.xlsx
+.. _variable_width_column_no_table.xlsx: {static}/assets/2013/12/variable_width_column_no_table.xlsx
 .. _GoCalf博客: http://www.gocalf.com/
 .. _Highcharts: http://www.highcharts.com/
 .. _我共享的jsfiddle: http://jsfiddle.net/calfzhou/TUt2U/
+.. _varwide demo: https://www.highcharts.com/demo/variwide

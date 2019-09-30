@@ -2,15 +2,18 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-SITENAME = 'GoCalf Blog'
-SITEURL = 'http://www.gocalf.com/blog'
 AUTHOR = 'Calf'
+SITENAME = 'GoCalf Blog'
+SITESUBTITLE = '1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS'
+SITEURL = 'https://blog.gocalf.com'
 
-# Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
-
+# Regional Settings
 TIMEZONE = 'Asia/Shanghai'
+DEFAULT_LANG = 'zh_cn'
+# DEFAULT_DATE_FORMAT = '%Y-%m-%d'
+DATE_FORMATS = {'zh_cn': '%Y-%m-%d'}
 
+PATH = 'content'
 PAGE_PATHS = ['pages']
 PAGE_EXCLUDES = []
 ARTICLE_PATHS = ['posts']
@@ -18,65 +21,122 @@ ARTICLE_EXCLUDES = []
 STATIC_PATHS = [
     'images',
     'assets',
-    #'favicon.png',
+    'theme/images',
+    # 'favicon.png',
 ]
 
-USE_FOLDER_AS_CATEGORY = False
-DEFAULT_CATEGORY = 'uncategorized'
+# Plugins and extensions
+PLUGIN_PATHS = ['plugins']
+PLUGINS = [
+    'extract_toc',
+    'neighbors',
+    'related_posts',
+    'series',
+    'share_post',
+    'sitemap',
+    'tipue_search',
+]
+PYGMENTS_RST_OPTIONS = {'linenos': 'table'}
 
-SLUGIFY_SOURCE = 'basename'
+SITEMAP = {
+    "format": "xml",
+    "priorities": {"articles": 0.8, "indexes": 0.5, "pages": 0.1},
+    "changefreqs": {"articles": "monthly", "indexes": "daily", "pages": "monthly"},
+}
 
+# Appearance
+THEME = 'elegant-theme'
+# TYPOGRIFY = True
+DEFAULT_PAGINATION = False
 DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
+NEWEST_FIRST_ARCHIVES = True
 
-#DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives')  # No authors
+# Defaults
+DEFAULT_CATEGORY = 'uncategorized'
+USE_FOLDER_AS_CATEGORY = False
 
-PLUGIN_PATHS = ['plugins']
-PLUGINS = ['neighbors']
-
-PYGMENTS_RST_OPTIONS = {'linenos': 'none'}
+# Uncomment following line if you want document-relative URLs when developing
+RELATIVE_URLS = True
 
 # Enable future dates, then content with dates in the future will NOT get a default status of draft.
 WITH_FUTURE_DATES = True
 
-# URL settings #
+# Tag cloud
 
-ARTICLE_URL = '{slug}.html'
+TAG_CLOUD_STEPS = 8
+TAG_CLOUD_MAX_ITEMS = 32
+
+# URL settings
+ARTICLE_URL = '{slug}'
 ARTICLE_SAVE_AS = '{slug}.html'
-ARTICLE_LANG_URL = '{slug}-{lang}.html'
+ARTICLE_LANG_URL = '{slug}-{lang}'
 ARTICLE_LANG_SAVE_AS = '{slug}-{lang}.html'
 
-DRAFT_URL = 'drafts/{slug}.html'
+DRAFT_URL = 'drafts/{slug}'
 DRAFT_SAVE_AS = 'drafts/{slug}.html'
-DRAFT_LANG_URL = 'drafts/{slug}-{lang}.html'
+DRAFT_LANG_URL = 'drafts/{slug}-{lang}'
 DRAFT_LANG_SAVE_AS = 'drafts/{slug}-{lang}.html'
 
-PAGE_URL = '{slug}.html'
+PAGE_URL = '{slug}'
 PAGE_SAVE_AS = '{slug}.html'
-PAGE_LANG_URL = '{slug}-{lang}.html'
+PAGE_LANG_URL = '{slug}-{lang}'
 PAGE_LANG_SAVE_AS = '{slug}-{lang}.html'
 
-CATEGORY_URL = 'category/{slug}/'
-CATEGORY_SAVE_AS = 'category/{slug}/index.html'
-CATEGORIES_URL = 'categories/'
-CATEGORIES_SAVE_AS = 'categories/index.html'
+# CATEGORY_URL = 'category/{slug}/'
+# CATEGORY_SAVE_AS = 'category/{slug}/index.html'
+# CATEGORIES_URL = 'categories/'
+# CATEGORIES_SAVE_AS = 'categories/index.html'
 
-TAG_URL = 'tag/{slug}/'
-TAG_SAVE_AS = 'tag/{slug}/index.html'
-TAGS_URL = 'tags/'
-TAGS_SAVE_AS = 'tags/index.html'
+CATEGORY_URL = 'categories#{slug}-ref'
+CATEGORY_SAVE_AS = ''
+CATEGORIES_URL = 'categories'
+CATEGORIES_SAVE_AS = 'categories.html'
 
-AUTHOR_URL = 'author/{slug}/'
-AUTHOR_SAVE_AS = 'author/{slug}/index.html'
-AUTHORS_URL = False  # 'authors/'
-AUTHORS_SAVE_AS = False  # 'authors/index.html'
+# TAG_URL = 'tag/{slug}/'
+# TAG_SAVE_AS = 'tag/{slug}/index.html'
+# TAGS_URL = 'tags/'
+# TAGS_SAVE_AS = 'tags/index.html'
 
-ARCHIVES_SAVE_AS = 'archives/index.html'
-YEAR_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/index.html'
-MONTH_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/{date:%m}/index.html'
+TAG_URL = 'tags#{slug}-ref'
+TAG_SAVE_AS = ''
+TAGS_URL = 'tags'
+TAGS_SAVE_AS = 'tags.html'
+
+# AUTHOR_URL = 'author/{slug}/'
+# AUTHOR_SAVE_AS = 'author/{slug}/index.html'
+# AUTHORS_URL = False  # 'authors/'
+# AUTHORS_SAVE_AS = False  # 'authors/index.html'
+
+AUTHOR_URL = ''
+AUTHOR_SAVE_AS = ''
+AUTHORS_URL = ''
+AUTHORS_SAVE_AS = ''
+
+# ARCHIVES_SAVE_AS = 'archives/index.html'
+# YEAR_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/index.html'
+# MONTH_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/{date:%m}/index.html'
+# DAY_ARCHIVE_SAVE_AS = False
+
+ARCHIVES_URL = "archives"
+ARCHIVES_SAVE_AS = 'archives.html'
+YEAR_ARCHIVE_SAVE_AS = False
+MONTH_ARCHIVE_SAVE_AS = False
 DAY_ARCHIVE_SAVE_AS = False
 
-SLUG_SUBSTITUTIONS = (
+SEARCH_URL = "search"
+
+# Feeds
+# Feed generation is usually not desired when developing
+FEED_ALL_ATOM = None
+CATEGORY_FEED_ATOM = None
+TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
+
+SLUGIFY_SOURCE = 'basename'
+
+SLUG_REGEX_SUBSTITUTIONS = (
     # Categories
     ('hu lian wang', 'web'),
     ('jian zhan', 'site'),
@@ -94,115 +154,50 @@ SLUG_SUBSTITUTIONS = (
     ('wu li', 'physics'),
 )
 
-# Date format and locale #
-DEFAULT_DATE_FORMAT = '%Y-%m-%d'
-
-# Template pages #
-
-# Path metadata #
-
-# Feed settings #
-
-# Feed generation is usually not desired when developing
-FEED_ATOM = None
-FEED_RSS = None
-FEED_ALL_ATOM = None
-FEED_ALL_RSS = None
-CATEGORY_FEED_ATOM = None
-CATEGORY_FEED_RSS = None
-TAG_FEED_ATOM = None
-TAG_FEED_RSS = None
-
-# Pagination #
-
-DEFAULT_PAGINATION = 8
-
-PAGINATION_PATTERNS = (
-    (1, '{base_name}/', '{base_name}/index.html'),
-    (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
-)
-
-# Tag cloud #
-
-TAG_CLOUD_STEPS = 8
-TAG_CLOUD_MAX_ITEMS = 32
-
-# Translations #
-
-DEFAULT_LANG = 'zh_cn'
-TRANSLATION_FEED_ATOM = None
-TRANSLATION_FEED_RSS = None
-
-# Ordering content #
-NEWEST_FIRST_ARCHIVES = True
-
-# Themes #
-
-THEME = 'octopress-theme'
-#THEME = 'notmyidea'
-
-SITESUBTITLE = '1/100 ALGO&amp;MATH; 1/100 IT&amp;GAME; 1/100 INFO&amp;SHARING; 1/100 WHO KNOWS.'
-#DISQUS_SITENAME = 'gocalfblog'
-#GOOGLE_ANALYTICS = 'UA-XXXXXXXX-X'
-MENUITEMS = [
-    ('Home', 'http://www.gocalf.com/blog'),
-]
-
-LINKS = (
-    ('Bebluesky', 'http://www.bebluesky.com/'),  # 快乐生活，幽它一默
-    ('Python俱乐部', 'http://www.pythonclub.org/'),  # 以提供Python知识为目标，原创并收集Python编程相关的知识
-    ('东华博客', 'http://www.truevue.org/'),  # 关注生活，关注科技，关注互联网，了解互联网，了解科技，了解生活！
-    ('阅微堂', 'http://zhiqiang.org/blog/'), # 数学、金融、计算机
-    ('Pelican', 'http://getpelican.com/'),
-    ('Python.org', 'http://python.org/'),
-    ('Jinja2', 'http://jinja.pocoo.org/'),
-)
-
+# Social
 SOCIAL = (
-    ('Email', 'mailto:calf.zhou+blog@gmail.com'),
-    ('Weibo', 'http://weibo.com/calfzhou'),
+    ('Gmail', 'mailto:calf.zhou+blog@gmail.com'),
     ('Github', 'https://github.com/calfzhou'),
+    ('Telegram', 'https://t.me/calfzhou'),
     ('Facebook', 'https://www.facebook.com/calfzhou'),
     ('Twitter', 'https://twitter.com/calfzhou'),
 )
 
-# For Elegant theme #
-
-THEME = 'elegant-theme'
-
-STATIC_PATHS.append('theme/images')
+# Elegant theme
+DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives', 'search', '404')
 USE_SHORTCUT_ICONS = True
 
+# Elegant Labels
+SOCIAL_PROFILE_LABEL = "Stay in Touch"
+RELATED_POSTS_LABEL = "Keep Reading"
+SHARE_POST_INTRO = "Like this post? Share on:"
+COMMENTS_INTRO = "So what do you think? Did I miss something? Is any part unclear? Leave your comments below."
+
+# SMO
 TWITTER_USERNAME = 'calfzhou'
-GOOGLE_PLUS_PROFILE_URL = 'https://plus.google.com/112983042847560253980/posts'
 
-DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives', 'search', '404')
+# Legal
+SITE_LICENSE = '&copy; 2019 gocalf.com'
+HOSTED_ON = {'name': 'GitHub Pages', 'url': 'https://pages.github.com/'}
 
-PLUGINS = ['tipue_search', 'sitemap', 'extract_toc', 'neighbors', 'related_posts', 'series', 'share_post']
+# SEO
+SITE_DESCRIPTION = 'GoCalf Blog'
 
-SITEMAP = {
-    'format': 'xml',
-}
+# Landing Page
+# TODO
 
-# MD_EXTENSIONS = ['codehilite(css_class=highlight)', 'extra', 'headerid', 'toc', 'fenced_code', 'footnotes']
-PYGMENTS_RST_OPTIONS = {'linenos': 'table'}
+# Blogroll
 
-CATEGORY_URL = 'categories.html#{slug}-ref'
-CATEGORY_SAVE_AS = ''
-CATEGORIES_URL = 'categories.html'
-CATEGORIES_SAVE_AS = 'categories.html'
-TAG_URL = 'tags.html#{slug}-ref'
-TAG_SAVE_AS = ''
-TAGS_URL = 'tags.html'
-TAGS_SAVE_AS = 'tags.html'
-AUTHOR_URL = ''
-AUTHOR_SAVE_AS = ''
-AUTHORS_URL = ''
-AUTHORS_SAVE_AS = ''
-ARCHIVES_SAVE_AS = 'archives.html'
-YEAR_ARCHIVE_SAVE_AS = False
-MONTH_ARCHIVE_SAVE_AS = False
-
-DEFAULT_PAGINATION = False
-
-# End #
+LINKS = (
+    # 快乐生活，幽它一默
+    ('Bebluesky', 'http://www.bebluesky.com/'),
+    # 以提供Python知识为目标，原创并收集Python编程相关的知识
+    ('Python俱乐部', 'http://www.pythonclub.org/'),
+    # 关注生活，关注科技，关注互联网，了解互联网，了解科技，了解生活！
+    ('东华博客', 'http://www.truevue.org/'),
+    # 数学、金融、计算机
+    ('阅微堂', 'http://zhiqiang.org/blog/'),
+    ('Pelican', 'http://getpelican.com/'),
+    ('Python.org', 'http://python.org/'),
+    ('Jinja2', 'http://jinja.pocoo.org/'),
+)

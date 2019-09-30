@@ -16,7 +16,7 @@ Computer）中看到一个盘符为\ **Q**\ 的本地磁盘分区，在磁盘管
 
 .. more
 
-.. figure:: {filename}/images/2011/07/disk-q-unaccess.png
+.. figure:: {static}/images/2011/07/disk-q-unaccess.png
     :alt: disk-q-unaccess
 
     无法访问的虚拟磁盘分区Q
@@ -24,7 +24,7 @@ Computer）中看到一个盘符为\ **Q**\ 的本地磁盘分区，在磁盘管
 这个磁盘分区Q是Microsoft Application Virtualization
 Desktop（App-V）使用的一个虚拟分区，我也不记得是装了什么之后它就出现了。要隐藏它只要以下几个简单的步骤：
 
-.. figure:: {filename}/images/2011/07/disk-q-registry.png
+.. figure:: {static}/images/2011/07/disk-q-registry.png
     :alt: disk-q-registry
 
     修改注册表，添加高亮的两个DWORD值
@@ -40,7 +40,7 @@ Desktop（App-V）使用的一个虚拟分区，我也不记得是装了什么�
 
 再次进入我的电脑，就可以看到那讨厌的Q分区消失了。
 
-.. figure:: {filename}/images/2011/07/disk-q-hidden.png
+.. figure:: {static}/images/2011/07/disk-q-hidden.png
     :alt: disk-q-hidden
 
     虚拟分区Q被隐藏
@@ -52,7 +52,7 @@ mask的话，就是从最低位开始的第17位；而Q在字母表中恰好也�
 :-p），就根据分区盘符的字母顺序修改上述两个16进制数值即可。比如改成16进制的4（bit
 mask第三位），那C盘就消失了：
 
-.. figure:: {filename}/images/2011/07/disk-c-hidden.png
+.. figure:: {static}/images/2011/07/disk-c-hidden.png
     :alt: disk-c-hidden
 
     用16进制4隐藏磁盘分区C

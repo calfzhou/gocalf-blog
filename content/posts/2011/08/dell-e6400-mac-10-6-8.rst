@@ -80,7 +80,7 @@ used.（或者是AppleACPIPlatform.kext）。这不是刚才替换的那两个�
 
 呼，冒险升了次级，结果还是比较满意的，截图纪念。
 
-.. figure:: {filename}/images/2011/08/mac_10.6.8_screenshot.png
+.. figure:: {static}/images/2011/08/mac_10.6.8_screenshot.png
     :alt: Mac OS 10.6.8 on Dell E6400
 
     Mac OS 10.6.8 on Dell E6400
@@ -148,21 +148,21 @@ used.（或者是AppleACPIPlatform.kext）。这不是刚才替换的那两个�
 
 .. _Dell E6400安装MacOS雪豹10.6: {filename}../07/dell-e6400-install-mac.rst
 .. _MacDrive（v8.0.5.31）: http://bbs.pcbeta.com/forum-viewthread-tid-860881-highlight-macdriver.html
-.. _dsdt.aml: {filename}/assets/2011/08/dsdt.aml_.zip
-.. _FakeSMC.kext: {filename}/assets/2011/08/FakeSMC.kext_.zip
-.. _Disabler.kext: {filename}/assets/2011/08/Disabler.kext_.zip
-.. _IOAudioFamily.kext: {filename}/assets/2011/08/IOAudioFamily.kext_.zip
-.. _OSvKernDSPLib.kext: {filename}/assets/2011/08/OSvKernDSPLib.kext_.zip
-.. _HDAEnabler.kext: {filename}/assets/2011/08/HDAEnabler.kext_.zip
-.. _VoodooHDA.kext: {filename}/assets/2011/08/VoodooHDA.kext_.zip
-.. _IONetworkingFamily.kext: {filename}/assets/2011/08/IONetworkingFamily.kext_.zip
-.. _Intel82566MM.kext: {filename}/assets/2011/08/Intel82566MM.kext_.zip
-.. _ApplePS2Controller.kext: {filename}/assets/2011/08/ApplePS2Controller.kext_.zip
-.. _AppleACPIPS2Nub.kext: {filename}/assets/2011/08/AppleACPIPS2Nub.kext_.zip
-.. _AppleACPIPlatform.kext: {filename}/assets/2011/08/AppleACPIPlatform.kext_.zip
-.. _IOACPIFamily.kext: {filename}/assets/2011/08/IOACPIFamily.kext_.zip
-.. _VoodooBattery.kext: {filename}/assets/2011/08/VoodooBattery.kext_.zip
-.. _DellBluetoothHCI.kext: {filename}/assets/2011/08/DellBluetoothHCI.kext_.zip
-.. _VoodooSDHC.kext: {filename}/assets/2011/08/VoodooSDHC.kext_.zip
-.. _IOPCIFamily.kext: {filename}/assets/2011/08/IOPCIFamily.kext_.zip
-.. _AHCIPortInjector.kext: {filename}/assets/2011/08/AHCIPortInjector.kext_.zip
+.. _dsdt.aml: {static}/assets/2011/08/dsdt.aml_.zip
+.. _FakeSMC.kext: {static}/assets/2011/08/FakeSMC.kext_.zip
+.. _Disabler.kext: {static}/assets/2011/08/Disabler.kext_.zip
+.. _IOAudioFamily.kext: {static}/assets/2011/08/IOAudioFamily.kext_.zip
+.. _OSvKernDSPLib.kext: {static}/assets/2011/08/OSvKernDSPLib.kext_.zip
+.. _HDAEnabler.kext: {static}/assets/2011/08/HDAEnabler.kext_.zip
+.. _VoodooHDA.kext: {static}/assets/2011/08/VoodooHDA.kext_.zip
+.. _IONetworkingFamily.kext: {static}/assets/2011/08/IONetworkingFamily.kext_.zip
+.. _Intel82566MM.kext: {static}/assets/2011/08/Intel82566MM.kext_.zip
+.. _ApplePS2Controller.kext: {static}/assets/2011/08/ApplePS2Controller.kext_.zip
+.. _AppleACPIPS2Nub.kext: {static}/assets/2011/08/AppleACPIPS2Nub.kext_.zip
+.. _AppleACPIPlatform.kext: {static}/assets/2011/08/AppleACPIPlatform.kext_.zip
+.. _IOACPIFamily.kext: {static}/assets/2011/08/IOACPIFamily.kext_.zip
+.. _VoodooBattery.kext: {static}/assets/2011/08/VoodooBattery.kext_.zip
+.. _DellBluetoothHCI.kext: {static}/assets/2011/08/DellBluetoothHCI.kext_.zip
+.. _VoodooSDHC.kext: {static}/assets/2011/08/VoodooSDHC.kext_.zip
+.. _IOPCIFamily.kext: {static}/assets/2011/08/IOPCIFamily.kext_.zip
+.. _AHCIPortInjector.kext: {static}/assets/2011/08/AHCIPortInjector.kext_.zip

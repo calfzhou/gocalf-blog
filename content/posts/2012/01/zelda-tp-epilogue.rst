@@ -19,65 +19,65 @@
 
 短暂的相聚最终还是要面对分别，来自不同世界的人永远不能在一起，而与林克一起经历了一切冒险的米德娜也不得不回到自己的世界，回到自己子民的身边。终于，众人来到镜子古墓为米德娜送行，米德娜明白光明与黑暗本不能在一起，也知道只要镜子还存在于这个世界，那么两个世界就会被一直连接在一起，互相干扰。为了两个世界之间不再起纠葛，米德娜不得不将自己对林克的好感深深地埋藏于内心深处，纵使不愿意，她最终还是选择了将镜子彻底粉碎并回到自己的世界中去，告别了海拉尔，也永别了林克……
 
-.. figure:: {filename}/images/2012/01/tp_epilogue_01.jpg
+.. figure:: {static}/images/2012/01/tp_epilogue_01.jpg
     :alt: tp_epilogue_01
-    :target: {filename}/images/2012/01/tp_epilogue_01.jpg
+    :target: {static}/images/2012/01/tp_epilogue_01.jpg
     :width: 500
 
     加农终于倒下了
 
-.. figure:: {filename}/images/2012/01/tp_epilogue_02.jpg
+.. figure:: {static}/images/2012/01/tp_epilogue_02.jpg
     :alt: tp_epilogue_02
-    :target: {filename}/images/2012/01/tp_epilogue_02.jpg
+    :target: {static}/images/2012/01/tp_epilogue_02.jpg
     :width: 500
 
     仍然不甘心失败的加农片，扬言终有一天黎明和黑暗世界都将被血洗
 
-.. figure:: {filename}/images/2012/01/tp_epilogue_03.jpg
+.. figure:: {static}/images/2012/01/tp_epilogue_03.jpg
     :alt: tp_epilogue_03
-    :target: {filename}/images/2012/01/tp_epilogue_03.jpg
+    :target: {static}/images/2012/01/tp_epilogue_03.jpg
     :width: 500
 
     光之精灵开始绽放耀眼的光芒，米德娜来了
 
-.. figure:: {filename}/images/2012/01/tp_epilogue_04.jpg
+.. figure:: {static}/images/2012/01/tp_epilogue_04.jpg
     :alt: tp_epilogue_04
-    :target: {filename}/images/2012/01/tp_epilogue_04.jpg
+    :target: {static}/images/2012/01/tp_epilogue_04.jpg
     :width: 500
 
     光明与黑暗即有联系，却又不能在一起
 
-.. figure:: {filename}/images/2012/01/tp_epilogue_05.jpg
+.. figure:: {static}/images/2012/01/tp_epilogue_05.jpg
     :alt: tp_epilogue_05
-    :target: {filename}/images/2012/01/tp_epilogue_05.jpg
+    :target: {static}/images/2012/01/tp_epilogue_05.jpg
     :width: 500
 
     米德娜变回黎明公主的原貌（感觉没有小小的时候可爱）
 
-.. figure:: {filename}/images/2012/01/tp_epilogue_06.jpg
+.. figure:: {static}/images/2012/01/tp_epilogue_06.jpg
     :alt: tp_epilogue_06
-    :target: {filename}/images/2012/01/tp_epilogue_06.jpg
+    :target: {static}/images/2012/01/tp_epilogue_06.jpg
     :width: 500
 
     米德娜对林克充满了好感
 
-.. figure:: {filename}/images/2012/01/tp_epilogue_07.jpg
+.. figure:: {static}/images/2012/01/tp_epilogue_07.jpg
     :alt: tp_epilogue_07
-    :target: {filename}/images/2012/01/tp_epilogue_07.jpg
+    :target: {static}/images/2012/01/tp_epilogue_07.jpg
     :width: 500
 
     毕竟是不同世界的人，终究还是要分开
 
-.. figure:: {filename}/images/2012/01/tp_epilogue_08.jpg
+.. figure:: {static}/images/2012/01/tp_epilogue_08.jpg
     :alt: tp_epilogue_08
-    :target: {filename}/images/2012/01/tp_epilogue_08.jpg
+    :target: {static}/images/2012/01/tp_epilogue_08.jpg
     :width: 500
 
     米德娜最终还是选择了将镜子彻底粉碎并回到自己的世界中去，告别了海拉尔，也永别了林克
 
-.. figure:: {filename}/images/2012/01/tp_epilogue_09.jpg
+.. figure:: {static}/images/2012/01/tp_epilogue_09.jpg
     :alt: tp_epilogue_09
-    :target: {filename}/images/2012/01/tp_epilogue_09.jpg
+    :target: {static}/images/2012/01/tp_epilogue_09.jpg
     :width: 500
 
     剧终……

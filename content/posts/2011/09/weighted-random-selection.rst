@@ -315,7 +315,7 @@ Mathematica提供了RandomSample函数，支持带权选取，当然它是在遍
     ];
     ListLinePlot[map / retry, PlotMarkers -> Automatic]
 
-.. figure:: {filename}/images/2011/09/mathematica_random_sample.png
+.. figure:: {static}/images/2011/09/mathematica_random_sample.png
     :alt: mathematica_random_sample
 
     Mathematica RandomSample随机选取m个元素，第i个元素被选中的概率

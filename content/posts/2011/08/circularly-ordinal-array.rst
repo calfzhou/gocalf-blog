@@ -35,7 +35,7 @@ Ordinal Array），用O(log n)时间、O(1)辅助空间在其中查找指定的�
 看看下面这张图中的两种情况（A和B），显然在第一次二分处理的时候，第一个（下标0）、中间的（下标12）和最后一个（下标24）元素都彼此相等，分界点却有可能在任何一边。这时候就只能分别对两半继续递归处理，时间复杂度可能会变成O(n)，空间复杂度可能会（不得不用递归或者栈来保存中间状态）变成O(log
 n)。
 
-.. figure:: {filename}/images/2011/08/coa_special_case1.png
+.. figure:: {static}/images/2011/08/coa_special_case1.png
     :alt: coa_special_case1.png
 
     有重复元素时的特殊情况：第一个、中间的和最后一个元素彼此相等

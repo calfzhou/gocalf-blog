@@ -32,7 +32,7 @@ Exchanger（MX）的配置内容有问题，并没有指向GoCalf的空间地址
 
 附GoDaddy里面DNS设置截图：
 
-.. figure:: {filename}/images/2011/07/godaddy_dns.png
+.. figure:: {static}/images/2011/07/godaddy_dns.png
     :alt: GoDaddy中DNS设置
 
     将二级域名mail指向@地址；MX记录指向mail.<yourdomain>.com

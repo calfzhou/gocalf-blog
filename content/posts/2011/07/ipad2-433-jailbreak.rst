@@ -29,9 +29,9 @@ iPad 2 iOS 4.3.3 可以越狱了
 #. Safari被自动关闭，在桌面上可以看到出现了Cydia的图标，并且正在下载中。
 #. 等待下载完成，打开Cydia，越狱成功。
 
-   .. figure:: {filename}/images/2011/07/cydia-ipad2-ios433-225x300.jpg
+   .. figure:: {static}/images/2011/07/cydia-ipad2-ios433-225x300.jpg
         :alt: cydia-ipad2-ios433
-        :target: {filename}/images/2011/07/cydia-ipad2-ios433.jpg
+        :target: {static}/images/2011/07/cydia-ipad2-ios433.jpg
 
         Cydia on iPad2 iOS 4.3.3
 

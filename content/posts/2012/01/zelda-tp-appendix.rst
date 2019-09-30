@@ -106,7 +106,7 @@
 
 游戏开的时候拥有三颗心。在游戏的八个迷宫里，每打完一个迷宫的boss可以获得一颗心。另外海拉尔王国中还有45枚心之碎片，这些都获得才能收集到全部20颗心。每找到5枚心之碎片，就可以得到一个完整的心之容器。一些碎片通过支线事件或小游戏的奖品获得。另外还有一些分布在王国的各个角落，可以去昏暗的洞穴，狭窄的胡同，险峻的高峰搜索这些能提高生命上限的宝藏。
 
-.. figure:: {filename}/images/2012/01/heart_pieces_map.png
+.. figure:: {static}/images/2012/01/heart_pieces_map.png
     :alt: heart_pieces_map
 
     45枚心之碎片的分布图
@@ -127,9 +127,9 @@
    .. _h05:
 #. **奥当村(Ordon Village)：**\ 在完成Goron Mines后，Epona重回身边。在这之后前往Ordon Village，在白天到牧场，喊出Epona，然后与Fado对话可以接到驱赶山羊的任务，成功后获得。
 
-   .. figure:: {filename}/images/2012/01/heart_pieces_1_small.jpg
+   .. figure:: {static}/images/2012/01/heart_pieces_1_small.jpg
        :alt: heart_pieces_1
-       :target: {filename}/images/2012/01/heart_pieces_1.jpg
+       :target: {static}/images/2012/01/heart_pieces_1.jpg
 
    .. _h06:
 #. **海拉尔平原(Hyrule Field)：**\ 前往Kakariko Gorge，在东边的尽头处可以看到一块高大耸立着的大石头，上面漂浮着心之碎片，使用回旋标可以获得。
@@ -146,9 +146,9 @@
    .. _h10:
 #. **卡卡里克村(Kakariko Village)：**\ 在村子南方的尽头有一处精灵之泉，在这里的西边可以看到大量的礁石，炸开石头可以看到一个洞穴。顺着里面的路到达池塘前，使用磁力靴沉到水底就可以看到宝箱。
 
-   .. figure:: {filename}/images/2012/01/heart_pieces_2_small.jpg
+   .. figure:: {static}/images/2012/01/heart_pieces_2_small.jpg
        :alt: heart_pieces_2
-       :target: {filename}/images/2012/01/heart_pieces_2.jpg
+       :target: {static}/images/2012/01/heart_pieces_2.jpg
 
    .. _h11:
 #. **卡卡里克村(Kakariko Village)：**\ 在炸开入口拿第10个心之碎片的那块巨石的上面，可以看到有一块礁石。用炸弹箭炸开就可以看到，然后使用回旋标获得。
@@ -165,9 +165,9 @@
    .. _h15:
 #. **海利亚湖(Lake Hylia)：**\ 在（雷纳尔地区）Lanayru的精灵之泉后面有一间房间，使用钩枪可以抓住附近的树藤可以到达一个房间，在里面点燃两支火把就可以获得奖励。
 
-   .. figure:: {filename}/images/2012/01/heart_pieces_3_small.jpg
+   .. figure:: {static}/images/2012/01/heart_pieces_3_small.jpg
        :alt: heart_pieces_3
-       :target: {filename}/images/2012/01/heart_pieces_3.jpg
+       :target: {static}/images/2012/01/heart_pieces_3.jpg
 
    .. _h16:
 #. **油灯洞穴2(Lantern Cavern #2)：**\ 在Lake Hylia的南边可以发现一个山洞门口堵了一块巨石，炸开后，使用火把进入探索，里面有很多曲折转弯和凹室。在最后的房间，点燃两支火把后可以获得。
@@ -184,9 +184,9 @@
    .. _h20:
 #. **沙漠刑场(Arbiters Grounds)：**\ 在获得滑动齿轮后，前往地下室东北角的房间，在墙壁的标志处使用滑轮可以到达房中央的宝箱处。
 
-   .. figure:: {filename}/images/2012/01/heart_pieces_4_small.jpg
+   .. figure:: {static}/images/2012/01/heart_pieces_4_small.jpg
        :alt: heart_pieces_4
-       :target: {filename}/images/2012/01/heart_pieces_4.jpg
+       :target: {static}/images/2012/01/heart_pieces_4.jpg
 
    .. _h21:
 #. **钓鱼场(Fishing Hole)：**\ 前往Lanayru Province（雷纳尔地区）时可以在西北处找到钓鱼场。与西南方棚屋里的Hena对话可以租到一艘独木舟和旋转钓具。划到池的中央，跟着抛出旋转钓具收集池中大石块上的心之碎片心之碎片。
@@ -203,9 +203,9 @@
    .. _h25:
 #. **时之神殿(Temple of Time)：**\ 在拿到统治权杖后，返回神殿的大门，在房间的第五层最南部的房间，使用统治权杖让两塑雕像分别（沿着东边和西边的小路）打开各自开关，就会出现宝箱。
 
-   .. figure:: {filename}/images/2012/01/heart_pieces_5_small.jpg
+   .. figure:: {static}/images/2012/01/heart_pieces_5_small.jpg
        :alt: heart_pieces_5
-       :target: {filename}/images/2012/01/heart_pieces_5.jpg
+       :target: {static}/images/2012/01/heart_pieces_5.jpg
 
    .. _h26:
 #. **时之神殿(Temple of Time)：**\ 在神殿的大厅，使用统治权杖移动一个在西南角的雕像，进入隐藏通道后获得。
@@ -222,9 +222,9 @@
    .. _h30:
 #. **黎明宫殿(Palace of Twilight)：**\ 当获得光之剑后，前往宫殿西翼（West Wing），在第一个房间劈散雾可以出现一个新的传送台，可以带你到达宝箱处。
 
-   .. figure:: {filename}/images/2012/01/heart_pieces_6_small.jpg
+   .. figure:: {static}/images/2012/01/heart_pieces_6_small.jpg
        :alt: heart_pieces_6
-       :target: {filename}/images/2012/01/heart_pieces_6.jpg
+       :target: {static}/images/2012/01/heart_pieces_6.jpg
 
    .. _h31:
 #. **雷纳尔地区(Lanayru Province)：**\ 往Lanayru Province（雷纳尔地区，海拉尔城东边）东边走一段稍远的距离后，可以找到一条路被石头档住，将石头炸掉后，使用滑轮沿着墙走可以到达一处平台，平台上的宝箱里就是一枚心之碎片。
@@ -241,9 +241,9 @@
    .. _h35:
 #. **海利亚湖(Lake Hylia)：**\ （以狼的形态）与湖西边的Plumm对话，可以接到一个打水果气球的迷你游戏，获得10000分就可以得到心之碎片的奖励。诀窍是连续击中双倍分数的水果，如一长串的草莓。
 
-   .. figure:: {filename}/images/2012/01/heart_pieces_7_small.jpg
+   .. figure:: {static}/images/2012/01/heart_pieces_7_small.jpg
        :alt: heart_pieces_7
-       :target: {filename}/images/2012/01/heart_pieces_7.jpg
+       :target: {static}/images/2012/01/heart_pieces_7.jpg
 
    .. _h36:
 #. **海利亚湖(Lake Hylia)：**\ 用Fyer的普通飞行器向Falbi挑战，尽力到达西南角漂浮的平台，在平台上有一枚心之碎片。
@@ -260,9 +260,9 @@
    .. _h40:
 #. **海拉尔城(Castle Town)：**\ 在城东的路上可以找到一名穿着绿色礼服的人，他一次可以接收30或50的卢比，如果你给足他1000，他就会给你一枚心之碎片作为回报。
 
-   .. figure:: {filename}/images/2012/01/heart_pieces_8_small.jpg
+   .. figure:: {static}/images/2012/01/heart_pieces_8_small.jpg
        :alt: heart_pieces_8
-       :target: {filename}/images/2012/01/heart_pieces_8.jpg
+       :target: {static}/images/2012/01/heart_pieces_8.jpg
 
    .. _h41:
 #. **油灯洞穴1(Lantern Cavern #1)：**\ 在Kakariko Gorge的西南方可以找到大块的石头，炸开后进入洞穴，点燃西北角的两支火把即可获得奖励。
@@ -279,9 +279,9 @@
    .. _h45:
 #. **海拉尔平原(Hyrule Field)：**\ 出Hyrule Castle往北走，沿着北部的石道直到看到一处被大石档住的洞穴，炸掉石头后，可以利用链球将冰块去处，解答完出现的三个推箱子谜题后获得。
 
-   .. figure:: {filename}/images/2012/01/heart_pieces_9_small.jpg
+   .. figure:: {static}/images/2012/01/heart_pieces_9_small.jpg
        :alt: heart_pieces_9
-       :target: {filename}/images/2012/01/heart_pieces_9.jpg
+       :target: {static}/images/2012/01/heart_pieces_9.jpg
 
 ..
     montage -geometry +1+1 -tile 2x -label "H%t" -font Microsoft-YaHei 01.png 02.png 03.png 04.png 05.png heart_pieces_1.jpg
@@ -409,7 +409,7 @@
 金色虫
 ======
 
-.. figure:: {filename}/images/2012/01/golden_bugs_map.png
+.. figure:: {static}/images/2012/01/golden_bugs_map.png
     :alt: golden_bugs_map
 
     24只金色虫的位置分布
@@ -497,7 +497,7 @@
 鬼魂之魂
 ========
 
-.. figure:: {filename}/images/2012/01/ghost_souls_map.png
+.. figure:: {static}/images/2012/01/ghost_souls_map.png
     :alt: ghost_souls_map
 
     60只鬼魂之魂的地理位置

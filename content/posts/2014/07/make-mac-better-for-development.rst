@@ -28,7 +28,7 @@ iTerm
 
 毫无疑问，我用的是\ `iTerm2`_\ 。如果说访问互联网世界的入口是Chrome，那么访问程序世界的入口就是iTerm了。
 
-.. figure:: {filename}/images/2014/07/iterm2_logo.png
+.. figure:: {static}/images/2014/07/iterm2_logo.png
     :alt: iterm2_logo
 
 字体选择一款好看的等宽字体即可，比如常用的Consolas、 Curier New等。我用的是\ `Source Code Pro`_\ 。中文使用Microsoft YaHei字体。
@@ -184,7 +184,7 @@ Dir Colors
 
 虽然iTerm本身已经设置好了Solarized配色，但是ls的时候并不一定有颜色。ls没有颜色绝对是让人难以忍受的，在\ `bash_inc/alias`_\ 里除了根据系统中ls支持的参数让ls的输出显示出颜色外，还通过配置\ ``LS_COLOR``\ 让色彩更丰富，可以让不同类型的文件有不同的颜色，看起来非常的清晰。推荐使用\ `dircolors-solarized`_\ 提供的配色文件，在Mac OS X的采用了Solarized Dark配色的iTerm2里看起来会是这个样子：
 
-.. figure:: {filename}/images/2014/07/dircolors_solarized_dark.png
+.. figure:: {static}/images/2014/07/dircolors_solarized_dark.png
     :alt: dircolors-solaized-dark
 
     iTerm2中Solarized Dark系的dircolors效果
@@ -204,7 +204,7 @@ Bash Prompt
 
 配合上iTerm的配色、ls的颜色等，我的shell看起来是这样的：
 
-.. figure:: {filename}/images/2014/07/my-shell-demo.png
+.. figure:: {static}/images/2014/07/my-shell-demo.png
     :alt: my-shell-demo
 
     我的iTerm2的效果
@@ -285,7 +285,7 @@ Git
 
 如果还想用个GUI的Git客户端，我用的是\ `GitX-dev`_\ ，主要用来直观地观察分支的演化情况。
 
-.. figure:: {filename}/images/2014/07/gitx-dev.png
+.. figure:: {static}/images/2014/07/gitx-dev.png
     :alt: gitx-dev
 
     GitX-dev界面演示

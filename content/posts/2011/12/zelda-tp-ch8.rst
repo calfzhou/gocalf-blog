@@ -19,9 +19,9 @@
 
 .. more
 
-.. figure:: {filename}/images/2011/12/tp_ch08_01.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_01.jpg
     :alt: tp_ch08_01
-    :target: {filename}/images/2011/12/tp_ch08_01.jpg
+    :target: {static}/images/2011/12/tp_ch08_01.jpg
     :width: 500
 
     开启了通往黎明宫殿的道路
@@ -31,12 +31,12 @@
 黎明宫殿迷宫
 ------------
 
-.. figure:: {filename}/images/2011/12/tp_ch08_02.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_02.jpg
     :alt: tp_ch08_02
 
     黎明宫殿迷宫第一层地图
 
-.. figure:: {filename}/images/2011/12/tp_ch08_03.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_03.jpg
     :alt: tp_ch08_03
 
     黎明宫殿迷宫二层到四层地图
@@ -49,23 +49,23 @@
 
 **房间4：**\ 在这里林克会遇到赞特的幻影，他的幻影每次只会出现几秒钟，要抓住机会给予攻击，胜利后他会在房间中间留下一片黑雾和一堆小怪，先用狼的感知解决掉藏在雾中的怪物，然后攻击北面的手状物，他会松开手中的黎明之玉，迅速捡起黎明之玉，其可以帮助林克驱散黑雾，然后放到雾中间地上的圆槽里，南面回升起台阶以供林克可以将玉搬出。此后，手状雕像会开始追击林克并取回黎明之玉，攻击三下后可以让其暂时瘫痪几秒，但是一定要在它抢走黎明之玉前将玉带回房间 1。
 
-.. figure:: {filename}/images/2011/12/tp_ch08_04.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_04.jpg
     :alt: tp_ch08_04
-    :target: {filename}/images/2011/12/tp_ch08_04.jpg
+    :target: {static}/images/2011/12/tp_ch08_04.jpg
     :width: 500
 
     遇到赞特的幻影
 
-.. figure:: {filename}/images/2011/12/tp_ch08_05.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_05.jpg
     :alt: tp_ch08_05
-    :target: {filename}/images/2011/12/tp_ch08_05.jpg
+    :target: {static}/images/2011/12/tp_ch08_05.jpg
     :width: 500
 
     去前方抢夺黎明之玉
 
-.. figure:: {filename}/images/2011/12/tp_ch08_06.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_06.jpg
     :alt: tp_ch08_06
-    :target: {filename}/images/2011/12/tp_ch08_06.jpg
+    :target: {static}/images/2011/12/tp_ch08_06.jpg
     :width: 500
 
     台阶升起后要赶快把黎明之玉搬出去
@@ -76,9 +76,9 @@
 
 **房间5：**\ 这里有许多来回移动的平台，通过这些平台到北面去，战胜赞特的头像雕塑后出现钥匙，之后继续前进到房间6。
 
-.. figure:: {filename}/images/2011/12/tp_ch08_07.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_07.jpg
     :alt: tp_ch08_07
-    :target: {filename}/images/2011/12/tp_ch08_07.jpg
+    :target: {static}/images/2011/12/tp_ch08_07.jpg
     :width: 500
 
     通过来回移动的平台到北面去
@@ -87,43 +87,43 @@
 
 **房间7：**\ 再次战胜赞特的幻影并取得黎明之玉后，将其带回房间1的另一个凹槽里，途中房间5的西北角的箱子里有\ `心之碎片30`_\ ，随后将征服者之剑插入到两个黎明之玉中间可以获得光之神剑，今后拿着光之神剑舞出旋风斩的话可以象黎明之玉一样驱散黑雾。随后朝北面的黑雾瀑布处使用旋风斩，接着进入房间8。
 
-.. figure:: {filename}/images/2011/12/tp_ch08_08.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_08.jpg
     :alt: tp_ch08_08
-    :target: {filename}/images/2011/12/tp_ch08_08.jpg
+    :target: {static}/images/2011/12/tp_ch08_08.jpg
     :width: 500
 
     取得光之神剑
 
 **房间8：**\ 利用旋风斩驱散中间部分的黑雾可以看到那里有几个被污染的黎明之玉，站在中间用旋风斩的话可以使它们暂时获得黎明之力并升起一个平台，站在平台上到房间的西南角，战胜赞特的头像雕塑后取得钥匙并从东面进入房间9。
 
-.. figure:: {filename}/images/2011/12/tp_ch08_09.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_09.jpg
     :alt: tp_ch08_09
-    :target: {filename}/images/2011/12/tp_ch08_09.jpg
+    :target: {static}/images/2011/12/tp_ch08_09.jpg
     :width: 500
 
     可以用光之神剑驱散黑雾
 
-.. figure:: {filename}/images/2011/12/tp_ch08_10.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_10.jpg
     :alt: tp_ch08_10
-    :target: {filename}/images/2011/12/tp_ch08_10.jpg
+    :target: {static}/images/2011/12/tp_ch08_10.jpg
     :width: 500
 
     用旋风斩使被污染的黎明之玉暂时获得黎明之力
 
 **房间9：**\ 这里有多个赞特的头像雕塑，可以先去房间西面的黑雾瀑布后面用飞爪上到顶层取得大钥匙，随后对中间平台上的被污染的黎明之玉使用旋风斩，然后站上平台来到房间的最南边解决掉其余几个赞特的头像雕塑，随后再回到北面取得出现的小钥匙，之后进入房间10。
 
-.. figure:: {filename}/images/2011/12/tp_ch08_11.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_11.jpg
     :alt: tp_ch08_11
-    :target: {filename}/images/2011/12/tp_ch08_11.jpg
+    :target: {static}/images/2011/12/tp_ch08_11.jpg
     :width: 500
 
     又有被污染的黎明之玉
 
 **房间10：**\ 对中间的三个被污染的黎明之玉用旋风斩使平台升起，最后朝二层的南面移动，之后用飞爪配合南面不断上升的平台并朝东南方移动，到房间东南面取得消灭赞特头像雕塑后的小钥匙并从东北的门进入房间11。
 
-.. figure:: {filename}/images/2011/12/tp_ch08_12.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_12.jpg
     :alt: tp_ch08_12
-    :target: {filename}/images/2011/12/tp_ch08_12.jpg
+    :target: {static}/images/2011/12/tp_ch08_12.jpg
     :width: 500
 
     离赞特的房间越来越近了
@@ -132,16 +132,16 @@
 
 **BOSS战：**\ 篡位者——赞特（Usurper King—Zant）
 
-.. figure:: {filename}/images/2011/12/tp_ch08_13.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_13.jpg
     :alt: tp_ch08_13
-    :target: {filename}/images/2011/12/tp_ch08_13.jpg
+    :target: {static}/images/2011/12/tp_ch08_13.jpg
     :width: 500
 
     BOSS：篡位者——赞特（Usurper King—Zant）
 
-.. figure:: {filename}/images/2011/12/tp_ch08_14.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_14.jpg
     :alt: tp_ch08_14
-    :target: {filename}/images/2011/12/tp_ch08_14.jpg
+    :target: {static}/images/2011/12/tp_ch08_14.jpg
     :width: 500
 
     BOSS：篡位者——赞特（Usurper King—Zant）
@@ -152,30 +152,30 @@
 
 胜利之后，赞特依然气焰嚣张地向二人叫嚣，称无论二人怎样努力战胜了自己也是无济于事的，因为其主人加农此时已经能自由穿梭于黎明世界和海拉尔大陆之间了，不久之后两个世界都将在主人的统治之下，而自己就是其手下的最大功臣。忍无可忍的米德娜突然爆发出一股强大的力量将赞特的力量夺走，连她自己都惊讶于自己的这股力量。原来在极度愤怒之下，米德娜突然掌握了祖先的力量，并将它爆发出来杀死了赞特。事不宜迟，知道加农已经逃离黎明世界后，二人也迅速赶往海拉尔城堡阻止他的邪恶计划。
 
-.. figure:: {filename}/images/2011/12/tp_ch08_15.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_15.jpg
     :alt: tp_ch08_15
-    :target: {filename}/images/2011/12/tp_ch08_15.jpg
+    :target: {static}/images/2011/12/tp_ch08_15.jpg
     :width: 500
 
     林克与赞特打在一处
 
-.. figure:: {filename}/images/2011/12/tp_ch08_16.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_16.jpg
     :alt: tp_ch08_16
-    :target: {filename}/images/2011/12/tp_ch08_16.jpg
+    :target: {static}/images/2011/12/tp_ch08_16.jpg
     :width: 500
 
     米德娜自己也对自己使出那样的力量感到惊讶
 
-.. figure:: {filename}/images/2011/12/tp_ch08_17.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_17.jpg
     :alt: tp_ch08_17
-    :target: {filename}/images/2011/12/tp_ch08_17.jpg
+    :target: {static}/images/2011/12/tp_ch08_17.jpg
     :width: 500
 
     米德娜感受着自己强大的力量
 
-.. figure:: {filename}/images/2011/12/tp_ch08_18.jpg
+.. figure:: {static}/images/2011/12/tp_ch08_18.jpg
     :alt: tp_ch08_18
-    :target: {filename}/images/2011/12/tp_ch08_18.jpg
+    :target: {static}/images/2011/12/tp_ch08_18.jpg
     :width: 500
 
     米德娜掌握了祖先的力量
