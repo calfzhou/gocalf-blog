@@ -7,4 +7,4 @@ About
 
 欢迎来到 `GoCalf`_ 博客！
 
-.. _GoCalf: http://blog.gocalf.com
+.. _GoCalf: https://blog.gocalf.com
