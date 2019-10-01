@@ -9,7 +9,7 @@
 :slug: zelda-tp-characters
 :lang: zh_cn
 :series: twilight-princess
-:featured_image: http://www.gocalf.com/blog/images/2011/08/zelda_tp_link_logo.jpg
+:featured_image: https://blog.gocalf.com/images/2011/08/zelda_tp_link_logo.jpg
 :summary: 今天来介绍一下《塞尔达传说：黎明公主》中的几位角色，有好的也有敌人。
 
 .. contents::

@@ -8,7 +8,7 @@
 :keywords: 七阶魔方, 数独, 魔方, 魔方花样
 :slug: 5x5-sudoku-in-vcube7
 :lang: zh_cn
-:featured_image: http://www.gocalf.com/blog/images/2011/11/cube7_icon.png
+:featured_image: https://blog.gocalf.com/images/2011/11/cube7_icon.png
 :summary: 之前有一段时间特别喜欢玩魔方，从二阶到七阶，在桌子上摆了长长的一排。后来听说九阶和十一阶也有卖的了，心中甚是痒痒，可惜囊中羞涩啊。特别喜欢高阶魔方的一个原因，就是它们每个面上的小方格数很多（就像人们都喜欢高分辨率的显示屏一样），可以玩的花样也就多了很多。今天分享一下我的一个七阶魔方花样作品：混乱中的秩序——五阶数独。
 
 之前有一段时间特别喜欢玩魔方，从二阶到七阶，在桌子上摆了长长的一排。后来听说九阶和十一阶也有卖的了，心中甚是痒痒，可惜囊中羞涩啊。

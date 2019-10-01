@@ -9,7 +9,7 @@
 :slug: zelda-tp-ch8
 :lang: zh_cn
 :series: twilight-princess
-:featured_image: http://www.gocalf.com/blog/images/2011/12/tp_ch08_logo.jpg
+:featured_image: https://blog.gocalf.com/images/2011/12/tp_ch08_logo.jpg
 :summary: 在离开天空之城回到陆地上以后，林克可以开始搜集所有散落在大陆上的心之碎片和金色小虫了，24只金色小虫能换取装1000卢比的钱包，另外还可以开始凑钱买第三套铠甲。
 
 第八章 黎明之前的黑暗（伪王）

@@ -8,7 +8,7 @@
 :keywords: XlsxWriter, python-excel, xlrd, xlwt, OpenPyXL, Win32Com, Microsoft Excel
 :slug: python-read-write-excel
 :lang: zh_cn
-:featured_image: http://www.gocalf.com/blog/images/2013/12/python-excel.png
+:featured_image: https://blog.gocalf.com/images/2013/12/python-excel.png
 :summary: 前段时间需要用Python来处理Microsft Excel文件，尝试了一些不同的方法，记录下来留个印象。
 :depends: fontawesome
 
@@ -362,5 +362,5 @@ Excel API中有各种各样的枚举常量，我还没有找到在Python中直�
 .. _Python COM: http://docs.activestate.com/activepython/2.4/pywin32/com.html
 .. _constant memory模式: http://xlsxwriter.readthedocs.org/en/latest/working_with_memory.html
 .. _Excel Enumerations: http://msdn.microsoft.com/en-us/library/office/ff838815.aspx
-.. _@依云: http://www.gocalf.com/blog/python-read-write-excel.html#comment-1329532357
+.. _@依云: https://blog.gocalf.com/python-read-write-excel.html#comment-1329532357
 .. _手动运行makepy: http://timgolden.me.uk/python/win32_how_do_i/generate-a-static-com-proxy.html

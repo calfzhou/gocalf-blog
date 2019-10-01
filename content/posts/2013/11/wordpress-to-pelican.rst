@@ -8,7 +8,7 @@
 :keywords: WordPress, 静态博客, Octopress, Markdown, reStructuredText, Pelican Theme, Elegant
 :slug: wordpress-to-pelican
 :lang: zh_cn
-:featured_image: http://www.gocalf.com/blog/images/2013/11/wordpress_to_pelican.png
+:featured_image: https://blog.gocalf.com/images/2013/11/wordpress_to_pelican.png
 :summary: 经过一段时间的整理，现在正式把GoCalf博客从WordPress迁移到Pelican了。
 
 .. contents::
@@ -122,7 +122,7 @@ reStructuredText的段落嵌套非常的强大，而Markdown似乎忘记了这�
 
     + [2013-11-12] 现在改用\ `Elegant`_\ 主题，非常的清新，而且作者很活跃，一直在不断地完善该主题。
 
-.. _GoCalf博客: http://www.gocalf.com/blog
+.. _GoCalf博客: https://blog.gocalf.com/
 .. _WordPress: http://wordpress.org/
 .. _Pelican: http://blog.getpelican.com/
 .. _Octopress: http://octopress.org/

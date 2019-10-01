@@ -10,7 +10,7 @@
 :lang: zh_cn
 :status: draft
 :series: my-wedding
-:featured_image: http://www.gocalf.com/blog/images/2011/07/wedding-icon.jpg
+:featured_image: https://blog.gocalf.com/images/2011/07/wedding-icon.jpg
 :summary: 婚礼的录像有一个多小时，忒长鸟~~，在此，仅截取开头四分钟的小片头展示一下吧，每个环节都有一滴滴。hoho~~
 
 婚礼的录像有一个多小时，忒长鸟~~，在此，仅截取开头四分钟的小片头展示一下吧，每个环节都有一滴滴。hoho~~

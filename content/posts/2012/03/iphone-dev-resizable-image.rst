@@ -8,7 +8,7 @@ iOS可拉伸的图片
 :keywords: End Cap, iPhone开发, ObjC, Resizable Image, Stretchable Image, UIImage, 图片拉伸, 端帽
 :slug: iphone-dev-resizable-image
 :lang: zh_cn
-:featured_image: http://www.gocalf.com/blog/images/2012/03/resizable_image_icon.png
+:featured_image: https://blog.gocalf.com/images/2012/03/resizable_image_icon.png
 :summary: 还记得在Windows下用MFC或WTL写用户界面程序的时候，为了给可改变大小的对话框加上背景图案，需要对设计师提供的图片进行裁剪。把图片切成九块，其中四个角是不拉伸的，四条棱边可以在一个方向上拉伸，中间区域则可任意拉伸。其过程是相当烦琐的。在Mac下，一切都变的及其简单，UIImage类已经为我们提供了处理拉伸的方法。
 
 还记得在Windows下用MFC或WTL写用户界面程序的时候，为了给可改变大小的对话框加上背景图案，需要对设计师提供的图片进行裁剪。把图片切成九块，其中四个角是不拉伸的，四条棱边可以在一个方向上拉伸，中间区域则可任意拉伸。其过程是相当烦琐的。在Mac下，一切都变的及其简单，\ `UIImage`_\ 类已经为我们提供了处理拉伸的方法。

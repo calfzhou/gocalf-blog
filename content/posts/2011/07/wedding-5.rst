@@ -10,7 +10,7 @@
 :lang: zh_cn
 :status: draft
 :series: my-wedding
-:featured_image: http://www.gocalf.com/blog/images/2011/07/wedding-icon.jpg
+:featured_image: https://blog.gocalf.com/images/2011/07/wedding-icon.jpg
 :summary: 婚礼照片第五部分。
 
 第五部分：婚宴。

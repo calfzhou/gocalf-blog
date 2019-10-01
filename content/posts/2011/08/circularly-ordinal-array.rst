@@ -8,7 +8,7 @@
 :keywords: Binary Search, 二分查找, 循环有序数组, 算法题, 面试题
 :slug: circularly-ordinal-array
 :lang: zh_cn
-:featured_image: http://www.gocalf.com/blog/images/2011/08/circular_ordinal_array.png
+:featured_image: https://blog.gocalf.com/images/2011/08/circular_ordinal_array.png
 :summary: 问题描述：给定一个由n个各不相等的元素构成的循环有序数组（Circularly Ordinal Array），用O(log n) 时间、O(1)辅助空间在其中查找指定的元素。
 
 .. role:: raw-html(raw)

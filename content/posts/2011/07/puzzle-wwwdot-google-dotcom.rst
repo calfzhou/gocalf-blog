@@ -8,7 +8,7 @@
 :keywords: 智力题, Math Puzzle, WWW DOT GOOGLE DOT COM
 :slug: puzzle-wwwdot-google-dotcom
 :lang: zh_cn
-:featured_image: http://www.gocalf.com/blog/images/2011/07/google_puzzle.png
+:featured_image: https://blog.gocalf.com/images/2011/07/google_puzzle.png
 :summary: 一道关于Google的数字游戏题。
 :depends: mathjax
 

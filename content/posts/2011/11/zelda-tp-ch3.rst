@@ -9,7 +9,7 @@
 :slug: zelda-tp-ch3
 :lang: zh_cn
 :series: twilight-princess
-:featured_image: http://www.gocalf.com/blog/images/2011/11/tp_ch03_logo.png
+:featured_image: https://blog.gocalf.com/images/2011/11/tp_ch03_logo.png
 :summary: 回到卡卡里科村，林克遇见塔洛，他看到了林克的英雄之弓，又闹着要林克表演箭术，并要林克射中西北山丘房子顶上的一根木棒，就算是救世主。
 
 第三章 深海鱼族的传说（最后的影之碎片）

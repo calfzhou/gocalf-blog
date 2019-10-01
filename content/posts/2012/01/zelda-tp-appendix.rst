@@ -9,7 +9,7 @@
 :slug: zelda-tp-appendix
 :lang: zh_cn
 :series: twilight-princess
-:featured_image: http://www.gocalf.com/blog/images/2012/01/tp_appendix_logo.jpg
+:featured_image: https://blog.gocalf.com/images/2012/01/tp_appendix_logo.jpg
 :summary: 这里记录《塞尔达传说：黎明公主》中主要剧情之外的一些信息。
 
 .. contents::

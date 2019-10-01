@@ -9,7 +9,7 @@
 :slug: random-selection
 :lang: zh_cn
 :series: random-selection
-:featured_image: http://www.gocalf.com/blog/images/2011/09/colorpicker.png
+:featured_image: https://blog.gocalf.com/images/2011/09/colorpicker.png
 :summary: 问题描述：假设我们有一堆数据（可能在一个链表里，也可能在文件里），数量未知。要求只遍历一次这些数据，随机选取其中的一个元素，任何一个元素被选到的概率相等。O(n)时间，O(1)辅助空间（n是数据总数，但事先不知道）。
 :depends: mathjax
 

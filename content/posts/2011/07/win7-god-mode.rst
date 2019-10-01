@@ -8,7 +8,7 @@ Windows7上帝模式
 :keywords: God Mode, Control Panel
 :slug: win7-god-mode
 :lang: zh_cn
-:featured_image: http://www.gocalf.com/blog/images/2011/07/godmode_icon.png
+:featured_image: https://blog.gocalf.com/images/2011/07/godmode_icon.png
 :summary: 在Windows 7里，“上帝”能做什么？
 
 在Windows 7里，“上帝”能做什么？

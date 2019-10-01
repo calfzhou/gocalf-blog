@@ -8,7 +8,7 @@
 :keywords: Git Encrypt, gitcrypt, Dropbox, GitHub, Cloud Storage, Privacy, Security
 :slug: git-encrypt
 :lang: zh_cn
-:featured_image: http://www.gocalf.com/blog/images/2013/12/git_encrypt.png
+:featured_image: https://blog.gocalf.com/images/2013/12/git_encrypt.png
 :summary: 网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在Dropbox和GitHub中存储一些个人文件和代码。但如果涉及到隐私的信息非要放上去就必须要加密处理，今天我说一下如何用git来保存这些隐私信息。
 
 网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在\ `Dropbox`_\ 和\ `GitHub`_\ 中存储一些个人文件和代码。隐私问题比较麻烦，会有一些特别隐私的信息（比如银行密码、心情日记等）是不适合直接存放在云端的。但又确实想要借助云平台的便利性，就必须要做加密处理。操作的方法很多，今天我说一下用Git来保存这些隐私信息。

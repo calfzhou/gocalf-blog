@@ -9,7 +9,7 @@
 :slug: weighted-random-selection
 :lang: zh_cn
 :series: random-selection
-:featured_image: http://www.gocalf.com/blog/images/2011/09/colorpicker_weight.png
+:featured_image: https://blog.gocalf.com/images/2011/09/colorpicker_weight.png
 :summary: 问题描述：有一组数量未知的数据，每个元素有非负权重。要求只遍历一次，随机选取其中的一个元素，任何一个元素被选到的概率与其权重成正比。
 :depends: mathjax, highcharts
 

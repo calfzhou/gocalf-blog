@@ -8,7 +8,7 @@
 :keywords: 大整数运算, 斐波纳契数列, 矩阵乘方, 算法复杂度, 算法题, 面试题
 :slug: calc-fibonacci
 :lang: zh_cn
-:featured_image: http://www.gocalf.com/blog/images/2011/11/fibonacci.png
+:featured_image: https://blog.gocalf.com/images/2011/11/fibonacci.png
 :summary: 问题描述：Fibonacci数（Fibonacci Number）的定义是：F(n) = F(n - 1) + F(n - 2)，并且F(0) = 0，F(1) = 1。对于任意指定的整数n（n >= 0），计算F(n)，并分析算法的时间、空间复杂度。
 :depends: mathjax
 
