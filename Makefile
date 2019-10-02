@@ -26,7 +26,7 @@ CLOUDFILES_CONTAINER=my_cloudfiles_container
 DROPBOX_DIR=~/Dropbox/Public/
 
 GITHUB_PAGES_BRANCH=gh-pages
-GIT_COMMIT_MSG=Generate Pelican site for $(shell git describe --always --dirty=-dirty)
+GIT_COMMIT_MSG=Generate Pelican site for $(shell git describe --always --dirty=' (dirty)')
 
 
 DEBUG ?= 0
