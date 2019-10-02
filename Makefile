@@ -26,6 +26,7 @@ CLOUDFILES_CONTAINER=my_cloudfiles_container
 DROPBOX_DIR=~/Dropbox/Public/
 
 GITHUB_PAGES_BRANCH=gh-pages
+GIT_COMMIT_MSG=Generate Pelican site for $(shell git describe --always --dirty=-dirty)
 
 
 DEBUG ?= 0
@@ -114,7 +115,7 @@ cf_upload: publish
 	cd $(OUTPUTDIR) && swift -v -A https://auth.api.rackspacecloud.com/v1.0 -U $(CLOUDFILES_USERNAME) -K $(CLOUDFILES_API_KEY) upload -c $(CLOUDFILES_CONTAINER) .
 
 github: publish
-	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
+	ghp-import -m "$(GIT_COMMIT_MSG)" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
 	git push origin $(GITHUB_PAGES_BRANCH)
 
 
