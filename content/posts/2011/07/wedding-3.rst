@@ -1,5 +1,5 @@
-2011.5.15我们的婚礼（三）——准备篇
-#################################
+2011.5.15 我们的婚礼（三）——准备篇
+##################################
 :date: 2011-07-04 19:39
 :modified: 2011-08-03 20:35
 :author: Angel
@@ -39,13 +39,13 @@
     :alt: wed3040-466x700.jpg
     :target: {static}/images/2011/07/wed3040.jpg
 
-    签到台-鲜花
+    签到台 - 鲜花
 
 .. figure:: {static}/images/2011/07/wed3050-700x466.jpg
     :alt: wed3050-700x466.jpg
     :target: {static}/images/2011/07/wed3050.jpg
 
-    签到台-相册
+    签到台 - 相册
 
 .. figure:: {static}/images/2011/07/wed3060-700x466.jpg
     :alt: wed3060-700x466.jpg
@@ -63,7 +63,7 @@
     :alt: wed3080-467x700.jpg
     :target: {static}/images/2011/07/wed3080.jpg
 
-    新娘用卡纸DIY的誓言册，不错吧？
+    新娘用卡纸 DIY 的誓言册，不错吧？
 
 .. figure:: {static}/images/2011/07/wed3090-462x700.jpg
     :alt: wed3090-462x700.jpg

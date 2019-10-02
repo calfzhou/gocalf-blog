@@ -1,55 +1,55 @@
-iOS自定义范围滑动条控件
-#######################
+iOS 自定义范围滑动条控件
+########################
 :date: 2012-02-03 21:19
 :modified: 2012-12-04 16:58
 :author: Calf
 :category: 程序开发
 :tags: iOS Develop
-:keywords: iPhone开发, ObjC, Range Slider, UIControl, UISlider, 控件
+:keywords: iPhone 开发, ObjC, Range Slider, UIControl, UISlider, 控件
 :slug: iphone-dev-range-slider
 :lang: zh_cn
 :featured_image: https://blog.gocalf.com/images/2012/02/range_slider_icon.png
-:summary: 前些日子写app的时候遇到一个需求，希望有一个类似于UISlider的东西，但能够选取一个范围，也就是所谓的Range Slider。在网上也能找到很多相关的代码，不过本着学习的态度，还是自己琢磨了一下，就当是为以后写复杂控件做的练习吧。
+:summary: 前些日子写 app 的时候遇到一个需求，希望有一个类似于 UISlider 的东西，但能够选取一个范围，也就是所谓的 Range Slider。在网上也能找到很多相关的代码，不过本着学习的态度，还是自己琢磨了一下，就当是为以后写复杂控件做的练习吧。
 
-前些日子写app的时候遇到一个需求，希望有一个类似于\ `UISlider`_\ 的东西，但能够选取一个范围，也就是所谓的Range
+前些日子写 app 的时候遇到一个需求，希望有一个类似于 `UISlider`_ 的东西，但能够选取一个范围，也就是所谓的 Range
 Slider。在网上也能找到很多相关的代码，不过本着学习的态度，还是自己琢磨了一下。
 
 就当是为以后写复杂控件做的练习吧。
 
 .. more
 
-以下内容适用于iOS 2.0+。
+以下内容适用于 iOS 2.0+。
 
-需求决定一切，在介绍我的这个Range
-Slider之前，先把我的需求（或者说我这个Range
-Slider的功能）介绍一下。它最多只算是个toy，还有很多需要完善的地方。不过聊胜于无，以后继续努力呗。
+需求决定一切，在介绍我的这个 Range
+Slider 之前，先把我的需求（或者说我这个 Range
+Slider 的功能）介绍一下。它最多只算是个 toy，还有很多需要完善的地方。不过聊胜于无，以后继续努力呗。
 
 这是一个水平方向的（浮点）数值范围选择器：
 
 -  可以为它设置数值的最小值（minimumValue）和最大值（maximumValue），分别对应于滑动条最左端和最右端的数值。
 -  可以设置范围的最小值（minimumSpan）和最大值（maximumSpan），因为我可能会要求选择的数值区间长度不太短或不太长。
--  可以获取或设置当前选择的数值范围（smallValue和largeValue），对应于界面上左右两个滑块的位置。
+-  可以获取或设置当前选择的数值范围（smallValue 和 largeValue），对应于界面上左右两个滑块的位置。
 -  左右两个滑块都可以相互独立地左右滑动；一个滑块滑动时，另一个滑块会根据需要自动调整。比如当向左滑动左边的滑块时，如果选取的范围已经达到范围最大值（maximumSpan），右边的滑块就会跟着向左滑动。反之亦然。
 -  两个滑块中间的条块也是可以滑动的，移动它的时候，两个滑块会一起左右移动（不改变选取范围的长度）。
--  当滑块或者滑条移动时，此控件的UIControlEventValueChanged事件会被触发。
--  可以用程序修改当前的选择范围，UI会跟着调整，但不会触发上述事件，以免在某些情况下陷入死循环。
--  以左滑块为例，当它滑动到最左边后，如果手指继续做向左滑动的动作，当前选择的范围不会变化，但会通过另一个量（offsetTrend）来表达这种趋势。在某些情况下，应用程序可能会需要得到这样的信息，以便当用户在slider边缘继续往外滑动时，进行一些特殊的处理。右滑块和滑条都有同样的功能。
+-  当滑块或者滑条移动时，此控件的 UIControlEventValueChanged 事件会被触发。
+-  可以用程序修改当前的选择范围，UI 会跟着调整，但不会触发上述事件，以免在某些情况下陷入死循环。
+-  以左滑块为例，当它滑动到最左边后，如果手指继续做向左滑动的动作，当前选择的范围不会变化，但会通过另一个量（offsetTrend）来表达这种趋势。在某些情况下，应用程序可能会需要得到这样的信息，以便当用户在 slider 边缘继续往外滑动时，进行一些特殊的处理。右滑块和滑条都有同样的功能。
 -  可以为这个控件设置委托（delegate），当滑块或者滑条将要开始滑动、或者滑动结束的时候，委托的对象都会收到相应的消息。当然，会有一个只读的量（isDragging）用来查询是否有滑块或者滑条在滑动中。
--  slider的背景条、滑块、滑条的图案都可以被替换。
+-  slider 的背景条、滑块、滑条的图案都可以被替换。
 
-我的这个Range Slider暂\ **不支持**\ 的功能包括但不限于：
+我的这个 Range Slider 暂\ **不支持**\ 的功能包括但不限于：
 
 -  不支持纵向的滑动模式（或许可以直接利用旋转整个控件达到此目的）。
--  没有为自定义UI样式提供足够的接口。虽然背景和滑块的图片都能替换，但并不支持为每一个对象实例单独替换图片。比起SDK中的UISlider，这方面的功能是相当薄弱的。
+-  没有为自定义 UI 样式提供足够的接口。虽然背景和滑块的图片都能替换，但并不支持为每一个对象实例单独替换图片。比起 SDK 中的 UISlider，这方面的功能是相当薄弱的。
 
-说了这么多，来看看它的样子吧。外表很简单，我用的背景、滑块和滑条图片都跟UISlider是一样的：
+说了这么多，来看看它的样子吧。外表很简单，我用的背景、滑块和滑条图片都跟 UISlider 是一样的：
 
 .. figure:: {static}/images/2012/02/range_slider.png
     :alt: range_slider
 
-    我的Range Slider
+    我的 Range Slider
 
-实现起来蛮简单的，因为SDK已经提供了足够的支持。我的这个类就叫做RangeSlider，继承自\ `UIControl`_\ 类。另外我还定义了它的委托类，叫做RangeSliderDelegate。二者的接口如下：
+实现起来蛮简单的，因为 SDK 已经提供了足够的支持。我的这个类就叫做 RangeSlider，继承自 `UIControl`_ 类。另外我还定义了它的委托类，叫做 RangeSliderDelegate。二者的接口如下：
 
 - RangeSlider
 
@@ -145,8 +145,8 @@ Slider的功能）介绍一下。它最多只算是个toy，还有很多需要�
 
     @end
 
-接口中的大部分内容都在需求和功能介绍部分见过了。另外有两个方法，xForValue和valueForX，它们用来在Range
-Slider内部的坐标值和用户数值之间做转换，内容如下（这里的insetWidth是在UI上做的小伎俩，主要是为了保证滑块滑到最两端时也能有充足的空间来接受用户的点击）：
+接口中的大部分内容都在需求和功能介绍部分见过了。另外有两个方法，xForValue 和 valueForX，它们用来在 Range
+Slider 内部的坐标值和用户数值之间做转换，内容如下（这里的 insetWidth 是在 UI 上做的小伎俩，主要是为了保证滑块滑到最两端时也能有充足的空间来接受用户的点击）：
 
 .. code-block:: objc
 
@@ -158,9 +158,9 @@ Slider内部的坐标值和用户数值之间做转换，内容如下（这里�
         return minimumValue_ + (x - insetWidthLeft_) * (maximumValue_ - minimumValue_) / rangeWidth_;
     }
 
-我就不贴完整的.m源文件了，只是逐个介绍一下重要的方法。
+我就不贴完整的 .m 源文件了，只是逐个介绍一下重要的方法。
 
-首先看初始化方法initWithFrame，和更新显示的方法updateSelectionView。这个没啥好说的，就是初始化成员变量，创建好相关的图片：
+首先看初始化方法 initWithFrame，和更新显示的方法 updateSelectionView。这个没啥好说的，就是初始化成员变量，创建好相关的图片：
 
 - initWithFrame
 
@@ -234,13 +234,13 @@ Slider内部的坐标值和用户数值之间做转换，内容如下（这里�
                                           selectionView_.frame.size.height);
     }
 
-接下来看最重要的部分，就是处理触摸事件的方法。这些方法继承自基类UIControl，分别是\ `beginTrackingWithTouch:withEvent:`_\ ，\ `continueTrackingWithTouch:withEvent:`_\ ，和\ `endTrackingWithTouch:withEvent:`_\ 。
+接下来看最重要的部分，就是处理触摸事件的方法。这些方法继承自基类 UIControl，分别是 `beginTrackingWithTouch:withEvent:`_，`continueTrackingWithTouch:withEvent:`_，和 `endTrackingWithTouch:withEvent:`_。
 
-beginTracking和endTracking都很简单，在beginTracking的时候判断是哪个东西被拖动，让其进入高亮状态，修改成员变量记录当前的状态；在endTracking的时候取消高亮，恢复状态。
+beginTracking 和 endTracking 都很简单，在 beginTracking 的时候判断是哪个东西被拖动，让其进入高亮状态，修改成员变量记录当前的状态；在 endTracking 的时候取消高亮，恢复状态。
 
-在continueTracking方法中，先获取手指移动的坐标偏移量，将其换算成数值的偏移量，然后就直接调用相应的设置函数修改已选择的数值区域。
+在 continueTracking 方法中，先获取手指移动的坐标偏移量，将其换算成数值的偏移量，然后就直接调用相应的设置函数修改已选择的数值区域。
 
-注意rangeSliderWillBeginDragging和rangeSliderDidEndDragging这两个消息的回调时机。手指刚刚按在滑块上的时候，beginTracking被调用，但这时并不表示用户开始已经开始拖动了，他可能只是按了一下，马上就抬起来。所以当手指按住滑块并有了第一次微小的位移时，continueTracking被调用，这时就可以确定用户是在进行拖动操作。这时候才发送rangeSliderWillBeginDragging消息。最后当手指离开滑块时，拖动操作结束，发送rangeSliderDidEndDragging消息。
+注意 rangeSliderWillBeginDragging 和 rangeSliderDidEndDragging 这两个消息的回调时机。手指刚刚按在滑块上的时候，beginTracking 被调用，但这时并不表示用户开始已经开始拖动了，他可能只是按了一下，马上就抬起来。所以当手指按住滑块并有了第一次微小的位移时，continueTracking 被调用，这时就可以确定用户是在进行拖动操作。这时候才发送 rangeSliderWillBeginDragging 消息。最后当手指离开滑块时，拖动操作结束，发送 rangeSliderDidEndDragging 消息。
 
 - beginTrackingWithTouch
 
@@ -323,9 +323,9 @@ beginTracking和endTracking都很简单，在beginTracking的时候判断是哪�
         }
     }
 
-最后就是修改smallValue、largeValue和整个选取范围的方法，这些方法会在滑动过程中由上面的continueTrackingWithTouch:withEvent:调用，也可以由其他程序直接调用。
+最后就是修改 smallValue、largeValue 和整个选取范围的方法，这些方法会在滑动过程中由上面的 continueTrackingWithTouch:withEvent: 调用，也可以由其他程序直接调用。
 
-不但要保证smallValue和largeValue都在最小值和最大值范围之内，还要根据最小范围和最大范围的限制来进行适当的调整。
+不但要保证 smallValue 和 largeValue 都在最小值和最大值范围之内，还要根据最小范围和最大范围的限制来进行适当的调整。
 
 - setSmallValue
 

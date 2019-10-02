@@ -1,5 +1,5 @@
-Windows7上帝模式
-################
+Windows 7 上帝模式
+##################
 :date: 2011-07-14 17:48
 :modified: 2011-08-03 20:57
 :author: Calf
@@ -9,31 +9,31 @@ Windows7上帝模式
 :slug: win7-god-mode
 :lang: zh_cn
 :featured_image: https://blog.gocalf.com/images/2011/07/godmode_icon.png
-:summary: 在Windows 7里，“上帝”能做什么？
+:summary: 在 Windows 7 里，“上帝” 能做什么？
 
-在Windows 7里，“上帝”能做什么？
+在 Windows 7 里，“上帝” 能做什么？
 
-一个简单的方法就可以调出调整Windows 7系统里全部功能的面板，这个小小的技巧可以让你控制你电脑中的一切。
+一个简单的方法就可以调出调整 Windows 7 系统里全部功能的面板，这个小小的技巧可以让你控制你电脑中的一切。
 
 .. more
 
-启动“上帝模式”的方法非常简单，随便找个地方建立一个文件夹，将其命名为\ ``GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}``\ ，当然这里的“GodMode”不是必须的，可以选择任何喜欢的名字，起作用的是小数点后面的GUID。
+启动“上帝模式”的方法非常简单，随便找个地方建立一个文件夹，将其命名为 ``GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}``，当然这里的“GodMode”不是必须的，可以选择任何喜欢的名字，起作用的是小数点后面的 GUID。
 
 .. figure:: {static}/images/2011/07/godmode1.png
-    :alt: 创建GodMode文件夹
+    :alt: 创建 GodMode 文件夹
 
-    创建GodMode文件夹
+    创建 GodMode 文件夹
 
 回车之后，“上帝”就现身了。
 
 .. figure:: {static}/images/2011/07/godmode2.png
-    :alt: 创建GodMode文件夹
+    :alt: 创建 GodMode 文件夹
 
     Win7 God Mode Overview
 
 进入此文件夹，一坨坨系统设置就在那里恭候大驾了。
 
 .. figure:: {static}/images/2011/07/godmode3.png
-    :alt: 创建GodMode文件夹
+    :alt: 创建 GodMode 文件夹
 
     Windows 7 上帝模式

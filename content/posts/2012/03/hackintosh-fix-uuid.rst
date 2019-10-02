@@ -1,5 +1,5 @@
-解决黑苹果Unable to Determine UUID错误
-######################################
+解决黑苹果 Unable to Determine UUID 错误
+########################################
 :date: 2012-03-02 23:09
 :modified: 2012-03-02 23:09
 :author: Calf
@@ -9,14 +9,14 @@
 :slug: hackintosh-fix-uuid
 :lang: zh_cn
 :featured_image: https://blog.gocalf.com/images/2012/03/uuid-icon.png
-:summary: 前几天在写app的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行genstrings命令来扫描源代码中NSLocalizedString宏所使用到的文字。由于使用的是黑苹果，在运行genstrings时遇到了“Unable to Determine UUID”的错误，解决方法倒也容易。
+:summary: 前几天在写 app 的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行 genstrings 命令来扫描源代码中 NSLocalizedString 宏所使用到的文字。由于使用的是黑苹果，在运行 genstrings 时遇到了“Unable to Determine UUID”的错误，解决方法倒也容易。
 
-前几天在写app的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行genstrings命令来扫描源代码中NSLocalizedString宏所使用到的文字。由于使用的是黑苹果（安装过程参见\ `Dell E6400安装MacOS雪豹10.6`_\ 和\ `Dell E6400升级到MacOS 10.6.8`_\ ），在运行genstrings时遇到了“Unable
+前几天在写 app 的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行 genstrings 命令来扫描源代码中 NSLocalizedString 宏所使用到的文字。由于使用的是黑苹果（安装过程参见 `Dell E6400 安装 MacOS 雪豹 10.6`_ 和 `Dell E6400 升级到 MacOS 10.6.8`_），在运行 genstrings 时遇到了“Unable
 to Determine UUID”的错误，解决方法倒也容易。
 
 .. more
 
-运行genstrings的语句是：
+运行 genstrings 的语句是：
 
 .. code-block:: text
     :linenos: none
@@ -30,7 +30,7 @@ to Determine UUID”的错误，解决方法倒也容易。
 
     genstrings[3851:10b] _CFGetHostUUIDString: unable to determine UUID for host. Error: 35
 
-虽然想不通这么个小程序为什么需要UUID，但解决方法是：进入目录/Library/Preferences/SystemConfiguration，用root权限修改其中的NetworkInterfaces.plist文件，在控制台的操作命令为：
+虽然想不通这么个小程序为什么需要 UUID，但解决方法是：进入目录 /Library/Preferences/SystemConfiguration，用 root 权限修改其中的 NetworkInterfaces.plist 文件，在控制台的操作命令为：
 
 .. code-block:: bash
     :linenos: none
@@ -38,7 +38,7 @@ to Determine UUID”的错误，解决方法倒也容易。
     cd /Library/Preferences/SystemConfiguration
     sudo vi NetworkInterfaces.plist
 
-给这个文件中添加一个IEEE80211相关的dict（原本会有其他一些dict，不用管它们），内容如下：
+给这个文件中添加一个 IEEE80211 相关的 dict（原本会有其他一些 dict，不用管它们），内容如下：
 
 .. code-block:: xml
 
@@ -63,5 +63,5 @@ to Determine UUID”的错误，解决方法倒也容易。
 
 添加好后保存此文件，然后重启系统。问题就解决了。
 
-.. _Dell E6400安装MacOS雪豹10.6: {filename}../../2011/07/dell-e6400-install-mac.rst
-.. _Dell E6400升级到MacOS 10.6.8: {filename}../../2011/08/dell-e6400-mac-10-6-8.rst
+.. _Dell E6400 安装 MacOS 雪豹 10.6: {filename}../../2011/07/dell-e6400-install-mac.rst
+.. _Dell E6400 升级到 MacOS 10.6.8: {filename}../../2011/08/dell-e6400-mac-10-6-8.rst
