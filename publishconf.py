@@ -21,6 +21,11 @@ FEED_ALL_ATOM = "feeds/all.atom.xml"
 CATEGORY_FEED_ATOM = 'feeds/{slug}.atom.xml'
 
 DISQUS_SITENAME = 'gocalfblog'
+
+UTTERANCES_REPO = 'calfzhou/gocalf-blog'
+UTTERANCES_THEME = 'github-light'
+UTTERANCES_LABEL = 'blog-comment'
+
 GOOGLE_ANALYTICS = 'UA-24210758-2'
 
 RELATIVE_URLS = False
