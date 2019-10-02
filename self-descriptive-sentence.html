@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="自描述语句（Self-Descriptive Sentence），也叫做autogram，是一种自己描述自己的语句，今天就介绍一种简单的生成这种句子的方法。
+        <meta name="description" content="自描述语句（Self-Descriptive Sentence），也叫做 autogram，是一种自己描述自己的语句，今天就介绍一种简单的生成这种句子的方法。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
@@ -16,13 +16,13 @@
 
 <meta property="og:title" content="自描述语句 "/>
 <meta property="og:url" content="https://blog.gocalf.com/self-descriptive-sentence" />
-<meta property="og:description" content="自描述语句（Self-Descriptive Sentence），也叫做autogram，是一种自己描述自己的语句，今天就介绍一种简单的生成这种句子的方法。" />
+<meta property="og:description" content="自描述语句（Self-Descriptive Sentence），也叫做 autogram，是一种自己描述自己的语句，今天就介绍一种简单的生成这种句子的方法。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2014-08-28T17:15:00+08:00" />
 <meta property="og:article:modified_time" content="2014-08-28T23:25:00+08:00" />
 <meta name="twitter:title" content="自描述语句 ">
-<meta name="twitter:description" content="自描述语句（Self-Descriptive Sentence），也叫做autogram，是一种自己描述自己的语句，今天就介绍一种简单的生成这种句子的方法。">
+<meta name="twitter:description" content="自描述语句（Self-Descriptive Sentence），也叫做 autogram，是一种自己描述自己的语句，今天就介绍一种简单的生成这种句子的方法。">
 
         <title>自描述语句  · GoCalf Blog
 </title>
@@ -133,15 +133,15 @@
     <div class="span8 article-content">
             
             
-<p>自描述语句（Self-Descriptive Sentence），也叫做<a class="reference external" href="http://en.wikipedia.org/wiki/Autogram">autogram</a>，是一种自己描述自己的语句。</p>
-<p>我在2004年的时候（时光飞逝啊）看到这种句子，想了一个简单的方法来用程序生成，效果还可以，但还有很大的不足。后来也没在做什么改进，今天就把这陈年老事拿出来晒晒太阳。</p>
+<p>自描述语句（Self-Descriptive Sentence），也叫做 <a class="reference external" href="http://en.wikipedia.org/wiki/Autogram">autogram</a>，是一种自己描述自己的语句。</p>
+<p>我在 2004 年的时候（时光飞逝啊）看到这种句子，想了一个简单的方法来用程序生成，效果还可以，但还有很大的不足。后来也没在做什么改进，今天就把这陈年老事拿出来晒晒太阳。</p>
 <!-- more -->
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id21">介绍</a></h2>
-<p>先举个简单的自描述语句的例子。十年前好友<a class="reference external" href="http://www.truevue.org/">@gdh</a>发邮件来说在网上看到有人发了这样一个句子，号称是用来折腾Visual Studio 2003的，但是没有更具体的信息，就想问问我有没有什么想法。句子是这样的：</p>
+<p>先举个简单的自描述语句的例子。十年前好友 <a class="reference external" href="http://www.truevue.org/">@gdh</a> 发邮件来说在网上看到有人发了这样一个句子，号称是用来折腾 Visual Studio 2003 的，但是没有更具体的信息，就想问问我有没有什么想法。句子是这样的：</p>
 <blockquote>
-聪明的张先生生成的这个句子一共有一百一十三个字，其中有二个“百”，三个“有”，二个“子”，七个“三”，三个“生”，十五个“二”，二个“先”，二个“字”，一个“八”，二个“七”，一个“四”，二个“明”，一个“六”，二个“成”，一个“零”，二个“张”，二个“中”，二个“其”，二个“共”，二个“这”，五个“十”，二个“句”，十个“一”，三十一个“个”，三个“的”，二个“聪”，一个“九”，三个“五”。</blockquote>
-<p>特点很明显，不考虑标点符号的话，一数便知，这句话一共有113个汉字，跟句子中声明的一致。另外，句子中出现过的每一个汉字，句子自身都给出了这个汉字的总出现次数。比如“聪”字一共出现两次，第一次是句子开头“聪明的”那里，第二次是声明“聪”字个数的时候说的“二个‘聪’”。再比如“个”字，数一数，包括“三十一个‘个’”中出现的两次，确确实实总共出现了31次。</p>
+聪明的张先生生成的这个句子一共有一百一十三个字，其中有二个 “百”，三个 “有”，二个 “子”，七个 “三”，三个 “生”，十五个 “二”，二个 “先”，二个 “字”，一个 “八”，二个 “七”，一个 “四”，二个 “明”，一个 “六”，二个 “成”，一个 “零”，二个 “张”，二个 “中”，二个 “其”，二个 “共”，二个 “这”，五个 “十”，二个 “句”，十个 “一”，三十一个 “个”，三个 “的”，二个 “聪”，一个 “九”，三个 “五”。</blockquote>
+<p>特点很明显，不考虑标点符号的话，一数便知，这句话一共有 113 个汉字，跟句子中声明的一致。另外，句子中出现过的每一个汉字，句子自身都给出了这个汉字的总出现次数。比如“聪”字一共出现两次，第一次是句子开头“聪明的”那里，第二次是声明“聪”字个数的时候说的“二个‘聪’”。再比如“个”字，数一数，包括“三十一个‘个’”中出现的两次，确确实实总共出现了 31 次。</p>
 <p>这样的句子就是自描述语句的一种，它自己对自己做了一番统计，表明了自身的总字数，以及所包含的每一个汉字的次数。当然如果愿意的话，还可以让它把包含的每一个标点符号也都统计出来。</p>
 <p>再来一个例子：</p>
 <blockquote>
@@ -151,7 +151,7 @@
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id22">直接的思路</a></h2>
 <p>当时看到这样的句子，其实我也没什么思路，开始也没想要写程序来生成，只是顺着一点儿模糊的想法在纸上打打草稿。结果因为自己的小学数学基本功太差，加加减减的时候总是会出错，越算越头疼，只好写个程序来帮我算，没想到程序就直接把结果算出来了。</p>
-<p>这中句子的结构就是一个前缀（如“你看到的这个句子”），跟着对总字数的声明（“一共有XX个字”），然后是对句子中包含的每一个汉字的次数的声明。那首先就得知道可能会包含哪些汉字啊。显然前缀子句和其他句子结构中出现的汉字都在其中，另外所有的数词（零一二三等）都有可能会出现。</p>
+<p>这中句子的结构就是一个前缀（如“你看到的这个句子”），跟着对总字数的声明（“一共有 XX 个字”），然后是对句子中包含的每一个汉字的次数的声明。那首先就得知道可能会包含哪些汉字啊。显然前缀子句和其他句子结构中出现的汉字都在其中，另外所有的数词（零一二三等）都有可能会出现。</p>
 <p>再想想每个字可能的次数。既不是数词也不在词频统计部分重复出现的字（如上面示例中的“个”字），它们的出现的次数应该是固定的，即除了在前缀等地方出现已知的次数外，还会在声明它的词频时再出现一次。比如上面第二个例子中的“你”字，它就应该是出现两次，一次是作为句子的成分（前缀部分）出现一次，另一次就是声明它的词频的时候。而数词的次数就没法直接确定了，明显能感觉到它们是牵一发而动其全身的。</p>
 <div class="section" id="id5">
 <h3><a class="toc-backref" href="#id23">初始化</a></h3>
@@ -159,8 +159,8 @@
 <blockquote>
 这一句话一共有__个字，__个“__”，__个“__”，……。</blockquote>
 <p>先确定可能会出现的汉字集合，显然目前能看到的有“这”、“一”、“句”、“话”、“共”、“有”、“个”、“字”。另外预计会出现的就是所有的数词了。因为字数比较少，所以暂时就不用考虑“零”、“百”、“千”等字，只要考虑“一”到“十”即可。</p>
-<p>关于把数字用中文表示出来的方法，参见之前的博文<a class="reference external" href="https://blog.gocalf.com/number-to-chinese">将整数数字转换成中文</a> ，非常简单的程序，这里不再重复。</p>
-<p>如果你的心算笔算能力还不错，下面的过程用一张纸和一支笔就能搞定了。首先列出所有可能出现的汉字，并且所有字的初始计数均为0。总字数也要记录在案，初始值也是0。列出来就是这样的表格，其中最后一列“TC”表示总字数。</p>
+<p>关于把数字用中文表示出来的方法，参见之前的博文 <a class="reference external" href="https://blog.gocalf.com/number-to-chinese">将整数数字转换成中文</a> ，非常简单的程序，这里不再重复。</p>
+<p>如果你的心算笔算能力还不错，下面的过程用一张纸和一支笔就能搞定了。首先列出所有可能出现的汉字，并且所有字的初始计数均为 0。总字数也要记录在案，初始值也是 0。列出来就是这样的表格，其中最后一列“TC”表示总字数。</p>
 <style>
     table.docutils thead {text-align: center;}
     table.docutils tbody {text-align: center;}
@@ -231,7 +231,7 @@
 </div>
 <div class="section" id="id6">
 <h3><a class="toc-backref" href="#id24">第一次迭代</a></h3>
-<p>接下来对句子模板做第一次扫描，并根据情况更新相应汉字的字数和总字数。处理的方法很简单，每看到一个汉字，就要给它的计数加1，总字数加1。任何一个汉字，如果计数从0变成1，即第一次遇到它，就要再给它的计数和总字数加1，同时对“个”字执行同样的操作。把这个过程叫做“increase”操作，即：</p>
+<p>接下来对句子模板做第一次扫描，并根据情况更新相应汉字的字数和总字数。处理的方法很简单，每看到一个汉字，就要给它的计数加 1，总字数加 1。任何一个汉字，如果计数从 0 变成 1，即第一次遇到它，就要再给它的计数和总字数加 1，同时对“个”字执行同样的操作。把这个过程叫做“increase”操作，即：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -248,8 +248,8 @@
         c.count += 1
         total.count += 1
 </pre></div>
-</td></tr></table><p>比如首先看到“这”字，当前计数为0，执行increase操作给它的个数加2，总字数加2，再对“个”字执行increase操作。由于“个”字此时的计数也是0，因此它的计数直接加到2，总字数加2，这时注意还要再对“个”字执行一次increase操作。但第二次对“个”字执行increase操作时，由于其当前计数是2不是0，所以直接给计数和总字数分别加1就行了。处理完第一个字“这”之后，计数情况为：2个“这”，3个“个”，总字数5。</p>
-<p>然后是“一”字，同样执行increase操作，计数增加2，总字数增加2，再对“个”字执行increase，效果是其字数和总字数又分别加1。完成后的计数情况为：2个“这”，4个“个”，2个“一”，总字数7。</p>
+</td></tr></table><p>比如首先看到“这”字，当前计数为 0，执行 increase 操作给它的个数加 2，总字数加 2，再对“个”字执行 increase 操作。由于“个”字此时的计数也是 0，因此它的计数直接加到 2，总字数加 2，这时注意还要再对“个”字执行一次 increase 操作。但第二次对“个”字执行 increase 操作时，由于其当前计数是 2 不是 0，所以直接给计数和总字数分别加 1 就行了。处理完第一个字“这”之后，计数情况为：2 个“这”，3 个“个”，总字数 5。</p>
+<p>然后是“一”字，同样执行 increase 操作，计数增加 2，总字数增加 2，再对“个”字执行 increase，效果是其字数和总字数又分别加 1。完成后的计数情况为：2 个“这”，4 个“个”，2 个“一”，总字数 7。</p>
 <p>用类似的办法把后面的“句”、“话”、“一”、“共”、“有”、“个”、和“字”都处理完，最后得到如下的计数情况：</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -318,7 +318,7 @@
 </div>
 <div class="section" id="id7">
 <h3><a class="toc-backref" href="#id25">第二次迭代</a></h3>
-<p>下一轮就把所有的计数都翻译成中文，并统计它们所带来的计数改变。比如第一个计数是3，就要对“三”字执行increase操作。然后是10，对“十”字做increase操作。……。最后总字数25，分别对“二”、“十”和“五”操作即可。处理完后得到新的一轮计数：</p>
+<p>下一轮就把所有的计数都翻译成中文，并统计它们所带来的计数改变。比如第一个计数是 3，就要对“三”字执行 increase 操作。然后是 10，对“十”字做 increase 操作。……。最后总字数 25，分别对“二”、“十”和“五”操作即可。处理完后得到新的一轮计数：</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="6%"/>
@@ -390,7 +390,7 @@
 <ul class="simple">
 <li>“一”、“这”、“句”等字的计数没有发生变化，并且这些数字对应的汉字已经全部统计过了，所以不必对它们做别的处理。</li>
 <li>“二”、“三”、“十”等字，计数从没有变成了若干个，就要用跟刚才一样的方法，把这些数字翻译成中文并增加相应汉字的计数。</li>
-<li>“个”字和总字数，我本来是想加入10和25，但现在分别是14和44，所以要把刚才加入的10和25都去掉，换成14和25。比如把10换成14，先对“十”字做decrease操作，然后分别对“十”和“四”字执行increase操作。decrease的过程如下所示，注意，由于每个字的计数都是直接从0涨到2的，所以也会直接从2降到0。</li>
+<li>“个”字和总字数，我本来是想加入 10 和 25，但现在分别是 14 和 44，所以要把刚才加入的 10 和 25 都去掉，换成 14 和 25。比如把 10 换成 14，先对 “十”字做 decrease 操作，然后分别对“十”和“四”字执行 increase 操作。decrease 的过程如下所示，注意，由于每个字的计数都是直接从 0 涨到 2 的，所以也会直接从 2 降到 0。</li>
 </ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -476,7 +476,7 @@
 </div>
 <div class="section" id="id9">
 <h3><a class="toc-backref" href="#id27">周而复始</a></h3>
-<p>之后用同样的方法一轮一轮地迭代，结果如下（包含从初始化开始的每次迭代，第一列ID表示迭代次数）：</p>
+<p>之后用同样的方法一轮一轮地迭代，结果如下（包含从初始化开始的每次迭代，第一列 ID 表示迭代次数）：</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="5%"/>
@@ -772,16 +772,16 @@
 <h3><a class="toc-backref" href="#id28">算法</a></h3>
 <p>总的看来，一轮一轮迭代的处理方法是这样的：</p>
 <ol class="arabic simple">
-<li>所有汉字的计数和总字数均初始化为0；</li>
+<li>所有汉字的计数和总字数均初始化为 0；</li>
 <li>遍历句子模板中的每一个汉字，对其计数做“increase”操作，得到一组新的计数；</li>
 <li>比较当前计数数组与前一轮计数数组中的每一项：<ol class="arabic">
 <li>如果二者一致，无操作；</li>
-<li>否则，对前一轮的数值对应的每个汉字执行decrease操作（0除外），对当前数值对应的每个汉字执行increase操作（0除外）；</li>
+<li>否则，对前一轮的数值对应的每个汉字执行 decrease 操作（0 除外），对当前数值对应的每个汉字执行 increase 操作（0 除外）；</li>
 </ol>
 </li>
-<li>重复步骤3，直到相邻两轮计数数组完全一致。</li>
+<li>重复步骤 3，直到相邻两轮计数数组完全一致。</li>
 </ol>
-<p>其中increase和decrease操作均如前所述，不再重复了。</p>
+<p>其中 increase 和 decrease 操作均如前所述，不再重复了。</p>
 </div>
 </div>
 <div class="section" id="id11">
@@ -796,14 +796,14 @@
 </div>
 <div class="section" id="id13">
 <h3><a class="toc-backref" href="#id31">解决</a></h3>
-<p>想到一个比较简单的变通方法就是修改之前的decrease操作。本来一个汉字如果是第一次出现，计数就直接从0涨到2，如果要去掉，也直接从2回到0。这样避免了出现“一个XX”的情况。这其实不是必须的，如果把条件放宽，允许出现“一个XX”（仍然符合自我统计的要求，只是显得有点儿多余），可以让decrease操作把计数从2降到1。写出来大概是这样：</p>
+<p>想到一个比较简单的变通方法就是修改之前的 decrease 操作。本来一个汉字如果是第一次出现，计数就直接从 0 涨到 2，如果要去掉，也直接从 2 回到 0。这样避免了出现“一个 XX”的情况。这其实不是必须的，如果把条件放宽，允许出现“一个 XX”（仍然符合自我统计的要求，只是显得有点儿多余），可以让 decrease 操作把计数从 2 降到 1。写出来大概是这样：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>def decrease(character c):
     c.count -= 1
     total.count -= 1
 </pre></div>
-</td></tr></table><p>根据这个规则重新迭代计算，结果如下表示，发现到第9次迭代后就收敛完毕。</p>
+</td></tr></table><p>根据这个规则重新迭代计算，结果如下表示，发现到第 9 次迭代后就收敛完毕。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="5%"/>
@@ -1045,7 +1045,7 @@
 <p>这样得到的自统计句子是：</p>
 <blockquote>
 新的一句话一共有六十六个字，五个“一”，十一个“二”，三个“三”，二个“四”，二个“五”，三个“六”，一个“八”，二个“九”，四个“十”，十九个“个”，二个“新”，二个“的”，二个“句”，二个“话”，二个“共”，二个“有”，二个“字”。</blockquote>
-<p>其中比较特殊的就是“一个‘八’”，句子中确实只有这个地方出现了1个“八”字，其他字的个数和总字数也都没错，但这个“一个‘八’”没有什么实际的意义。不引入这种“一个XX”能否找到符合这个模板的解呢？目前我还没有明确的答案。</p>
+<p>其中比较特殊的就是“一个‘八’”，句子中确实只有这个地方出现了 1 个“八”字，其他字的个数和总字数也都没错，但这个“一个‘八’”没有什么实际的意义。不引入这种“一个 XX”能否找到符合这个模板的解呢？目前我还没有明确的答案。</p>
 </div>
 </div>
 <div class="section" id="id14">
@@ -1055,13 +1055,13 @@
 <p>很快就又遇到了新的麻烦，比如把句子模板开头换成“这句话”，即：</p>
 <blockquote>
 这句话一共有__个字，__个“__”，__个“__”，……。</blockquote>
-<p>算一下就会发现，不论是像开始那样直接从2减到0，还是像刚才那样从2减到1，全都会陷入无法终止的迭代。</p>
+<p>算一下就会发现，不论是像开始那样直接从 2 减到 0，还是像刚才那样从 2 减到 1，全都会陷入无法终止的迭代。</p>
 <p>实际上随便想一个句子模板出来，十有八九会是这样的，能像前两个例子那样收敛出结果的非常少。这可怎么办呢？</p>
 </div>
 <div class="section" id="id16">
 <h3><a class="toc-backref" href="#id34">解决</a></h3>
-<p>想了一个简单粗暴的办法，效果还不错。前面提到decrease操作有两个方案，区别在于对于计数2做decrease的时候，要么直接减到0，要么减到1。那么一个直接的想法就是不要那么死板，让这个抉择可以随机的使用，即有一半的概率会直接减到0，另一半的概率是减到1。这个不确定性因素实际上是给迭代过程带来了一点儿干扰。如果按照某个确定的方案，迭代过程很容易陷入无穷尽的震荡，这时候如果引入一下随机的干扰，就有可能打破稳定的震荡，使得迭代过程偏离当前的动态平衡点，或许就刚好落在一个收敛的位置上了。</p>
-<p>改造后的decrease操作大致是这样的：</p>
+<p>想了一个简单粗暴的办法，效果还不错。前面提到 decrease 操作有两个方案，区别在于对于计数 2 做 decrease 的时候，要么直接减到 0，要么减到 1。那么一个直接的想法就是不要那么死板，让这个抉择可以随机的使用，即有一半的概率会直接减到 0，另一半的概率是减到 1。这个不确定性因素实际上是给迭代过程带来了一点儿干扰。如果按照某个确定的方案，迭代过程很容易陷入无穷尽的震荡，这时候如果引入一下随机的干扰，就有可能打破稳定的震荡，使得迭代过程偏离当前的动态平衡点，或许就刚好落在一个收敛的位置上了。</p>
+<p>改造后的 decrease 操作大致是这样的：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1078,7 +1078,7 @@
         c.count -= 1
         total.count -= 1
 </pre></div>
-</td></tr></table><p>用上面遇到问题的模板来说，以3作为随机数种子时可以得到这样的迭代过程，其中第9次和第10次的结果一致，是一个可行解。</p>
+</td></tr></table><p>用上面遇到问题的模板来说，以 3 作为随机数种子时可以得到这样的迭代过程，其中第 9 次和第 10 次的结果一致，是一个可行解。</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="5%"/>
@@ -1329,26 +1329,26 @@
 <p>把计数结果带入到模板中，得到一个自统计句子：</p>
 <blockquote>
 这句话一共有五十八个字，三个“一”，十一个“二”，三个“三”，二个“四”，二个“五”，二个“七”，二个“八”，四个“十”，十七个“个”，二个“这”，二个“句”，二个“话”，二个“共”，二个“有”，二个“字”。</blockquote>
-<p>思考一下随机干扰对迭代收敛的作用，可以想见，这个随机选择进行的越频繁，迭代过程就越不稳定，遇到收敛点的概率相对也就越大。但如果迭代已经陷入到一个稳定震荡的状态，在整个振荡周期内却始终没有用到这个随机干扰，那还是没有办法跳出死循环。所以实际的程序会通过某种方式（最简单的就是设置最大迭代次数）判断是否陷入死循环并强制终止当前的迭代过程，从头开始重新走一遍。由于早期计数比较小，很容易遇到需要从2减到0或1的情况，大量的随机干扰可能会使得整个迭代过程完全变样，有可能会得到收敛的解。</p>
+<p>思考一下随机干扰对迭代收敛的作用，可以想见，这个随机选择进行的越频繁，迭代过程就越不稳定，遇到收敛点的概率相对也就越大。但如果迭代已经陷入到一个稳定震荡的状态，在整个振荡周期内却始终没有用到这个随机干扰，那还是没有办法跳出死循环。所以实际的程序会通过某种方式（最简单的就是设置最大迭代次数）判断是否陷入死循环并强制终止当前的迭代过程，从头开始重新走一遍。由于早期计数比较小，很容易遇到需要从 2 减到 0 或 1 的情况，大量的随机干扰可能会使得整个迭代过程完全变样，有可能会得到收敛的解。</p>
 </div>
 </div>
 <div class="section" id="id17">
 <h2><a class="toc-backref" href="#id35">三碗不过岗</a></h2>
-<p>引入随机扰动后，大部分问题都能搞定了。但对于过于复杂的模板依旧无能为力，模板复杂之后，能够遇到从2减到0或1的次数很少，很难跳出死循环。</p>
+<p>引入随机扰动后，大部分问题都能搞定了。但对于过于复杂的模板依旧无能为力，模板复杂之后，能够遇到从 2 减到 0 或 1 的次数很少，很难跳出死循环。</p>
 <p>有时候很简单的模板也无法得到结果，比如</p>
 <blockquote>
-一三五七一共有__个字，__个“__”，__个“__”，……。</blockquote>
+一三五七一共有__个字，__个 “__”，__个 “__”，……。</blockquote>
 <p>这里可能有两个问题，一个是我的算法只能保证收敛得到的结果是正确的，无法保证一定收敛。加入随机干扰可能在一定程度上加大收敛的概率，却也没有本质的提升。另一个是任意给定一个模板，是否一定有解？这方面也还没有太多的思路。</p>
-<p>相关的程序<a class="reference external" href="https://github.com/calfzhou/self-descriptive-sentence">在github上</a>，目前除了可以生成中文的句子，还可以生成基于数字的句子。比如：</p>
+<p>相关的程序 <a class="reference external" href="https://github.com/calfzhou/self-descriptive-sentence">在 github 上</a>，目前除了可以生成中文的句子，还可以生成基于数字的句子。比如：</p>
 <blockquote>
 1 employs 11 digits, 4 1's, 3 2's, 2 3's, 2 4's.</blockquote>
 <p>以后可能会在两个方面做改进，一是模板化，一是迭代算法。现在是按照语言分的，其实语言只是模板的一个因素。模板化之后可以用同样的方法构造出更多更有趣的句子来。迭代算法方面，目前想到的是利用遗传算法，不过具体怎么操作还没有太多的想法。</p>
 </div>
 <div class="section" id="id18">
 <h2><a class="toc-backref" href="#id36">后记</a></h2>
-<p>说来也巧，刚才无意间又找到了十年前我所看到的文章，原来是<a class="reference external" href="http://blog.joycode.com/zee/">@zee</a>在2004年8月的一篇博文<a class="reference external" href="http://blog.joycode.com/zee/archives/2004/08/04/29469.joy">《以前玩出来的几个句子，怀旧一下》</a>。摘录原文如下。</p>
+<p>说来也巧，刚才无意间又找到了十年前我所看到的文章，原来是 <a class="reference external" href="http://blog.joycode.com/zee/">@zee</a> 在 2004 年 8 月的一篇博文 <a class="reference external" href="http://blog.joycode.com/zee/archives/2004/08/04/29469.joy">《以前玩出来的几个句子，怀旧一下》</a>。摘录原文如下。</p>
 <blockquote>
-<p>一年多前写程序生成的，当时好像VS2K3刚出来，写这个程序的主要目的是为了玩弄2K3</p>
+<p>一年多前写程序生成的，当时好像 VS2K3 刚出来，写这个程序的主要目的是为了玩弄 2K3</p>
 <p>聪明的张先生生成的这个句子一共有一百一十三个字其中有二个百三个有二个子七个三三个生十五个二二个先二个字一个八二个七一个四二个明一个六二个成一个零二个张二个中二个其二个共二个这五个十二个句十个一三十一个个三个的二个聪一个九三个五</p>
 <p>你看到的这个句子一共有九十个字。其中有：二个“你”，二个“看”，二个“到”，二个“的”，二个“这”，二十六个“个”，二个“句”，二个“子”，二个“共”，三个“有”，二个“字”，二个“其”，二个“中”，四个“一”，十七个“二”，二个“三”，四个“四”，一个“五”，二个“六”，二个“七”，一个“八”，二个“九”，四个“十”。</p>
 <p>这个句子一共有七十五个字。其中有四个“十”；二个“子”；四个“三”；十二个“二”；二个“字”；一个“八”；三个“四”；一个“六”；二个“七”；二个“中”；二个“其”；二个“共”；二个“这”；二个“句”；五个“一”；二十二个“个”；三个“有”；一个“九”；三个“五”。</p>
@@ -1430,18 +1430,18 @@
 <section>
     <h2>Keep Reading</h2>
 <ul class="related-posts-list">
-<li><a href="https://blog.gocalf.com/puzzle-wwwdot-google-dotcom" title="数学趣题WWWDOT-GOOGLE=DOTCOM">数学趣题WWWDOT-GOOGLE=DOTCOM</a></li>
+<li><a href="https://blog.gocalf.com/puzzle-wwwdot-google-dotcom" title="数学趣题 WWWDOT-GOOGLE=DOTCOM">数学趣题 WWWDOT-GOOGLE=DOTCOM</a></li>
 <li><a href="https://blog.gocalf.com/clock-hands-relative-motion" title="时针，分针，相对运动">时针，分针，相对运动</a></li>
 <li><a href="https://blog.gocalf.com/manufactoria" title="自动机编程游戏：Manufactoria（流水线编程）">自动机编程游戏：Manufactoria（流水线编程）</a></li>
-<li><a href="https://blog.gocalf.com/get-46-from-11-12-13-and-14" title="让11、12、13、14通过加减乘除运算得到46">让11、12、13、14通过加减乘除运算得到46</a></li>
-<li><a href="https://blog.gocalf.com/chromatron" title="最经典的光线反射游戏Chromatron">最经典的光线反射游戏Chromatron</a></li>
+<li><a href="https://blog.gocalf.com/get-46-from-11-12-13-and-14" title="让 11、12、13、14 通过加减乘除运算得到 46">让 11、12、13、14 通过加减乘除运算得到 46</a></li>
+<li><a href="https://blog.gocalf.com/chromatron" title="最经典的光线反射游戏 Chromatron">最经典的光线反射游戏 Chromatron</a></li>
 </ul>
 <hr />
 </section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="https://blog.gocalf.com/move-wordpress-blog" title="Previous: 迁移WordPress博客">迁移WordPress博客</a></li>
+                <li class="previous-article">« <a href="https://blog.gocalf.com/move-wordpress-blog" title="Previous: 迁移 WordPress 博客">迁移 WordPress 博客</a></li>
             </ul>
             </nav>
             </aside>

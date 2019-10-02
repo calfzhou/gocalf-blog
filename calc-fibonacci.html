@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="问题描述：Fibonacci数（Fibonacci Number）的定义是：F(n) = F(n - 1) + F(n - 2)，并且F(0) = 0，F(1) = 1。对于任意指定的整数n（n &gt;= 0），计算F(n)，并分析算法的时间、空间复杂度。
+        <meta name="description" content="问题描述：Fibonacci 数（Fibonacci Number）的定义是：F(n) = F(n - 1) + F(n - 2)，并且 F(0) = 0，F(1) = 1。对于任意指定的整数 n（n &gt;= 0），计算 F(n)，并分析算法的时间、空间复杂度。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
@@ -16,15 +16,15 @@
 
 <meta property="og:title" content="计算斐波纳契数，分析算法复杂度 "/>
 <meta property="og:url" content="https://blog.gocalf.com/calc-fibonacci" />
-<meta property="og:description" content="问题描述：Fibonacci数（Fibonacci Number）的定义是：F(n) = F(n - 1) + F(n - 2)，并且F(0) = 0，F(1) = 1。对于任意指定的整数n（n &gt;= 0），计算F(n)，并分析算法的时间、空间复杂度。" />
+<meta property="og:description" content="问题描述：Fibonacci 数（Fibonacci Number）的定义是：F(n) = F(n - 1) + F(n - 2)，并且 F(0) = 0，F(1) = 1。对于任意指定的整数 n（n &gt;= 0），计算 F(n)，并分析算法的时间、空间复杂度。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2011-11-22T20:34:00+08:00" />
 <meta property="og:article:modified_time" content="2012-12-04T17:00:00+08:00" />
 <meta name="twitter:title" content="计算斐波纳契数，分析算法复杂度 ">
-<meta name="twitter:description" content="问题描述：Fibonacci数（Fibonacci Number）的定义是：F(n) = F(n - 1) + F(n - 2)，并且F(0) = 0，F(1) = 1。对于任意指定的整数n（n &gt;= 0），计算F(n)，并分析算法的时间、空间复杂度。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/11/fibonacci.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/11/fibonacci.png" >
+<meta name="twitter:description" content="问题描述：Fibonacci 数（Fibonacci Number）的定义是：F(n) = F(n - 1) + F(n - 2)，并且 F(0) = 0，F(1) = 1。对于任意指定的整数 n（n &gt;= 0），计算 F(n)，并分析算法的时间、空间复杂度。">
+<meta property="og:image" content="https://blog.gocalf.com/images/2011/11/fibonacci.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2011/11/fibonacci.png" >
 
         <title>计算斐波纳契数，分析算法复杂度  · GoCalf Blog
 </title>
@@ -119,19 +119,19 @@
     <div class="span8 article-content">
             
             
-<p>问题描述：Fibonacci数（<a class="reference external" href="http://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci Number</a>）的定义是：F(n) = F(n -
-1) + F(n - 2)，并且F(0) = 0，F(1) = 1。对于任意指定的整数n（n ≥
-0），计算F(n)的精确值，并分析算法的时间、空间复杂度。</p>
+<p>问题描述：Fibonacci 数（<a class="reference external" href="http://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci Number</a>）的定义是：F(n) = F(n -
+1) + F(n - 2)，并且 F(0) = 0，F(1) = 1。对于任意指定的整数 n（n ≥
+0），计算 F(n) 的精确值，并分析算法的时间、空间复杂度。</p>
 <p>假设系统中已经提供任意精度长整数的运算，可以直接使用。</p>
 <!-- more -->
-<p>这其实是个老生常谈的问题了，不过可能在复杂度分析的时候，很多人忽略了一些事情。另外这个问题恰好有几种复杂度迥异的算法，在刚刚介绍完<a class="reference external" href="https://blog.gocalf.com/algorithm-complexity-and-master-theorem">算法复杂度</a>之后，正好来直观地理解一下。</p>
+<p>这其实是个老生常谈的问题了，不过可能在复杂度分析的时候，很多人忽略了一些事情。另外这个问题恰好有几种复杂度迥异的算法，在刚刚介绍完 <a class="reference external" href="https://blog.gocalf.com/algorithm-complexity-and-master-theorem">算法复杂度</a> 之后，正好来直观地理解一下。</p>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id10">一、递归法</a></h2>
-<p>一个看起来很直观、用起来很恐怖的算法就是递归法。根据Fibonacci的递推公式，对于输入的n，直接递归地调用相同的函数分别求出F(n
-- 1)和F(n -
-2)，二者相加就是结果。递归的终止点就是递推方程的初值，即n取0或1的时候。</p>
+<p>一个看起来很直观、用起来很恐怖的算法就是递归法。根据 Fibonacci 的递推公式，对于输入的 n，直接递归地调用相同的函数分别求出 F(n
+- 1) 和 F(n -
+2)，二者相加就是结果。递归的终止点就是递推方程的初值，即 n 取 0 或 1 的时候。</p>
 <p>程序（in
-Python）写出来那也是相当的简洁直观（为了跟后面的程序区分开来，这里取名SlowFibonacci）。</p>
+Python）写出来那也是相当的简洁直观（为了跟后面的程序区分开来，这里取名 <tt class="docutils literal">SlowFibonacci</tt>）。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -140,15 +140,15 @@ Python）写出来那也是相当的简洁直观（为了跟后面的程序区�
   <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="n">n</span>  <span class="c1"># F(0) = 0, F(1) = 1</span>
   <span class="k">return</span> <span class="n">SlowFibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">SlowFibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
-</td></tr></table><p>这个算法的时间复杂度有着跟Fibonacci类似的递推方程：T(n) = T(n - 1) + T(n
-- 2) + O(1)，很容易得到<strong>T(n) = O(1.618 ^
-n)</strong>（1.618就是黄金分割，<span class="math">\((1+\sqrt5)/2\)</span>）。空间复杂度取决于递归的深度，显然是<strong>O(n)</strong>。</p>
+</td></tr></table><p>这个算法的时间复杂度有着跟 Fibonacci 类似的递推方程：T(n) = T(n - 1) + T(n
+- 2) + O(1)，很容易得到 <strong>T(n) = O(1.618 ^
+n)</strong>（1.618 就是黄金分割，<span class="math">\((1+\sqrt5)/2\)</span>）。空间复杂度取决于递归的深度，显然是 <strong>O(n)</strong>。</p>
 </div>
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id11">二、递推法</a></h2>
-<p>虽然只是一字之差，但递推法的复杂度要小的多。这个方法就是按照递推方程，从n
-= 0和n =
-1开始，逐个求出所有小于n的Fibonacci数，最后就可以算出F(n)。由于每次计算值需要用到前两个Fibonacci数，更小的数就可以丢弃了，可以将空间复杂度降到最低。算法如下：</p>
+<p>虽然只是一字之差，但递推法的复杂度要小的多。这个方法就是按照递推方程，从 n
+= 0 和 n =
+1 开始，逐个求出所有小于 n 的 Fibonacci 数，最后就可以算出 F(n)。由于每次计算值需要用到前两个 Fibonacci 数，更小的数就可以丢弃了，可以将空间复杂度降到最低。算法如下：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -163,14 +163,14 @@ n)</strong>（1.618就是黄金分割，<span class="math">\((1+\sqrt5)/2\)</spa
     <span class="p">(</span><span class="n">prev</span><span class="p">,</span> <span class="n">curr</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">curr</span><span class="p">,</span> <span class="n">prev</span> <span class="o">+</span> <span class="n">curr</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">curr</span>
 </pre></div>
-</td></tr></table><p>显然时间复杂度是<strong>O(n)</strong>，空间复杂度是<strong>O(1)</strong>。</p>
+</td></tr></table><p>显然时间复杂度是 <strong>O(n)</strong>，空间复杂度是 <strong>O(1)</strong>。</p>
 <p>比较一下递归法和递推法，二者都用了分治的思想——把目标问题拆为若干个小问题，利用小问题的解得到目标问题的解。二者的区别实际上就是普通分治算法和动态规划的区别。</p>
 </div>
 <div class="section" id="id5">
 <h2><a class="toc-backref" href="#id12">三、矩阵法</a></h2>
-<p>算Fibonacci数精确值的最快的方法应该就是矩阵法，看过的人都觉得这个方法很好。如果你跟我一样，曾经为记住这个方法中的矩阵而烦恼，那今天就来看看怎么进行推导。其实方法非常简单，想清楚了也就自然而然地记住了。</p>
-<p>我们把Fibonacci数列中相邻的两项：F(n)和F(n -
-1)写成一个2x1的矩阵，然后对其进行变形，看能得到什么：</p>
+<p>算 Fibonacci 数精确值的最快的方法应该就是矩阵法，看过的人都觉得这个方法很好。如果你跟我一样，曾经为记住这个方法中的矩阵而烦恼，那今天就来看看怎么进行推导。其实方法非常简单，想清楚了也就自然而然地记住了。</p>
+<p>我们把 Fibonacci 数列中相邻的两项：F(n) 和 F(n -
+1) 写成一个 2x1 的矩阵，然后对其进行变形，看能得到什么：</p>
 <div class="math">
 \begin{equation*}
 \begin{bmatrix}F_n\\F_{n-1}\end{bmatrix}
@@ -187,9 +187,9 @@ n)</strong>（1.618就是黄金分割，<span class="math">\((1+\sqrt5)/2\)</spa
 =\begin{bmatrix}1&amp;1\\1&amp;0\end{bmatrix}^{n-1}\times\begin{bmatrix}1\\0\end{bmatrix}
 \end{equation*}
 </div>
-<p>因此要求F(n)，只要对这个二阶方阵求n -
-1次方，最后取结果方阵第一行第一列的数字就可以了。</p>
-<p>看起来有点儿化简为繁的感觉，但关键点在于，幂运算是可以二分加速的。设有一个方阵a，利用分治法求a的n次方，有：</p>
+<p>因此要求 F(n)，只要对这个二阶方阵求 n -
+1 次方，最后取结果方阵第一行第一列的数字就可以了。</p>
+<p>看起来有点儿化简为繁的感觉，但关键点在于，幂运算是可以二分加速的。设有一个方阵 a，利用分治法求 a 的 n 次方，有：</p>
 <div class="math">
 \begin{equation*}
 a^n=\begin{cases}
@@ -198,10 +198,10 @@ a^{(n-1)/2}\times a^{(n-1)/2}\times a&amp;,\text{ if }x\text{ is odd}
 \end{cases}
 \end{equation*}
 </div>
-<p>可见复杂度满足T(n) = T(n / 2) + O(1)，根据<a class="reference external" href="https://blog.gocalf.com/algorithm-complexity-and-master-theorem">Master定理</a>可得：T(n) =
+<p>可见复杂度满足 T(n) = T(n / 2) + O(1)，根据 <a class="reference external" href="https://blog.gocalf.com/algorithm-complexity-and-master-theorem">Master 定理</a> 可得：T(n) =
 O(log n)。</p>
-<p>在实现的时候，可以用循环代替递归实现这里的二分分治，好处是降低了空间复杂度（用递归的话，空间复杂度为O(log
-n)）。下面的Python程序直接利用的numpy库中的矩阵乘法（当然这个库也实现了矩阵的幂运算，我把它单独写出来是为了强调这里的分治算法）。另外如果不用第三方库，我也给出了矩阵乘法的简单实现。</p>
+<p>在实现的时候，可以用循环代替递归实现这里的二分分治，好处是降低了空间复杂度（用递归的话，空间复杂度为 O(log
+n)）。下面的 Python 程序直接利用的 numpy 库中的矩阵乘法（当然这个库也实现了矩阵的幂运算，我把它单独写出来是为了强调这里的分治算法）。另外如果不用第三方库，我也给出了矩阵乘法的简单实现。</p>
 <ul class="simple">
 <li>Using numpy Library</li>
 </ul>
@@ -332,29 +332,29 @@ n)）。下面的Python程序直接利用的numpy库中的矩阵乘法（当然�
   <span class="n">mat</span> <span class="o">=</span> <span class="n">MatrixPower</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
-</td></tr></table><p>二阶方阵相乘一次可以看成是常数时间（虽然这个常数会比较大），因此整个算法的时间复杂度是<strong>O(log
-n)</strong>，空间复杂度是<strong>O(1)</strong>。</p>
+</td></tr></table><p>二阶方阵相乘一次可以看成是常数时间（虽然这个常数会比较大），因此整个算法的时间复杂度是 <strong>O(log
+n)</strong>，空间复杂度是 <strong>O(1)</strong>。</p>
 </div>
 <div class="section" id="id6">
 <h2><a class="toc-backref" href="#id13">四、运行时间大比拼</a></h2>
-<p>至此，我们得到的时间复杂度分别是O(1.618 ^ n)、O(n)和O(log
-n)的算法，让我们来直观地比较比较它们。</p>
-<p>用Python的timeit模块对以上三个算法的运行时间进行了测量，记录了每个算法对于不同的n的每千次运算所消耗的时间（单位是秒），部分数据记录在<a class="reference external" href="https://blog.gocalf.com/assets/2011/11/fibonacci_data.zip">fibonacci_data</a>。利用Mathematica可以很方便地对这些数据进行拟合，对于较小的n，用三个复杂度表达式分别去拟合，得到的效果都非常好。尤其值得注意的是，对于第一个算法，我用a
-* b ^ n去拟合，结果得到b等于1.61816，这与黄金分割数的正确值相差无几。</p>
+<p>至此，我们得到的时间复杂度分别是 O(1.618 ^ n)、O(n) 和 O(log
+n) 的算法，让我们来直观地比较比较它们。</p>
+<p>用 Python 的 timeit 模块对以上三个算法的运行时间进行了测量，记录了每个算法对于不同的 n 的每千次运算所消耗的时间（单位是秒），部分数据记录在 <a class="reference external" href="https://blog.gocalf.com/assets/2011/11/fibonacci_data.zip">fibonacci_data</a>。利用 Mathematica 可以很方便地对这些数据进行拟合，对于较小的 n，用三个复杂度表达式分别去拟合，得到的效果都非常好。尤其值得注意的是，对于第一个算法，我用 a
+* b ^ n 去拟合，结果得到 b 等于 1.61816，这与黄金分割数的正确值相差无几。</p>
 <ul class="simple">
 <li>递归法拟合结果：0.000501741 * 1.61816 ^ n，RSquare = 0.999993。</li>
 <li>递推法拟合结果：0.000788421 + 0.000115831 * n，RSquare = 0.999464。</li>
 <li>矩阵法拟合结果：-0.0114923 + 0.0253609 log(n)，RSquare = 0.986576。</li>
 </ul>
-<p>下图是n &lt;= 35时，三种算法的千次运行耗时比较。其中红色为O(1.618 ^
-n)的递归法；蓝色为O(n)的递推法；绿色为O(log
-n)的矩阵法。散点为实际测量到的运行时间，实线为拟合方程的曲线。</p>
+<p>下图是 n &lt;= 35 时，三种算法的千次运行耗时比较。其中红色为 O(1.618 ^
+n) 的递归法；蓝色为 O(n) 的递推法；绿色为 O(log
+n) 的矩阵法。散点为实际测量到的运行时间，实线为拟合方程的曲线。</p>
 <div class="figure">
 <img alt="compare_a" src="https://blog.gocalf.com/images/2011/11/compare_a.png"/>
 <p class="caption">三种算法的运行时间比较</p>
 </div>
-<p>当n &gt;
-10的时候，指数时间就已经超出画面范围了。另外在这张图里，身为对数时间复杂度的矩阵法似乎没有任何优势，其耗时远远高于线性时间复杂度的递推法。这是因为n还不够大，体现不出log(n)的优势。在考虑更大的n之前，先来看看指数时间复杂度会增大到什么程度。</p>
+<p>当 n &gt;
+10 的时候，指数时间就已经超出画面范围了。另外在这张图里，身为对数时间复杂度的矩阵法似乎没有任何优势，其耗时远远高于线性时间复杂度的递推法。这是因为 n 还不够大，体现不出 log(n) 的优势。在考虑更大的 n 之前，先来看看指数时间复杂度会增大到什么程度。</p>
 <div class="figure">
 <img alt="compare_b" src="https://blog.gocalf.com/images/2011/11/compare_b.png"/>
 <p class="caption">三种算法的运行时间比较（对数坐标轴）</p>
@@ -362,62 +362,62 @@ n)的矩阵法。散点为实际测量到的运行时间，实线为拟合方程
 </div>
 <div class="section" id="id7">
 <h2><a class="toc-backref" href="#id14">五、大整数情况下的复杂度</a></h2>
-<p>Python内置了大整数支持，因此上面的程序都可以直接接受任意大的n。当整数在32位或64位以内时，加法和乘法都是常数时间，但大整数情况下，这个时间就不能忽略了。</p>
-<p>先来看一下Fibonacci数的二进制位数。我们知道Fibonacci数的通项公式是：</p>
+<p>Python 内置了大整数支持，因此上面的程序都可以直接接受任意大的 n。当整数在 32 位或 64 位以内时，加法和乘法都是常数时间，但大整数情况下，这个时间就不能忽略了。</p>
+<p>先来看一下 Fibonacci 数的二进制位数。我们知道 Fibonacci 数的通项公式是：</p>
 <div class="math">
 \begin{equation*}
 F_n=\frac{1}{\sqrt5}\left(\frac{1+\sqrt5}{2}\right)^n-\frac{1}{\sqrt5}\left(\frac{1-\sqrt5}{2}\right)^n
 \end{equation*}
 </div>
-<p>当n充分大（其实都不需要很大）的时候，第二项就可以忽略不计了。把第一项对2取对数，就可以得到Fibonacci数的二进制位数的近似表达式，大概是<span class="math">\(\log_2{1.618}\times n-0.5\log_2{5}=\log_2{1.618}\times n-1.161=O(n)\)</span>。由此可以算出，F(47)是32位无符号整数可以表达的最大的Fibonacci数，F(93)是64位无符号整数可以表达的最大的Fibonacci数。上面图中的n在36以内，不需要动用大整数运算，复杂度也比较符合之前的结论。但对于更大的n，之前的复杂度就不再适用了。</p>
+<p>当 n 充分大（其实都不需要很大）的时候，第二项就可以忽略不计了。把第一项对 2 取对数，就可以得到 Fibonacci 数的二进制位数的近似表达式，大概是 <span class="math">\(\log_2{1.618}\times n-0.5\log_2{5}=\log_2{1.618}\times n-1.161=O(n)\)</span>。由此可以算出，F(47) 是 32 位无符号整数可以表达的最大的 Fibonacci 数，F(93) 是 64 位无符号整数可以表达的最大的 Fibonacci 数。上面图中的 n 在 36 以内，不需要动用大整数运算，复杂度也比较符合之前的结论。但对于更大的 n，之前的复杂度就不再适用了。</p>
 <p>指数复杂度的算法就不管了，还不等用到大整数，它就已经慢到不行了。</p>
-<p>来看看O(n)时间复杂度的递推法。每次递推的时候都要计算两个Fibonacci数之和，第i次运算时，这两个Fibonacci数分别有O(i)个二进制位，完成加法需要O(i)的时间。因此总的时间大约是：</p>
+<p>来看看 O(n) 时间复杂度的递推法。每次递推的时候都要计算两个 Fibonacci 数之和，第 i 次运算时，这两个 Fibonacci 数分别有 O(i) 个二进制位，完成加法需要 O(i) 的时间。因此总的时间大约是：</p>
 <div class="math">
 \begin{equation*}
 \sum_{i=1}^n{O(i)}=O(n^2)
 \end{equation*}
 </div>
-<p>可见对于很大的n，递推法的时间复杂度实际上是<strong>O(n ^
-2)</strong>的，空间复杂度是<strong>O(n)</strong>用来存储Fibonacci数的各个二进制位。</p>
-<p>再看矩阵法，注意到矩阵运算中有乘法，两个长度为n的大整数相乘，传统算法是O(n
-^ 2)时间复杂度，较好的Karatsuba算法是O(n ^ (log 3 / log
-2))时间，更快的快速傅立叶变换法是O(n log n)时间。Python
-2.5中使用的是Karatsuba算法（Python
-3里面似乎是快速傅立叶变换法）（参见<a class="reference external" href="http://www.endless-loops.com/2011/01/python%E6%BA%90%E7%A0%81%E4%B8%AD%E7%9A%84%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90-%E4%B9%8B-%E5%A4%A7%E6%95%B4%E6%95%B0%E4%B9%98%E6%B3%95-378.html">Python源码中的算法分析 之 大整数乘法</a>）。以Karatsuba算法为例，矩阵法的时间复杂度递推方程为：<span class="math">\(T(n)=T(n/2)+O(n^{\log_2{3}})\)</span>，应用<a class="reference external" href="https://blog.gocalf.com/algorithm-complexity-and-master-theorem">Master定理</a>求得<span class="math">\(T(n)=O(n^{\log_2{3}})\)</span>。因此对于很大的n，矩阵法的时间复杂度为<strong>O(n
-^ 1.585)</strong>，空间复杂度<strong>O(n)</strong>。</p>
-<p>利用Mathematica对大n情况下这两种算法每千次运行时间进行拟合，分别得到：</p>
+<p>可见对于很大的 n，递推法的时间复杂度实际上是 <strong>O(n ^
+2)</strong> 的，空间复杂度是 <strong>O(n)</strong> 用来存储 Fibonacci 数的各个二进制位。</p>
+<p>再看矩阵法，注意到矩阵运算中有乘法，两个长度为 n 的大整数相乘，传统算法是 O(n
+^ 2) 时间复杂度，较好的 Karatsuba 算法是 O(n ^ (log 3 / log
+2)) 时间，更快的快速傅立叶变换法是 O(n log n) 时间。Python
+2.5 中使用的是 Karatsuba 算法（Python
+3 里面似乎是快速傅立叶变换法）（参见 <a class="reference external" href="http://www.endless-loops.com/2011/01/python%E6%BA%90%E7%A0%81%E4%B8%AD%E7%9A%84%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90-%E4%B9%8B-%E5%A4%A7%E6%95%B4%E6%95%B0%E4%B9%98%E6%B3%95-378.html">Python 源码中的算法分析 之 大整数乘法</a>）。以 Karatsuba 算法为例，矩阵法的时间复杂度递推方程为：<span class="math">\(T(n)=T(n/2)+O(n^{\log_2{3}})\)</span>，应用 <a class="reference external" href="https://blog.gocalf.com/algorithm-complexity-and-master-theorem">Master 定理</a> 求得 <span class="math">\(T(n)=O(n^{\log_2{3}})\)</span>。因此对于很大的 n，矩阵法的时间复杂度为 <strong>O(n
+^ 1.585)</strong>，空间复杂度 <strong>O(n)</strong>。</p>
+<p>利用 Mathematica 对大 n 情况下这两种算法每千次运行时间进行拟合，分别得到：</p>
 <ul class="simple">
 <li>递推法大整数拟合结果：0.0131216 + 0.000102101 * n + 2.44765 * 10 ^
 -7 * n ^ 2，RSquare = 0.999482。</li>
 <li>矩阵法大整数拟合结果：0.171487 + 9.74496 * 10 ^ -7 * n ^
 1.51827，RSquare = 0.998395。</li>
 </ul>
-<p>看一下n在4000以内时，两种复杂度的对比情况：</p>
+<p>看一下 n 在 4000 以内时，两种复杂度的对比情况：</p>
 <div class="figure">
 <img alt="compare_c" src="https://blog.gocalf.com/images/2011/11/compare_c.png"/>
 <p class="caption">递推法（蓝色）与矩阵法（绿色）运行时间比较（大整数）</p>
 </div>
-<p>从图中可以看出，递推法的增长速度也是很快的，当n增大到60多的时候，它的运行时间就超过矩阵法了。矩阵法的增长速度非常慢，看起来像是线性的，让我们把n调的更大来看一下。</p>
+<p>从图中可以看出，递推法的增长速度也是很快的，当 n 增大到 60 多的时候，它的运行时间就超过矩阵法了。矩阵法的增长速度非常慢，看起来像是线性的，让我们把 n 调的更大来看一下。</p>
 <div class="figure">
 <img alt="compare_d" src="https://blog.gocalf.com/images/2011/11/compare_d.png"/>
-<p class="caption">矩阵法的运行时间（更大的n）</p>
+<p class="caption">矩阵法的运行时间（更大的 n）</p>
 </div>
 </div>
 <div class="section" id="id8">
 <h2><a class="toc-backref" href="#id15">六、更快的算法？</a></h2>
-<p>试了试Mathematica中的Fibonacci函数，发现其运算速度相当惊人，估计时间复杂度在O(n
+<p>试了试 Mathematica 中的 <tt class="docutils literal">Fibonacci</tt> 函数，发现其运算速度相当惊人，估计时间复杂度在 O(n
 log
-n)上下，而且对于相同的n，运算速度远远高于我的矩阵法。可惜我还不了解它的算法，只是在帮助文档里看到：</p>
+n) 上下，而且对于相同的 n，运算速度远远高于我的矩阵法。可惜我还不了解它的算法，只是在帮助文档里看到：</p>
 <blockquote>
 Fibonacci[n] uses an iterative method based on the binary digit
 sequence of n.</blockquote>
 <p>来看看它到底有多快：</p>
 <div class="figure">
 <img alt="compare_e" src="https://blog.gocalf.com/images/2011/11/compare_e.png"/>
-<p class="caption">矩阵法（绿色）与Mathematica Fibonacci函数（橙色）运行时间比较</p>
+<p class="caption">矩阵法（绿色）与 Mathematica Fibonacci 函数（橙色）运行时间比较</p>
 </div>
 <p>好吧，这个问题留待以后慢慢研究。</p>
-<p>最后相关的Mathematica命令文件放在这里：<a class="reference external" href="https://blog.gocalf.com/assets/2011/11/fibonacci_timecost.zip">fibonacci_timecost</a></p>
+<p>最后相关的 Mathematica 命令文件放在这里：<a class="reference external" href="https://blog.gocalf.com/assets/2011/11/fibonacci_timecost.zip">fibonacci_timecost</a>。</p>
 </div>
 
 
@@ -497,7 +497,7 @@ sequence of n.</blockquote>
 <li><a href="https://blog.gocalf.com/max-inner-product" title="求内积最大的子数组">求内积最大的子数组</a></li>
 <li><a href="https://blog.gocalf.com/the-probability-of-two-boys" title="条件概率：两个都是男孩的概率">条件概率：两个都是男孩的概率</a></li>
 <li><a href="https://blog.gocalf.com/traversing-binary-tree" title="程序基本功之遍历二叉树">程序基本功之遍历二叉树</a></li>
-<li><a href="https://blog.gocalf.com/topn-of-massive-data" title="从大量整数中选取最小/大的若干个">从大量整数中选取最小/大的若干个</a></li>
+<li><a href="https://blog.gocalf.com/topn-of-massive-data" title="从大量整数中选取最小 / 大的若干个">从大量整数中选取最小 / 大的若干个</a></li>
 </ul>
 <hr />
 </section>
@@ -505,7 +505,7 @@ sequence of n.</blockquote>
             <nav>
             <ul class="articles-timeline">
                 <li class="previous-article">« <a href="https://blog.gocalf.com/zelda-tp-ch5" title="Previous: 黎明公主攻略：第五章 冰封魔镜的罪恶">黎明公主攻略：第五章 冰封魔镜的罪恶</a></li>
-                <li class="next-article"><a href="https://blog.gocalf.com/5x5-sudoku-in-vcube7" title="Next: 七阶魔方花样：5x5数独">七阶魔方花样：5x5数独</a> »</li>
+                <li class="next-article"><a href="https://blog.gocalf.com/5x5-sudoku-in-vcube7" title="Next: 七阶魔方花样：5x5 数独">七阶魔方花样：5x5 数独</a> »</li>
             </ul>
             </nav>
             </aside>

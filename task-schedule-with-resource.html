@@ -6,25 +6,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="问题描述：有n个任务，第i个任务运行时需要使用R[i]的资源，运行完毕后需要占用O[i]的资源（O[i] &lt;= R[i]），假设现在我们总共有s的资源，要求设计一个调度算法，能保证所有任务能顺利执行；如果无法执行完，需要说明理由。
+        <meta name="description" content="问题描述：有 n 个任务，第 i 个任务运行时需要使用 R[i] 的资源，运行完毕后需要占用 O[i] 的资源（O[i] &lt;= R[i]），假设现在我们总共有 s 的资源，要求设计一个调度算法，能保证所有任务能顺利执行；如果无法执行完，需要说明理由。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Interview Question, Task Schedule, Greedy Algorithm, 算法, Google面试, 任务, 算法题, 调度, 资源, 面试题" />
+<meta name="keywords" content="Interview Question, Task Schedule, Greedy Algorithm, 算法, Google 面试, 任务, 算法题, 调度, 资源, 面试题" />
 
 <meta property="og:title" content="任务调度问题：资源占用与释放 "/>
 <meta property="og:url" content="https://blog.gocalf.com/task-schedule-with-resource" />
-<meta property="og:description" content="问题描述：有n个任务，第i个任务运行时需要使用R[i]的资源，运行完毕后需要占用O[i]的资源（O[i] &lt;= R[i]），假设现在我们总共有s的资源，要求设计一个调度算法，能保证所有任务能顺利执行；如果无法执行完，需要说明理由。" />
+<meta property="og:description" content="问题描述：有 n 个任务，第 i 个任务运行时需要使用 R[i] 的资源，运行完毕后需要占用 O[i] 的资源（O[i] &lt;= R[i]），假设现在我们总共有 s 的资源，要求设计一个调度算法，能保证所有任务能顺利执行；如果无法执行完，需要说明理由。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2011-10-15T00:10:00+08:00" />
 <meta property="og:article:modified_time" content="2011-10-21T18:50:00+08:00" />
 <meta name="twitter:title" content="任务调度问题：资源占用与释放 ">
-<meta name="twitter:description" content="问题描述：有n个任务，第i个任务运行时需要使用R[i]的资源，运行完毕后需要占用O[i]的资源（O[i] &lt;= R[i]），假设现在我们总共有s的资源，要求设计一个调度算法，能保证所有任务能顺利执行；如果无法执行完，需要说明理由。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/10/task_with_resource.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/10/task_with_resource.png" >
+<meta name="twitter:description" content="问题描述：有 n 个任务，第 i 个任务运行时需要使用 R[i] 的资源，运行完毕后需要占用 O[i] 的资源（O[i] &lt;= R[i]），假设现在我们总共有 s 的资源，要求设计一个调度算法，能保证所有任务能顺利执行；如果无法执行完，需要说明理由。">
+<meta property="og:image" content="https://blog.gocalf.com/images/2011/10/task_with_resource.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2011/10/task_with_resource.png" >
 
         <title>任务调度问题：资源占用与释放  · GoCalf Blog
 </title>
@@ -102,15 +102,15 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
             
-            <p>据说这是2009年Google暑期实习招聘的笔试题。</p>
-<p>问题描述：有n个任务，第i个任务运行时需要使用R[i]的资源，运行完毕后需要占用O[i]的资源（O[i] &lt;=
-R[i]），假设现在我们总共有s的资源，要求设计一个调度算法，能保证所有任务能顺利执行；如果无法执行完，需要说明理由。</p>
+            <p>据说这是 2009 年 Google 暑期实习招聘的笔试题。</p>
+<p>问题描述：有 n 个任务，第 i 个任务运行时需要使用 R[i] 的资源，运行完毕后需要占用 O[i] 的资源（O[i] &lt;=
+R[i]），假设现在我们总共有 s 的资源，要求设计一个调度算法，能保证所有任务能顺利执行；如果无法执行完，需要说明理由。</p>
 <!-- more -->
-<p>举例：比如有n = 2个任务，R[1] = 10，O[1] = 2，R[2] = 5，O[2] =
-3，总资源s = 10。如果先执行任务1，剩余资源10 - 2 =
-8，可以执行任务2；反过来先执行任务2，剩余资源10 - 3 = 7，7 &lt; r[1] =
-10，无法执行任务1。</p>
-<p>这道题的解法很简单，按照R - O从大到小排序就是可行的调度顺序，如果按照这个顺序无法执行完所有任务，那么其他任何顺序也都不行；反之，如果存在某个顺序使得所有任务能顺利执行，那么这个顺序一定也可以。</p>
+<p>举例：比如有 n = 2 个任务，R[1] = 10，O[1] = 2，R[2] = 5，O[2] =
+3，总资源 s = 10。如果先执行任务 1，剩余资源 10 - 2 =
+8，可以执行任务 2；反过来先执行任务 2，剩余资源 10 - 3 = 7，7 &lt; r[1] =
+10，无法执行任务 1。</p>
+<p>这道题的解法很简单，按照 R - O 从大到小排序就是可行的调度顺序，如果按照这个顺序无法执行完所有任务，那么其他任何顺序也都不行；反之，如果存在某个顺序使得所有任务能顺利执行，那么这个顺序一定也可以。</p>
 <p>先看算法，稍后再做证明。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -138,15 +138,15 @@ R[i]），假设现在我们总共有s的资源，要求设计一个调度算法
 </pre></div>
 </td></tr></table><p>显然这是贪心法，那么贪心法是否一定能得到可行解呢？</p>
 <p>假设存在一个可行解（任务的执行顺序）为：T1, T2, …,
-Tn。设其中存在两个相邻的任务T<sub>i</sub>和T<sub>i+1</sub>，满足 R[i] - O[i] &lt; R[i+1] -
+Tn。设其中存在两个相邻的任务 T<sub>i</sub> 和 T<sub>i+1</sub>，满足 R[i] - O[i] &lt; R[i+1] -
 O[i+1]。</p>
-<p>设执行任务j前的资源剩余量为s’，因为这是一个可行解，任务j和任务k都可以顺利执行，因此有：s’
+<p>设执行任务 j 前的资源剩余量为 s'，因为这是一个可行解，任务 j 和任务 k 都可以顺利执行，因此有：s'
 - O[i] &gt;= R[i+1]。</p>
-<p>联列这两个式子可以得到：s’ &gt;= R[i+1] + O[i] &gt; R[i] + O[i+1]，即s’ -
-O[i+1] &gt; R[i]，可见交换任务T<sub>i</sub>和T<sub>i+1</sub>的执行顺序后依旧是可行解。</p>
-<p>以此类推，对于任何i（1 &lt;= i &lt; n），如果R[i] - O[i] &lt; R[i+1] -
+<p>联列这两个式子可以得到：s' &gt;= R[i+1] + O[i] &gt; R[i] + O[i+1]，即 s' -
+O[i+1] &gt; R[i]，可见交换任务 T<sub>i</sub> 和 T<sub>i+1</sub> 的执行顺序后依旧是可行解。</p>
+<p>以此类推，对于任何 i（1 &lt;= i &lt; n），如果 R[i] - O[i] &lt; R[i+1] -
 O[i+1]，我们都可以将这两个任务的顺序交换，最终得到的执行顺序是可行解。</p>
-<p>综上所述，按照R - O从大到小排列所有的任务是可行解。</p>
+<p>综上所述，按照 R - O 从大到小排列所有的任务是可行解。</p>
 
 
 
@@ -225,7 +225,7 @@ O[i+1]，我们都可以将这两个任务的顺序交换，最终得到的执�
 <li><a href="https://blog.gocalf.com/calc-fibonacci" title="计算斐波纳契数，分析算法复杂度">计算斐波纳契数，分析算法复杂度</a></li>
 <li><a href="https://blog.gocalf.com/the-probability-of-two-boys" title="条件概率：两个都是男孩的概率">条件概率：两个都是男孩的概率</a></li>
 <li><a href="https://blog.gocalf.com/traversing-binary-tree" title="程序基本功之遍历二叉树">程序基本功之遍历二叉树</a></li>
-<li><a href="https://blog.gocalf.com/topn-of-massive-data" title="从大量整数中选取最小/大的若干个">从大量整数中选取最小/大的若干个</a></li>
+<li><a href="https://blog.gocalf.com/topn-of-massive-data" title="从大量整数中选取最小 / 大的若干个">从大量整数中选取最小 / 大的若干个</a></li>
 </ul>
 <hr />
 </section>

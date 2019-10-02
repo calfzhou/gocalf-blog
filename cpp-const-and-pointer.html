@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="仔细回忆一下C++中的指针常量与常量指针的区别，记录于此。
+        <meta name="description" content="仔细回忆一下 C++ 中的指针常量与常量指针的区别，记录于此。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
@@ -14,19 +14,19 @@
 
 <meta name="keywords" content="Interview Question, C++, 程序开发, Const Pointer, Pointer to Const, 指针, 面试题, C++ Pointer" />
 
-<meta property="og:title" content="C++中的常量指针和指针常量 "/>
+<meta property="og:title" content="C++ 中的常量指针和指针常量 "/>
 <meta property="og:url" content="https://blog.gocalf.com/cpp-const-and-pointer" />
-<meta property="og:description" content="仔细回忆一下C++中的指针常量与常量指针的区别，记录于此。" />
+<meta property="og:description" content="仔细回忆一下 C++ 中的指针常量与常量指针的区别，记录于此。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2011-08-04T23:39:00+08:00" />
 <meta property="og:article:modified_time" content="2011-08-18T14:06:00+08:00" />
-<meta name="twitter:title" content="C++中的常量指针和指针常量 ">
-<meta name="twitter:description" content="仔细回忆一下C++中的指针常量与常量指针的区别，记录于此。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/08/const_and_pointer.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/08/const_and_pointer.png" >
+<meta name="twitter:title" content="C++ 中的常量指针和指针常量 ">
+<meta name="twitter:description" content="仔细回忆一下 C++ 中的指针常量与常量指针的区别，记录于此。">
+<meta property="og:image" content="https://blog.gocalf.com/images/2011/08/const_and_pointer.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2011/08/const_and_pointer.png" >
 
-        <title>C++中的常量指针和指针常量  · GoCalf Blog
+        <title>C++ 中的常量指针和指针常量  · GoCalf Blog
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
@@ -93,7 +93,7 @@
     <header class="page-header span10 offset2">
         <h1>
             <a href="https://blog.gocalf.com/cpp-const-and-pointer">
-                C++中的常量指针和指针常量
+                C++ 中的常量指针和指针常量
             </a>
         </h1>
     </header>
@@ -102,17 +102,17 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
             
-            <p>太久不用C++了，竟然连最基本的东西都记不清楚了。今天干活的时候突然想要用指针常量，但突然就忘了指针常量跟常量指针的区别。花了一点儿时间仔细回想了一下几年前上课时老师讲的，总算又回忆起来了，赶紧记录下来备忘。</p>
+            <p>太久不用 C++ 了，竟然连最基本的东西都记不清楚了。今天干活的时候突然想要用指针常量，但突然就忘了指针常量跟常量指针的区别。花了一点儿时间仔细回想了一下几年前上课时老师讲的，总算又回忆起来了，赶紧记录下来备忘。</p>
 <p>这可能会被当作面试题，不过不是算法，故而不放在面试算法题系列中。</p>
 <!-- more -->
 <p>我觉得容易混淆的罪魁祸首在于中文的翻译问题，如果改叫“常量的指针”和“指针常量”可能会好些。先不管这些，看看英文的叫法：Pointer
 to Const 和 Const Pointer。</p>
 <p>Pointer to
-Const，顾名思义就是一个指针，指向的数据不能被修改，C++语法是<code class="cpp"><span class="kt">int</span> <span class="k">const</span><span class="o">*</span> <span class="n">ptr</span></code>。怎么记忆呢，非常简单，记住要从右往左解读即可。首先这是个变量（<code class="cpp"><span class="n">ptr</span></code>）；然后发现它是个指针（<code class="cpp"><span class="o">*</span></code>）；接下来看到它所指向的数据是不可修改的（<code class="cpp"><span class="k">const</span></code>）；最后这个指针所指向的空间存放的是整数（<code class="cpp"><span class="kt">int</span></code>）。</p>
+Const，顾名思义就是一个指针，指向的数据不能被修改，C++ 语法是 <code class="cpp"><span class="kt">int</span> <span class="k">const</span><span class="o">*</span> <span class="n">ptr</span></code>。怎么记忆呢，非常简单，记住要从右往左解读即可。首先这是个变量（<code class="cpp"><span class="n">ptr</span></code>）；然后发现它是个指针（<code class="cpp"><span class="o">*</span></code>）；接下来看到它所指向的数据是不可修改的（<code class="cpp"><span class="k">const</span></code>）；最后这个指针所指向的空间存放的是整数（<code class="cpp"><span class="kt">int</span></code>）。</p>
 <p>Const
-Pointer，也是个指针，但这个指针的值不能被修改（不能再指向其他地方），C++语法是<code class="cpp"><span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">ptr</span></code>。同样从右往左读，变量（<code class="cpp"><span class="n">ptr</span></code>）；变量的值不能被修改（<code class="cpp"><span class="k">const</span></code>）；是个指针（<code class="cpp"><span class="o">*</span></code>）；这个指针所指向的空间存放的是整数（<code class="cpp"><span class="kt">int</span></code>）。</p>
-<p>可见const修饰的是它右边紧邻的元素，如果右边是指针*，就表明指针指向的是常量，不能被修改；如果右边是变量，就变明这个变量自身不能被修改。</p>
-<p>下面这段C++程序示意了两种指针的区别，其中被注释掉的两行（高亮显示）是因为会无法编译。</p>
+Pointer，也是个指针，但这个指针的值不能被修改（不能再指向其他地方），C++ 语法是 <code class="cpp"><span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">ptr</span></code>。同样从右往左读，变量（<code class="cpp"><span class="n">ptr</span></code>）；变量的值不能被修改（<code class="cpp"><span class="k">const</span></code>）；是个指针（<code class="cpp"><span class="o">*</span></code>）；这个指针所指向的空间存放的是整数（<code class="cpp"><span class="kt">int</span></code>）。</p>
+<p>可见 const 修饰的是它右边紧邻的元素，如果右边是指针 *，就表明指针指向的是常量，不能被修改；如果右边是变量，就变明这个变量自身不能被修改。</p>
+<p>下面这段 C++ 程序示意了两种指针的区别，其中被注释掉的两行（高亮显示）是因为会无法编译。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -167,7 +167,7 @@ Pointer，也是个指针，但这个指针的值不能被修改（不能再指�
 </td></tr></table><p>对英文名称理解清楚了，记不记中文名字也就无所谓了吧。我的记忆方法就是“Pointer
 to Const”翻译为“常量的指针”，简称“常量指针”；“Const
 Pointer”翻译为“指针常量”。</p>
-<p>最后简单总结一下跟const相关的变量的写法：</p>
+<p>最后简单总结一下跟 const 相关的变量的写法：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -251,11 +251,11 @@ Pointer”翻译为“指针常量”。</p>
 
                 <p id="post-share-links">
     Like this post? Share on:
-    <a href="https://twitter.com/intent/tweet?text=C%2B%2B%E4%B8%AD%E7%9A%84%E5%B8%B8%E9%87%8F%E6%8C%87%E9%92%88%E5%92%8C%E6%8C%87%E9%92%88%E5%B8%B8%E9%87%8F&url=https%3A//blog.gocalf.com/cpp-const-and-pointer&via=calfzhou&hashtags=interview question,c++" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="https://twitter.com/intent/tweet?text=C%2B%2B%20%E4%B8%AD%E7%9A%84%E5%B8%B8%E9%87%8F%E6%8C%87%E9%92%88%E5%92%8C%E6%8C%87%E9%92%88%E5%B8%B8%E9%87%8F&url=https%3A//blog.gocalf.com/cpp-const-and-pointer&via=calfzhou&hashtags=interview question,c++" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//blog.gocalf.com/cpp-const-and-pointer" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="mailto:?subject=C%2B%2B%E4%B8%AD%E7%9A%84%E5%B8%B8%E9%87%8F%E6%8C%87%E9%92%88%E5%92%8C%E6%8C%87%E9%92%88%E5%B8%B8%E9%87%8F&amp;body=https%3A//blog.gocalf.com/cpp-const-and-pointer" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=C%2B%2B%20%E4%B8%AD%E7%9A%84%E5%B8%B8%E9%87%8F%E6%8C%87%E9%92%88%E5%92%8C%E6%8C%87%E9%92%88%E5%B8%B8%E9%87%8F&amp;body=https%3A//blog.gocalf.com/cpp-const-and-pointer" target="_blank" title="Share via Email">Email</a>
     </p>
 
             
@@ -320,18 +320,18 @@ Pointer”翻译为“指针常量”。</p>
 <section>
     <h2>Keep Reading</h2>
 <ul class="related-posts-list">
-<li><a href="https://blog.gocalf.com/cpp-singleton" title="可以继承的C++ Singleton基类">可以继承的C++ Singleton基类</a></li>
+<li><a href="https://blog.gocalf.com/cpp-singleton" title="可以继承的 C++ Singleton 基类">可以继承的 C++ Singleton 基类</a></li>
 <li><a href="https://blog.gocalf.com/calc-fibonacci" title="计算斐波纳契数，分析算法复杂度">计算斐波纳契数，分析算法复杂度</a></li>
 <li><a href="https://blog.gocalf.com/the-probability-of-two-boys" title="条件概率：两个都是男孩的概率">条件概率：两个都是男孩的概率</a></li>
 <li><a href="https://blog.gocalf.com/traversing-binary-tree" title="程序基本功之遍历二叉树">程序基本功之遍历二叉树</a></li>
-<li><a href="https://blog.gocalf.com/topn-of-massive-data" title="从大量整数中选取最小/大的若干个">从大量整数中选取最小/大的若干个</a></li>
+<li><a href="https://blog.gocalf.com/topn-of-massive-data" title="从大量整数中选取最小 / 大的若干个">从大量整数中选取最小 / 大的若干个</a></li>
 </ul>
 <hr />
 </section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="https://blog.gocalf.com/build-rand3-from-rand5" title="Previous: 利用等概率Rand5产生等概率Rand3">利用等概率Rand5产生等概率Rand3</a></li>
+                <li class="previous-article">« <a href="https://blog.gocalf.com/build-rand3-from-rand5" title="Previous: 利用等概率 Rand5 产生等概率 Rand3">利用等概率 Rand5 产生等概率 Rand3</a></li>
                 <li class="next-article"><a href="https://blog.gocalf.com/calendar-of-week" title="Next: 星期万年历">星期万年历</a> »</li>
             </ul>
             </nav>

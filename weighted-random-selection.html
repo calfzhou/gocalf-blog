@@ -23,8 +23,8 @@
 <meta property="og:article:modified_time" content="2011-09-27T13:20:00+08:00" />
 <meta name="twitter:title" content="单次遍历，带权随机选取问题（一） ">
 <meta name="twitter:description" content="问题描述：有一组数量未知的数据，每个元素有非负权重。要求只遍历一次，随机选取其中的一个元素，任何一个元素被选到的概率与其权重成正比。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/09/colorpicker_weight.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/09/colorpicker_weight.png" >
+<meta property="og:image" content="https://blog.gocalf.com/images/2011/09/colorpicker_weight.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2011/09/colorpicker_weight.png" >
 
         <title>单次遍历，带权随机选取问题（一）  · GoCalf Blog
 </title>
@@ -102,14 +102,14 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
             
-            <p>在<a class="reference external" href="https://blog.gocalf.com/random-selection">单次遍历，等概率随机选取问题</a>中已经剧透了今天的内容，那就是带权随机选取（Weighted
+            <p>在 <a class="reference external" href="https://blog.gocalf.com/random-selection">单次遍历，等概率随机选取问题</a> 中已经剧透了今天的内容，那就是带权随机选取（Weighted
 Random Sample）问题。</p>
 <p>问题描述：有一组数量未知的数据，每个元素有非负权重。要求只遍历一次，随机选取其中的一个元素，任何一个元素被选到的概率与其权重成正比。</p>
 <!-- more -->
-<p>设元素总数为n，当然在遍历结束前n是未知的。设第i（1 &lt;= i &lt;=
-n）个元素的权重为w<sub>i</sub>（&gt;
-0），则权重总和为<span class="math">\(w=\sum_{i=1}^{n}{w_i}\)</span>，也是在遍历结束时才知道的。根据题目要求，第i个元素被选取的概率应该等于<span class="math">\(p_i=\frac{w_i}{w}\)</span>。</p>
-<p>虽然加了个权重，但解法依旧非常简单，在<a class="reference external" href="https://blog.gocalf.com/random-selection">单次遍历，等概率随机选取问题</a>中的RandomSelect函数上稍作修改就得到本问题的解法，依旧是O(n)时间，O(1)辅助空间：</p>
+<p>设元素总数为 n，当然在遍历结束前 n 是未知的。设第 i（1 &lt;= i &lt;=
+n）个元素的权重为 w<sub>i</sub>（&gt;
+0），则权重总和为 <span class="math">\(w=\sum_{i=1}^{n}{w_i}\)</span>，也是在遍历结束时才知道的。根据题目要求，第 i 个元素被选取的概率应该等于 <span class="math">\(p_i=\frac{w_i}{w}\)</span>。</p>
+<p>虽然加了个权重，但解法依旧非常简单，在 <a class="reference external" href="https://blog.gocalf.com/random-selection">单次遍历，等概率随机选取问题</a> 中的 <tt class="docutils literal">RandomSelect</tt> 函数上稍作修改就得到本问题的解法，依旧是 O(n) 时间，O(1) 辅助空间：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -136,30 +136,30 @@ n）个元素的权重为w<sub>i</sub>（&gt;
     <span class="k">if</span> <span class="n">rand</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="n">totalweight</span> <span class="o">&lt;</span> <span class="n">weight</span><span class="p">:</span>
       <span class="n">selection</span> <span class="o">=</span> <span class="n">item</span>
 </pre></div>
-</td></tr></table><p>其中Python的<tt class="docutils literal">random.random()</tt>返回[0,
-1)之间的随机小数。</p>
-<p>看一下是否满足概率要求。如果最终被选取的是第i（1 &lt;= i &lt;=
-n）个元素，那必须是遍历到它的时候，恰好被选中，即<tt class="docutils literal">rand.random()
+</td></tr></table><p>其中 Python 的 <tt class="docutils literal">random.random()</tt> 返回 [0,
+1) 之间的随机小数。</p>
+<p>看一下是否满足概率要求。如果最终被选取的是第 i（1 &lt;= i &lt;=
+n）个元素，那必须是遍历到它的时候，恰好被选中，即 <tt class="docutils literal">rand.random()
 * totalweight &lt; weight</tt>，其概率为：</p>
 <div class="math">
 \begin{equation*}
 \frac{w_i}{w}=\frac{w_i}{\sum_{k=1}^{i}{w_k}}
 \end{equation*}
 </div>
-<p>另外，还要在处理以后的任何一个元素时，第i个元素都没有被替换掉，即对于任意的j（i
-&lt; j &lt;= n），第j个元素都不会被选中，其概率为：</p>
+<p>另外，还要在处理以后的任何一个元素时，第 i 个元素都没有被替换掉，即对于任意的 j（i
+&lt; j &lt;= n），第 j 个元素都不会被选中，其概率为：</p>
 <div class="math">
 \begin{equation*}
 \frac{w-w_j}{w}=\frac{\sum_{k=1}^{j-1}{w_k}}{\sum_{k=1}^{j}{w_k}}
 \end{equation*}
 </div>
-<p>因此，第i个元素最终被选取的概率为：</p>
+<p>因此，第 i 个元素最终被选取的概率为：</p>
 <div class="math">
 \begin{equation*}
 p_i=\frac{w_i}{\sum_{k=1}^{i}{w_k}}\times\frac{\sum_{k=1}^{i}{w_k}}{\sum_{k=1}^{i+1}{w_k}}\times\frac{\sum_{k=1}^{i+1}{w_k}}{\sum_{k=1}^{i+2}{w_k}}\times\cdots\times\frac{\sum_{k=1}^{n-1}{w_k}}{\sum_{k=1}^{n}{w_k}}=\frac{w_i}{\sum_{k=1}^{n}{w_k}}
 \end{equation*}
 </div>
-<p>下面这段程序调用WeightedRandomSelect对一组具有等差数列权重的元素进行选取。</p>
+<p>下面这段程序调用 <tt class="docutils literal">WeightedRandomSelect</tt> 对一组具有等差数列权重的元素进行选取。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -201,30 +201,30 @@ p_i=\frac{w_i}{\sum_{k=1}^{i}{w_k}}\times\frac{\sum_{k=1}^{i}{w_k}}{\sum_{k=1}^{
 </pre></div>
 <p>可见程序是正确的。</p>
 <div class="section" id="m">
-<h2>扩展：选取m个元素，概率理论值</h2>
+<h2>扩展：选取 m 个元素，概率理论值</h2>
 <p>来看看选取多个元素的问题。当选取多个元素时，可以认为选取过程是逐步进行的，即无放回的多次选取。每一次选取时，任何一个元素被选中的概率都与其权重成正比，但总的权重则又剩余的元素集合决定。</p>
-<p>当m=2的时候，第i个元素被选中可以是两种情况：第一次就被选中；第一次未被选中，第二次被选中。可以得到其概率为这两种情况的概率之和，即：</p>
+<p>当 m=2 的时候，第 i 个元素被选中可以是两种情况：第一次就被选中；第一次未被选中，第二次被选中。可以得到其概率为这两种情况的概率之和，即：</p>
 <div class="math">
 \begin{equation*}
 p_i(2)=\frac{w_i}{w}+\sum_{j\neq i}\left(\frac{w_j}{w}\times\frac{w_i}{w-w_j}\right)
 \end{equation*}
 </div>
-<p>值得注意的是，即便w<sub>i</sub>和w不变，如果其他元素的概率分布不同，最后得到的结果也不同，因此上面这个式子无法把其中的求和化简掉。</p>
-<p>从另一方面来看，第i个元素被选中的概率等于1减去它不被选中的概率。用<span class="math">\(\bar p\)</span>表示不被选中的概率，则有：</p>
+<p>值得注意的是，即便 w<sub>i</sub> 和 w 不变，如果其他元素的概率分布不同，最后得到的结果也不同，因此上面这个式子无法把其中的求和化简掉。</p>
+<p>从另一方面来看，第 i 个元素被选中的概率等于 1 减去它不被选中的概率。用 <span class="math">\(\bar p\)</span> 表示不被选中的概率，则有：</p>
 <div class="math">
 \begin{equation*}
 \bar p_i(2)=\sum_{j\neq i}\left(\frac{w_j}{w}\times\frac{w-w_j-w_i}{w-w_j}\right)
 \end{equation*}
 </div>
 <p>显然，<span class="math">\(p_i(2)+\bar p_i(2)=1\)</span>。</p>
-<p>当m&gt;2时，其概率表达式将会变得异常复杂，因为跟概率分布有关，所以算式无法化简。未被选中的概率计算式要稍微简单些，大概是这个样子的：</p>
+<p>当 m&gt;2 时，其概率表达式将会变得异常复杂，因为跟概率分布有关，所以算式无法化简。未被选中的概率计算式要稍微简单些，大概是这个样子的：</p>
 <div class="math">
 \begin{equation*}
 \bar p_i(m)=\sum_{j_1}\left(\frac{w_{j_1}}{w}\sum_{j_2}\left(\frac{w_{j_2}}{w-w_{j_1}}\sum_{j_3}\left(\frac{w_{j_2}}{w-w_{j_1}-w_{j_2}}\cdots\sum_{j_m}\frac{w_{j_m}}{w-\sum_{k=1}^{m-1}w_{j_k}}\right)\right)\right)
 \end{equation*}
 </div>
 <p>其中，<span class="math">\(\forall 1\leq k\leq m,j_k\notin\{i,j_1,j_2,\cdots,j_{k-1}\}\)</span>。</p>
-<p>对于给定的一组权重，可以用下面这段程序计算出任意m、i（程序中的i是从0开始的）对应的概率数值（请无视其coding
+<p>对于给定的一组权重，可以用下面这段程序计算出任意 m、i（程序中的 i 是从 0 开始的）对应的概率数值（请无视其 coding
 style）：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -262,17 +262,17 @@ style）：</p>
   <span class="n">p</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">),</span> <span class="n">m</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
   <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p</span>
 </pre></div>
-</td></tr></table><p>可惜算法的复杂度非常高，CalcSampleProbability需要O(n^m)时间来完成一次计算。期待高手改进。</p>
-<p>来看一下等权重、等差数列权重和等比数列权重的n选m概率分布图（图中i依旧采用1
-&lt;= i &lt;= n的取值范围）：</p>
+</td></tr></table><p>可惜算法的复杂度非常高，<tt class="docutils literal">CalcSampleProbability</tt> 需要 O(n^m) 时间来完成一次计算。期待高手改进。</p>
+<p>来看一下等权重、等差数列权重和等比数列权重的 n 选 m 概率分布图（图中 i 依旧采用 1
+&lt;= i &lt;= n 的取值范围）：</p>
 <div id="equal-p-chart" class="highcharts" style="height: 480px; width: 640px"></div>
 <script type="text/javascript">
 $(function () {
     $('#equal-p-chart').highcharts({
-        chart: { type: 'line', backgroundColor: null },
-        title: { text: '等值权重随机选取m个元素，第i个元素被选中的概率' },
-        xAxis: { categories: ['i=1', 'i=2', 'i=3', 'i=4', 'i=5', 'i=6', 'i=7', 'i=8', 'i=9', 'i=10'] },
-        yAxis: { min: 0, max: 1, tickInterval: 0.1, title: { text: null } },
+        chart: {type: 'line', backgroundColor: null},
+        title: {text: '等值权重随机选取 m 个元素，第 i 个元素被选中的概率'},
+        xAxis: {categories: ['i=1', 'i=2', 'i=3', 'i=4', 'i=5', 'i=6', 'i=7', 'i=8', 'i=9', 'i=10'] },
+        yAxis: {min: 0, max: 1, tickInterval: 0.1, title: { text: null} },
         series: [{
             name: 'm=1',
             data: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
@@ -310,10 +310,10 @@ $(function () {
 <script type="text/javascript">
 $(function () {
     $('#arithmetic-p-chart').highcharts({
-        chart: { type: 'line', backgroundColor: null },
-        title: { text: '等差分布权重随机选取m个元素，第i个元素被选中的概率' },
-        xAxis: { categories: ['i=1', 'i=2', 'i=3', 'i=4', 'i=5', 'i=6', 'i=7', 'i=8', 'i=9', 'i=10'] },
-        yAxis: { min: 0, max: 1, tickInterval: 0.1, title: { text: null } },
+        chart: {type: 'line', backgroundColor: null},
+        title: {text: '等差分布权重随机选取 m 个元素，第 i 个元素被选中的概率'},
+        xAxis: {categories: ['i=1', 'i=2', 'i=3', 'i=4', 'i=5', 'i=6', 'i=7', 'i=8', 'i=9', 'i=10'] },
+        yAxis: {min: 0, max: 1, tickInterval: 0.1, title: { text: null} },
         series: [{
             name: 'm=1',
             data: [0.0181818, 0.0363636, 0.0545455, 0.0727273, 0.0909091, 0.109091, 0.127273, 0.145455, 0.163636, 0.181818]
@@ -351,10 +351,10 @@ $(function () {
 <script type="text/javascript">
 $(function () {
     $('#geometric-p-chart').highcharts({
-        chart: { type: 'line', backgroundColor: null },
-        title: { text: '等比分布权重随机选取m个元素，第i个元素被选中的概率' },
-        xAxis: { categories: ['i=1', 'i=2', 'i=3', 'i=4', 'i=5', 'i=6', 'i=7', 'i=8', 'i=9', 'i=10'] },
-        yAxis: { min: 0, max: 1, tickInterval: 0.1, title: { text: null } },
+        chart: {type: 'line', backgroundColor: null},
+        title: {text: '等比分布权重随机选取 m 个元素，第 i 个元素被选中的概率'},
+        xAxis: {categories: ['i=1', 'i=2', 'i=3', 'i=4', 'i=5', 'i=6', 'i=7', 'i=8', 'i=9', 'i=10'] },
+        yAxis: {min: 0, max: 1, tickInterval: 0.1, title: { text: null} },
         series: [{
             name: 'm=1',
             data: [0.000977517, 0.00195503, 0.00391007, 0.00782014, 0.0156403, 0.0312805, 0.0625611, 0.125122, 0.250244, 0.500489]
@@ -388,7 +388,7 @@ $(function () {
         }]
     });
 });
-</script><p>Mathematica提供了RandomSample函数，支持带权选取，当然它是在遍历之前就已经知道元素个数的。给它一组等差分布的权重，可以看出十万次随机选取后得到的概率分布与上面的理论分布非常接近。</p>
+</script><p>Mathematica 提供了 <tt class="docutils literal">RandomSample</tt> 函数，支持带权选取，当然它是在遍历之前就已经知道元素个数的。给它一组等差分布的权重，可以看出十万次随机选取后得到的概率分布与上面的理论分布非常接近。</p>
 <div class="highlight"><pre><span></span>count = 10;
 weights = Range[count];
 elems = Range[count];
@@ -404,9 +404,9 @@ ListLinePlot[map / retry, PlotMarkers -&gt; Automatic]
 </pre></div>
 <div class="figure">
 <img alt="mathematica_random_sample" src="https://blog.gocalf.com/images/2011/09/mathematica_random_sample.png" />
-<p class="caption">Mathematica RandomSample随机选取m个元素，第i个元素被选中的概率</p>
+<p class="caption">Mathematica <tt class="docutils literal">RandomSample</tt> 随机选取 m 个元素，第 i 个元素被选中的概率</p>
 </div>
-<p>苦苦思考了好几天，但并没有想到一个直观的方法可以给之前的RandomSample加上权重处理。因为那概率式子太复杂，实在不知道该怎么去凑。不过在下一篇文章中将会介绍一个神奇的算法（当然不是我想出来的），并且会给出我的证明。</p>
+<p>苦苦思考了好几天，但并没有想到一个直观的方法可以给之前的 <tt class="docutils literal">RandomSample</tt> 加上权重处理。因为那概率式子太复杂，实在不知道该怎么去凑。不过在下一篇文章中将会介绍一个神奇的算法（当然不是我想出来的），并且会给出我的证明。</p>
 <p>现在发文章的速度越来越慢了，实在因为能力有限，每次为了一两个式子都要演算很久。再接再厉。</p>
 </div>
 

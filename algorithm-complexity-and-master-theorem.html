@@ -6,27 +6,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="平时设计或者阅读一个算法的时候，必然会提到算法的复杂度（包括时间复杂度和空间复杂度）。比如我们说一个二分查找算法的平均时间复杂度为O(log n)，快速排序可能是O(n log n)。那这里的O是什么意思？这样的表达是否准确呢？今天来复习一下与算法复杂度相关的知识：函数渐进阶；记号O、Ω、θ和o；Master定理。
+        <meta name="description" content="平时设计或者阅读一个算法的时候，必然会提到算法的复杂度（包括时间复杂度和空间复杂度）。比如我们说一个二分查找算法的平均时间复杂度为 O(log n)，快速排序可能是 O(n log n)。那这里的 O 是什么意思？这样的表达是否准确呢？今天来复习一下与算法复杂度相关的知识：函数渐进阶；记号 O、Ω、θ和 o；Master 定理。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Algorithm Complexity, Master Theorem, 算法, Master定理, 上界, 下界, 函数渐进阶, 时间复杂度, 算法复杂度" />
+<meta name="keywords" content="Algorithm Complexity, Master Theorem, 算法, Master 定理, 上界, 下界, 函数渐进阶, 时间复杂度, 算法复杂度" />
 
-<meta property="og:title" content="算法的复杂度与Master定理 "/>
+<meta property="og:title" content="算法的复杂度与 Master 定理 "/>
 <meta property="og:url" content="https://blog.gocalf.com/algorithm-complexity-and-master-theorem" />
-<meta property="og:description" content="平时设计或者阅读一个算法的时候，必然会提到算法的复杂度（包括时间复杂度和空间复杂度）。比如我们说一个二分查找算法的平均时间复杂度为O(log n)，快速排序可能是O(n log n)。那这里的O是什么意思？这样的表达是否准确呢？今天来复习一下与算法复杂度相关的知识：函数渐进阶；记号O、Ω、θ和o；Master定理。" />
+<meta property="og:description" content="平时设计或者阅读一个算法的时候，必然会提到算法的复杂度（包括时间复杂度和空间复杂度）。比如我们说一个二分查找算法的平均时间复杂度为 O(log n)，快速排序可能是 O(n log n)。那这里的 O 是什么意思？这样的表达是否准确呢？今天来复习一下与算法复杂度相关的知识：函数渐进阶；记号 O、Ω、θ和 o；Master 定理。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2011-11-16T14:16:00+08:00" />
 <meta property="og:article:modified_time" content="2011-11-16T14:16:00+08:00" />
-<meta name="twitter:title" content="算法的复杂度与Master定理 ">
-<meta name="twitter:description" content="平时设计或者阅读一个算法的时候，必然会提到算法的复杂度（包括时间复杂度和空间复杂度）。比如我们说一个二分查找算法的平均时间复杂度为O(log n)，快速排序可能是O(n log n)。那这里的O是什么意思？这样的表达是否准确呢？今天来复习一下与算法复杂度相关的知识：函数渐进阶；记号O、Ω、θ和o；Master定理。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/11/master_theorem.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/11/master_theorem.png" >
+<meta name="twitter:title" content="算法的复杂度与 Master 定理 ">
+<meta name="twitter:description" content="平时设计或者阅读一个算法的时候，必然会提到算法的复杂度（包括时间复杂度和空间复杂度）。比如我们说一个二分查找算法的平均时间复杂度为 O(log n)，快速排序可能是 O(n log n)。那这里的 O 是什么意思？这样的表达是否准确呢？今天来复习一下与算法复杂度相关的知识：函数渐进阶；记号 O、Ω、θ和 o；Master 定理。">
+<meta property="og:image" content="https://blog.gocalf.com/images/2011/11/master_theorem.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2011/11/master_theorem.png" >
 
-        <title>算法的复杂度与Master定理  · GoCalf Blog
+        <title>算法的复杂度与 Master 定理  · GoCalf Blog
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
@@ -93,7 +93,7 @@
     <header class="page-header span10 offset2">
         <h1>
             <a href="https://blog.gocalf.com/algorithm-complexity-and-master-theorem">
-                算法的复杂度与Master定理
+                算法的复杂度与 Master 定理
             </a>
         </h1>
     </header>
@@ -102,31 +102,31 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
             
-            <p>平时设计或者阅读一个算法的时候，必然会提到算法的复杂度（包括时间复杂度和空间复杂度）。比如我们说一个二分查找算法的平均时间复杂度为O(log
-n)，快速排序可能是O(n log
-n)。那这里的O是什么意思？这样的表达是否准确呢？</p>
-<p>今天来复习一下与算法复杂度相关的知识：函数渐进阶，记号O、Ω、θ和o；Master定理。</p>
+            <p>平时设计或者阅读一个算法的时候，必然会提到算法的复杂度（包括时间复杂度和空间复杂度）。比如我们说一个二分查找算法的平均时间复杂度为 O(log
+n)，快速排序可能是 O(n log
+n)。那这里的 O 是什么意思？这样的表达是否准确呢？</p>
+<p>今天来复习一下与算法复杂度相关的知识：函数渐进阶，记号 O、Ω、θ和 o；Master 定理。</p>
 <!-- more -->
-<p>先插一句，在算法复杂度分析中，log通常表示以2为底的对数。</p>
+<p>先插一句，在算法复杂度分析中，log 通常表示以 2 为底的对数。</p>
 <p>算法复杂度（算法复杂性）是用来衡量算法运行所需要的计算机资源（时间、空间）的量。通常我们利用渐进性态来描述算法的复杂度。</p>
-<p>用n表示问题的规模，T(n)表示某个给定算法的复杂度。所谓渐进性态就是令n→∞时，T(n)中增长最快的那部分。严格的定义是：如果存在<span class="math">\(\widetilde{T}(n)\)</span>，当n→∞时，有</p>
+<p>用 n 表示问题的规模，T(n) 表示某个给定算法的复杂度。所谓渐进性态就是令 n→∞ 时，T(n) 中增长最快的那部分。严格的定义是：如果存在 <span class="math">\(\widetilde{T}(n)\)</span>，当 n→∞ 时，有</p>
 <div class="math">
 \begin{equation*}
 \frac{T(n)-\widetilde{T}(n)}{T(n)} \to 0
 \end{equation*}
 </div>
-<p>就说<span class="math">\(\widetilde{T}(n)\)</span>是T(n)当n→∞时的渐进性态。</p>
-<p>比如T(n) = 2 * n ^ 2 + n log n + 3，那么显然它的渐进性态是 2 * n ^
-2，因为当n→∞时，后两项的增长速度要慢的多，可以忽略掉。引入渐进性态是为了简化算法复杂度的表达式，只考虑其中的主要因素。当比较两个算法复杂度的时候，如果他们的渐进复杂度的阶不相同，那只需要比较彼此的阶（忽略常数系数）就可以了。</p>
-<p>总之，分析算法复杂度的时候，并不用严格演算出一个具体的公式，而是只需要分析当问题规模充分大的时候，复杂度在渐进意义下的阶。记号O、Ω、θ和o可以帮助我们了解函数渐进阶的大小。</p>
-<p>假设有两个函数f(n)和g(n)，都是定义在正整数集上的正函数。上述四个记号的含义分别是：</p>
+<p>就说 <span class="math">\(\widetilde{T}(n)\)</span> 是 T(n) 当 n→∞ 时的渐进性态。</p>
+<p>比如 T(n) = 2 * n ^ 2 + n log n + 3，那么显然它的渐进性态是 2 * n ^
+2，因为当 n→∞ 时，后两项的增长速度要慢的多，可以忽略掉。引入渐进性态是为了简化算法复杂度的表达式，只考虑其中的主要因素。当比较两个算法复杂度的时候，如果他们的渐进复杂度的阶不相同，那只需要比较彼此的阶（忽略常数系数）就可以了。</p>
+<p>总之，分析算法复杂度的时候，并不用严格演算出一个具体的公式，而是只需要分析当问题规模充分大的时候，复杂度在渐进意义下的阶。记号 O、Ω、θ和 o 可以帮助我们了解函数渐进阶的大小。</p>
+<p>假设有两个函数 f(n) 和 g(n)，都是定义在正整数集上的正函数。上述四个记号的含义分别是：</p>
 <ul class="simple">
-<li>f(n) = O(g(n))：<span class="math">\(\exists c&gt;0,n_0\in\mathbb{N},\forall n\geq n_0,f(n)\leq c g(n)\)</span>；f的阶<strong>不高于</strong>g的阶。</li>
-<li>f(n) =&nbsp;Ω(g(n))：<span class="math">\(\exists c&gt;0,n_0\in\mathbb{N},\forall n\geq n_0,f(n)\geq c g(n)\)</span>；f的阶<strong>不低于</strong>g的阶。</li>
-<li>f(n) =&nbsp;θ(g(n))：<span class="math">\(\iff f(n)=O(g(n))\&amp;\&amp;f(n)=\Omega(g(n))\)</span>；f的阶<strong>等于</strong>g的阶。</li>
-<li>f(n) =&nbsp;o(g(n))：<span class="math">\(\forall\varepsilon &gt; 0,\exists n_0\in \mathbb{N},\forall n\geq n_0,f(n)/g(n) &lt; \varepsilon\)</span>；f的阶<strong>低于</strong>g的阶。</li>
+<li>f(n) = O(g(n))：<span class="math">\(\exists c&gt;0,n_0\in\mathbb{N},\forall n\geq n_0,f(n)\leq c g(n)\)</span>；f 的阶<strong>不高于</strong> g 的阶。</li>
+<li>f(n) =&nbsp;Ω(g(n))：<span class="math">\(\exists c&gt;0,n_0\in\mathbb{N},\forall n\geq n_0,f(n)\geq c g(n)\)</span>；f 的阶<strong>不低于</strong> g 的阶。</li>
+<li>f(n) =&nbsp;θ(g(n))：<span class="math">\(\iff f(n)=O(g(n))\&amp;\&amp;f(n)=\Omega(g(n))\)</span>；f 的阶<strong>等于</strong> g 的阶。</li>
+<li>f(n) =&nbsp;o(g(n))：<span class="math">\(\forall\varepsilon &gt; 0,\exists n_0\in \mathbb{N},\forall n\geq n_0,f(n)/g(n) &lt; \varepsilon\)</span>；f 的阶<strong>低于</strong> g 的阶。</li>
 </ul>
-<p>可见，记号O给出了函数f(n)在渐进意义下的上界（但不一定是最小的），相反，记号Ω给出的是下界（不一定是最大的）。如果上界与下界相同，表示f(n)和g(n)在渐进意义下是同阶的（θ），亦即复杂度一样。</p>
+<p>可见，记号 O 给出了函数 f(n) 在渐进意义下的上界（但不一定是最小的），相反，记号Ω给出的是下界（不一定是最大的）。如果上界与下界相同，表示 f(n) 和 g(n) 在渐进意义下是同阶的（θ），亦即复杂度一样。</p>
 <p>列举一些常见的函数之间的渐进阶的关系：</p>
 <ul class="simple">
 <li><span class="math">\(\log n!=\Theta(n\log n)\)</span></li>
@@ -142,40 +142,40 @@ n)。那这里的O是什么意思？这样的表达是否准确呢？</p>
 <p>有些人可能会把这几个记号跟算法的最坏、最好、平均情况复杂度混淆，它们有区别，也有一定的联系。</p>
 <p>即使问题的规模相同，随着输入数据本身属性的不同，算法的处理时间也可能会不同。于是就有了最坏情况、最好情况和平均情况下算法复杂度的区别。它们从不同的角度反映了算法的效率，各有用处，也各有局限。</p>
 <p>有时候也可以利用最坏情况、最好情况下算法复杂度来粗略地估计算法的性能。比如某个算法在最坏情况下时间复杂度为θ(n
-^ 2)，最好情况下为θ(n)，那这个算法的复杂度一定是O(n&nbsp;^
-2)、Ω(n)的。也就是说n ^ 2是该算法复杂度的上界，n是其下界。</p>
-<p>接下来看看Master定理。</p>
+^ 2)，最好情况下为θ(n)，那这个算法的复杂度一定是 O(n&nbsp;^
+2)、Ω(n) 的。也就是说 n ^ 2 是该算法复杂度的上界，n 是其下界。</p>
+<p>接下来看看 Master 定理。</p>
 <p>有些算法在处理一个较大规模的问题时，往往会把问题拆分成几个子问题，对其中的一个或多个问题递归地处理，并在分治之前或之后进行一些预处理、汇总处理。这时候我们可以得到关于这个算法复杂度的一个递推方程，求解此方程便能得到算法的复杂度。其中很常见的一种递推方程就是这样的：</p>
-<p>设常数a &gt;= 1，b &gt; 1，f(n)为函数，T(n)为非负整数，T(n) = a T(n / b) +
+<p>设常数 a &gt;= 1，b &gt; 1，f(n) 为函数，T(n) 为非负整数，T(n) = a T(n / b) +
 f(n)，则有：</p>
 <ol class="arabic simple">
-<li>若<span class="math">\(f(n)=O(n^{\log_b a-\varepsilon}),\varepsilon &gt; 0\)</span>，那么<span class="math">\(T(n)=\Theta(n^{\log_b a})\)</span>。</li>
-<li>若<span class="math">\(f(n)=\Theta(n^{\log_b a})\)</span>，那么<span class="math">\(T(n)=\Theta(n^{\log_b a}\log n)\)</span>。</li>
-<li>若<span class="math">\(f(n)=\Omega(n^{\log_b a+\varepsilon}),\varepsilon &gt; 0\)</span>，并且对于某个常数c &lt; 1和充分大的n有<span class="math">\(a f(n/b)\leq c f(n)\)</span>，那么<span class="math">\(T(n)=\Theta(f(n))\)</span>。</li>
+<li>若 <span class="math">\(f(n)=O(n^{\log_b a-\varepsilon}),\varepsilon &gt; 0\)</span>，那么 <span class="math">\(T(n)=\Theta(n^{\log_b a})\)</span>。</li>
+<li>若 <span class="math">\(f(n)=\Theta(n^{\log_b a})\)</span>，那么 <span class="math">\(T(n)=\Theta(n^{\log_b a}\log n)\)</span>。</li>
+<li>若 <span class="math">\(f(n)=\Omega(n^{\log_b a+\varepsilon}),\varepsilon &gt; 0\)</span>，并且对于某个常数 c &lt; 1 和充分大的 n 有 <span class="math">\(a f(n/b)\leq c f(n)\)</span>，那么 <span class="math">\(T(n)=\Theta(f(n))\)</span>。</li>
 </ol>
-<p>比如常见的二分查找算法，时间复杂度的递推方程为T(n) = T(n / 2) +
-θ(1)，显然有<span class="math">\(n^{\log_b a}=n^0=\Theta(1)\)</span>，满足Master定理第二条，可以得到其时间复杂度为T(n)
+<p>比如常见的二分查找算法，时间复杂度的递推方程为 T(n) = T(n / 2) +
+θ(1)，显然有 <span class="math">\(n^{\log_b a}=n^0=\Theta(1)\)</span>，满足 Master 定理第二条，可以得到其时间复杂度为 T(n)
 = θ(log n)。</p>
-<p>再看一个例子，T(n) = 9 T(n / 3) + n，可知<span class="math">\(n^{\log_b a}=n^2\)</span>，令ε取1，显然满足Master定理第一条，可以得到T(n) =&nbsp;θ(n ^
+<p>再看一个例子，T(n) = 9 T(n / 3) + n，可知 <span class="math">\(n^{\log_b a}=n^2\)</span>，令ε取 1，显然满足 Master 定理第一条，可以得到 T(n) =&nbsp;θ(n ^
 2)。</p>
 <p>来一个稍微复杂一点儿例子，T(n) = 3 T(n / 4) + n log
-n。<span class="math">\(n^{\log_b a}=O(n^{0.793})\)</span>，取ε = 0.2，显然当c = 3 /
-4时，对于充分大的n可以满足a * f(n / b) = 3 * (n / 4) * log(n / 4) &lt;=
-(3 / 4) * n * log n = c * f(n)，符合Master定理第三条，因此求得T(n)
+n。<span class="math">\(n^{\log_b a}=O(n^{0.793})\)</span>，取ε = 0.2，显然当 c = 3 /
+4 时，对于充分大的 n 可以满足 a * f(n / b) = 3 * (n / 4) * log(n / 4) &lt;=
+(3 / 4) * n * log n = c * f(n)，符合 Master 定理第三条，因此求得 T(n)
 =&nbsp;θ(n log n)。</p>
-<p>运用Master定理的时候，有一点一定要<strong>特别注意</strong>，就是第一条和第三条中的ε必须<strong>大于零</strong>。如果无法找到大于零的ε，就不能使用这两条规则。</p>
-<p>举个例子，T(n) = 2 T(n / 2) + n log n。可知<span class="math">\(n^{\log_b a}=n^1\)</span>，而f(n) = n log
-n，显然不满足Master定理第二条。但对于第一条和第三条，也无法找到大于零的ε使得<span class="math">\(n \log n=O(n^{1-\varepsilon})\)</span>或者<span class="math">\(n \log n=\Omega(n^{1+\varepsilon})\)</span>，因此不能用Master定理求解，只能寻求别的方式求解。比如可以利用递归树求出该算法的复杂度为<span class="math">\(T(n)=O(n \log^2{n})\)</span>。简单的说一下计算过程：</p>
-<p>递归树的建立过程，就像是模拟算法的递推过程。树根对应的是输入的规模为n的问题，在递归处理子问题之外，还需要n
+<p>运用 Master 定理的时候，有一点一定要<strong>特别注意</strong>，就是第一条和第三条中的ε必须<strong>大于零</strong>。如果无法找到大于零的ε，就不能使用这两条规则。</p>
+<p>举个例子，T(n) = 2 T(n / 2) + n log n。可知 <span class="math">\(n^{\log_b a}=n^1\)</span>，而 f(n) = n log
+n，显然不满足 Master 定理第二条。但对于第一条和第三条，也无法找到大于零的ε使得 <span class="math">\(n \log n=O(n^{1-\varepsilon})\)</span> 或者 <span class="math">\(n \log n=\Omega(n^{1+\varepsilon})\)</span>，因此不能用 Master 定理求解，只能寻求别的方式求解。比如可以利用递归树求出该算法的复杂度为 <span class="math">\(T(n)=O(n \log^2{n})\)</span>。简单的说一下计算过程：</p>
+<p>递归树的建立过程，就像是模拟算法的递推过程。树根对应的是输入的规模为 n 的问题，在递归处理子问题之外，还需要 n
 log
-n的处理时间。然后根据递推公式给根节点添加子节点，每个子节点对应一个子问题。这里需要两个子节点，每个节点处理规模为n
-/ 2的问题，分别需要(n / 2) * log(n / 2)的时间。因此在第二层一共需要n *
+n 的处理时间。然后根据递推公式给根节点添加子节点，每个子节点对应一个子问题。这里需要两个子节点，每个节点处理规模为 n
+/ 2 的问题，分别需要 (n / 2) * log(n / 2) 的时间。因此在第二层一共需要 n *
 (log n -
-1)的时间。第三层节点就是将第二层的两个节点继续分裂开，得到四个各需要(n /
-4) * log(n / 4)时间的节点，总的时间消耗为n * (log n -
-2)。依此类推，第k（设树根为k = 0）层有2 ^ k的节点，总的时间为n * (log n
-- k)。而且可以知道，这棵树总共有log
-n层（最后一层每个节点只处理规模为1的子问题，无须再分治）。最后将每一层消耗的时间累加起来，得到：</p>
+1) 的时间。第三层节点就是将第二层的两个节点继续分裂开，得到四个各需要 (n /
+4) * log(n / 4) 时间的节点，总的时间消耗为 n * (log n -
+2)。依此类推，第 k（设树根为 k = 0）层有 2 ^ k 的节点，总的时间为 n * (log n
+- k)。而且可以知道，这棵树总共有 log
+n 层（最后一层每个节点只处理规模为 1 的子问题，无须再分治）。最后将每一层消耗的时间累加起来，得到：</p>
 <div class="math">
 \begin{equation*}
 \sum_{k=0}^{\log n}{n(\log n-k)}=\frac{1}{2}n\log n(\log n + 1)=O(n\log^2{n})
@@ -186,11 +186,11 @@ n层（最后一层每个节点只处理规模为1的子问题，无须再分治
 
                 <p id="post-share-links">
     Like this post? Share on:
-    <a href="https://twitter.com/intent/tweet?text=%E7%AE%97%E6%B3%95%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8EMaster%E5%AE%9A%E7%90%86&url=https%3A//blog.gocalf.com/algorithm-complexity-and-master-theorem&via=calfzhou&hashtags=algorithm complexity,master theorem" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="https://twitter.com/intent/tweet?text=%E7%AE%97%E6%B3%95%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%20Master%20%E5%AE%9A%E7%90%86&url=https%3A//blog.gocalf.com/algorithm-complexity-and-master-theorem&via=calfzhou&hashtags=algorithm complexity,master theorem" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//blog.gocalf.com/algorithm-complexity-and-master-theorem" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="mailto:?subject=%E7%AE%97%E6%B3%95%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8EMaster%E5%AE%9A%E7%90%86&amp;body=https%3A//blog.gocalf.com/algorithm-complexity-and-master-theorem" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=%E7%AE%97%E6%B3%95%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%20Master%20%E5%AE%9A%E7%90%86&amp;body=https%3A//blog.gocalf.com/algorithm-complexity-and-master-theorem" target="_blank" title="Share via Email">Email</a>
     </p>
 
             

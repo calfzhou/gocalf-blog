@@ -6,27 +6,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="最近在写iPhone上的程序，第一次在Mac下进行开发，也是第一次写手机上的程序，虽然之前看了少许相关的书籍，但在开发的过程中还是遇到了很多的问题。在这个系列中记录一些遇到的实际的问题，方便淡忘了之后再次查阅。今天的问题是怎么在App中隐藏系统状态栏（Status Bar）。
+        <meta name="description" content="最近在写 iPhone 上的程序，第一次在 Mac 下进行开发，也是第一次写手机上的程序，虽然之前看了少许相关的书籍，但在开发的过程中还是遇到了很多的问题。在这个系列中记录一些遇到的实际的问题，方便淡忘了之后再次查阅。今天的问题是怎么在 App 中隐藏系统状态栏（Status Bar）。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="iOS Develop, 程序开发, iPhone开发, ObjC, setStatusBarHidden, Status Bar, UIApplication, 隐藏状态栏" />
+<meta name="keywords" content="iOS Develop, 程序开发, iPhone 开发, ObjC, setStatusBarHidden, Status Bar, UIApplication, 隐藏状态栏" />
 
-<meta property="og:title" content="iOS隐藏系统状态栏 "/>
+<meta property="og:title" content="iOS 隐藏系统状态栏 "/>
 <meta property="og:url" content="https://blog.gocalf.com/iphone-dev-hide-status-bar" />
-<meta property="og:description" content="最近在写iPhone上的程序，第一次在Mac下进行开发，也是第一次写手机上的程序，虽然之前看了少许相关的书籍，但在开发的过程中还是遇到了很多的问题。在这个系列中记录一些遇到的实际的问题，方便淡忘了之后再次查阅。今天的问题是怎么在App中隐藏系统状态栏（Status Bar）。" />
+<meta property="og:description" content="最近在写 iPhone 上的程序，第一次在 Mac 下进行开发，也是第一次写手机上的程序，虽然之前看了少许相关的书籍，但在开发的过程中还是遇到了很多的问题。在这个系列中记录一些遇到的实际的问题，方便淡忘了之后再次查阅。今天的问题是怎么在 App 中隐藏系统状态栏（Status Bar）。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2011-11-30T14:45:00+08:00" />
 <meta property="og:article:modified_time" content="2011-12-02T13:01:00+08:00" />
-<meta name="twitter:title" content="iOS隐藏系统状态栏 ">
-<meta name="twitter:description" content="最近在写iPhone上的程序，第一次在Mac下进行开发，也是第一次写手机上的程序，虽然之前看了少许相关的书籍，但在开发的过程中还是遇到了很多的问题。在这个系列中记录一些遇到的实际的问题，方便淡忘了之后再次查阅。今天的问题是怎么在App中隐藏系统状态栏（Status Bar）。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/11/hide_status_bar.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/11/hide_status_bar.png" >
+<meta name="twitter:title" content="iOS 隐藏系统状态栏 ">
+<meta name="twitter:description" content="最近在写 iPhone 上的程序，第一次在 Mac 下进行开发，也是第一次写手机上的程序，虽然之前看了少许相关的书籍，但在开发的过程中还是遇到了很多的问题。在这个系列中记录一些遇到的实际的问题，方便淡忘了之后再次查阅。今天的问题是怎么在 App 中隐藏系统状态栏（Status Bar）。">
+<meta property="og:image" content="https://blog.gocalf.com/images/2011/11/hide_status_bar.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2011/11/hide_status_bar.png" >
 
-        <title>iOS隐藏系统状态栏  · GoCalf Blog
+        <title>iOS 隐藏系统状态栏  · GoCalf Blog
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
@@ -93,7 +93,7 @@
     <header class="page-header span10 offset2">
         <h1>
             <a href="https://blog.gocalf.com/iphone-dev-hide-status-bar">
-                iOS隐藏系统状态栏
+                iOS 隐藏系统状态栏
             </a>
         </h1>
     </header>
@@ -107,7 +107,7 @@
 
 <ul class="simple">
 <li><a class="reference internal" href="#id2" id="id4">一、始终隐藏状态栏</a></li>
-<li><a class="reference internal" href="#app" id="id5">二、App启动时就隐藏状态栏</a></li>
+<li><a class="reference internal" href="#app" id="id5">二、App 启动时就隐藏状态栏</a></li>
 <li><a class="reference internal" href="#id3" id="id6">三、在运行过程中隐藏或显示状态栏</a></li>
 </ul>
 </div>
@@ -116,13 +116,13 @@
     <div class="span8 article-content">
             
             
-<p>最近在写iPhone上的程序，第一次在Mac下进行开发，也是第一次写手机上的程序，虽然之前看了少许相关的书籍，但在开发的过程中还是遇到了很多的问题。在这个系列中记录一些遇到的实际的问题，方便淡忘了之后再次查阅。</p>
-<p>今天的问题是怎么在App中隐藏系统状态栏（Status Bar）。</p>
+<p>最近在写 iPhone 上的程序，第一次在 Mac 下进行开发，也是第一次写手机上的程序，虽然之前看了少许相关的书籍，但在开发的过程中还是遇到了很多的问题。在这个系列中记录一些遇到的实际的问题，方便淡忘了之后再次查阅。</p>
+<p>今天的问题是怎么在 App 中隐藏系统状态栏（Status Bar）。</p>
 <!-- more -->
-<p>以下内容适用于iOS 3.2+。</p>
+<p>以下内容适用于 iOS 3.2+。</p>
 <div class="section" id="id2">
 <h2><a class="toc-backref" href="#id4">一、始终隐藏状态栏</a></h2>
-<p>如果在App中需要状态栏一直是隐藏着的，可以在&lt;YOUR_APP&gt;AppDelegate的<tt class="docutils literal">application:didFinishLaunchingWithOptions:</tt>函数中进行设置，比如下面这段示意代码可以让状态栏以淡出的方式隐藏起来：</p>
+<p>如果在 App 中需要状态栏一直是隐藏着的，可以在 <tt class="docutils literal">&lt;YOUR_APP&gt;AppDelegate</tt> 的 <tt class="docutils literal">application:didFinishLaunchingWithOptions:</tt> 函数中进行设置，比如下面这段示意代码可以让状态栏以淡出的方式隐藏起来：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -143,42 +143,42 @@
     <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-</td></tr></table><p>相关的方法或属性是<a class="reference external" href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html">UIApplication</a>的：</p>
+</td></tr></table><p>相关的方法或属性是 <a class="reference external" href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html">UIApplication</a> 的：</p>
 <ul class="simple">
 <li><a class="reference external" href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html#//apple_ref/occ/instm/UIApplication/setStatusBarHidden:withAnimation:">setStatusBarHidden:withAnimation:</a>（iOS 3.2+）</li>
 <li><a class="reference external" href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html#//apple_ref/occ/instp/UIApplication/statusBarHidden">statusBarHidden</a>（iOS 2.0+）</li>
 </ul>
-<p>另外还有一个方法<a class="reference external" href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/DeprecationAppendix/AppendixADeprecatedAPI.html#//apple_ref/occ/instm/UIApplication/setStatusBarHidden:animated:">setStatusBarHidden:animated:</a>，已经不推荐使用了（deprecated
+<p>另外还有一个方法 <a class="reference external" href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/DeprecationAppendix/AppendixADeprecatedAPI.html#//apple_ref/occ/instm/UIApplication/setStatusBarHidden:animated:">setStatusBarHidden:animated:</a>，已经不推荐使用了（deprecated
 in iOS 3.2）。</p>
 </div>
 <div class="section" id="app">
-<h2><a class="toc-backref" href="#id5">二、App启动时就隐藏状态栏</a></h2>
-<p>用了上面的方法之后，App在运行过程中，状态栏确实被隐藏起来了，但是我发现在App启动的那个瞬间，还是可以看到状态栏的，然后一闪即过。虽然时间很短暂，看着还是很不舒服。为了让状态栏从启动的时候就隐藏起来，可以修改&lt;YOUR_APP&gt;-Info.plist。如果在Xcode中修改，在根结点Infomation
-Property List下面新加一项“Status bar is initially
-hidden”（不用手动输入，可以直接在下拉菜单中选取）。这是个BOOL类型的键值，将Value栏中的复选框勾选上即可。</p>
+<h2><a class="toc-backref" href="#id5">二、App 启动时就隐藏状态栏</a></h2>
+<p>用了上面的方法之后，App 在运行过程中，状态栏确实被隐藏起来了，但是我发现在 App 启动的那个瞬间，还是可以看到状态栏的，然后一闪即过。虽然时间很短暂，看着还是很不舒服。为了让状态栏从启动的时候就隐藏起来，可以修改 <tt class="docutils literal"><span class="pre">&lt;YOUR_APP&gt;-Info.plist</span></tt>。如果在 Xcode 中修改，在根结点 Infomation
+Property List 下面新加一项 “Status bar is initially
+hidden”（不用手动输入，可以直接在下拉菜单中选取）。这是个 BOOL 类型的键值，将 Value 栏中的复选框勾选上即可。</p>
 <div class="figure">
 <img alt="status_bar_initially_hidden" src="https://blog.gocalf.com/images/2011/11/status_bar_initially_hidden.png"/>
-<p class="caption">在Info.plist中设置状态栏为隐藏</p>
+<p class="caption">在 Info.plist 中设置状态栏为隐藏</p>
 </div>
-<p>也可以以文本方式修改，在根节点中添加UIStatusBarHidden键值，值设为true即可：</p>
+<p>也可以以文本方式修改，在根节点中添加 UIStatusBarHidden 键值，值设为 true 即可：</p>
 <div class="highlight"><pre><span></span><span class="nt">&lt;key&gt;</span>UIStatusBarHidden<span class="nt">&lt;/key&gt;</span>
 <span class="nt">&lt;true/&gt;</span>
 </pre></div>
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id6">三、在运行过程中隐藏或显示状态栏</a></h2>
-<p>与第一段中的方法一样，只是可以在任何地方调用。只要利用UIApplication类的静态方法<a class="reference external" href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html#//apple_ref/occ/clm/UIApplication/sharedApplication">sharedApplication</a>拿到application实例即可。</p>
+<p>与第一段中的方法一样，只是可以在任何地方调用。只要利用 UIApplication 类的静态方法 <a class="reference external" href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html#//apple_ref/occ/clm/UIApplication/sharedApplication">sharedApplication</a> 拿到 application 实例即可。</p>
 </div>
 
 
 
                 <p id="post-share-links">
     Like this post? Share on:
-    <a href="https://twitter.com/intent/tweet?text=iOS%E9%9A%90%E8%97%8F%E7%B3%BB%E7%BB%9F%E7%8A%B6%E6%80%81%E6%A0%8F&url=https%3A//blog.gocalf.com/iphone-dev-hide-status-bar&via=calfzhou&hashtags=ios develop" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="https://twitter.com/intent/tweet?text=iOS%20%E9%9A%90%E8%97%8F%E7%B3%BB%E7%BB%9F%E7%8A%B6%E6%80%81%E6%A0%8F&url=https%3A//blog.gocalf.com/iphone-dev-hide-status-bar&via=calfzhou&hashtags=ios develop" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//blog.gocalf.com/iphone-dev-hide-status-bar" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="mailto:?subject=iOS%E9%9A%90%E8%97%8F%E7%B3%BB%E7%BB%9F%E7%8A%B6%E6%80%81%E6%A0%8F&amp;body=https%3A//blog.gocalf.com/iphone-dev-hide-status-bar" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=iOS%20%E9%9A%90%E8%97%8F%E7%B3%BB%E7%BB%9F%E7%8A%B6%E6%80%81%E6%A0%8F&amp;body=https%3A//blog.gocalf.com/iphone-dev-hide-status-bar" target="_blank" title="Share via Email">Email</a>
     </p>
 
             
@@ -243,16 +243,16 @@ hidden”（不用手动输入，可以直接在下拉菜单中选取）。这�
 <section>
     <h2>Keep Reading</h2>
 <ul class="related-posts-list">
-<li><a href="https://blog.gocalf.com/iphone-dev-progressview-in-alertview" title="iOS在UIAlertView中显示进度条">iOS在UIAlertView中显示进度条</a></li>
-<li><a href="https://blog.gocalf.com/iphone-dev-range-slider" title="iOS自定义范围滑动条控件">iOS自定义范围滑动条控件</a></li>
-<li><a href="https://blog.gocalf.com/iphone-dev-resizable-image" title="iOS可拉伸的图片">iOS可拉伸的图片</a></li>
+<li><a href="https://blog.gocalf.com/iphone-dev-progressview-in-alertview" title="iOS 在 UIAlertView 中显示进度条">iOS 在 UIAlertView 中显示进度条</a></li>
+<li><a href="https://blog.gocalf.com/iphone-dev-range-slider" title="iOS 自定义范围滑动条控件">iOS 自定义范围滑动条控件</a></li>
+<li><a href="https://blog.gocalf.com/iphone-dev-resizable-image" title="iOS 可拉伸的图片">iOS 可拉伸的图片</a></li>
 </ul>
 <hr />
 </section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="https://blog.gocalf.com/5x5-sudoku-in-vcube7" title="Previous: 七阶魔方花样：5x5数独">七阶魔方花样：5x5数独</a></li>
+                <li class="previous-article">« <a href="https://blog.gocalf.com/5x5-sudoku-in-vcube7" title="Previous: 七阶魔方花样：5x5 数独">七阶魔方花样：5x5 数独</a></li>
                 <li class="next-article"><a href="https://blog.gocalf.com/zelda-tp-ch6" title="Next: 黎明公主攻略：第六章 时间遗忘的裂缝">黎明公主攻略：第六章 时间遗忘的裂缝</a> »</li>
             </ul>
             </nav>

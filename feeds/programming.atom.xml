@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>GoCalf Blog - 程序开发</title><link href="https://blog.gocalf.com/" rel="alternate"></link><link href="https://blog.gocalf.com/feeds/programming.atom.xml" rel="self"></link><id>https://blog.gocalf.com/</id><updated>2014-07-31T09:54:00+08:00</updated><subtitle>1/100 ALGO&amp;amp;MATH; 1/100 IT&amp;amp;GAME; 1/100 INFO&amp;amp;SHARING; 1/100 WHO KNOWS</subtitle><entry><title>在苹果系统上打造舒服的开发环境</title><link href="https://blog.gocalf.com/make-mac-better-for-development" rel="alternate"></link><published>2014-07-26T11:00:00+08:00</published><updated>2014-07-26T11:00:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2014-07-26:/make-mac-better-for-development</id><summary type="html">&lt;p class="first last"&gt;对Mac OS X做一番处理，使之更加适合程序开发。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>GoCalf Blog - 程序开发</title><link href="https://blog.gocalf.com/" rel="alternate"></link><link href="https://blog.gocalf.com/feeds/programming.atom.xml" rel="self"></link><id>https://blog.gocalf.com/</id><updated>2014-07-31T09:54:00+08:00</updated><subtitle>1/100 ALGO&amp;amp;MATH; 1/100 IT&amp;amp;GAME; 1/100 INFO&amp;amp;SHARING; 1/100 WHO KNOWS</subtitle><entry><title>在苹果系统上打造舒服的开发环境</title><link href="https://blog.gocalf.com/make-mac-better-for-development" rel="alternate"></link><published>2014-07-26T11:00:00+08:00</published><updated>2014-07-26T11:00:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2014-07-26:/make-mac-better-for-development</id><summary type="html">&lt;p class="first last"&gt;对 Mac OS X 做一番处理，使之更加适合程序开发。&lt;/p&gt;
 </summary><content type="html">
 &lt;p&gt;用苹果系统已经有一段时间了，越来越喜欢这个系统，不管是一般的使用、做设计、做开发，都非常适合。最近也对系统做了一些调整，使得开发环境更加的舒服，记录下来，免得忘了。&lt;/p&gt;
-&lt;p&gt;实际的过程是漫长而曲折的，跟下面所写的顺序完全没有关系。如果按照下面的步骤操作，中间难免会遇到一些问题（大多是由于墙导致的），那时再自行Google吧。&lt;/p&gt;
+&lt;p&gt;实际的过程是漫长而曲折的，跟下面所写的顺序完全没有关系。如果按照下面的步骤操作，中间难免会遇到一些问题（大多是由于墙导致的），那时再自行 Google 吧。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;div class="section" id="id3"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;基础设施&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="iterm"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;iTerm&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;对于几乎离不开shell的开发者来说，一款优秀的终端程序是基础的基础。&lt;/p&gt;
-&lt;p&gt;毫无疑问，我用的是&lt;a class="reference external" href="http://www.iterm2.com/"&gt;iTerm2&lt;/a&gt;。如果说访问互联网世界的入口是Chrome，那么访问程序世界的入口就是iTerm了。&lt;/p&gt;
+&lt;p&gt;对于几乎离不开 shell 的开发者来说，一款优秀的终端程序是基础的基础。&lt;/p&gt;
+&lt;p&gt;毫无疑问，我用的是 &lt;a class="reference external" href="http://www.iterm2.com/"&gt;iTerm2&lt;/a&gt;。如果说访问互联网世界的入口是 Chrome，那么访问程序世界的入口就是 iTerm 了。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="iterm2_logo" src="https://blog.gocalf.com/images/2014/07/iterm2_logo.png"/&gt;
 &lt;/div&gt;
-&lt;p&gt;字体选择一款好看的等宽字体即可，比如常用的Consolas、 Curier New等。我用的是&lt;a class="reference external" href="https://github.com/adobe/source-code-pro"&gt;Source Code Pro&lt;/a&gt;。中文使用Microsoft YaHei字体。&lt;/p&gt;
-&lt;p&gt;配色当然首选&lt;a class="reference external" href="https://github.com/altercation/solarized"&gt;Solarized&lt;/a&gt;的暗色系，在Github上可以找到专门提供给iTerm2用的配色文件&lt;a class="reference external" href="https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors"&gt;Solarized Dark.itemcolors&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;字体选择一款好看的等宽字体即可，比如常用的 Consolas、 Curier New 等。我用的是 &lt;a class="reference external" href="https://github.com/adobe/source-code-pro"&gt;Source Code Pro&lt;/a&gt;。中文使用 Microsoft YaHei 字体。&lt;/p&gt;
+&lt;p&gt;配色当然首选 &lt;a class="reference external" href="https://github.com/altercation/solarized"&gt;Solarized&lt;/a&gt; 的暗色系，在 Github 上可以找到专门提供给 iTerm2 用的配色文件 &lt;a class="reference external" href="https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors"&gt;Solarized Dark.itemcolors&lt;/a&gt;。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="homebrew"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Homebrew&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://brew.sh/"&gt;Homebrew&lt;/a&gt; installs the stuff you need that Apple didn't.&lt;/p&gt;
-&lt;p&gt;我电脑上的大部分工具都是通过homebrew安装和管理的，非常方便。虽然提供类似功能的还有&lt;a class="reference external" href="http://www.finkproject.org/"&gt;Fink&lt;/a&gt;和&lt;a class="reference external" href="http://www.macports.org/"&gt;macports&lt;/a&gt;，但我认为Homebrew是最方便的。具体的就不在这里比较了，大家可以自行调研。当然，至少选择一个来帮助自己安装盒管理软件包，会让很多事情变得更容易。&lt;/p&gt;
-&lt;p&gt;安装Homebrew非常方便，首先要安装&lt;a class="reference external" href="https://developer.apple.com/downloads/index.action"&gt;Command Line Tools for Xcode&lt;/a&gt;，然后运行&lt;/p&gt;
+&lt;p&gt;我电脑上的大部分工具都是通过 homebrew 安装和管理的，非常方便。虽然提供类似功能的还有 &lt;a class="reference external" href="http://www.finkproject.org/"&gt;Fink&lt;/a&gt; 和 &lt;a class="reference external" href="http://www.macports.org/"&gt;macports&lt;/a&gt;，但我认为 Homebrew 是最方便的。具体的就不在这里比较了，大家可以自行调研。当然，至少选择一个来帮助自己安装盒管理软件包，会让很多事情变得更容易。&lt;/p&gt;
+&lt;p&gt;安装 Homebrew 非常方便，首先要安装 &lt;a class="reference external" href="https://developer.apple.com/downloads/index.action"&gt;Command Line Tools for Xcode&lt;/a&gt;，然后运行&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ruby -e &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;在使用Homebrew的过程中，要注意经常更新它。在brew的世界中，24小时就已经是非常久了。所以在安装某个包或者做其他操作之前，一般都要运行`brew update`和`brew doctor`，前者用于更新Homebrew自身和各个软件包，后者用于排查可能会遇到的问题。我之前没注意这个（也是因为那时候还没太依赖于Homebrew），有一次安装一个程序，总是提示我有一个依赖没有装，但那个依赖明明就在那儿，百思不得其解，还跑到github上发issue去问，被拍了一顿。其实只要brew update一下就知道，我安装的那个依赖包太老了，升级了就好了。&lt;/p&gt;
-&lt;p&gt;在安装某个程序前，我一般也要先&lt;tt class="docutils literal"&gt;brew info $FORMULA&lt;/tt&gt;一下看看，了解一下有没有什么值得注意的参数，安装后有什么需要手动进行的后续操作。&lt;/p&gt;
-&lt;p&gt;Homebrew默认会掌控系统中的&lt;tt class="docutils literal"&gt;/usr/local&lt;/tt&gt;目录，目前我这个目录也就只是给Homebrew用了，其他的东西都不往里放。在使用Homebrew的过程中，一般都避免使用sudo进行操作，实际上现在的版本用了sudo也就没法使了。&lt;/p&gt;
+&lt;p&gt;在使用 Homebrew 的过程中，要注意经常更新它。在 brew 的世界中，24 小时就已经是非常久了。所以在安装某个包或者做其他操作之前，一般都要运行 &lt;tt class="docutils literal"&gt;brew update&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;brew doctor&lt;/tt&gt;，前者用于更新 Homebrew 自身和各个软件包，后者用于排查可能会遇到的问题。我之前没注意这个（也是因为那时候还没太依赖于 Homebrew），有一次安装一个程序，总是提示我有一个依赖没有装，但那个依赖明明就在那儿，百思不得其解，还跑到 github 上发 issue 去问，被拍了一顿。其实只要 brew update 一下就知道，我安装的那个依赖包太老了，升级了就好了。&lt;/p&gt;
+&lt;p&gt;在安装某个程序前，我一般也要先 &lt;tt class="docutils literal"&gt;brew info $FORMULA&lt;/tt&gt; 一下看看，了解一下有没有什么值得注意的参数，安装后有什么需要手动进行的后续操作。&lt;/p&gt;
+&lt;p&gt;Homebrew 默认会掌控系统中的 &lt;tt class="docutils literal"&gt;/usr/local&lt;/tt&gt; 目录，目前我这个目录也就只是给 Homebrew 用了，其他的东西都不往里放。在使用 Homebrew 的过程中，一般都避免使用 sudo 进行操作，实际上现在的版本用了 sudo 也就没法使了。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="python"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;Python&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;苹果系统自带了好几个版本的Python，装在/Library/Python中。不过版本都不新，为了便于维护，还是自己装一个Python吧。用&lt;tt class="docutils literal"&gt;brew install python&lt;/tt&gt;可以安装最新的Python 2.x，用&lt;tt class="docutils literal"&gt;brew install python3&lt;/tt&gt;可以安装最新的Python 3.x。&lt;/p&gt;
-&lt;p&gt;Homebrew的Python已经安装了pip，用于管理Python的软件包。根据&lt;tt class="docutils literal"&gt;brew info python&lt;/tt&gt;提供的提示，运行下列命令对pip进行更新：&lt;/p&gt;
+&lt;p&gt;苹果系统自带了好几个版本的 Python，装在 /Library/Python 中。不过版本都不新，为了便于维护，还是自己装一个 Python 吧。用 &lt;tt class="docutils literal"&gt;brew install python&lt;/tt&gt; 可以安装最新的 Python 2.x，用 &lt;tt class="docutils literal"&gt;brew install python3&lt;/tt&gt; 可以安装最新的 Python 3.x。&lt;/p&gt;
+&lt;p&gt;Homebrew 的 Python 已经安装了 pip，用于管理 Python 的软件包。根据 &lt;tt class="docutils literal"&gt;brew info python&lt;/tt&gt; 提供的提示，运行下列命令对 pip 进行更新：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install --upgrade setuptools
 pip install --upgrade pip
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;我现在使用&lt;a class="reference external" href="http://virtualenv.readthedocs.org/en/latest/"&gt;virtualenv&lt;/a&gt;来管理Python的环境，用&lt;a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/"&gt;virtualenvwrapper&lt;/a&gt;来方便地使用virtualenv。分别用pip进行安装：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;我现在使用 &lt;a class="reference external" href="http://virtualenv.readthedocs.org/en/latest/"&gt;virtualenv&lt;/a&gt; 来管理 Python 的环境，用 &lt;a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/"&gt;virtualenvwrapper&lt;/a&gt; 来方便地使用 virtualenv。分别用 pip 进行安装：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install virtualenv
 pip install virtualenvwrapper
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;virtualenvwrapper提供了很多方便的命令，还支持命令的tab completion，这些都包含在virtualenvwrapper.sh文件中。在&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.bash_profile&lt;/span&gt;&lt;/tt&gt;中引入该文件来激活相关的命令和功能：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;virtualenvwrapper 提供了很多方便的命令，还支持命令的 tab completion，这些都包含在 virtualenvwrapper.sh 文件中。在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.bash_profile&lt;/span&gt;&lt;/tt&gt; 中引入该文件来激活相关的命令和功能：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3
@@ -49,15 +49,15 @@ pip install virtualenvwrapper
 &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PROJECT_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/projects
 &lt;span class="o"&gt;[&lt;/span&gt; -f &lt;span class="s2"&gt;"/usr/local/bin/virtualenvwrapper.sh"&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;source&lt;/span&gt; &lt;span class="s2"&gt;"/usr/local/bin/virtualenvwrapper.sh"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;准备好后就可以用&lt;tt class="docutils literal"&gt;mkvirtualenv ENVNAME&lt;/tt&gt;来创建一个新的virtualenv，用&lt;tt class="docutils literal"&gt;workon&lt;/tt&gt;命令来切换环境，用&lt;tt class="docutils literal"&gt;deactive&lt;/tt&gt;退出虚拟环境。更多的命令可以查看&lt;a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/"&gt;virtualenvwrapper&lt;/a&gt;的文档。&lt;/p&gt;
-&lt;p&gt;另外，&lt;a class="reference external" href="http://ipython.org/"&gt;ipython&lt;/a&gt;是非常好用的Python的交互式终端，比Python自身的命令行提供了更丰富和方便的功能，建议使用。通过&lt;tt class="docutils literal"&gt;pip install ipython&lt;/tt&gt;即可安装。不过目前我还没想清楚要不要把它装在某个虚拟环境中。按理说应该是要在任何一个虚拟环境中都能用ipython的，否则就要给每个虚拟环境都装一次，岂不是很浪费空间？这个问题以后再考虑吧。&lt;/p&gt;
-&lt;p&gt;ipython除了shell console外，还提供Qt console，详细的信息查看官方的介绍吧。&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;准备好后就可以用 &lt;tt class="docutils literal"&gt;mkvirtualenv ENVNAME&lt;/tt&gt; 来创建一个新的 virtualenv，用 &lt;tt class="docutils literal"&gt;workon&lt;/tt&gt; 命令来切换环境，用 &lt;tt class="docutils literal"&gt;deactive&lt;/tt&gt; 退出虚拟环境。更多的命令可以查看 &lt;a class="reference external" href="http://virtualenvwrapper.readthedocs.org/en/latest/"&gt;virtualenvwrapper&lt;/a&gt; 的文档。&lt;/p&gt;
+&lt;p&gt;另外，&lt;a class="reference external" href="http://ipython.org/"&gt;ipython&lt;/a&gt; 是非常好用的 Python 的交互式终端，比 Python 自身的命令行提供了更丰富和方便的功能，建议使用。通过 &lt;tt class="docutils literal"&gt;pip install ipython&lt;/tt&gt; 即可安装。不过目前我还没想清楚要不要把它装在某个虚拟环境中。按理说应该是要在任何一个虚拟环境中都能用 ipython 的，否则就要给每个虚拟环境都装一次，岂不是很浪费空间？这个问题以后再考虑吧。&lt;/p&gt;
+&lt;p&gt;ipython 除了 shell console 外，还提供 Qt console，详细的信息查看官方的介绍吧。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id4"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;科学上网&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;由于一些众所周不知的原因，这个世界上存在着一些不存在的网站。本来不应该为不存在的事物所烦恼，但对于开发人员来说，不存在的世界中却存在着一些非常有价值的资源。所以，需要用科学的方法访问互联网。&lt;/p&gt;
-&lt;p&gt;我目前主要用到了&lt;a class="reference external" href="https://code.google.com/p/goagent/"&gt;goagent&lt;/a&gt;、SSH tunnel、&lt;a class="reference external" href="https://github.com/rofl0r/proxychains-ng/"&gt;proxychains-ng&lt;/a&gt;、&lt;a class="reference external" href="https://github.com/jedisct1/dnscrypt-proxy"&gt;dnscrypt-proxy&lt;/a&gt;和&lt;a class="reference external" href="http://unbound.net/"&gt;unbound&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;goagent需要在Google App Engine上用自己的账号安装服务端，在本地用python运行客户端。具体的安装方法参见官网介绍。我创建一个virtualenv给它使用，在这个虚拟环境中安装相关的Python依赖。&lt;/p&gt;
+&lt;p&gt;我目前主要用到了 &lt;a class="reference external" href="https://code.google.com/p/goagent/"&gt;goagent&lt;/a&gt;、SSH tunnel、&lt;a class="reference external" href="https://github.com/rofl0r/proxychains-ng/"&gt;proxychains-ng&lt;/a&gt;、&lt;a class="reference external" href="https://github.com/jedisct1/dnscrypt-proxy"&gt;dnscrypt-proxy&lt;/a&gt; 和 &lt;a class="reference external" href="http://unbound.net/"&gt;unbound&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;goagent 需要在 Google App Engine 上用自己的账号安装服务端，在本地用 python 运行客户端。具体的安装方法参见官网介绍。我创建一个 virtualenv 给它使用，在这个虚拟环境中安装相关的 Python 依赖。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3
@@ -66,8 +66,8 @@ pip install pyopenssl
 pip install pycrypto
 pip install gevent
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;用goagent访问HTTPS网站的时候，需要安装证书。现在的goagent已经可以自动安装证书了（需要用sudo权限运行）。如果是第一次使用goagent，可以先将goagent的local目录中的ca.cer、ca.key和certs目录内的文件都删除，删除浏览器或系统中的goagent ca证书，然后用sudo权限启动goagent，它会自行安装证书到系统中。我建议一直使用sudo权限运行goagent。&lt;/p&gt;
-&lt;p&gt;在Mac系统中，利用系统的launchd来控制goagent的随系统（以root权限）启动。可以在/Library/LaunchDaemons中创建一个扩展名为.plist的文件，内容为（需要根据你的实际环境进行调整）：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;用 goagent 访问 HTTPS 网站的时候，需要安装证书。现在的 goagent 已经可以自动安装证书了（需要用 sudo 权限运行）。如果是第一次使用 goagent，可以先将 goagent 的 local 目录中的 ca.cer、ca.key 和 certs 目录内的文件都删除，删除浏览器或系统中的 goagent ca 证书，然后用 sudo 权限启动 goagent，它会自行安装证书到系统中。我建议一直使用 sudo 权限运行 goagent。&lt;/p&gt;
+&lt;p&gt;在 Mac 系统中，利用系统的 launchd 来控制 goagent 的随系统（以 root 权限）启动。可以在 /Library/LaunchDaemons 中创建一个扩展名为. plist 的文件，内容为（需要根据你的实际环境进行调整）：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -114,139 +114,142 @@ pip install gevent
 &lt;span class="nt"&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;/plist&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;给系统的网络连接设置代理，进入System Preferences -&amp;gt; Network，选择使用的网络，点击Advanced...，在Proxies页中勾选“Automatic Proxy Configuration”，在URL内填入“&lt;a class="reference external" href="http://127.0.0.1:8086/proxy.pac"&gt;http://127.0.0.1:8086/proxy.pac&lt;/a&gt;”，保存生效。&lt;/p&gt;
-&lt;p&gt;对于Chrome浏览器，推荐使用&lt;a class="reference external" href="https://chrome.google.com/webstore/detail/proxy-switchysharp/dpplabbmogkhghncfbfdeeokoefdjegm"&gt;Proxy SwichySharp&lt;/a&gt;插件。鉴于Google所有的服务都访问不顺畅，这个链接可能不太容易访问到，可以考虑使用&lt;a class="reference external" href="http://chrome-extension-downloader.com/"&gt;chrome extension downloader&lt;/a&gt;网站来直接下载插件的.crx文件。用非Chrome浏览器打开该网站，输入Proxy SwichySharp的ID（dpplabbmogkhghncfbfdeeokoefdjegm），下载保存，然后在Chrome的extensions页面中把.crx文件拖进去即可。goagent里也提供了该插件的.crx文件以及配置文件，可以直接使用（作者想的真周到啊）。&lt;/p&gt;
-&lt;p&gt;系统的网络连接代理和Chrome的代理插件基本能解决大部分网页访问的需求，比如苹果自带的Safari就会默认通过系统的代理，也就能科学地上网了。不过wget、curl等shell命令却无法直接使用这些代理，它们会根据环境变量&lt;tt class="docutils literal"&gt;http_proxy&lt;/tt&gt;和&lt;tt class="docutils literal"&gt;https_proxy&lt;/tt&gt;来访问网络。为了方便，在~/.bash_profile中添加：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;给系统的网络连接设置代理，进入 System Preferences -&amp;gt; Network，选择使用的网络，点击 Advanced...，在 Proxies 页中勾选“Automatic Proxy Configuration”，在 URL 内填入“&lt;a class="reference external" href="http://127.0.0.1:8086/proxy.pac"&gt;http://127.0.0.1:8086/proxy.pac&lt;/a&gt;”，保存生效。&lt;/p&gt;
+&lt;p&gt;对于 Chrome 浏览器，推荐使用 &lt;a class="reference external" href="https://chrome.google.com/webstore/detail/proxy-switchysharp/dpplabbmogkhghncfbfdeeokoefdjegm"&gt;Proxy SwichySharp&lt;/a&gt; 插件。鉴于 Google 所有的服务都访问不顺畅，这个链接可能不太容易访问到，可以考虑使用 &lt;a class="reference external" href="http://chrome-extension-downloader.com/"&gt;chrome extension downloader&lt;/a&gt; 网站来直接下载插件的. crx 文件。用非 Chrome 浏览器打开该网站，输入 Proxy SwichySharp 的 ID（dpplabbmogkhghncfbfdeeokoefdjegm），下载保存，然后在 Chrome 的 extensions 页面中把 .crx 文件拖进去即可。goagent 里也提供了该插件的 .crx 文件以及配置文件，可以直接使用（作者想的真周到啊）。&lt;/p&gt;
+&lt;p&gt;系统的网络连接代理和 Chrome 的代理插件基本能解决大部分网页访问的需求，比如苹果自带的 Safari 就会默认通过系统的代理，也就能科学地上网了。不过 wget、curl 等 shell 命令却无法直接使用这些代理，它们会根据环境变量 &lt;tt class="docutils literal"&gt;http_proxy&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;https_proxy&lt;/tt&gt; 来访问网络。为了方便，在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.bash_profile&lt;/span&gt;&lt;/tt&gt; 中添加：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Setup or dismiss (goagent) proxy for curl, wget, etc.&lt;/span&gt;
 &lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;gaproxy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'export http_proxy=http://127.0.0.1:8087 https_proxy=http://127.0.0.1:8087'&lt;/span&gt;
 &lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;noproxy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'unset http_proxy https_proxy'&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;在需要wget或者curl某个不存在的网页前，通过&lt;tt class="docutils literal"&gt;gaproxy&lt;/tt&gt;命令开启代理，使用完毕后通过&lt;tt class="docutils literal"&gt;noproxy&lt;/tt&gt;关闭代理即可。&lt;/p&gt;
-&lt;p&gt;有的时候goagent会抽疯，一个备选的代理是必需的。我一般会利用SSH隧道，通过gocalf网站所在的主机建立socks代理。如果你也有一台在国外的服务器，可以通过这个命令在本地开启socks5代理服务：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;在需要 wget 或者 curl 某个不存在的网页前，通过 &lt;tt class="docutils literal"&gt;gaproxy&lt;/tt&gt; 命令开启代理，使用完毕后通过 &lt;tt class="docutils literal"&gt;noproxy&lt;/tt&gt; 关闭代理即可。&lt;/p&gt;
+&lt;p&gt;有的时候 goagent 会抽疯，一个备选的代理是必需的。我一般会利用 SSH 隧道，通过 gocalf 网站所在的主机建立 socks 代理。如果你也有一台在国外的服务器，可以通过这个命令在本地开启 socks5 代理服务：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ssh -D LOCAL_PORT&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;7070&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; -p REMOTE_SSH_PORT&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;22&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; USER_NAME@SERVER_ADDRESS
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;对于不支持&lt;tt class="docutils literal"&gt;http_proxy&lt;/tt&gt;和&lt;tt class="docutils literal"&gt;https_proxy&lt;/tt&gt;的程序，我会使用&lt;a class="reference external" href="https://github.com/rofl0r/proxychains-ng/"&gt;proxychains-ng&lt;/a&gt;。通过&lt;tt class="docutils literal"&gt;brew install &lt;span class="pre"&gt;proxychains-ng&lt;/span&gt;&lt;/tt&gt;即可安装，运行的命令是&lt;tt class="docutils literal"&gt;proxychains4&lt;/tt&gt;。这个有点儿像Windows里的SocksCap，但是更强大些，比如想从一个不存在的svn站点下载代码，可以用&lt;tt class="docutils literal"&gt;proxychains4 svn checkout xxxx&lt;/tt&gt;实现。&lt;/p&gt;
-&lt;p&gt;最近发现&lt;a class="reference external" href="https://www.dropbox.com/"&gt;Dropbox&lt;/a&gt;的客户端即使设置上goagent代理也不好使（网页倒是没问题），所幸Dropbox（还有Facebook等）不存在的原因只是域名解析被人为破坏了，只要能解析出正确的ID地址，不用代理也能够访问。为了防止域名解析被恶意破坏，我又祭出了&lt;a class="reference external" href="https://github.com/jedisct1/dnscrypt-proxy"&gt;dnscrypt-proxy&lt;/a&gt;这个法宝。不幸的是，dnscrytp-proxy的下载站点本身就是不存在的，要用前面提到的&lt;tt class="docutils literal"&gt;gaproxy&lt;/tt&gt;激活代理后才能下载成功：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;对于不支持 &lt;tt class="docutils literal"&gt;http_proxy&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;https_proxy&lt;/tt&gt; 的程序，我会使用 &lt;a class="reference external" href="https://github.com/rofl0r/proxychains-ng/"&gt;proxychains-ng&lt;/a&gt;。通过 &lt;tt class="docutils literal"&gt;brew install &lt;span class="pre"&gt;proxychains-ng&lt;/span&gt;&lt;/tt&gt; 即可安装，运行的命令是 &lt;tt class="docutils literal"&gt;proxychains4&lt;/tt&gt;。这个有点儿像 Windows 里的 SocksCap，但是更强大些，比如想从一个不存在的 svn 站点下载代码，可以用 &lt;tt class="docutils literal"&gt;proxychains4 svn checkout xxxx&lt;/tt&gt; 实现。&lt;/p&gt;
+&lt;p&gt;最近发现 &lt;a class="reference external" href="https://www.dropbox.com/"&gt;Dropbox&lt;/a&gt; 的客户端即使设置上 goagent 代理也不好使（网页倒是没问题），所幸 Dropbox（还有 Facebook 等）不存在的原因只是域名解析被人为破坏了，只要能解析出正确的 ID 地址，不用代理也能够访问。为了防止域名解析被恶意破坏，我又祭出了 &lt;a class="reference external" href="https://github.com/jedisct1/dnscrypt-proxy"&gt;dnscrypt-proxy&lt;/a&gt; 这个法宝。不幸的是，dnscrytp-proxy 的下载站点本身就是不存在的，要用前面提到的 &lt;tt class="docutils literal"&gt;gaproxy&lt;/tt&gt; 激活代理后才能下载成功：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;gaproxy
 brew install dnscrypt-proxy
 noproxy
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;安装后根据提示设置成开机自动启动即可。默认的话它会监听127.0.0.1的53端口提供DNS服务，上游使用OpenDNS服务（可自行配置），并使用加密通信来防止DNS污染。将网络连接的DNS设置为127.0.0.1（System Preferences -&amp;gt; Network -&amp;gt; 当前使用的网络 -&amp;gt; Advanced... -&amp;gt; DNS -&amp;gt; DNS Servers），就会发现即使没有goagent，Dropbox、Facebook等网站也变得存在了。&lt;/p&gt;
-&lt;p&gt;dnscrypt-proxy有个缺点就是没有缓存功能，每次来个域名都要去远程服务器上解析一次，速度很慢，非常影响上网的体验，建议配合具备DNS缓存的工具一起使用，比如&lt;a class="reference external" href="http://unbound.net/"&gt;unbound&lt;/a&gt;、&lt;a class="reference external" href="http://www.thekelleys.org.uk/dnsmasq/doc.html"&gt;dnsmasq&lt;/a&gt;等。二者都可以通过Homebrew安装，非常方便。当然要配合使用，就需要一些配置，在性能方面也需要做一些优化，这里就不再仔细说了。&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;安装后根据提示设置成开机自动启动即可。默认的话它会监听 127.0.0.1 的 53 端口提供 DNS 服务，上游使用 OpenDNS 服务（可自行配置），并使用加密通信来防止 DNS 污染。将网络连接的 DNS 设置为 127.0.0.1（System Preferences -&amp;gt; Network -&amp;gt; 当前使用的网络 -&amp;gt; Advanced... -&amp;gt; DNS -&amp;gt; DNS Servers），就会发现即使没有 goagent，Dropbox、Facebook 等网站也变得存在了。&lt;/p&gt;
+&lt;p&gt;dnscrypt-proxy 有个缺点就是没有缓存功能，每次来个域名都要去远程服务器上解析一次，速度很慢，非常影响上网的体验，建议配合具备 DNS 缓存的工具一起使用，比如 &lt;a class="reference external" href="http://unbound.net/"&gt;unbound&lt;/a&gt;、&lt;a class="reference external" href="http://www.thekelleys.org.uk/dnsmasq/doc.html"&gt;dnsmasq&lt;/a&gt; 等。二者都可以通过 Homebrew 安装，非常方便。当然要配合使用，就需要一些配置，在性能方面也需要做一些优化，这里就不再仔细说了。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="shell"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;友好的Shell&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;有了iTerm还不够，要让shell变得好用，还需要再做一些配置。&lt;/p&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;友好的 Shell&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;有了 iTerm 还不够，要让 shell 变得好用，还需要再做一些配置。&lt;/p&gt;
 &lt;div class="section" id="bash-profile"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;Bash Profile&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.bash_profile&lt;/span&gt;&lt;/tt&gt;的作用就不用我多说了，在这里可以对shell进行很多的个性化配置。参考&lt;a class="reference external" href="https://github.com/mathiasbynens/dotfiles"&gt;mathiasbynens的dotfiles&lt;/a&gt;项目，我也为自己打造了舒适的shell环境，相关的配置保存在&lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/bash"&gt;GitHub - calfzhou - dotfiles - bash&lt;/a&gt;里面，对Mac和Linux都是可以的，让我在不同的服务器上也有相同的操作体验。涉及到的内容很多，就不逐一介绍了，比较重要的几点下面会提到。&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.bash_profile&lt;/span&gt;&lt;/tt&gt; 的作用就不用我多说了，在这里可以对 shell 进行很多的个性化配置。参考 &lt;a class="reference external" href="https://github.com/mathiasbynens/dotfiles"&gt;mathiasbynens 的 dotfiles&lt;/a&gt; 项目，我也为自己打造了舒适的 shell 环境，相关的配置保存在 &lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/bash"&gt;GitHub - calfzhou - dotfiles - bash&lt;/a&gt; 里面，对 Mac 和 Linux 都是可以的，让我在不同的服务器上也有相同的操作体验。涉及到的内容很多，就不逐一介绍了，比较重要的几点下面会提到。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="dir-colors"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;Dir Colors&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;虽然iTerm本身已经设置好了Solarized配色，但是ls的时候并不一定有颜色。ls没有颜色绝对是让人难以忍受的，在&lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/blob/master/bash/bash_inc/aliases"&gt;bash_inc/alias&lt;/a&gt;里除了根据系统中ls支持的参数让ls的输出显示出颜色外，还通过配置&lt;tt class="docutils literal"&gt;LS_COLOR&lt;/tt&gt;让色彩更丰富，可以让不同类型的文件有不同的颜色，看起来非常的清晰。推荐使用&lt;a class="reference external" href="https://github.com/seebi/dircolors-solarized"&gt;dircolors-solarized&lt;/a&gt;提供的配色文件，在Mac OS X的采用了Solarized Dark配色的iTerm2里看起来会是这个样子：&lt;/p&gt;
+&lt;p&gt;虽然 iTerm 本身已经设置好了 Solarized 配色，但是 ls 的时候并不一定有颜色。ls 没有颜色绝对是让人难以忍受的，在 &lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/blob/master/bash/bash_inc/aliases"&gt;bash_inc/alias&lt;/a&gt; 里除了根据系统中 ls 支持的参数让 ls 的输出显示出颜色外，还通过配置 &lt;tt class="docutils literal"&gt;LS_COLOR&lt;/tt&gt; 让色彩更丰富，可以让不同类型的文件有不同的颜色，看起来非常的清晰。推荐使用 &lt;a class="reference external" href="https://github.com/seebi/dircolors-solarized"&gt;dircolors-solarized&lt;/a&gt; 提供的配色文件，在 Mac OS X 的采用了 Solarized Dark 配色的 iTerm2 里看起来会是这个样子：&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="dircolors-solaized-dark" src="https://blog.gocalf.com/images/2014/07/dircolors_solarized_dark.png"/&gt;
-&lt;p class="caption"&gt;iTerm2中Solarized Dark系的dircolors效果&lt;/p&gt;
+&lt;p class="caption"&gt;iTerm2 中 Solarized Dark 系的 dircolors 效果&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="bash-prompt"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;Bash Prompt&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;在使用shell的过程中，命令提示符会一直陪伴着我们，是时候扔掉默认的提示符了。&lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/blob/master/bash/bash_inc/bash_prompt"&gt;我的命令提示符&lt;/a&gt;用不同的颜色分别显示出当前时刻、当前用户、当前主机（通过颜色标识是否通过是通过SSH登录的）、当前使用的Python virtualenv（如果有的话）、当前目录、当前目录所在的git分支和状态（如果是git项目的目录的话）。&lt;/p&gt;
-&lt;p&gt;关于主机名，Mac系统下默认应该是localhost，可以通过scutil命令修改成想要的值：&lt;/p&gt;
+&lt;p&gt;在使用 shell 的过程中，命令提示符会一直陪伴着我们，是时候扔掉默认的提示符了。&lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/blob/master/bash/bash_inc/bash_prompt"&gt;我的命令提示符&lt;/a&gt; 用不同的颜色分别显示出当前时刻、当前用户、当前主机（通过颜色标识是否通过是通过 SSH 登录的）、当前使用的 Python virtualenv（如果有的话）、当前目录、当前目录所在的 git 分支和状态（如果是 git 项目的目录的话）。&lt;/p&gt;
+&lt;p&gt;关于主机名，Mac 系统下默认应该是 localhost，可以通过 scutil 命令修改成想要的值：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo scutil --set HostName MYNAME
 $ hostname
 MYNAME
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;配合上iTerm的配色、ls的颜色等，我的shell看起来是这样的：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;配合上 iTerm 的配色、ls 的颜色等，我的 shell 看起来是这样的：&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="my-shell-demo" src="https://blog.gocalf.com/images/2014/07/my-shell-demo.png"/&gt;
-&lt;p class="caption"&gt;我的iTerm2的效果&lt;/p&gt;
+&lt;p class="caption"&gt;我的 iTerm2 的效果&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="bash-completion"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;Bash Completion&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;在shell里面输入命令的时候，如果只记得开头几个字母，后面的记不清楚了也没关系，输入几个字母后，按TAB键就可以自动补全或者提示出所有可行的命令。在输入文件名的时候也可以通过TAB键自动补全或者提示出有效的文件文来，这个功能是非常方便的。Homebrew又额外提供了一些bash completion功能，可以通过&lt;tt class="docutils literal"&gt;brew install &lt;span class="pre"&gt;bash-completion&lt;/span&gt;&lt;/tt&gt;进行安装，并会生成/usr/local/etc/bash_completion文件，在&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.bash_profile&lt;/span&gt;&lt;/tt&gt;中source一下这个文件，就可以把Homebrew提供的命令补全包含进来。如果通过Homebrew安装了别的工具包，比如git、svn等，它们也会有各自相应的命令补全文件，存放在/usr/local/etc/bash_completion.d目录中，都会被刚才那个文件自动引入。&lt;/p&gt;
+&lt;p&gt;在 shell 里面输入命令的时候，如果只记得开头几个字母，后面的记不清楚了也没关系，输入几个字母后，按 TAB 键就可以自动补全或者提示出所有可行的命令。在输入文件名的时候也可以通过 TAB 键自动补全或者提示出有效的文件文来，这个功能是非常方便的。Homebrew 又额外提供了一些 bash completion 功能，可以通过 &lt;tt class="docutils literal"&gt;brew install &lt;span class="pre"&gt;bash-completion&lt;/span&gt;&lt;/tt&gt; 进行安装，并会生成 &lt;tt class="docutils literal"&gt;/usr/local/etc/bash_completion&lt;/tt&gt; 文件，在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.bash_profile&lt;/span&gt;&lt;/tt&gt; 中 source 一下这个文件，就可以把 Homebrew 提供的命令补全包含进来。如果通过 Homebrew 安装了别的工具包，比如 git、svn 等，它们也会有各自相应的命令补全文件，存放在 &lt;tt class="docutils literal"&gt;/usr/local/etc/bash_completion.d&lt;/tt&gt; 目录中，都会被刚才那个文件自动引入。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="shell-commands"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;Shell Commands&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;用惯了Linux（CentOS）里面的shell命令，就无法忍受Mac系统中那些落后的shell命令了，像ls、date、ps、echo、grep等等，功能都特别少。在忍无可忍之后，终于决定用&lt;a class="reference external" href="http://www.gnu.org/software/coreutils/"&gt;GNU Coreutils&lt;/a&gt;替换它们。用&lt;tt class="docutils literal"&gt;brew install coreutils&lt;/tt&gt;就可以搞定了，安装完成后，根据提示，将/usr/local/opt/coreutils/libexec/gnubin和/usr/local/opt/coreutils/libexec/gnuman分别添加到&lt;tt class="docutils literal"&gt;$PATH&lt;/tt&gt;和&lt;tt class="docutils literal"&gt;$MANPATH&lt;/tt&gt;中即可。&lt;/p&gt;
-&lt;p&gt;grep命令不在coreutils，可以通过&lt;tt class="docutils literal"&gt;brew install grep &lt;span class="pre"&gt;--default-names&lt;/span&gt;&lt;/tt&gt;搞定（如果说找不到grep可以先&lt;tt class="docutils literal"&gt;brew tap homebrew/dupes&lt;/tt&gt;）。当然还有很多其他特别有用的命令，就不一一细说了，反正想到什么，只要用&lt;tt class="docutils literal"&gt;brew info&lt;/tt&gt;或者&lt;tt class="docutils literal"&gt;brew search&lt;/tt&gt;找找看就行。&lt;/p&gt;
+&lt;p&gt;用惯了 Linux（CentOS）里面的 shell 命令，就无法忍受 Mac 系统中那些落后的 shell 命令了，像 ls、date、ps、echo、grep 等等，功能都特别少。在忍无可忍之后，终于决定用 &lt;a class="reference external" href="http://www.gnu.org/software/coreutils/"&gt;GNU Coreutils&lt;/a&gt; 替换它们。用 &lt;tt class="docutils literal"&gt;brew install coreutils&lt;/tt&gt; 就可以搞定了，安装完成后，根据提示，将 &lt;tt class="docutils literal"&gt;/usr/local/opt/coreutils/libexec/gnubin&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;/usr/local/opt/coreutils/libexec/gnuman&lt;/tt&gt; 分别添加到 &lt;tt class="docutils literal"&gt;$PATH&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;$MANPATH&lt;/tt&gt; 中即可。&lt;/p&gt;
+&lt;p&gt;grep 命令不在 coreutils，可以通过 &lt;tt class="docutils literal"&gt;brew install grep &lt;span class="pre"&gt;--default-names&lt;/span&gt;&lt;/tt&gt; 搞定（如果说找不到 grep 可以先 &lt;tt class="docutils literal"&gt;brew tap homebrew/dupes&lt;/tt&gt;）。当然还有很多其他特别有用的命令，就不一一细说了，反正想到什么，只要用 &lt;tt class="docutils literal"&gt;brew info&lt;/tt&gt; 或者 &lt;tt class="docutils literal"&gt;brew search&lt;/tt&gt; 找找看就行。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="ide"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;编辑器和IDE&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;编辑器和 IDE&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="vim"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;VIM&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;其实我也不是VIM重度使用者，现在写超过两个文件的Python代码、Java代码等都会使用专门的IDE。我看很多人都喜欢用VIM来写复杂的项目代码，但他们的VIM都没有做任何额外的设置，自身对VIM的快捷键和命令也不熟悉，只是把VIM当成一个连移动光标都很费劲的编辑器来用，写代码的效率可想而知。而且像Python这种脚本语言，很多错误只有到运行到那句话的时候才会有效果，VIM没有足够的只能针对某一个语言做太多的静态分析。&lt;/p&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vimrc&lt;/span&gt;&lt;/tt&gt;用于对VIM进行各种设置，如果没有这个文件，赶紧创建一个吧。复杂的语法高亮、配色、插件等都可以放在&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vim&lt;/span&gt;&lt;/tt&gt;里面。VIM自身对插件没有很好地管理，我选择了&lt;a class="reference external" href="https://github.com/tpope/vim-pathogen"&gt;vim-pathogen&lt;/a&gt;来管理所需要的VIM扩展。只要把&lt;a class="reference external" href="https://github.com/tpope/vim-pathogen/blob/master/autoload/pathogen.vim"&gt;pathogen.vim&lt;/a&gt;放在&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vim/autoload&lt;/span&gt;&lt;/tt&gt;目录中，把所需的扩展包放在&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vim/bundle&lt;/span&gt;&lt;/tt&gt;目录下即可。&lt;/p&gt;
-&lt;p&gt;同样地，我也把自己的VIM设置和依赖放在GitHub上（&lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/vim"&gt;GitHub - calfzhou - dotfiles - vim&lt;/a&gt;），在别的server上直接clone下来保持一致的操作体验。&lt;/p&gt;
-&lt;p&gt;我现在使用&lt;a class="reference external" href="https://github.com/Rykka/riv.vim"&gt;riv.vim&lt;/a&gt;扩展来写reStructuredText文件（.rst），操作起来非常方便。&lt;/p&gt;
-&lt;p&gt;如果不满意苹果系统自带的较低版本的VIM，或者想用GUI界面的VIM，可以利用Homebrew进行安装，Formula是&lt;tt class="docutils literal"&gt;vim&lt;/tt&gt;和&lt;tt class="docutils literal"&gt;macvim&lt;/tt&gt;。&lt;/p&gt;
+&lt;p&gt;其实我也不是 VIM 重度使用者，现在写超过两个文件的 Python 代码、Java 代码等都会使用专门的 IDE。我看很多人都喜欢用 VIM 来写复杂的项目代码，但他们的 VIM 都没有做任何额外的设置，自身对 VIM 的快捷键和命令也不熟悉，只是把 VIM 当成一个连移动光标都很费劲的编辑器来用，写代码的效率可想而知。而且像 Python 这种脚本语言，很多错误只有到运行到那句话的时候才会有效果，VIM 没有足够的只能针对某一个语言做太多的静态分析。&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vimrc&lt;/span&gt;&lt;/tt&gt; 用于对 VIM 进行各种设置，如果没有这个文件，赶紧创建一个吧。复杂的语法高亮、配色、插件等都可以放在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vim&lt;/span&gt;&lt;/tt&gt; 里面。VIM 自身对插件没有很好地管理，我选择了 &lt;a class="reference external" href="https://github.com/tpope/vim-pathogen"&gt;vim-pathogen&lt;/a&gt; 来管理所需要的 VIM 扩展。只要把 &lt;a class="reference external" href="https://github.com/tpope/vim-pathogen/blob/master/autoload/pathogen.vim"&gt;pathogen.vim&lt;/a&gt; 放在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vim/autoload&lt;/span&gt;&lt;/tt&gt; 目录中，把所需的扩展包放在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vim/bundle&lt;/span&gt;&lt;/tt&gt; 目录下即可。&lt;/p&gt;
+&lt;p&gt;同样地，我也把自己的 VIM 设置和依赖放在 GitHub 上（&lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/vim"&gt;GitHub - calfzhou - dotfiles - vim&lt;/a&gt;），在别的 server 上直接 clone 下来保持一致的操作体验。&lt;/p&gt;
+&lt;p&gt;我现在使用 &lt;a class="reference external" href="https://github.com/Rykka/riv.vim"&gt;riv.vim&lt;/a&gt; 扩展来写 reStructuredText 文件（.rst），操作起来非常方便。&lt;/p&gt;
+&lt;p&gt;如果不满意苹果系统自带的较低版本的 VIM，或者想用 GUI 界面的 VIM，可以利用 Homebrew 进行安装，Formula 是 &lt;tt class="docutils literal"&gt;vim&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;macvim&lt;/tt&gt;。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="sublime-text"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;Sublime Text&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;a class="reference external" href="http://www.sublimetext.com/"&gt;Sublime Text&lt;/a&gt;是我现在主要使用的GUI编辑器，但看其首页的动画演示就会觉得非常cool。以前还经常用Ultra Edit和Notepad++，现在基本都不用了。在GUI程序中，我一般会使用Solarized Light配色方案，总感觉大部分GUI程序用暗色系就很丑（PyCharm系列除外）。&lt;/p&gt;
-&lt;p&gt;具体的配置也就不多说了。注意Sublime Text原生不支持GBK编码的文件，需要安装扩展包，即使这样，在编辑GBK编码的文件时，它会生成一个临时文件进行操作，保存的时候再写回去，体验上还是有些不爽。&lt;/p&gt;
-&lt;p&gt;还有一个地方我也一直没搞清楚，就是中文字体不是刚刚好跟两个英文字母一样宽。在编辑reStructuredText文件的时候，还是会比较麻烦的。&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.sublimetext.com/"&gt;Sublime Text&lt;/a&gt; 是我现在主要使用的 GUI 编辑器，但看其首页的动画演示就会觉得非常 cool。以前还经常用 Ultra Edit 和 Notepad++，现在基本都不用了。在 GUI 程序中，我一般会使用 Solarized Light 配色方案，总感觉大部分 GUI 程序用暗色系就很丑（PyCharm 系列除外）。&lt;/p&gt;
+&lt;p&gt;具体的配置也就不多说了。注意 Sublime Text 原生不支持 GBK 编码的文件，需要安装扩展包，即使这样，在编辑 GBK 编码的文件时，它会生成一个临时文件进行操作，保存的时候再写回去，体验上还是有些不爽。&lt;/p&gt;
+&lt;p&gt;还有一个地方我也一直没搞清楚，就是中文字体不是刚刚好跟两个英文字母一样宽。在编辑 reStructuredText 文件的时候，还是会比较麻烦的。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="python-ide"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;Python IDE&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;以前一直用VIM做Python开发，是因为没找到好用的Python IDE，现在我用&lt;a class="reference external" href="http://www.jetbrains.com/"&gt;JetBrains&lt;/a&gt;出的&lt;a class="reference external" href="http://www.jetbrains.com/pycharm/"&gt;PyCharm&lt;/a&gt;。不要跟我争，这绝对是世界上最好用的Python IDE，没有之一。&lt;/p&gt;
-&lt;p&gt;PyCharm里强烈推荐自带的Darcula配色，感觉在GUI界面中，这个配色比Solarized Dark要舒服一些。PyCharm的默认配置基本就很好用了，它对Python代码的可读性检测方面要求还是比较严格的，空行、空格不合适都会有提示。如果Python项目中包含其他类型的文件（如shell脚本、html页面等），它也有相应的插件可以对这些文件进行语法高亮。&lt;/p&gt;
-&lt;p&gt;一直觉得如果JetBrains出一个通用的编辑器，应该能把Sublime Text甩出好几条街去。&lt;/p&gt;
+&lt;p&gt;以前一直用 VIM 做 Python 开发，是因为没找到好用的 Python IDE，现在我用 &lt;a class="reference external" href="http://www.jetbrains.com/"&gt;JetBrains&lt;/a&gt; 出的 &lt;a class="reference external" href="http://www.jetbrains.com/pycharm/"&gt;PyCharm&lt;/a&gt;。不要跟我争，这绝对是世界上最好用的 Python IDE，没有之一。&lt;/p&gt;
+&lt;p&gt;PyCharm 里强烈推荐自带的 Darcula 配色，感觉在 GUI 界面中，这个配色比 Solarized Dark 要舒服一些。PyCharm 的默认配置基本就很好用了，它对 Python 代码的可读性检测方面要求还是比较严格的，空行、空格不合适都会有提示。如果 Python 项目中包含其他类型的文件（如 shell 脚本、html 页面等），它也有相应的插件可以对这些文件进行语法高亮。&lt;/p&gt;
+&lt;p&gt;一直觉得如果 JetBrains 出一个通用的编辑器，应该能把 Sublime Text 甩出好几条街去。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="java-ide"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;Java IDE&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;好多人都用Eclipse写Java代码（包括Android开发），真想不通为什么那么难用的IDE还那么受欢迎。可能学校里交Java的时候都用的Eclipse吧，就像直到现在都还有很多人用VS6做C++开发一样。对于Android开发，可能跟之前Google推Eclipse with ADT有关吧。不过现在Google也认识到了Eclipse的不足，转身投入&lt;a class="reference external" href="http://www.jetbrains.com/"&gt;JetBrains&lt;/a&gt;的&lt;a class="reference external" href="http://www.jetbrains.com/idea/"&gt;IntelliJ IDEA&lt;/a&gt;的怀抱了。JetBrains出品的个个都是精品啊，微软里面很多项目组也都在使用JetBrains出的&lt;a class="reference external" href="http://www.jetbrains.com/resharper/"&gt;ReSharper&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;我现在也是用IntelliJ IDEA来做Java开发，使用体验跟PyCharm类似。Java项目的依赖管理用Maven，Homebrew里也提供了安装。建议目前使用Maven 3.0.*：&lt;/p&gt;
+&lt;p&gt;好多人都用 Eclipse 写 Java 代码（包括 Android 开发），真想不通为什么那么难用的 IDE 还那么受欢迎。可能学校里交 Java 的时候都用的 Eclipse 吧，就像直到现在都还有很多人用 VS6 做 C++ 开发一样。对于 Android 开发，可能跟之前 Google 推 Eclipse with ADT 有关吧。不过现在 Google 也认识到了 Eclipse 的不足，转身投入 &lt;a class="reference external" href="http://www.jetbrains.com/"&gt;JetBrains&lt;/a&gt; 的 &lt;a class="reference external" href="http://www.jetbrains.com/idea/"&gt;IntelliJ IDEA&lt;/a&gt; 的怀抱了。JetBrains 出品的个个都是精品啊，微软里面很多项目组也都在使用 JetBrains 出的 &lt;a class="reference external" href="http://www.jetbrains.com/resharper/"&gt;ReSharper&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;我现在也是用 IntelliJ IDEA 来做 Java 开发，使用体验跟 PyCharm 类似。Java 项目的依赖管理用 Maven，Homebrew 里也提供了安装。建议目前使用 Maven 3.0.*：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;brew tap homebrew/versions
 brew install maven30
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;当然如果要用最新的3.2.*，可以直接&lt;tt class="docutils literal"&gt;brew install maven&lt;/tt&gt;。&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;当然如果要用最新的 3.2.*，可以直接 &lt;tt class="docutils literal"&gt;brew install maven&lt;/tt&gt;。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id26"&gt;版本控制&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="git"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;Git&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;用Homebrew可以方便地安装最新的Git。如果像上面介绍的那样，用Homebrew安装并使用了bash-completion，那么装好git后，git指令也会按TAB键补全了，再也不动担心记不住git指令。&lt;/p&gt;
-&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.gitconfig&lt;/span&gt;&lt;/tt&gt;可以用来定义很多个性化的设置，可以直接编辑或者通过&lt;tt class="docutils literal"&gt;git config &lt;span class="pre"&gt;--global&lt;/span&gt;&lt;/tt&gt;进行设置。类似的，我也把我的配置文件保存在GitHub上（&lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/git"&gt;GitHub - calfzhou - dotfiles - git&lt;/a&gt;），以便在不同的地方有同样的操作体验。&lt;/p&gt;
-&lt;p&gt;顺便提一下，用git管理项目版本的话，推荐使用&lt;a class="reference external" href="https://github.com/nvie/gitflow"&gt;git-flow&lt;/a&gt;管理分支和版本，通过Homebrew可以直接安装它，同样也会带有TAB自动补全功能。关于这种分支管理的模型，可以阅读&lt;a class="reference external" href="http://nvie.com/posts/a-successful-git-branching-model/"&gt;A successful Git branching model&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;如果想在公开的git仓库中保存一些比较隐私的信息，可以利用&lt;a class="reference external" href="https://github.com/shadowhand/git-encrypt"&gt;git-encrypt&lt;/a&gt;来加密其中的一部分文件。这个也可以直接通过Homebrew安装。大致的介绍在之前的文章&lt;a class="reference external" href="https://blog.gocalf.com/git-encrypt"&gt;用Git和云存储保存隐私信息&lt;/a&gt;中略有介绍。&lt;/p&gt;
-&lt;p&gt;如果还想用个GUI的Git客户端，我用的是&lt;a class="reference external" href="http://rowanj.github.io/gitx/"&gt;GitX-dev&lt;/a&gt;，主要用来直观地观察分支的演化情况。&lt;/p&gt;
+&lt;p&gt;用 Homebrew 可以方便地安装最新的 Git。如果像上面介绍的那样，用 Homebrew 安装并使用了 bash-completion，那么装好 git 后，git 指令也会按 TAB 键补全了，再也不动担心记不住 git 指令。&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.gitconfig&lt;/span&gt;&lt;/tt&gt; 可以用来定义很多个性化的设置，可以直接编辑或者通过 &lt;tt class="docutils literal"&gt;git config &lt;span class="pre"&gt;--global&lt;/span&gt;&lt;/tt&gt; 进行设置。类似的，我也把我的配置文件保存在 GitHub 上（&lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/git"&gt;GitHub - calfzhou - dotfiles - git&lt;/a&gt;），以便在不同的地方有同样的操作体验。&lt;/p&gt;
+&lt;p&gt;顺便提一下，用 git 管理项目版本的话，推荐使用 &lt;a class="reference external" href="https://github.com/nvie/gitflow"&gt;git-flow&lt;/a&gt; 管理分支和版本，通过 Homebrew 可以直接安装它，同样也会带有 TAB 自动补全功能。关于这种分支管理的模型，可以阅读 &lt;a class="reference external" href="http://nvie.com/posts/a-successful-git-branching-model/"&gt;A successful Git branching model&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;如果想在公开的 git 仓库中保存一些比较隐私的信息，可以利用 &lt;a class="reference external" href="https://github.com/shadowhand/git-encrypt"&gt;git-encrypt&lt;/a&gt; 来加密其中的一部分文件。这个也可以直接通过 Homebrew 安装。大致的介绍在之前的文章 &lt;a class="reference external" href="https://blog.gocalf.com/git-encrypt"&gt;用 Git 和云存储保存隐私信息&lt;/a&gt; 中略有介绍。&lt;/p&gt;
+&lt;p&gt;如果还想用个 GUI 的 Git 客户端，我用的是 &lt;a class="reference external" href="http://rowanj.github.io/gitx/"&gt;GitX-dev&lt;/a&gt;，主要用来直观地观察分支的演化情况。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="gitx-dev" src="https://blog.gocalf.com/images/2014/07/gitx-dev.png"/&gt;
-&lt;p class="caption"&gt;GitX-dev界面演示&lt;/p&gt;
+&lt;p class="caption"&gt;GitX-dev 界面演示&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="svn"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;SVN&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;用了Git，就再也不想用SVN了。不过有时候也难免会需要用，用Homebrew安装个新版本的SVN吧，同样也会有TAB键补全哦。&lt;/p&gt;
+&lt;p&gt;用了 Git，就再也不想用 SVN 了。不过有时候也难免会需要用，用 Homebrew 安装个新版本的 SVN 吧，同样也会有 TAB 键补全哦。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="Mac Develop"></category><category term="Homebrew"></category></entry><entry><title>将整数数字转换成中文</title><link href="https://blog.gocalf.com/number-to-chinese" rel="alternate"></link><published>2014-01-28T09:30:00+08:00</published><updated>2014-01-28T09:30:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2014-01-28:/number-to-chinese</id><summary type="html">&lt;p class="first last"&gt;一个简单的开发问题，（用Python）编写一段程序，将一个任意给定的整数转换成对应的中文读法。比如输入数字-12345，输出字符串“一万二千三百四十五”。&lt;/p&gt;
+</content><category term="Mac Develop"></category><category term="Homebrew"></category></entry><entry><title>将整数数字转换成中文</title><link href="https://blog.gocalf.com/number-to-chinese" rel="alternate"></link><published>2014-01-28T09:30:00+08:00</published><updated>2014-01-28T09:30:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2014-01-28:/number-to-chinese</id><summary type="html">&lt;p class="first last"&gt;一个简单的开发问题，（用 Python）编写一段程序，将一个任意给定的整数转换成对应的中文读法。比如输入数字 -12345，输出字符串“负一万二千三百四十五”。&lt;/p&gt;
 </summary><content type="html">
-&lt;p&gt;今天来看一个简单的程序开发问题，（用Python）编写一段程序，将一个任意给定的整数（可正可负）转换成对应的中文读法。比如输入数字-12345，输出字符串“负一万二千三百四十五”。&lt;/p&gt;
+&lt;p&gt;今天来看一个简单的程序开发问题，（用 Python）编写一段程序，将一个任意给定的整数（可正可负）转换成对应的中文读法。比如输入数字 -12345，输出字符串“负一万二千三百四十五”。&lt;/p&gt;
 &lt;p&gt;同时也会稍微涉及到数据驱动的测试（data driven test）。&lt;/p&gt;
-&lt;p class="alert alert-info"&gt;实际上，对于同一个数字，用中文的读法可能不唯一，在不同的场合也可能会有不同的习惯。我这里采用Google拼音输入法提供的读法。&lt;/p&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;注解&lt;/p&gt;
+&lt;p class="last"&gt;实际上，对于同一个数字，用中文的读法可能不唯一，在不同的场合也可能会有不同的习惯。我这里采用 Google 拼音输入法提供的读法。&lt;/p&gt;
+&lt;/div&gt;
 &lt;!-- more --&gt;
 &lt;div class="section" id="id3"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;准备工作&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;基本的方法很简单，从高位到低位依次把每个数字映射成对应的汉字，再把位数对应的汉字加上就可以了。如果是负数，则在前面加一个“负”即可。&lt;/p&gt;
-&lt;p&gt;先把用中文读一个数字所需要的汉字都找出来，它们是“负零一二三四五六七八九十百千万亿兆”等。注意这里的“兆”表示10的12次方，而不是计算机领域的10的六次方。在开始之前，先要把这些汉字分分类，比如一二三四之间的差异跟十百千就不一样，跟万亿兆也不一样。&lt;/p&gt;
+&lt;p&gt;先把用中文读一个数字所需要的汉字都找出来，它们是“负零一二三四五六七八九十百千万亿兆”等。注意这里的“兆”表示 10 的 12 次方，而不是计算机领域的 10 的 6 次方。在开始之前，先要把这些汉字分分类，比如一二三四之间的差异跟十百千就不一样，跟万亿兆也不一样。&lt;/p&gt;
 &lt;p&gt;最特殊的字是“负”，用一个单独的常量保存它。&lt;/p&gt;
 &lt;p&gt;然后是“零”。在计数体系中，“零”跟其他数字可是有着本质区别的，在中文表达的时候，这种特殊性也非常明显，所以也单独分配一个常量。&lt;/p&gt;
-&lt;p&gt;数字“一二三四五六七八九”是十进制数字中，除零之外的基本字符，对应了除“0”之外的全部九个阿拉伯数字符号。用一个常量数组保存。它们的特点是构成了一个差值为1的等差数列。&lt;/p&gt;
-&lt;p&gt;“十百千”是每个万组内的数位标识，是一个比值为10的等比数列。在这里大家可以看出为什么不把“十”跟上一组汉字放在一起。&lt;/p&gt;
-&lt;p&gt;最后是“万亿兆”，是比值为10^4的等比数列。实际上后面还可以继续写下去（参见&lt;a class="reference external" href="http://www.douban.com/group/topic/5404723/"&gt;个十百千万亿兆后面是什么&lt;/a&gt;），比如10^16用“京”表示，再往后依次是“垓”、“杼”、“穰”、“溝”、“澗”、“正”、“載”、“極”（10^48）。如果还要写下去，还有“恆河沙”、“阿僧祇”、“那由他”、“不可思議”、“無量”、“大數”（10^72）。这种计数体系称为中法，是万进系统，以万递进。当然扯远了，程序中我们只用到“兆”，如果想要支持后面的字，只要修改常量就可以，对程序逻辑没有影响（除非要修改计数体系）。&lt;/p&gt;
+&lt;p&gt;数字“一二三四五六七八九”是十进制数字中，除零之外的基本字符，对应了除“0”之外的全部九个阿拉伯数字符号。用一个常量数组保存。它们的特点是构成了一个差值为 1 的等差数列。&lt;/p&gt;
+&lt;p&gt;“十百千”是每个万组内的数位标识，是一个比值为 10 的等比数列。在这里大家可以看出为什么不把“十”跟上一组汉字放在一起。&lt;/p&gt;
+&lt;p&gt;最后是“万亿兆”，是比值为 10^4 的等比数列。实际上后面还可以继续写下去（参见 &lt;a class="reference external" href="http://www.douban.com/group/topic/5404723/"&gt;个十百千万亿兆后面是什么&lt;/a&gt;），比如 10^16 用“京”表示，再往后依次是“垓”、“杼”、“穰”、“溝”、“澗”、“正”、“載”、“極”（10^48）。如果还要写下去，还有“恆河沙”、“阿僧祇”、“那由他”、“不可思議”、“無量”、“大數”（10^72）。这种计数体系称为中法，是万进系统，以万递进。当然扯远了，程序中我们只用到“兆”，如果想要支持后面的字，只要修改常量就可以，对程序逻辑没有影响（除非要修改计数体系）。&lt;/p&gt;
 &lt;p&gt;又啰嗦了。看一下这部分的代码（Python 2.7.x）。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
@@ -266,8 +269,8 @@ brew install maven30
 &lt;div class="section" id="id4"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;初始版本&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;常量定义好之后，就先写个最简单的处理方法。负数和零就不多说了，只看正数的情况。&lt;/p&gt;
-&lt;p&gt;比如数字是12345，输出应该是“一万二千三百四十五”，在这种最普通的情况下，操作方法就是把每个数字对应的汉字和该数位所对应的汉字拼在一起，然后每个万组还要加上该万组的单位（即“万亿兆”）。&lt;/p&gt;
-&lt;p&gt;因此首先需要从高位到低位枚举每一位数字，要同时知道数字和对应的数位（比如个位是0，十亿位是9，等等）。下面这段简单的程序是从低位开始枚举，使用的时候只要反转（reverse）一下就可以了。&lt;/p&gt;
+&lt;p&gt;比如数字是 12345，输出应该是“一万二千三百四十五”，在这种最普通的情况下，操作方法就是把每个数字对应的汉字和该数位所对应的汉字拼在一起，然后每个万组还要加上该万组的单位（即“万亿兆”）。&lt;/p&gt;
+&lt;p&gt;因此首先需要从高位到低位枚举每一位数字，要同时知道数字和对应的数位（比如个位是 0，十亿位是 9，等等）。下面这段简单的程序是从低位开始枚举，使用的时候只要反转（reverse）一下就可以了。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -357,16 +360,16 @@ brew install maven30
 
 &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;''&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;words&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;啊，由于工作原因，代码风格有所调整。以前在Python里函数名采用驼峰方式，首字母大写。现在改用小写加下划线了。&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;啊，由于工作原因，代码风格有所调整。以前在 Python 里函数名采用驼峰方式，首字母大写。现在改用小写加下划线了。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;单元测试&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;显然上面的代码是有问题的，比如如果数字中有0，有些结果就不太对。对于11到19的处理也有问题。因此需要做单元测试，多准备各种情况的测试用例尽可能覆盖更多的特殊情况。&lt;/p&gt;
+&lt;p&gt;显然上面的代码是有问题的，比如如果数字中有 0，有些结果就不太对。对于 11 到 19 的处理也有问题。因此需要做单元测试，多准备各种情况的测试用例尽可能覆盖更多的特殊情况。&lt;/p&gt;
 &lt;p&gt;这里不详细说怎么创建和编写单元测试，只说一下数据驱动的测试（Data Driven Test）。&lt;/p&gt;
-&lt;p&gt;一般在Python里写单元测试，比如想测试一下输入10时，程序输出是否正确。那就添加一个测试方法（test method），调用函数得到实际的输出值（现在应该是“一十”），跟期望的输出（应该是“十”）作比较。&lt;/p&gt;
+&lt;p&gt;一般在 Python 里写单元测试，比如想测试一下输入 10 时，程序输出是否正确。那就添加一个测试方法（test method），调用函数得到实际的输出值（现在应该是“一十”），跟期望的输出（应该是“十”）作比较。&lt;/p&gt;
 &lt;p&gt;这样做的缺点是，如果想增加一个用例，就要添加一段代码，而新添加的代码整个逻辑是一样的，只是其中的输入和期望输出变了，代码重复度太高，而且也太麻烦了。&lt;/p&gt;
-&lt;p&gt;对于这种情况会比较多的测试，一般会把各种需要测试的输入和期望输出写在一个数据文件里。于是可以在测试方法中读入文件中的每一组数据，用for循环依次进行测试。如果所有的测试用例都能成功也就没什么问题，但如果有些用例会失败，一旦某个用例失败，测试方法就会停止，后面的数据就不会再被测到。这样每次都只能看到第一个出现的错误，无法得到完整的测试结果。在改bug的时候，也很容易出现按住葫芦浮起瓢的事情。&lt;/p&gt;
-&lt;p&gt;以前用C#的时候，做数据驱动的测试非常方便，只要给测试方法添加&lt;a class="reference external" href="http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.testtools.unittesting.datasourceattribute.aspx"&gt;DataSource Attribute&lt;/a&gt;就可以了。在Python里没有发现直接的方法，不过可以自己写一个简单的函数来处理，原理就是用数据文件中的每一个测试用例给测试类动态添加一个测试方法。&lt;/p&gt;
+&lt;p&gt;对于这种情况会比较多的测试，一般会把各种需要测试的输入和期望输出写在一个数据文件里。于是可以在测试方法中读入文件中的每一组数据，用 for 循环依次进行测试。如果所有的测试用例都能成功也就没什么问题，但如果有些用例会失败，一旦某个用例失败，测试方法就会停止，后面的数据就不会再被测到。这样每次都只能看到第一个出现的错误，无法得到完整的测试结果。在改 bug 的时候，也很容易出现按住葫芦浮起瓢的事情。&lt;/p&gt;
+&lt;p&gt;以前用 C# 的时候，做数据驱动的测试非常方便，只要给测试方法添加 &lt;a class="reference external" href="http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.testtools.unittesting.datasourceattribute.aspx"&gt;DataSource Attribute&lt;/a&gt; 就可以了。在 Python 里没有发现直接的方法，不过可以自己写一个简单的函数来处理，原理就是用数据文件中的每一个测试用例给测试类动态添加一个测试方法。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -425,7 +428,7 @@ brew install maven30
 
 &lt;span class="n"&gt;add_tests&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;上面的示意中，假设测试用例保存在一个叫做“number_data.txt”的TSV文件中。每行用TAB分割为两列，分别是阿拉伯数字和期望的中文读法。&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;上面的示意中，假设测试用例保存在一个叫做“number_data.txt” 的 TSV 文件中。每行用 TAB 分割为两列，分别是阿拉伯数字和期望的中文读法。&lt;/p&gt;
 &lt;p&gt;“add_tests”方法对每一个测试用例，调用“create_number_test_function”创建一个测试方法，添加到测试类“TestTranslateNumberToChinese”中。&lt;/p&gt;
 &lt;p&gt;假设这段测试代码所在的文件叫做“test_translate_number_to_chinese.py”，那么在命令行运行如下命令就可以把所有的测试用例都测一遍。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python -m unittest test_translate_number_to_chinese
@@ -437,11 +440,11 @@ brew install maven30
 &lt;div class="section" id="id7"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;特殊的“0”&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;目前主要的问题在于对“0”的处理上，上面的程序忽略了所有的“0”。&lt;/p&gt;
-&lt;p&gt;实际上，在一个万组内，末尾所有连续的“0”都不用读，如500：五百、20：二十。这方面刚好上面的代码就是这样处理的。注意这个规则不仅仅针对数字最末尾的“0”，而是对每一个万组都有效的。比如2005678：二百万五千六百七十八（不加“零”）。&lt;/p&gt;
-&lt;p&gt;在一个万组内，如果两个非零数字之间有一个或者多个“0”，都需要（且只需要）读一个“零”。如201：二百零一、3006：三千零六、1020：一千零二十。&lt;/p&gt;
-&lt;p&gt;一个万组内，如果高位数字是0，那么是否需要读出来就看更高的万组是什么情况了。如果没有更高的万组，就不用读，否则就需要。比如0200（实际上首位的0就不出现了）：二百、10200：一万零二百。&lt;/p&gt;
-&lt;p&gt;添加两个局部变量来记录一下状态，一个是“group_is_zero”记录当前处理的万组是否仍然是全0，另一个是“need_zero”记录是否需要添加一个“零”。&lt;/p&gt;
-&lt;p&gt;把上面translate_number_to_chinese中的core loop修改一下，得到：&lt;/p&gt;
+&lt;p&gt;实际上，在一个万组内，末尾所有连续的“0”都不用读，如 500：五百、20：二十。这方面刚好上面的代码就是这样处理的。注意这个规则不仅仅针对数字最末尾的“0”，而是对每一个万组都有效的。比如 2005678：二百万五千六百七十八（不加“零”）。&lt;/p&gt;
+&lt;p&gt;在一个万组内，如果两个非零数字之间有一个或者多个“0”，都需要（且只需要）读一个“零”。如 201：二百零一、3006：三千零六、1020：一千零二十。&lt;/p&gt;
+&lt;p&gt;一个万组内，如果高位数字是 0，那么是否需要读出来就看更高的万组是什么情况了。如果没有更高的万组，就不用读，否则就需要。比如 0200（实际上首位的 0 就不出现了）：二百、10200：一万零二百。&lt;/p&gt;
+&lt;p&gt;添加两个局部变量来记录一下状态，一个是“group_is_zero”记录当前处理的万组是否仍然是全 0，另一个是“need_zero”记录是否需要添加一个“零”。&lt;/p&gt;
+&lt;p&gt;把上面 translate_number_to_chinese 中的 core loop 修改一下，得到：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -497,19 +500,19 @@ brew install maven30
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 &lt;div class="section" id="id8"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;全零的万组&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;接下来遇到的问题是，如果一个万组完全是0，就不要再添加对应的单位了，比如100000000：一亿（现在会输出“一亿万”）。&lt;/p&gt;
-&lt;p&gt;解决方法很简单，把上面的&lt;tt class="docutils literal"&gt;if unit == 0:&lt;/tt&gt;改成&lt;tt class="docutils literal"&gt;if unit == 0 and not group_is_zero:&lt;/tt&gt;即可。完整代码略。&lt;/p&gt;
+&lt;p&gt;接下来遇到的问题是，如果一个万组完全是 0，就不要再添加对应的单位了，比如 100000000：一亿（现在会输出“一亿万”）。&lt;/p&gt;
+&lt;p&gt;解决方法很简单，把上面的 &lt;tt class="docutils literal"&gt;if unit == 0:&lt;/tt&gt; 改成 &lt;tt class="docutils literal"&gt;if unit == 0 and not group_is_zero:&lt;/tt&gt; 即可。完整代码略。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id9"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;麻烦的“1”&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;最后一种特殊的情况是由数字“1”引起的。&lt;/p&gt;
-&lt;p&gt;在一个万组内，如果千位和百位都是“0”，十位是“1”，那么这个“一”就不用读出来，比如10：十、14：十四。&lt;/p&gt;
-&lt;p&gt;但如果千位或者百位不是“0”，这个“一”就需要读出来，比如213：二百一十三、2013：二千零一十三。&lt;/p&gt;
-&lt;p&gt;当更高的万组存在时，即使当前万组的千位和百位都为“0”，也需要读出“一”，比如20010：二万零一十。&lt;/p&gt;
-&lt;p&gt;解决的方法是在上面的&lt;tt class="docutils literal"&gt;words.append(CHINESE_DIGITS[digit])&lt;/tt&gt;前面增加条件：&lt;/p&gt;
+&lt;p&gt;在一个万组内，如果千位和百位都是“0”，十位是“1”，那么这个“一”就不用读出来，比如 10：十、14：十四。&lt;/p&gt;
+&lt;p&gt;但如果千位或者百位不是“0”，这个“一”就需要读出来，比如 213：二百一十三、2013：二千零一十三。&lt;/p&gt;
+&lt;p&gt;当更高的万组存在时，即使当前万组的千位和百位都为“0”，也需要读出“一”，比如 20010：二万零一十。&lt;/p&gt;
+&lt;p&gt;解决的方法是在上面的 &lt;tt class="docutils literal"&gt;words.append(CHINESE_DIGITS[digit])&lt;/tt&gt; 前面增加条件：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;digit&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="n"&gt;unit&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;group_is_zero&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;group&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;need_zero&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;最后完整的core loop代码为：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;最后完整的 core loop 代码为：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -570,7 +573,7 @@ brew install maven30
 &lt;/div&gt;
 &lt;div class="section" id="id10"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;试试看&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;代码介绍完了，下面放一个用JavaScript实现的版本，可以随便输入一些数字试试看。源代码参见&lt;a class="reference external" href="http://jsfiddle.net/calfzhou/tGEz7/"&gt;http://jsfiddle.net/calfzhou/tGEz7/&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;代码介绍完了，下面放一个用 JavaScript 实现的版本，可以随便输入一些数字试试看。源代码参见 &lt;a class="reference external" href="http://jsfiddle.net/calfzhou/tGEz7/"&gt;http://jsfiddle.net/calfzhou/tGEz7/&lt;/a&gt;。&lt;/p&gt;
 &lt;script type="text/javascript"&gt;
 function translateNumber(numberText) {
     var CHINESE_NEGATIVE = "负";
@@ -643,21 +646,21 @@ function doNumberTranslation() {
 &lt;div&gt;
 &lt;textarea class="form-control" id="chinese-output" readonly="readonly" rows="3" type="text"&gt;&lt;/textarea&gt;
 &lt;/div&gt;&lt;/div&gt;
-</content><category term="Python"></category><category term="Unit Test"></category><category term="Natural Language"></category></entry><entry><title>用Python读写Excel文件</title><link href="https://blog.gocalf.com/python-read-write-excel" rel="alternate"></link><published>2013-12-03T20:50:00+08:00</published><updated>2014-07-31T09:54:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-12-03:/python-read-write-excel</id><summary type="html">&lt;p class="first last"&gt;前段时间需要用Python来处理Microsft Excel文件，尝试了一些不同的方法，记录下来留个印象。&lt;/p&gt;
+</content><category term="Python"></category><category term="Unit Test"></category><category term="Natural Language"></category></entry><entry><title>用 Python 读写 Excel 文件</title><link href="https://blog.gocalf.com/python-read-write-excel" rel="alternate"></link><published>2013-12-03T20:50:00+08:00</published><updated>2014-07-31T09:54:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-12-03:/python-read-write-excel</id><summary type="html">&lt;p class="first last"&gt;前段时间需要用 Python 来处理 Microsft Excel 文件，尝试了一些不同的方法，记录下来留个印象。&lt;/p&gt;
 </summary><content type="html">
-&lt;p&gt;虽然天天跟数据打交道，也频繁地使用Excel进行一些简单的数据处理和展示，但长期以来总是小心地避免用Python直接读写Excel文件。通常我都是把数据保存为以TAB分割的文本文件（TSV），再在Excel中进行导入或者直接复制粘贴。&lt;/p&gt;
-&lt;p&gt;前段时间做一个项目，却不得不使用Python直接生成Excel文件，后来随着需求的变化，还要对已有的Excel文件进行读取。在这个过程中，研究并尝试了一些工具，也走了一些弯路。记录下来，下次再有类似需求的时候就不用漫天遍野地搜索了。&lt;/p&gt;
+&lt;p&gt;虽然天天跟数据打交道，也频繁地使用 Excel 进行一些简单的数据处理和展示，但长期以来总是小心地避免用 Python 直接读写 Excel 文件。通常我都是把数据保存为以 TAB 分割的文本文件（TSV），再在 Excel 中进行导入或者直接复制粘贴。&lt;/p&gt;
+&lt;p&gt;前段时间做一个项目，却不得不使用 Python 直接生成 Excel 文件，后来随着需求的变化，还要对已有的 Excel 文件进行读取。在这个过程中，研究并尝试了一些工具，也走了一些弯路。记录下来，下次再有类似需求的时候就不用漫天遍野地搜索了。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;div class="section" id="pk"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;超级无敌大PK&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;超级无敌大 PK&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;我主要尝试了四种工具，在此并不会给出他们的排名，因为在不同的应用场景下，做出的选择会不同。&lt;/p&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;colgroup&gt;
-&lt;col width="7%"/&gt;
+&lt;col width="8%"/&gt;
+&lt;col width="21%"/&gt;
+&lt;col width="22%"/&gt;
 &lt;col width="23%"/&gt;
-&lt;col width="23%"/&gt;
-&lt;col width="23%"/&gt;
-&lt;col width="23%"/&gt;
+&lt;col width="25%"/&gt;
 &lt;/colgroup&gt;
 &lt;thead valign="bottom"&gt;
 &lt;tr&gt;&lt;th class="head"&gt; &lt;/th&gt;
@@ -669,47 +672,52 @@ function doNumberTranslation() {
 &lt;/thead&gt;
 &lt;tbody valign="top"&gt;
 &lt;tr&gt;&lt;td&gt;介绍&lt;/td&gt;
-&lt;td&gt;可以创建Excel 2007或更高版本的XLSX文件&lt;/td&gt;
-&lt;td&gt;即&lt;a class="reference external" href="http://www.python-excel.org/"&gt;python-excel&lt;/a&gt;，含&lt;a class="reference external" href="https://pypi.python.org/pypi/xlrd"&gt;xlrd&lt;/a&gt;、&lt;a class="reference external" href="https://pypi.python.org/pypi/xlwt"&gt;xlwt&lt;/a&gt;和&lt;a class="reference external" href="https://pypi.python.org/pypi/xlutils"&gt;xlutils&lt;/a&gt;三大模块，分别提供读、写和其他功能&lt;/td&gt;
-&lt;td&gt;可以读写Excel 2007 XLSX和XLSM文件&lt;/td&gt;
-&lt;td&gt;直接通过COM组件与Microsoft
-Excel进程通信调用其各种功能实现对Excel文件的操作&lt;/td&gt;
+&lt;td&gt;可以创建 Excel 2007
+或更高版本的 XLSX
+文件&lt;/td&gt;
+&lt;td&gt;即 &lt;a class="reference external" href="http://www.python-excel.org/"&gt;python-excel&lt;/a&gt;，含
+&lt;a class="reference external" href="https://pypi.python.org/pypi/xlrd"&gt;xlrd&lt;/a&gt;、&lt;a class="reference external" href="https://pypi.python.org/pypi/xlwt"&gt;xlwt&lt;/a&gt; 和
+&lt;a class="reference external" href="https://pypi.python.org/pypi/xlutils"&gt;xlutils&lt;/a&gt; 三大模块，分别提供读、写和其他功能&lt;/td&gt;
+&lt;td&gt;可以读写 Excel 2007 XLSX
+和 XLSM 文件&lt;/td&gt;
+&lt;td&gt;直接通过 COM 组件与Microsoft
+Excel 进程通信，调用其各种功能实现对 Excel 文件的操作&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;读&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;写&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;修改&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;⚠️&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;.xls&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;.xlsx&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-warning"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;⚠️&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;大文件&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td&gt;&lt;span class="raw-html"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;功能&lt;/td&gt;
 &lt;td&gt;强&lt;/td&gt;
@@ -729,9 +737,9 @@ Excel进程通信调用其各种功能实现对Excel文件的操作&lt;/td&gt;
 &lt;td&gt;无限制&lt;/td&gt;
 &lt;td&gt;Windows + Excel&lt;/td&gt;
 &lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;适用场景&lt;/td&gt;
+&lt;tr&gt;&lt;td&gt;使用场景&lt;/td&gt;
 &lt;td&gt;&lt;ul class="first last simple"&gt;
-&lt;li&gt;要创建XLSX文件&lt;/li&gt;
+&lt;li&gt;要创建 XLSX 文件&lt;/li&gt;
 &lt;li&gt;不需要读取已有文件&lt;/li&gt;
 &lt;li&gt;需要实现比较复杂的功能&lt;/li&gt;
 &lt;li&gt;数据量可能会很大&lt;/li&gt;
@@ -739,14 +747,14 @@ Excel进程通信调用其各种功能实现对Excel文件的操作&lt;/td&gt;
 &lt;/ul&gt;
 &lt;/td&gt;
 &lt;td&gt;&lt;ul class="first last simple"&gt;
-&lt;li&gt;要读取XLS或XLSX文件&lt;/li&gt;
-&lt;li&gt;要生成XLS文件&lt;/li&gt;
+&lt;li&gt;要读取 XLS 或 XLSX 文件&lt;/li&gt;
+&lt;li&gt;要生成 XLS 文件&lt;/li&gt;
 &lt;li&gt;需要的功能不太复杂&lt;/li&gt;
 &lt;li&gt;需要跨平台&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/td&gt;
 &lt;td&gt;&lt;ul class="first last simple"&gt;
-&lt;li&gt;要处理XLSX文件&lt;/li&gt;
+&lt;li&gt;要处理 XLSX 文件&lt;/li&gt;
 &lt;li&gt;需要修改已有文件，或者在写入过程中需要不断修改&lt;/li&gt;
 &lt;li&gt;需要的功能比较复杂&lt;/li&gt;
 &lt;li&gt;数据量可能会很大&lt;/li&gt;
@@ -758,7 +766,7 @@ Excel进程通信调用其各种功能实现对Excel文件的操作&lt;/td&gt;
 &lt;li&gt;需要用到特别复杂的功能&lt;/li&gt;
 &lt;li&gt;在修改文件时，不希望对原有信息造成任何意外破坏&lt;/li&gt;
 &lt;li&gt;数据量很小，或者愿意等待&lt;/li&gt;
-&lt;li&gt;仅在Windows中使用&lt;/li&gt;
+&lt;li&gt;仅在 Windows 中使用&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/td&gt;
 &lt;/tr&gt;
@@ -766,9 +774,9 @@ Excel进程通信调用其各种功能实现对Excel文件的操作&lt;/td&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class="section" id="xlsxwriter"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;XlsxWriter&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://github.com/jmcnamara/XlsxWriter"&gt;XlsxWriter&lt;/a&gt;是我最终选择的用于写操作的工具。顾名思义，它只能用来写文件。&lt;/p&gt;
-&lt;p&gt;这应该是个比较新的项目，在GitHub上看它最早的提交是在2013年1月份。其官方文档中宣称它支持：&lt;/p&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;XlsxWriter&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/jmcnamara/XlsxWriter"&gt;XlsxWriter&lt;/a&gt; 是我最终选择的用于写操作的工具。顾名思义，它只能用来写文件。&lt;/p&gt;
+&lt;p&gt;这应该是个比较新的项目，在 GitHub 上看它最早的提交是在 2013 年 1 月份。其官方文档中宣称它支持：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;100% compatible Excel XLSX files.&lt;/li&gt;
 &lt;li&gt;Full formatting.&lt;/li&gt;
@@ -784,95 +792,95 @@ Excel进程通信调用其各种功能实现对Excel文件的操作&lt;/td&gt;
 &lt;li&gt;Memory optimisation mode for writing large files.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="id2"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;优点&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;优点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、功能比较强&lt;/p&gt;
-&lt;p&gt;相对而言，这是除Excel自身之外功能最强的工具了。比如我就用到了它提供的：字体设置、前景色背景色、border设置、视图缩放（zoom）、单元格合并、autofilter、freeze panes、公式、data validation、单元格注释、行高和列宽设置等等。&lt;/p&gt;
-&lt;p&gt;最让我惊奇的是，用它生成的带有单元格注释的Excel文件，不论是Excel 2007还是Excel 2013都可正常打开（下面会提到，这个任务用Excel自身都无法完成）。&lt;/p&gt;
+&lt;p&gt;相对而言，这是除 Excel 自身之外功能最强的工具了。比如我就用到了它提供的：字体设置、前景色背景色、border 设置、视图缩放（zoom）、单元格合并、autofilter、freeze panes、公式、data validation、单元格注释、行高和列宽设置等等。&lt;/p&gt;
+&lt;p&gt;最让我惊奇的是，用它生成的带有单元格注释的 Excel 文件，不论是 Excel 2007 还是 Excel 2013 都可正常打开（下面会提到，这个任务用 Excel 自身都无法完成）。&lt;/p&gt;
 &lt;p&gt;二、支持大文件写入&lt;/p&gt;
-&lt;p&gt;如果数据量非常大，可以启用&lt;a class="reference external" href="http://xlsxwriter.readthedocs.org/en/latest/working_with_memory.html"&gt;constant memory模式&lt;/a&gt;，这是一种顺序写入模式，得到一行数据就立刻写入一行，而不会把所有的数据都保持在内存中。&lt;/p&gt;
+&lt;p&gt;如果数据量非常大，可以启用 &lt;a class="reference external" href="http://xlsxwriter.readthedocs.org/en/latest/working_with_memory.html"&gt;constant memory 模式&lt;/a&gt;，这是一种顺序写入模式，得到一行数据就立刻写入一行，而不会把所有的数据都保持在内存中。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、不支持读取和修改&lt;/p&gt;
-&lt;p&gt;作者并没有打算做一个XlsxReader来提供读取操作。不能读取，也就无从修改了。它只能用来创建新的文件。我是利用xlrd把需要的信息读入后，用XlsxWriter创建全新的文件。&lt;/p&gt;
-&lt;p&gt;另外，即使是创建到一半Excel文件，也是无法读取已经创建出来的内容的（信息应该在，但是并没有相应的接口）。因为它的主要方法是&lt;tt class="docutils literal"&gt;write&lt;/tt&gt;而不是&lt;tt class="docutils literal"&gt;set&lt;/tt&gt;。当你在某个单元格写入数据后，除非你自己保存了相关的内容，否则还是没有办法读出已经写入的信息。从这个角度看，你无法做到读出-&amp;gt;修改-&amp;gt;写回，只能是写入-&amp;gt;写入-&amp;gt;写入。&lt;/p&gt;
-&lt;p&gt;二、不支持XLS文件&lt;/p&gt;
-&lt;p&gt;XLS是Office 2013或更早版本所使用的格式，是一种二进制格式的文件。XLSX则是用一系列XML文件组成的（最后的X代表了XML）一个压缩包。如果非要创建低版本的XLS文件，就请移步xlwt吧。&lt;/p&gt;
+&lt;p&gt;作者并没有打算做一个 XlsxReader 来提供读取操作。不能读取，也就无从修改了。它只能用来创建新的文件。我是利用 xlrd 把需要的信息读入后，用 XlsxWriter 创建全新的文件。&lt;/p&gt;
+&lt;p&gt;另外，即使是创建到一半 Excel 文件，也是无法读取已经创建出来的内容的（信息应该在，但是并没有相应的接口）。因为它的主要方法是 &lt;tt class="docutils literal"&gt;write&lt;/tt&gt; 而不是 &lt;tt class="docutils literal"&gt;set&lt;/tt&gt;。当你在某个单元格写入数据后，除非你自己保存了相关的内容，否则还是没有办法读出已经写入的信息。从这个角度看，你无法做到读出 -&amp;gt; 修改 -&amp;gt; 写回，只能是写入 -&amp;gt; 写入 -&amp;gt; 写入。&lt;/p&gt;
+&lt;p&gt;二、不支持 XLS 文件&lt;/p&gt;
+&lt;p&gt;XLS 是 Office 2013 或更早版本所使用的格式，是一种二进制格式的文件。XLSX 则是用一系列 XML 文件组成的（最后的 X 代表了 XML）一个压缩包。如果非要创建低版本的 XLS 文件，就请移步 xlwt 吧。&lt;/p&gt;
 &lt;p&gt;三、暂时不支持透视表（Pivot Table）&lt;/p&gt;
 &lt;p&gt;透视表是非常麻烦的东西，除了自身复杂的结构外，还需要一套数据缓存。我向作者提出了这个需求，不过这是个很难完全实现的功能，我们慢慢期待吧。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="xlrd-xlwt"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id23"&gt;xlrd&amp;amp;xlwt&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;我的程序在第一版的时候，使用&lt;a class="reference external" href="https://pypi.python.org/pypi/xlwt"&gt;xlwt&lt;/a&gt;创建XLS文件，然后通过&lt;a class="reference external" href="http://msdn.microsoft.com/en-us/library/fp179694.aspx"&gt;Microsoft Excel API&lt;/a&gt;将其转换为XLSX文件，并写入高级的Data Validation（Excel 2007的Data Validation比Excel 2003要强大不少）和单元格注释。&lt;/p&gt;
-&lt;p&gt;我的程序最终的版本也依然用&lt;a class="reference external" href="https://pypi.python.org/pypi/xlrd"&gt;xlrd&lt;/a&gt;从已有的文件中读出所需的信息。&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="http://www.python-excel.org/"&gt;xlrd&amp;amp;xlwt&lt;/a&gt;主要是针对Office 2013或更早版本的XLS文件格式。&lt;/p&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id24"&gt;xlrd&amp;amp;xlwt&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;我的程序在第一版的时候，使用 &lt;a class="reference external" href="https://pypi.python.org/pypi/xlwt"&gt;xlwt&lt;/a&gt; 创建 XLS 文件，然后通过 &lt;a class="reference external" href="http://msdn.microsoft.com/en-us/library/fp179694.aspx"&gt;Microsoft Excel API&lt;/a&gt; 将其转换为 XLSX 文件，并写入高级的 Data Validation（Excel 2007 的 Data Validation 比 Excel 2003 要强大不少）和单元格注释。&lt;/p&gt;
+&lt;p&gt;我的程序最终的版本也依然用 &lt;a class="reference external" href="https://pypi.python.org/pypi/xlrd"&gt;xlrd&lt;/a&gt; 从已有的文件中读出所需的信息。&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.python-excel.org/"&gt;xlrd&amp;amp;xlwt&lt;/a&gt; 主要是针对 Office 2013 或更早版本的 XLS 文件格式。&lt;/p&gt;
 &lt;div class="section" id="id4"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;优点&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;一、支持XLS格式&lt;/p&gt;
-&lt;p&gt;XlsxWriter和OpenPyXL都不支持XLS格式，从这个角度看，&lt;a class="reference external" href="http://www.python-excel.org/"&gt;xlrd&amp;amp;xlwt&lt;/a&gt;仍然有一定的不可替代性。&lt;/p&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;优点&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;一、支持 XLS 格式&lt;/p&gt;
+&lt;p&gt;XlsxWriter 和 OpenPyXL 都不支持 XLS 格式，从这个角度看，&lt;a class="reference external" href="http://www.python-excel.org/"&gt;xlrd&amp;amp;xlwt&lt;/a&gt; 仍然有一定的不可替代性。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;一、对XLSX支持比较差&lt;/p&gt;
-&lt;p&gt;目前&lt;a class="reference external" href="https://pypi.python.org/pypi/xlrd"&gt;xlrd&lt;/a&gt;已经可以读取XLSX文件了，有限地支持。至于&lt;a class="reference external" href="https://pypi.python.org/pypi/xlwt"&gt;xlwt&lt;/a&gt;我没有试验过，估计是够呛。&lt;/p&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;一、对 XLSX 支持比较差&lt;/p&gt;
+&lt;p&gt;目前 &lt;a class="reference external" href="https://pypi.python.org/pypi/xlrd"&gt;xlrd&lt;/a&gt; 已经可以读取 XLSX 文件了，有限地支持。至于 &lt;a class="reference external" href="https://pypi.python.org/pypi/xlwt"&gt;xlwt&lt;/a&gt; 我没有试验过，估计是够呛。&lt;/p&gt;
 &lt;p&gt;二、对修改的支持比较差&lt;/p&gt;
-&lt;p&gt;xlrd和xlwt是两个相对独立的模块，虽然&lt;a class="reference external" href="https://pypi.python.org/pypi/xlutils"&gt;xlutils&lt;/a&gt;提供方法帮助你把&lt;tt class="docutils literal"&gt;xlrd.Book&lt;/tt&gt;对象复制到&lt;tt class="docutils literal"&gt;xlwt.Workbook&lt;/tt&gt;对象，但跟XlsxWriter类似，后者只是提供write方法，使得你无法很容易地获取当前已经写入的数据并进行有针对性的修改。如果非要这样做，你要不断地保存，然后再用新的&lt;tt class="docutils literal"&gt;xlrd.Book&lt;/tt&gt;对象读取你要的信息，还是比较麻烦的。&lt;/p&gt;
+&lt;p&gt;xlrd 和 xlwt 是两个相对独立的模块，虽然 &lt;a class="reference external" href="https://pypi.python.org/pypi/xlutils"&gt;xlutils&lt;/a&gt; 提供方法帮助你把 &lt;tt class="docutils literal"&gt;xlrd.Book&lt;/tt&gt; 对象复制到 &lt;tt class="docutils literal"&gt;xlwt.Workbook&lt;/tt&gt; 对象，但跟 XlsxWriter 类似，后者只是提供 write 方法，使得你无法很容易地获取当前已经写入的数据并进行有针对性的修改。如果非要这样做，你要不断地保存，然后再用新的 &lt;tt class="docutils literal"&gt;xlrd.Book&lt;/tt&gt; 对象读取你要的信息，还是比较麻烦的。&lt;/p&gt;
 &lt;p&gt;三、功能很弱&lt;/p&gt;
-&lt;p&gt;除了最基本的写入数据和公式，xlwt所提供的功能非常少（Excel 2013本身支持的功能也就很少）。对于读取也是一样的，很多信息在读入时就丢失掉了。&lt;/p&gt;
+&lt;p&gt;除了最基本的写入数据和公式，xlwt 所提供的功能非常少（Excel 2013 本身支持的功能也就很少）。对于读取也是一样的，很多信息在读入时就丢失掉了。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="openpyxl"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id26"&gt;OpenPyXL&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a class="reference external" href="http://openpyxl.readthedocs.org/"&gt;OpenPyXL&lt;/a&gt;是比较综合的一个工具，能读能写能修改，功能还算可以但也有很大的缺陷。我在中间版本的时候是打算完全依赖它的，但后来发现一个严重的问题就放弃了。&lt;/p&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id27"&gt;OpenPyXL&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://openpyxl.readthedocs.org/"&gt;OpenPyXL&lt;/a&gt; 是比较综合的一个工具，能读能写能修改，功能还算可以但也有很大的缺陷。我在中间版本的时候是打算完全依赖它的，但后来发现一个严重的问题就放弃了。&lt;/p&gt;
 &lt;div class="section" id="id6"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;优点&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;优点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、能读能写能修改&lt;/p&gt;
-&lt;p&gt;OpenPyXL的工作模式跟XlsxWriter和xlwt有很大的区别，它用的是getter/setter模式。你可以随时读取某个单元格的内容，并根据其内容进行相应的修改，OpenPyXL会帮你记住每个单元格的状态。&lt;/p&gt;
+&lt;p&gt;OpenPyXL 的工作模式跟 XlsxWriter 和 xlwt 有很大的区别，它用的是 getter/setter 模式。你可以随时读取某个单元格的内容，并根据其内容进行相应的修改，OpenPyXL 会帮你记住每个单元格的状态。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;特别需要注意的一点：&lt;/strong&gt;虽然它支持修改已有文件，但由于其所支持的功能有限，读入文件时会忽略掉它所不支持的内容，再写入时，这些内容就丢失了。因此使用时一定要慎重。比如下面的缺点中提到它无法读入公式，那如果你修改一个带有公式的文件，保存之后，所有的公式就都没有了。&lt;/p&gt;
 &lt;p&gt;二、功能还算可以&lt;/p&gt;
-&lt;p&gt;整体来讲，它所支持的功能介于XlsxWriter和xlwt之间。&lt;/p&gt;
+&lt;p&gt;整体来讲，它所支持的功能介于 XlsxWriter 和 xlwt 之间。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id7"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;一、不支持XLS&lt;/p&gt;
-&lt;p&gt;这件事情只能让xlrd和xlwt去做。&lt;/p&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id29"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;一、不支持 XLS&lt;/p&gt;
+&lt;p&gt;这件事情只能让 xlrd 和 xlwt 去做。&lt;/p&gt;
 &lt;p&gt;二、不支持读取公式&lt;/p&gt;
-&lt;p&gt;这其实是个不太简单的事情，虽然我没尝试过，但相信xlrd也做不好这件事。&lt;/p&gt;
-&lt;p&gt;Excel的单元格如果是一个公式，它内部会同时保存公式本身和运算结果的缓存。用OpenPyXL读取单元格内容，它不会告诉你这个单元格的公式是什么，甚至不会告诉你这个单元格存的是公式，它只会拿到这个缓存的运算结果。我本来想利用它判别单元格是不是用了公式，然后做出不同的处理。结果遇到了这个问题，最后只好采取了其他变通的方式去做。&lt;/p&gt;
+&lt;p&gt;这其实是个不太简单的事情，虽然我没尝试过，但相信 xlrd 也做不好这件事。&lt;/p&gt;
+&lt;p&gt;Excel 的单元格如果是一个公式，它内部会同时保存公式本身和运算结果的缓存。用 OpenPyXL 读取单元格内容，它不会告诉你这个单元格的公式是什么，甚至不会告诉你这个单元格存的是公式，它只会拿到这个缓存的运算结果。我本来想利用它判别单元格是不是用了公式，然后做出不同的处理。结果遇到了这个问题，最后只好采取了其他变通的方式去做。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="microsoft-excel-api"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id29"&gt;Microsoft Excel API&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;大部分Windows环境的开发人员都会选择&lt;a class="reference external" href="http://msdn.microsoft.com/en-us/library/fp179694.aspx"&gt;Microsoft Excel API&lt;/a&gt;。实际上不仅仅是Python，几乎各种语言都有相应的方法使用它，因为核心的逻辑完全是由Microsft
-Excel自身提供的。语言相关的部分只是负责跟Windows的COM组件进行通信。&lt;/p&gt;
-&lt;p&gt;在Python中首先需要安装&lt;a class="reference external" href="http://sourceforge.net/projects/pywin32/"&gt;Python for Windows extensions&lt;/a&gt;（&lt;a class="reference external" href="http://sourceforge.net/projects/pywin32/"&gt;pywin32&lt;/a&gt;），具体的文档可以查阅&lt;a class="reference external" href="http://docs.activestate.com/activepython/2.4/pywin32/win32_modules.html"&gt;Win32 Modules&lt;/a&gt;和&lt;a class="reference external" href="http://docs.activestate.com/activepython/2.4/pywin32/com.html"&gt;Python COM&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;当然你还必须要安装某一个版本的Microsoft Office Excel，它内部的DLL负责实际的操作。&lt;/p&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id30"&gt;Microsoft Excel API&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;大部分 Windows 环境的开发人员都会选择 &lt;a class="reference external" href="http://msdn.microsoft.com/en-us/library/fp179694.aspx"&gt;Microsoft Excel API&lt;/a&gt;。实际上不仅仅是 Python，几乎各种语言都有相应的方法使用它，因为核心的逻辑完全是由 Microsft
+Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组件进行通信。&lt;/p&gt;
+&lt;p&gt;在 Python 中首先需要安装 &lt;a class="reference external" href="http://sourceforge.net/projects/pywin32/"&gt;Python for Windows extensions&lt;/a&gt;（&lt;a class="reference external" href="http://sourceforge.net/projects/pywin32/"&gt;pywin32&lt;/a&gt;），具体的文档可以查阅 &lt;a class="reference external" href="http://docs.activestate.com/activepython/2.4/pywin32/win32_modules.html"&gt;Win32 Modules&lt;/a&gt; 和 &lt;a class="reference external" href="http://docs.activestate.com/activepython/2.4/pywin32/com.html"&gt;Python COM&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;当然你还必须要安装某一个版本的 Microsoft Office Excel，它内部的 DLL 负责实际的操作。&lt;/p&gt;
 &lt;div class="section" id="id8"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id30"&gt;优点&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id31"&gt;优点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、最大的优点：强大无极限&lt;/p&gt;
-&lt;p&gt;因为直接与Excel进程通信，你可以做任何在Excel里可以做的事情。&lt;/p&gt;
+&lt;p&gt;因为直接与 Excel 进程通信，你可以做任何在 Excel 里可以做的事情。&lt;/p&gt;
 &lt;p&gt;二、文档丰富&lt;/p&gt;
-&lt;p&gt;MSDN上的文档绝对是世界上最优秀的文档。没有之一。&lt;/p&gt;
+&lt;p&gt;MSDN 上的文档绝对是世界上最优秀的文档。没有之一。&lt;/p&gt;
 &lt;p&gt;三、调试方便&lt;/p&gt;
-&lt;p&gt;你完全可以直接在Excel里面用宏先调试你想要的效果。甚至如果你不清楚怎么用程序实现某个操作，你可以通过宏录制的方法得到该操作的处理代码。&lt;/p&gt;
+&lt;p&gt;你完全可以直接在 Excel 里面用宏先调试你想要的效果。甚至如果你不清楚怎么用程序实现某个操作，你可以通过宏录制的方法得到该操作的处理代码。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id9"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id31"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id32"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、致命的缺点：慢到死&lt;/p&gt;
-&lt;p&gt;因为需要与Excel进程通信，其效率是非常低的。&lt;/p&gt;
-&lt;p&gt;如果让Excel窗口可见，随着程序的运行，你可以看到每一句程序所带来的变化，单元格的内容一个一个地改变。如果要写入的数据很多，那速度是无法忍受的。&lt;/p&gt;
+&lt;p&gt;因为需要与 Excel 进程通信，其效率是非常低的。&lt;/p&gt;
+&lt;p&gt;如果让 Excel 窗口可见，随着程序的运行，你可以看到每一句程序所带来的变化，单元格的内容一个一个地改变。如果要写入的数据很多，那速度是无法忍受的。&lt;/p&gt;
 &lt;p&gt;二、平台限制&lt;/p&gt;
-&lt;p&gt;目前还没有发现可以在非Windows系统使用它的方法。&lt;/p&gt;
-&lt;p&gt;另外，基于它的程序能做什么事情，很大程度上依赖于当前系统所安装的Excel版本。不同的版本在功能上有很大的差异，API也会有差异。用起来会比较麻烦。&lt;/p&gt;
-&lt;p&gt;三、Excel自身bug导致的问题&lt;/p&gt;
-&lt;p&gt;我刚好发现了其中一个，这和Python没有任何关系，可以完全在Excel中手动复现。在Excel 2007中随便创建一个文件，给某个单元格添加注释，保存。换台电脑，用Excel 2013打开，就会报错，然后注释就消失了。&lt;/p&gt;
-&lt;p&gt;同样如果你的程序在一台装有Excel 2007的机器上创建一个带有注释的Excel文件，把这个文件拿到Excel 2013中打开也会报错，也看不到注释。反过来也一样。&lt;/p&gt;
+&lt;p&gt;目前还没有发现可以在非 Windows 系统使用它的方法。&lt;/p&gt;
+&lt;p&gt;另外，基于它的程序能做什么事情，很大程度上依赖于当前系统所安装的 Excel 版本。不同的版本在功能上有很大的差异，API 也会有差异。用起来会比较麻烦。&lt;/p&gt;
+&lt;p&gt;三、Excel 自身 bug 导致的问题&lt;/p&gt;
+&lt;p&gt;我刚好发现了其中一个，这和 Python 没有任何关系，可以完全在 Excel 中手动复现。在 Excel 2007 中随便创建一个文件，给某个单元格添加注释，保存。换台电脑，用 Excel 2013 打开，就会报错，然后注释就消失了。&lt;/p&gt;
+&lt;p&gt;同样如果你的程序在一台装有 Excel 2007 的机器上创建一个带有注释的 Excel 文件，把这个文件拿到 Excel 2013 中打开也会报错，也看不到注释。反过来也一样。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id10"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id32"&gt;关于初始化&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Excel的com接口的具体细节我就不介绍了，需要的话直接查阅相关的MSDN文档即可。这里只提几个特殊的小问题。&lt;/p&gt;
-&lt;p&gt;要想得到一个可以操作的excel对象，一般可以有两种方式：&lt;/p&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id33"&gt;关于初始化&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Excel 的 com 接口的具体细节我就不介绍了，需要的话直接查阅相关的 MSDN 文档即可。这里只提几个特殊的小问题。&lt;/p&gt;
+&lt;p&gt;要想得到一个可以操作的 excel 对象，一般可以有两种方式：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;win32com.client&lt;/span&gt;
 
 &lt;span class="n"&gt;excel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;win32com&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Dispatch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Excel.Application'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -881,23 +889,23 @@ Excel自身提供的。语言相关的部分只是负责跟Windows的COM组件�
 
 &lt;span class="n"&gt;excel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;win32com&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DispatchEx&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Excel.Application'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;二者的区别在于，Dispatch方法会试图寻找并复用一个已有的Excel进程（比如你已经在运行着的Excel程序），而DispatchEx则一定会创建一个新的Excel进程。一般情况使用前者就可以了，还能节省一些资源的开销。但也会带来一些麻烦，有一些状态是在一个Excel进程内共享的，你在同进程的其他窗口内操作有可能会影响到Python程序所要进行的处理，导致各种错误。比如当你手动开启的Excel窗口中，某个单元格正处于编辑状态，那Python程序控制的大部分操作都有可能失败（即使它操作的是另一个文件），因为一个Excel进程中无法让两个单元格同时被编辑。&lt;/p&gt;
-&lt;p&gt;为了避免麻烦，我一般都使用DispatchEx方法。&lt;/p&gt;
+&lt;p&gt;二者的区别在于，Dispatch 方法会试图寻找并复用一个已有的 Excel 进程（比如你已经在运行着的 Excel 程序），而 DispatchEx 则一定会创建一个新的 Excel 进程。一般情况使用前者就可以了，还能节省一些资源的开销。但也会带来一些麻烦，有一些状态是在一个 Excel 进程内共享的，你在同进程的其他窗口内操作有可能会影响到 Python 程序所要进行的处理，导致各种错误。比如当你手动开启的 Excel 窗口中，某个单元格正处于编辑状态，那 Python 程序控制的大部分操作都有可能失败（即使它操作的是另一个文件），因为一个 Excel 进程中无法让两个单元格同时被编辑。&lt;/p&gt;
+&lt;p&gt;为了避免麻烦，我一般都使用 DispatchEx 方法。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id11"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id33"&gt;关于窗口可见&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;可以让新启动的Excel进程窗口可见，就像你通过双击桌面上的图标启动一样，程序所控制的每一步操作，在这个窗口中都可以观察得到。你也可以同时进行手动的操作，但一旦这样做，很有可能使你的Python程序崩溃。&lt;/p&gt;
-&lt;p&gt;窗口不可见也会带来一些麻烦，前面说了，通过Python启动的Excel进程跟你直接从桌面打开的Excel进程没有什么区别，在使用Excel的过程中，我们经常会遇到各种弹出的错误、警告或者提示框，这些在用Python处理时也有可能遇到。尤其当你的程序还没完全调试好时。&lt;/p&gt;
-&lt;p&gt;我一般都会让程序控制的Excel进程在调试过程中可见，正式使用时不可见，通过类似这样的命令（假设你有一个叫做&lt;tt class="docutils literal"&gt;is_debug&lt;/tt&gt;的变量记录当前是否在调试状态）：&lt;/p&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id34"&gt;关于窗口可见&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;可以让新启动的 Excel 进程窗口可见，就像你通过双击桌面上的图标启动一样，程序所控制的每一步操作，在这个窗口中都可以观察得到。你也可以同时进行手动的操作，但一旦这样做，很有可能使你的 Python 程序崩溃。&lt;/p&gt;
+&lt;p&gt;窗口不可见也会带来一些麻烦，前面说了，通过 Python 启动的 Excel 进程跟你直接从桌面打开的 Excel 进程没有什么区别，在使用 Excel 的过程中，我们经常会遇到各种弹出的错误、警告或者提示框，这些在用 Python 处理时也有可能遇到。尤其当你的程序还没完全调试好时。&lt;/p&gt;
+&lt;p&gt;我一般都会让程序控制的 Excel 进程在调试过程中可见，正式使用时不可见，通过类似这样的命令（假设你有一个叫做 &lt;tt class="docutils literal"&gt;is_debug&lt;/tt&gt; 的变量记录当前是否在调试状态）：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;excel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;win32com&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DispatchEx&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Excel.Application'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="hll"&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;is_debug&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;span class="hll"&gt;    &lt;span class="n"&gt;excel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Visible&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
 &lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id12"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id34"&gt;关于保存并覆盖已有文件&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;打开和保存文件的细节不在这里多说了，可以查看MSDN中相关的API介绍，非常详细。这里只说一下在另存为时，如果目标文件已经存在怎么办。Excel的API另存为方法似乎并没有提供参数决定是否直接覆盖同名的目标文件，在窗口操作中，这种情况会弹出一个确认框来让用户决定。我们的程序当然不想这么做，实际上如果你按照上面所说的让窗口不可见，你也就看不到弹出的窗口。&lt;/p&gt;
-&lt;p&gt;可以把DisplayAlert属性关闭，这样Excel就不会弹出确认窗，而是直接覆盖同名文件。&lt;/p&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id35"&gt;关于保存并覆盖已有文件&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;打开和保存文件的细节不在这里多说了，可以查看 MSDN 中相关的 API 介绍，非常详细。这里只说一下在另存为时，如果目标文件已经存在怎么办。Excel 的 API 另存为方法似乎并没有提供参数决定是否直接覆盖同名的目标文件，在窗口操作中，这种情况会弹出一个确认框来让用户决定。我们的程序当然不想这么做，实际上如果你按照上面所说的让窗口不可见，你也就看不到弹出的窗口。&lt;/p&gt;
+&lt;p&gt;可以把 DisplayAlert 属性关闭，这样 Excel 就不会弹出确认窗，而是直接覆盖同名文件。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;orig_display_alerts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;excel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DisplayAlerts&lt;/span&gt;
 &lt;span class="hll"&gt;&lt;span class="n"&gt;excel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DisplayAlerts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
 &lt;/span&gt;&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -907,10 +915,10 @@ Excel自身提供的。语言相关的部分只是负责跟Windows的COM组件�
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="excel"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id35"&gt;关于结束Excel进程&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;进程是一种资源，我们申请了资源，在用完之后就必须要释放掉。尤其如果你隐藏了Excel窗口，用户只有查看系统进程，否则无法关闭你所开启的进程。&lt;/p&gt;
-&lt;p&gt;但是一个Excel进程是可以同时开启多个文件的，这些文件可能是你程序的其他部分开启的，也可能是用户自己开启的。这样你就不能随意地结束Excel进程，否则会影响到其他人或程序的操作。&lt;/p&gt;
-&lt;p&gt;我一般会在我的处理完成后（关闭了我自己打开或者创建的Excel文件），判断一下当前Excel进程是否还开启着其他的文档，如果没有了才会结束该进程。&lt;/p&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id36"&gt;关于结束 Excel 进程&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;进程是一种资源，我们申请了资源，在用完之后就必须要释放掉。尤其如果你隐藏了 Excel 窗口，用户只有查看系统进程，否则无法关闭你所开启的进程。&lt;/p&gt;
+&lt;p&gt;但是一个 Excel 进程是可以同时开启多个文件的，这些文件可能是你程序的其他部分开启的，也可能是用户自己开启的。这样你就不能随意地结束 Excel 进程，否则会影响到其他人或程序的操作。&lt;/p&gt;
+&lt;p&gt;我一般会在我的处理完成后（关闭了我自己打开或者创建的 Excel 文件），判断一下当前 Excel 进程是否还开启着其他的文档，如果没有了才会结束该进程。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="hll"&gt;&lt;span class="n"&gt;number_of_workbooks&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;excel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Workbooks&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Count&lt;/span&gt;
 &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;number_of_workbooks&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;debug&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
@@ -927,8 +935,8 @@ Excel自身提供的。语言相关的部分只是负责跟Windows的COM组件�
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id13"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id36"&gt;关于枚举常量&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Excel API中有各种各样的枚举常量，我还没有找到在Python中直接引用这些常量的方法，目前的办法是找到所需的常数的值，自己定义这些常数。比如我用到了如下这些枚举常量：&lt;/p&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id37"&gt;关于枚举常量&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Excel API 中有各种各样的枚举常量，我还没有找到在 Python 中直接引用这些常量的方法，目前的办法是找到所需的常数的值，自己定义这些常数。比如我用到了如下这些枚举常量：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -959,8 +967,8 @@ Excel自身提供的。语言相关的部分只是负责跟Windows的COM组件�
     &lt;span class="c1"&gt;# XlLineStyle enumeration&lt;/span&gt;
     &lt;span class="n"&gt;xlContinuous&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;要想知道某一个枚举常量的数值，可以查阅MSDN中&lt;a class="reference external" href="http://msdn.microsoft.com/en-us/library/office/ff838815.aspx"&gt;Excel Enumerations&lt;/a&gt;相关的资料。&lt;/p&gt;
-&lt;p&gt;【2014年7月31日更新】感谢&lt;a class="reference external" href="http://www.gocalf.com/blog/python-read-write-excel.html#comment-1329532357"&gt;@依云&lt;/a&gt;提醒，在Python也能够直接引用相关的常量，即通过&lt;tt class="docutils literal"&gt;win32com.client.constants&lt;/tt&gt;获取常量的值。不过这里还有一点比较tricky的地方，如果直接用Dispatch或者DispatchEx得到Excel对象，是无法从constants中取出常量值的，需要&lt;a class="reference external" href="http://timgolden.me.uk/python/win32_how_do_i/generate-a-static-com-proxy.html"&gt;手动运行makepy&lt;/a&gt;，或者通过&lt;tt class="docutils literal"&gt;win32com.client.gencache.EnsureDispatch&lt;/tt&gt;获得Excel对象：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;要想知道某一个枚举常量的数值，可以查阅 MSDN 中 &lt;a class="reference external" href="http://msdn.microsoft.com/en-us/library/office/ff838815.aspx"&gt;Excel Enumerations&lt;/a&gt; 相关的资料。&lt;/p&gt;
+&lt;p&gt;【2014 年 7 月 31 日更新】感谢 &lt;a class="reference external" href="https://blog.gocalf.com/python-read-write-excel.html#comment-1329532357"&gt;@依云&lt;/a&gt; 提醒，在 Python 也能够直接引用相关的常量，即通过 &lt;tt class="docutils literal"&gt;win32com.client.constants&lt;/tt&gt; 获取常量的值。不过这里还有一点比较 tricky 的地方，如果直接用 Dispatch 或者 DispatchEx 得到 Excel 对象，是无法从 constants 中取出常量值的，需要 &lt;a class="reference external" href="http://timgolden.me.uk/python/win32_how_do_i/generate-a-static-com-proxy.html"&gt;手动运行 makepy&lt;/a&gt;，或者通过 &lt;tt class="docutils literal"&gt;win32com.client.gencache.EnsureDispatch&lt;/tt&gt; 获得 Excel 对象：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3
@@ -973,14 +981,14 @@ Excel自身提供的。语言相关的部分只是负责跟Windows的COM组件�
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 &lt;/div&gt;
-</content><category term="Excel"></category></entry><entry><title>iOS可拉伸的图片</title><link href="https://blog.gocalf.com/iphone-dev-resizable-image" rel="alternate"></link><published>2012-03-10T22:57:00+08:00</published><updated>2012-03-10T22:57:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2012-03-10:/iphone-dev-resizable-image</id><summary type="html">&lt;p class="first last"&gt;还记得在Windows下用MFC或WTL写用户界面程序的时候，为了给可改变大小的对话框加上背景图案，需要对设计师提供的图片进行裁剪。把图片切成九块，其中四个角是不拉伸的，四条棱边可以在一个方向上拉伸，中间区域则可任意拉伸。其过程是相当烦琐的。在Mac下，一切都变的及其简单，UIImage类已经为我们提供了处理拉伸的方法。&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;还记得在Windows下用MFC或WTL写用户界面程序的时候，为了给可改变大小的对话框加上背景图案，需要对设计师提供的图片进行裁剪。把图片切成九块，其中四个角是不拉伸的，四条棱边可以在一个方向上拉伸，中间区域则可任意拉伸。其过程是相当烦琐的。在Mac下，一切都变的及其简单，&lt;a class="reference external" href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/"&gt;UIImage&lt;/a&gt;类已经为我们提供了处理拉伸的方法。&lt;/p&gt;
+</content><category term="Excel"></category></entry><entry><title>iOS 可拉伸的图片</title><link href="https://blog.gocalf.com/iphone-dev-resizable-image" rel="alternate"></link><published>2012-03-10T22:57:00+08:00</published><updated>2012-03-10T22:57:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2012-03-10:/iphone-dev-resizable-image</id><summary type="html">&lt;p class="first last"&gt;还记得在 Windows 下用 MFC 或 WTL 写用户界面程序的时候，为了给可改变大小的对话框加上背景图案，需要对设计师提供的图片进行裁剪。把图片切成九块，其中四个角是不拉伸的，四条棱边可以在一个方向上拉伸，中间区域则可任意拉伸。其过程是相当烦琐的。在 Mac 下，一切都变的及其简单，UIImage 类已经为我们提供了处理拉伸的方法。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;还记得在 Windows 下用 MFC 或 WTL 写用户界面程序的时候，为了给可改变大小的对话框加上背景图案，需要对设计师提供的图片进行裁剪。把图片切成九块，其中四个角是不拉伸的，四条棱边可以在一个方向上拉伸，中间区域则可任意拉伸。其过程是相当烦琐的。在 Mac 下，一切都变的及其简单，&lt;a class="reference external" href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/"&gt;UIImage&lt;/a&gt; 类已经为我们提供了处理拉伸的方法。&lt;/p&gt;
 &lt;!-- more --&gt;
-&lt;p&gt;以下内容适用于iOS 2.0+，或在iOS 5.0+中使用替换的方法。&lt;/p&gt;
-&lt;p&gt;UIImage有一个叫做端帽（end
-cap）的概念，利用它来指定图片中哪一部分（通常在图片的中央）是可以拉伸的，哪些部分（四周一圈）不可拉伸。在iOS
-5.0以前，通过&lt;a class="reference external" href="https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIImage_Class/DeprecationAppendix/AppendixADeprecatedAPI.html#//apple_ref/occ/instm/UIImage/stretchableImageWithLeftCapWidth:topCapHeight:"&gt;stretchableImageWithLeftCapWidth:topCapHeight:&lt;/a&gt;来得到可以按照指定方式拉伸的图片。特别要注意的一点，我在第一次用它的时候没有注意到，就是这个方法并不会改变当前的UIImage实例，而是会返回一个新的实例。这样的设计可能是为了让通过imageNamed方法得到的UIImage实例能够最大限度地复用吧。&lt;/p&gt;
-&lt;p&gt;stretchableImage方法有两个整数参数，分别用来指定图片的左边和上边分别有多少点（points）是不能被拉伸的（端帽宽度）。并没有参数用来指定右边和下边的端帽宽度，开始我&lt;strong&gt;误以为&lt;/strong&gt;右边和下边的端帽宽度就分别等于左边和上边的端帽宽度，然而仔细阅读官方文档之后发现并非如此：&lt;/p&gt;
+&lt;p&gt;以下内容适用于 iOS 2.0+，或在 iOS 5.0 + 中使用替换的方法。&lt;/p&gt;
+&lt;p&gt;UIImage 有一个叫做端帽（end
+cap）的概念，利用它来指定图片中哪一部分（通常在图片的中央）是可以拉伸的，哪些部分（四周一圈）不可拉伸。在 iOS
+5.0 以前，通过 &lt;a class="reference external" href="https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIImage_Class/DeprecationAppendix/AppendixADeprecatedAPI.html#//apple_ref/occ/instm/UIImage/stretchableImageWithLeftCapWidth:topCapHeight:"&gt;stretchableImageWithLeftCapWidth:topCapHeight:&lt;/a&gt; 来得到可以按照指定方式拉伸的图片。特别要注意的一点，我在第一次用它的时候没有注意到，就是这个方法并不会改变当前的 UIImage 实例，而是会返回一个新的实例。这样的设计可能是为了让通过 imageNamed 方法得到的 UIImage 实例能够最大限度地复用吧。&lt;/p&gt;
+&lt;p&gt;stretchableImage 方法有两个整数参数，分别用来指定图片的左边和上边分别有多少点（points）是不能被拉伸的（端帽宽度）。并没有参数用来指定右边和下边的端帽宽度，开始我&lt;strong&gt;误以为&lt;/strong&gt;右边和下边的端帽宽度就分别等于左边和上边的端帽宽度，然而仔细阅读官方文档之后发现并非如此：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The middle (stretchable) portion is assumed to be 1 pixel wide. The
 right end cap is therefore computed by adding the size of the left
@@ -995,10 +1003,10 @@ value from the height of the image:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;bottomCapHeight&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;topCapHeight&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;原来已经规定了中间可拉伸区域必须是1x1的，因此右边和下边的端帽宽度就由图片的宽度和高度、左边和上边的端帽宽度决定。在设计非对称图案时需要注意一下。&lt;/p&gt;
-&lt;p&gt;从iOS
-5.0开始，stretchableImage方法被弃用，取而代之的是&lt;a class="reference external" href="https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIImage_Class/Reference/Reference.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets:"&gt;resizableImageWithCapInsets:&lt;/a&gt;。后者只需要一个UIEdgeInsets类型的参数，通过此参数，可以设置四个端帽的宽度。而中心剩余的部分都是可以拉伸的（不再局限于1x1大小）。&lt;/p&gt;
-&lt;p&gt;下面这个程序片段给试图添加了三个UIImageView，分别显示原始大小的图片、无端帽拉伸之后的图片、和指定了正确的端帽宽度（用stretchableImage）后拉伸的图片。&lt;/p&gt;
+&lt;p&gt;原来已经规定了中间可拉伸区域必须是 1x1 的，因此右边和下边的端帽宽度就由图片的宽度和高度、左边和上边的端帽宽度决定。在设计非对称图案时需要注意一下。&lt;/p&gt;
+&lt;p&gt;从 iOS
+5.0 开始，stretchableImage 方法被弃用，取而代之的是 &lt;a class="reference external" href="https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIImage_Class/Reference/Reference.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets:"&gt;resizableImageWithCapInsets:&lt;/a&gt;。后者只需要一个 UIEdgeInsets 类型的参数，通过此参数，可以设置四个端帽的宽度。而中心剩余的部分都是可以拉伸的（不再局限于 1x1 大小）。&lt;/p&gt;
+&lt;p&gt;下面这个程序片段给试图添加了三个 UIImageView，分别显示原始大小的图片、无端帽拉伸之后的图片、和指定了正确的端帽宽度（用 stretchableImage）后拉伸的图片。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -1056,41 +1064,41 @@ value from the height of the image:&lt;/p&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;运行后效果如下图示：&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="resizable_image" src="https://blog.gocalf.com/images/2012/03/resizable_image.png" /&gt;
-&lt;p class="caption"&gt;UIImage拉伸示意（左上角：原始图片；上：直接拉伸；下：按照端帽拉伸）&lt;/p&gt;
+&lt;p class="caption"&gt;UIImage 拉伸示意（左上角：原始图片；上：直接拉伸；下：按照端帽拉伸）&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="iOS Develop"></category></entry><entry><title>iOS自定义范围滑动条控件</title><link href="https://blog.gocalf.com/iphone-dev-range-slider" rel="alternate"></link><published>2012-02-03T21:19:00+08:00</published><updated>2012-12-04T16:58:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2012-02-03:/iphone-dev-range-slider</id><summary type="html">&lt;p class="first last"&gt;前些日子写app的时候遇到一个需求，希望有一个类似于UISlider的东西，但能够选取一个范围，也就是所谓的Range Slider。在网上也能找到很多相关的代码，不过本着学习的态度，还是自己琢磨了一下，就当是为以后写复杂控件做的练习吧。&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;前些日子写app的时候遇到一个需求，希望有一个类似于&lt;a class="reference external" href="http://developer.apple.com/library/ios/#documentation/uikit/reference/UISlider_Class/Reference/Reference.html"&gt;UISlider&lt;/a&gt;的东西，但能够选取一个范围，也就是所谓的Range
+</content><category term="iOS Develop"></category></entry><entry><title>iOS 自定义范围滑动条控件</title><link href="https://blog.gocalf.com/iphone-dev-range-slider" rel="alternate"></link><published>2012-02-03T21:19:00+08:00</published><updated>2012-12-04T16:58:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2012-02-03:/iphone-dev-range-slider</id><summary type="html">&lt;p class="first last"&gt;前些日子写 app 的时候遇到一个需求，希望有一个类似于 UISlider 的东西，但能够选取一个范围，也就是所谓的 Range Slider。在网上也能找到很多相关的代码，不过本着学习的态度，还是自己琢磨了一下，就当是为以后写复杂控件做的练习吧。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;前些日子写 app 的时候遇到一个需求，希望有一个类似于 &lt;a class="reference external" href="http://developer.apple.com/library/ios/#documentation/uikit/reference/UISlider_Class/Reference/Reference.html"&gt;UISlider&lt;/a&gt; 的东西，但能够选取一个范围，也就是所谓的 Range
 Slider。在网上也能找到很多相关的代码，不过本着学习的态度，还是自己琢磨了一下。&lt;/p&gt;
 &lt;p&gt;就当是为以后写复杂控件做的练习吧。&lt;/p&gt;
 &lt;!-- more --&gt;
-&lt;p&gt;以下内容适用于iOS 2.0+。&lt;/p&gt;
-&lt;p&gt;需求决定一切，在介绍我的这个Range
-Slider之前，先把我的需求（或者说我这个Range
-Slider的功能）介绍一下。它最多只算是个toy，还有很多需要完善的地方。不过聊胜于无，以后继续努力呗。&lt;/p&gt;
+&lt;p&gt;以下内容适用于 iOS 2.0+。&lt;/p&gt;
+&lt;p&gt;需求决定一切，在介绍我的这个 Range
+Slider 之前，先把我的需求（或者说我这个 Range
+Slider 的功能）介绍一下。它最多只算是个 toy，还有很多需要完善的地方。不过聊胜于无，以后继续努力呗。&lt;/p&gt;
 &lt;p&gt;这是一个水平方向的（浮点）数值范围选择器：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;可以为它设置数值的最小值（minimumValue）和最大值（maximumValue），分别对应于滑动条最左端和最右端的数值。&lt;/li&gt;
 &lt;li&gt;可以设置范围的最小值（minimumSpan）和最大值（maximumSpan），因为我可能会要求选择的数值区间长度不太短或不太长。&lt;/li&gt;
-&lt;li&gt;可以获取或设置当前选择的数值范围（smallValue和largeValue），对应于界面上左右两个滑块的位置。&lt;/li&gt;
+&lt;li&gt;可以获取或设置当前选择的数值范围（smallValue 和 largeValue），对应于界面上左右两个滑块的位置。&lt;/li&gt;
 &lt;li&gt;左右两个滑块都可以相互独立地左右滑动；一个滑块滑动时，另一个滑块会根据需要自动调整。比如当向左滑动左边的滑块时，如果选取的范围已经达到范围最大值（maximumSpan），右边的滑块就会跟着向左滑动。反之亦然。&lt;/li&gt;
 &lt;li&gt;两个滑块中间的条块也是可以滑动的，移动它的时候，两个滑块会一起左右移动（不改变选取范围的长度）。&lt;/li&gt;
-&lt;li&gt;当滑块或者滑条移动时，此控件的UIControlEventValueChanged事件会被触发。&lt;/li&gt;
-&lt;li&gt;可以用程序修改当前的选择范围，UI会跟着调整，但不会触发上述事件，以免在某些情况下陷入死循环。&lt;/li&gt;
-&lt;li&gt;以左滑块为例，当它滑动到最左边后，如果手指继续做向左滑动的动作，当前选择的范围不会变化，但会通过另一个量（offsetTrend）来表达这种趋势。在某些情况下，应用程序可能会需要得到这样的信息，以便当用户在slider边缘继续往外滑动时，进行一些特殊的处理。右滑块和滑条都有同样的功能。&lt;/li&gt;
+&lt;li&gt;当滑块或者滑条移动时，此控件的 UIControlEventValueChanged 事件会被触发。&lt;/li&gt;
+&lt;li&gt;可以用程序修改当前的选择范围，UI 会跟着调整，但不会触发上述事件，以免在某些情况下陷入死循环。&lt;/li&gt;
+&lt;li&gt;以左滑块为例，当它滑动到最左边后，如果手指继续做向左滑动的动作，当前选择的范围不会变化，但会通过另一个量（offsetTrend）来表达这种趋势。在某些情况下，应用程序可能会需要得到这样的信息，以便当用户在 slider 边缘继续往外滑动时，进行一些特殊的处理。右滑块和滑条都有同样的功能。&lt;/li&gt;
 &lt;li&gt;可以为这个控件设置委托（delegate），当滑块或者滑条将要开始滑动、或者滑动结束的时候，委托的对象都会收到相应的消息。当然，会有一个只读的量（isDragging）用来查询是否有滑块或者滑条在滑动中。&lt;/li&gt;
-&lt;li&gt;slider的背景条、滑块、滑条的图案都可以被替换。&lt;/li&gt;
+&lt;li&gt;slider 的背景条、滑块、滑条的图案都可以被替换。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;我的这个Range Slider暂&lt;strong&gt;不支持&lt;/strong&gt;的功能包括但不限于：&lt;/p&gt;
+&lt;p&gt;我的这个 Range Slider 暂&lt;strong&gt;不支持&lt;/strong&gt;的功能包括但不限于：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;不支持纵向的滑动模式（或许可以直接利用旋转整个控件达到此目的）。&lt;/li&gt;
-&lt;li&gt;没有为自定义UI样式提供足够的接口。虽然背景和滑块的图片都能替换，但并不支持为每一个对象实例单独替换图片。比起SDK中的UISlider，这方面的功能是相当薄弱的。&lt;/li&gt;
+&lt;li&gt;没有为自定义 UI 样式提供足够的接口。虽然背景和滑块的图片都能替换，但并不支持为每一个对象实例单独替换图片。比起 SDK 中的 UISlider，这方面的功能是相当薄弱的。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;说了这么多，来看看它的样子吧。外表很简单，我用的背景、滑块和滑条图片都跟UISlider是一样的：&lt;/p&gt;
+&lt;p&gt;说了这么多，来看看它的样子吧。外表很简单，我用的背景、滑块和滑条图片都跟 UISlider 是一样的：&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="range_slider" src="https://blog.gocalf.com/images/2012/02/range_slider.png" /&gt;
-&lt;p class="caption"&gt;我的Range Slider&lt;/p&gt;
+&lt;p class="caption"&gt;我的 Range Slider&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;实现起来蛮简单的，因为SDK已经提供了足够的支持。我的这个类就叫做RangeSlider，继承自&lt;a class="reference external" href="http://developer.apple.com/library/ios/#documentation/uikit/reference/UIControl_Class/Reference/Reference.html#//apple_ref/occ/cl/UIControl"&gt;UIControl&lt;/a&gt;类。另外我还定义了它的委托类，叫做RangeSliderDelegate。二者的接口如下：&lt;/p&gt;
+&lt;p&gt;实现起来蛮简单的，因为 SDK 已经提供了足够的支持。我的这个类就叫做 RangeSlider，继承自 &lt;a class="reference external" href="http://developer.apple.com/library/ios/#documentation/uikit/reference/UIControl_Class/Reference/Reference.html#//apple_ref/occ/cl/UIControl"&gt;UIControl&lt;/a&gt; 类。另外我还定义了它的委托类，叫做 RangeSliderDelegate。二者的接口如下：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;RangeSlider&lt;/li&gt;
 &lt;/ul&gt;
@@ -1265,8 +1273,8 @@ Slider的功能）介绍一下。它最多只算是个toy，还有很多需要�
 
 &lt;span class="k"&gt;@end&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;接口中的大部分内容都在需求和功能介绍部分见过了。另外有两个方法，xForValue和valueForX，它们用来在Range
-Slider内部的坐标值和用户数值之间做转换，内容如下（这里的insetWidth是在UI上做的小伎俩，主要是为了保证滑块滑到最两端时也能有充足的空间来接受用户的点击）：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;接口中的大部分内容都在需求和功能介绍部分见过了。另外有两个方法，xForValue 和 valueForX，它们用来在 Range
+Slider 内部的坐标值和用户数值之间做转换，内容如下（这里的 insetWidth 是在 UI 上做的小伎俩，主要是为了保证滑块滑到最两端时也能有充足的空间来接受用户的点击）：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3
@@ -1281,8 +1289,8 @@ Slider内部的坐标值和用户数值之间做转换，内容如下（这里�
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;minimumValue_&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;insetWidthLeft_&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;maximumValue_&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;minimumValue_&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;rangeWidth_&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;我就不贴完整的.m源文件了，只是逐个介绍一下重要的方法。&lt;/p&gt;
-&lt;p&gt;首先看初始化方法initWithFrame，和更新显示的方法updateSelectionView。这个没啥好说的，就是初始化成员变量，创建好相关的图片：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;我就不贴完整的 .m 源文件了，只是逐个介绍一下重要的方法。&lt;/p&gt;
+&lt;p&gt;首先看初始化方法 initWithFrame，和更新显示的方法 updateSelectionView。这个没啥好说的，就是初始化成员变量，创建好相关的图片：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;initWithFrame&lt;/li&gt;
 &lt;/ul&gt;
@@ -1413,10 +1421,10 @@ Slider内部的坐标值和用户数值之间做转换，内容如下（这里�
                                       &lt;span class="n"&gt;selectionView_&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;frame&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;接下来看最重要的部分，就是处理触摸事件的方法。这些方法继承自基类UIControl，分别是&lt;a class="reference external" href="http://developer.apple.com/library/ios/documentation/uikit/reference/UIControl_Class/Reference/Reference.html#//apple_ref/occ/instm/UIControl/beginTrackingWithTouch:withEvent:"&gt;beginTrackingWithTouch:withEvent:&lt;/a&gt;，&lt;a class="reference external" href="http://developer.apple.com/library/ios/documentation/uikit/reference/UIControl_Class/Reference/Reference.html#//apple_ref/occ/instm/UIControl/continueTrackingWithTouch:withEvent:"&gt;continueTrackingWithTouch:withEvent:&lt;/a&gt;，和&lt;a class="reference external" href="http://developer.apple.com/library/ios/documentation/uikit/reference/UIControl_Class/Reference/Reference.html#//apple_ref/occ/instm/UIControl/endTrackingWithTouch:withEvent:"&gt;endTrackingWithTouch:withEvent:&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;beginTracking和endTracking都很简单，在beginTracking的时候判断是哪个东西被拖动，让其进入高亮状态，修改成员变量记录当前的状态；在endTracking的时候取消高亮，恢复状态。&lt;/p&gt;
-&lt;p&gt;在continueTracking方法中，先获取手指移动的坐标偏移量，将其换算成数值的偏移量，然后就直接调用相应的设置函数修改已选择的数值区域。&lt;/p&gt;
-&lt;p&gt;注意rangeSliderWillBeginDragging和rangeSliderDidEndDragging这两个消息的回调时机。手指刚刚按在滑块上的时候，beginTracking被调用，但这时并不表示用户开始已经开始拖动了，他可能只是按了一下，马上就抬起来。所以当手指按住滑块并有了第一次微小的位移时，continueTracking被调用，这时就可以确定用户是在进行拖动操作。这时候才发送rangeSliderWillBeginDragging消息。最后当手指离开滑块时，拖动操作结束，发送rangeSliderDidEndDragging消息。&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;接下来看最重要的部分，就是处理触摸事件的方法。这些方法继承自基类 UIControl，分别是 &lt;a class="reference external" href="http://developer.apple.com/library/ios/documentation/uikit/reference/UIControl_Class/Reference/Reference.html#//apple_ref/occ/instm/UIControl/beginTrackingWithTouch:withEvent:"&gt;beginTrackingWithTouch:withEvent:&lt;/a&gt;，&lt;a class="reference external" href="http://developer.apple.com/library/ios/documentation/uikit/reference/UIControl_Class/Reference/Reference.html#//apple_ref/occ/instm/UIControl/continueTrackingWithTouch:withEvent:"&gt;continueTrackingWithTouch:withEvent:&lt;/a&gt;，和 &lt;a class="reference external" href="http://developer.apple.com/library/ios/documentation/uikit/reference/UIControl_Class/Reference/Reference.html#//apple_ref/occ/instm/UIControl/endTrackingWithTouch:withEvent:"&gt;endTrackingWithTouch:withEvent:&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;beginTracking 和 endTracking 都很简单，在 beginTracking 的时候判断是哪个东西被拖动，让其进入高亮状态，修改成员变量记录当前的状态；在 endTracking 的时候取消高亮，恢复状态。&lt;/p&gt;
+&lt;p&gt;在 continueTracking 方法中，先获取手指移动的坐标偏移量，将其换算成数值的偏移量，然后就直接调用相应的设置函数修改已选择的数值区域。&lt;/p&gt;
+&lt;p&gt;注意 rangeSliderWillBeginDragging 和 rangeSliderDidEndDragging 这两个消息的回调时机。手指刚刚按在滑块上的时候，beginTracking 被调用，但这时并不表示用户开始已经开始拖动了，他可能只是按了一下，马上就抬起来。所以当手指按住滑块并有了第一次微小的位移时，continueTracking 被调用，这时就可以确定用户是在进行拖动操作。这时候才发送 rangeSliderWillBeginDragging 消息。最后当手指离开滑块时，拖动操作结束，发送 rangeSliderDidEndDragging 消息。&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;beginTrackingWithTouch&lt;/li&gt;
 &lt;/ul&gt;
@@ -1558,8 +1566,8 @@ Slider内部的坐标值和用户数值之间做转换，内容如下（这里�
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;最后就是修改smallValue、largeValue和整个选取范围的方法，这些方法会在滑动过程中由上面的continueTrackingWithTouch:withEvent:调用，也可以由其他程序直接调用。&lt;/p&gt;
-&lt;p&gt;不但要保证smallValue和largeValue都在最小值和最大值范围之内，还要根据最小范围和最大范围的限制来进行适当的调整。&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;最后就是修改 smallValue、largeValue 和整个选取范围的方法，这些方法会在滑动过程中由上面的 continueTrackingWithTouch:withEvent: 调用，也可以由其他程序直接调用。&lt;/p&gt;
+&lt;p&gt;不但要保证 smallValue 和 largeValue 都在最小值和最大值范围之内，还要根据最小范围和最大范围的限制来进行适当的调整。&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;setSmallValue&lt;/li&gt;
 &lt;/ul&gt;
@@ -1666,12 +1674,12 @@ Slider内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;好了，基本上就这么些代码，还是很简单的。不放完整的程序文件了，只要了解了基本的处理方法，就可根据自己的需求去实现了。&lt;/p&gt;
-</content><category term="iOS Develop"></category></entry><entry><title>iOS在UIAlertView中显示进度条</title><link href="https://blog.gocalf.com/iphone-dev-progressview-in-alertview" rel="alternate"></link><published>2011-12-09T18:27:00+08:00</published><updated>2011-12-21T10:31:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-12-09:/iphone-dev-progressview-in-alertview</id><summary type="html">&lt;p class="first last"&gt;今天这个问题是，在一个iPhone程序中，我要在后台做大量的数据处理，希望在界面上显示一个进度条（Progress Bar）使得用户了解处理进度。这个进度条应该是在一个模态的窗口中，使界面上其他控件无法被操作。怎么用最简单的方法来实现这个功能？UIAlertView是一个现成的模态窗口，如果能把进度条嵌入到它里面就好了。&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;今天这个问题是，在一个iPhone程序中，我要在后台做大量的数据处理，希望在界面上显示一个进度条（Progress
-Bar）使得用户了解处理进度。这个进度条应该是在一个模态的窗口中，使界面上其他控件无法被操作。怎么用最简单的方法来实现这个功能？&lt;a class="reference external" href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIAlertView_Class/UIAlertView/UIAlertView.html"&gt;UIAlertView&lt;/a&gt;是一个现成的模态窗口，如果能把进度条嵌入到它里面就好了。&lt;/p&gt;
+</content><category term="iOS Develop"></category></entry><entry><title>iOS 在 UIAlertView 中显示进度条</title><link href="https://blog.gocalf.com/iphone-dev-progressview-in-alertview" rel="alternate"></link><published>2011-12-09T18:27:00+08:00</published><updated>2011-12-21T10:31:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-12-09:/iphone-dev-progressview-in-alertview</id><summary type="html">&lt;p class="first last"&gt;今天这个问题是，在一个 iPhone 程序中，我要在后台做大量的数据处理，希望在界面上显示一个进度条（Progress Bar）使得用户了解处理进度。这个进度条应该是在一个模态的窗口中，使界面上其他控件无法被操作。怎么用最简单的方法来实现这个功能？UIAlertView 是一个现成的模态窗口，如果能把进度条嵌入到它里面就好了。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;今天这个问题是，在一个 iPhone 程序中，我要在后台做大量的数据处理，希望在界面上显示一个进度条（Progress
+Bar）使得用户了解处理进度。这个进度条应该是在一个模态的窗口中，使界面上其他控件无法被操作。怎么用最简单的方法来实现这个功能？&lt;a class="reference external" href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIAlertView_Class/UIAlertView/UIAlertView.html"&gt;UIAlertView&lt;/a&gt; 是一个现成的模态窗口，如果能把进度条嵌入到它里面就好了。&lt;/p&gt;
 &lt;!-- more --&gt;
-&lt;p&gt;以下内容适用于iOS 2.0+。&lt;/p&gt;
-&lt;p&gt;我们知道，如果要显示一个alert窗口（比如用来显示错误或警告信息、询问用户是否确认某操作等等），只要简单地创建一个UIAlertView对象，再调用其show方法即可。示意代码如下：&lt;/p&gt;
+&lt;p&gt;以下内容适用于 iOS 2.0+。&lt;/p&gt;
+&lt;p&gt;我们知道，如果要显示一个 alert 窗口（比如用来显示错误或警告信息、询问用户是否确认某操作等等），只要简单地创建一个 UIAlertView 对象，再调用其 show 方法即可。示意代码如下：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3
@@ -1686,8 +1694,8 @@ Bar）使得用户了解处理进度。这个进度条应该是在一个模态�
                           &lt;span class="n"&gt;autorelease&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;alertView&lt;/span&gt; &lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;如果要添加一个进度条，只要先创建并设置好一个&lt;a class="reference external" href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIProgressView_Class/Reference/Reference.html"&gt;UIProgressView&lt;/a&gt;的实例，再利用addSubbiew方法添加到alertView中即可。&lt;/p&gt;
-&lt;p&gt;在实际应用中，我可能需要在类中保存进度条的对象实例，以便更新其状态，因此先在自己的ViewController类中添加成员变量：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;如果要添加一个进度条，只要先创建并设置好一个 &lt;a class="reference external" href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIProgressView_Class/Reference/Reference.html"&gt;UIProgressView&lt;/a&gt; 的实例，再利用 addSubbiew 方法添加到 alertView 中即可。&lt;/p&gt;
+&lt;p&gt;在实际应用中，我可能需要在类中保存进度条的对象实例，以便更新其状态，因此先在自己的 ViewController 类中添加成员变量：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3
@@ -1706,7 +1714,7 @@ Bar）使得用户了解处理进度。这个进度条应该是在一个模态�
 
 &lt;span class="k"&gt;@end&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;接下来写一个叫做showProgressAlert的方法来创建并显示带有进度条的alert窗口，其中高亮的部分就是把进度条添加到alertView中：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;接下来写一个叫做 showProgressAlert 的方法来创建并显示带有进度条的 alert 窗口，其中高亮的部分就是把进度条添加到 alertView 中：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -1742,7 +1750,7 @@ Bar）使得用户了解处理进度。这个进度条应该是在一个模态�
     &lt;span class="n"&gt;progressView_&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;progress&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;progress&lt;/span&gt; &lt;span class="n"&gt;floatValue&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;另外，数据处理完毕后，我们还需要让进度条以及alertView消失，由于之前并没有保存alertView的实例，可以通过进度条的superview访问之：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;另外，数据处理完毕后，我们还需要让进度条以及 alertView 消失，由于之前并没有保存 alertView 的实例，可以通过进度条的 superview 访问之：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -1769,7 +1777,7 @@ Bar）使得用户了解处理进度。这个进度条应该是在一个模态�
     &lt;span class="n"&gt;progressView_&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;nil&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;假设处理数据的方法叫processData，当然它会在一个单独的线程中运行，下面的片段示意了如何更新进度条状态，以及最后如何让它消失。&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;假设处理数据的方法叫 processData，当然它会在一个单独的线程中运行，下面的片段示意了如何更新进度条状态，以及最后如何让它消失。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -1808,25 +1816,25 @@ Bar）使得用户了解处理进度。这个进度条应该是在一个模态�
     &lt;span class="c1"&gt;// Other finalizations.&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;在实际使用中，带进度条的alert view大概长得是这样的：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;在实际使用中，带进度条的 alert view 大概长得是这样的：&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="progress_alert" src="https://blog.gocalf.com/images/2011/12/progress_alert.png" /&gt;
-&lt;p class="caption"&gt;带进度条的alert窗口&lt;/p&gt;
+&lt;p class="caption"&gt;带进度条的 alert 窗口&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
 &lt;p&gt;参考：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://discussions.apple.com/thread/1737797"&gt;UIProgressView in UIAlertView?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content><category term="iOS Develop"></category></entry><entry><title>iOS隐藏系统状态栏</title><link href="https://blog.gocalf.com/iphone-dev-hide-status-bar" rel="alternate"></link><published>2011-11-30T14:45:00+08:00</published><updated>2011-12-02T13:01:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-11-30:/iphone-dev-hide-status-bar</id><summary type="html">&lt;p class="first last"&gt;最近在写iPhone上的程序，第一次在Mac下进行开发，也是第一次写手机上的程序，虽然之前看了少许相关的书籍，但在开发的过程中还是遇到了很多的问题。在这个系列中记录一些遇到的实际的问题，方便淡忘了之后再次查阅。今天的问题是怎么在App中隐藏系统状态栏（Status Bar）。&lt;/p&gt;
+</content><category term="iOS Develop"></category></entry><entry><title>iOS 隐藏系统状态栏</title><link href="https://blog.gocalf.com/iphone-dev-hide-status-bar" rel="alternate"></link><published>2011-11-30T14:45:00+08:00</published><updated>2011-12-02T13:01:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-11-30:/iphone-dev-hide-status-bar</id><summary type="html">&lt;p class="first last"&gt;最近在写 iPhone 上的程序，第一次在 Mac 下进行开发，也是第一次写手机上的程序，虽然之前看了少许相关的书籍，但在开发的过程中还是遇到了很多的问题。在这个系列中记录一些遇到的实际的问题，方便淡忘了之后再次查阅。今天的问题是怎么在 App 中隐藏系统状态栏（Status Bar）。&lt;/p&gt;
 </summary><content type="html">
-&lt;p&gt;最近在写iPhone上的程序，第一次在Mac下进行开发，也是第一次写手机上的程序，虽然之前看了少许相关的书籍，但在开发的过程中还是遇到了很多的问题。在这个系列中记录一些遇到的实际的问题，方便淡忘了之后再次查阅。&lt;/p&gt;
-&lt;p&gt;今天的问题是怎么在App中隐藏系统状态栏（Status Bar）。&lt;/p&gt;
+&lt;p&gt;最近在写 iPhone 上的程序，第一次在 Mac 下进行开发，也是第一次写手机上的程序，虽然之前看了少许相关的书籍，但在开发的过程中还是遇到了很多的问题。在这个系列中记录一些遇到的实际的问题，方便淡忘了之后再次查阅。&lt;/p&gt;
+&lt;p&gt;今天的问题是怎么在 App 中隐藏系统状态栏（Status Bar）。&lt;/p&gt;
 &lt;!-- more --&gt;
-&lt;p&gt;以下内容适用于iOS 3.2+。&lt;/p&gt;
+&lt;p&gt;以下内容适用于 iOS 3.2+。&lt;/p&gt;
 &lt;div class="section" id="id2"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;一、始终隐藏状态栏&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;如果在App中需要状态栏一直是隐藏着的，可以在&amp;lt;YOUR_APP&amp;gt;AppDelegate的&lt;tt class="docutils literal"&gt;application:didFinishLaunchingWithOptions:&lt;/tt&gt;函数中进行设置，比如下面这段示意代码可以让状态栏以淡出的方式隐藏起来：&lt;/p&gt;
+&lt;p&gt;如果在 App 中需要状态栏一直是隐藏着的，可以在 &lt;tt class="docutils literal"&gt;&amp;lt;YOUR_APP&amp;gt;AppDelegate&lt;/tt&gt; 的 &lt;tt class="docutils literal"&gt;application:didFinishLaunchingWithOptions:&lt;/tt&gt; 函数中进行设置，比如下面这段示意代码可以让状态栏以淡出的方式隐藏起来：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -1847,38 +1855,38 @@ Bar）使得用户了解处理进度。这个进度条应该是在一个模态�
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;YES&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;相关的方法或属性是&lt;a class="reference external" href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html"&gt;UIApplication&lt;/a&gt;的：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;相关的方法或属性是 &lt;a class="reference external" href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html"&gt;UIApplication&lt;/a&gt; 的：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html#//apple_ref/occ/instm/UIApplication/setStatusBarHidden:withAnimation:"&gt;setStatusBarHidden:withAnimation:&lt;/a&gt;（iOS 3.2+）&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html#//apple_ref/occ/instp/UIApplication/statusBarHidden"&gt;statusBarHidden&lt;/a&gt;（iOS 2.0+）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;另外还有一个方法&lt;a class="reference external" href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/DeprecationAppendix/AppendixADeprecatedAPI.html#//apple_ref/occ/instm/UIApplication/setStatusBarHidden:animated:"&gt;setStatusBarHidden:animated:&lt;/a&gt;，已经不推荐使用了（deprecated
+&lt;p&gt;另外还有一个方法 &lt;a class="reference external" href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/DeprecationAppendix/AppendixADeprecatedAPI.html#//apple_ref/occ/instm/UIApplication/setStatusBarHidden:animated:"&gt;setStatusBarHidden:animated:&lt;/a&gt;，已经不推荐使用了（deprecated
 in iOS 3.2）。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="app"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;二、App启动时就隐藏状态栏&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;用了上面的方法之后，App在运行过程中，状态栏确实被隐藏起来了，但是我发现在App启动的那个瞬间，还是可以看到状态栏的，然后一闪即过。虽然时间很短暂，看着还是很不舒服。为了让状态栏从启动的时候就隐藏起来，可以修改&amp;lt;YOUR_APP&amp;gt;-Info.plist。如果在Xcode中修改，在根结点Infomation
-Property List下面新加一项“Status bar is initially
-hidden”（不用手动输入，可以直接在下拉菜单中选取）。这是个BOOL类型的键值，将Value栏中的复选框勾选上即可。&lt;/p&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;二、App 启动时就隐藏状态栏&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;用了上面的方法之后，App 在运行过程中，状态栏确实被隐藏起来了，但是我发现在 App 启动的那个瞬间，还是可以看到状态栏的，然后一闪即过。虽然时间很短暂，看着还是很不舒服。为了让状态栏从启动的时候就隐藏起来，可以修改 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;&amp;lt;YOUR_APP&amp;gt;-Info.plist&lt;/span&gt;&lt;/tt&gt;。如果在 Xcode 中修改，在根结点 Infomation
+Property List 下面新加一项 “Status bar is initially
+hidden”（不用手动输入，可以直接在下拉菜单中选取）。这是个 BOOL 类型的键值，将 Value 栏中的复选框勾选上即可。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="status_bar_initially_hidden" src="https://blog.gocalf.com/images/2011/11/status_bar_initially_hidden.png"/&gt;
-&lt;p class="caption"&gt;在Info.plist中设置状态栏为隐藏&lt;/p&gt;
+&lt;p class="caption"&gt;在 Info.plist 中设置状态栏为隐藏&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;也可以以文本方式修改，在根节点中添加UIStatusBarHidden键值，值设为true即可：&lt;/p&gt;
+&lt;p&gt;也可以以文本方式修改，在根节点中添加 UIStatusBarHidden 键值，值设为 true 即可：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;UIStatusBarHidden&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;true/&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;三、在运行过程中隐藏或显示状态栏&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;与第一段中的方法一样，只是可以在任何地方调用。只要利用UIApplication类的静态方法&lt;a class="reference external" href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html#//apple_ref/occ/clm/UIApplication/sharedApplication"&gt;sharedApplication&lt;/a&gt;拿到application实例即可。&lt;/p&gt;
+&lt;p&gt;与第一段中的方法一样，只是可以在任何地方调用。只要利用 UIApplication 类的静态方法 &lt;a class="reference external" href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html#//apple_ref/occ/clm/UIApplication/sharedApplication"&gt;sharedApplication&lt;/a&gt; 拿到 application 实例即可。&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="iOS Develop"></category></entry><entry><title>可以继承的C++ Singleton基类</title><link href="https://blog.gocalf.com/cpp-singleton" rel="alternate"></link><published>2011-08-12T23:20:00+08:00</published><updated>2011-08-22T00:32:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-12:/cpp-singleton</id><summary type="html">&lt;p class="first last"&gt;单例模式是设计模式中的一种，它用来保证系统中最多只能存在一个它的实例，其做法是由类自身来创建和持有它的对象实例，把对实例的创建权和管理权都控制在自己手中，以便控制实例数目。本文介绍可以继承的单例类。&lt;/p&gt;
+</content><category term="iOS Develop"></category></entry><entry><title>可以继承的 C++ Singleton 基类</title><link href="https://blog.gocalf.com/cpp-singleton" rel="alternate"></link><published>2011-08-12T23:20:00+08:00</published><updated>2011-08-22T00:32:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-12:/cpp-singleton</id><summary type="html">&lt;p class="first last"&gt;单例模式是设计模式中的一种，它用来保证系统中最多只能存在一个它的实例，其做法是由类自身来创建和持有它的对象实例，把对实例的创建权和管理权都控制在自己手中，以便控制实例数目。本文介绍可以继承的单例类。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;单例模式（Singleton
 Pattern）是设计模式中的一种，它用来保证系统中最多只能存在一个它的实例，其做法是由类自身来创建和持有它的对象实例，把对实例的创建权和管理权都控制在自己手中，以便控制实例数目。&lt;/p&gt;
-&lt;p&gt;关于如何在C++中实现单例模式的讨论已经太多了，我只是简单介绍一下可以继承的单例类。&lt;/p&gt;
+&lt;p&gt;关于如何在 C++ 中实现单例模式的讨论已经太多了，我只是简单介绍一下可以继承的单例类。&lt;/p&gt;
 &lt;!-- more --&gt;
-&lt;p&gt;首先介绍一下通常所见的单例类的写法，不妨设这个类叫做Singleton。&lt;/p&gt;
+&lt;p&gt;首先介绍一下通常所见的单例类的写法，不妨设这个类叫做 Singleton。&lt;/p&gt;
 &lt;p&gt;Singleton.h：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -1995,12 +2003,12 @@ Pattern）是设计模式中的一种，它用来保证系统中最多只能存�
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;s_instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;这个类写的也不完美啦，比如双重判定也会有失效的时候，不过凑合用吧，哈哈。不过话说boost库里也有singleton，我为什么要自己写个呢，无奈地飘过。&lt;/p&gt;
-&lt;p&gt;废话不多说了，上面的单例类基本上解决了多线程安全问题、实例内存自动释放问题，算是一段可以使用的程序。不过如果系统中有大量单例类（这时候也得好好考虑一下design有没有问题），每个都要这么写一番岂不是很麻烦？要是可以写一个单例基类，以后再创造单例类的时候直接继承一下多方便啊。不过很明显的问题就在那个static对象指针，这个用来保存唯一实例的静态变量如果定义在基类里面，那所有的子类都只能用这同一个变量来保存它们各自的实例了，社会主义国家总得让每个子类都过上温饱生活吧！&lt;/p&gt;
-&lt;p&gt;以前的时候我还真不知道该怎么解决这个问题，但05年用了WTL（Windows
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;这个类写的也不完美啦，比如双重判定也会有失效的时候，不过凑合用吧，哈哈。不过话说 boost 库里也有 singleton，我为什么要自己写个呢，无奈地飘过。&lt;/p&gt;
+&lt;p&gt;废话不多说了，上面的单例类基本上解决了多线程安全问题、实例内存自动释放问题，算是一段可以使用的程序。不过如果系统中有大量单例类（这时候也得好好考虑一下 design 有没有问题），每个都要这么写一番岂不是很麻烦？要是可以写一个单例基类，以后再创造单例类的时候直接继承一下多方便啊。不过很明显的问题就在那个 static 对象指针，这个用来保存唯一实例的静态变量如果定义在基类里面，那所有的子类都只能用这同一个变量来保存它们各自的实例了，社会主义国家总得让每个子类都过上温饱生活吧！&lt;/p&gt;
+&lt;p&gt;以前的时候我还真不知道该怎么解决这个问题，但 05 年用了 WTL（Windows
 Template
-Library）之后，我才意识到模板类可以帮助我（话说我真的是自己想到的，虽然现在搜一下能搜到一大堆）。这里要用的还不是普通的模板类，而是像ATL、WTL里面那样把要定义的类自身放入模板参数中，形如&lt;code class="cpp"&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MyClass&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Base&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;MyClass&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;&lt;/code&gt;。这样做有很多优点啦，最显著的比如不需要虚表（节省内存哦）、多态函数的调用在编译时就确定了（既加快了运行速度，也有利于编译器对代码进行优化）。&lt;/p&gt;
-&lt;p&gt;不妨把这个单例基类叫做ISingleton吧，看起来好像是个interface呢。代码如下：&lt;/p&gt;
+Library）之后，我才意识到模板类可以帮助我（话说我真的是自己想到的，虽然现在搜一下能搜到一大堆）。这里要用的还不是普通的模板类，而是像 ATL、WTL 里面那样把要定义的类自身放入模板参数中，形如 &lt;code class="cpp"&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MyClass&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;Base&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;MyClass&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{};&lt;/span&gt;&lt;/code&gt;。这样做有很多优点啦，最显著的比如不需要虚表（节省内存哦）、多态函数的调用在编译时就确定了（既加快了运行速度，也有利于编译器对代码进行优化）。&lt;/p&gt;
+&lt;p&gt;不妨把这个单例基类叫做 &lt;tt class="docutils literal"&gt;ISingleton&lt;/tt&gt; 吧，看起来好像是个 interface 呢。代码如下：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -2068,8 +2076,8 @@ Library）之后，我才意识到模板类可以帮助我（话说我真的是�
     &lt;span class="p"&gt;}&lt;/span&gt;
 
 &lt;span class="k"&gt;protected&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;ISingleton&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;ISingleton&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="n"&gt;ISingleton&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+    &lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;ISingleton&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
 
     &lt;span class="c1"&gt;// Use auto_ptr to make sure that the allocated memory for instance&lt;/span&gt;
     &lt;span class="c1"&gt;// will be released when program exits (after main() ends).&lt;/span&gt;
@@ -2085,7 +2093,7 @@ Library）之后，我才意识到模板类可以帮助我（话说我真的是�
 
 &lt;span class="cp"&gt;#endif&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;要利用ISingleton创建一个自己的单例类，比如MySingleton，可以使用如下的代码：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;要利用 &lt;tt class="docutils literal"&gt;ISingleton&lt;/tt&gt; 创建一个自己的单例类，比如 &lt;tt class="docutils literal"&gt;MySingleton&lt;/tt&gt;，可以使用如下的代码：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -2142,19 +2150,19 @@ Library）之后，我才意识到模板类可以帮助我（话说我真的是�
     &lt;span class="n"&gt;MySingleton&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="k"&gt;operator&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;MySingleton&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;最最重要的，千万不要忘了把MySingleton的构造和析构函数弄成private的，还要添加两个友元。有人说ISingleton和MySingleton的析构函数都要加virtual，我倒是觉得没有必要呢，你说呢？另外要注意，MySingleton不能被继承哦。&lt;/p&gt;
-</content><category term="Interview Question"></category><category term="C++"></category><category term="Design Pattern"></category></entry><entry><title>C++中的常量指针和指针常量</title><link href="https://blog.gocalf.com/cpp-const-and-pointer" rel="alternate"></link><published>2011-08-04T23:39:00+08:00</published><updated>2011-08-18T14:06:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-04:/cpp-const-and-pointer</id><summary type="html">&lt;p class="first last"&gt;仔细回忆一下C++中的指针常量与常量指针的区别，记录于此。&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;太久不用C++了，竟然连最基本的东西都记不清楚了。今天干活的时候突然想要用指针常量，但突然就忘了指针常量跟常量指针的区别。花了一点儿时间仔细回想了一下几年前上课时老师讲的，总算又回忆起来了，赶紧记录下来备忘。&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;最最重要的，千万不要忘了把 &lt;tt class="docutils literal"&gt;MySingleton&lt;/tt&gt; 的构造和析构函数弄成 &lt;tt class="docutils literal"&gt;private&lt;/tt&gt; 的，还要添加两个友元。有人说 &lt;tt class="docutils literal"&gt;ISingleton&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;MySingleton&lt;/tt&gt; 的析构函数都要加 &lt;tt class="docutils literal"&gt;virtual&lt;/tt&gt;，我倒是觉得没有必要呢，你说呢？另外要注意，&lt;tt class="docutils literal"&gt;MySingleton&lt;/tt&gt; 不能被继承哦。&lt;/p&gt;
+</content><category term="Interview Question"></category><category term="C++"></category><category term="Design Pattern"></category></entry><entry><title>C++ 中的常量指针和指针常量</title><link href="https://blog.gocalf.com/cpp-const-and-pointer" rel="alternate"></link><published>2011-08-04T23:39:00+08:00</published><updated>2011-08-18T14:06:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-04:/cpp-const-and-pointer</id><summary type="html">&lt;p class="first last"&gt;仔细回忆一下 C++ 中的指针常量与常量指针的区别，记录于此。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;太久不用 C++ 了，竟然连最基本的东西都记不清楚了。今天干活的时候突然想要用指针常量，但突然就忘了指针常量跟常量指针的区别。花了一点儿时间仔细回想了一下几年前上课时老师讲的，总算又回忆起来了，赶紧记录下来备忘。&lt;/p&gt;
 &lt;p&gt;这可能会被当作面试题，不过不是算法，故而不放在面试算法题系列中。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;我觉得容易混淆的罪魁祸首在于中文的翻译问题，如果改叫“常量的指针”和“指针常量”可能会好些。先不管这些，看看英文的叫法：Pointer
 to Const 和 Const Pointer。&lt;/p&gt;
 &lt;p&gt;Pointer to
-Const，顾名思义就是一个指针，指向的数据不能被修改，C++语法是&lt;code class="cpp"&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;ptr&lt;/span&gt;&lt;/code&gt;。怎么记忆呢，非常简单，记住要从右往左解读即可。首先这是个变量（&lt;code class="cpp"&gt;&lt;span class="n"&gt;ptr&lt;/span&gt;&lt;/code&gt;）；然后发现它是个指针（&lt;code class="cpp"&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;/code&gt;）；接下来看到它所指向的数据是不可修改的（&lt;code class="cpp"&gt;&lt;span class="k"&gt;const&lt;/span&gt;&lt;/code&gt;）；最后这个指针所指向的空间存放的是整数（&lt;code class="cpp"&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;/code&gt;）。&lt;/p&gt;
+Const，顾名思义就是一个指针，指向的数据不能被修改，C++ 语法是 &lt;code class="cpp"&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;ptr&lt;/span&gt;&lt;/code&gt;。怎么记忆呢，非常简单，记住要从右往左解读即可。首先这是个变量（&lt;code class="cpp"&gt;&lt;span class="n"&gt;ptr&lt;/span&gt;&lt;/code&gt;）；然后发现它是个指针（&lt;code class="cpp"&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;/code&gt;）；接下来看到它所指向的数据是不可修改的（&lt;code class="cpp"&gt;&lt;span class="k"&gt;const&lt;/span&gt;&lt;/code&gt;）；最后这个指针所指向的空间存放的是整数（&lt;code class="cpp"&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;/code&gt;）。&lt;/p&gt;
 &lt;p&gt;Const
-Pointer，也是个指针，但这个指针的值不能被修改（不能再指向其他地方），C++语法是&lt;code class="cpp"&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;ptr&lt;/span&gt;&lt;/code&gt;。同样从右往左读，变量（&lt;code class="cpp"&gt;&lt;span class="n"&gt;ptr&lt;/span&gt;&lt;/code&gt;）；变量的值不能被修改（&lt;code class="cpp"&gt;&lt;span class="k"&gt;const&lt;/span&gt;&lt;/code&gt;）；是个指针（&lt;code class="cpp"&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;/code&gt;）；这个指针所指向的空间存放的是整数（&lt;code class="cpp"&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;/code&gt;）。&lt;/p&gt;
-&lt;p&gt;可见const修饰的是它右边紧邻的元素，如果右边是指针*，就表明指针指向的是常量，不能被修改；如果右边是变量，就变明这个变量自身不能被修改。&lt;/p&gt;
-&lt;p&gt;下面这段C++程序示意了两种指针的区别，其中被注释掉的两行（高亮显示）是因为会无法编译。&lt;/p&gt;
+Pointer，也是个指针，但这个指针的值不能被修改（不能再指向其他地方），C++ 语法是 &lt;code class="cpp"&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;ptr&lt;/span&gt;&lt;/code&gt;。同样从右往左读，变量（&lt;code class="cpp"&gt;&lt;span class="n"&gt;ptr&lt;/span&gt;&lt;/code&gt;）；变量的值不能被修改（&lt;code class="cpp"&gt;&lt;span class="k"&gt;const&lt;/span&gt;&lt;/code&gt;）；是个指针（&lt;code class="cpp"&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;/code&gt;）；这个指针所指向的空间存放的是整数（&lt;code class="cpp"&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;/code&gt;）。&lt;/p&gt;
+&lt;p&gt;可见 const 修饰的是它右边紧邻的元素，如果右边是指针 *，就表明指针指向的是常量，不能被修改；如果右边是变量，就变明这个变量自身不能被修改。&lt;/p&gt;
+&lt;p&gt;下面这段 C++ 程序示意了两种指针的区别，其中被注释掉的两行（高亮显示）是因为会无法编译。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -2209,7 +2217,7 @@ Pointer，也是个指针，但这个指针的值不能被修改（不能再指�
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;对英文名称理解清楚了，记不记中文名字也就无所谓了吧。我的记忆方法就是“Pointer
 to Const”翻译为“常量的指针”，简称“常量指针”；“Const
 Pointer”翻译为“指针常量”。&lt;/p&gt;
-&lt;p&gt;最后简单总结一下跟const相关的变量的写法：&lt;/p&gt;
+&lt;p&gt;最后简单总结一下跟 const 相关的变量的写法：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3

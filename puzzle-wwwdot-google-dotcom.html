@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="一道关于Google的数字游戏题。
+        <meta name="description" content="一道关于 Google 的数字游戏题。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
@@ -14,19 +14,19 @@
 
 <meta name="keywords" content="Puzzle, Google, 数学, 智力题, Math Puzzle, WWW DOT GOOGLE DOT COM" />
 
-<meta property="og:title" content="数学趣题WWWDOT-GOOGLE=DOTCOM "/>
+<meta property="og:title" content="数学趣题 WWWDOT-GOOGLE=DOTCOM "/>
 <meta property="og:url" content="https://blog.gocalf.com/puzzle-wwwdot-google-dotcom" />
-<meta property="og:description" content="一道关于Google的数字游戏题。" />
+<meta property="og:description" content="一道关于 Google 的数字游戏题。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2011-07-13T22:49:00+08:00" />
 <meta property="og:article:modified_time" content="2011-08-03T20:56:00+08:00" />
-<meta name="twitter:title" content="数学趣题WWWDOT-GOOGLE=DOTCOM ">
-<meta name="twitter:description" content="一道关于Google的数字游戏题。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/07/google_puzzle.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/07/google_puzzle.png" >
+<meta name="twitter:title" content="数学趣题 WWWDOT-GOOGLE=DOTCOM ">
+<meta name="twitter:description" content="一道关于 Google 的数字游戏题。">
+<meta property="og:image" content="https://blog.gocalf.com/images/2011/07/google_puzzle.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2011/07/google_puzzle.png" >
 
-        <title>数学趣题WWWDOT-GOOGLE=DOTCOM  · GoCalf Blog
+        <title>数学趣题 WWWDOT-GOOGLE=DOTCOM  · GoCalf Blog
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
@@ -93,7 +93,7 @@
     <header class="page-header span10 offset2">
         <h1>
             <a href="https://blog.gocalf.com/puzzle-wwwdot-google-dotcom">
-                数学趣题WWWDOT-GOOGLE=DOTCOM
+                数学趣题 WWWDOT-GOOGLE=DOTCOM
             </a>
         </h1>
     </header>
@@ -102,7 +102,7 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
             
-            <p>以前见到一道关于Google的数字游戏题目，要求解开隐秘的等式<tt class="docutils literal">WWWDOT - GOOGLE = DOTCOM</tt>，每个字母代表十个阿拉伯数字中的一个且各不相同，每个六位数字最高位都不是0，当然显而易见地，E和M是可以互换的。对于一个程序员，解决这个问题是很容易的，但今天我要讲讲小学生是怎么解决这个问题的。</p>
+            <p>以前见到一道关于 Google 的数字游戏题目，要求解开隐秘的等式 <tt class="docutils literal">WWWDOT - GOOGLE = DOTCOM</tt>，每个字母代表十个阿拉伯数字中的一个且各不相同，每个六位数字最高位都不是 0，当然显而易见地，E 和 M 是可以互换的。对于一个程序员，解决这个问题是很容易的，但今天我要讲讲小学生是怎么解决这个问题的。</p>
 <!-- more -->
 <p>把目标等式写成小学生习惯的竖式：</p>
 <div class="math">
@@ -116,13 +116,13 @@
 </div>
 <p>先罗嗦一下，对于竖式中的任何一列，X - Y = Z，只有四种情况：</p>
 <ol class="arabic simple">
-<li>没有被低位借位，也不向高位借位，也就是真正的X - Y = Z；</li>
-<li>没有被低位借位，但向高位借了一位，即(10+X) - Y = Z，或记做<span class="math">\(X_{+} - Y = Z\)</span>；</li>
-<li>被低位借位，但不向高位借位，即(X-1) - Y = Z，或记做<span class="math">\(X^{-} - Y = Z\)</span>；</li>
-<li>被低位借位，也向高位借位，即(10+X-1) - Y = Z，或记做<span class="math">\(X^{-}_{+} - Y = Z\)</span>。</li>
+<li>没有被低位借位，也不向高位借位，也就是真正的 X - Y = Z；</li>
+<li>没有被低位借位，但向高位借了一位，即 (10+X) - Y = Z，或记做 <span class="math">\(X_{+} - Y = Z\)</span>；</li>
+<li>被低位借位，但不向高位借位，即 (X-1) - Y = Z，或记做 <span class="math">\(X^{-} - Y = Z\)</span>；</li>
+<li>被低位借位，也向高位借位，即 (10+X-1) - Y = Z，或记做 <span class="math">\(X^{-}_{+} - Y = Z\)</span>。</li>
 </ol>
-<p>接下来就找竖式中的特殊情况。先看十位O - L = O，在上述四种情况中，只有两种是可能的，即<span class="math">\(O^{-}_{+} - L = O\Rightarrow L=9\)</span>和<span class="math">\(O - L = O \Rightarrow L=0\)</span>。</p>
-<p>然后看千位和万位，被减数都是W，减数都是O，但结果却不同，说明在这两位的借位情况肯定不一样，也就只有两种可能，再结合前面提到的十位上的两种情况，可以得到：</p>
+<p>接下来就找竖式中的特殊情况。先看十位 O - L = O，在上述四种情况中，只有两种是可能的，即 <span class="math">\(O^{-}_{+} - L = O\Rightarrow L=9\)</span> 和 <span class="math">\(O - L = O \Rightarrow L=0\)</span>。</p>
+<p>然后看千位和万位，被减数都是 W，减数都是 O，但结果却不同，说明在这两位的借位情况肯定不一样，也就只有两种可能，再结合前面提到的十位上的两种情况，可以得到：</p>
 <ol class="arabic simple">
 <li><span class="math">\(W_{+}-O=T\)</span>，<span class="math">\(W^{-}_{+}-O=O\)</span>，<span class="math">\(W^{-}-G=D\)</span><ol class="arabic">
 <li>L = 0，T - E = M，D - G = C；</li>
@@ -135,24 +135,24 @@
 </ol>
 </li>
 </ol>
-<p>先看情况1，可以推出：T = O + 1， W = 2 * O - 9，G + D = W - 1，G &lt; D（因为百位上的减法没有向千位借位）。再根据W、O、D都不能为零，因此有1
+<p>先看情况 1，可以推出：T = O + 1， W = 2 * O - 9，G + D = W - 1，G &lt; D（因为百位上的减法没有向千位借位）。再根据 W、O、D 都不能为零，因此有 1
 &lt;= G &lt; D &lt;= W - 2 &lt;= 7，4 &lt;= G + D + 1 = W = 2 * O - 9 &lt;=
-8，于是7 &lt;= O &lt;= 8，这样的话：</p>
+8，于是 7 &lt;= O &lt;= 8，这样的话：</p>
 <ul class="simple">
-<li>如果O = 7，那么G + D = 2 * O - 10 =
-4，得到G = 1，D = 3。那如果L =
-9，就有C = (D - 1) - G = 1 =
-G，不符合题目。如果L = 0，则C =
+<li>如果 O = 7，那么 G + D = 2 * O - 10 =
+4，得到 G = 1，D = 3。那如果 L =
+9，就有 C = (D - 1) - G = 1 =
+G，不符合题目。如果 L = 0，则 C =
 2，E + M = T = O + 1 = 8 = (1 + 7) or (2 + 6) or (3 +
-5)，无法给E、M找到不重复的数字。</li>
-<li>因此只能是O = 8，T = 9，L = 0，又有G + D = 5，D -
-G = C，可以得到G、D、C分别是1、5、4。于是E + M = T =
-9，得到E、M分别为3、6或者6、3。得到此题的一组解。</li>
+5)，无法给 E、M 找到不重复的数字。</li>
+<li>因此只能是 O = 8，T = 9，L = 0，又有 G + D = 5，D -
+G = C，可以得到 G、D、C 分别是 1、5、4。于是 E + M = T =
+9，得到 E、M 分别为 3、6 或者 6、3。得到此题的一组解。</li>
 </ul>
-<p>用同样的方法分析情况2，可以得到W = 2 * O，T = O - 1，G + D = W，G
-&gt; D&nbsp;，因此有1 &lt;= D &lt; G &lt;= W - 1 &lt;= 8，3 &lt;= D +
-E &lt;= W = 2 * O &lt;= 9，得到2 &lt;= O &lt;=
-4。但是根据C与D和G的关系不难发现，不论O、L取什么值，都无法找到不重复的C值。因此第二种情况无解。</p>
+<p>用同样的方法分析情况 2，可以得到 W = 2 * O，T = O - 1，G + D = W，G
+&gt; D&nbsp;，因此有 1 &lt;= D &lt; G &lt;= W - 1 &lt;= 8，3 &lt;= D +
+E &lt;= W = 2 * O &lt;= 9，得到 2 &lt;= O &lt;=
+4。但是根据 C 与 D 和 G 的关系不难发现，不论 O、L 取什么值，都无法找到不重复的 C 值。因此第二种情况无解。</p>
 <div class="compound">
 <p class="compound-first">综上，可以得到此问题唯一的一对解：O = 8，T = 9，W = 7，G = 1，D =
 5，L = 0，C = 4，{E, M} = {3, 6}，代入原方程得到：</p>
@@ -181,11 +181,11 @@ E &lt;= W = 2 * O &lt;= 9，得到2 &lt;= O &lt;=
 
                 <p id="post-share-links">
     Like this post? Share on:
-    <a href="https://twitter.com/intent/tweet?text=%E6%95%B0%E5%AD%A6%E8%B6%A3%E9%A2%98WWWDOT-GOOGLE%3DDOTCOM&url=https%3A//blog.gocalf.com/puzzle-wwwdot-google-dotcom&via=calfzhou&hashtags=puzzle,google" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="https://twitter.com/intent/tweet?text=%E6%95%B0%E5%AD%A6%E8%B6%A3%E9%A2%98%20WWWDOT-GOOGLE%3DDOTCOM&url=https%3A//blog.gocalf.com/puzzle-wwwdot-google-dotcom&via=calfzhou&hashtags=puzzle,google" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//blog.gocalf.com/puzzle-wwwdot-google-dotcom" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="mailto:?subject=%E6%95%B0%E5%AD%A6%E8%B6%A3%E9%A2%98WWWDOT-GOOGLE%3DDOTCOM&amp;body=https%3A//blog.gocalf.com/puzzle-wwwdot-google-dotcom" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=%E6%95%B0%E5%AD%A6%E8%B6%A3%E9%A2%98%20WWWDOT-GOOGLE%3DDOTCOM&amp;body=https%3A//blog.gocalf.com/puzzle-wwwdot-google-dotcom" target="_blank" title="Share via Email">Email</a>
     </p>
 
             
@@ -252,8 +252,8 @@ E &lt;= W = 2 * O &lt;= 9，得到2 &lt;= O &lt;=
 <ul class="related-posts-list">
 <li><a href="https://blog.gocalf.com/clock-hands-relative-motion" title="时针，分针，相对运动">时针，分针，相对运动</a></li>
 <li><a href="https://blog.gocalf.com/manufactoria" title="自动机编程游戏：Manufactoria（流水线编程）">自动机编程游戏：Manufactoria（流水线编程）</a></li>
-<li><a href="https://blog.gocalf.com/get-46-from-11-12-13-and-14" title="让11、12、13、14通过加减乘除运算得到46">让11、12、13、14通过加减乘除运算得到46</a></li>
-<li><a href="https://blog.gocalf.com/chromatron" title="最经典的光线反射游戏Chromatron">最经典的光线反射游戏Chromatron</a></li>
+<li><a href="https://blog.gocalf.com/get-46-from-11-12-13-and-14" title="让 11、12、13、14 通过加减乘除运算得到 46">让 11、12、13、14 通过加减乘除运算得到 46</a></li>
+<li><a href="https://blog.gocalf.com/chromatron" title="最经典的光线反射游戏 Chromatron">最经典的光线反射游戏 Chromatron</a></li>
 <li><a href="https://blog.gocalf.com/self-descriptive-sentence" title="自描述语句">自描述语句</a></li>
 </ul>
 <hr />
@@ -261,8 +261,8 @@ E &lt;= W = 2 * O &lt;= 9，得到2 &lt;= O &lt;=
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="https://blog.gocalf.com/latex-plugin-more" title="Previous: 关于LaTeX插件再啰嗦几句">关于LaTeX插件再啰嗦几句</a></li>
-                <li class="next-article"><a href="https://blog.gocalf.com/win7-god-mode" title="Next: Windows7上帝模式">Windows7上帝模式</a> »</li>
+                <li class="previous-article">« <a href="https://blog.gocalf.com/latex-plugin-more" title="Previous: 关于 LaTeX 插件再啰嗦几句">关于 LaTeX 插件再啰嗦几句</a></li>
+                <li class="next-article"><a href="https://blog.gocalf.com/win7-god-mode" title="Next: Windows 7 上帝模式">Windows 7 上帝模式</a> »</li>
             </ul>
             </nav>
             </aside>

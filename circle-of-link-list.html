@@ -23,8 +23,8 @@
 <meta property="og:article:modified_time" content="2011-10-14T12:56:00+08:00" />
 <meta name="twitter:title" content="检测单向链表是否存在环 ">
 <meta name="twitter:description" content="问题描述：在单向链表中，每个结点都包含一个指向下一个结点的指针，最后一个结点的这个指针被设置为空。但如果把最后一个结点的指针指向链表中存在的某个结点，就会形成一个环，在顺序遍历链表的时候，程序就会陷入死循环。我们的问题就是，如何检测一个链表中是否有环，如果检测到环，如何确定环的入口点（即求出环长，环前面的链长）。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/10/link_circle.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/10/link_circle.png" >
+<meta property="og:image" content="https://blog.gocalf.com/images/2011/10/link_circle.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2011/10/link_circle.png" >
 
         <title>检测单向链表是否存在环  · GoCalf Blog
 </title>
@@ -104,20 +104,20 @@
             
             <p>问题描述：在单向链表中，每个结点都包含一个指向下一个结点的指针，最后一个结点的这个指针被设置为空。但如果把最后一个结点的指针指向链表中存在的某个结点，就会形成一个环，在顺序遍历链表的时候，程序就会陷入死循环。我们的问题就是，如何检测一个链表中是否有环，如果检测到环，如何确定环的入口点（即求出环长，环前面的链长）。</p>
 <!-- more -->
-<p>一种比较耗空间的做法是，从头开始遍历链表，把每次访问到的结点（或其地址）存入一个集合（hashset）或字典（dictionary），如果发现某个结点已经被访问过了，就表示这个链表存在环，并且这个结点就是环的入口点。这需要O(N)空间和O(N)时间，其中N是链表中结点的数目。</p>
-<p>如果要求只是用O(1)空间、O(N)时间，应该怎么处理呢？</p>
+<p>一种比较耗空间的做法是，从头开始遍历链表，把每次访问到的结点（或其地址）存入一个集合（hashset）或字典（dictionary），如果发现某个结点已经被访问过了，就表示这个链表存在环，并且这个结点就是环的入口点。这需要 O(N) 空间和 O(N) 时间，其中 N 是链表中结点的数目。</p>
+<p>如果要求只是用 O(1) 空间、O(N) 时间，应该怎么处理呢？</p>
 <p>其实很简单，想象一下在跑道上跑步：两个速度不同的人在操场跑道上一圈一圈地跑，他们总会有相遇的时候。因此我们只需要准备两个指针，同时从链表头出发，一个每次往前走一步，另一个每次往前走两步。如果链表没有环，那么经过一段时间，第二个（速度较快的）指针就会到达终点；但如果链表中有环，两个指针就会在环里转圈，并会在某个时刻相遇。</p>
-<p>大家也许会问，这两个指针要在环里转多少圈才能相遇呢？会不会转几千几万圈都无法相遇？实际上，第一个（速度慢的）指针在环里转满一圈之前，两个指针必然相遇。不妨设环长为L，第一个指针P1第一次进入环时，第二个指针P2在P1前方第a个结点处（0
-&lt; a &lt; L），设经过x次移动后两个指针相遇，那么应该有0 + x = a + 2x (mod
-L)，显然x = L - a。下面这张图可以清晰地表明这种关系，经过x =
-L - a次移动，P1向前移动了L - a个位置（相当于后退了a），到达P1′处，而P2向前移动了2L - 2a个位置（相当于后退了2a），到达P2′处，显然P1′和P2′是同一点。</p>
+<p>大家也许会问，这两个指针要在环里转多少圈才能相遇呢？会不会转几千几万圈都无法相遇？实际上，第一个（速度慢的）指针在环里转满一圈之前，两个指针必然相遇。不妨设环长为 L，第一个指针 P1 第一次进入环时，第二个指针 P2 在 P1 前方第 a 个结点处（0
+&lt; a &lt; L），设经过 x 次移动后两个指针相遇，那么应该有 0 + x = a + 2x (mod
+L)，显然 x = L - a。下面这张图可以清晰地表明这种关系，经过 x =
+L - a 次移动，P1 向前移动了 L - a 个位置（相当于后退了 a），到达 P1' 处，而 P2 向前移动了 2L - 2a 个位置（相当于后退了 2a），到达 P2' 处，显然 P1' 和 P2' 是同一点。</p>
 <div class="figure">
 <object data="https://blog.gocalf.com/images/2011/10/two_pointers_in_ring.svg" style="width: 428px;" type="image/svg+xml">
 two_pointers_in_ring</object>
 <p class="caption">慢指针（P1）转一周之内，必然与快指针（P2）相遇</p>
 </div>
-<p>在知道链表内有环后，求环长是一件非常简单的事情，只要从刚才那个相遇点开始，固定P2，继续移动P1，直到P1与P2再次相遇，所经过的步数就是环长。</p>
-<p>怎么求环前面那段子链的长度呢？很简单，让P1和P2都回到链表起点，然后让P2先往前走L次（每次往前走一步），然后P1和P2再同时往前走，当它们再次相遇时，P1所走的步数就是环前面的子链长度。</p>
+<p>在知道链表内有环后，求环长是一件非常简单的事情，只要从刚才那个相遇点开始，固定 P2，继续移动 P1，直到 P1 与 P2 再次相遇，所经过的步数就是环长。</p>
+<p>怎么求环前面那段子链的长度呢？很简单，让 P1 和 P2 都回到链表起点，然后让 P2 先往前走 L 次（每次往前走一步），然后 P1 和 P2 再同时往前走，当它们再次相遇时，P1 所走的步数就是环前面的子链长度。</p>
 <p>算法示意：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -267,7 +267,7 @@ two_pointers_in_ring</object>
 <li><a href="https://blog.gocalf.com/calc-fibonacci" title="计算斐波纳契数，分析算法复杂度">计算斐波纳契数，分析算法复杂度</a></li>
 <li><a href="https://blog.gocalf.com/the-probability-of-two-boys" title="条件概率：两个都是男孩的概率">条件概率：两个都是男孩的概率</a></li>
 <li><a href="https://blog.gocalf.com/traversing-binary-tree" title="程序基本功之遍历二叉树">程序基本功之遍历二叉树</a></li>
-<li><a href="https://blog.gocalf.com/topn-of-massive-data" title="从大量整数中选取最小/大的若干个">从大量整数中选取最小/大的若干个</a></li>
+<li><a href="https://blog.gocalf.com/topn-of-massive-data" title="从大量整数中选取最小 / 大的若干个">从大量整数中选取最小 / 大的若干个</a></li>
 </ul>
 <hr />
 </section>

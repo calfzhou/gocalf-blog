@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="入手一年的Kindle4突然变成砖头了，屏幕显示“Your Kindle Needs Repair”，花了大半个晚上的时间才修好它，简单记录一下。
+        <meta name="description" content="入手一年的 Kindle 4 突然变成砖头了，屏幕显示“Your Kindle Needs Repair”，花了大半个晚上的时间才修好它，简单记录一下。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
@@ -14,19 +14,19 @@
 
 <meta name="keywords" content="Kindle, 数码电子, Kindle 4, unbrick, USB Net, Your Kindle Needs Repair, 修砖" />
 
-<meta property="og:title" content="Kindle4修砖记 "/>
+<meta property="og:title" content="Kindle 4 修砖记 "/>
 <meta property="og:url" content="https://blog.gocalf.com/fix-bricked-kindle4" />
-<meta property="og:description" content="入手一年的Kindle4突然变成砖头了，屏幕显示“Your Kindle Needs Repair”，花了大半个晚上的时间才修好它，简单记录一下。" />
+<meta property="og:description" content="入手一年的 Kindle 4 突然变成砖头了，屏幕显示“Your Kindle Needs Repair”，花了大半个晚上的时间才修好它，简单记录一下。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2013-07-29T10:13:00+08:00" />
 <meta property="og:article:modified_time" content="2013-07-29T10:13:00+08:00" />
-<meta name="twitter:title" content="Kindle4修砖记 ">
-<meta name="twitter:description" content="入手一年的Kindle4突然变成砖头了，屏幕显示“Your Kindle Needs Repair”，花了大半个晚上的时间才修好它，简单记录一下。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2013/07/kindle_needs_repair.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2013/07/kindle_needs_repair.png" >
+<meta name="twitter:title" content="Kindle 4 修砖记 ">
+<meta name="twitter:description" content="入手一年的 Kindle 4 突然变成砖头了，屏幕显示“Your Kindle Needs Repair”，花了大半个晚上的时间才修好它，简单记录一下。">
+<meta property="og:image" content="https://blog.gocalf.com/images/2013/07/kindle_needs_repair.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2013/07/kindle_needs_repair.png" >
 
-        <title>Kindle4修砖记  · GoCalf Blog
+        <title>Kindle 4 修砖记  · GoCalf Blog
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
@@ -93,7 +93,7 @@
     <header class="page-header span10 offset2">
         <h1>
             <a href="https://blog.gocalf.com/fix-bricked-kindle4">
-                Kindle4修砖记
+                Kindle 4 修砖记
             </a>
         </h1>
     </header>
@@ -106,9 +106,9 @@
         <div class="toc" id="">
 
 <ul class="simple">
-<li><a class="reference internal" href="#kindle" id="id6">1. 让Kindle进入诊断模式</a></li>
-<li><a class="reference internal" href="#mmcblk0p1-imgkindle" id="id7">2. 将mmcblk0p1.img拷贝到Kindle中</a></li>
-<li><a class="reference internal" href="#sshkindle" id="id8">3. SSH登录到Kindle</a></li>
+<li><a class="reference internal" href="#kindle" id="id6">1. 让 Kindle 进入诊断模式</a></li>
+<li><a class="reference internal" href="#mmcblk0p1-img-kindle" id="id7">2. 将 mmcblk0p1.img 拷贝到 Kindle 中</a></li>
+<li><a class="reference internal" href="#ssh-kindle" id="id8">3. SSH 登录到 Kindle</a></li>
 <li><a class="reference internal" href="#id2" id="id9">4. 进行系统恢复</a></li>
 <li><a class="reference internal" href="#id3" id="id10">5. 完成</a></li>
 </ul>
@@ -118,49 +118,49 @@
     <div class="span8 article-content">
             
             
-<p>入手一年的Kindle4突然不能用了，屏幕显示“Your Kindle Needs
+<p>入手一年的 Kindle 4 突然不能用了，屏幕显示“Your Kindle Needs
 Repair”，原来就是传说中的变成砖头了。</p>
 <p>花了大半个晚上的时间才修好它，简单记录一下。</p>
 <!-- more -->
-<p>先说下机器的情况。这是美版的Kindle4广告版，曾经装过多看，但早就删掉了，现在用的是原生系统，应该是4.0.1吧。</p>
+<p>先说下机器的情况。这是美版的 Kindle 4 广告版，曾经装过多看，但早就删掉了，现在用的是原生系统，应该是 4.0.1 吧。</p>
 <p>之前都好好的，用多看系统的时候经常死机，后来回到原生系统就不再死机了。最近有一段时间没用，一直扔在抽屉里。那天想用的时候发现一点儿电都没有，于是开始充电。充电的时候手欠，按了电源键想开机，然后就这样了，重启了无数次都没有任何改变。</p>
-<p>搜了一下，好多修砖的攻略都说只适用于装了多看系统的Kindle，实在没搞明白，想来老外应该不会都用多看吧，那他们怎么修呢？</p>
-<p>修砖需要用到的一些工具，我观察到的都是Windows程序，所以一切操作都在Windows
-7的虚拟机中进行。如果是Windows XP，可能在驱动方面会稍微麻烦一些。</p>
+<p>搜了一下，好多修砖的攻略都说只适用于装了多看系统的 Kindle，实在没搞明白，想来老外应该不会都用多看吧，那他们怎么修呢？</p>
+<p>修砖需要用到的一些工具，我观察到的都是 Windows 程序，所以一切操作都在 Windows
+7 的虚拟机中进行。如果是 Windows XP，可能在驱动方面会稍微麻烦一些。</p>
 <div class="section" id="kindle">
-<h2><a class="toc-backref" href="#id6">1. 让Kindle进入诊断模式</a></h2>
-<p>工具：Kindle Select Boot，我是在<a class="reference external" href="http://www.mobileread.com/forums/showthread.php?t=169645">这里</a>下载到的。</p>
-<p>用USB先把Kindle连接到电脑上（我用的虚拟机，所以还要把设备接到虚拟机里），一直按住Kindle底部的电源键，等指示灯熄灭后，不松开电源键按住方向键下（↓），然后松开电源键，再松开方向键。这使得Kindle进入了USB恢复模式。</p>
-<p>想要知道这个操作是否成功，可以在Windows系统的Device
-Manager（硬件管理器）里查看Human Interface
-Devices下，是否出现了HID-compliant device。如果还是USB Human Interface
-Device就得再来一次了。</p>
-<p>运行KindleSelectBoot文件包中的MfgTool.exe，在界面的上半部会看到一个HID-compliant
-device的信息，在下半部的Profile那里选择Kindle
-diags（当时没截图，现在也懒得再折腾一次Kindle了）。点击右下角的Start按钮，就可以让Kindle进入诊断模式。</p>
+<h2><a class="toc-backref" href="#id6">1. 让 Kindle 进入诊断模式</a></h2>
+<p>工具：Kindle Select Boot，我是在 <a class="reference external" href="http://www.mobileread.com/forums/showthread.php?t=169645">这里</a> 下载到的。</p>
+<p>用 USB 先把 Kindle 连接到电脑上（我用的虚拟机，所以还要把设备接到虚拟机里），一直按住 Kindle 底部的电源键，等指示灯熄灭后，不松开电源键按住方向键下（↓），然后松开电源键，再松开方向键。这使得 Kindle 进入了 USB 恢复模式。</p>
+<p>想要知道这个操作是否成功，可以在 Windows 系统的 Device
+Manager（硬件管理器）里查看 Human Interface
+Devices 下，是否出现了 HID-compliant device。如果还是 USB Human Interface
+Device 就得再来一次了。</p>
+<p>运行 KindleSelectBoot 文件包中的 MfgTool.exe，在界面的上半部会看到一个 HID-compliant
+device 的信息，在下半部的 Profile 那里选择 Kindle
+diags（当时没截图，现在也懒得再折腾一次 Kindle 了）。点击右下角的 Start 按钮，就可以让 Kindle 进入诊断模式。</p>
 </div>
-<div class="section" id="mmcblk0p1-imgkindle">
-<h2><a class="toc-backref" href="#id7">2. 将mmcblk0p1.img拷贝到Kindle中</a></h2>
-<p>需要下载一个叫做mmcblk0p1.img的文件，其实我也不清楚这到底是什么，看起来是个镜像文件。我下载的是<a class="reference external" href="http://60.211.209.221/cdn.baidupcs.com/file/01589c0ba1f05e9e4f55e35d02ffc05b?xcode=053458c9324860ffda9317ddb745a10aa9749899cf109a05&amp;fid=2601356780-250528-1879823735&amp;time=1374668763&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-7N%2BEg07f9BuUIjG8wPMKIV8gURM%3D&amp;to=cb&amp;fm=N,B,T&amp;expires=8h&amp;rt=sh&amp;r=586640283&amp;logid=1498755034&amp;sh=1&amp;wsiphost=ipdbm">mmcblk0p1_410.img</a>（点击下载），RAR压缩包的大小是144MB，解压后358MB。</p>
-<p>在Kindle诊断模式菜单中选择“U) USB device
-mode”，电脑就会将Kindle识别为U盘，将下载解压后的.img文件拷贝到Kindle根目录下。</p>
-<p>虽说整个修砖过程对Kindle内的电子书没有影响，我还是趁这个机会赶紧把数据备份了一下。</p>
-<p>拷贝完成后，在Kindle上按左方向键退出U盘模式，并返回主菜单。</p>
+<div class="section" id="mmcblk0p1-img-kindle">
+<h2><a class="toc-backref" href="#id7">2. 将 mmcblk0p1.img 拷贝到 Kindle 中</a></h2>
+<p>需要下载一个叫做 mmcblk0p1.img 的文件，其实我也不清楚这到底是什么，看起来是个镜像文件。我下载的是 <a class="reference external" href="http://60.211.209.221/cdn.baidupcs.com/file/01589c0ba1f05e9e4f55e35d02ffc05b?xcode=053458c9324860ffda9317ddb745a10aa9749899cf109a05&amp;fid=2601356780-250528-1879823735&amp;time=1374668763&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-7N%2BEg07f9BuUIjG8wPMKIV8gURM%3D&amp;to=cb&amp;fm=N,B,T&amp;expires=8h&amp;rt=sh&amp;r=586640283&amp;logid=1498755034&amp;sh=1&amp;wsiphost=ipdbm">mmcblk0p1_410.img</a>（点击下载），RAR 压缩包的大小是 144MB，解压后 358MB。</p>
+<p>在 Kindle 诊断模式菜单中选择“U) USB device
+mode”，电脑就会将 Kindle 识别为 U 盘，将下载解压后的 .img 文件拷贝到 Kindle 根目录下。</p>
+<p>虽说整个修砖过程对 Kindle 内的电子书没有影响，我还是趁这个机会赶紧把数据备份了一下。</p>
+<p>拷贝完成后，在 Kindle 上按左方向键退出 U 盘模式，并返回主菜单。</p>
 </div>
-<div class="section" id="sshkindle">
-<h2><a class="toc-backref" href="#id8">3. SSH登录到Kindle</a></h2>
-<p>在SSH登录之前，先要确认一下Kindle系统的版本和序列号（Serial
-Number），以便获取root密码。系统版本我是没注意到，序列号在Kindle诊断模式主菜单第一项里就能找到。</p>
-<p>记下序列号后，在Kindle诊断模式菜单中依次选择：“N) Misc individual
+<div class="section" id="ssh-kindle">
+<h2><a class="toc-backref" href="#id8">3. SSH 登录到 Kindle</a></h2>
+<p>在 SSH 登录之前，先要确认一下 Kindle 系统的版本和序列号（Serial
+Number），以便获取 root 密码。系统版本我是没注意到，序列号在 Kindle 诊断模式主菜单第一项里就能找到。</p>
+<p>记下序列号后，在 Kindle 诊断模式菜单中依次选择：“N) Misc individual
 diagnostics”、“U) Utilities”、“Z) Enable USBnet”，然后按方向键右键返回。</p>
-<p>在电脑的硬件管理器中可以看到有一个叫RNDIS\Ethernet
-card的硬件，点击升级驱动，然后选择手动浏览驱动-&gt;自选驱动-&gt;网络适配器，在厂商中选择“Microsoft
+<p>在电脑的硬件管理器中可以看到有一个叫 RNDIS\Ethernet
+card 的硬件，点击升级驱动，然后选择手动浏览驱动 -&gt; 自选驱动 -&gt; 网络适配器，在厂商中选择“Microsoft
 Corporation”，驱动选择“Remote NDIS Compatible
-Device”，强制安装驱动即可。（如果是Windows XP，则需要下载安装RNDIS
-Ethernet驱动，<a class="reference external" href="http://b.billgong.com/wp-content/uploads/2012/03/RNDIS-Ethernet-Driver.zip">点此下载</a>。）</p>
-<p>装好驱动，进入网络中心，看到有一块新的网卡设备。点击右键查看属性，在IPv4选项中，将IP地址设置为“192.168.15.200”，子网掩码是默认的“255.255.255.0”。</p>
-<p>用SSH客户端（我用的是Putty）登录Kindle，IP地址为192.168.15.244，用户名是root。密码可以先试试“mario”（针对4.0系统），如果不行，就将序列号输入到下面的文本框中得到密码（针对4.0.1系统）（若无法显示请猛击<a class="reference external" href="https://blog.gocalf.com/assets/2013/07/kindle_root_password.html">这里</a>）。</p>
-<iframe frameborder="0" height="50" scrolling="no" src="https://blog.gocalf.com/assets/2013/07/kindle_root_password.html" width="100%"></iframe><p>其实root密码就是“fiona”加上序列号MD5值中的一部分。生成代码如下（Python
+Device”，强制安装驱动即可。（如果是 Windows XP，则需要下载安装 RNDIS
+Ethernet 驱动，<a class="reference external" href="http://b.billgong.com/wp-content/uploads/2012/03/RNDIS-Ethernet-Driver.zip">点此下载</a>。）</p>
+<p>装好驱动，进入网络中心，看到有一块新的网卡设备。点击右键查看属性，在 IPv4 选项中，将 IP 地址设置为“192.168.15.200”，子网掩码是默认的“255.255.255.0”。</p>
+<p>用 SSH 客户端（我用的是 Putty）登录 Kindle，IP 地址为 192.168.15.244，用户名是 root。密码可以先试试“mario”（针对 4.0 系统），如果不行，就将序列号输入到下面的文本框中得到密码（针对 4.0.1 系统）（若无法显示请猛击 <a class="reference external" href="https://blog.gocalf.com/assets/2013/07/kindle_root_password.html">这里</a>）。</p>
+<iframe frameborder="0" height="50" scrolling="no" src="https://blog.gocalf.com/assets/2013/07/kindle_root_password.html" width="100%"></iframe><p>其实 root 密码就是“fiona”加上序列号 MD5 值中的一部分。生成代码如下（Python
 2.7.*）：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -173,7 +173,7 @@ Ethernet驱动，<a class="reference external" href="http://b.billgong.com/wp-co
 </td></tr></table></div>
 <div class="section" id="id2">
 <h2><a class="toc-backref" href="#id9">4. 进行系统恢复</a></h2>
-<p>SSH登录成功后，在终端中运行如下命令来恢复系统（大概需要几分钟的时间）：</p>
+<p>SSH 登录成功后，在终端中运行如下命令来恢复系统（大概需要几分钟的时间）：</p>
 <div class="highlight"><pre><span></span>dd <span class="k">if</span><span class="o">=</span>/mnt/us/mmcblk0p1_410.img <span class="nv">of</span><span class="o">=</span>/dev/mmcblk0p1 <span class="nv">bs</span><span class="o">=</span>4K
 </pre></div>
 <p>成功后，我又运行了另外几个命令以免还是不能重启，有的命令根本就没执行成功，可能要看具体的情况了：</p>
@@ -184,18 +184,18 @@ rm /var/local/system/.framework_retries
 </div>
 <div class="section" id="id3">
 <h2><a class="toc-backref" href="#id10">5. 完成</a></h2>
-<p>这些都弄完了，长按电源键重启Kindle，终于恢复了。</p>
+<p>这些都弄完了，长按电源键重启 Kindle，终于恢复了。</p>
 </div>
 
 
 
                 <p id="post-share-links">
     Like this post? Share on:
-    <a href="https://twitter.com/intent/tweet?text=Kindle4%E4%BF%AE%E7%A0%96%E8%AE%B0&url=https%3A//blog.gocalf.com/fix-bricked-kindle4&via=calfzhou&hashtags=kindle" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="https://twitter.com/intent/tweet?text=Kindle%204%20%E4%BF%AE%E7%A0%96%E8%AE%B0&url=https%3A//blog.gocalf.com/fix-bricked-kindle4&via=calfzhou&hashtags=kindle" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//blog.gocalf.com/fix-bricked-kindle4" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="mailto:?subject=Kindle4%E4%BF%AE%E7%A0%96%E8%AE%B0&amp;body=https%3A//blog.gocalf.com/fix-bricked-kindle4" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=Kindle%204%20%E4%BF%AE%E7%A0%96%E8%AE%B0&amp;body=https%3A//blog.gocalf.com/fix-bricked-kindle4" target="_blank" title="Share via Email">Email</a>
     </p>
 
             
@@ -260,8 +260,8 @@ rm /var/local/system/.framework_retries
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="https://blog.gocalf.com/excel-find-from-right" title="Previous: Excel从右向左查找">Excel从右向左查找</a></li>
-                <li class="next-article"><a href="https://blog.gocalf.com/wordpress-to-pelican" title="Next: 博客从WordPress迁移到Pelican">博客从WordPress迁移到Pelican</a> »</li>
+                <li class="previous-article">« <a href="https://blog.gocalf.com/excel-find-from-right" title="Previous: Excel 从右向左查找">Excel 从右向左查找</a></li>
+                <li class="next-article"><a href="https://blog.gocalf.com/wordpress-to-pelican" title="Next: 博客从 WordPress 迁移到 Pelican">博客从 WordPress 迁移到 Pelican</a> »</li>
             </ul>
             </nav>
             </aside>

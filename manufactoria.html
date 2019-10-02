@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="前几天在Matrix67的博客里看到了这个益智小游戏：Manufactoria，抽空玩了玩，虽然关卡不算多，但非常有趣。这是个程序设计类的游戏，感觉就像是个状态机吧（有限自动机？），从纸带上读取数据，具有分支和写数据的功能，利用简单的几种原件组装成一台可以识别特定模式或者完成指定运算的机器。
+        <meta name="description" content="前几天在 Matrix67 的博客里看到了这个益智小游戏：Manufactoria，抽空玩了玩，虽然关卡不算多，但非常有趣。这是个程序设计类的游戏，感觉就像是个状态机吧（有限自动机？），从纸带上读取数据，具有分支和写数据的功能，利用简单的几种原件组装成一台可以识别特定模式或者完成指定运算的机器。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
@@ -16,15 +16,15 @@
 
 <meta property="og:title" content="自动机编程游戏：Manufactoria（流水线编程） "/>
 <meta property="og:url" content="https://blog.gocalf.com/manufactoria" />
-<meta property="og:description" content="前几天在Matrix67的博客里看到了这个益智小游戏：Manufactoria，抽空玩了玩，虽然关卡不算多，但非常有趣。这是个程序设计类的游戏，感觉就像是个状态机吧（有限自动机？），从纸带上读取数据，具有分支和写数据的功能，利用简单的几种原件组装成一台可以识别特定模式或者完成指定运算的机器。" />
+<meta property="og:description" content="前几天在 Matrix67 的博客里看到了这个益智小游戏：Manufactoria，抽空玩了玩，虽然关卡不算多，但非常有趣。这是个程序设计类的游戏，感觉就像是个状态机吧（有限自动机？），从纸带上读取数据，具有分支和写数据的功能，利用简单的几种原件组装成一台可以识别特定模式或者完成指定运算的机器。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2011-11-03T21:42:00+08:00" />
 <meta property="og:article:modified_time" content="2011-11-03T21:42:00+08:00" />
 <meta name="twitter:title" content="自动机编程游戏：Manufactoria（流水线编程） ">
-<meta name="twitter:description" content="前几天在Matrix67的博客里看到了这个益智小游戏：Manufactoria，抽空玩了玩，虽然关卡不算多，但非常有趣。这是个程序设计类的游戏，感觉就像是个状态机吧（有限自动机？），从纸带上读取数据，具有分支和写数据的功能，利用简单的几种原件组装成一台可以识别特定模式或者完成指定运算的机器。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/11/manufactoria-logo.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/11/manufactoria-logo.png" >
+<meta name="twitter:description" content="前几天在 Matrix67 的博客里看到了这个益智小游戏：Manufactoria，抽空玩了玩，虽然关卡不算多，但非常有趣。这是个程序设计类的游戏，感觉就像是个状态机吧（有限自动机？），从纸带上读取数据，具有分支和写数据的功能，利用简单的几种原件组装成一台可以识别特定模式或者完成指定运算的机器。">
+<meta property="og:image" content="https://blog.gocalf.com/images/2011/11/manufactoria-logo.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2011/11/manufactoria-logo.png" >
 
         <title>自动机编程游戏：Manufactoria（流水线编程）  · GoCalf Blog
 </title>
@@ -102,7 +102,7 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
             
-            <p>前几天在<a class="reference external" href="http://www.matrix67.com/blog/">Matrix67</a>的博客里看到了这个益智小游戏：<a class="reference external" href="http://www.matrix67.com/blog/archives/3306">Manufactoria</a>，抽空玩了玩，虽然关卡不算多，但非常有趣。</p>
+            <p>前几天在 <a class="reference external" href="http://www.matrix67.com/blog/">Matrix67</a> 的博客里看到了这个益智小游戏：<a class="reference external" href="http://www.matrix67.com/blog/archives/3306">Manufactoria</a>，抽空玩了玩，虽然关卡不算多，但非常有趣。</p>
 <p>这是个程序设计类的游戏，感觉就像是个状态机吧（有限自动机？），从纸带上读取数据，具有分支和写数据的功能，利用简单的几种元件组装成一台可以识别特定模式或者完成指定运算的机器。</p>
 <!-- more -->
 <p>游戏的背景大概是一家工业机器人（Industrial
@@ -110,16 +110,16 @@ Robotics）生产厂请你（机器人工程师，Robotics
 Engineer）来测试和修复他们制造的机器人，所谓的“测试”就是对机器人内部纸带上的红蓝色点进行检测，判断其是否满足指定的模式；“修复”就是对纸带上的红蓝色点进行处理或者运算，产生指定的结果。这个游戏还支持自定义关卡，看到过有人提出求最大公约数之类的问题。</p>
 <p>不知道别人是怎么思考的，反正我是先画想好用什么算法，然后在纸上画状态图把细节尤其是边界条件考虑清楚，然后开始布局，通过验证之后再不断地优化（减少使用的元件数量）。</p>
 <p>开头几关非常简单，玩了七八关之后，每开启新的一关就在想，这怎么可能实现啊，但解决了之后又发现其实很简单。主要还是开始没有适应它的这种工作方式吧。</p>
-<p>我的建议是每个程序员都应该玩一下这个游戏，我甚至考虑可以把它用在第一轮面试上，跟candidate随便聊聊天，让他玩一两关看看他的思路如何。</p>
-<p>Matrix67的这篇博客是一年多之前发的了，后来我又找到了这个游戏的<a class="reference external" href="http://pleasingfungus.com/">官方网站</a>（<a class="reference external" href="http://pleasingfungus.com/#!/Manufactoria">http://pleasingfungus.com/#!/Manufactoria</a>），发现游戏版本更新了，细节上有不少改进，增加了不少测试用例，统计出来的运行时间也有所变化（另外要注意的是，在新版本中如果想让两个传送带正交于某个方格，需要按Shift键，否则就会替换）。</p>
-<embed height="480" pluginspage="http://www.macromedia.com/go/getflashplayer" quality="high" src="http://pleasingfungus.com/Manufactoria/Manufactoria.swf" type="application/x-shockwave-flash" width="640"></embed><p>（如果上面的Flash无法加载，可以尝试我在这里上传的：<a class="reference external" href="https://blog.gocalf.com/assets/2011/11/Manufactoria.swf">Manufactoria.swf</a>。）</p>
+<p>我的建议是每个程序员都应该玩一下这个游戏，我甚至考虑可以把它用在第一轮面试上，跟 candidate 随便聊聊天，让他玩一两关看看他的思路如何。</p>
+<p>Matrix67 的这篇博客是一年多之前发的了，后来我又找到了这个游戏的 <a class="reference external" href="http://pleasingfungus.com/">官方网站</a>（<a class="reference external" href="http://pleasingfungus.com/#!/Manufactoria">http://pleasingfungus.com/#!/Manufactoria</a>），发现游戏版本更新了，细节上有不少改进，增加了不少测试用例，统计出来的运行时间也有所变化（另外要注意的是，在新版本中如果想让两个传送带正交于某个方格，需要按 Shift 键，否则就会替换）。</p>
+<embed height="480" pluginspage="http://www.macromedia.com/go/getflashplayer" quality="high" src="http://pleasingfungus.com/Manufactoria/Manufactoria.swf" type="application/x-shockwave-flash" width="640"></embed><p>（如果上面的 Flash 无法加载，可以尝试我在这里上传的：<a class="reference external" href="https://blog.gocalf.com/assets/2011/11/Manufactoria.swf">Manufactoria.swf</a>。）</p>
 <p>分享一下我在各关的解法（进入一个关卡，点击磁盘图标，在文本框中粘贴解法代码即可；注意贴入的代码中的关卡序号不需要与当前所在的关卡序号一致，游戏会自动跳转到正确的关卡，除非你还没有激活那一关）。另外很多关卡都有无数种解法，我一般会尽量优化使之元件个数最少（比较测试时间没有太大意义，一旦下一个版本的测试用例变化，测试时间就不一样了）。</p>
-<p>下面这张图是游戏当前版本（v1.30）的关卡分布图，为了方便查找，我特意用红色字体添加了关卡序号在每关图标的左上角处。其中第29到31关是隐藏关，要通过了第24关才能显示出来。</p>
+<p>下面这张图是游戏当前版本（v1.30）的关卡分布图，为了方便查找，我特意用红色字体添加了关卡序号在每关图标的左上角处。其中第 29 到 31 关是隐藏关，要通过了第 24 关才能显示出来。</p>
 <div class="figure">
 <img alt="manufactoria-main" src="https://blog.gocalf.com/images/2011/11/manufactoria-main.png" />
-<p class="caption">Manufactoria主界面（添加了关卡序号）</p>
+<p class="caption">Manufactoria 主界面（添加了关卡序号）</p>
 </div>
-<p>我的各关卡解决方案（第30和31关没有时间优化了，其他关都是尽可能优化过的）：</p>
+<p>我的各关卡解决方案（第 30 和 31 关没有时间优化了，其他关都是尽可能优化过的）：</p>
 <div class="highlight"><pre><span></span>?lvl=1&amp;code=c12:6f3;c12:7f3;c12:8f3;
 ?lvl=2&amp;code=c12:8f3;p12:6f2;c12:7f3;
 ?lvl=3&amp;code=p12:5f3;c13:5f0;p11:6f2;c11:5f3;p11:8f2;c11:7f3;c11:9f3;c11:10f2;
@@ -159,87 +159,87 @@ Engineer）来测试和修复他们制造的机器人，所谓的“测试”就
 <p>～～～～～～～～～～ 分隔符&nbsp;～～～～～～～～～～</p>
 <dl class="docutils">
 <dt>Level 1: Robotoast! ACCEPT: Move robots from the entrance (top) to the exit (bottom)!</dt>
-<dd>没有任何悬念，用3个元件，耗时32764（注意这是v1.30里的计时单位，在老版本中大概是0:02）。</dd>
+<dd>没有任何悬念，用 3 个元件，耗时 32764（注意这是 v1.30 里的计时单位，在老版本中大概是 0:02）。</dd>
 <dt>Level 2: Robocoffee! If a robot's string starts with blue, accept. Otherwise, reject!</dt>
-<dd>要求接受以蓝色开头的机器人。也没有任何可以商量的，3个元件，耗时24572。</dd>
+<dd>要求接受以蓝色开头的机器人。也没有任何可以商量的，3 个元件，耗时 24572。</dd>
 <dt>Level 3: Robolamp! ACCEPT: if there are three or more blues!</dt>
-<dd>要求接受纸带中有至少3个蓝点的机器人。8个元件，112570时间。</dd>
+<dd>要求接受纸带中有至少 3 个蓝点的机器人。8 个元件，112570 时间。</dd>
 <dt>Level 4: Robofish! ACCEPT: if a robot contains NO red!</dt>
-<dd>要求接受没有红点的机器人。4个元件，32764时间。</dd>
+<dd>要求接受没有红点的机器人。4 个元件，32764 时间。</dd>
 <dt>Level 5: Robobugs! ACCEPT: if the tape has only alternating colors!</dt>
-<dd>如果纸带上的颜色是交替出现的（没有连续的红色或蓝色）就接受。6个元件，32900时间。</dd>
+<dd>如果纸带上的颜色是交替出现的（没有连续的红色或蓝色）就接受。6 个元件，32900 时间。</dd>
 <dt>Level 6: Robocats! ACCEPT: if the tape ends with two blues!</dt>
-<dd>如果最后两个颜色是蓝色则接受。11个元件，182272时间。</dd>
+<dd>如果最后两个颜色是蓝色则接受。11 个元件，182272 时间。</dd>
 <dt>Level 7: Robobears! ACCEPT: Strings that begin and end with the same color!</dt>
-<dd>如果第一个和最后一个色点颜色相同则接受。注意没有色点和只有一个色点这两种特殊情况。15个元件，176136时间。</dd>
+<dd>如果第一个和最后一个色点颜色相同则接受。注意没有色点和只有一个色点这两种特殊情况。15 个元件，176136 时间。</dd>
 <dt>Level 8: RC Cars! OUTPUT: The input, but with the first symbol at the end!</dt>
-<dd>把第一个色点放到最后去。7个元件，49144时间。</dd>
+<dd>把第一个色点放到最后去。7 个元件，49144 时间。</dd>
 <dt>Leve 9: Robocars! OUTPUT: Replace blue with green, and red with yellow!</dt>
-<dd>把蓝色和红色分别换成了绿色和黄色。7个元件，229374时间。</dd>
+<dd>把蓝色和红色分别换成了绿色和黄色。7 个元件，229374 时间。</dd>
 <dt>Level 10: Robostilts! OUTPUT: Put a green at the beginning and a yellow at the end!</dt>
-<dd>在色带的最前端放一个绿色，末尾处放一个黄色。毫无悬念，9个元件，53244时间。</dd>
+<dd>在色带的最前端放一个绿色，末尾处放一个黄色。毫无悬念，9 个元件，53244 时间。</dd>
 <dt>Level 11: ACCEPT: With blue as 1 and red as 0, accept odd binary strings!</dt>
-<dd>只接受奇数数字，也就是最后一位是蓝色的。至于空色带就无所谓了，严格来讲应该是不接受，但至少这个版本里没有这样的测试数据。8个元件，167931时间。</dd>
+<dd>只接受奇数数字，也就是最后一位是蓝色的。至于空色带就无所谓了，严格来讲应该是不接受，但至少这个版本里没有这样的测试数据。8 个元件，167931 时间。</dd>
 <dt>Level 12: Soldiers! OUTPUT: With blue as 1 and red as 0, multiply by 8!</dt>
-<dd>要把输入的数字乘以8，程序员对这个应该是得心应手了，再末尾添加三个0（红色）即可。7个元件，65520时间。</dd>
+<dd>要把输入的数字乘以 8，程序员对这个应该是得心应手了，再末尾添加三个 0（红色）即可。7 个元件，65520 时间。</dd>
 <dt>Level 13: Officers! OUTPUT: With blue as 1 and red as 0, add 1 to the binary string!</dt>
-<dd><p class="first">给输入的数字做加1操作。开始的时候感觉是无法完成的，但仔细想想就很简单。加1操作，从二进制的角度来看，就是把末尾的1都变成0，最后一个0变成1。主要的难点是要从最后一位往前加，所以要不端地循环，每次都处理最后一个没有处理过的色点。另外在优化的时候发现，可以先把末尾的1变成黄色，这样就不需要再另外使用分隔符号了。分隔符用来标记字串的中止以及当前处理到的位置。</p>
-<p class="last">19个元件，81580时间。</p>
+<dd><p class="first">给输入的数字做加 1 操作。开始的时候感觉是无法完成的，但仔细想想就很简单。加 1 操作，从二进制的角度来看，就是把末尾的 1 都变成 0，最后一个 0 变成 1。主要的难点是要从最后一位往前加，所以要不端地循环，每次都处理最后一个没有处理过的色点。另外在优化的时候发现，可以先把末尾的 1 变成黄色，这样就不需要再另外使用分隔符号了。分隔符用来标记字串的中止以及当前处理到的位置。</p>
+<p class="last">19 个元件，81580 时间。</p>
 </dd>
-<dt>Level 14: Generals! OUTPUT: Substract 1 from the binary string! (Input &gt;= 1)</dt>
-<dd><p class="first">减1操作，跟第13关其实是一样的，红色和蓝色互换就好了。19个元件，79750时间。</p>
-<p class="last">但这一关还可以再稍微调整一下布局，变成18个元件，81686时间。</p>
+<dt>Level 14: Generals! OUTPUT: Substract 1 from the binary string! (Input&gt;= 1)</dt>
+<dd><p class="first">减 1 操作，跟第 13 关其实是一样的，红色和蓝色互换就好了。19 个元件，79750 时间。</p>
+<p class="last">但这一关还可以再稍微调整一下布局，变成 18 个元件，81686 时间。</p>
 </dd>
 <dt>Level 15: Robotanks! ACCEPT: With blue as 1 and red as 0, accept binary strings &gt; 15!</dt>
-<dd>要求接受大于15的数字。也就是要求大于或等于16，即1后面至少有四个二进制位。于是就是要判断第一个蓝色后面是否至少有四个色点，不论颜色。25个元件，19958时间。</dd>
+<dd>要求接受大于 15 的数字。也就是要求大于或等于 16，即 1 后面至少有四个二进制位。于是就是要判断第一个蓝色后面是否至少有四个色点，不论颜色。25 个元件，19958 时间。</dd>
 <dt>Level 16: Robospies! ACCEPT: With blue as 1 and red as 0, accept natural powers of four!</dt>
-<dd>要求接受4的幂，也就是第一个蓝色后面必须恰好有偶数（包括0）个红色色点。注意要忽略掉开头的红色。8个元件，57372时间。</dd>
+<dd>要求接受 4 的幂，也就是第一个蓝色后面必须恰好有偶数（包括 0）个红色色点。注意要忽略掉开头的红色。8 个元件，57372 时间。</dd>
 <dt>Level 17: Androids! ACCEPT: Some number of blue, then the same number of red!</dt>
-<dd>要求纸带上的色点必须是若干个蓝色后面跟着同样数量的红色。开始也是觉得很难，主要是没有办法计数。当然解决办法就是一次一次循环，每次循环中判断一对红蓝色点。对于这种需要循环处理的问题，我一般都用一个黄色作为分隔符作为字符串的终结标记。12个元件，63041时间。</dd>
+<dd>要求纸带上的色点必须是若干个蓝色后面跟着同样数量的红色。开始也是觉得很难，主要是没有办法计数。当然解决办法就是一次一次循环，每次循环中判断一对红蓝色点。对于这种需要循环处理的问题，我一般都用一个黄色作为分隔符作为字符串的终结标记。12 个元件，63041 时间。</dd>
 <dt>Level 18: Robo-children! ACCEPT: An equal number of blue and red, in any order!</dt>
-<dd>判断色带上蓝色和红色的数量是否恰好相等。依旧是每次循环检查一对。23个元件，266582时间。</dd>
+<dd>判断色带上蓝色和红色的数量是否恰好相等。依旧是每次循环检查一对。23 个元件，266582 时间。</dd>
 <dt>Level 19: Police! OUTPUT: Put a yellow in the middle of the (even-length) string!</dt>
-<dd><p class="first">输入的色带上有偶数个色点（不用判断是否满足），要求在中间位置插入一个黄色。这一关开始想了好久，排满了整个棋盘才搞定，后来一直优化到40个元件。想到了两种方案，一种是在颜色串的首尾各放一个色点，每次循环的时候让两个色点分别向中间移动一格，直到二者相遇。另一种是用起始位置放两个色点，每次循环的时候一个色点往后移动一格，另一个色点往后移动两个。我最后的优化版是采用第二种方法的。40个元件，291584时间。</p>
+<dd><p class="first">输入的色带上有偶数个色点（不用判断是否满足），要求在中间位置插入一个黄色。这一关开始想了好久，排满了整个棋盘才搞定，后来一直优化到 40 个元件。想到了两种方案，一种是在颜色串的首尾各放一个色点，每次循环的时候让两个色点分别向中间移动一格，直到二者相遇。另一种是用起始位置放两个色点，每次循环的时候一个色点往后移动一格，另一个色点往后移动两个。我最后的优化版是采用第二种方法的。40 个元件，291584 时间。</p>
 <p class="last">如果输入的色带上有奇数个色点，那我的算法会在中间色点的后方插入黄色。</p>
 </dd>
 <dt>Level 20: Judiciary! ACCEPT: (Even-length) strings that repeat midway through!</dt>
-<dd><p class="first">判断色带上的色点（偶数个）是否恰好前半部分与后半部分的排列完全一样。比如如果前半部分是红蓝红红蓝，后半部分也必须是红蓝红红蓝。这一关我是直接利用了第19关和第29关（恰好我是先完成了第29关才回过头玩的这关），即先给这个颜色串的中间位置添加一个黄色（直接照搬第19关的布局），然后利用第29关的布局判断黄色分割的两个子串是否完全一致。</p>
-<p class="last">52个元件，319428时间。</p>
+<dd><p class="first">判断色带上的色点（偶数个）是否恰好前半部分与后半部分的排列完全一样。比如如果前半部分是红蓝红红蓝，后半部分也必须是红蓝红红蓝。这一关我是直接利用了第 19 关和第 29 关（恰好我是先完成了第 29 关才回过头玩的这关），即先给这个颜色串的中间位置添加一个黄色（直接照搬第 19 关的布局），然后利用第 29 关的布局判断黄色分割的两个子串是否完全一致。</p>
+<p class="last">52 个元件，319428 时间。</p>
 </dd>
 <dt>Level 21: Teachers! ACCEPT: X blue, then X red, then X more blue, for any X!</dt>
-<dd><p class="first">要求色带上恰好是有若干个蓝色，跟着同样数目的红色和另外同样数目个蓝色。也可以是一个色点都没有。跟第17关的算法完全一样，只要再考虑考虑布局即可。</p>
-<p class="last">20个元件，76590时间。</p>
+<dd><p class="first">要求色带上恰好是有若干个蓝色，跟着同样数目的红色和另外同样数目个蓝色。也可以是一个色点都没有。跟第 17 关的算法完全一样，只要再考虑考虑布局即可。</p>
+<p class="last">20 个元件，76590 时间。</p>
 </dd>
 <dt>Level 22: Politicians! ACCEPT: If there are exactly twice as many blues as red!</dt>
-<dd><p class="first">判断色带上蓝色是否恰好是红色的两倍。这一关其实跟第18关没有太大区别，一个简单高效的解决办法就是先把蓝色减半，然套用第18关的布局来检测减半后的蓝色是否与红色数目相等。</p>
+<dd><p class="first">判断色带上蓝色是否恰好是红色的两倍。这一关其实跟第 18 关没有太大区别，一个简单高效的解决办法就是先把蓝色减半，然套用第 18 关的布局来检测减半后的蓝色是否与红色数目相等。</p>
 <p>给蓝色减半的时候，比较传统的办法是用一个黄色作为色串终止符，从头开始，每读到一个红色就写一个红色，读到两个蓝色之后写一个蓝色。或着稍微变化一下，不用额外的黄色作终止符，而是在遍历的时候直接用黄色替换红色，用一个绿色替换两个蓝色。</p>
-<p class="last">用29个元件，296870时间。</p>
+<p class="last">用 29 个元件，296870 时间。</p>
 </dd>
 <dt>Level 23: Academics! OUTPUT: Reverse the input string!</dt>
 <dd><p class="first">把输入的颜色串反转。基本的方法就是把第一个色点放到色串的最后，再把第二个色点放到倒数第二位。除了用一个黄色标记色串的终止外，在用一个绿色分割尚未处理的色串和部分反转了的色串。</p>
-<p class="last">用25个元素，227328时间。</p>
+<p class="last">用 25 个元素，227328 时间。</p>
 </dd>
 <dt>Level 24: Engineers! ACCEPT: Perfectly symmetrical strings!</dt>
-<dd>判断颜色串是否是对称的。也比较简单啦，每次用第一个色点做分支，在每个分支里判断最后一个色点，如果跟第一个一样则继续，否则丢弃。用25个元件，47696时间。</dd>
+<dd>判断颜色串是否是对称的。也比较简单啦，每次用第一个色点做分支，在每个分支里判断最后一个色点，如果跟第一个一样则继续，否则丢弃。用 25 个元件，47696 时间。</dd>
 <dt>Level 25: Roborockets! OUTPUT: Swap blue for red, and red for blue!</dt>
-<dd>把红蓝颜色互换。毫无悬念，7个元件，229374时间。</dd>
+<dd>把红蓝颜色互换。毫无悬念，7 个元件，229374 时间。</dd>
 <dt>Level 26: Roboplanes! OUTPUT: All of the blue, but none of the red!</dt>
-<dd>保留输入中的所有蓝色，丢掉红色。跟第25关唯一的区别就是遇到红色后不再写回到色带上。7个元件，22526时间。</dd>
+<dd>保留输入中的所有蓝色，丢掉红色。跟第 25 关唯一的区别就是遇到红色后不再写回到色带上。7 个元件，22526 时间。</dd>
 <dt>Level 27: Rocket Planes! OUTPUT: The input, but with all blues moved to the front!</dt>
 <dd><p class="first">把输入中的蓝色都移动到红色的前面。</p>
-<p>这一关有点儿意思，我最后设计的方法是直接利用第23关反转输入的方法。在第23关的布局中，中轴线左边是针对第一个是蓝色的处理，右边是针对第一个是红色的处理。在这一关里依旧保留右半边，但把左半边改成遇到蓝色就直接写一个蓝色回去。最后的效果就是不断地把红色往最后写，直到红色全都聚集到后半部分。</p>
-<p class="last">用16个元件，12390时间。</p>
+<p>这一关有点儿意思，我最后设计的方法是直接利用第 23 关反转输入的方法。在第 23 关的布局中，中轴线左边是针对第一个是蓝色的处理，右边是针对第一个是红色的处理。在这一关里依旧保留右半边，但把左半边改成遇到蓝色就直接写一个蓝色回去。最后的效果就是不断地把红色往最后写，直到红色全都聚集到后半部分。</p>
+<p class="last">用 16 个元件，12390 时间。</p>
 </dd>
 <dt>Level 28: Robomecha! OUTPUT: The input, but with the last symbol moved to the front!</dt>
-<dd>把最后一个色点放到最前面。很简单，19个元件，606214时间。</dd>
+<dd>把最后一个色点放到最前面。很简单，19 个元件，606214 时间。</dd>
 <dt>Level 29: Seraphim! ACCEPT: Two identical strings, separated by a green!</dt>
-<dd>判断由绿色点分开的两个色串是否完全相等。也挺简单的，补一个绿色作为终止符，取出色串一的第一个颜色，把其他的写回纸带，判断色串二的第一个颜色跟它是否一样；这时候两个色串都去掉了第一个颜色，而且刚好色串二跟色串一交换了顺序，再重复用同样的方法判断下去即可。21个元件，166182时间。</dd>
+<dd>判断由绿色点分开的两个色串是否完全相等。也挺简单的，补一个绿色作为终止符，取出色串一的第一个颜色，把其他的写回纸带，判断色串二的第一个颜色跟它是否一样；这时候两个色串都去掉了第一个颜色，而且刚好色串二跟色串一交换了顺序，再重复用同样的方法判断下去即可。21 个元件，166182 时间。</dd>
 <dt>Level 30: Ophanim! ACCEPT: Read the tape as two numbers, A and B, split by a green: accept if A &gt; B!</dt>
 <dd><p class="first">由绿色点分开的两个色串，从二进制数字的角度判断是否前一个数大于后一个数。</p>
-<p class="last">我用的方法是求B - A，当然不用记录完整的结果，只要记录借位状态即可。不过我没有再进行优化，现在用了88个元件，60617时间。估计能优化掉一小半的元件。</p>
+<p class="last">我用的方法是求 B - A，当然不用记录完整的结果，只要记录借位状态即可。不过我没有再进行优化，现在用了 88 个元件，60617 时间。估计能优化掉一小半的元件。</p>
 </dd>
 <dt>Level 31: Metatron! OUTPUT: Read the tape as two numbers, A and B, split by a green: output A + B!</dt>
-<dd>计算被绿色分开的两个数字之和。基本上就是从最低位逐位加上去。同样是还没有优化，应该能减少一半以上的元件。现在用120个元件，108630时间。</dd>
+<dd>计算被绿色分开的两个数字之和。基本上就是从最低位逐位加上去。同样是还没有优化，应该能减少一半以上的元件。现在用 120 个元件，108630 时间。</dd>
 </dl>
 
 
@@ -315,10 +315,10 @@ Engineer）来测试和修复他们制造的机器人，所谓的“测试”就
 <section>
     <h2>Keep Reading</h2>
 <ul class="related-posts-list">
-<li><a href="https://blog.gocalf.com/puzzle-wwwdot-google-dotcom" title="数学趣题WWWDOT-GOOGLE=DOTCOM">数学趣题WWWDOT-GOOGLE=DOTCOM</a></li>
+<li><a href="https://blog.gocalf.com/puzzle-wwwdot-google-dotcom" title="数学趣题 WWWDOT-GOOGLE=DOTCOM">数学趣题 WWWDOT-GOOGLE=DOTCOM</a></li>
 <li><a href="https://blog.gocalf.com/clock-hands-relative-motion" title="时针，分针，相对运动">时针，分针，相对运动</a></li>
-<li><a href="https://blog.gocalf.com/get-46-from-11-12-13-and-14" title="让11、12、13、14通过加减乘除运算得到46">让11、12、13、14通过加减乘除运算得到46</a></li>
-<li><a href="https://blog.gocalf.com/chromatron" title="最经典的光线反射游戏Chromatron">最经典的光线反射游戏Chromatron</a></li>
+<li><a href="https://blog.gocalf.com/get-46-from-11-12-13-and-14" title="让 11、12、13、14 通过加减乘除运算得到 46">让 11、12、13、14 通过加减乘除运算得到 46</a></li>
+<li><a href="https://blog.gocalf.com/chromatron" title="最经典的光线反射游戏 Chromatron">最经典的光线反射游戏 Chromatron</a></li>
 <li><a href="https://blog.gocalf.com/self-descriptive-sentence" title="自描述语句">自描述语句</a></li>
 </ul>
 <hr />

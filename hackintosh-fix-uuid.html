@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="前几天在写app的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行genstrings命令来扫描源代码中NSLocalizedString宏所使用到的文字。由于使用的是黑苹果，在运行genstrings时遇到了“Unable to Determine UUID”的错误，解决方法倒也容易。
+        <meta name="description" content="前几天在写 app 的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行 genstrings 命令来扫描源代码中 NSLocalizedString 宏所使用到的文字。由于使用的是黑苹果，在运行 genstrings 时遇到了“Unable to Determine UUID”的错误，解决方法倒也容易。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
@@ -14,19 +14,19 @@
 
 <meta name="keywords" content="Hackintosh, 操作系统, genstrings, Localizable.strings, Unable to Determine UUID, UUID, 黑苹果" />
 
-<meta property="og:title" content="解决黑苹果Unable to Determine UUID错误 "/>
+<meta property="og:title" content="解决黑苹果 Unable to Determine UUID 错误 "/>
 <meta property="og:url" content="https://blog.gocalf.com/hackintosh-fix-uuid" />
-<meta property="og:description" content="前几天在写app的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行genstrings命令来扫描源代码中NSLocalizedString宏所使用到的文字。由于使用的是黑苹果，在运行genstrings时遇到了“Unable to Determine UUID”的错误，解决方法倒也容易。" />
+<meta property="og:description" content="前几天在写 app 的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行 genstrings 命令来扫描源代码中 NSLocalizedString 宏所使用到的文字。由于使用的是黑苹果，在运行 genstrings 时遇到了“Unable to Determine UUID”的错误，解决方法倒也容易。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2012-03-02T23:09:00+08:00" />
 <meta property="og:article:modified_time" content="2012-03-02T23:09:00+08:00" />
-<meta name="twitter:title" content="解决黑苹果Unable to Determine UUID错误 ">
-<meta name="twitter:description" content="前几天在写app的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行genstrings命令来扫描源代码中NSLocalizedString宏所使用到的文字。由于使用的是黑苹果，在运行genstrings时遇到了“Unable to Determine UUID”的错误，解决方法倒也容易。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2012/03/uuid-icon.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2012/03/uuid-icon.png" >
+<meta name="twitter:title" content="解决黑苹果 Unable to Determine UUID 错误 ">
+<meta name="twitter:description" content="前几天在写 app 的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行 genstrings 命令来扫描源代码中 NSLocalizedString 宏所使用到的文字。由于使用的是黑苹果，在运行 genstrings 时遇到了“Unable to Determine UUID”的错误，解决方法倒也容易。">
+<meta property="og:image" content="https://blog.gocalf.com/images/2012/03/uuid-icon.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2012/03/uuid-icon.png" >
 
-        <title>解决黑苹果Unable to Determine UUID错误  · GoCalf Blog
+        <title>解决黑苹果 Unable to Determine UUID 错误  · GoCalf Blog
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
@@ -93,7 +93,7 @@
     <header class="page-header span10 offset2">
         <h1>
             <a href="https://blog.gocalf.com/hackintosh-fix-uuid">
-                解决黑苹果Unable to Determine UUID错误
+                解决黑苹果 Unable to Determine UUID 错误
             </a>
         </h1>
     </header>
@@ -102,20 +102,20 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
             
-            <p>前几天在写app的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行genstrings命令来扫描源代码中NSLocalizedString宏所使用到的文字。由于使用的是黑苹果（安装过程参见<a class="reference external" href="https://blog.gocalf.com/dell-e6400-install-mac">Dell E6400安装MacOS雪豹10.6</a>和<a class="reference external" href="https://blog.gocalf.com/dell-e6400-mac-10-6-8">Dell E6400升级到MacOS 10.6.8</a>），在运行genstrings时遇到了“Unable
+            <p>前几天在写 app 的最后阶段要进行本地化（localization），其中要做的一件事就是创建语言文件（Localizable.strings）。要在控制台运行 genstrings 命令来扫描源代码中 NSLocalizedString 宏所使用到的文字。由于使用的是黑苹果（安装过程参见 <a class="reference external" href="https://blog.gocalf.com/dell-e6400-install-mac">Dell E6400 安装 MacOS 雪豹 10.6</a> 和 <a class="reference external" href="https://blog.gocalf.com/dell-e6400-mac-10-6-8">Dell E6400 升级到 MacOS 10.6.8</a>），在运行 genstrings 时遇到了“Unable
 to Determine UUID”的错误，解决方法倒也容易。</p>
 <!-- more -->
-<p>运行genstrings的语句是：</p>
+<p>运行 genstrings 的语句是：</p>
 <div class="highlight"><pre><span></span>genstrings ./Classes/*.m
 </pre></div>
 <p>得到了这样的错误信息：</p>
 <div class="highlight"><pre><span></span>genstrings[3851:10b] _CFGetHostUUIDString: unable to determine UUID for host. Error: 35
 </pre></div>
-<p>虽然想不通这么个小程序为什么需要UUID，但解决方法是：进入目录/Library/Preferences/SystemConfiguration，用root权限修改其中的NetworkInterfaces.plist文件，在控制台的操作命令为：</p>
+<p>虽然想不通这么个小程序为什么需要 UUID，但解决方法是：进入目录 /Library/Preferences/SystemConfiguration，用 root 权限修改其中的 NetworkInterfaces.plist 文件，在控制台的操作命令为：</p>
 <div class="highlight"><pre><span></span><span class="nb">cd</span> /Library/Preferences/SystemConfiguration
 sudo vi NetworkInterfaces.plist
 </pre></div>
-<p>给这个文件中添加一个IEEE80211相关的dict（原本会有其他一些dict，不用管它们），内容如下：</p>
+<p>给这个文件中添加一个 IEEE80211 相关的 dict（原本会有其他一些 dict，不用管它们），内容如下：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -158,11 +158,11 @@ sudo vi NetworkInterfaces.plist
 
                 <p id="post-share-links">
     Like this post? Share on:
-    <a href="https://twitter.com/intent/tweet?text=%E8%A7%A3%E5%86%B3%E9%BB%91%E8%8B%B9%E6%9E%9CUnable%20to%20Determine%20UUID%E9%94%99%E8%AF%AF&url=https%3A//blog.gocalf.com/hackintosh-fix-uuid&via=calfzhou&hashtags=hackintosh" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="https://twitter.com/intent/tweet?text=%E8%A7%A3%E5%86%B3%E9%BB%91%E8%8B%B9%E6%9E%9C%20Unable%20to%20Determine%20UUID%20%E9%94%99%E8%AF%AF&url=https%3A//blog.gocalf.com/hackintosh-fix-uuid&via=calfzhou&hashtags=hackintosh" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//blog.gocalf.com/hackintosh-fix-uuid" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="mailto:?subject=%E8%A7%A3%E5%86%B3%E9%BB%91%E8%8B%B9%E6%9E%9CUnable%20to%20Determine%20UUID%E9%94%99%E8%AF%AF&amp;body=https%3A//blog.gocalf.com/hackintosh-fix-uuid" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=%E8%A7%A3%E5%86%B3%E9%BB%91%E8%8B%B9%E6%9E%9C%20Unable%20to%20Determine%20UUID%20%E9%94%99%E8%AF%AF&amp;body=https%3A//blog.gocalf.com/hackintosh-fix-uuid" target="_blank" title="Share via Email">Email</a>
     </p>
 
             
@@ -227,16 +227,16 @@ sudo vi NetworkInterfaces.plist
 <section>
     <h2>Keep Reading</h2>
 <ul class="related-posts-list">
-<li><a href="https://blog.gocalf.com/dell-e6400-install-mac" title="Dell E6400安装MacOS雪豹10.6">Dell E6400安装MacOS雪豹10.6</a></li>
-<li><a href="https://blog.gocalf.com/dell-e6400-mac-10-6-8" title="Dell E6400升级到MacOS 10.6.8">Dell E6400升级到MacOS 10.6.8</a></li>
+<li><a href="https://blog.gocalf.com/dell-e6400-install-mac" title="Dell E6400 安装 MacOS 雪豹 10.6">Dell E6400 安装 MacOS 雪豹 10.6</a></li>
+<li><a href="https://blog.gocalf.com/dell-e6400-mac-10-6-8" title="Dell E6400 升级到 MacOS 10.6.8">Dell E6400 升级到 MacOS 10.6.8</a></li>
 </ul>
 <hr />
 </section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="https://blog.gocalf.com/chromatron" title="Previous: 最经典的光线反射游戏Chromatron">最经典的光线反射游戏Chromatron</a></li>
-                <li class="next-article"><a href="https://blog.gocalf.com/iphone-dev-resizable-image" title="Next: iOS可拉伸的图片">iOS可拉伸的图片</a> »</li>
+                <li class="previous-article">« <a href="https://blog.gocalf.com/chromatron" title="Previous: 最经典的光线反射游戏 Chromatron">最经典的光线反射游戏 Chromatron</a></li>
+                <li class="next-article"><a href="https://blog.gocalf.com/iphone-dev-resizable-image" title="Next: iOS 可拉伸的图片">iOS 可拉伸的图片</a> »</li>
             </ul>
             </nav>
             </aside>

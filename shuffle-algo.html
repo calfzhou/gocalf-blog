@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="问题描述：假设有一个数组，包含n个元素。现在要重新排列这些数据，要求每个元素被放到任何一个位置的概率都相等（即1/n），并且直接在数组上重排（in place），不要生成新的数组。用O(n)时间、O(1)辅助空间。
+        <meta name="description" content="问题描述：假设有一个数组，包含 n 个元素。现在要重新排列这些数据，要求每个元素被放到任何一个位置的概率都相等（即 1/n），并且直接在数组上重排（in place），不要生成新的数组。用 O(n) 时间、O(1) 辅助空间。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
@@ -16,15 +16,15 @@
 
 <meta property="og:title" content="等概率随机排列数组（洗牌算法） "/>
 <meta property="og:url" content="https://blog.gocalf.com/shuffle-algo" />
-<meta property="og:description" content="问题描述：假设有一个数组，包含n个元素。现在要重新排列这些数据，要求每个元素被放到任何一个位置的概率都相等（即1/n），并且直接在数组上重排（in place），不要生成新的数组。用O(n)时间、O(1)辅助空间。" />
+<meta property="og:description" content="问题描述：假设有一个数组，包含 n 个元素。现在要重新排列这些数据，要求每个元素被放到任何一个位置的概率都相等（即 1/n），并且直接在数组上重排（in place），不要生成新的数组。用 O(n) 时间、O(1) 辅助空间。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2011-09-01T21:58:00+08:00" />
 <meta property="og:article:modified_time" content="2011-09-01T22:01:00+08:00" />
 <meta name="twitter:title" content="等概率随机排列数组（洗牌算法） ">
-<meta name="twitter:description" content="问题描述：假设有一个数组，包含n个元素。现在要重新排列这些数据，要求每个元素被放到任何一个位置的概率都相等（即1/n），并且直接在数组上重排（in place），不要生成新的数组。用O(n)时间、O(1)辅助空间。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/09/cards_shuffle.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/09/cards_shuffle.png" >
+<meta name="twitter:description" content="问题描述：假设有一个数组，包含 n 个元素。现在要重新排列这些数据，要求每个元素被放到任何一个位置的概率都相等（即 1/n），并且直接在数组上重排（in place），不要生成新的数组。用 O(n) 时间、O(1) 辅助空间。">
+<meta property="og:image" content="https://blog.gocalf.com/images/2011/09/cards_shuffle.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2011/09/cards_shuffle.png" >
 
         <title>等概率随机排列数组（洗牌算法）  · GoCalf Blog
 </title>
@@ -103,13 +103,13 @@
         <div class="span8 offset2 article-content">
             
             <p>又是一道跟概率相关的简单问题。话说我的概率学的太差了，趁这个机会也从头开始补习一下。</p>
-<p>问题描述：假设有一个数组，包含n个元素。现在要重新排列这些元素，要求每个元素被放到任何一个位置的概率都相等（即1/n），并且直接在数组上重排（in
-place），不要生成新的数组。用O(n) 时间、O(1)辅助空间。</p>
+<p>问题描述：假设有一个数组，包含 n 个元素。现在要重新排列这些元素，要求每个元素被放到任何一个位置的概率都相等（即 1/n），并且直接在数组上重排（in
+place），不要生成新的数组。用 O(n) 时间、O(1) 辅助空间。</p>
 <!-- more -->
 <p>算法是非常简单了，当然在给出算法的同时，我们也要证明概率满足题目要求。</p>
-<p>先想想如果可以开辟另外一块长度为n的辅助空间时该怎么处理，显然只要对n个元素做n次（不放回的）随机抽取就可以了。先从n个元素中任选一个，放入新空间的第一个位置，然后再从剩下的n-1个元素中任选一个，放入第二个位置，依此类推。</p>
+<p>先想想如果可以开辟另外一块长度为 n 的辅助空间时该怎么处理，显然只要对 n 个元素做 n 次（不放回的）随机抽取就可以了。先从 n 个元素中任选一个，放入新空间的第一个位置，然后再从剩下的 n-1 个元素中任选一个，放入第二个位置，依此类推。</p>
 <p>按照同样的方法，但这次不开辟新的存储空间。第一次被选中的元素就要放入这个数组的第一个位置，但这个位置原来已经有别的（也可能就是这个）元素了，这时候只要把原来的元素跟被选中的元素互换一下就可以了。很容易就避免了辅助空间。</p>
-<p>用Python来写一段简单的程序描述这个算法：</p>
+<p>用 Python 来写一段简单的程序描述这个算法：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -120,20 +120,20 @@ place），不要生成新的数组。用O(n) 时间、O(1)辅助空间。</p>
 
 <span class="k">def</span> <span class="nf">Shuffle</span><span class="p">(</span><span class="n">li</span><span class="p">):</span>
   <span class="n">rand</span> <span class="o">=</span> <span class="n">Random</span><span class="p">()</span>
-  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># 逆序遍历li</span>
+  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># 逆序遍历 li</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">rand</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>              <span class="c1"># 从剩余数据中随机选取一个</span>
     <span class="n">li</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">li</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">li</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">li</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>         <span class="c1"># 将随机选取的元素与当前位置元素互换</span>
 </pre></div>
 </td></tr></table><p>主要的代码仅仅三行而已，浅显易懂。</p>
-<p>来计算一下概率。如果某个元素被放入第i（<span class="math">\(1\leq i\leq n\)</span>）个位置，就必须是在前i - 1次选取中都没有选到它，并且第i次选取是恰好选中它。其概率为：</p>
+<p>来计算一下概率。如果某个元素被放入第 i（<span class="math">\(1\leq i\leq n\)</span>）个位置，就必须是在前 i - 1 次选取中都没有选到它，并且第 i 次选取是恰好选中它。其概率为：</p>
 <div class="math">
 \begin{equation*}
 p_i=\frac{n-1}{n}\times\frac{n-2}{n-1}\times\cdots\times\frac{n-i+1}{n-i+2}\times\frac{1}{n-i+1}=\frac{1}{n}
 \end{equation*}
 </div>
 <p>可见任何元素出现在任何位置的概率都是相等的。</p>
-<p>实际上Python用户一定知道，在Random类中就有现成的shuffle方法，处理方法与我上面的程序是一样的。顺便也贴在这里学习一下。以下代码来自于
-Python 2.5 Lib\random.py：</p>
+<p>实际上 Python 用户一定知道，在 Random 类中就有现成的 shuffle 方法，处理方法与我上面的程序是一样的。顺便也贴在这里学习一下。以下代码来自于
+Python 2.5 <tt class="docutils literal">Lib\random.py</tt>：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>250
 251
 252

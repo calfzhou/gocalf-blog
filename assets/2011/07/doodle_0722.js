@@ -26,7 +26,7 @@ this.M = "";
 var d = c.lastIndexOf(". ");
 if (d >= 1 && !c.charAt(d - 1).match(/[0-9]/))
 this.P = c.substring(0, d), this.M = c.substring(d + 2);
-this.da = "http://www.google.com/search?q=Alexander+Calder&ct=calder11&oi=ddle";
+this.da = "https://www.google.com/search?q=Alexander+Calder&ct=calder11&oi=ddle";
 this.Z = a; this.$ = b; this.u = this.o = 0;
 this.C = !1; this.Q = 0; this.D = this.R = e
 }
@@ -160,7 +160,7 @@ E != e && (clearTimeout(E), E = e);
 var b = document.getElementById("hplogo");
 if (b) {
 var c = document.createElement("img");
-c.src = "http://www.google.com/logos/2011/calder11.png";
+c.src = "https://www.google.com/logos/2011/calder11.png";
 b.appendChild(c)
 }
 }

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在Dropbox和GitHub中存储一些个人文件和代码。但如果涉及到隐私的信息非要放上去就必须要加密处理，今天我说一下如何用git来保存这些隐私信息。
+        <meta name="description" content="网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在 Dropbox 和 GitHub 中存储一些个人文件和代码。但如果涉及到隐私的信息非要放上去就必须要加密处理，今天我说一下如何用 git 来保存这些隐私信息。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
@@ -14,19 +14,19 @@
 
 <meta name="keywords" content="Git, Encrypt, 有用知识, Git Encrypt, gitcrypt, Dropbox, GitHub, Cloud Storage, Privacy, Security" />
 
-<meta property="og:title" content="用Git和云存储保存隐私信息 "/>
+<meta property="og:title" content="用 Git 和云存储保存隐私信息 "/>
 <meta property="og:url" content="https://blog.gocalf.com/git-encrypt" />
-<meta property="og:description" content="网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在Dropbox和GitHub中存储一些个人文件和代码。但如果涉及到隐私的信息非要放上去就必须要加密处理，今天我说一下如何用git来保存这些隐私信息。" />
+<meta property="og:description" content="网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在 Dropbox 和 GitHub 中存储一些个人文件和代码。但如果涉及到隐私的信息非要放上去就必须要加密处理，今天我说一下如何用 git 来保存这些隐私信息。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2013-12-17T14:07:00+08:00" />
 <meta property="og:article:modified_time" content="2013-12-17T14:07:00+08:00" />
-<meta name="twitter:title" content="用Git和云存储保存隐私信息 ">
-<meta name="twitter:description" content="网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在Dropbox和GitHub中存储一些个人文件和代码。但如果涉及到隐私的信息非要放上去就必须要加密处理，今天我说一下如何用git来保存这些隐私信息。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2013/12/git_encrypt.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2013/12/git_encrypt.png" >
+<meta name="twitter:title" content="用 Git 和云存储保存隐私信息 ">
+<meta name="twitter:description" content="网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在 Dropbox 和 GitHub 中存储一些个人文件和代码。但如果涉及到隐私的信息非要放上去就必须要加密处理，今天我说一下如何用 git 来保存这些隐私信息。">
+<meta property="og:image" content="https://blog.gocalf.com/images/2013/12/git_encrypt.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2013/12/git_encrypt.png" >
 
-        <title>用Git和云存储保存隐私信息  · GoCalf Blog
+        <title>用 Git 和云存储保存隐私信息  · GoCalf Blog
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
@@ -93,7 +93,7 @@
     <header class="page-header span10 offset2">
         <h1>
             <a href="https://blog.gocalf.com/git-encrypt">
-                用Git和云存储保存隐私信息
+                用 Git 和云存储保存隐私信息
             </a>
         </h1>
     </header>
@@ -102,23 +102,23 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
             
-            <p>网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在<a class="reference external" href="https://www.dropbox.com/">Dropbox</a>和<a class="reference external" href="https://github.com/">GitHub</a>中存储一些个人文件和代码。隐私问题比较麻烦，会有一些特别隐私的信息（比如银行密码、心情日记等）是不适合直接存放在云端的。但又确实想要借助云平台的便利性，就必须要做加密处理。操作的方法很多，今天我说一下用Git来保存这些隐私信息。</p>
+            <p>网络越来越发达，各式各样的网盘、云存储也走进日常生活，我也开始在 <a class="reference external" href="https://www.dropbox.com/">Dropbox</a> 和 <a class="reference external" href="https://github.com/">GitHub</a> 中存储一些个人文件和代码。隐私问题比较麻烦，会有一些特别隐私的信息（比如银行密码、心情日记等）是不适合直接存放在云端的。但又确实想要借助云平台的便利性，就必须要做加密处理。操作的方法很多，今天我说一下用 Git 来保存这些隐私信息。</p>
 <!-- more -->
-<p>等等，你说什么？还有115网盘、百度云盘、金山快盘等等国内知名云存储，空间又大、速度又快、功能又强。如果你这么觉得，那么再见，bye bye，さようなら。</p>
+<p>等等，你说什么？还有 115 网盘、百度云盘、金山快盘等等国内知名云存储，空间又大、速度又快、功能又强。如果你这么觉得，那么再见，bye bye，さようなら。</p>
 <p>我是不会用国内的云存储存放任何个人相关的东西的，最多放少量的网上下载的图书视频软件之类的。</p>
 <p>好吧，言归正传，说咱们的加密。</p>
-<p>当然你可以用虚拟加密磁盘（比如<a class="reference external" href="http://www.truecrypt.org/">TrueCrypt</a>）之类的工具，或者直接用设置了密码的压缩包（我之前就是这么干的），但是在用起来都还是有些麻烦。比如我那些打了加密压缩包的东西，我就懒得再去看了，尤其懒得修改，实在太麻烦了。</p>
-<p>我选择用Git来保存个人文档的另一个原因是，可以方便地进行版本控制，尤其如果需要在不同的电脑上进行操作，又难以完全实时进行同步的话。而且今天介绍的这个方法可以透明地对指定文件进行加密和解密（transparent encryption），也就是你在本地操作的时候根本不需要每次阅读前都解密，做了修改之后还要再做加密处理。工具会保证最终存在云端的那份是妥善加密的。</p>
+<p>当然你可以用虚拟加密磁盘（比如 <a class="reference external" href="http://www.truecrypt.org/">TrueCrypt</a>）之类的工具，或者直接用设置了密码的压缩包（我之前就是这么干的），但是在用起来都还是有些麻烦。比如我那些打了加密压缩包的东西，我就懒得再去看了，尤其懒得修改，实在太麻烦了。</p>
+<p>我选择用 Git 来保存个人文档的另一个原因是，可以方便地进行版本控制，尤其如果需要在不同的电脑上进行操作，又难以完全实时进行同步的话。而且今天介绍的这个方法可以透明地对指定文件进行加密和解密（transparent encryption），也就是你在本地操作的时候根本不需要每次阅读前都解密，做了修改之后还要再做加密处理。工具会保证最终存在云端的那份是妥善加密的。</p>
 <p>找到了两个实现此功能的工具，分别是</p>
 <ul class="simple">
 <li>git-crypt: <a class="reference external" href="https://www.agwa.name/projects/git-crypt/">https://www.agwa.name/projects/git-crypt/</a></li>
 <li>git-encrypt: <a class="reference external" href="https://github.com/shadowhand/git-encrypt">https://github.com/shadowhand/git-encrypt</a></li>
 </ul>
-<p>分别是用C++和Shell写的。最后我选择了后者，当然以后也许会改变，反正加密解密算法跟工具是分离的，换工具并不会带来太多问题。</p>
+<p>分别是用 C++ 和 Shell 写的。最后我选择了后者，当然以后也许会改变，反正加密解密算法跟工具是分离的，换工具并不会带来太多问题。</p>
 <p>简单介绍一下如何使用，更准确的操作方式就直接去看项目的官方文档好了。</p>
-<p>首先安装，我选择的git-encrypt是用Shell写的，所谓安装就是clone一下它的repo，建立一个符号链接使得通过$PATH可以找到它即可。当然，你的系统中必须安装了OpenSSL，它是加密解密的核心啊。</p>
+<p>首先安装，我选择的 git-encrypt 是用 Shell 写的，所谓安装就是 clone 一下它的 repo，建立一个符号链接使得通过 $PATH 可以找到它即可。当然，你的系统中必须安装了 OpenSSL，它是加密解密的核心啊。</p>
 <p>项目中有两个脚本文件，我只用其中的“gitcrypt”，另一个感觉不太好用。</p>
-<p>假设云端存储用Dropbox，在本地对应的目录是<tt class="docutils literal">~/dropbox</tt>。（以下操作都是针对Linux平台的，Windows的话可以去看一下官方文档）。先进入dropbox目录并创建一个新的git仓库（如果没有一个现成的）：</p>
+<p>假设云端存储用 Dropbox，在本地对应的目录是 <tt class="docutils literal">~/dropbox</tt>。（以下操作都是针对 Linux 平台的，Windows 的话可以去看一下官方文档）。先进入 dropbox 目录并创建一个新的 git 仓库（如果没有一个现成的）：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -128,7 +128,7 @@ mkdir myrepo.git
 git init --bare
 </pre></div>
 </td></tr></table><p>这个仓库将会被同步到云端，任何提交到该仓库的隐私信息都应该是被加密过的。当然千万不要把密钥也存在这里。</p>
-<p>然后去工作目录，比如叫<tt class="docutils literal">~/personal</tt>，创建一个本地仓库（或者从dropbox中clone一个过来）：</p>
+<p>然后去工作目录，比如叫 <tt class="docutils literal">~/personal</tt>，创建一个本地仓库（或者从 dropbox 中 clone 一个过来）：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -137,10 +137,10 @@ mkdir myrepo
 <span class="nb">cd</span> myrepo
 git init
 </pre></div>
-</td></tr></table><p>然后就要做好加密解密的准备工作了，直接在本地仓库的根目录运行<tt class="docutils literal">gitcrypt init</tt>命令，根据提示输入相应的信息。它首先会问你是否需要生成一个随机的salt值和密码，你可以同意或拒绝，拒绝的话就自己提供salt值和密码。如果你只有这个本地仓库，那建议直接使用随机生成的，那样足够复杂，更安全些。如果还需要在别的机器上clone这个仓库，那还是自己设置一下，免得忘了密码。然后选择加密算法，默认的是aes-256-ecb（ECB加密模式比较简单，相对容易破解，推荐使用aes-256-cbc；当然OpenSSL提供了很多加密算法，大家可以自行选择；另外，发现一篇很直观的文章，可以看看，<a class="reference external" href="http://blog.csdn.net/aaaaatiger/article/details/2525561">分组对称加密模式</a>）。接下来会问你是否使用<tt class="docutils literal">.git/info/attribute</tt>，选择是就好了。最后问你需要对什么文件进行加密，默认是<tt class="docutils literal">*</tt>表示所有文件。你可以根据需要进行设置，比如我这里让它加密所有以“private-”开头的文件，就输入<tt class="docutils literal"><span class="pre">private-*</span></tt>。</p>
+</td></tr></table><p>然后就要做好加密解密的准备工作了，直接在本地仓库的根目录运行 <tt class="docutils literal">gitcrypt init</tt> 命令，根据提示输入相应的信息。它首先会问你是否需要生成一个随机的 salt 值和密码，你可以同意或拒绝，拒绝的话就自己提供 salt 值和密码。如果你只有这个本地仓库，那建议直接使用随机生成的，那样足够复杂，更安全些。如果还需要在别的机器上 clone 这个仓库，那还是自己设置一下，免得忘了密码。然后选择加密算法，默认的是 aes-256-ecb（ECB 加密模式比较简单，相对容易破解，推荐使用 aes-256-cbc；当然 OpenSSL 提供了很多加密算法，大家可以自行选择；另外，发现一篇很直观的文章，可以看看，<a class="reference external" href="http://blog.csdn.net/aaaaatiger/article/details/2525561">分组对称加密模式</a>）。接下来会问你是否使用 <tt class="docutils literal">.git/info/attribute</tt>，选择是就好了。最后问你需要对什么文件进行加密，默认是 <tt class="docutils literal">*</tt> 表示所有文件。你可以根据需要进行设置，比如我这里让它加密所有以“private-”开头的文件，就输入 <tt class="docutils literal"><span class="pre">private-*</span></tt>。</p>
 <p>好了，完成了。接下来就正常地在仓库里提交各种文件，但只要文件名是以“private-”开头的，都会被加密后再被提交。</p>
-<p>有一点要提一下，前面设置的salt值和密码，都是明文存储在<tt class="docutils literal">.git/config</tt>中的，如果你的本地仓库也不那么安全的话，就牢记这两个信息，并在不需要的时候把仓库或者这个信息删掉，等到下次要用的时候再加上。</p>
-<p>假设我创建两个文件，分别叫做<tt class="docutils literal">diary.txt</tt>和<tt class="docutils literal"><span class="pre">private-diary.txt</span></tt>。其中后者是绝对不想让别人看到的。假设内容分别如下：</p>
+<p>有一点要提一下，前面设置的 salt 值和密码，都是明文存储在 <tt class="docutils literal">.git/config</tt> 中的，如果你的本地仓库也不那么安全的话，就牢记这两个信息，并在不需要的时候把仓库或者这个信息删掉，等到下次要用的时候再加上。</p>
+<p>假设我创建两个文件，分别叫做 <tt class="docutils literal">diary.txt</tt> 和 <tt class="docutils literal"><span class="pre">private-diary.txt</span></tt>。其中后者是绝对不想让别人看到的。假设内容分别如下：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -162,7 +162,7 @@ git commit -m <span class="s1">&#39;Add some diaries.&#39;</span>
 git remote add origin ~/dropbox/myrepo.git
 git push origin master
 </pre></div>
-</td></tr></table><p>有人会问，不对啊，还没给私密日记加密啊。好，我们来把云端仓库再clone一份看看。</p>
+</td></tr></table><p>有人会问，不对啊，还没给私密日记加密啊。好，我们来把云端仓库再 clone 一份看看。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -185,8 +185,8 @@ U2FsdGVkX1/lfLd83fEEk8Gnaiixe5hdSPR7qgP+SFD9PSX6yNSX8osvd73gKqQG
 Q4ndGa6A0RAuClmMO1E5tRnxKhk2jIHmiR6qyGKjx73BR2164PHnf3NioZM0tN25
 88FtrD+Mqhq+b3MEsXLu2A==
 </pre></div>
-</td></tr></table><p>可见，如果别人clone了你的云端仓库，他也只能看到加密后的信息。</p>
-<p>如果这份clone的主人也是你，你现在想在这里查看或者修改你的文档，只要再运行一次<tt class="docutils literal">gitcrypt init</tt>，输入同样的salt和密码，保持其它设置也都一致，最后再运行一次<tt class="docutils literal">git reset <span class="pre">--hard</span> HEAD</tt>就好了。</p>
+</td></tr></table><p>可见，如果别人 clone 了你的云端仓库，他也只能看到加密后的信息。</p>
+<p>如果这份 clone 的主人也是你，你现在想在这里查看或者修改你的文档，只要再运行一次 <tt class="docutils literal">gitcrypt init</tt>，输入同样的 salt 和密码，保持其它设置也都一致，最后再运行一次 <tt class="docutils literal">git reset <span class="pre">--hard</span> HEAD</tt> 就好了。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -201,8 +201,8 @@ $ cat private-diary.txt
 一点儿都不开心，那个人烦死了，老骚扰我。
 我想暴走啊，想暴走。
 </pre></div>
-</td></tr></table><p>关于salt和密码。解密的时候只要有密码就够了，加密的时候则需要同时提供salt和密码。用salt一方面可以在密码太简单的情况下加大破解难度（参见<a class="reference external" href="http://en.wikipedia.org/wiki/Rainbow_table">Rainbow table</a>），另一方面使用相同的salt可以让每次加密得到的密文是一致的。如果你在第二次clone后改用不同的salt，并不会影响密文的解密，但是git会认为那些文件被修改了，而diff的时候去看不到任何差异。我觉得这个不太合理啊，期待这个工具的更新。</p>
-<p>最后，一些关于transparent git encryption的讨论：</p>
+</td></tr></table><p>关于 salt 和密码。解密的时候只要有密码就够了，加密的时候则需要同时提供 salt 和密码。用 salt 一方面可以在密码太简单的情况下加大破解难度（参见 <a class="reference external" href="http://en.wikipedia.org/wiki/Rainbow_table">Rainbow table</a>），另一方面使用相同的 salt 可以让每次加密得到的密文是一致的。如果你在第二次 clone 后改用不同的 salt，并不会影响密文的解密，但是 git 会认为那些文件被修改了，而 diff 的时候去看不到任何差异。我觉得这个不太合理啊，期待这个工具的更新。</p>
+<p>最后，一些关于 transparent git encryption 的讨论：</p>
 <ul class="simple">
 <li><a class="reference external" href="http://syncom.appspot.com/papers/git_encryption.txt">GIT transparent encryption</a> or <a class="reference external" href="https://gist.github.com/shadowhand/873637">https://gist.github.com/shadowhand/873637</a></li>
 <li><a class="reference external" href="http://git.661346.n2.nabble.com/Transparently-encrypt-repository-contents-with-GPG-td2470145.html">Transparently encrypt repository contents with GPG</a></li>
@@ -216,11 +216,11 @@ $ cat private-diary.txt
 
                 <p id="post-share-links">
     Like this post? Share on:
-    <a href="https://twitter.com/intent/tweet?text=%E7%94%A8Git%E5%92%8C%E4%BA%91%E5%AD%98%E5%82%A8%E4%BF%9D%E5%AD%98%E9%9A%90%E7%A7%81%E4%BF%A1%E6%81%AF&url=https%3A//blog.gocalf.com/git-encrypt&via=calfzhou&hashtags=git,encrypt" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="https://twitter.com/intent/tweet?text=%E7%94%A8%20Git%20%E5%92%8C%E4%BA%91%E5%AD%98%E5%82%A8%E4%BF%9D%E5%AD%98%E9%9A%90%E7%A7%81%E4%BF%A1%E6%81%AF&url=https%3A//blog.gocalf.com/git-encrypt&via=calfzhou&hashtags=git,encrypt" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//blog.gocalf.com/git-encrypt" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="mailto:?subject=%E7%94%A8Git%E5%92%8C%E4%BA%91%E5%AD%98%E5%82%A8%E4%BF%9D%E5%AD%98%E9%9A%90%E7%A7%81%E4%BF%A1%E6%81%AF&amp;body=https%3A//blog.gocalf.com/git-encrypt" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=%E7%94%A8%20Git%20%E5%92%8C%E4%BA%91%E5%AD%98%E5%82%A8%E4%BF%9D%E5%AD%98%E9%9A%90%E7%A7%81%E4%BF%A1%E6%81%AF&amp;body=https%3A//blog.gocalf.com/git-encrypt" target="_blank" title="Share via Email">Email</a>
     </p>
 
             
@@ -285,7 +285,7 @@ $ cat private-diary.txt
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="https://blog.gocalf.com/excel-variable-width-column-chart" title="Previous: 在Excel中制作不等宽柱状图">在Excel中制作不等宽柱状图</a></li>
+                <li class="previous-article">« <a href="https://blog.gocalf.com/excel-variable-width-column-chart" title="Previous: 在 Excel 中制作不等宽柱状图">在 Excel 中制作不等宽柱状图</a></li>
                 <li class="next-article"><a href="https://blog.gocalf.com/number-to-chinese" title="Next: 将整数数字转换成中文">将整数数字转换成中文</a> »</li>
             </ul>
             </nav>

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="问题描述：有一枚不均匀的硬币，已知抛出此硬币后，正面向上的概率为p（0 &lt; p &lt; 1）。请利用这枚硬币产生出概率相等的两个事件。
+        <meta name="description" content="问题描述：有一枚不均匀的硬币，已知抛出此硬币后，正面向上的概率为 p（0 &lt; p &lt; 1）。请利用这枚硬币产生出概率相等的两个事件。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
@@ -16,15 +16,15 @@
 
 <meta property="og:title" content="利用不均匀硬币产生等概率 "/>
 <meta property="og:url" content="https://blog.gocalf.com/unbalanced-coin" />
-<meta property="og:description" content="问题描述：有一枚不均匀的硬币，已知抛出此硬币后，正面向上的概率为p（0 &lt; p &lt; 1）。请利用这枚硬币产生出概率相等的两个事件。" />
+<meta property="og:description" content="问题描述：有一枚不均匀的硬币，已知抛出此硬币后，正面向上的概率为 p（0 &lt; p &lt; 1）。请利用这枚硬币产生出概率相等的两个事件。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2011-10-08T22:49:00+08:00" />
 <meta property="og:article:modified_time" content="2011-10-09T15:05:00+08:00" />
 <meta name="twitter:title" content="利用不均匀硬币产生等概率 ">
-<meta name="twitter:description" content="问题描述：有一枚不均匀的硬币，已知抛出此硬币后，正面向上的概率为p（0 &lt; p &lt; 1）。请利用这枚硬币产生出概率相等的两个事件。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/10/unbalanced_coin.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/10/unbalanced_coin.png" >
+<meta name="twitter:description" content="问题描述：有一枚不均匀的硬币，已知抛出此硬币后，正面向上的概率为 p（0 &lt; p &lt; 1）。请利用这枚硬币产生出概率相等的两个事件。">
+<meta property="og:image" content="https://blog.gocalf.com/images/2011/10/unbalanced_coin.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2011/10/unbalanced_coin.png" >
 
         <title>利用不均匀硬币产生等概率  · GoCalf Blog
 </title>
@@ -102,12 +102,12 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
             
-            <p>问题描述：有一枚不均匀的硬币，已知抛出此硬币后，正面向上的概率为p（0
+            <p>问题描述：有一枚不均匀的硬币，已知抛出此硬币后，正面向上的概率为 p（0
 &lt; p &lt; 1）。请利用这枚硬币产生出概率相等的两个事件。</p>
-<p>这个问题跟之前的<a class="reference external" href="https://blog.gocalf.com/build-rand3-from-rand5">利用等概率Rand5产生等概率Rand3</a>非常像，但却简单的多。几个月前还为这个事情头疼了一下，现在想来真是不应该。</p>
+<p>这个问题跟之前的 <a class="reference external" href="https://blog.gocalf.com/build-rand3-from-rand5">利用等概率 Rand5 产生等概率 Rand3</a> 非常像，但却简单的多。几个月前还为这个事情头疼了一下，现在想来真是不应该。</p>
 <!-- more -->
-<p>某一次抛出硬币，正面向上的概率是p，反面向上的概率是1 -
-p，当p不等于0.5时，这两个事件的概率就不一样了。怎么能凑出等概率呢？还是要利用概率的加法和乘法法则。这里用乘法，也就是连续的独立事件。</p>
+<p>某一次抛出硬币，正面向上的概率是 p，反面向上的概率是 1 -
+p，当 p 不等于 0.5 时，这两个事件的概率就不一样了。怎么能凑出等概率呢？还是要利用概率的加法和乘法法则。这里用乘法，也就是连续的独立事件。</p>
 <p>连续抛两次硬币，正反面的出现有四种情况，概率依次为：</p>
 <ol class="arabic simple">
 <li>两次均为正面：p * p</li>
@@ -116,9 +116,9 @@ p，当p不等于0.5时，这两个事件的概率就不一样了。怎么能凑
 <li>两次均为反面：(1 - p) * (1 - p)</li>
 </ol>
 <p>这不，中间两种情况的概率是完全一样的。于是问题的解法就是连续抛两次硬币，如果两次得到的相同则重新抛两次；否则根据第一次（或第二次）的正面反面情况，就可以得到两个概率相等的事件。</p>
-<p>用Python程序模拟一下这个过程，首先是一个叫做UnbalancedCoin的类，用来模拟这枚不均匀的硬币。Flip方法表示抛一次硬币，返回值True代表正面，False代表反面。根据要求，这个函数返回True和False的概率分别是p和1
+<p>用 Python 程序模拟一下这个过程，首先是一个叫做 <tt class="docutils literal">UnbalancedCoin</tt> 的类，用来模拟这枚不均匀的硬币。Flip 方法表示抛一次硬币，返回值 True 代表正面，False 代表反面。根据要求，这个函数返回 True 和 False 的概率分别是 p 和 1
 -
-p。函数MakeEqualProb利用参数coin（这枚不均匀硬币）构造出两个事件（依旧用True和False表示），并且这两个事件的概率都是0.5。</p>
+p。函数 <tt class="docutils literal">MakeEqualProb</tt> 利用参数 <tt class="docutils literal">coin</tt>（这枚不均匀硬币）构造出两个事件（依旧用 True 和 False 表示），并且这两个事件的概率都是 0.5。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -155,16 +155,16 @@ p。函数MakeEqualProb利用参数coin（这枚不均匀硬币）构造出两�
     <span class="k">if</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">coin</span><span class="o">.</span><span class="n">Flip</span><span class="p">():</span>
       <span class="k">return</span> <span class="n">a</span>
 </pre></div>
-</td></tr></table><p>对于不同的p值，模拟实验十万次，得到如下的（结果为True的）概率分布，其中蓝线是不均匀硬币抛出后正面向上的概率，红线是构造出来的两个事件之一（第一次正面向上，第二次反面向上）的概率。</p>
+</td></tr></table><p>对于不同的 p 值，模拟实验十万次，得到如下的（结果为 True 的）概率分布，其中蓝线是不均匀硬币抛出后正面向上的概率，红线是构造出来的两个事件之一（第一次正面向上，第二次反面向上）的概率。</p>
 <div id="coin-prob-chart" class="highcharts" style="height: 400px; width: 600px"></div>
 <script type="text/javascript">
 $(function () {
     $('#coin-prob-chart').highcharts({
-        chart: { type: 'line', backgroundColor: null },
+        chart: {type: 'line', backgroundColor: null},
         colors: ['#3399ff', '#ff3300'],
-        title: { text: null },
-        xAxis: { min: 0, max: 1, tickInterval: 0.1 },
-        yAxis: { min: 0, max: 1, tickInterval: 0.1, title: { text: null } },
+        title: {text: null},
+        xAxis: {min: 0, max: 1, tickInterval: 0.1},
+        yAxis: {min: 0, max: 1, tickInterval: 0.1, title: { text: null} },
         series: [{
             name: 'UnbalancedCoin',
             data: [

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>GoCalf Blog - 头脑风暴</title><link href="https://blog.gocalf.com/" rel="alternate"></link><link href="https://blog.gocalf.com/feeds/brainstorm.atom.xml" rel="self"></link><id>https://blog.gocalf.com/</id><updated>2011-12-15T18:15:00+08:00</updated><subtitle>1/100 ALGO&amp;amp;MATH; 1/100 IT&amp;amp;GAME; 1/100 INFO&amp;amp;SHARING; 1/100 WHO KNOWS</subtitle><entry><title>让11、12、13、14通过加减乘除运算得到46</title><link href="https://blog.gocalf.com/get-46-from-11-12-13-and-14" rel="alternate"></link><published>2011-12-15T18:15:00+08:00</published><updated>2011-12-15T18:15:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-12-15:/get-46-from-11-12-13-and-14</id><summary type="html">&lt;p class="first last"&gt;前两天同事的朋友给出了一个怪怪的题目，说是考验我们的智商，结果最后让我们大跌眼镜。题目很简单：怎样让四个不同的数11、12、13和14，通过简单的数学运算得到46，可以使用加减乘除和括号。同时还给了一条重要提示：不能按照正常的思路思考。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>GoCalf Blog - 头脑风暴</title><link href="https://blog.gocalf.com/" rel="alternate"></link><link href="https://blog.gocalf.com/feeds/brainstorm.atom.xml" rel="self"></link><id>https://blog.gocalf.com/</id><updated>2011-12-15T18:15:00+08:00</updated><subtitle>1/100 ALGO&amp;amp;MATH; 1/100 IT&amp;amp;GAME; 1/100 INFO&amp;amp;SHARING; 1/100 WHO KNOWS</subtitle><entry><title>让 11、12、13、14 通过加减乘除运算得到 46</title><link href="https://blog.gocalf.com/get-46-from-11-12-13-and-14" rel="alternate"></link><published>2011-12-15T18:15:00+08:00</published><updated>2011-12-15T18:15:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-12-15:/get-46-from-11-12-13-and-14</id><summary type="html">&lt;p class="first last"&gt;前两天同事的朋友给出了一个怪怪的题目，说是考验我们的智商，结果最后让我们大跌眼镜。题目很简单：怎样让四个不同的数 11、12、13 和 14，通过简单的数学运算得到 46，可以使用加减乘除和括号。同时还给了一条重要提示：不能按照正常的思路思考。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;前两天同事的朋友给出了一个怪怪的题目，说是考验我们的智商，结果最后让我们大跌眼镜。&lt;/p&gt;
-&lt;p&gt;题目很简单：怎样让四个不同的数11、12、13和14，通过简单的数学运算得到46，可以使用加减乘除和括号。同时还给了一条重要提示：&lt;strong&gt;不能按照正常的思路思考&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;题目很简单：怎样让四个不同的数 11、12、13 和 14，通过简单的数学运算得到 46，可以使用加减乘除和括号。同时还给了一条重要提示：&lt;strong&gt;不能按照正常的思路思考&lt;/strong&gt;。&lt;/p&gt;
 &lt;!-- more --&gt;
-&lt;p&gt;虽然说不能按照正常思路思考，但看到这个题目后还是立刻祭出了n年前写的算24点的程序，这个程序（以后有时间可以好好介绍一下）的扩展版支持由任意2到7个数字通过四则运算求出任意目标数。把四个数字和目标数输入进去，果然无解。不过很快发现，如果数字可以重复，能够得到下面两个最简单的解：&lt;/p&gt;
+&lt;p&gt;虽然说不能按照正常思路思考，但看到这个题目后还是立刻祭出了 n 年前写的算 24 点的程序，这个程序（以后有时间可以好好介绍一下）的扩展版支持由任意 2 到 7 个数字通过四则运算求出任意目标数。把四个数字和目标数输入进去，果然无解。不过很快发现，如果数字可以重复，能够得到下面两个最简单的解：&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;使用两次11：&lt;span class="math"&gt;\(11+13+11\times(14-12)=46\)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;使用两次12：&lt;span class="math"&gt;\((11+12)\times(12+14)/13=46\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;使用两次 11：&lt;span class="math"&gt;\(11+13+11\times(14-12)=46\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;使用两次 12：&lt;span class="math"&gt;\((11+12)\times(12+14)/13=46\)&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;可惜出题人并不允许使用重复的数字，要求给定的每个数字必须用且仅用一次。&lt;/p&gt;
-&lt;p&gt;后来我就想会不会用到其他进制，搞IT的，总得玩玩什么二进制、八进制、十六进制之类的。但是应该采用哪个进制呢？想了好久，总算让我找到一个解：&lt;/p&gt;
+&lt;p&gt;后来我就想会不会用到其他进制，搞 IT 的，总得玩玩什么二进制、八进制、十六进制之类的。但是应该采用哪个进制呢？想了好久，总算让我找到一个解：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(14+12\times(13-11)=46_{oct}\)&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;也就是把46按照八进制数来考虑。结果出题人告知：“&lt;strong&gt;是十进制的46&lt;/strong&gt;”。看来进制转换的路走不通了，于是我又想出了其他一堆更不靠谱的解：&lt;/p&gt;
+&lt;p&gt;也就是把 46 按照八进制数来考虑。结果出题人告知：“&lt;strong&gt;是十进制的 46&lt;/strong&gt;”。看来进制转换的路走不通了，于是我又想出了其他一堆更不靠谱的解：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;span class="math"&gt;\((11+12)\ll(14-13)=46\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\((11+12)\times\left\lceil\frac{14}{13}\right\rceil=46\)&lt;/span&gt;&lt;/li&gt;
@@ -49,8 +49,8 @@
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(11_{bin}+12_{oct}+13_{dec}+14_{hex}=46_{dec}\)&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;原来，出题人说“是十进制的46”，其内在含义是说：其他数字不一定是十进制。哈哈！&lt;/p&gt;
-</content><category term="Puzzle"></category></entry><entry><title>七阶魔方花样：5x5数独</title><link href="https://blog.gocalf.com/5x5-sudoku-in-vcube7" rel="alternate"></link><published>2011-11-26T15:48:00+08:00</published><updated>2011-11-26T15:49:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-11-26:/5x5-sudoku-in-vcube7</id><summary type="html">&lt;p class="first last"&gt;之前有一段时间特别喜欢玩魔方，从二阶到七阶，在桌子上摆了长长的一排。后来听说九阶和十一阶也有卖的了，心中甚是痒痒，可惜囊中羞涩啊。特别喜欢高阶魔方的一个原因，就是它们每个面上的小方格数很多（就像人们都喜欢高分辨率的显示屏一样），可以玩的花样也就多了很多。今天分享一下我的一个七阶魔方花样作品：混乱中的秩序——五阶数独。&lt;/p&gt;
+&lt;p&gt;原来，出题人说“是十进制的 46”，其内在含义是说：其他数字不一定是十进制。哈哈！&lt;/p&gt;
+</content><category term="Puzzle"></category></entry><entry><title>七阶魔方花样：5x5 数独</title><link href="https://blog.gocalf.com/5x5-sudoku-in-vcube7" rel="alternate"></link><published>2011-11-26T15:48:00+08:00</published><updated>2011-11-26T15:49:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-11-26:/5x5-sudoku-in-vcube7</id><summary type="html">&lt;p class="first last"&gt;之前有一段时间特别喜欢玩魔方，从二阶到七阶，在桌子上摆了长长的一排。后来听说九阶和十一阶也有卖的了，心中甚是痒痒，可惜囊中羞涩啊。特别喜欢高阶魔方的一个原因，就是它们每个面上的小方格数很多（就像人们都喜欢高分辨率的显示屏一样），可以玩的花样也就多了很多。今天分享一下我的一个七阶魔方花样作品：混乱中的秩序——五阶数独。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;之前有一段时间特别喜欢玩魔方，从二阶到七阶，在桌子上摆了长长的一排。后来听说九阶和十一阶也有卖的了，心中甚是痒痒，可惜囊中羞涩啊。&lt;/p&gt;
 &lt;p&gt;特别喜欢高阶魔方的一个原因，就是它们每个面上的小方格数很多（就像人们都喜欢高分辨率的显示屏一样），可以玩的花样也就多了很多。今天分享一下我的一个七阶魔方花样作品：混乱中的秩序——五阶数独。&lt;/p&gt;
 &lt;!-- more --&gt;
@@ -65,16 +65,16 @@
 &lt;p class="caption"&gt;七阶魔方花样，六个面特写——混乱中亦有规律&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;是不是有点儿意思？&lt;/p&gt;
-&lt;p&gt;规律是这样的，一个面周围一圈棱边的小方格颜色是一样的，六个面六种颜色。中间五乘五的二十五个小方格，恰好包含除了棱边之外的五种颜色，且每个颜色恰好出现五次。并且每个横行、竖列和两条对角线上的五个方格中都不出现重复颜色。这是不是跟五阶&lt;a class="reference external" href="http://zh.wikipedia.org/wiki/%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%95%B0%E7%8B%AC"&gt;对角线数独&lt;/a&gt;非常像呢？&lt;/p&gt;
+&lt;p&gt;规律是这样的，一个面周围一圈棱边的小方格颜色是一样的，六个面六种颜色。中间五乘五的二十五个小方格，恰好包含除了棱边之外的五种颜色，且每个颜色恰好出现五次。并且每个横行、竖列和两条对角线上的五个方格中都不出现重复颜色。这是不是跟五阶 &lt;a class="reference external" href="http://zh.wikipedia.org/wiki/%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%95%B0%E7%8B%AC"&gt;对角线数独&lt;/a&gt; 非常像呢？&lt;/p&gt;
 &lt;p&gt;怎么设计这样的花样？关键在于，什么样的花样可以用魔方表现出来？&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="cube7_blocks" src="https://blog.gocalf.com/images/2011/11/cube7_blocks.png" /&gt;
 &lt;p class="caption"&gt;七阶魔方面块的不同位置&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;上面这张图是七阶魔方的一个面的示意。由于我的这个花样方案中不用考虑棱块和角块，再除去不会动的面心，剩下的24个方格由于旋转对称性可以分成四个等价的分区（图中用四种颜色表示）。每个分区中都有六个不同的位置，用不同的字母表示。根据魔方的运动规律，不同字母位置的方块是永远都不会互换的，就是说字母A永远不会跑到其他字母所在的位置去；但是任意两个（也可以是不同面的）相同字母位置的方块都是可以互换的（只考虑颜色的话，可以做到互换后不改变任何其他方块）。每个面都有六种不同的字母，每个字母出现四次。因此只要设计出来的花样满足：“每个字母在六个面中总共对应4
+&lt;p&gt;上面这张图是七阶魔方的一个面的示意。由于我的这个花样方案中不用考虑棱块和角块，再除去不会动的面心，剩下的 24 个方格由于旋转对称性可以分成四个等价的分区（图中用四种颜色表示）。每个分区中都有六个不同的位置，用不同的字母表示。根据魔方的运动规律，不同字母位置的方块是永远都不会互换的，就是说字母 A 永远不会跑到其他字母所在的位置去；但是任意两个（也可以是不同面的）相同字母位置的方块都是可以互换的（只考虑颜色的话，可以做到互换后不改变任何其他方块）。每个面都有六种不同的字母，每个字母出现四次。因此只要设计出来的花样满足：“每个字母在六个面中总共对应 4
 * 6 =
-24个方格，在这些方格中每种颜色都恰好出现4次”，那这种花样就一定可以转的出来。&lt;/p&gt;
-&lt;p&gt;接着来设计花样，先找一个五阶对角线数独的分布，用下面这段随意写出的Python代码就可以搞定。&lt;/p&gt;
+24 个方格，在这些方格中每种颜色都恰好出现 4 次”，那这种花样就一定可以转的出来。&lt;/p&gt;
+&lt;p&gt;接着来设计花样，先找一个五阶对角线数独的分布，用下面这段随意写出的 Python 代码就可以搞定。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -150,7 +150,7 @@
 [3, 1, 4, 5, 2]
 [4, 5, 1, 2, 3]
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;下面来确定每个数字在每一面所对应的颜色。首先六个面的面心是不能动的，因此每个面的2号颜色就都确定了。接着要考虑每个面的底色（就是棱块和角块的颜色），这个颜色不能随便选，要考虑魔方六个面的位置关系。我所选定的方案是，面心色蓝、红、绿、橙、黄、黑分别的对应于棱角色黑、蓝、黄、绿、橙、红。最后给每个面分配第1、3、4、5号颜色，稍微注意一下限制条件就好了。最后得到六个面的配色方案（程序中的W对应于黑色）：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;下面来确定每个数字在每一面所对应的颜色。首先六个面的面心是不能动的，因此每个面的 2 号颜色就都确定了。接着要考虑每个面的底色（就是棱块和角块的颜色），这个颜色不能随便选，要考虑魔方六个面的位置关系。我所选定的方案是，面心色蓝、红、绿、橙、黄、黑分别的对应于棱角色黑、蓝、黄、绿、橙、红。最后给每个面分配第 1、3、4、5 号颜色，稍微注意一下限制条件就好了。最后得到六个面的配色方案（程序中的 W 对应于黑色）：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3

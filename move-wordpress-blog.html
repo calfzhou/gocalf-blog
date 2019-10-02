@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="记录一下前些日子迁移一个WordPress博客的过程。
+        <meta name="description" content="记录一下前些日子迁移一个 WordPress 博客的过程。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
@@ -14,17 +14,17 @@
 
 <meta name="keywords" content="WordPress, Blog, 建站, Hosting, WordPress, MySql, Blog, Backup" />
 
-<meta property="og:title" content="迁移WordPress博客 "/>
+<meta property="og:title" content="迁移 WordPress 博客 "/>
 <meta property="og:url" content="https://blog.gocalf.com/move-wordpress-blog" />
-<meta property="og:description" content="记录一下前些日子迁移一个WordPress博客的过程。" />
+<meta property="og:description" content="记录一下前些日子迁移一个 WordPress 博客的过程。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2014-07-31T11:16:00+08:00" />
 <meta property="og:article:modified_time" content="2014-07-31T11:16:00+08:00" />
-<meta name="twitter:title" content="迁移WordPress博客 ">
-<meta name="twitter:description" content="记录一下前些日子迁移一个WordPress博客的过程。">
+<meta name="twitter:title" content="迁移 WordPress 博客 ">
+<meta name="twitter:description" content="记录一下前些日子迁移一个 WordPress 博客的过程。">
 
-        <title>迁移WordPress博客  · GoCalf Blog
+        <title>迁移 WordPress 博客  · GoCalf Blog
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.gocalf.com/theme/css/style.min.css?c3249b0a">
@@ -91,7 +91,7 @@
     <header class="page-header span10 offset2">
         <h1>
             <a href="https://blog.gocalf.com/move-wordpress-blog">
-                迁移WordPress博客
+                迁移 WordPress 博客
             </a>
         </h1>
     </header>
@@ -100,13 +100,13 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
             
-            <p>之前一直害怕折腾WordPress搭出来的博客，主要是对PHP和MySql都不太熟悉，对相关的备份啊、迁移啊也不太熟悉。前段时间，不得不对一个WordPress博客做了迁移，从一台服务器挪到了另外一台上，还挺顺利的，记录一下。</p>
+            <p>之前一直害怕折腾 WordPress 搭出来的博客，主要是对 PHP 和 MySql 都不太熟悉，对相关的备份啊、迁移啊也不太熟悉。前段时间，不得不对一个 WordPress 博客做了迁移，从一台服务器挪到了另外一台上，还挺顺利的，记录一下。</p>
 <!-- more -->
 <div class="section" id="id1">
 <h2>准备好目标环境</h2>
-<p>现在目标机器上装好相关的环境，PHP、MySQL之类的，然后安装WordPress。我已经把源机器上的WordPress升级到最新版本了，所以在目标机器上也装上最新版本就行了。</p>
-<p>没试过在不同版本的WordPress之间做数据迁移，感觉如果没有特别的原因，还是尽量保持两边的版本一致吧。</p>
-<p>当然需要给WordPress创建一个数据库（比如叫做<tt class="docutils literal">my_wordpress</tt>）以及用户（比如<tt class="docutils literal">wp_user</tt>）：</p>
+<p>现在目标机器上装好相关的环境，PHP、MySQL 之类的，然后安装 WordPress。我已经把源机器上的 WordPress 升级到最新版本了，所以在目标机器上也装上最新版本就行了。</p>
+<p>没试过在不同版本的 WordPress 之间做数据迁移，感觉如果没有特别的原因，还是尽量保持两边的版本一致吧。</p>
+<p>当然需要给 WordPress 创建一个数据库（比如叫做 <tt class="docutils literal">my_wordpress</tt>）以及用户（比如 <tt class="docutils literal">wp_user</tt>）：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -120,25 +120,25 @@ mysql&gt; EXIT
 </td></tr></table></div>
 <div class="section" id="id2">
 <h2>暂停博客</h2>
-<p>在对源博客数据打包前，先要暂停它的服务，避免不必要的数据错误或者遗失。我选择了<a class="reference external" href="http://sivel.net/2009/06/wordpress-maintenance-mode-without-a-plugin/">最省事的方法</a>，直接在博客根目录下创建一个名为<tt class="docutils literal">.maintenance</tt>的文件，内容为：</p>
+<p>在对源博客数据打包前，先要暂停它的服务，避免不必要的数据错误或者遗失。我选择了 <a class="reference external" href="http://sivel.net/2009/06/wordpress-maintenance-mode-without-a-plugin/">最省事的方法</a>，直接在博客根目录下创建一个名为 <tt class="docutils literal">.maintenance</tt> 的文件，内容为：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span> <span class="nv">$upgrading</span> <span class="o">=</span> <span class="nb">time</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </td></tr></table><p>这样再访问源博客的时候，页面会提示“正在执行例行维护，请一分钟后回来”。当然了，这里的“一分钟”是写死的，什么时候来看都是同样的提示。</p>
-<p>原理是WordPress会检查根目录下是否存在名为<tt class="docutils literal">.maintenance</tt>的文件，如果存在，则会检查当前时刻与该文件提供的<tt class="docutils literal">$upgrading</tt>数值之间的差异，如果当前时刻减去<tt class="docutils literal">$upgrading</tt>小于十分钟，则会显示正在维护，否则就正常访问。现在<tt class="docutils literal">$upgrading</tt>的值永远跟当前时刻一致，计算出来的差值一直都是0，所以会一致在维护状态中。</p>
+<p>原理是 WordPress 会检查根目录下是否存在名为 <tt class="docutils literal">.maintenance</tt> 的文件，如果存在，则会检查当前时刻与该文件提供的 <tt class="docutils literal">$upgrading</tt> 数值之间的差异，如果当前时刻减去 <tt class="docutils literal">$upgrading</tt> 小于十分钟，则会显示正在维护，否则就正常访问。现在 <tt class="docutils literal">$upgrading</tt> 的值永远跟当前时刻一致，计算出来的差值一直都是 0，所以会一致在维护状态中。</p>
 </div>
 <div class="section" id="id3">
 <h2>打包源博客数据</h2>
-<p>WordPress博客的文章、评论等数据都保存在数据库中，直接dump出来就可以做备份或者迁移。我就直接用mysqldump命令来导出现有的数据：</p>
+<p>WordPress 博客的文章、评论等数据都保存在数据库中，直接 dump 出来就可以做备份或者迁移。我就直接用 mysqldump 命令来导出现有的数据：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>mysqldump -uDB_USER_NAME -pDB_USER_PASSWORD DB_NAME <span class="p">|</span> gzip &gt; my-worpress.sql.gz
 </pre></div>
-</td></tr></table><p>命令中大写的部分需要用自己的用户名、密码和数据库名替换。导出的文件用gzip压缩一下以便通过网络复制到目标机器。</p>
-<p>附件、插件、主题等都保存在wp-content目录中，直接压缩打包：</p>
+</td></tr></table><p>命令中大写的部分需要用自己的用户名、密码和数据库名替换。导出的文件用 gzip 压缩一下以便通过网络复制到目标机器。</p>
+<p>附件、插件、主题等都保存在 wp-content 目录中，直接压缩打包：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>tar -zcf content.tar.gz wp-content
 </pre></div>
 </td></tr></table></div>
 <div class="section" id="id4">
 <h2>在目标机器恢复数据</h2>
-<p>上面打包好的两个文件可以通过scp、ftp等工具传送到新的机器上，然后分别将数据恢复出来即可。</p>
+<p>上面打包好的两个文件可以通过 scp、ftp 等工具传送到新的机器上，然后分别将数据恢复出来即可。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>gunzip &lt; my-worpress.sql.gz <span class="p">|</span> mysql -uwp_user -pYOUR_PASSWORD my_wordpress
@@ -148,22 +148,22 @@ cp -Rp wp-content/* PATH-TO-YOUR-WORDPRESS-wp-content-FOLDER
 </td></tr></table></div>
 <div class="section" id="id5">
 <h2>配置文件</h2>
-<p>如果源博客的<tt class="docutils literal"><span class="pre">wp-config.php</span></tt>里面做过一些特别的修改，把它们也写到新博客的配置文件里即可。</p>
+<p>如果源博客的 <tt class="docutils literal"><span class="pre">wp-config.php</span></tt> 里面做过一些特别的修改，把它们也写到新博客的配置文件里即可。</p>
 </div>
 <div class="section" id="id6">
 <h2>善后</h2>
-<p>最后把目标机器上的web server配置好，把域名解析切换过去就好了。</p>
+<p>最后把目标机器上的 web server 配置好，把域名解析切换过去就好了。</p>
 </div>
 
 
 
                 <p id="post-share-links">
     Like this post? Share on:
-    <a href="https://twitter.com/intent/tweet?text=%E8%BF%81%E7%A7%BBWordPress%E5%8D%9A%E5%AE%A2&url=https%3A//blog.gocalf.com/move-wordpress-blog&via=calfzhou&hashtags=wordpress,blog" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="https://twitter.com/intent/tweet?text=%E8%BF%81%E7%A7%BB%20WordPress%20%E5%8D%9A%E5%AE%A2&url=https%3A//blog.gocalf.com/move-wordpress-blog&via=calfzhou&hashtags=wordpress,blog" target="_blank" title="Share on Twitter">Twitter</a>
     ❄
     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//blog.gocalf.com/move-wordpress-blog" target="_blank" title="Share on Facebook">Facebook</a>
     ❄
-    <a href="mailto:?subject=%E8%BF%81%E7%A7%BBWordPress%E5%8D%9A%E5%AE%A2&amp;body=https%3A//blog.gocalf.com/move-wordpress-blog" target="_blank" title="Share via Email">Email</a>
+    <a href="mailto:?subject=%E8%BF%81%E7%A7%BB%20WordPress%20%E5%8D%9A%E5%AE%A2&amp;body=https%3A//blog.gocalf.com/move-wordpress-blog" target="_blank" title="Share via Email">Email</a>
     </p>
 
             

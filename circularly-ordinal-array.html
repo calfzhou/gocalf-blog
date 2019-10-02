@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="问题描述：给定一个由n个各不相等的元素构成的循环有序数组（Circularly Ordinal Array），用O(log n) 时间、O(1)辅助空间在其中查找指定的元素。
+        <meta name="description" content="问题描述：给定一个由 n 个各不相等的元素构成的循环有序数组（Circularly Ordinal Array），用 O(log n) 时间、O(1) 辅助空间在其中查找指定的元素。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
@@ -16,15 +16,15 @@
 
 <meta property="og:title" content="在循环有序数组中查找指定元素 "/>
 <meta property="og:url" content="https://blog.gocalf.com/circularly-ordinal-array" />
-<meta property="og:description" content="问题描述：给定一个由n个各不相等的元素构成的循环有序数组（Circularly Ordinal Array），用O(log n) 时间、O(1)辅助空间在其中查找指定的元素。" />
+<meta property="og:description" content="问题描述：给定一个由 n 个各不相等的元素构成的循环有序数组（Circularly Ordinal Array），用 O(log n) 时间、O(1) 辅助空间在其中查找指定的元素。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2011-08-19T00:05:00+08:00" />
 <meta property="og:article:modified_time" content="2012-12-04T17:02:00+08:00" />
 <meta name="twitter:title" content="在循环有序数组中查找指定元素 ">
-<meta name="twitter:description" content="问题描述：给定一个由n个各不相等的元素构成的循环有序数组（Circularly Ordinal Array），用O(log n) 时间、O(1)辅助空间在其中查找指定的元素。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/08/circular_ordinal_array.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/08/circular_ordinal_array.png" >
+<meta name="twitter:description" content="问题描述：给定一个由 n 个各不相等的元素构成的循环有序数组（Circularly Ordinal Array），用 O(log n) 时间、O(1) 辅助空间在其中查找指定的元素。">
+<meta property="og:image" content="https://blog.gocalf.com/images/2011/08/circular_ordinal_array.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2011/08/circular_ordinal_array.png" >
 
         <title>在循环有序数组中查找指定元素  · GoCalf Blog
 </title>
@@ -103,16 +103,16 @@
         <div class="span8 offset2 article-content">
             
             <p>这次的题目跟二分搜索有关，如果还不能写出正确的二分搜索，那就先找出课本温习一下吧。</p>
-<p>问题描述：给定一个由n个各不相等的元素构成的循环有序数组（Circularly
-Ordinal Array），用O(log n)时间、O(1)辅助空间在其中查找指定的元素。</p>
+<p>问题描述：给定一个由 n 个各不相等的元素构成的循环有序数组（Circularly
+Ordinal Array），用 O(log n) 时间、O(1) 辅助空间在其中查找指定的元素。</p>
 <!-- more -->
 <p>所谓循环有序数组，就是把一个排好序（以升序排列为例）的数组从某个（未知）位置处截为两段，把前一段放到后一段的后面，所得到的数组。比如
 {8, 9, 10, 0, 1, 2, 3, 4, 5, 6, 7}。如果把数组首尾相接，看成一个环形，那么数组就还是有序的，只不过最小值有可能在任何一个位置。从最小值开始向后，数值逐渐递增，到数组的最后一个元素时再回到第一个元素。</p>
 <p>显然应用于普通的有序数组查找的二分算法已经无法直接使用了。如果已经知道了分界点（数组最小值或最大值）的位置，那问题就简单的多了，只要先判断一下待查元素是在分界点的左侧还是右侧，然后直接对那一侧的半个数组使用二分查找即可。</p>
 <p>那么怎么找分界点呢？它的特点是它左边的所有元素都比它右边的元素大。借鉴二分查找的思想，首先取数组中间位置的元素，拿它跟两端的元素比较，分析出分界点是在左半边还是右半边，然后对包含分界点的那半个数组递归处理。</p>
 <p>数组的第一个元素应该是在分界点左边最小的元素，但又不小于分界点右边的任何元素。那么如果中间位置的元素比它大，分界点就只能在中间元素的右边；反之，如果中间元素比它小，分界点就一定在左半边。由于题目中规定数组元素是个不相等的，这样的判断就足够了。</p>
-<p>如果允许重复的元素，那就有可能遇到第一个元素与中间元素相等情况，这时需要再拿最后一个元素来比较，如果中间元素比最后一个元素大，分界点就在右半边<span class="raw-html"><s>；反之，如果中间元素比最后一个元素小，分界点就在左半边</s></span>（感谢chasefornone的提醒，这种情况下，中间元素不会比最后一个元素小）。如果还是相等呢？</p>
-<p>看看下面这张图中的两种情况（A和B），显然在第一次二分处理的时候，第一个（下标0）、中间的（下标12）和最后一个（下标24）元素都彼此相等，分界点却有可能在任何一边。这时候就只能分别对两半继续递归处理，时间复杂度可能会变成O(n)，空间复杂度可能会（不得不用递归或者栈来保存中间状态）变成O(log
+<p>如果允许重复的元素，那就有可能遇到第一个元素与中间元素相等情况，这时需要再拿最后一个元素来比较，如果中间元素比最后一个元素大，分界点就在右半边 <span class="raw-html"><s>；反之，如果中间元素比最后一个元素小，分界点就在左半边 </s></span> （感谢 chasefornone 的提醒，这种情况下，中间元素不会比最后一个元素小）。如果还是相等呢？</p>
+<p>看看下面这张图中的两种情况（A 和 B），显然在第一次二分处理的时候，第一个（下标 0）、中间的（下标 12）和最后一个（下标 24）元素都彼此相等，分界点却有可能在任何一边。这时候就只能分别对两半继续递归处理，时间复杂度可能会变成 O(n)，空间复杂度可能会（不得不用递归或者栈来保存中间状态）变成 O(log
 n)。</p>
 <div class="figure">
 <img alt="coa_special_case1.png" src="https://blog.gocalf.com/images/2011/08/coa_special_case1.png" />
@@ -361,14 +361,14 @@ n)。</p>
 <li><a href="https://blog.gocalf.com/calc-fibonacci" title="计算斐波纳契数，分析算法复杂度">计算斐波纳契数，分析算法复杂度</a></li>
 <li><a href="https://blog.gocalf.com/the-probability-of-two-boys" title="条件概率：两个都是男孩的概率">条件概率：两个都是男孩的概率</a></li>
 <li><a href="https://blog.gocalf.com/traversing-binary-tree" title="程序基本功之遍历二叉树">程序基本功之遍历二叉树</a></li>
-<li><a href="https://blog.gocalf.com/topn-of-massive-data" title="从大量整数中选取最小/大的若干个">从大量整数中选取最小/大的若干个</a></li>
+<li><a href="https://blog.gocalf.com/topn-of-massive-data" title="从大量整数中选取最小 / 大的若干个">从大量整数中选取最小 / 大的若干个</a></li>
 </ul>
 <hr />
 </section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="https://blog.gocalf.com/discuz-no-anonymous" title="Previous: 彻底禁止游客访问Discuz! 7.0搭建的论坛">彻底禁止游客访问Discuz! 7.0搭建的论坛</a></li>
+                <li class="previous-article">« <a href="https://blog.gocalf.com/discuz-no-anonymous" title="Previous: 彻底禁止游客访问 Discuz! 7.0 搭建的论坛">彻底禁止游客访问 Discuz! 7.0 搭建的论坛</a></li>
                 <li class="next-article"><a href="https://blog.gocalf.com/zelda-tp-intro" title="Next: 《塞尔达传说：黎明公主》攻略：剧情介绍">《塞尔达传说：黎明公主》攻略：剧情介绍</a> »</li>
             </ul>
             </nav>

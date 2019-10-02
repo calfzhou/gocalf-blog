@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Calf" />
 
-        <meta name="description" content="GoCalf博客正式开张，顺带介绍一下建站的初始步骤。
+        <meta name="description" content="GoCalf 博客正式开张，顺带介绍一下建站的初始步骤。
 " />
         <meta name="twitter:creator" content="@calfzhou">
         <meta property="og:type" content="article" />
@@ -16,15 +16,15 @@
 
 <meta property="og:title" content="要不就先开始吧 "/>
 <meta property="og:url" content="https://blog.gocalf.com/lets-start" />
-<meta property="og:description" content="GoCalf博客正式开张，顺带介绍一下建站的初始步骤。" />
+<meta property="og:description" content="GoCalf 博客正式开张，顺带介绍一下建站的初始步骤。" />
 <meta property="og:site_name" content="GoCalf Blog" />
 <meta property="og:article:author" content="Calf" />
 <meta property="og:article:published_time" content="2011-06-28T23:33:00+08:00" />
 <meta property="og:article:modified_time" content="2011-08-03T20:04:00+08:00" />
 <meta name="twitter:title" content="要不就先开始吧 ">
-<meta name="twitter:description" content="GoCalf博客正式开张，顺带介绍一下建站的初始步骤。">
-<meta property="og:image" content="http://www.gocalf.com/blog/images/2011/06/start.png" />
-<meta name="twitter:image" content="http://www.gocalf.com/blog/images/2011/06/start.png" >
+<meta name="twitter:description" content="GoCalf 博客正式开张，顺带介绍一下建站的初始步骤。">
+<meta property="og:image" content="https://blog.gocalf.com/images/2011/06/start.png" />
+<meta name="twitter:image" content="https://blog.gocalf.com/images/2011/06/start.png" >
 
         <title>要不就先开始吧  · GoCalf Blog
 </title>
@@ -102,38 +102,38 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
             
-            <p>像我这种很懒又很挑剔的人，最大的痛苦就是to-do
-list越来越长。然则我已经懒到这所谓的to-do
-list只是隐约显于心中，并非实际存在。</p>
+            <p>像我这种很懒又很挑剔的人，最大的痛苦就是 to-do
+list 越来越长。然则我已经懒到这所谓的 to-do
+list 只是隐约显于心中，并非实际存在。</p>
 <p>唯一的避免方法就是尽快行动起来，切不可一再拖拉。</p>
-<p>GoCalf的blog和wiki就此开张吧。</p>
+<p>GoCalf 的 blog 和 wiki 就此开张吧。</p>
 <!-- more -->
 <p>今天就先记录一下建站的初始步骤：</p>
 <ol class="arabic simple">
-<li>在GoDaddy购买域名，在BlueHost购买空间，去GoDaddy里把域名的ip地址指向BlueHost空间。GoDaddy域名赠送的小空间留作他用。</li>
+<li>在 GoDaddy 购买域名，在 BlueHost 购买空间，去 GoDaddy 里把域名的 ip 地址指向 BlueHost 空间。GoDaddy 域名赠送的小空间留作他用。</li>
 <li>Default web root: <tt class="docutils literal">$HOME/public_html/</tt>。</li>
-<li>在web root中<tt class="docutils literal">mkdir blog</tt>、<tt class="docutils literal">mkdir wiki</tt>。</li>
-<li>在cPanel中开通子域名blog、wiki，分别指向相应的目录。</li>
-<li>在GoDaddy中开通相同的子域名指向A地址。</li>
-<li>在cPanel中安装WordPress、MediaWiki至相应目录。</li>
-<li>在cPanel中添加redirect：<ul>
+<li>在 web root 中 <tt class="docutils literal">mkdir blog</tt>、<tt class="docutils literal">mkdir wiki</tt>。</li>
+<li>在 cPanel 中开通子域名 blog、wiki，分别指向相应的目录。</li>
+<li>在 GoDaddy 中开通相同的子域名指向 A 地址。</li>
+<li>在 cPanel 中安装 WordPress、MediaWiki 至相应目录。</li>
+<li>在 cPanel 中添加 redirect：<ul>
 <li>blog.gocalf.com -&gt; gocalf.com/blog</li>
 <li>wiki.gocalf.com -&gt; gocalf.com/wiki</li>
 <li>gocalf.com -&gt; www.gocalf.com</li>
 </ul>
 </li>
-<li>为防止web root混乱：<tt class="docutils literal">mkdir &lt;sitename&gt;</tt>，在.htaccess中添加重定向：<ul>
+<li>为防止 web root 混乱：<tt class="docutils literal">mkdir &lt;sitename&gt;</tt>，在 <tt class="docutils literal">.htaccess</tt> 中添加重定向：<ul>
 <li>www.gocalf.com/* -&gt; www.gocalf.com/&lt;sitename&gt;/$1</li>
 </ul>
 </li>
-<li><tt class="docutils literal">mkdir ~/local</tt>作为安装软件目录。</li>
-<li>安装SVN（略去若干字）。<ul>
+<li><tt class="docutils literal">mkdir ~/local</tt> 作为安装软件目录。</li>
+<li>安装 SVN（略去若干字）。<ul>
 <li><tt class="docutils literal">mkdir ~/public_html/svn</tt></li>
 <li><tt class="docutils literal">svnserve <span class="pre">-d</span> <span class="pre">-r</span> ~/public_html/svn</tt></li>
-<li>不过现在外部无法访问此SVN，需要独立IP且开放端口</li>
+<li>不过现在外部无法访问此 SVN，需要独立 IP 且开放端口</li>
 </ul>
 </li>
-<li>全站禁止list directory，在.htaccess中添加：<tt class="docutils literal">Options <span class="pre">-Indexes</span></tt>，并禁止访问svn目录。</li>
+<li>全站禁止 list directory，在 <tt class="docutils literal">.htaccess</tt> 中添加：<tt class="docutils literal">Options <span class="pre">-Indexes</span></tt>，并禁止访问 svn 目录。</li>
 <li>Setting Email：Not Finished.</li>
 <li>显示中文界面：Not Started.</li>
 </ol>
@@ -211,7 +211,7 @@ list只是隐约显于心中，并非实际存在。</p>
 <section>
     <h2>Keep Reading</h2>
 <ul class="related-posts-list">
-<li><a href="https://blog.gocalf.com/move-wordpress-blog" title="迁移WordPress博客">迁移WordPress博客</a></li>
+<li><a href="https://blog.gocalf.com/move-wordpress-blog" title="迁移 WordPress 博客">迁移 WordPress 博客</a></li>
 </ul>
 <hr />
 </section>
@@ -219,7 +219,7 @@ list只是隐约显于心中，并非实际存在。</p>
             <nav>
             <ul class="articles-timeline">
                 <li class="previous-article">« <a href="https://blog.gocalf.com/hello-world" title="Previous: 你好，世界！">你好，世界！</a></li>
-                <li class="next-article"><a href="https://blog.gocalf.com/wordpress-chinese-title" title="Next: 解决WordPress中文title无法显示的问题">解决WordPress中文title无法显示的问题</a> »</li>
+                <li class="next-article"><a href="https://blog.gocalf.com/wordpress-chinese-title" title="Next: 解决 WordPress 中文 title 无法显示的问题">解决 WordPress 中文 title 无法显示的问题</a> »</li>
             </ul>
             </nav>
             </aside>
