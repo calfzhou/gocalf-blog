@@ -1,15 +1,15 @@
 body {
   background-color: #f6f6f6;
-  font-family: 'Microsoft YaHei', Tahoma, 'PT Serif', Georgia, Times, 'Times New Roman', Serif;
+  font-family: "Helvetica Neue", Helvetica, "Lucida Grande", Lucida, Tahoma, Arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", STXiHei, SimHei, sans-serif;
   text-shadow: 1px 1px 3px rgba(50, 50, 50, 0.15);
 }
 
 .article-content {
-  font-family: 'Microsoft YaHei', 'PT Serif', Georgia, 'Times New Roman', Times, Serif;
+  font-family: "Helvetica Neue", Helvetica, "Lucida Grande", Lucida, Tahoma, Arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", STXiHei, SimHei, sans-serif;
   text-align: left;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Microsoft YaHei', Baskerville, Garamond, Georgia, 'DejaVu Serif', 'Times New Roman', Times, Serif;
+  font-family: "Helvetica Neue", Helvetica, "Lucida Grande", Lucida, Tahoma, Arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", STXiHei, SimHei, sans-serif;
 }
 
 /* Hide default tile for toc. */
