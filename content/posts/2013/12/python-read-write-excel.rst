@@ -10,7 +10,6 @@
 :lang: zh_cn
 :featured_image: https://blog.gocalf.com/images/2013/12/python-excel.png
 :summary: 前段时间需要用 Python 来处理 Microsft Excel 文件，尝试了一些不同的方法，记录下来留个印象。
-:depends: fontawesome
 
 .. contents::
 
