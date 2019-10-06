@@ -35,6 +35,14 @@ table.highlighttable tbody > tr:nth-child(odd) > td {
   background-color: transparent;
 }
 
+/* div.admonition .highlight {
+  margin: 0.4em 1em 20px 1em;
+}
+
+div.admonition pre {
+  margin: initial;
+} */
+
 div.figure img {
   width: inherit;
 }

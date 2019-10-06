@@ -106,11 +106,11 @@
         <div class="toc" id="">
 
 <ul class="simple">
-<li><a class="reference internal" href="#id3" id="id8">一、用递归处理二叉树的前序、中序和后序遍历</a></li>
-<li><a class="reference internal" href="#id4" id="id9">二、非递归的前序、中序遍历</a></li>
-<li><a class="reference internal" href="#id5" id="id10">三、非递归的后序遍历</a></li>
-<li><a class="reference internal" href="#id6" id="id11">四、非递归的层序遍历</a></li>
-<li><a class="reference internal" href="#id7" id="id12">附录</a></li>
+<li><a class="reference internal" href="#id2" id="id7">一、用递归处理二叉树的前序、中序和后序遍历</a></li>
+<li><a class="reference internal" href="#id3" id="id8">二、非递归的前序、中序遍历</a></li>
+<li><a class="reference internal" href="#id4" id="id9">三、非递归的后序遍历</a></li>
+<li><a class="reference internal" href="#id5" id="id10">四、非递归的层序遍历</a></li>
+<li><a class="reference internal" href="#id6" id="id11">附录</a></li>
 </ul>
 </div>
         </nav>
@@ -133,8 +133,8 @@
 <li>后序（LRN）：<tt class="docutils literal">D B G H E I F C A</tt></li>
 <li>层序：<tt class="docutils literal">A B C D E F G H I</tt></li>
 </ul>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id8">一、用递归处理二叉树的前序、中序和后序遍历</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id7">一、用递归处理二叉树的前序、中序和后序遍历</a></h2>
 <p>递归真是一个迷人东西，它可以把复杂的逻辑变得异常简洁，这也是自然界的表现形式之一。基于递归的前、中、后序遍历二叉树的程序几乎完全相同，用两个递归调用分别处理左、右子树，剩下的事情就是打印根结点。为节省篇幅，直接把三个程序写在一起，用一个参数来控制是哪种遍历方式，也可以更方便地看出三者之间的区别。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -151,8 +151,8 @@
     <span class="k">if</span> <span class="n">order</span> <span class="o">==</span> <span class="s1">'LRN'</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id9">二、非递归的前序、中序遍历</a></h2>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id8">二、非递归的前序、中序遍历</a></h2>
 <p>如果不用递归呢？实际上我们要做的就是自己维护一个栈（数据结构）来保存需要但尚未来得及处理的数据。</p>
 <p>前序和中序都是非常简单的，当遇到一个非空的根结点时，打印其数据（如果是前序遍历），并将其压栈，然后递归地（这里用循环来模拟递归）处理其左子结点；当没有左子结点时，从栈中弹出之前遇到的某个根结点（它没有左子结点，或者左子结点已经处理完毕，需要再处理右子结点），打印数据（如果是中序遍历），然后继续处理右子结点。同样地，把两种遍历方式写在一起以便比较。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -178,8 +178,8 @@
       <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span>
 </pre></div>
 </td></tr></table></div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id10">三、非递归的后序遍历</a></h2>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id9">三、非递归的后序遍历</a></h2>
 <p>后序遍历要稍微复杂一点点，在前序和中序遍历的程序中，当我们准备进入根结点的右子树时，根结点就被扔出栈外了。但在后序遍历时，我们仍需保留它，直到右子树处理完毕。</p>
 <p>首先想到的改动就是在上面的程序的第 9 行到 11 行，不要从栈 s 中将根结点弹出，而是直接开始处理右子结点。但这就会带来一个问题：什么时候弹出根结点？实际上当左子树遍历完成、或者右子树遍历完成时，我们都会在栈里看到根结点，为了区分这两种状态，添加一个临时变量记录前一次访问的结点，如果前一个结点是根结点的右子树，就说明左右子树全都遍历完成了。非常简单。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -209,8 +209,8 @@
       <span class="k">print</span><span class="p">(</span><span class="n">pre</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id11">四、非递归的层序遍历</a></h2>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id10">四、非递归的层序遍历</a></h2>
 <p>层序遍历可以写成递归吗？还真没研究过。非递归的时候，层序遍历使用的是队列，而非栈。</p>
 <p>处理过程非常简明，遇到一个结点，打印信息，然后依次将左、右子结点加入队列等待后续处理。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -234,8 +234,8 @@
     <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">:</span> <span class="n">q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<div class="section" id="id7">
-<h2><a class="toc-backref" href="#id12">附录</a></h2>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id11">附录</a></h2>
 <p>上面的 python 代码基于 v2.7。另外可以用下面这段代码来定义最简单的二叉树结点类，生成最上面图示的二叉树：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2

@@ -110,7 +110,7 @@
 <p>大家也许会问，这两个指针要在环里转多少圈才能相遇呢？会不会转几千几万圈都无法相遇？实际上，第一个（速度慢的）指针在环里转满一圈之前，两个指针必然相遇。不妨设环长为 L，第一个指针 P1 第一次进入环时，第二个指针 P2 在 P1 前方第 a 个结点处（0
 &lt; a &lt; L），设经过 x 次移动后两个指针相遇，那么应该有 0 + x = a + 2x (mod
 L)，显然 x = L - a。下面这张图可以清晰地表明这种关系，经过 x =
-L - a 次移动，P1 向前移动了 L - a 个位置（相当于后退了 a），到达 P1' 处，而 P2 向前移动了 2L - 2a 个位置（相当于后退了 2a），到达 P2' 处，显然 P1' 和 P2' 是同一点。</p>
+L - a 次移动，P1 向前移动了 L - a 个位置（相当于后退了 a），到达 P1’ 处，而 P2 向前移动了 2L - 2a 个位置（相当于后退了 2a），到达 P2’ 处，显然 P1’ 和 P2’ 是同一点。</p>
 <div class="figure">
 <object data="https://blog.gocalf.com/images/2011/10/two_pointers_in_ring.svg" style="width: 428px;" type="image/svg+xml">
 two_pointers_in_ring</object>

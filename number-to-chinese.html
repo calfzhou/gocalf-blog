@@ -104,16 +104,16 @@
         <div class="toc" id="">
 
 <ul class="simple">
-<li><a class="reference internal" href="#id3" id="id12">准备工作</a></li>
-<li><a class="reference internal" href="#id4" id="id13">初始版本</a></li>
-<li><a class="reference internal" href="#id5" id="id14">单元测试</a></li>
-<li><a class="reference internal" href="#id6" id="id15">大刀阔斧进行修改</a><ul>
-<li><a class="reference internal" href="#id7" id="id16">特殊的“0”</a></li>
-<li><a class="reference internal" href="#id8" id="id17">全零的万组</a></li>
-<li><a class="reference internal" href="#id9" id="id18">麻烦的“1”</a></li>
+<li><a class="reference internal" href="#id2" id="id11">准备工作</a></li>
+<li><a class="reference internal" href="#id3" id="id12">初始版本</a></li>
+<li><a class="reference internal" href="#id4" id="id13">单元测试</a></li>
+<li><a class="reference internal" href="#id5" id="id14">大刀阔斧进行修改</a><ul>
+<li><a class="reference internal" href="#id6" id="id15">特殊的“0”</a></li>
+<li><a class="reference internal" href="#id7" id="id16">全零的万组</a></li>
+<li><a class="reference internal" href="#id8" id="id17">麻烦的“1”</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id10" id="id19">试试看</a></li>
+<li><a class="reference internal" href="#id9" id="id18">试试看</a></li>
 </ul>
 </div>
         </nav>
@@ -124,12 +124,12 @@
 <p>今天来看一个简单的程序开发问题，（用 Python）编写一段程序，将一个任意给定的整数（可正可负）转换成对应的中文读法。比如输入数字 -12345，输出字符串“负一万二千三百四十五”。</p>
 <p>同时也会稍微涉及到数据驱动的测试（data driven test）。</p>
 <div class="admonition note">
-<p class="first admonition-title">注解</p>
+<p class="first admonition-title">Note</p>
 <p class="last">实际上，对于同一个数字，用中文的读法可能不唯一，在不同的场合也可能会有不同的习惯。我这里采用 Google 拼音输入法提供的读法。</p>
 </div>
 <!-- more -->
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id12">准备工作</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id11">准备工作</a></h2>
 <p>基本的方法很简单，从高位到低位依次把每个数字映射成对应的汉字，再把位数对应的汉字加上就可以了。如果是负数，则在前面加一个“负”即可。</p>
 <p>先把用中文读一个数字所需要的汉字都找出来，它们是“负零一二三四五六七八九十百千万亿兆”等。注意这里的“兆”表示 10 的 12 次方，而不是计算机领域的 10 的 6 次方。在开始之前，先要把这些汉字分分类，比如一二三四之间的差异跟十百千就不一样，跟万亿兆也不一样。</p>
 <p>最特殊的字是“负”，用一个单独的常量保存它。</p>
@@ -153,8 +153,8 @@
 <span class="n">CHINESE_GROUP_UNITS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">''</span><span class="p">,</span> <span class="s1">'万'</span><span class="p">,</span> <span class="s1">'亿'</span><span class="p">,</span> <span class="s1">'兆'</span><span class="p">]</span>
 </pre></div>
 </td></tr></table></div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id13">初始版本</a></h2>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id12">初始版本</a></h2>
 <p>常量定义好之后，就先写个最简单的处理方法。负数和零就不多说了，只看正数的情况。</p>
 <p>比如数字是 12345，输出应该是“一万二千三百四十五”，在这种最普通的情况下，操作方法就是把每个数字对应的汉字和该数位所对应的汉字拼在一起，然后每个万组还要加上该万组的单位（即“万亿兆”）。</p>
 <p>因此首先需要从高位到低位枚举每一位数字，要同时知道数字和对应的数位（比如个位是 0，十亿位是 9，等等）。下面这段简单的程序是从低位开始枚举，使用的时候只要反转（reverse）一下就可以了。</p>
@@ -249,8 +249,8 @@
 </pre></div>
 </td></tr></table><p>啊，由于工作原因，代码风格有所调整。以前在 Python 里函数名采用驼峰方式，首字母大写。现在改用小写加下划线了。</p>
 </div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id14">单元测试</a></h2>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id13">单元测试</a></h2>
 <p>显然上面的代码是有问题的，比如如果数字中有 0，有些结果就不太对。对于 11 到 19 的处理也有问题。因此需要做单元测试，多准备各种情况的测试用例尽可能覆盖更多的特殊情况。</p>
 <p>这里不详细说怎么创建和编写单元测试，只说一下数据驱动的测试（Data Driven Test）。</p>
 <p>一般在 Python 里写单元测试，比如想测试一下输入 10 时，程序输出是否正确。那就添加一个测试方法（test method），调用函数得到实际的输出值（现在应该是“一十”），跟期望的输出（应该是“十”）作比较。</p>
@@ -321,11 +321,11 @@
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>python -m unittest test_translate_number_to_chinese
 </pre></div>
 </td></tr></table></div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id15">大刀阔斧进行修改</a></h2>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id14">大刀阔斧进行修改</a></h2>
 <p>准备好测试方法和足够的测试用例后，就可以放心地对代码进行修改了。每次修改一点儿，都可以跑一下单元测试，看看又成功或者失败了几个用例，总结出规律，继续改进。</p>
-<div class="section" id="id7">
-<h3><a class="toc-backref" href="#id16">特殊的“0”</a></h3>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id15">特殊的“0”</a></h3>
 <p>目前主要的问题在于对“0”的处理上，上面的程序忽略了所有的“0”。</p>
 <p>实际上，在一个万组内，末尾所有连续的“0”都不用读，如 500：五百、20：二十。这方面刚好上面的代码就是这样处理的。注意这个规则不仅仅针对数字最末尾的“0”，而是对每一个万组都有效的。比如 2005678：二百万五千六百七十八（不加“零”）。</p>
 <p>在一个万组内，如果两个非零数字之间有一个或者多个“0”，都需要（且只需要）读一个“零”。如 201：二百零一、3006：三千零六、1020：一千零二十。</p>
@@ -385,13 +385,13 @@
 <span class="c1"># End core loop.</span>
 </pre></div>
 </td></tr></table></div>
-<div class="section" id="id8">
-<h3><a class="toc-backref" href="#id17">全零的万组</a></h3>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id16">全零的万组</a></h3>
 <p>接下来遇到的问题是，如果一个万组完全是 0，就不要再添加对应的单位了，比如 100000000：一亿（现在会输出“一亿万”）。</p>
 <p>解决方法很简单，把上面的 <tt class="docutils literal">if unit == 0:</tt> 改成 <tt class="docutils literal">if unit == 0 and not group_is_zero:</tt> 即可。完整代码略。</p>
 </div>
-<div class="section" id="id9">
-<h3><a class="toc-backref" href="#id18">麻烦的“1”</a></h3>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id17">麻烦的“1”</a></h3>
 <p>最后一种特殊的情况是由数字“1”引起的。</p>
 <p>在一个万组内，如果千位和百位都是“0”，十位是“1”，那么这个“一”就不用读出来，比如 10：十、14：十四。</p>
 <p>但如果千位或者百位不是“0”，这个“一”就需要读出来，比如 213：二百一十三、2013：二千零一十三。</p>
@@ -458,8 +458,8 @@
 </pre></div>
 </td></tr></table></div>
 </div>
-<div class="section" id="id10">
-<h2><a class="toc-backref" href="#id19">试试看</a></h2>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id18">试试看</a></h2>
 <p>代码介绍完了，下面放一个用 JavaScript 实现的版本，可以随便输入一些数字试试看。源代码参见 <a class="reference external" href="http://jsfiddle.net/calfzhou/tGEz7/">http://jsfiddle.net/calfzhou/tGEz7/</a>。</p>
 <script type="text/javascript">
 function translateNumber(numberText) {

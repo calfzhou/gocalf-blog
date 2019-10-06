@@ -62,7 +62,7 @@ Update，用了两个多小时下载了升级包。昨天早晨爬起来之后�
 &lt;p&gt;再次开机，在 BootThink 引导的时候输入 -v 进入 verbose 模式，查看系统 hang 在什么地方。发现在显示了 [PCI
 configuration end] 之后就停住了，这似乎是 Snow Leopard 10.6.8 和 Lion
 10.7.1 都会遇到的问题呢，原来是 IOPCIFamily.kext 和 AppleACPIPlatform.kext 被更新了，解决办法简单粗暴，直接找个老版本（10.6.7）的替换回去就好了。不过我把它们放在 BootThink 的 Darwain\System\LibrarySL\Extensions\ 里面并不能解决问题，得要放到 Mac 分区去。如果有安装盘，可以用 BootThink 引导安装盘，在 Console 里面进行复制的操作，但我上次用来安装的硬盘分区早就格式化掉了，只好用 &lt;a class="reference external" href="http://bbs.pcbeta.com/forum-viewthread-tid-860881-highlight-macdriver.html"&gt;MacDrive（v8.0.5.31）&lt;/a&gt; 来操作。把那两个 kext 复制到 Mac 所在分区的 /System/Library/Extensions 里。&lt;/p&gt;
-&lt;p&gt;再次启动 Mac OS，刚才的问题没有了，这次遇到的是 Can't load kext
+&lt;p&gt;再次启动 Mac OS，刚才的问题没有了，这次遇到的是 Can’t load kext
 com.apple.driver.AudioIPCDriver, link
 fail。要删掉 BootThink 里的 VoodooHDA.kext。不过这样不就不能驱动声卡了吗？先不管它了。&lt;/p&gt;
 &lt;p&gt;接下来遇到的是 FakeSMC: key info not found MSDS, length
@@ -175,7 +175,7 @@ Waiting for Root Device）。&lt;/li&gt;
 E6400 有关的部分和遇到的一些问题为主吧，这款机器似乎是最难装 Mac 的机器之一。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;div class="section" id="dell-latitude-e6400"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;Dell Latitude E6400 硬件配置&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;Dell Latitude E6400 硬件配置&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;为 PC 装 Mac 系统最头疼的当然是硬件驱动了，所以在安装前要先搞清楚机器的硬件情况。&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Chip set&lt;ul&gt;
@@ -198,8 +198,8 @@ Controller [A-3] PCI&lt;/li&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;工具和准备工作&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;工具和准备工作&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;下载了 Mac OS X
 10.6 原版光盘镜像（尝试了很多其他处理好的镜像，全都无法正常安装，最后还是选择用原版），我用的是 snowleopard_10a432_userdvd.dmg（网上到处都能下载，我就不发链接了），6.13G。这么大就不刻盘了，用光盘装还慢呢。&lt;/p&gt;
 &lt;p&gt;用硬盘安装的话，一般要给磁盘上新建两个分区，一个放安装盘镜像，一个装 Mac。前者 6.3G 左右（不要格式化），后者视个人需要，一般至少 20G（NTFS 格式）。我用的 BootThink 引导似乎要求被引导的系统（包括安装镜像和已经装好的系统）在主分区上，但我的硬盘上没有那么多主分区可以用了（一块硬盘最多可以有四个主分区，我已经有了三个，分别是 Win
@@ -207,8 +207,8 @@ Controller [A-3] PCI&lt;/li&gt;
 7 系统分区，数据分区），因此就把最后一个主分区名额留给了 Mac 系统，而把安装盘镜像放到了移动硬盘上。同样注意放安装盘镜像的分区不要格式化。&lt;/p&gt;
 &lt;p&gt;接下来安装 HFS-Explorer（v0.21），运行，按 Ctrl+O（菜单 File-&amp;gt;Load file
 system from
-file...），选择下载的安装盘镜像，在弹出的对话框里选择 Apple_HFS 那项。加载之后点击菜单 Tool-&amp;gt;Create
-disk image...，将生成的文件（.dmg）保存在某个 NTFS 分区上即可。&lt;/p&gt;
+file…），选择下载的安装盘镜像，在弹出的对话框里选择 Apple_HFS 那项。加载之后点击菜单 Tool-&amp;gt;Create
+disk image…，将生成的文件（.dmg）保存在某个 NTFS 分区上即可。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="hfs_explorer_hfs" src="https://blog.gocalf.com/images/2011/07/hfs_explorer_hfs.png"/&gt;
 &lt;p class="caption"&gt;HFS-Explorer 选择 Partition&lt;/p&gt;
@@ -244,8 +244,8 @@ partition type to AF: Success”、“All done, have fun!”时就算成功了�
 7 装在 C 盘，但在安装过程中，它会在 C 盘前面保留一个 100MB 左右的 NTFS 分区（卷标一般就叫 System
 Reserved），而这个分区默认是不显示出来的（没有分配盘符）。如果把 BootThink 装在 C 盘，那有可能会无法进行引导。所以要把它装在那个保留分区里（幸好它体积不是很大）。在磁盘管理中找到那个保留分区，给它指定一个盘符（我习惯用 B），然后把 BootThink 装在这个分区中。（有人说把 C 盘标记为活动分区就可以启动 BootThink，但我没有成功。）安装之后在目标分区的根目录应该有一个文件夹 Darwin 和两个文件 btldr（系统文件）、btldr.mbr。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;准备驱动程序&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;准备驱动程序&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;网上那些破解过的 Mac 安装镜像里面通常都包含了各种驱动程序，在安装的时候选择需要的就可以了，但不知道为什么我这次怎么都装不成功，所以才用了原版的镜像。但原版镜像里没有 PC 的驱动程序，这就要借助 BootThink 了。用 BootThink 引导刚才制作的替换了 OSInstall 的硬盘安装分区，它就可以从 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;C:\Darwin\System\LibrarySL\Extensions\&lt;/span&gt;&lt;/tt&gt; （我的是 &lt;tt class="docutils literal"&gt;B:\&lt;/tt&gt;）里面加载放在那里的驱动程序和补丁（不同版本的 Mac
 OS 对应的目录也不太一样，这里就不多说了）。&lt;/p&gt;
 &lt;p&gt;驱动的选择至关重要啊，选择的不好，轻则某个硬件不工作，重则四国、五国、风火轮（在系统加载时出现用四国或者五国文字写的提示信息，或者风火轮图标一直转却无法进入系统）。这里列出我选择的驱动和补丁。&lt;/p&gt;
@@ -315,8 +315,8 @@ OS 对应的目录也不太一样，这里就不多说了）。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;安装&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;安装&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;动手安装之前还要注意几件事情。&lt;/p&gt;
 &lt;p&gt;首先是 Snow
 Lopard 需要 SATA 硬盘支持，所以要确认 BIOS 中 SATA 模式设定为 AHCI（默认可能是 IRRT）。&lt;/p&gt;
@@ -381,7 +381,7 @@ Flags，值为 &lt;tt class="docutils literal"&gt;arch=i386&lt;/tt&gt;。我的�
   &lt;span class="nt"&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;/plist&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;好了，重启电脑，进入 BootThink 引导，选择启动 Mac 安装盘分区。成功话可以看到苹果图标和风火轮，选择语言，然后就进入安装界面。这时候要对目标分区做格式化，点击菜单“实用工具 -&amp;gt; 磁盘工具...”，在对话框中选择之前格式化成 NTFS 的空白分区，将选择模式“Mac
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;好了，重启电脑，进入 BootThink 引导，选择启动 Mac 安装盘分区。成功话可以看到苹果图标和风火轮，选择语言，然后就进入安装界面。这时候要对目标分区做格式化，点击菜单“实用工具 -&amp;gt; 磁盘工具…”，在对话框中选择之前格式化成 NTFS 的空白分区，将选择模式“Mac
 OS 扩展（日志式）”，填写卷标，点击“抹掉”。成功之后关闭窗口，继续安装，接受软解许可协议，然后就是选择安装组件。有人建议不用选“打印机支持”，太占体积了。选好之后继续，选择刚才格式化好的目标分区，点击安装。&lt;/p&gt;
 &lt;p&gt;如果是用硬盘安装的话，不用等太久就装好了。装好之后会自动重启，不过由于安装过程中，Windows 系统盘的活动分区属性被取消了，如果直接重启将无法进入 Windows，可以利用重启前的一点时间处理一下。点击菜单“实用工具 -&amp;gt; 终端”，用 diskutil 命令来设置活动分区。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# diskutil list

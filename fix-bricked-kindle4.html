@@ -106,11 +106,11 @@
         <div class="toc" id="">
 
 <ul class="simple">
-<li><a class="reference internal" href="#kindle" id="id6">1. 让 Kindle 进入诊断模式</a></li>
-<li><a class="reference internal" href="#mmcblk0p1-img-kindle" id="id7">2. 将 mmcblk0p1.img 拷贝到 Kindle 中</a></li>
-<li><a class="reference internal" href="#ssh-kindle" id="id8">3. SSH 登录到 Kindle</a></li>
-<li><a class="reference internal" href="#id2" id="id9">4. 进行系统恢复</a></li>
-<li><a class="reference internal" href="#id3" id="id10">5. 完成</a></li>
+<li><a class="reference internal" href="#kindle" id="id5">1. 让 Kindle 进入诊断模式</a></li>
+<li><a class="reference internal" href="#mmcblk0p1-img-kindle" id="id6">2. 将 mmcblk0p1.img 拷贝到 Kindle 中</a></li>
+<li><a class="reference internal" href="#ssh-kindle" id="id7">3. SSH 登录到 Kindle</a></li>
+<li><a class="reference internal" href="#id1" id="id8">4. 进行系统恢复</a></li>
+<li><a class="reference internal" href="#id2" id="id9">5. 完成</a></li>
 </ul>
 </div>
         </nav>
@@ -128,7 +128,7 @@ Repair”，原来就是传说中的变成砖头了。</p>
 <p>修砖需要用到的一些工具，我观察到的都是 Windows 程序，所以一切操作都在 Windows
 7 的虚拟机中进行。如果是 Windows XP，可能在驱动方面会稍微麻烦一些。</p>
 <div class="section" id="kindle">
-<h2><a class="toc-backref" href="#id6">1. 让 Kindle 进入诊断模式</a></h2>
+<h2><a class="toc-backref" href="#id5">1. 让 Kindle 进入诊断模式</a></h2>
 <p>工具：Kindle Select Boot，我是在 <a class="reference external" href="http://www.mobileread.com/forums/showthread.php?t=169645">这里</a> 下载到的。</p>
 <p>用 USB 先把 Kindle 连接到电脑上（我用的虚拟机，所以还要把设备接到虚拟机里），一直按住 Kindle 底部的电源键，等指示灯熄灭后，不松开电源键按住方向键下（↓），然后松开电源键，再松开方向键。这使得 Kindle 进入了 USB 恢复模式。</p>
 <p>想要知道这个操作是否成功，可以在 Windows 系统的 Device
@@ -140,7 +140,7 @@ device 的信息，在下半部的 Profile 那里选择 Kindle
 diags（当时没截图，现在也懒得再折腾一次 Kindle 了）。点击右下角的 Start 按钮，就可以让 Kindle 进入诊断模式。</p>
 </div>
 <div class="section" id="mmcblk0p1-img-kindle">
-<h2><a class="toc-backref" href="#id7">2. 将 mmcblk0p1.img 拷贝到 Kindle 中</a></h2>
+<h2><a class="toc-backref" href="#id6">2. 将 mmcblk0p1.img 拷贝到 Kindle 中</a></h2>
 <p>需要下载一个叫做 mmcblk0p1.img 的文件，其实我也不清楚这到底是什么，看起来是个镜像文件。我下载的是 <a class="reference external" href="http://60.211.209.221/cdn.baidupcs.com/file/01589c0ba1f05e9e4f55e35d02ffc05b?xcode=053458c9324860ffda9317ddb745a10aa9749899cf109a05&amp;fid=2601356780-250528-1879823735&amp;time=1374668763&amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-7N%2BEg07f9BuUIjG8wPMKIV8gURM%3D&amp;to=cb&amp;fm=N,B,T&amp;expires=8h&amp;rt=sh&amp;r=586640283&amp;logid=1498755034&amp;sh=1&amp;wsiphost=ipdbm">mmcblk0p1_410.img</a>（点击下载），RAR 压缩包的大小是 144MB，解压后 358MB。</p>
 <p>在 Kindle 诊断模式菜单中选择“U) USB device
 mode”，电脑就会将 Kindle 识别为 U 盘，将下载解压后的 .img 文件拷贝到 Kindle 根目录下。</p>
@@ -148,7 +148,7 @@ mode”，电脑就会将 Kindle 识别为 U 盘，将下载解压后的 .img �
 <p>拷贝完成后，在 Kindle 上按左方向键退出 U 盘模式，并返回主菜单。</p>
 </div>
 <div class="section" id="ssh-kindle">
-<h2><a class="toc-backref" href="#id8">3. SSH 登录到 Kindle</a></h2>
+<h2><a class="toc-backref" href="#id7">3. SSH 登录到 Kindle</a></h2>
 <p>在 SSH 登录之前，先要确认一下 Kindle 系统的版本和序列号（Serial
 Number），以便获取 root 密码。系统版本我是没注意到，序列号在 Kindle 诊断模式主菜单第一项里就能找到。</p>
 <p>记下序列号后，在 Kindle 诊断模式菜单中依次选择：“N) Misc individual
@@ -171,8 +171,8 @@ Ethernet 驱动，<a class="reference external" href="http://b.billgong.com/wp-c
 <span class="k">print</span> <span class="n">password</span>
 </pre></div>
 </td></tr></table></div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id9">4. 进行系统恢复</a></h2>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id8">4. 进行系统恢复</a></h2>
 <p>SSH 登录成功后，在终端中运行如下命令来恢复系统（大概需要几分钟的时间）：</p>
 <div class="highlight"><pre><span></span>dd <span class="k">if</span><span class="o">=</span>/mnt/us/mmcblk0p1_410.img <span class="nv">of</span><span class="o">=</span>/dev/mmcblk0p1 <span class="nv">bs</span><span class="o">=</span>4K
 </pre></div>
@@ -182,8 +182,8 @@ rm /var/local/system/.framework_reboots
 rm /var/local/system/.framework_retries
 </pre></div>
 </div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id10">5. 完成</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id9">5. 完成</a></h2>
 <p>这些都弄完了，长按电源键重启 Kindle，终于恢复了。</p>
 </div>
 

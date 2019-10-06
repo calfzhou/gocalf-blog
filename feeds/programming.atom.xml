@@ -4,10 +4,10 @@
 &lt;p&gt;用苹果系统已经有一段时间了，越来越喜欢这个系统，不管是一般的使用、做设计、做开发，都非常适合。最近也对系统做了一些调整，使得开发环境更加的舒服，记录下来，免得忘了。&lt;/p&gt;
 &lt;p&gt;实际的过程是漫长而曲折的，跟下面所写的顺序完全没有关系。如果按照下面的步骤操作，中间难免会遇到一些问题（大多是由于墙导致的），那时再自行 Google 吧。&lt;/p&gt;
 &lt;!-- more --&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;基础设施&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;基础设施&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="iterm"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;iTerm&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;iTerm&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;对于几乎离不开 shell 的开发者来说，一款优秀的终端程序是基础的基础。&lt;/p&gt;
 &lt;p&gt;毫无疑问，我用的是 &lt;a class="reference external" href="http://www.iterm2.com/"&gt;iTerm2&lt;/a&gt;。如果说访问互联网世界的入口是 Chrome，那么访问程序世界的入口就是 iTerm 了。&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -17,8 +17,8 @@
 &lt;p&gt;配色当然首选 &lt;a class="reference external" href="https://github.com/altercation/solarized"&gt;Solarized&lt;/a&gt; 的暗色系，在 Github 上可以找到专门提供给 iTerm2 用的配色文件 &lt;a class="reference external" href="https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors"&gt;Solarized Dark.itemcolors&lt;/a&gt;。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="homebrew"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Homebrew&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;a class="reference external" href="http://brew.sh/"&gt;Homebrew&lt;/a&gt; installs the stuff you need that Apple didn't.&lt;/p&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;Homebrew&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://brew.sh/"&gt;Homebrew&lt;/a&gt; installs the stuff you need that Apple didn’t.&lt;/p&gt;
 &lt;p&gt;我电脑上的大部分工具都是通过 homebrew 安装和管理的，非常方便。虽然提供类似功能的还有 &lt;a class="reference external" href="http://www.finkproject.org/"&gt;Fink&lt;/a&gt; 和 &lt;a class="reference external" href="http://www.macports.org/"&gt;macports&lt;/a&gt;，但我认为 Homebrew 是最方便的。具体的就不在这里比较了，大家可以自行调研。当然，至少选择一个来帮助自己安装盒管理软件包，会让很多事情变得更容易。&lt;/p&gt;
 &lt;p&gt;安装 Homebrew 非常方便，首先要安装 &lt;a class="reference external" href="https://developer.apple.com/downloads/index.action"&gt;Command Line Tools for Xcode&lt;/a&gt;，然后运行&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ruby -e &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
@@ -28,7 +28,7 @@
 &lt;p&gt;Homebrew 默认会掌控系统中的 &lt;tt class="docutils literal"&gt;/usr/local&lt;/tt&gt; 目录，目前我这个目录也就只是给 Homebrew 用了，其他的东西都不往里放。在使用 Homebrew 的过程中，一般都避免使用 sudo 进行操作，实际上现在的版本用了 sudo 也就没法使了。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="python"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;Python&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Python&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;苹果系统自带了好几个版本的 Python，装在 /Library/Python 中。不过版本都不新，为了便于维护，还是自己装一个 Python 吧。用 &lt;tt class="docutils literal"&gt;brew install python&lt;/tt&gt; 可以安装最新的 Python 2.x，用 &lt;tt class="docutils literal"&gt;brew install python3&lt;/tt&gt; 可以安装最新的 Python 3.x。&lt;/p&gt;
 &lt;p&gt;Homebrew 的 Python 已经安装了 pip，用于管理 Python 的软件包。根据 &lt;tt class="docutils literal"&gt;brew info python&lt;/tt&gt; 提供的提示，运行下列命令对 pip 进行更新：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -53,8 +53,8 @@ pip install virtualenvwrapper
 &lt;p&gt;另外，&lt;a class="reference external" href="http://ipython.org/"&gt;ipython&lt;/a&gt; 是非常好用的 Python 的交互式终端，比 Python 自身的命令行提供了更丰富和方便的功能，建议使用。通过 &lt;tt class="docutils literal"&gt;pip install ipython&lt;/tt&gt; 即可安装。不过目前我还没想清楚要不要把它装在某个虚拟环境中。按理说应该是要在任何一个虚拟环境中都能用 ipython 的，否则就要给每个虚拟环境都装一次，岂不是很浪费空间？这个问题以后再考虑吧。&lt;/p&gt;
 &lt;p&gt;ipython 除了 shell console 外，还提供 Qt console，详细的信息查看官方的介绍吧。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;科学上网&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;科学上网&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;由于一些众所周不知的原因，这个世界上存在着一些不存在的网站。本来不应该为不存在的事物所烦恼，但对于开发人员来说，不存在的世界中却存在着一些非常有价值的资源。所以，需要用科学的方法访问互联网。&lt;/p&gt;
 &lt;p&gt;我目前主要用到了 &lt;a class="reference external" href="https://code.google.com/p/goagent/"&gt;goagent&lt;/a&gt;、SSH tunnel、&lt;a class="reference external" href="https://github.com/rofl0r/proxychains-ng/"&gt;proxychains-ng&lt;/a&gt;、&lt;a class="reference external" href="https://github.com/jedisct1/dnscrypt-proxy"&gt;dnscrypt-proxy&lt;/a&gt; 和 &lt;a class="reference external" href="http://unbound.net/"&gt;unbound&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;goagent 需要在 Google App Engine 上用自己的账号安装服务端，在本地用 python 运行客户端。具体的安装方法参见官网介绍。我创建一个 virtualenv 给它使用，在这个虚拟环境中安装相关的 Python 依赖。&lt;/p&gt;
@@ -114,7 +114,7 @@ pip install gevent
 &lt;span class="nt"&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;/plist&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;给系统的网络连接设置代理，进入 System Preferences -&amp;gt; Network，选择使用的网络，点击 Advanced...，在 Proxies 页中勾选“Automatic Proxy Configuration”，在 URL 内填入“&lt;a class="reference external" href="http://127.0.0.1:8086/proxy.pac"&gt;http://127.0.0.1:8086/proxy.pac&lt;/a&gt;”，保存生效。&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;给系统的网络连接设置代理，进入 System Preferences -&amp;gt; Network，选择使用的网络，点击 Advanced…，在 Proxies 页中勾选“Automatic Proxy Configuration”，在 URL 内填入“&lt;a class="reference external" href="http://127.0.0.1:8086/proxy.pac"&gt;http://127.0.0.1:8086/proxy.pac&lt;/a&gt;”，保存生效。&lt;/p&gt;
 &lt;p&gt;对于 Chrome 浏览器，推荐使用 &lt;a class="reference external" href="https://chrome.google.com/webstore/detail/proxy-switchysharp/dpplabbmogkhghncfbfdeeokoefdjegm"&gt;Proxy SwichySharp&lt;/a&gt; 插件。鉴于 Google 所有的服务都访问不顺畅，这个链接可能不太容易访问到，可以考虑使用 &lt;a class="reference external" href="http://chrome-extension-downloader.com/"&gt;chrome extension downloader&lt;/a&gt; 网站来直接下载插件的. crx 文件。用非 Chrome 浏览器打开该网站，输入 Proxy SwichySharp 的 ID（dpplabbmogkhghncfbfdeeokoefdjegm），下载保存，然后在 Chrome 的 extensions 页面中把 .crx 文件拖进去即可。goagent 里也提供了该插件的 .crx 文件以及配置文件，可以直接使用（作者想的真周到啊）。&lt;/p&gt;
 &lt;p&gt;系统的网络连接代理和 Chrome 的代理插件基本能解决大部分网页访问的需求，比如苹果自带的 Safari 就会默认通过系统的代理，也就能科学地上网了。不过 wget、curl 等 shell 命令却无法直接使用这些代理，它们会根据环境变量 &lt;tt class="docutils literal"&gt;http_proxy&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;https_proxy&lt;/tt&gt; 来访问网络。为了方便，在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.bash_profile&lt;/span&gt;&lt;/tt&gt; 中添加：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -135,19 +135,19 @@ pip install gevent
 brew install dnscrypt-proxy
 noproxy
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;安装后根据提示设置成开机自动启动即可。默认的话它会监听 127.0.0.1 的 53 端口提供 DNS 服务，上游使用 OpenDNS 服务（可自行配置），并使用加密通信来防止 DNS 污染。将网络连接的 DNS 设置为 127.0.0.1（System Preferences -&amp;gt; Network -&amp;gt; 当前使用的网络 -&amp;gt; Advanced... -&amp;gt; DNS -&amp;gt; DNS Servers），就会发现即使没有 goagent，Dropbox、Facebook 等网站也变得存在了。&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;安装后根据提示设置成开机自动启动即可。默认的话它会监听 127.0.0.1 的 53 端口提供 DNS 服务，上游使用 OpenDNS 服务（可自行配置），并使用加密通信来防止 DNS 污染。将网络连接的 DNS 设置为 127.0.0.1（System Preferences -&amp;gt; Network -&amp;gt; 当前使用的网络 -&amp;gt; Advanced… -&amp;gt; DNS -&amp;gt; DNS Servers），就会发现即使没有 goagent，Dropbox、Facebook 等网站也变得存在了。&lt;/p&gt;
 &lt;p&gt;dnscrypt-proxy 有个缺点就是没有缓存功能，每次来个域名都要去远程服务器上解析一次，速度很慢，非常影响上网的体验，建议配合具备 DNS 缓存的工具一起使用，比如 &lt;a class="reference external" href="http://unbound.net/"&gt;unbound&lt;/a&gt;、&lt;a class="reference external" href="http://www.thekelleys.org.uk/dnsmasq/doc.html"&gt;dnsmasq&lt;/a&gt; 等。二者都可以通过 Homebrew 安装，非常方便。当然要配合使用，就需要一些配置，在性能方面也需要做一些优化，这里就不再仔细说了。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="shell"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;友好的 Shell&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;友好的 Shell&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;有了 iTerm 还不够，要让 shell 变得好用，还需要再做一些配置。&lt;/p&gt;
 &lt;div class="section" id="bash-profile"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;Bash Profile&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;Bash Profile&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.bash_profile&lt;/span&gt;&lt;/tt&gt; 的作用就不用我多说了，在这里可以对 shell 进行很多的个性化配置。参考 &lt;a class="reference external" href="https://github.com/mathiasbynens/dotfiles"&gt;mathiasbynens 的 dotfiles&lt;/a&gt; 项目，我也为自己打造了舒适的 shell 环境，相关的配置保存在 &lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/bash"&gt;GitHub - calfzhou - dotfiles - bash&lt;/a&gt; 里面，对 Mac 和 Linux 都是可以的，让我在不同的服务器上也有相同的操作体验。涉及到的内容很多，就不逐一介绍了，比较重要的几点下面会提到。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="dir-colors"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;Dir Colors&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;Dir Colors&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;虽然 iTerm 本身已经设置好了 Solarized 配色，但是 ls 的时候并不一定有颜色。ls 没有颜色绝对是让人难以忍受的，在 &lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/blob/master/bash/bash_inc/aliases"&gt;bash_inc/alias&lt;/a&gt; 里除了根据系统中 ls 支持的参数让 ls 的输出显示出颜色外，还通过配置 &lt;tt class="docutils literal"&gt;LS_COLOR&lt;/tt&gt; 让色彩更丰富，可以让不同类型的文件有不同的颜色，看起来非常的清晰。推荐使用 &lt;a class="reference external" href="https://github.com/seebi/dircolors-solarized"&gt;dircolors-solarized&lt;/a&gt; 提供的配色文件，在 Mac OS X 的采用了 Solarized Dark 配色的 iTerm2 里看起来会是这个样子：&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="dircolors-solaized-dark" src="https://blog.gocalf.com/images/2014/07/dircolors_solarized_dark.png"/&gt;
@@ -155,7 +155,7 @@ noproxy
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="bash-prompt"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;Bash Prompt&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;Bash Prompt&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;在使用 shell 的过程中，命令提示符会一直陪伴着我们，是时候扔掉默认的提示符了。&lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/blob/master/bash/bash_inc/bash_prompt"&gt;我的命令提示符&lt;/a&gt; 用不同的颜色分别显示出当前时刻、当前用户、当前主机（通过颜色标识是否通过是通过 SSH 登录的）、当前使用的 Python virtualenv（如果有的话）、当前目录、当前目录所在的 git 分支和状态（如果是 git 项目的目录的话）。&lt;/p&gt;
 &lt;p&gt;关于主机名，Mac 系统下默认应该是 localhost，可以通过 scutil 命令修改成想要的值：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -171,19 +171,19 @@ MYNAME
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="bash-completion"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;Bash Completion&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;Bash Completion&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;在 shell 里面输入命令的时候，如果只记得开头几个字母，后面的记不清楚了也没关系，输入几个字母后，按 TAB 键就可以自动补全或者提示出所有可行的命令。在输入文件名的时候也可以通过 TAB 键自动补全或者提示出有效的文件文来，这个功能是非常方便的。Homebrew 又额外提供了一些 bash completion 功能，可以通过 &lt;tt class="docutils literal"&gt;brew install &lt;span class="pre"&gt;bash-completion&lt;/span&gt;&lt;/tt&gt; 进行安装，并会生成 &lt;tt class="docutils literal"&gt;/usr/local/etc/bash_completion&lt;/tt&gt; 文件，在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.bash_profile&lt;/span&gt;&lt;/tt&gt; 中 source 一下这个文件，就可以把 Homebrew 提供的命令补全包含进来。如果通过 Homebrew 安装了别的工具包，比如 git、svn 等，它们也会有各自相应的命令补全文件，存放在 &lt;tt class="docutils literal"&gt;/usr/local/etc/bash_completion.d&lt;/tt&gt; 目录中，都会被刚才那个文件自动引入。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="shell-commands"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;Shell Commands&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;Shell Commands&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;用惯了 Linux（CentOS）里面的 shell 命令，就无法忍受 Mac 系统中那些落后的 shell 命令了，像 ls、date、ps、echo、grep 等等，功能都特别少。在忍无可忍之后，终于决定用 &lt;a class="reference external" href="http://www.gnu.org/software/coreutils/"&gt;GNU Coreutils&lt;/a&gt; 替换它们。用 &lt;tt class="docutils literal"&gt;brew install coreutils&lt;/tt&gt; 就可以搞定了，安装完成后，根据提示，将 &lt;tt class="docutils literal"&gt;/usr/local/opt/coreutils/libexec/gnubin&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;/usr/local/opt/coreutils/libexec/gnuman&lt;/tt&gt; 分别添加到 &lt;tt class="docutils literal"&gt;$PATH&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;$MANPATH&lt;/tt&gt; 中即可。&lt;/p&gt;
 &lt;p&gt;grep 命令不在 coreutils，可以通过 &lt;tt class="docutils literal"&gt;brew install grep &lt;span class="pre"&gt;--default-names&lt;/span&gt;&lt;/tt&gt; 搞定（如果说找不到 grep 可以先 &lt;tt class="docutils literal"&gt;brew tap homebrew/dupes&lt;/tt&gt;）。当然还有很多其他特别有用的命令，就不一一细说了，反正想到什么，只要用 &lt;tt class="docutils literal"&gt;brew info&lt;/tt&gt; 或者 &lt;tt class="docutils literal"&gt;brew search&lt;/tt&gt; 找找看就行。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="ide"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;编辑器和 IDE&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;编辑器和 IDE&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="vim"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;VIM&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;VIM&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;其实我也不是 VIM 重度使用者，现在写超过两个文件的 Python 代码、Java 代码等都会使用专门的 IDE。我看很多人都喜欢用 VIM 来写复杂的项目代码，但他们的 VIM 都没有做任何额外的设置，自身对 VIM 的快捷键和命令也不熟悉，只是把 VIM 当成一个连移动光标都很费劲的编辑器来用，写代码的效率可想而知。而且像 Python 这种脚本语言，很多错误只有到运行到那句话的时候才会有效果，VIM 没有足够的只能针对某一个语言做太多的静态分析。&lt;/p&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vimrc&lt;/span&gt;&lt;/tt&gt; 用于对 VIM 进行各种设置，如果没有这个文件，赶紧创建一个吧。复杂的语法高亮、配色、插件等都可以放在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vim&lt;/span&gt;&lt;/tt&gt; 里面。VIM 自身对插件没有很好地管理，我选择了 &lt;a class="reference external" href="https://github.com/tpope/vim-pathogen"&gt;vim-pathogen&lt;/a&gt; 来管理所需要的 VIM 扩展。只要把 &lt;a class="reference external" href="https://github.com/tpope/vim-pathogen/blob/master/autoload/pathogen.vim"&gt;pathogen.vim&lt;/a&gt; 放在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vim/autoload&lt;/span&gt;&lt;/tt&gt; 目录中，把所需的扩展包放在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vim/bundle&lt;/span&gt;&lt;/tt&gt; 目录下即可。&lt;/p&gt;
 &lt;p&gt;同样地，我也把自己的 VIM 设置和依赖放在 GitHub 上（&lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/vim"&gt;GitHub - calfzhou - dotfiles - vim&lt;/a&gt;），在别的 server 上直接 clone 下来保持一致的操作体验。&lt;/p&gt;
@@ -191,19 +191,19 @@ MYNAME
 &lt;p&gt;如果不满意苹果系统自带的较低版本的 VIM，或者想用 GUI 界面的 VIM，可以利用 Homebrew 进行安装，Formula 是 &lt;tt class="docutils literal"&gt;vim&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;macvim&lt;/tt&gt;。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="sublime-text"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;Sublime Text&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Sublime Text&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.sublimetext.com/"&gt;Sublime Text&lt;/a&gt; 是我现在主要使用的 GUI 编辑器，但看其首页的动画演示就会觉得非常 cool。以前还经常用 Ultra Edit 和 Notepad++，现在基本都不用了。在 GUI 程序中，我一般会使用 Solarized Light 配色方案，总感觉大部分 GUI 程序用暗色系就很丑（PyCharm 系列除外）。&lt;/p&gt;
 &lt;p&gt;具体的配置也就不多说了。注意 Sublime Text 原生不支持 GBK 编码的文件，需要安装扩展包，即使这样，在编辑 GBK 编码的文件时，它会生成一个临时文件进行操作，保存的时候再写回去，体验上还是有些不爽。&lt;/p&gt;
 &lt;p&gt;还有一个地方我也一直没搞清楚，就是中文字体不是刚刚好跟两个英文字母一样宽。在编辑 reStructuredText 文件的时候，还是会比较麻烦的。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="python-ide"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;Python IDE&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;Python IDE&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;以前一直用 VIM 做 Python 开发，是因为没找到好用的 Python IDE，现在我用 &lt;a class="reference external" href="http://www.jetbrains.com/"&gt;JetBrains&lt;/a&gt; 出的 &lt;a class="reference external" href="http://www.jetbrains.com/pycharm/"&gt;PyCharm&lt;/a&gt;。不要跟我争，这绝对是世界上最好用的 Python IDE，没有之一。&lt;/p&gt;
 &lt;p&gt;PyCharm 里强烈推荐自带的 Darcula 配色，感觉在 GUI 界面中，这个配色比 Solarized Dark 要舒服一些。PyCharm 的默认配置基本就很好用了，它对 Python 代码的可读性检测方面要求还是比较严格的，空行、空格不合适都会有提示。如果 Python 项目中包含其他类型的文件（如 shell 脚本、html 页面等），它也有相应的插件可以对这些文件进行语法高亮。&lt;/p&gt;
 &lt;p&gt;一直觉得如果 JetBrains 出一个通用的编辑器，应该能把 Sublime Text 甩出好几条街去。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="java-ide"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;Java IDE&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;Java IDE&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;好多人都用 Eclipse 写 Java 代码（包括 Android 开发），真想不通为什么那么难用的 IDE 还那么受欢迎。可能学校里交 Java 的时候都用的 Eclipse 吧，就像直到现在都还有很多人用 VS6 做 C++ 开发一样。对于 Android 开发，可能跟之前 Google 推 Eclipse with ADT 有关吧。不过现在 Google 也认识到了 Eclipse 的不足，转身投入 &lt;a class="reference external" href="http://www.jetbrains.com/"&gt;JetBrains&lt;/a&gt; 的 &lt;a class="reference external" href="http://www.jetbrains.com/idea/"&gt;IntelliJ IDEA&lt;/a&gt; 的怀抱了。JetBrains 出品的个个都是精品啊，微软里面很多项目组也都在使用 JetBrains 出的 &lt;a class="reference external" href="http://www.jetbrains.com/resharper/"&gt;ReSharper&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;我现在也是用 IntelliJ IDEA 来做 Java 开发，使用体验跟 PyCharm 类似。Java 项目的依赖管理用 Maven，Homebrew 里也提供了安装。建议目前使用 Maven 3.0.*：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -213,10 +213,10 @@ brew install maven30
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;当然如果要用最新的 3.2.*，可以直接 &lt;tt class="docutils literal"&gt;brew install maven&lt;/tt&gt;。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id26"&gt;版本控制&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id25"&gt;版本控制&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="git"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;Git&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;Git&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;用 Homebrew 可以方便地安装最新的 Git。如果像上面介绍的那样，用 Homebrew 安装并使用了 bash-completion，那么装好 git 后，git 指令也会按 TAB 键补全了，再也不动担心记不住 git 指令。&lt;/p&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.gitconfig&lt;/span&gt;&lt;/tt&gt; 可以用来定义很多个性化的设置，可以直接编辑或者通过 &lt;tt class="docutils literal"&gt;git config &lt;span class="pre"&gt;--global&lt;/span&gt;&lt;/tt&gt; 进行设置。类似的，我也把我的配置文件保存在 GitHub 上（&lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/git"&gt;GitHub - calfzhou - dotfiles - git&lt;/a&gt;），以便在不同的地方有同样的操作体验。&lt;/p&gt;
 &lt;p&gt;顺便提一下，用 git 管理项目版本的话，推荐使用 &lt;a class="reference external" href="https://github.com/nvie/gitflow"&gt;git-flow&lt;/a&gt; 管理分支和版本，通过 Homebrew 可以直接安装它，同样也会带有 TAB 自动补全功能。关于这种分支管理的模型，可以阅读 &lt;a class="reference external" href="http://nvie.com/posts/a-successful-git-branching-model/"&gt;A successful Git branching model&lt;/a&gt;。&lt;/p&gt;
@@ -228,7 +228,7 @@ brew install maven30
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="svn"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;SVN&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;SVN&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;用了 Git，就再也不想用 SVN 了。不过有时候也难免会需要用，用 Homebrew 安装个新版本的 SVN 吧，同样也会有 TAB 键补全哦。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -237,12 +237,12 @@ brew install maven30
 &lt;p&gt;今天来看一个简单的程序开发问题，（用 Python）编写一段程序，将一个任意给定的整数（可正可负）转换成对应的中文读法。比如输入数字 -12345，输出字符串“负一万二千三百四十五”。&lt;/p&gt;
 &lt;p&gt;同时也会稍微涉及到数据驱动的测试（data driven test）。&lt;/p&gt;
 &lt;div class="admonition note"&gt;
-&lt;p class="first admonition-title"&gt;注解&lt;/p&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
 &lt;p class="last"&gt;实际上，对于同一个数字，用中文的读法可能不唯一，在不同的场合也可能会有不同的习惯。我这里采用 Google 拼音输入法提供的读法。&lt;/p&gt;
 &lt;/div&gt;
 &lt;!-- more --&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;准备工作&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;准备工作&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;基本的方法很简单，从高位到低位依次把每个数字映射成对应的汉字，再把位数对应的汉字加上就可以了。如果是负数，则在前面加一个“负”即可。&lt;/p&gt;
 &lt;p&gt;先把用中文读一个数字所需要的汉字都找出来，它们是“负零一二三四五六七八九十百千万亿兆”等。注意这里的“兆”表示 10 的 12 次方，而不是计算机领域的 10 的 6 次方。在开始之前，先要把这些汉字分分类，比如一二三四之间的差异跟十百千就不一样，跟万亿兆也不一样。&lt;/p&gt;
 &lt;p&gt;最特殊的字是“负”，用一个单独的常量保存它。&lt;/p&gt;
@@ -266,8 +266,8 @@ brew install maven30
 &lt;span class="n"&gt;CHINESE_GROUP_UNITS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;''&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'万'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'亿'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'兆'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;初始版本&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;初始版本&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;常量定义好之后，就先写个最简单的处理方法。负数和零就不多说了，只看正数的情况。&lt;/p&gt;
 &lt;p&gt;比如数字是 12345，输出应该是“一万二千三百四十五”，在这种最普通的情况下，操作方法就是把每个数字对应的汉字和该数位所对应的汉字拼在一起，然后每个万组还要加上该万组的单位（即“万亿兆”）。&lt;/p&gt;
 &lt;p&gt;因此首先需要从高位到低位枚举每一位数字，要同时知道数字和对应的数位（比如个位是 0，十亿位是 9，等等）。下面这段简单的程序是从低位开始枚举，使用的时候只要反转（reverse）一下就可以了。&lt;/p&gt;
@@ -362,8 +362,8 @@ brew install maven30
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;啊，由于工作原因，代码风格有所调整。以前在 Python 里函数名采用驼峰方式，首字母大写。现在改用小写加下划线了。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;单元测试&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;单元测试&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;显然上面的代码是有问题的，比如如果数字中有 0，有些结果就不太对。对于 11 到 19 的处理也有问题。因此需要做单元测试，多准备各种情况的测试用例尽可能覆盖更多的特殊情况。&lt;/p&gt;
 &lt;p&gt;这里不详细说怎么创建和编写单元测试，只说一下数据驱动的测试（Data Driven Test）。&lt;/p&gt;
 &lt;p&gt;一般在 Python 里写单元测试，比如想测试一下输入 10 时，程序输出是否正确。那就添加一个测试方法（test method），调用函数得到实际的输出值（现在应该是“一十”），跟期望的输出（应该是“十”）作比较。&lt;/p&gt;
@@ -434,11 +434,11 @@ brew install maven30
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python -m unittest test_translate_number_to_chinese
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;大刀阔斧进行修改&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;大刀阔斧进行修改&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;准备好测试方法和足够的测试用例后，就可以放心地对代码进行修改了。每次修改一点儿，都可以跑一下单元测试，看看又成功或者失败了几个用例，总结出规律，继续改进。&lt;/p&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;特殊的“0”&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;特殊的“0”&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;目前主要的问题在于对“0”的处理上，上面的程序忽略了所有的“0”。&lt;/p&gt;
 &lt;p&gt;实际上，在一个万组内，末尾所有连续的“0”都不用读，如 500：五百、20：二十。这方面刚好上面的代码就是这样处理的。注意这个规则不仅仅针对数字最末尾的“0”，而是对每一个万组都有效的。比如 2005678：二百万五千六百七十八（不加“零”）。&lt;/p&gt;
 &lt;p&gt;在一个万组内，如果两个非零数字之间有一个或者多个“0”，都需要（且只需要）读一个“零”。如 201：二百零一、3006：三千零六、1020：一千零二十。&lt;/p&gt;
@@ -498,13 +498,13 @@ brew install maven30
 &lt;span class="c1"&gt;# End core loop.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id8"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;全零的万组&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;全零的万组&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;接下来遇到的问题是，如果一个万组完全是 0，就不要再添加对应的单位了，比如 100000000：一亿（现在会输出“一亿万”）。&lt;/p&gt;
 &lt;p&gt;解决方法很简单，把上面的 &lt;tt class="docutils literal"&gt;if unit == 0:&lt;/tt&gt; 改成 &lt;tt class="docutils literal"&gt;if unit == 0 and not group_is_zero:&lt;/tt&gt; 即可。完整代码略。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id9"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;麻烦的“1”&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;麻烦的“1”&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;最后一种特殊的情况是由数字“1”引起的。&lt;/p&gt;
 &lt;p&gt;在一个万组内，如果千位和百位都是“0”，十位是“1”，那么这个“一”就不用读出来，比如 10：十、14：十四。&lt;/p&gt;
 &lt;p&gt;但如果千位或者百位不是“0”，这个“一”就需要读出来，比如 213：二百一十三、2013：二千零一十三。&lt;/p&gt;
@@ -571,8 +571,8 @@ brew install maven30
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id10"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;试试看&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;试试看&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;代码介绍完了，下面放一个用 JavaScript 实现的版本，可以随便输入一些数字试试看。源代码参见 &lt;a class="reference external" href="http://jsfiddle.net/calfzhou/tGEz7/"&gt;http://jsfiddle.net/calfzhou/tGEz7/&lt;/a&gt;。&lt;/p&gt;
 &lt;script type="text/javascript"&gt;
 function translateNumber(numberText) {
@@ -652,7 +652,7 @@ function doNumberTranslation() {
 &lt;p&gt;前段时间做一个项目，却不得不使用 Python 直接生成 Excel 文件，后来随着需求的变化，还要对已有的 Excel 文件进行读取。在这个过程中，研究并尝试了一些工具，也走了一些弯路。记录下来，下次再有类似需求的时候就不用漫天遍野地搜索了。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;div class="section" id="pk"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;超级无敌大 PK&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;超级无敌大 PK&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;我主要尝试了四种工具，在此并不会给出他们的排名，因为在不同的应用场景下，做出的选择会不同。&lt;/p&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;colgroup&gt;
@@ -774,7 +774,7 @@ Excel 进程通信，调用其各种功能实现对 Excel 文件的操作&lt;/td
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class="section" id="xlsxwriter"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;XlsxWriter&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;XlsxWriter&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/jmcnamara/XlsxWriter"&gt;XlsxWriter&lt;/a&gt; 是我最终选择的用于写操作的工具。顾名思义，它只能用来写文件。&lt;/p&gt;
 &lt;p&gt;这应该是个比较新的项目，在 GitHub 上看它最早的提交是在 2013 年 1 月份。其官方文档中宣称它支持：&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -791,16 +791,16 @@ Excel 进程通信，调用其各种功能实现对 Excel 文件的操作&lt;/td
 &lt;li&gt;Cell comments.&lt;/li&gt;
 &lt;li&gt;Memory optimisation mode for writing large files.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="section" id="id2"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;优点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;优点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、功能比较强&lt;/p&gt;
 &lt;p&gt;相对而言，这是除 Excel 自身之外功能最强的工具了。比如我就用到了它提供的：字体设置、前景色背景色、border 设置、视图缩放（zoom）、单元格合并、autofilter、freeze panes、公式、data validation、单元格注释、行高和列宽设置等等。&lt;/p&gt;
 &lt;p&gt;最让我惊奇的是，用它生成的带有单元格注释的 Excel 文件，不论是 Excel 2007 还是 Excel 2013 都可正常打开（下面会提到，这个任务用 Excel 自身都无法完成）。&lt;/p&gt;
 &lt;p&gt;二、支持大文件写入&lt;/p&gt;
 &lt;p&gt;如果数据量非常大，可以启用 &lt;a class="reference external" href="http://xlsxwriter.readthedocs.org/en/latest/working_with_memory.html"&gt;constant memory 模式&lt;/a&gt;，这是一种顺序写入模式，得到一行数据就立刻写入一行，而不会把所有的数据都保持在内存中。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、不支持读取和修改&lt;/p&gt;
 &lt;p&gt;作者并没有打算做一个 XlsxReader 来提供读取操作。不能读取，也就无从修改了。它只能用来创建新的文件。我是利用 xlrd 把需要的信息读入后，用 XlsxWriter 创建全新的文件。&lt;/p&gt;
 &lt;p&gt;另外，即使是创建到一半 Excel 文件，也是无法读取已经创建出来的内容的（信息应该在，但是并没有相应的接口）。因为它的主要方法是 &lt;tt class="docutils literal"&gt;write&lt;/tt&gt; 而不是 &lt;tt class="docutils literal"&gt;set&lt;/tt&gt;。当你在某个单元格写入数据后，除非你自己保存了相关的内容，否则还是没有办法读出已经写入的信息。从这个角度看，你无法做到读出 -&amp;gt; 修改 -&amp;gt; 写回，只能是写入 -&amp;gt; 写入 -&amp;gt; 写入。&lt;/p&gt;
@@ -811,17 +811,17 @@ Excel 进程通信，调用其各种功能实现对 Excel 文件的操作&lt;/td
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="xlrd-xlwt"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id24"&gt;xlrd&amp;amp;xlwt&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id23"&gt;xlrd&amp;amp;xlwt&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;我的程序在第一版的时候，使用 &lt;a class="reference external" href="https://pypi.python.org/pypi/xlwt"&gt;xlwt&lt;/a&gt; 创建 XLS 文件，然后通过 &lt;a class="reference external" href="http://msdn.microsoft.com/en-us/library/fp179694.aspx"&gt;Microsoft Excel API&lt;/a&gt; 将其转换为 XLSX 文件，并写入高级的 Data Validation（Excel 2007 的 Data Validation 比 Excel 2003 要强大不少）和单元格注释。&lt;/p&gt;
 &lt;p&gt;我的程序最终的版本也依然用 &lt;a class="reference external" href="https://pypi.python.org/pypi/xlrd"&gt;xlrd&lt;/a&gt; 从已有的文件中读出所需的信息。&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.python-excel.org/"&gt;xlrd&amp;amp;xlwt&lt;/a&gt; 主要是针对 Office 2013 或更早版本的 XLS 文件格式。&lt;/p&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;优点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;优点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、支持 XLS 格式&lt;/p&gt;
 &lt;p&gt;XlsxWriter 和 OpenPyXL 都不支持 XLS 格式，从这个角度看，&lt;a class="reference external" href="http://www.python-excel.org/"&gt;xlrd&amp;amp;xlwt&lt;/a&gt; 仍然有一定的不可替代性。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、对 XLSX 支持比较差&lt;/p&gt;
 &lt;p&gt;目前 &lt;a class="reference external" href="https://pypi.python.org/pypi/xlrd"&gt;xlrd&lt;/a&gt; 已经可以读取 XLSX 文件了，有限地支持。至于 &lt;a class="reference external" href="https://pypi.python.org/pypi/xlwt"&gt;xlwt&lt;/a&gt; 我没有试验过，估计是够呛。&lt;/p&gt;
 &lt;p&gt;二、对修改的支持比较差&lt;/p&gt;
@@ -831,18 +831,18 @@ Excel 进程通信，调用其各种功能实现对 Excel 文件的操作&lt;/td
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="openpyxl"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id27"&gt;OpenPyXL&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id26"&gt;OpenPyXL&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://openpyxl.readthedocs.org/"&gt;OpenPyXL&lt;/a&gt; 是比较综合的一个工具，能读能写能修改，功能还算可以但也有很大的缺陷。我在中间版本的时候是打算完全依赖它的，但后来发现一个严重的问题就放弃了。&lt;/p&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;优点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;优点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、能读能写能修改&lt;/p&gt;
 &lt;p&gt;OpenPyXL 的工作模式跟 XlsxWriter 和 xlwt 有很大的区别，它用的是 getter/setter 模式。你可以随时读取某个单元格的内容，并根据其内容进行相应的修改，OpenPyXL 会帮你记住每个单元格的状态。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;特别需要注意的一点：&lt;/strong&gt;虽然它支持修改已有文件，但由于其所支持的功能有限，读入文件时会忽略掉它所不支持的内容，再写入时，这些内容就丢失了。因此使用时一定要慎重。比如下面的缺点中提到它无法读入公式，那如果你修改一个带有公式的文件，保存之后，所有的公式就都没有了。&lt;/p&gt;
 &lt;p&gt;二、功能还算可以&lt;/p&gt;
 &lt;p&gt;整体来讲，它所支持的功能介于 XlsxWriter 和 xlwt 之间。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id29"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、不支持 XLS&lt;/p&gt;
 &lt;p&gt;这件事情只能让 xlrd 和 xlwt 去做。&lt;/p&gt;
 &lt;p&gt;二、不支持读取公式&lt;/p&gt;
@@ -851,13 +851,13 @@ Excel 进程通信，调用其各种功能实现对 Excel 文件的操作&lt;/td
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="microsoft-excel-api"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id30"&gt;Microsoft Excel API&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id29"&gt;Microsoft Excel API&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;大部分 Windows 环境的开发人员都会选择 &lt;a class="reference external" href="http://msdn.microsoft.com/en-us/library/fp179694.aspx"&gt;Microsoft Excel API&lt;/a&gt;。实际上不仅仅是 Python，几乎各种语言都有相应的方法使用它，因为核心的逻辑完全是由 Microsft
 Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组件进行通信。&lt;/p&gt;
 &lt;p&gt;在 Python 中首先需要安装 &lt;a class="reference external" href="http://sourceforge.net/projects/pywin32/"&gt;Python for Windows extensions&lt;/a&gt;（&lt;a class="reference external" href="http://sourceforge.net/projects/pywin32/"&gt;pywin32&lt;/a&gt;），具体的文档可以查阅 &lt;a class="reference external" href="http://docs.activestate.com/activepython/2.4/pywin32/win32_modules.html"&gt;Win32 Modules&lt;/a&gt; 和 &lt;a class="reference external" href="http://docs.activestate.com/activepython/2.4/pywin32/com.html"&gt;Python COM&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;当然你还必须要安装某一个版本的 Microsoft Office Excel，它内部的 DLL 负责实际的操作。&lt;/p&gt;
-&lt;div class="section" id="id8"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id31"&gt;优点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id30"&gt;优点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、最大的优点：强大无极限&lt;/p&gt;
 &lt;p&gt;因为直接与 Excel 进程通信，你可以做任何在 Excel 里可以做的事情。&lt;/p&gt;
 &lt;p&gt;二、文档丰富&lt;/p&gt;
@@ -865,8 +865,8 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 &lt;p&gt;三、调试方便&lt;/p&gt;
 &lt;p&gt;你完全可以直接在 Excel 里面用宏先调试你想要的效果。甚至如果你不清楚怎么用程序实现某个操作，你可以通过宏录制的方法得到该操作的处理代码。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id9"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id32"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id31"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、致命的缺点：慢到死&lt;/p&gt;
 &lt;p&gt;因为需要与 Excel 进程通信，其效率是非常低的。&lt;/p&gt;
 &lt;p&gt;如果让 Excel 窗口可见，随着程序的运行，你可以看到每一句程序所带来的变化，单元格的内容一个一个地改变。如果要写入的数据很多，那速度是无法忍受的。&lt;/p&gt;
@@ -877,8 +877,8 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 &lt;p&gt;我刚好发现了其中一个，这和 Python 没有任何关系，可以完全在 Excel 中手动复现。在 Excel 2007 中随便创建一个文件，给某个单元格添加注释，保存。换台电脑，用 Excel 2013 打开，就会报错，然后注释就消失了。&lt;/p&gt;
 &lt;p&gt;同样如果你的程序在一台装有 Excel 2007 的机器上创建一个带有注释的 Excel 文件，把这个文件拿到 Excel 2013 中打开也会报错，也看不到注释。反过来也一样。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id10"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id33"&gt;关于初始化&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id32"&gt;关于初始化&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Excel 的 com 接口的具体细节我就不介绍了，需要的话直接查阅相关的 MSDN 文档即可。这里只提几个特殊的小问题。&lt;/p&gt;
 &lt;p&gt;要想得到一个可以操作的 excel 对象，一般可以有两种方式：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;win32com.client&lt;/span&gt;
@@ -892,8 +892,8 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 &lt;p&gt;二者的区别在于，Dispatch 方法会试图寻找并复用一个已有的 Excel 进程（比如你已经在运行着的 Excel 程序），而 DispatchEx 则一定会创建一个新的 Excel 进程。一般情况使用前者就可以了，还能节省一些资源的开销。但也会带来一些麻烦，有一些状态是在一个 Excel 进程内共享的，你在同进程的其他窗口内操作有可能会影响到 Python 程序所要进行的处理，导致各种错误。比如当你手动开启的 Excel 窗口中，某个单元格正处于编辑状态，那 Python 程序控制的大部分操作都有可能失败（即使它操作的是另一个文件），因为一个 Excel 进程中无法让两个单元格同时被编辑。&lt;/p&gt;
 &lt;p&gt;为了避免麻烦，我一般都使用 DispatchEx 方法。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id11"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id34"&gt;关于窗口可见&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id10"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id33"&gt;关于窗口可见&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;可以让新启动的 Excel 进程窗口可见，就像你通过双击桌面上的图标启动一样，程序所控制的每一步操作，在这个窗口中都可以观察得到。你也可以同时进行手动的操作，但一旦这样做，很有可能使你的 Python 程序崩溃。&lt;/p&gt;
 &lt;p&gt;窗口不可见也会带来一些麻烦，前面说了，通过 Python 启动的 Excel 进程跟你直接从桌面打开的 Excel 进程没有什么区别，在使用 Excel 的过程中，我们经常会遇到各种弹出的错误、警告或者提示框，这些在用 Python 处理时也有可能遇到。尤其当你的程序还没完全调试好时。&lt;/p&gt;
 &lt;p&gt;我一般都会让程序控制的 Excel 进程在调试过程中可见，正式使用时不可见，通过类似这样的命令（假设你有一个叫做 &lt;tt class="docutils literal"&gt;is_debug&lt;/tt&gt; 的变量记录当前是否在调试状态）：&lt;/p&gt;
@@ -902,8 +902,8 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 &lt;/span&gt;&lt;span class="hll"&gt;    &lt;span class="n"&gt;excel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Visible&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
 &lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id12"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id35"&gt;关于保存并覆盖已有文件&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id11"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id34"&gt;关于保存并覆盖已有文件&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;打开和保存文件的细节不在这里多说了，可以查看 MSDN 中相关的 API 介绍，非常详细。这里只说一下在另存为时，如果目标文件已经存在怎么办。Excel 的 API 另存为方法似乎并没有提供参数决定是否直接覆盖同名的目标文件，在窗口操作中，这种情况会弹出一个确认框来让用户决定。我们的程序当然不想这么做，实际上如果你按照上面所说的让窗口不可见，你也就看不到弹出的窗口。&lt;/p&gt;
 &lt;p&gt;可以把 DisplayAlert 属性关闭，这样 Excel 就不会弹出确认窗，而是直接覆盖同名文件。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;orig_display_alerts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;excel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DisplayAlerts&lt;/span&gt;
@@ -915,7 +915,7 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="excel"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id36"&gt;关于结束 Excel 进程&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id35"&gt;关于结束 Excel 进程&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;进程是一种资源，我们申请了资源，在用完之后就必须要释放掉。尤其如果你隐藏了 Excel 窗口，用户只有查看系统进程，否则无法关闭你所开启的进程。&lt;/p&gt;
 &lt;p&gt;但是一个 Excel 进程是可以同时开启多个文件的，这些文件可能是你程序的其他部分开启的，也可能是用户自己开启的。这样你就不能随意地结束 Excel 进程，否则会影响到其他人或程序的操作。&lt;/p&gt;
 &lt;p&gt;我一般会在我的处理完成后（关闭了我自己打开或者创建的 Excel 文件），判断一下当前 Excel 进程是否还开启着其他的文档，如果没有了才会结束该进程。&lt;/p&gt;
@@ -934,8 +934,8 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 &lt;span class="k"&gt;del&lt;/span&gt; &lt;span class="n"&gt;excel&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id13"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id37"&gt;关于枚举常量&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id12"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id36"&gt;关于枚举常量&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Excel API 中有各种各样的枚举常量，我还没有找到在 Python 中直接引用这些常量的方法，目前的办法是找到所需的常数的值，自己定义这些常数。比如我用到了如下这些枚举常量：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -1832,8 +1832,8 @@ Bar）使得用户了解处理进度。这个进度条应该是在一个模态�
 &lt;p&gt;今天的问题是怎么在 App 中隐藏系统状态栏（Status Bar）。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;以下内容适用于 iOS 3.2+。&lt;/p&gt;
-&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;一、始终隐藏状态栏&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;一、始终隐藏状态栏&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;如果在 App 中需要状态栏一直是隐藏着的，可以在 &lt;tt class="docutils literal"&gt;&amp;lt;YOUR_APP&amp;gt;AppDelegate&lt;/tt&gt; 的 &lt;tt class="docutils literal"&gt;application:didFinishLaunchingWithOptions:&lt;/tt&gt; 函数中进行设置，比如下面这段示意代码可以让状态栏以淡出的方式隐藏起来：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -1864,7 +1864,7 @@ Bar）使得用户了解处理进度。这个进度条应该是在一个模态�
 in iOS 3.2）。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="app"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;二、App 启动时就隐藏状态栏&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;二、App 启动时就隐藏状态栏&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;用了上面的方法之后，App 在运行过程中，状态栏确实被隐藏起来了，但是我发现在 App 启动的那个瞬间，还是可以看到状态栏的，然后一闪即过。虽然时间很短暂，看着还是很不舒服。为了让状态栏从启动的时候就隐藏起来，可以修改 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;&amp;lt;YOUR_APP&amp;gt;-Info.plist&lt;/span&gt;&lt;/tt&gt;。如果在 Xcode 中修改，在根结点 Infomation
 Property List 下面新加一项 “Status bar is initially
 hidden”（不用手动输入，可以直接在下拉菜单中选取）。这是个 BOOL 类型的键值，将 Value 栏中的复选框勾选上即可。&lt;/p&gt;
@@ -1877,8 +1877,8 @@ hidden”（不用手动输入，可以直接在下拉菜单中选取）。这�
 &lt;span class="nt"&gt;&amp;lt;true/&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;三、在运行过程中隐藏或显示状态栏&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;三、在运行过程中隐藏或显示状态栏&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;与第一段中的方法一样，只是可以在任何地方调用。只要利用 UIApplication 类的静态方法 &lt;a class="reference external" href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html#//apple_ref/occ/clm/UIApplication/sharedApplication"&gt;sharedApplication&lt;/a&gt; 拿到 application 实例即可。&lt;/p&gt;
 &lt;/div&gt;
 </content><category term="iOS Develop"></category></entry><entry><title>可以继承的 C++ Singleton 基类</title><link href="https://blog.gocalf.com/cpp-singleton" rel="alternate"></link><published>2011-08-12T23:20:00+08:00</published><updated>2011-08-22T00:32:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-12:/cpp-singleton</id><summary type="html">&lt;p class="first last"&gt;单例模式是设计模式中的一种，它用来保证系统中最多只能存在一个它的实例，其做法是由类自身来创建和持有它的对象实例，把对实例的创建权和管理权都控制在自己手中，以便控制实例数目。本文介绍可以继承的单例类。&lt;/p&gt;

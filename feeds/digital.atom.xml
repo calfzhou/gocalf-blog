@@ -11,7 +11,7 @@ Repair”，原来就是传说中的变成砖头了。&lt;/p&gt;
 &lt;p&gt;修砖需要用到的一些工具，我观察到的都是 Windows 程序，所以一切操作都在 Windows
 7 的虚拟机中进行。如果是 Windows XP，可能在驱动方面会稍微麻烦一些。&lt;/p&gt;
 &lt;div class="section" id="kindle"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;1. 让 Kindle 进入诊断模式&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;1. 让 Kindle 进入诊断模式&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;工具：Kindle Select Boot，我是在 &lt;a class="reference external" href="http://www.mobileread.com/forums/showthread.php?t=169645"&gt;这里&lt;/a&gt; 下载到的。&lt;/p&gt;
 &lt;p&gt;用 USB 先把 Kindle 连接到电脑上（我用的虚拟机，所以还要把设备接到虚拟机里），一直按住 Kindle 底部的电源键，等指示灯熄灭后，不松开电源键按住方向键下（↓），然后松开电源键，再松开方向键。这使得 Kindle 进入了 USB 恢复模式。&lt;/p&gt;
 &lt;p&gt;想要知道这个操作是否成功，可以在 Windows 系统的 Device
@@ -23,7 +23,7 @@ device 的信息，在下半部的 Profile 那里选择 Kindle
 diags（当时没截图，现在也懒得再折腾一次 Kindle 了）。点击右下角的 Start 按钮，就可以让 Kindle 进入诊断模式。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="mmcblk0p1-img-kindle"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;2. 将 mmcblk0p1.img 拷贝到 Kindle 中&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;2. 将 mmcblk0p1.img 拷贝到 Kindle 中&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;需要下载一个叫做 mmcblk0p1.img 的文件，其实我也不清楚这到底是什么，看起来是个镜像文件。我下载的是 &lt;a class="reference external" href="http://60.211.209.221/cdn.baidupcs.com/file/01589c0ba1f05e9e4f55e35d02ffc05b?xcode=053458c9324860ffda9317ddb745a10aa9749899cf109a05&amp;amp;fid=2601356780-250528-1879823735&amp;amp;time=1374668763&amp;amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-7N%2BEg07f9BuUIjG8wPMKIV8gURM%3D&amp;amp;to=cb&amp;amp;fm=N,B,T&amp;amp;expires=8h&amp;amp;rt=sh&amp;amp;r=586640283&amp;amp;logid=1498755034&amp;amp;sh=1&amp;amp;wsiphost=ipdbm"&gt;mmcblk0p1_410.img&lt;/a&gt;（点击下载），RAR 压缩包的大小是 144MB，解压后 358MB。&lt;/p&gt;
 &lt;p&gt;在 Kindle 诊断模式菜单中选择“U) USB device
 mode”，电脑就会将 Kindle 识别为 U 盘，将下载解压后的 .img 文件拷贝到 Kindle 根目录下。&lt;/p&gt;
@@ -31,7 +31,7 @@ mode”，电脑就会将 Kindle 识别为 U 盘，将下载解压后的 .img �
 &lt;p&gt;拷贝完成后，在 Kindle 上按左方向键退出 U 盘模式，并返回主菜单。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="ssh-kindle"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;3. SSH 登录到 Kindle&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;3. SSH 登录到 Kindle&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;在 SSH 登录之前，先要确认一下 Kindle 系统的版本和序列号（Serial
 Number），以便获取 root 密码。系统版本我是没注意到，序列号在 Kindle 诊断模式主菜单第一项里就能找到。&lt;/p&gt;
 &lt;p&gt;记下序列号后，在 Kindle 诊断模式菜单中依次选择：“N) Misc individual
@@ -54,8 +54,8 @@ Ethernet 驱动，&lt;a class="reference external" href="http://b.billgong.com/w
 &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;4. 进行系统恢复&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;4. 进行系统恢复&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;SSH 登录成功后，在终端中运行如下命令来恢复系统（大概需要几分钟的时间）：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dd &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/mnt/us/mmcblk0p1_410.img &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/mmcblk0p1 &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4K
 &lt;/pre&gt;&lt;/div&gt;
@@ -65,8 +65,8 @@ rm /var/local/system/.framework_reboots
 rm /var/local/system/.framework_retries
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;5. 完成&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;5. 完成&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;这些都弄完了，长按电源键重启 Kindle，终于恢复了。&lt;/p&gt;
 &lt;/div&gt;
 </content><category term="Kindle"></category></entry><entry><title>iPad 2 iOS 4.3.3 可以越狱了</title><link href="https://blog.gocalf.com/ipad2-433-jailbreak" rel="alternate"></link><published>2011-07-07T14:32:00+08:00</published><updated>2011-08-03T20:41:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-07:/ipad2-433-jailbreak</id><summary type="html">&lt;p class="first last"&gt;iOS 4.3.3 可以越狱了。&lt;/p&gt;

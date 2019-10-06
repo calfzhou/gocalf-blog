@@ -106,10 +106,10 @@
         <div class="toc" id="">
 
 <ul class="simple">
-<li><a class="reference internal" href="#id3" id="id8">有父指针，方法一</a></li>
-<li><a class="reference internal" href="#id4" id="id9">有父指针，方法二（2012-04-02 22:10 添加）</a></li>
-<li><a class="reference internal" href="#id5" id="id10">没有父指针，方法一</a></li>
-<li><a class="reference internal" href="#id6" id="id11">没有父结点，方法二（2012-04-05 23:31 更新）</a></li>
+<li><a class="reference internal" href="#id2" id="id7">有父指针，方法一</a></li>
+<li><a class="reference internal" href="#id3" id="id8">有父指针，方法二（2012-04-02 22:10 添加）</a></li>
+<li><a class="reference internal" href="#id4" id="id9">没有父指针，方法一</a></li>
+<li><a class="reference internal" href="#id5" id="id10">没有父结点，方法二（2012-04-05 23:31 更新）</a></li>
 </ul>
 </div>
         </nav>
@@ -122,8 +122,8 @@
 Common Ancestor）。</p>
 <!-- more -->
 <p>这算不上是一道算法题了，主要还是看数据结构基本知识和编程能力。</p>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id8">有父指针，方法一</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id7">有父指针，方法一</a></h2>
 <p>首先考虑最简单的情况——二叉树结点数据结构中有父指针。</p>
 <p>这是不是非常简单呢？只要分别从两个结点出发向上走到树根，得到两个结点的分支路径，求出这两条路径相互重合部分的最靠下的结点，就是所求的 LCA。这只需要 O(h) 的时空代价（设 h 是树高，n 是树结点数目，平均情况下 h =
 log(n)，最坏情况 h = n）。</p>
@@ -172,8 +172,8 @@ log(n)，最坏情况 h = n）。</p>
 </pre></div>
 </td></tr></table><p>时间和空间复杂度都是 O(h)。</p>
 </div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id9">有父指针，方法二（2012-04-02 22:10 添加）</a></h2>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id8">有父指针，方法二（2012-04-02 22:10 添加）</a></h2>
 <p>上面的方法需要至少一个跟深度相当的缓存，在空间上还是有一些浪费的。可以使用更节省空间的方法，就是先计算出两个结点各自的深度，如果深度不同，则将较靠下的一个结点拉上去，直到两个结点在同一深度处。然后同步向根结点前进，首次相遇时则为最小公共祖先。示意代码（python 2.7）如下：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -225,8 +225,8 @@ log(n)，最坏情况 h = n）。</p>
 </pre></div>
 </td></tr></table><p>这样时间复杂度是 O(h)，空间复杂度是 O(1)。</p>
 </div>
-<div class="section" id="id5">
-<h2><a class="toc-backref" href="#id10">没有父指针，方法一</a></h2>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id9">没有父指针，方法一</a></h2>
 <p>通常二叉树结点中并没有父结点指针，这时候就要遍历二叉树找到这两个结点，并找出它们的 LCA。</p>
 <p>在遍历二叉树的时候，很容易就能够记录下根结点到任何结点的分支路径，只要有了分支路径，就可以对比找出 LCA。</p>
 <p>我们采取前序遍历，即 N-L-R 的顺序，使用堆栈来避免递归并且记录完整的分支路径。那么，在二叉树中查找指定结点的算法可以这样写：</p>
@@ -285,7 +285,7 @@ log(n)，最坏情况 h = n）。</p>
   <span class="k">return</span> <span class="n">pathDict</span>
 </pre></div>
 </td></tr></table><p>其中 <tt class="docutils literal">Dir</tt> 这个类相当于是一个枚举，用来定义当前的分支方向。<tt class="docutils literal">FindNodes</tt> 除了需要二叉树根结点外，还需要一个待查找的结点集合。这个函数可以在二叉树中找到所有（或第一个）待查找结点的分支路径，并返回一个字典（结点
---&gt; 路径）。</p>
+–&gt; 路径）。</p>
 <p>可以看出，<tt class="docutils literal">FindNodes</tt> 函数按照前序顺序遍历整个二叉树，查找指定结点。每遇到一个结点，首先判断它是不是我们要找的，如果不是就沿着左边的分支下降到底，然后转入右侧分支。</p>
 <p>有了 <tt class="docutils literal">FindNodes</tt> 函数的支持，我们就可改写前面的 <tt class="docutils literal">FindLCA</tt> 函数，即先遍历二叉树求出两个结点的分支路径，然后比较这两条路径找出 LCA：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -340,8 +340,8 @@ log(n)，最坏情况 h = n）。</p>
 </pre></div>
 </td></tr></table><p>遍历二叉树查找所有指定的结点需要 O(n) 时间，O(h) 额外空间；对比两条分支路径需要 O(h) 的时间，因此总的时间代价为 O(n)，空间代价为 O(h)。</p>
 </div>
-<div class="section" id="id6">
-<h2><a class="toc-backref" href="#id11">没有父结点，方法二（2012-04-05 23:31 更新）</a></h2>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id10">没有父结点，方法二（2012-04-05 23:31 更新）</a></h2>
 <p>上面的代码有点儿太啰嗦了，如果不想缓存整条分支路径，或者只是想让代码更简洁一些，也很容易做到，只需要在遍历查找的时候做点儿小小的改动。关于遍历二叉树可以参考后面的一篇文章：<a class="reference external" href="https://blog.gocalf.com/traversing-binary-tree">程序基本功之遍历二叉树</a>。这里我将在非递归的前序（N-L-R）遍历基础上修改得到求 LCA 的程序。</p>
 <p>为什么用前序遍历？</p>
 <p>首先考察一下 LCA 的特性，只有两种可能：</p>

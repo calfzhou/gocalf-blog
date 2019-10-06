@@ -106,10 +106,10 @@
         <div class="toc" id="">
 
 <ul class="simple">
-<li><a class="reference internal" href="#dell-latitude-e6400" id="id5">Dell Latitude E6400 硬件配置</a></li>
-<li><a class="reference internal" href="#id2" id="id6">工具和准备工作</a></li>
-<li><a class="reference internal" href="#id3" id="id7">准备驱动程序</a></li>
-<li><a class="reference internal" href="#id4" id="id8">安装</a></li>
+<li><a class="reference internal" href="#dell-latitude-e6400" id="id4">Dell Latitude E6400 硬件配置</a></li>
+<li><a class="reference internal" href="#id1" id="id5">工具和准备工作</a></li>
+<li><a class="reference internal" href="#id2" id="id6">准备驱动程序</a></li>
+<li><a class="reference internal" href="#id3" id="id7">安装</a></li>
 </ul>
 </div>
         </nav>
@@ -124,7 +124,7 @@
 E6400 有关的部分和遇到的一些问题为主吧，这款机器似乎是最难装 Mac 的机器之一。</p>
 <!-- more -->
 <div class="section" id="dell-latitude-e6400">
-<h2><a class="toc-backref" href="#id5">Dell Latitude E6400 硬件配置</a></h2>
+<h2><a class="toc-backref" href="#id4">Dell Latitude E6400 硬件配置</a></h2>
 <p>为 PC 装 Mac 系统最头疼的当然是硬件驱动了，所以在安装前要先搞清楚机器的硬件情况。</p>
 <ul class="simple">
 <li>Chip set<ul>
@@ -147,8 +147,8 @@ Controller [A-3] PCI</li>
 </li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id6">工具和准备工作</a></h2>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id5">工具和准备工作</a></h2>
 <p>下载了 Mac OS X
 10.6 原版光盘镜像（尝试了很多其他处理好的镜像，全都无法正常安装，最后还是选择用原版），我用的是 snowleopard_10a432_userdvd.dmg（网上到处都能下载，我就不发链接了），6.13G。这么大就不刻盘了，用光盘装还慢呢。</p>
 <p>用硬盘安装的话，一般要给磁盘上新建两个分区，一个放安装盘镜像，一个装 Mac。前者 6.3G 左右（不要格式化），后者视个人需要，一般至少 20G（NTFS 格式）。我用的 BootThink 引导似乎要求被引导的系统（包括安装镜像和已经装好的系统）在主分区上，但我的硬盘上没有那么多主分区可以用了（一块硬盘最多可以有四个主分区，我已经有了三个，分别是 Win
@@ -156,8 +156,8 @@ Controller [A-3] PCI</li>
 7 系统分区，数据分区），因此就把最后一个主分区名额留给了 Mac 系统，而把安装盘镜像放到了移动硬盘上。同样注意放安装盘镜像的分区不要格式化。</p>
 <p>接下来安装 HFS-Explorer（v0.21），运行，按 Ctrl+O（菜单 File-&gt;Load file
 system from
-file...），选择下载的安装盘镜像，在弹出的对话框里选择 Apple_HFS 那项。加载之后点击菜单 Tool-&gt;Create
-disk image...，将生成的文件（.dmg）保存在某个 NTFS 分区上即可。</p>
+file…），选择下载的安装盘镜像，在弹出的对话框里选择 Apple_HFS 那项。加载之后点击菜单 Tool-&gt;Create
+disk image…，将生成的文件（.dmg）保存在某个 NTFS 分区上即可。</p>
 <div class="figure">
 <img alt="hfs_explorer_hfs" src="https://blog.gocalf.com/images/2011/07/hfs_explorer_hfs.png"/>
 <p class="caption">HFS-Explorer 选择 Partition</p>
@@ -193,8 +193,8 @@ partition type to AF: Success”、“All done, have fun!”时就算成功了�
 7 装在 C 盘，但在安装过程中，它会在 C 盘前面保留一个 100MB 左右的 NTFS 分区（卷标一般就叫 System
 Reserved），而这个分区默认是不显示出来的（没有分配盘符）。如果把 BootThink 装在 C 盘，那有可能会无法进行引导。所以要把它装在那个保留分区里（幸好它体积不是很大）。在磁盘管理中找到那个保留分区，给它指定一个盘符（我习惯用 B），然后把 BootThink 装在这个分区中。（有人说把 C 盘标记为活动分区就可以启动 BootThink，但我没有成功。）安装之后在目标分区的根目录应该有一个文件夹 Darwin 和两个文件 btldr（系统文件）、btldr.mbr。</p>
 </div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id7">准备驱动程序</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id6">准备驱动程序</a></h2>
 <p>网上那些破解过的 Mac 安装镜像里面通常都包含了各种驱动程序，在安装的时候选择需要的就可以了，但不知道为什么我这次怎么都装不成功，所以才用了原版的镜像。但原版镜像里没有 PC 的驱动程序，这就要借助 BootThink 了。用 BootThink 引导刚才制作的替换了 OSInstall 的硬盘安装分区，它就可以从 <tt class="docutils literal"><span class="pre">C:\Darwin\System\LibrarySL\Extensions\</span></tt> （我的是 <tt class="docutils literal">B:\</tt>）里面加载放在那里的驱动程序和补丁（不同版本的 Mac
 OS 对应的目录也不太一样，这里就不多说了）。</p>
 <p>驱动的选择至关重要啊，选择的不好，轻则某个硬件不工作，重则四国、五国、风火轮（在系统加载时出现用四国或者五国文字写的提示信息，或者风火轮图标一直转却无法进入系统）。这里列出我选择的驱动和补丁。</p>
@@ -264,8 +264,8 @@ OS 对应的目录也不太一样，这里就不多说了）。</p>
 </li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2><a class="toc-backref" href="#id8">安装</a></h2>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id7">安装</a></h2>
 <p>动手安装之前还要注意几件事情。</p>
 <p>首先是 Snow
 Lopard 需要 SATA 硬盘支持，所以要确认 BIOS 中 SATA 模式设定为 AHCI（默认可能是 IRRT）。</p>
@@ -330,7 +330,7 @@ Flags，值为 <tt class="docutils literal">arch=i386</tt>。我的此文件内�
   <span class="nt">&lt;/dict&gt;</span>
 <span class="nt">&lt;/plist&gt;</span>
 </pre></div>
-</td></tr></table><p>好了，重启电脑，进入 BootThink 引导，选择启动 Mac 安装盘分区。成功话可以看到苹果图标和风火轮，选择语言，然后就进入安装界面。这时候要对目标分区做格式化，点击菜单“实用工具 -&gt; 磁盘工具...”，在对话框中选择之前格式化成 NTFS 的空白分区，将选择模式“Mac
+</td></tr></table><p>好了，重启电脑，进入 BootThink 引导，选择启动 Mac 安装盘分区。成功话可以看到苹果图标和风火轮，选择语言，然后就进入安装界面。这时候要对目标分区做格式化，点击菜单“实用工具 -&gt; 磁盘工具…”，在对话框中选择之前格式化成 NTFS 的空白分区，将选择模式“Mac
 OS 扩展（日志式）”，填写卷标，点击“抹掉”。成功之后关闭窗口，继续安装，接受软解许可协议，然后就是选择安装组件。有人建议不用选“打印机支持”，太占体积了。选好之后继续，选择刚才格式化好的目标分区，点击安装。</p>
 <p>如果是用硬盘安装的话，不用等太久就装好了。装好之后会自动重启，不过由于安装过程中，Windows 系统盘的活动分区属性被取消了，如果直接重启将无法进入 Windows，可以利用重启前的一点时间处理一下。点击菜单“实用工具 -&gt; 终端”，用 diskutil 命令来设置活动分区。</p>
 <div class="highlight"><pre><span></span># diskutil list

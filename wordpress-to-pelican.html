@@ -106,10 +106,10 @@
         <div class="toc" id="">
 
 <ul class="simple">
-<li><a class="reference internal" href="#wordpress-vs" id="id4">WordPress vs. 静态博客</a></li>
-<li><a class="reference internal" href="#octopress-vs-pelican" id="id5">Octopress vs. Pelican</a></li>
-<li><a class="reference internal" href="#markdown-vs-restructuredtext" id="id6">Markdown vs. reStructuredText</a></li>
-<li><a class="reference internal" href="#id2" id="id7">革命尚未成功</a></li>
+<li><a class="reference internal" href="#wordpress-vs" id="id3">WordPress vs. 静态博客</a></li>
+<li><a class="reference internal" href="#octopress-vs-pelican" id="id4">Octopress vs. Pelican</a></li>
+<li><a class="reference internal" href="#markdown-vs-restructuredtext" id="id5">Markdown vs. reStructuredText</a></li>
+<li><a class="reference internal" href="#id1" id="id6">革命尚未成功</a></li>
 </ul>
 </div>
         </nav>
@@ -120,7 +120,7 @@
 <p>经过一段时间的整理，现在正式把 <a class="reference external" href="https://blog.gocalf.com/">GoCalf 博客</a> 从 <a class="reference external" href="http://wordpress.org/">WordPress</a> 迁移到 <a class="reference external" href="http://blog.getpelican.com/">Pelican</a> 了，简单记录一下，还有一些未完成的事情等着以后再慢慢搞。</p>
 <!-- more -->
 <div class="section" id="wordpress-vs">
-<h2><a class="toc-backref" href="#id4">WordPress vs. 静态博客</a></h2>
+<h2><a class="toc-backref" href="#id3">WordPress vs. 静态博客</a></h2>
 <p>最开始的动机只是想寻找一个最适合自己的个人 wiki 系统，之前把一些备忘信息用 <a class="reference external" href="http://tiddlywiki.com/">TiddlyWiki</a> 保存在 U 盘上，这样在任何地方，用任何操作系统的电脑都可以查看和编辑。但是后来懒到每次都懒的把 U 盘拿过来插上，所以并没有发挥太大的作用。后来开始用 <a class="reference external" href="https://www.dropbox.com/">DropBox</a>，其他很多东西都移到 DropBox 里了，这个却一直没有动。现在 <a class="reference external" href="http://office.microsoft.com/en-us/onenote/">OneNote</a> 和 <a class="reference external" href="https://evernote.com/">Evernote</a> 和 <a class="reference external" href="http://note.youdao.com/">有道云笔记</a> 同时在用，却没有一个是我真正想要的。</p>
 <p>扯远了。</p>
 <p>总之在进行个人 wiki 的技术选型时，产生了把 <a class="reference external" href="https://blog.gocalf.com/">GoCalf 博客</a> 改成静态博客的念头。</p>
@@ -137,7 +137,7 @@
 <p>总的来说，静态博客的好处是，你只需要关注要写的内容本身。</p>
 </div>
 <div class="section" id="octopress-vs-pelican">
-<h2><a class="toc-backref" href="#id5">Octopress vs. Pelican</a></h2>
+<h2><a class="toc-backref" href="#id4">Octopress vs. Pelican</a></h2>
 <p>刚开始接触到的静态博客是 <a class="reference external" href="http://octopress.org/">Octopress</a>，是基于 <a class="reference external" href="http://jekyllrb.com/">Jekyll</a> 的，后者是用 Ruby 写的静态博客系统。据说 Octopress 与 Jekyll 的关系就像 jQuery 与 JavaScript 的关系一样。</p>
 <p>现在 Octopress 很火的，在 <a class="reference external" href="https://github.com/imathis/octopress/wiki/Octopress-Sites">Octopress Sites</a> 中可以看到很多基于 Octopress 搭建的博客，我也针对一些我需要的特性对它进行了一些勘察。不过很快地，我就把目光转向了基于 Python 的 <a class="reference external" href="http://blog.getpelican.com/">Pelican</a>。</p>
 <p>Pelican 的使用量相对来说少一些（<a class="reference external" href="https://github.com/getpelican/pelican/wiki/Powered-by-Pelican">Pelican Sites</a>），选择它的主要原因是我更熟悉 Python。Ruby 的代码我几乎没有看过，也没有尝试去读或者写，这样如果在使用 Octopress 过程中，需要做一些修改，或者写一些插件，就会比较困难。但如果使用 Pelican，我可以自己修改它的代码，可以自己写插件。后来发现这个选择是对的，我已经对 Pelican 及其插件做了一些修改，而且已经计划写一些至少自己能用的上的新插件。</p>
@@ -147,7 +147,7 @@
 <p>有一个问题是比较讨厌的，不知道 Octopress 是否也一样，就是编译速度比较慢。静态博客是要把用标记语言书写的文章转换成 HTML 页面，用 Pelican 的时候，几十篇文章就需要几秒钟的时间才能编译完成，如果有上百篇文章，等待过程会让人焦虑的。目前即使只是一篇文章中改变了一个字，编译的时候也会重新编译所有的页面。这一点期待开发团队的改进吧。感觉一个可行的方案是生成一些中间文件，把每篇文章对应的 HTML 片段单独保存，如果文章内容和相关的参数都没变，这一部分就不用重新生成。最终的 HTML 页面，是把框架跟内容片段连在一起生成的，这个过程应该会很快。</p>
 </div>
 <div class="section" id="markdown-vs-restructuredtext">
-<h2><a class="toc-backref" href="#id6">Markdown vs. reStructuredText</a></h2>
+<h2><a class="toc-backref" href="#id5">Markdown vs. reStructuredText</a></h2>
 <p><a class="reference external" href="http://daringfireball.net/projects/markdown/">Markdown</a> 和 <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> 都是非常不错的标记语言，也是众多静态博客玩家首选的语言之一二。开始我一直准备用 Markdown，GitHub 对它的强力支持是很主要的原因。当然 Markdown 自身确实也有很多的优势，它非常的简洁，书写和阅读都非常舒服。我甚至已经把所有的文章都转成 Markdown 格式了，但最后还是转投 reStructuredText 的怀抱。</p>
 <p>Markdown 很简洁，如果是写文学的东西，用它最合适不过了。但它有点儿太简洁了，如果是写技术文章，它的处理能力就有点儿捉襟见肘了。比如没有原生的表格，没有数学公式的支持，段落嵌套很困难，虽然能直接嵌入 HTML 代码，但很难做到复杂的嵌套。</p>
 <p>reStructuredText 则要强大的多，也并没有失去太多的简便性。Python 的官方文档就是用它写出来的。很多技术博客或者技术书籍是用它写出来的。</p>
@@ -172,11 +172,11 @@
 <p>当然 Markdown 也有比 reStructuredText 强大的地方，最明显的就是 Markdown 行内格式的嵌套非常方便。用 <tt class="docutils literal">***</tt> 包围起来的文字会同时有粗体和斜体效果。reStructuredText 到目前还不太支持 role 的嵌套，想要做出同时粗体和斜体的文字，或者粗体的链接，都是比较困难或者麻烦的。还有其他一些小的细节，我就不具体说了。</p>
 <p>总的来说，Markdown 更简洁，更适合于书写纯文字的东西；reStructuredText 更强大，适合于书写复杂的技术文章。</p>
 </div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id7">革命尚未成功</a></h2>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id6">革命尚未成功</a></h2>
 <p>新版的博客已经上线了，但仍然有一些工作需要进行。</p>
 <ul class="simple">
-<li>MathJax 插件：reStructuredText 内置了对 LaTeX 公式的支持，行内公式用 <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/roles.html#math">math role</a> 实现，区块公式用 <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#math">math directive</a> 实现，而且通过 <a class="reference external" href="http://docutils.sourceforge.net/docs/user/config.html#math-output">--math-output</a> 配置可以让它用 MathJax 进行渲染。但是 MathJax 是要在浏览器里执行 JavaScript 的，如果无法执行 JavaScript（比如在 RSS 中）就没法正常显示了。之前在 WordPress 中，利用插件先生成图片，如果无法执行 JavaScript 就会直接显示图片。所以这里也需要一个类似的插件，在编译的时候生成图片备用。</li>
+<li>MathJax 插件：reStructuredText 内置了对 LaTeX 公式的支持，行内公式用 <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/roles.html#math">math role</a> 实现，区块公式用 <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#math">math directive</a> 实现，而且通过 <a class="reference external" href="http://docutils.sourceforge.net/docs/user/config.html#math-output">–math-output</a> 配置可以让它用 MathJax 进行渲染。但是 MathJax 是要在浏览器里执行 JavaScript 的，如果无法执行 JavaScript（比如在 RSS 中）就没法正常显示了。之前在 WordPress 中，利用插件先生成图片，如果无法执行 JavaScript 就会直接显示图片。所以这里也需要一个类似的插件，在编译的时候生成图片备用。</li>
 <li>Graphviz 插件：Pelican 中似乎没有直接能用的 graphviz directive，需要去找一个或者写一个插件。在编译的时候调用 dot 命令生成好图片就可以了。</li>
 <li>Chart 插件：有时候提供一些数据的展示，图表是非常必需的。之前都是先用 Excel 或这 Mathematica 之类的软件画好，再把图片放上去。如果有插件直接把数据通过 JavaScript 展示出来就更好了。准备写个插件，调用 <a class="reference external" href="http://nvd3.org/">NVD3</a> 进行绘图。</li>
 <li>Featured Image：WordPress 自带了这个，而且大多数主题都支持它，就是每篇文章有一张特色图片。这个需要去考察一下看看有没有现成的插件，当然主题也需要能够支持它。</li>

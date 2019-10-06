@@ -106,9 +106,9 @@
         <div class="toc" id="">
 
 <ul class="simple">
-<li><a class="reference internal" href="#id2" id="id4">一、始终隐藏状态栏</a></li>
-<li><a class="reference internal" href="#app" id="id5">二、App 启动时就隐藏状态栏</a></li>
-<li><a class="reference internal" href="#id3" id="id6">三、在运行过程中隐藏或显示状态栏</a></li>
+<li><a class="reference internal" href="#id1" id="id3">一、始终隐藏状态栏</a></li>
+<li><a class="reference internal" href="#app" id="id4">二、App 启动时就隐藏状态栏</a></li>
+<li><a class="reference internal" href="#id2" id="id5">三、在运行过程中隐藏或显示状态栏</a></li>
 </ul>
 </div>
         </nav>
@@ -120,8 +120,8 @@
 <p>今天的问题是怎么在 App 中隐藏系统状态栏（Status Bar）。</p>
 <!-- more -->
 <p>以下内容适用于 iOS 3.2+。</p>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id4">一、始终隐藏状态栏</a></h2>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id3">一、始终隐藏状态栏</a></h2>
 <p>如果在 App 中需要状态栏一直是隐藏着的，可以在 <tt class="docutils literal">&lt;YOUR_APP&gt;AppDelegate</tt> 的 <tt class="docutils literal">application:didFinishLaunchingWithOptions:</tt> 函数中进行设置，比如下面这段示意代码可以让状态栏以淡出的方式隐藏起来：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -152,7 +152,7 @@
 in iOS 3.2）。</p>
 </div>
 <div class="section" id="app">
-<h2><a class="toc-backref" href="#id5">二、App 启动时就隐藏状态栏</a></h2>
+<h2><a class="toc-backref" href="#id4">二、App 启动时就隐藏状态栏</a></h2>
 <p>用了上面的方法之后，App 在运行过程中，状态栏确实被隐藏起来了，但是我发现在 App 启动的那个瞬间，还是可以看到状态栏的，然后一闪即过。虽然时间很短暂，看着还是很不舒服。为了让状态栏从启动的时候就隐藏起来，可以修改 <tt class="docutils literal"><span class="pre">&lt;YOUR_APP&gt;-Info.plist</span></tt>。如果在 Xcode 中修改，在根结点 Infomation
 Property List 下面新加一项 “Status bar is initially
 hidden”（不用手动输入，可以直接在下拉菜单中选取）。这是个 BOOL 类型的键值，将 Value 栏中的复选框勾选上即可。</p>
@@ -165,8 +165,8 @@ hidden”（不用手动输入，可以直接在下拉菜单中选取）。这�
 <span class="nt">&lt;true/&gt;</span>
 </pre></div>
 </div>
-<div class="section" id="id3">
-<h2><a class="toc-backref" href="#id6">三、在运行过程中隐藏或显示状态栏</a></h2>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id5">三、在运行过程中隐藏或显示状态栏</a></h2>
 <p>与第一段中的方法一样，只是可以在任何地方调用。只要利用 UIApplication 类的静态方法 <a class="reference external" href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html#//apple_ref/occ/clm/UIApplication/sharedApplication">sharedApplication</a> 拿到 application 实例即可。</p>
 </div>
 

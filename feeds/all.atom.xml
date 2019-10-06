@@ -1,11 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>GoCalf Blog</title><link href="https://blog.gocalf.com/" rel="alternate"></link><link href="https://blog.gocalf.com/feeds/all.atom.xml" rel="self"></link><id>https://blog.gocalf.com/</id><updated>2019-09-30T16:00:00+08:00</updated><subtitle>1/100 ALGO&amp;amp;MATH; 1/100 IT&amp;amp;GAME; 1/100 INFO&amp;amp;SHARING; 1/100 WHO KNOWS</subtitle><entry><title>自描述语句</title><link href="https://blog.gocalf.com/self-descriptive-sentence" rel="alternate"></link><published>2014-08-28T17:15:00+08:00</published><updated>2014-08-28T23:25:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2014-08-28:/self-descriptive-sentence</id><summary type="html">&lt;p class="first last"&gt;自描述语句（Self-Descriptive Sentence），也叫做 autogram，是一种自己描述自己的语句，今天就介绍一种简单的生成这种句子的方法。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>GoCalf Blog</title><link href="https://blog.gocalf.com/" rel="alternate"></link><link href="https://blog.gocalf.com/feeds/all.atom.xml" rel="self"></link><id>https://blog.gocalf.com/</id><updated>2019-10-06T10:28:00+08:00</updated><subtitle>1/100 ALGO&amp;amp;MATH; 1/100 IT&amp;amp;GAME; 1/100 INFO&amp;amp;SHARING; 1/100 WHO KNOWS</subtitle><entry><title>搭建自己的 SS 服务</title><link href="https://blog.gocalf.com/deploy-own-ss-server" rel="alternate"></link><published>2019-10-06T10:28:00+08:00</published><updated>2019-10-06T10:28:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2019-10-06:/deploy-own-ss-server</id><summary type="html">&lt;p class="first last"&gt;本文介绍如何搭建自己的 Shadowsocks 服务。&lt;/p&gt;
+</summary><content type="html">
+&lt;p&gt;前些日子网络环境特别恶劣，正常的资料查询都变得很艰难，正好最近几年一直有想法把之前在 BlueHost 置办的共享主机换成 VPS，就趁着这个时机弄了一下，在 VPS 上搭建了自己的 Shadowsocks 服务，满足日常科学上网的需求。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Shadowsocks" src="https://blog.gocalf.com/images/2019/10/shadowsocks.png"/&gt;
+&lt;/div&gt;
+&lt;div class="section" id="vps"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;选择 VPS 服务商&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://blog.gocalf.com/"&gt;GoCalf 网站&lt;/a&gt; 从 &lt;a class="reference external" href="https://blog.gocalf.com/lets-start"&gt;刚开始建立&lt;/a&gt; 的时候就一直使用 &lt;a class="reference external" href="https://www.bluehost.com/"&gt;BlueHost&lt;/a&gt;，整体来说服务还算稳定，虽然用的是共享主机，但后来开通了独立 IP，偶尔也能用 SSH 隧道来应急科学一下。不过总是感觉他家的控制后台太过复杂，cPanel 里面一堆东西。另外就是价格有点儿贵，现在用的共享主机每个月也要五美元多，而且要按年甚至几年进行预付费才能有一点点折扣。&lt;/p&gt;
+&lt;p&gt;近期很多人推荐用 &lt;a class="reference external" href="https://www.vultr.com/"&gt;Vultr&lt;/a&gt;，最低配的 VPS 每个月五美元，新注册用户还送 50 美元的额度（限期两个月）。但是我去开了有几十台机器，没有一台的 IP 地址是能正常访问到的。&lt;/p&gt;
+&lt;p&gt;还是投奔 &lt;a class="reference external" href="https://www.linode.com/"&gt;Linode&lt;/a&gt; 吧，试了两台机器就碰到了可用的 IP 地址（机房选在 Fremont, CA）。同样是五美元一个月，25 GB SSD 存储，1 核 CPU，1 GB 内存，1 TB 流量。跑 Shadowsocks 足够了，还可以再放个小站点。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="shadowsocks"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;安装 Shadowsocks 服务&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;接下来就安装 Shadowsocks 服务，直接用 &lt;a class="reference external" href="https://teddysun.com/"&gt;@秋水逸冰&lt;/a&gt; 的 &lt;a class="reference external" href="https://github.com/teddysun/shadowsocks_install/tree/master"&gt;Shadowsocks 一键安装脚本&lt;/a&gt;（服务器用的是 CentOS 7.x）。&lt;/p&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p&gt;安装脚本需要用到 wget 命令，如果服务器上没有，需要先自行安装。&lt;/p&gt;
+&lt;div class="last"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo yum install -y wget
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;curl -O &lt;span class="s1"&gt;'https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh'&lt;/span&gt;
+chmod +x shadowsocks-all.sh
+sudo ./shadowsocks-all.sh
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;安装过程中有一些选项 / 输入信息：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;选择要安装的 Shadowsocks 版本（Which Shadowsocks server you’d select）：这里推荐选 &lt;tt class="docutils literal"&gt;4) &lt;span class="pre"&gt;Shadowsocks-libev&lt;/span&gt;&lt;/tt&gt;，这个是最轻量级的版本，而且持续更新中。&lt;/li&gt;
+&lt;li&gt;密码和端口号可任意填写。&lt;/li&gt;
+&lt;li&gt;选择加密方式（Which cipher you’d select）：这里推荐选择 &lt;tt class="docutils literal"&gt;7) &lt;span class="pre"&gt;aes-256-cfb&lt;/span&gt;&lt;/tt&gt;。&lt;/li&gt;
+&lt;li&gt;询问是否安装 &lt;a class="reference external" href="https://github.com/shadowsocks/simple-obfs"&gt;simple-obfs&lt;/a&gt; 插件（Do you want install simple-obfs for Shadowsocks-libev?）：推荐安装（输入 &lt;tt class="docutils literal"&gt;y&lt;/tt&gt;），这个插件可以起到混淆的作用，防止 IP 和端口被嗅探到。&lt;/li&gt;
+&lt;li&gt;如果选择安装 simple-obfs 插件，就还会询问混淆方式（Which obfs you’d select）：推荐选择 &lt;tt class="docutils literal"&gt;2) tls&lt;/tt&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最后按任意键开始安装，安装完成后会自动启动服务。可以用以下命令检查服务状态：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo /etc/init.d/shadowsocks-libev status
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;以后如果需要修改端口号、密码等配置，可以直接修改配置文件 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;/etc/shadowsocks-libev/config.json&lt;/span&gt;&lt;/tt&gt;，然后用下面的命令重启服务即可：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo /etc/init.d/shadowsocks-libev restart
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;服务安装好了，这时候在客户端里把服务器的地址（可以绑定一个域名，以后换 IP 地址之后客户端就不用动了）、端口号、加密方式等信息都填进去。如果安装的时候装了 simple-obfs 插件，那么在客户端里配置服务器的时候，Plunin 的地方填写 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;simple-obfs&lt;/span&gt;&lt;/tt&gt;，Plugin Opts 填写 &lt;tt class="docutils literal"&gt;obfs=tfs&lt;/tt&gt;（不同的客户端可能会有差异）。&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="ShadowsocksX-NG 服务器配置" src="https://blog.gocalf.com/images/2019/10/ss-client-config.png"/&gt;
+&lt;p class="caption"&gt;ShadowsocksX-NG 中服务器的配置&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="bbr"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;升级内核并开启 BBR 加速&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://en.wikipedia.org/wiki/TCP_congestion_control#TCP_BBR"&gt;TCP BBR&lt;/a&gt; 是 Google 2016 年发布的 &lt;a class="reference external" href="https://en.wikipedia.org/wiki/TCP_congestion_control"&gt;TCP 拥塞控制算法&lt;/a&gt;，可以显著提升连接和传输速度。该算法已经植入 Linux 4.9 及之后的内核版本中。可以考虑升级内核并开启 BBR。&lt;/p&gt;
+&lt;div class="admonition warning"&gt;
+&lt;p class="first admonition-title"&gt;Warning&lt;/p&gt;
+&lt;p class="last"&gt;升级内核会有一定的风险，注意提前备份好重要数据。&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;直接使用 &lt;a class="reference external" href="https://teddysun.com/"&gt;@秋水逸冰&lt;/a&gt; 的 &lt;a class="reference external" href="https://teddysun.com/489.html"&gt;一键安装最新内核并开启 BBR 脚本&lt;/a&gt; （&lt;a class="reference external" href="https://github.com/teddysun/across"&gt;或这里&lt;/a&gt;）：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;curl -O &lt;span class="s1"&gt;'https://github.com/teddysun/across/raw/master/bbr.sh'&lt;/span&gt;
+chmod +x bbr.sh
+sudo ./bbr.sh
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;安装完成的时候会提示输入 &lt;tt class="docutils literal"&gt;y&lt;/tt&gt; 重启系统，等系统再次启动，重新登录，检查安装结果：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ uname -r
+&lt;span class="m"&gt;5&lt;/span&gt;.3.2-1.el7.elrepo.x86_64
+$ lsmod &lt;span class="p"&gt;|&lt;/span&gt; grep bbr
+tcp_bbr                &lt;span class="m"&gt;20480&lt;/span&gt;  &lt;span class="m"&gt;31&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;可以看到内核版本已经升级到 4.9 以上（我之前的是 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;3.10.0-957.el7.x86_64&lt;/span&gt;&lt;/tt&gt;），并且 &lt;tt class="docutils literal"&gt;tcp_bbr&lt;/tt&gt; 模块也开启了。&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="Shadowsocks"></category><category term="Linode"></category><category term="VPS"></category></entry><entry><title>自描述语句</title><link href="https://blog.gocalf.com/self-descriptive-sentence" rel="alternate"></link><published>2014-08-28T17:15:00+08:00</published><updated>2014-08-28T23:25:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2014-08-28:/self-descriptive-sentence</id><summary type="html">&lt;p class="first last"&gt;自描述语句（Self-Descriptive Sentence），也叫做 autogram，是一种自己描述自己的语句，今天就介绍一种简单的生成这种句子的方法。&lt;/p&gt;
 </summary><content type="html">
 &lt;p&gt;自描述语句（Self-Descriptive Sentence），也叫做 &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Autogram"&gt;autogram&lt;/a&gt;，是一种自己描述自己的语句。&lt;/p&gt;
 &lt;p&gt;我在 2004 年的时候（时光飞逝啊）看到这种句子，想了一个简单的方法来用程序生成，效果还可以，但还有很大的不足。后来也没在做什么改进，今天就把这陈年老事拿出来晒晒太阳。&lt;/p&gt;
 &lt;!-- more --&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;介绍&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;介绍&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;先举个简单的自描述语句的例子。十年前好友 &lt;a class="reference external" href="http://www.truevue.org/"&gt;@gdh&lt;/a&gt; 发邮件来说在网上看到有人发了这样一个句子，号称是用来折腾 Visual Studio 2003 的，但是没有更具体的信息，就想问问我有没有什么想法。句子是这样的：&lt;/p&gt;
 &lt;blockquote&gt;
 聪明的张先生生成的这个句子一共有一百一十三个字，其中有二个 “百”，三个 “有”，二个 “子”，七个 “三”，三个 “生”，十五个 “二”，二个 “先”，二个 “字”，一个 “八”，二个 “七”，一个 “四”，二个 “明”，一个 “六”，二个 “成”，一个 “零”，二个 “张”，二个 “中”，二个 “其”，二个 “共”，二个 “这”，五个 “十”，二个 “句”，十个 “一”，三十一个 “个”，三个 “的”，二个 “聪”，一个 “九”，三个 “五”。&lt;/blockquote&gt;
@@ -16,13 +82,13 @@
 你看到的这个句子一共有九十个字，其中有二个“你”，二个“看”，二个“到”，二个“的”，二个“这”，二十六个“个”，二个“句”，二个“子”，二个“共”，三个“有”，二个“字”，二个“其”，二个“中”，四个“一”，十七个“二”，二个“三”，四个“四”，一个“五”，二个“六”，二个“七”，一个“八”，二个“九”，四个“十”。&lt;/blockquote&gt;
 &lt;p&gt;这么有意思的东西，如果你也是刚刚见到，不妨停下来自己想一想，看看有什么好的办法来构造出这样的句子。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id22"&gt;直接的思路&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;直接的思路&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;当时看到这样的句子，其实我也没什么思路，开始也没想要写程序来生成，只是顺着一点儿模糊的想法在纸上打打草稿。结果因为自己的小学数学基本功太差，加加减减的时候总是会出错，越算越头疼，只好写个程序来帮我算，没想到程序就直接把结果算出来了。&lt;/p&gt;
 &lt;p&gt;这中句子的结构就是一个前缀（如“你看到的这个句子”），跟着对总字数的声明（“一共有 XX 个字”），然后是对句子中包含的每一个汉字的次数的声明。那首先就得知道可能会包含哪些汉字啊。显然前缀子句和其他句子结构中出现的汉字都在其中，另外所有的数词（零一二三等）都有可能会出现。&lt;/p&gt;
 &lt;p&gt;再想想每个字可能的次数。既不是数词也不在词频统计部分重复出现的字（如上面示例中的“个”字），它们的出现的次数应该是固定的，即除了在前缀等地方出现已知的次数外，还会在声明它的词频时再出现一次。比如上面第二个例子中的“你”字，它就应该是出现两次，一次是作为句子的成分（前缀部分）出现一次，另一次就是声明它的词频的时候。而数词的次数就没法直接确定了，明显能感觉到它们是牵一发而动其全身的。&lt;/p&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;初始化&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;初始化&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;那么先把句子模板确定下来，然后往里面套总字数和完整的词频分布。这里我对句子结构做了些简化，假设我想要生成的句子是这样的：&lt;/p&gt;
 &lt;blockquote&gt;
 这一句话一共有__个字，__个“__”，__个“__”，……。&lt;/blockquote&gt;
@@ -97,8 +163,8 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;第一次迭代&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;第一次迭代&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;接下来对句子模板做第一次扫描，并根据情况更新相应汉字的字数和总字数。处理的方法很简单，每看到一个汉字，就要给它的计数加 1，总字数加 1。任何一个汉字，如果计数从 0 变成 1，即第一次遇到它，就要再给它的计数和总字数加 1，同时对“个”字执行同样的操作。把这个过程叫做“increase”操作，即：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
@@ -184,8 +250,8 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;第二次迭代&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;第二次迭代&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;下一轮就把所有的计数都翻译成中文，并统计它们所带来的计数改变。比如第一个计数是 3，就要对“三”字执行 increase 操作。然后是 10，对“十”字做 increase 操作。……。最后总字数 25，分别对“二”、“十”和“五”操作即可。处理完后得到新的一轮计数：&lt;/p&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;colgroup&gt;
@@ -252,8 +318,8 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id8"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;第三次迭代&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;第三次迭代&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;对比这两组计数，发现：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;“一”、“这”、“句”等字的计数没有发生变化，并且这些数字对应的汉字已经全部统计过了，所以不必对它们做别的处理。&lt;/li&gt;
@@ -342,8 +408,8 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id9"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;周而复始&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;周而复始&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;之后用同样的方法一轮一轮地迭代，结果如下（包含从初始化开始的每次迭代，第一列 ID 表示迭代次数）：&lt;/p&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;colgroup&gt;
@@ -636,8 +702,8 @@
 &lt;blockquote&gt;
 这一句话一共有五十九个字，四个“一”，十一个“二”，二个“三”，三个“四”，二个“五”，二个“七”，二个“九”，四个“十”，十七个“个”，二个“这”，二个“句”，二个“话”，二个“共”，二个“有”，二个“字”。&lt;/blockquote&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id10"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;算法&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;算法&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;总的看来，一轮一轮迭代的处理方法是这样的：&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;所有汉字的计数和总字数均初始化为 0；&lt;/li&gt;
@@ -652,18 +718,18 @@
 &lt;p&gt;其中 increase 和 decrease 操作均如前所述，不再重复了。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div class="section" id="id10"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id28"&gt;初遇困境&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id11"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id29"&gt;初遇困境&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="id12"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id30"&gt;问题&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id29"&gt;问题&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;换一个例子看看，把上面的句子模板开头的“这一句话”换成“新的一句话”，即：&lt;/p&gt;
 &lt;blockquote&gt;
 新的一句话一共有__个字，__个“__”，__个“__”，……。&lt;/blockquote&gt;
 &lt;p&gt;按照同样的算法一轮一轮迭代处理，却永远都无法终止。仔细看了看，发现计数数组会在几组值之间不断地反复，却怎么都无法收敛。具体的数据就不列出来了。&lt;/p&gt;
 &lt;p&gt;想想也是，上面的算法只是保证了，如果收敛，得到的一定是满足条件的解，却完全无法保证收敛。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id13"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id31"&gt;解决&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id12"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id30"&gt;解决&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;想到一个比较简单的变通方法就是修改之前的 decrease 操作。本来一个汉字如果是第一次出现，计数就直接从 0 涨到 2，如果要去掉，也直接从 2 回到 0。这样避免了出现“一个 XX”的情况。这其实不是必须的，如果把条件放宽，允许出现“一个 XX”（仍然符合自我统计的要求，只是显得有点儿多余），可以让 decrease 操作把计数从 2 降到 1。写出来大概是这样：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
@@ -916,18 +982,18 @@
 &lt;p&gt;其中比较特殊的就是“一个‘八’”，句子中确实只有这个地方出现了 1 个“八”字，其他字的个数和总字数也都没错，但这个“一个‘八’”没有什么实际的意义。不引入这种“一个 XX”能否找到符合这个模板的解呢？目前我还没有明确的答案。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div class="section" id="id13"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id31"&gt;再遇困境&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id14"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id32"&gt;再遇困境&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="id15"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id33"&gt;问题&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id32"&gt;问题&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;很快就又遇到了新的麻烦，比如把句子模板开头换成“这句话”，即：&lt;/p&gt;
 &lt;blockquote&gt;
 这句话一共有__个字，__个“__”，__个“__”，……。&lt;/blockquote&gt;
 &lt;p&gt;算一下就会发现，不论是像开始那样直接从 2 减到 0，还是像刚才那样从 2 减到 1，全都会陷入无法终止的迭代。&lt;/p&gt;
 &lt;p&gt;实际上随便想一个句子模板出来，十有八九会是这样的，能像前两个例子那样收敛出结果的非常少。这可怎么办呢？&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id16"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id34"&gt;解决&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id15"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id33"&gt;解决&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;想了一个简单粗暴的办法，效果还不错。前面提到 decrease 操作有两个方案，区别在于对于计数 2 做 decrease 的时候，要么直接减到 0，要么减到 1。那么一个直接的想法就是不要那么死板，让这个抉择可以随机的使用，即有一半的概率会直接减到 0，另一半的概率是减到 1。这个不确定性因素实际上是给迭代过程带来了一点儿干扰。如果按照某个确定的方案，迭代过程很容易陷入无穷尽的震荡，这时候如果引入一下随机的干扰，就有可能打破稳定的震荡，使得迭代过程偏离当前的动态平衡点，或许就刚好落在一个收敛的位置上了。&lt;/p&gt;
 &lt;p&gt;改造后的 decrease 操作大致是这样的：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -1200,8 +1266,8 @@
 &lt;p&gt;思考一下随机干扰对迭代收敛的作用，可以想见，这个随机选择进行的越频繁，迭代过程就越不稳定，遇到收敛点的概率相对也就越大。但如果迭代已经陷入到一个稳定震荡的状态，在整个振荡周期内却始终没有用到这个随机干扰，那还是没有办法跳出死循环。所以实际的程序会通过某种方式（最简单的就是设置最大迭代次数）判断是否陷入死循环并强制终止当前的迭代过程，从头开始重新走一遍。由于早期计数比较小，很容易遇到需要从 2 减到 0 或 1 的情况，大量的随机干扰可能会使得整个迭代过程完全变样，有可能会得到收敛的解。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id17"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id35"&gt;三碗不过岗&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id16"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id34"&gt;三碗不过岗&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;引入随机扰动后，大部分问题都能搞定了。但对于过于复杂的模板依旧无能为力，模板复杂之后，能够遇到从 2 减到 0 或 1 的次数很少，很难跳出死循环。&lt;/p&gt;
 &lt;p&gt;有时候很简单的模板也无法得到结果，比如&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1209,18 +1275,18 @@
 &lt;p&gt;这里可能有两个问题，一个是我的算法只能保证收敛得到的结果是正确的，无法保证一定收敛。加入随机干扰可能在一定程度上加大收敛的概率，却也没有本质的提升。另一个是任意给定一个模板，是否一定有解？这方面也还没有太多的思路。&lt;/p&gt;
 &lt;p&gt;相关的程序 &lt;a class="reference external" href="https://github.com/calfzhou/self-descriptive-sentence"&gt;在 github 上&lt;/a&gt;，目前除了可以生成中文的句子，还可以生成基于数字的句子。比如：&lt;/p&gt;
 &lt;blockquote&gt;
-1 employs 11 digits, 4 1's, 3 2's, 2 3's, 2 4's.&lt;/blockquote&gt;
+1 employs 11 digits, 4 1’s, 3 2’s, 2 3’s, 2 4’s.&lt;/blockquote&gt;
 &lt;p&gt;以后可能会在两个方面做改进，一是模板化，一是迭代算法。现在是按照语言分的，其实语言只是模板的一个因素。模板化之后可以用同样的方法构造出更多更有趣的句子来。迭代算法方面，目前想到的是利用遗传算法，不过具体怎么操作还没有太多的想法。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id18"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id36"&gt;后记&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id17"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id35"&gt;后记&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;说来也巧，刚才无意间又找到了十年前我所看到的文章，原来是 &lt;a class="reference external" href="http://blog.joycode.com/zee/"&gt;@zee&lt;/a&gt; 在 2004 年 8 月的一篇博文 &lt;a class="reference external" href="http://blog.joycode.com/zee/archives/2004/08/04/29469.joy"&gt;《以前玩出来的几个句子，怀旧一下》&lt;/a&gt;。摘录原文如下。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;一年多前写程序生成的，当时好像 VS2K3 刚出来，写这个程序的主要目的是为了玩弄 2K3&lt;/p&gt;
 &lt;p&gt;聪明的张先生生成的这个句子一共有一百一十三个字其中有二个百三个有二个子七个三三个生十五个二二个先二个字一个八二个七一个四二个明一个六二个成一个零二个张二个中二个其二个共二个这五个十二个句十个一三十一个个三个的二个聪一个九三个五&lt;/p&gt;
 &lt;p&gt;你看到的这个句子一共有九十个字。其中有：二个“你”，二个“看”，二个“到”，二个“的”，二个“这”，二十六个“个”，二个“句”，二个“子”，二个“共”，三个“有”，二个“字”，二个“其”，二个“中”，四个“一”，十七个“二”，二个“三”，四个“四”，一个“五”，二个“六”，二个“七”，一个“八”，二个“九”，四个“十”。&lt;/p&gt;
 &lt;p&gt;这个句子一共有七十五个字。其中有四个“十”；二个“子”；四个“三”；十二个“二”；二个“字”；一个“八”；三个“四”；一个“六”；二个“七”；二个“中”；二个“其”；二个“共”；二个“这”；二个“句”；五个“一”；二十二个“个”；三个“有”；一个“九”；三个“五”。&lt;/p&gt;
-&lt;p&gt;现在是既没有心情也没有时间玩这些东东了............&lt;/p&gt;
+&lt;p&gt;现在是既没有心情也没有时间玩这些东东了…………&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;谨以此纪念逝去的岁月。&lt;/p&gt;
 &lt;/div&gt;
@@ -1284,10 +1350,10 @@ cp -Rp wp-content/* PATH-TO-YOUR-WORDPRESS-wp-content-FOLDER
 &lt;p&gt;用苹果系统已经有一段时间了，越来越喜欢这个系统，不管是一般的使用、做设计、做开发，都非常适合。最近也对系统做了一些调整，使得开发环境更加的舒服，记录下来，免得忘了。&lt;/p&gt;
 &lt;p&gt;实际的过程是漫长而曲折的，跟下面所写的顺序完全没有关系。如果按照下面的步骤操作，中间难免会遇到一些问题（大多是由于墙导致的），那时再自行 Google 吧。&lt;/p&gt;
 &lt;!-- more --&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;基础设施&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;基础设施&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="iterm"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;iTerm&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;iTerm&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;对于几乎离不开 shell 的开发者来说，一款优秀的终端程序是基础的基础。&lt;/p&gt;
 &lt;p&gt;毫无疑问，我用的是 &lt;a class="reference external" href="http://www.iterm2.com/"&gt;iTerm2&lt;/a&gt;。如果说访问互联网世界的入口是 Chrome，那么访问程序世界的入口就是 iTerm 了。&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -1297,8 +1363,8 @@ cp -Rp wp-content/* PATH-TO-YOUR-WORDPRESS-wp-content-FOLDER
 &lt;p&gt;配色当然首选 &lt;a class="reference external" href="https://github.com/altercation/solarized"&gt;Solarized&lt;/a&gt; 的暗色系，在 Github 上可以找到专门提供给 iTerm2 用的配色文件 &lt;a class="reference external" href="https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors"&gt;Solarized Dark.itemcolors&lt;/a&gt;。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="homebrew"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Homebrew&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;a class="reference external" href="http://brew.sh/"&gt;Homebrew&lt;/a&gt; installs the stuff you need that Apple didn't.&lt;/p&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;Homebrew&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://brew.sh/"&gt;Homebrew&lt;/a&gt; installs the stuff you need that Apple didn’t.&lt;/p&gt;
 &lt;p&gt;我电脑上的大部分工具都是通过 homebrew 安装和管理的，非常方便。虽然提供类似功能的还有 &lt;a class="reference external" href="http://www.finkproject.org/"&gt;Fink&lt;/a&gt; 和 &lt;a class="reference external" href="http://www.macports.org/"&gt;macports&lt;/a&gt;，但我认为 Homebrew 是最方便的。具体的就不在这里比较了，大家可以自行调研。当然，至少选择一个来帮助自己安装盒管理软件包，会让很多事情变得更容易。&lt;/p&gt;
 &lt;p&gt;安装 Homebrew 非常方便，首先要安装 &lt;a class="reference external" href="https://developer.apple.com/downloads/index.action"&gt;Command Line Tools for Xcode&lt;/a&gt;，然后运行&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ruby -e &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
@@ -1308,7 +1374,7 @@ cp -Rp wp-content/* PATH-TO-YOUR-WORDPRESS-wp-content-FOLDER
 &lt;p&gt;Homebrew 默认会掌控系统中的 &lt;tt class="docutils literal"&gt;/usr/local&lt;/tt&gt; 目录，目前我这个目录也就只是给 Homebrew 用了，其他的东西都不往里放。在使用 Homebrew 的过程中，一般都避免使用 sudo 进行操作，实际上现在的版本用了 sudo 也就没法使了。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="python"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;Python&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Python&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;苹果系统自带了好几个版本的 Python，装在 /Library/Python 中。不过版本都不新，为了便于维护，还是自己装一个 Python 吧。用 &lt;tt class="docutils literal"&gt;brew install python&lt;/tt&gt; 可以安装最新的 Python 2.x，用 &lt;tt class="docutils literal"&gt;brew install python3&lt;/tt&gt; 可以安装最新的 Python 3.x。&lt;/p&gt;
 &lt;p&gt;Homebrew 的 Python 已经安装了 pip，用于管理 Python 的软件包。根据 &lt;tt class="docutils literal"&gt;brew info python&lt;/tt&gt; 提供的提示，运行下列命令对 pip 进行更新：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -1333,8 +1399,8 @@ pip install virtualenvwrapper
 &lt;p&gt;另外，&lt;a class="reference external" href="http://ipython.org/"&gt;ipython&lt;/a&gt; 是非常好用的 Python 的交互式终端，比 Python 自身的命令行提供了更丰富和方便的功能，建议使用。通过 &lt;tt class="docutils literal"&gt;pip install ipython&lt;/tt&gt; 即可安装。不过目前我还没想清楚要不要把它装在某个虚拟环境中。按理说应该是要在任何一个虚拟环境中都能用 ipython 的，否则就要给每个虚拟环境都装一次，岂不是很浪费空间？这个问题以后再考虑吧。&lt;/p&gt;
 &lt;p&gt;ipython 除了 shell console 外，还提供 Qt console，详细的信息查看官方的介绍吧。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;科学上网&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;科学上网&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;由于一些众所周不知的原因，这个世界上存在着一些不存在的网站。本来不应该为不存在的事物所烦恼，但对于开发人员来说，不存在的世界中却存在着一些非常有价值的资源。所以，需要用科学的方法访问互联网。&lt;/p&gt;
 &lt;p&gt;我目前主要用到了 &lt;a class="reference external" href="https://code.google.com/p/goagent/"&gt;goagent&lt;/a&gt;、SSH tunnel、&lt;a class="reference external" href="https://github.com/rofl0r/proxychains-ng/"&gt;proxychains-ng&lt;/a&gt;、&lt;a class="reference external" href="https://github.com/jedisct1/dnscrypt-proxy"&gt;dnscrypt-proxy&lt;/a&gt; 和 &lt;a class="reference external" href="http://unbound.net/"&gt;unbound&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;goagent 需要在 Google App Engine 上用自己的账号安装服务端，在本地用 python 运行客户端。具体的安装方法参见官网介绍。我创建一个 virtualenv 给它使用，在这个虚拟环境中安装相关的 Python 依赖。&lt;/p&gt;
@@ -1394,7 +1460,7 @@ pip install gevent
 &lt;span class="nt"&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;/plist&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;给系统的网络连接设置代理，进入 System Preferences -&amp;gt; Network，选择使用的网络，点击 Advanced...，在 Proxies 页中勾选“Automatic Proxy Configuration”，在 URL 内填入“&lt;a class="reference external" href="http://127.0.0.1:8086/proxy.pac"&gt;http://127.0.0.1:8086/proxy.pac&lt;/a&gt;”，保存生效。&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;给系统的网络连接设置代理，进入 System Preferences -&amp;gt; Network，选择使用的网络，点击 Advanced…，在 Proxies 页中勾选“Automatic Proxy Configuration”，在 URL 内填入“&lt;a class="reference external" href="http://127.0.0.1:8086/proxy.pac"&gt;http://127.0.0.1:8086/proxy.pac&lt;/a&gt;”，保存生效。&lt;/p&gt;
 &lt;p&gt;对于 Chrome 浏览器，推荐使用 &lt;a class="reference external" href="https://chrome.google.com/webstore/detail/proxy-switchysharp/dpplabbmogkhghncfbfdeeokoefdjegm"&gt;Proxy SwichySharp&lt;/a&gt; 插件。鉴于 Google 所有的服务都访问不顺畅，这个链接可能不太容易访问到，可以考虑使用 &lt;a class="reference external" href="http://chrome-extension-downloader.com/"&gt;chrome extension downloader&lt;/a&gt; 网站来直接下载插件的. crx 文件。用非 Chrome 浏览器打开该网站，输入 Proxy SwichySharp 的 ID（dpplabbmogkhghncfbfdeeokoefdjegm），下载保存，然后在 Chrome 的 extensions 页面中把 .crx 文件拖进去即可。goagent 里也提供了该插件的 .crx 文件以及配置文件，可以直接使用（作者想的真周到啊）。&lt;/p&gt;
 &lt;p&gt;系统的网络连接代理和 Chrome 的代理插件基本能解决大部分网页访问的需求，比如苹果自带的 Safari 就会默认通过系统的代理，也就能科学地上网了。不过 wget、curl 等 shell 命令却无法直接使用这些代理，它们会根据环境变量 &lt;tt class="docutils literal"&gt;http_proxy&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;https_proxy&lt;/tt&gt; 来访问网络。为了方便，在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.bash_profile&lt;/span&gt;&lt;/tt&gt; 中添加：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -1415,19 +1481,19 @@ pip install gevent
 brew install dnscrypt-proxy
 noproxy
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;安装后根据提示设置成开机自动启动即可。默认的话它会监听 127.0.0.1 的 53 端口提供 DNS 服务，上游使用 OpenDNS 服务（可自行配置），并使用加密通信来防止 DNS 污染。将网络连接的 DNS 设置为 127.0.0.1（System Preferences -&amp;gt; Network -&amp;gt; 当前使用的网络 -&amp;gt; Advanced... -&amp;gt; DNS -&amp;gt; DNS Servers），就会发现即使没有 goagent，Dropbox、Facebook 等网站也变得存在了。&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;安装后根据提示设置成开机自动启动即可。默认的话它会监听 127.0.0.1 的 53 端口提供 DNS 服务，上游使用 OpenDNS 服务（可自行配置），并使用加密通信来防止 DNS 污染。将网络连接的 DNS 设置为 127.0.0.1（System Preferences -&amp;gt; Network -&amp;gt; 当前使用的网络 -&amp;gt; Advanced… -&amp;gt; DNS -&amp;gt; DNS Servers），就会发现即使没有 goagent，Dropbox、Facebook 等网站也变得存在了。&lt;/p&gt;
 &lt;p&gt;dnscrypt-proxy 有个缺点就是没有缓存功能，每次来个域名都要去远程服务器上解析一次，速度很慢，非常影响上网的体验，建议配合具备 DNS 缓存的工具一起使用，比如 &lt;a class="reference external" href="http://unbound.net/"&gt;unbound&lt;/a&gt;、&lt;a class="reference external" href="http://www.thekelleys.org.uk/dnsmasq/doc.html"&gt;dnsmasq&lt;/a&gt; 等。二者都可以通过 Homebrew 安装，非常方便。当然要配合使用，就需要一些配置，在性能方面也需要做一些优化，这里就不再仔细说了。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="shell"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;友好的 Shell&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;友好的 Shell&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;有了 iTerm 还不够，要让 shell 变得好用，还需要再做一些配置。&lt;/p&gt;
 &lt;div class="section" id="bash-profile"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;Bash Profile&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;Bash Profile&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.bash_profile&lt;/span&gt;&lt;/tt&gt; 的作用就不用我多说了，在这里可以对 shell 进行很多的个性化配置。参考 &lt;a class="reference external" href="https://github.com/mathiasbynens/dotfiles"&gt;mathiasbynens 的 dotfiles&lt;/a&gt; 项目，我也为自己打造了舒适的 shell 环境，相关的配置保存在 &lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/bash"&gt;GitHub - calfzhou - dotfiles - bash&lt;/a&gt; 里面，对 Mac 和 Linux 都是可以的，让我在不同的服务器上也有相同的操作体验。涉及到的内容很多，就不逐一介绍了，比较重要的几点下面会提到。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="dir-colors"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;Dir Colors&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;Dir Colors&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;虽然 iTerm 本身已经设置好了 Solarized 配色，但是 ls 的时候并不一定有颜色。ls 没有颜色绝对是让人难以忍受的，在 &lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/blob/master/bash/bash_inc/aliases"&gt;bash_inc/alias&lt;/a&gt; 里除了根据系统中 ls 支持的参数让 ls 的输出显示出颜色外，还通过配置 &lt;tt class="docutils literal"&gt;LS_COLOR&lt;/tt&gt; 让色彩更丰富，可以让不同类型的文件有不同的颜色，看起来非常的清晰。推荐使用 &lt;a class="reference external" href="https://github.com/seebi/dircolors-solarized"&gt;dircolors-solarized&lt;/a&gt; 提供的配色文件，在 Mac OS X 的采用了 Solarized Dark 配色的 iTerm2 里看起来会是这个样子：&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="dircolors-solaized-dark" src="https://blog.gocalf.com/images/2014/07/dircolors_solarized_dark.png"/&gt;
@@ -1435,7 +1501,7 @@ noproxy
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="bash-prompt"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;Bash Prompt&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;Bash Prompt&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;在使用 shell 的过程中，命令提示符会一直陪伴着我们，是时候扔掉默认的提示符了。&lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/blob/master/bash/bash_inc/bash_prompt"&gt;我的命令提示符&lt;/a&gt; 用不同的颜色分别显示出当前时刻、当前用户、当前主机（通过颜色标识是否通过是通过 SSH 登录的）、当前使用的 Python virtualenv（如果有的话）、当前目录、当前目录所在的 git 分支和状态（如果是 git 项目的目录的话）。&lt;/p&gt;
 &lt;p&gt;关于主机名，Mac 系统下默认应该是 localhost，可以通过 scutil 命令修改成想要的值：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -1451,19 +1517,19 @@ MYNAME
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="bash-completion"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;Bash Completion&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;Bash Completion&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;在 shell 里面输入命令的时候，如果只记得开头几个字母，后面的记不清楚了也没关系，输入几个字母后，按 TAB 键就可以自动补全或者提示出所有可行的命令。在输入文件名的时候也可以通过 TAB 键自动补全或者提示出有效的文件文来，这个功能是非常方便的。Homebrew 又额外提供了一些 bash completion 功能，可以通过 &lt;tt class="docutils literal"&gt;brew install &lt;span class="pre"&gt;bash-completion&lt;/span&gt;&lt;/tt&gt; 进行安装，并会生成 &lt;tt class="docutils literal"&gt;/usr/local/etc/bash_completion&lt;/tt&gt; 文件，在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.bash_profile&lt;/span&gt;&lt;/tt&gt; 中 source 一下这个文件，就可以把 Homebrew 提供的命令补全包含进来。如果通过 Homebrew 安装了别的工具包，比如 git、svn 等，它们也会有各自相应的命令补全文件，存放在 &lt;tt class="docutils literal"&gt;/usr/local/etc/bash_completion.d&lt;/tt&gt; 目录中，都会被刚才那个文件自动引入。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="shell-commands"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;Shell Commands&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;Shell Commands&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;用惯了 Linux（CentOS）里面的 shell 命令，就无法忍受 Mac 系统中那些落后的 shell 命令了，像 ls、date、ps、echo、grep 等等，功能都特别少。在忍无可忍之后，终于决定用 &lt;a class="reference external" href="http://www.gnu.org/software/coreutils/"&gt;GNU Coreutils&lt;/a&gt; 替换它们。用 &lt;tt class="docutils literal"&gt;brew install coreutils&lt;/tt&gt; 就可以搞定了，安装完成后，根据提示，将 &lt;tt class="docutils literal"&gt;/usr/local/opt/coreutils/libexec/gnubin&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;/usr/local/opt/coreutils/libexec/gnuman&lt;/tt&gt; 分别添加到 &lt;tt class="docutils literal"&gt;$PATH&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;$MANPATH&lt;/tt&gt; 中即可。&lt;/p&gt;
 &lt;p&gt;grep 命令不在 coreutils，可以通过 &lt;tt class="docutils literal"&gt;brew install grep &lt;span class="pre"&gt;--default-names&lt;/span&gt;&lt;/tt&gt; 搞定（如果说找不到 grep 可以先 &lt;tt class="docutils literal"&gt;brew tap homebrew/dupes&lt;/tt&gt;）。当然还有很多其他特别有用的命令，就不一一细说了，反正想到什么，只要用 &lt;tt class="docutils literal"&gt;brew info&lt;/tt&gt; 或者 &lt;tt class="docutils literal"&gt;brew search&lt;/tt&gt; 找找看就行。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="ide"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;编辑器和 IDE&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;编辑器和 IDE&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="vim"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;VIM&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;VIM&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;其实我也不是 VIM 重度使用者，现在写超过两个文件的 Python 代码、Java 代码等都会使用专门的 IDE。我看很多人都喜欢用 VIM 来写复杂的项目代码，但他们的 VIM 都没有做任何额外的设置，自身对 VIM 的快捷键和命令也不熟悉，只是把 VIM 当成一个连移动光标都很费劲的编辑器来用，写代码的效率可想而知。而且像 Python 这种脚本语言，很多错误只有到运行到那句话的时候才会有效果，VIM 没有足够的只能针对某一个语言做太多的静态分析。&lt;/p&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vimrc&lt;/span&gt;&lt;/tt&gt; 用于对 VIM 进行各种设置，如果没有这个文件，赶紧创建一个吧。复杂的语法高亮、配色、插件等都可以放在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vim&lt;/span&gt;&lt;/tt&gt; 里面。VIM 自身对插件没有很好地管理，我选择了 &lt;a class="reference external" href="https://github.com/tpope/vim-pathogen"&gt;vim-pathogen&lt;/a&gt; 来管理所需要的 VIM 扩展。只要把 &lt;a class="reference external" href="https://github.com/tpope/vim-pathogen/blob/master/autoload/pathogen.vim"&gt;pathogen.vim&lt;/a&gt; 放在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vim/autoload&lt;/span&gt;&lt;/tt&gt; 目录中，把所需的扩展包放在 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.vim/bundle&lt;/span&gt;&lt;/tt&gt; 目录下即可。&lt;/p&gt;
 &lt;p&gt;同样地，我也把自己的 VIM 设置和依赖放在 GitHub 上（&lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/vim"&gt;GitHub - calfzhou - dotfiles - vim&lt;/a&gt;），在别的 server 上直接 clone 下来保持一致的操作体验。&lt;/p&gt;
@@ -1471,19 +1537,19 @@ MYNAME
 &lt;p&gt;如果不满意苹果系统自带的较低版本的 VIM，或者想用 GUI 界面的 VIM，可以利用 Homebrew 进行安装，Formula 是 &lt;tt class="docutils literal"&gt;vim&lt;/tt&gt; 和 &lt;tt class="docutils literal"&gt;macvim&lt;/tt&gt;。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="sublime-text"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;Sublime Text&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Sublime Text&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.sublimetext.com/"&gt;Sublime Text&lt;/a&gt; 是我现在主要使用的 GUI 编辑器，但看其首页的动画演示就会觉得非常 cool。以前还经常用 Ultra Edit 和 Notepad++，现在基本都不用了。在 GUI 程序中，我一般会使用 Solarized Light 配色方案，总感觉大部分 GUI 程序用暗色系就很丑（PyCharm 系列除外）。&lt;/p&gt;
 &lt;p&gt;具体的配置也就不多说了。注意 Sublime Text 原生不支持 GBK 编码的文件，需要安装扩展包，即使这样，在编辑 GBK 编码的文件时，它会生成一个临时文件进行操作，保存的时候再写回去，体验上还是有些不爽。&lt;/p&gt;
 &lt;p&gt;还有一个地方我也一直没搞清楚，就是中文字体不是刚刚好跟两个英文字母一样宽。在编辑 reStructuredText 文件的时候，还是会比较麻烦的。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="python-ide"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;Python IDE&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;Python IDE&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;以前一直用 VIM 做 Python 开发，是因为没找到好用的 Python IDE，现在我用 &lt;a class="reference external" href="http://www.jetbrains.com/"&gt;JetBrains&lt;/a&gt; 出的 &lt;a class="reference external" href="http://www.jetbrains.com/pycharm/"&gt;PyCharm&lt;/a&gt;。不要跟我争，这绝对是世界上最好用的 Python IDE，没有之一。&lt;/p&gt;
 &lt;p&gt;PyCharm 里强烈推荐自带的 Darcula 配色，感觉在 GUI 界面中，这个配色比 Solarized Dark 要舒服一些。PyCharm 的默认配置基本就很好用了，它对 Python 代码的可读性检测方面要求还是比较严格的，空行、空格不合适都会有提示。如果 Python 项目中包含其他类型的文件（如 shell 脚本、html 页面等），它也有相应的插件可以对这些文件进行语法高亮。&lt;/p&gt;
 &lt;p&gt;一直觉得如果 JetBrains 出一个通用的编辑器，应该能把 Sublime Text 甩出好几条街去。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="java-ide"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;Java IDE&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;Java IDE&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;好多人都用 Eclipse 写 Java 代码（包括 Android 开发），真想不通为什么那么难用的 IDE 还那么受欢迎。可能学校里交 Java 的时候都用的 Eclipse 吧，就像直到现在都还有很多人用 VS6 做 C++ 开发一样。对于 Android 开发，可能跟之前 Google 推 Eclipse with ADT 有关吧。不过现在 Google 也认识到了 Eclipse 的不足，转身投入 &lt;a class="reference external" href="http://www.jetbrains.com/"&gt;JetBrains&lt;/a&gt; 的 &lt;a class="reference external" href="http://www.jetbrains.com/idea/"&gt;IntelliJ IDEA&lt;/a&gt; 的怀抱了。JetBrains 出品的个个都是精品啊，微软里面很多项目组也都在使用 JetBrains 出的 &lt;a class="reference external" href="http://www.jetbrains.com/resharper/"&gt;ReSharper&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;我现在也是用 IntelliJ IDEA 来做 Java 开发，使用体验跟 PyCharm 类似。Java 项目的依赖管理用 Maven，Homebrew 里也提供了安装。建议目前使用 Maven 3.0.*：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -1493,10 +1559,10 @@ brew install maven30
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;当然如果要用最新的 3.2.*，可以直接 &lt;tt class="docutils literal"&gt;brew install maven&lt;/tt&gt;。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id26"&gt;版本控制&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id25"&gt;版本控制&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="git"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;Git&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;Git&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;用 Homebrew 可以方便地安装最新的 Git。如果像上面介绍的那样，用 Homebrew 安装并使用了 bash-completion，那么装好 git 后，git 指令也会按 TAB 键补全了，再也不动担心记不住 git 指令。&lt;/p&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.gitconfig&lt;/span&gt;&lt;/tt&gt; 可以用来定义很多个性化的设置，可以直接编辑或者通过 &lt;tt class="docutils literal"&gt;git config &lt;span class="pre"&gt;--global&lt;/span&gt;&lt;/tt&gt; 进行设置。类似的，我也把我的配置文件保存在 GitHub 上（&lt;a class="reference external" href="https://github.com/calfzhou/dotfiles/tree/master/git"&gt;GitHub - calfzhou - dotfiles - git&lt;/a&gt;），以便在不同的地方有同样的操作体验。&lt;/p&gt;
 &lt;p&gt;顺便提一下，用 git 管理项目版本的话，推荐使用 &lt;a class="reference external" href="https://github.com/nvie/gitflow"&gt;git-flow&lt;/a&gt; 管理分支和版本，通过 Homebrew 可以直接安装它，同样也会带有 TAB 自动补全功能。关于这种分支管理的模型，可以阅读 &lt;a class="reference external" href="http://nvie.com/posts/a-successful-git-branching-model/"&gt;A successful Git branching model&lt;/a&gt;。&lt;/p&gt;
@@ -1508,7 +1574,7 @@ brew install maven30
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="svn"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;SVN&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;SVN&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;用了 Git，就再也不想用 SVN 了。不过有时候也难免会需要用，用 Homebrew 安装个新版本的 SVN 吧，同样也会有 TAB 键补全哦。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1517,12 +1583,12 @@ brew install maven30
 &lt;p&gt;今天来看一个简单的程序开发问题，（用 Python）编写一段程序，将一个任意给定的整数（可正可负）转换成对应的中文读法。比如输入数字 -12345，输出字符串“负一万二千三百四十五”。&lt;/p&gt;
 &lt;p&gt;同时也会稍微涉及到数据驱动的测试（data driven test）。&lt;/p&gt;
 &lt;div class="admonition note"&gt;
-&lt;p class="first admonition-title"&gt;注解&lt;/p&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
 &lt;p class="last"&gt;实际上，对于同一个数字，用中文的读法可能不唯一，在不同的场合也可能会有不同的习惯。我这里采用 Google 拼音输入法提供的读法。&lt;/p&gt;
 &lt;/div&gt;
 &lt;!-- more --&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;准备工作&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;准备工作&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;基本的方法很简单，从高位到低位依次把每个数字映射成对应的汉字，再把位数对应的汉字加上就可以了。如果是负数，则在前面加一个“负”即可。&lt;/p&gt;
 &lt;p&gt;先把用中文读一个数字所需要的汉字都找出来，它们是“负零一二三四五六七八九十百千万亿兆”等。注意这里的“兆”表示 10 的 12 次方，而不是计算机领域的 10 的 6 次方。在开始之前，先要把这些汉字分分类，比如一二三四之间的差异跟十百千就不一样，跟万亿兆也不一样。&lt;/p&gt;
 &lt;p&gt;最特殊的字是“负”，用一个单独的常量保存它。&lt;/p&gt;
@@ -1546,8 +1612,8 @@ brew install maven30
 &lt;span class="n"&gt;CHINESE_GROUP_UNITS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;''&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'万'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'亿'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'兆'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;初始版本&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;初始版本&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;常量定义好之后，就先写个最简单的处理方法。负数和零就不多说了，只看正数的情况。&lt;/p&gt;
 &lt;p&gt;比如数字是 12345，输出应该是“一万二千三百四十五”，在这种最普通的情况下，操作方法就是把每个数字对应的汉字和该数位所对应的汉字拼在一起，然后每个万组还要加上该万组的单位（即“万亿兆”）。&lt;/p&gt;
 &lt;p&gt;因此首先需要从高位到低位枚举每一位数字，要同时知道数字和对应的数位（比如个位是 0，十亿位是 9，等等）。下面这段简单的程序是从低位开始枚举，使用的时候只要反转（reverse）一下就可以了。&lt;/p&gt;
@@ -1642,8 +1708,8 @@ brew install maven30
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;啊，由于工作原因，代码风格有所调整。以前在 Python 里函数名采用驼峰方式，首字母大写。现在改用小写加下划线了。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;单元测试&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;单元测试&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;显然上面的代码是有问题的，比如如果数字中有 0，有些结果就不太对。对于 11 到 19 的处理也有问题。因此需要做单元测试，多准备各种情况的测试用例尽可能覆盖更多的特殊情况。&lt;/p&gt;
 &lt;p&gt;这里不详细说怎么创建和编写单元测试，只说一下数据驱动的测试（Data Driven Test）。&lt;/p&gt;
 &lt;p&gt;一般在 Python 里写单元测试，比如想测试一下输入 10 时，程序输出是否正确。那就添加一个测试方法（test method），调用函数得到实际的输出值（现在应该是“一十”），跟期望的输出（应该是“十”）作比较。&lt;/p&gt;
@@ -1714,11 +1780,11 @@ brew install maven30
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python -m unittest test_translate_number_to_chinese
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;大刀阔斧进行修改&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;大刀阔斧进行修改&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;准备好测试方法和足够的测试用例后，就可以放心地对代码进行修改了。每次修改一点儿，都可以跑一下单元测试，看看又成功或者失败了几个用例，总结出规律，继续改进。&lt;/p&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;特殊的“0”&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;特殊的“0”&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;目前主要的问题在于对“0”的处理上，上面的程序忽略了所有的“0”。&lt;/p&gt;
 &lt;p&gt;实际上，在一个万组内，末尾所有连续的“0”都不用读，如 500：五百、20：二十。这方面刚好上面的代码就是这样处理的。注意这个规则不仅仅针对数字最末尾的“0”，而是对每一个万组都有效的。比如 2005678：二百万五千六百七十八（不加“零”）。&lt;/p&gt;
 &lt;p&gt;在一个万组内，如果两个非零数字之间有一个或者多个“0”，都需要（且只需要）读一个“零”。如 201：二百零一、3006：三千零六、1020：一千零二十。&lt;/p&gt;
@@ -1778,13 +1844,13 @@ brew install maven30
 &lt;span class="c1"&gt;# End core loop.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id8"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;全零的万组&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;全零的万组&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;接下来遇到的问题是，如果一个万组完全是 0，就不要再添加对应的单位了，比如 100000000：一亿（现在会输出“一亿万”）。&lt;/p&gt;
 &lt;p&gt;解决方法很简单，把上面的 &lt;tt class="docutils literal"&gt;if unit == 0:&lt;/tt&gt; 改成 &lt;tt class="docutils literal"&gt;if unit == 0 and not group_is_zero:&lt;/tt&gt; 即可。完整代码略。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id9"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;麻烦的“1”&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;麻烦的“1”&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;最后一种特殊的情况是由数字“1”引起的。&lt;/p&gt;
 &lt;p&gt;在一个万组内，如果千位和百位都是“0”，十位是“1”，那么这个“一”就不用读出来，比如 10：十、14：十四。&lt;/p&gt;
 &lt;p&gt;但如果千位或者百位不是“0”，这个“一”就需要读出来，比如 213：二百一十三、2013：二千零一十三。&lt;/p&gt;
@@ -1851,8 +1917,8 @@ brew install maven30
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id10"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;试试看&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;试试看&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;代码介绍完了，下面放一个用 JavaScript 实现的版本，可以随便输入一些数字试试看。源代码参见 &lt;a class="reference external" href="http://jsfiddle.net/calfzhou/tGEz7/"&gt;http://jsfiddle.net/calfzhou/tGEz7/&lt;/a&gt;。&lt;/p&gt;
 &lt;script type="text/javascript"&gt;
 function translateNumber(numberText) {
@@ -2034,7 +2100,7 @@ $ cat private-diary.txt
 &lt;/ul&gt;
 &lt;p&gt;当然也有反对的声音，所以建议大家先多了解了解再决定要不要使用这个方法。&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://article.gmane.org/gmane.comp.version-control.git/113221"&gt;Don't do this&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://article.gmane.org/gmane.comp.version-control.git/113221"&gt;Don’t do this&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content><category term="Git"></category><category term="Encrypt"></category></entry><entry><title>在 Excel 中制作不等宽柱状图</title><link href="https://blog.gocalf.com/excel-variable-width-column-chart" rel="alternate"></link><published>2013-12-13T14:35:00+08:00</published><updated>2019-09-30T16:00:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-12-13:/excel-variable-width-column-chart</id><summary type="html">&lt;p class="first last"&gt;介绍一下我是怎么在 Microsoft Office Excel 中制作不等宽柱状图（Variable Width Column Chart）的。&lt;/p&gt;
 </summary><content type="html">
@@ -2043,8 +2109,8 @@ $ cat private-diary.txt
 Chart，我没有仔细去考证，二者好像也并不完全一样。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;注：以下操作是基于 Microsoft Office Excel 2013 进行的，其他版本可能会有一些差异，但思路是相通的。&lt;/p&gt;
-&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;数据和目标效果&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;数据和目标效果&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;假设我们有这样一组数据，一共五个对象，每个对象都有两个数值属性（x 和 y）。我们希望用柱子的宽度表示 x 的大小（这里只考虑 x 是非负数的情况），高度表示 y 的大小。&lt;/p&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;colgroup&gt;
@@ -2089,8 +2155,8 @@ Chart，我没有仔细去考证，二者好像也并不完全一样。&lt;/p&gt
 &lt;p&gt;那么应该怎么产生这样的效果呢？内置的柱状图并没有办法调节每个柱子的宽度，所以看起来不应该是从这个角度去做。&lt;/p&gt;
 &lt;p&gt;一个柱子是有宽度和高度的，二者共同构成了这个柱子的面积。在 Excel 内置的图表类型中，面积图最接近这个需求。因此可以想到用面积图来模拟不同宽度的柱子。为了区分不同的对象，我们可以为每一个对象画一个面积图，把多个这样的面积图叠加起来，并让每一个柱子在横轴方向的位置不重叠，就能得到想要的样子了。下面就跟着我具体操作一遍。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;基础数据和第一次扩展&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;基础数据和第一次扩展&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;首先在 Excel 中把原始数据录入进去。我个人比较喜欢把数据组织成 Excel 表（Excel
 2007 才开始有此功能）。这是将一块普通的单元格区域转换成一种有内在联系的表结构，可以更加方便地管理和操作表中的数据。如果你还没有接触过，可以参考 &lt;a class="reference external" href="http://office.microsoft.com/en-us/excel-help/overview-of-excel-tables-HA010048546.aspx"&gt;官方的文档&lt;/a&gt;（&lt;a class="reference external" href="http://office.microsoft.com/zh-cn/excel-help/overview-of-excel-tables-HA010048546.aspx"&gt;中文文档&lt;/a&gt;），你一定会爱上它。对于今天要做的不等宽柱状图，Excel 表并不是必需的，但它会使得公式更加直观。我今天给出的每一个公式，都会用两种形式（使用 Excel 表和不使用 Excel 表）给出，以方便那些确实不习惯 Excel 表的童鞋。一定要注意，如果你用 Excel 表，那么对于任何一列，其每一行的公式都是一样的。而如果不用 Excel 表，我所给出的公式只是该列第一行的公式，你要特别小心公式中什么地方应该加“$”，什么时候不加“$”，后续行的公式会自动根据有没有“$”进行变换。&lt;/p&gt;
 &lt;p&gt;假设我们把上面表格中的基础数据放在从 A1 开始的单元格中（这些数据会占据 A1 到 C6 范围的单元格），选中这些单元格，点击 Ribbon 中 HOME -&amp;gt;
@@ -2130,8 +2196,8 @@ Define Name 来为其指定一个名字，比如叫作“Gap”。&lt;/p&gt;
 =$E2-$D2
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;面积图数据扩展&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;面积图数据扩展&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;前面提到了，我们要用一系列面积图来模拟不等宽柱状图，每一个柱子对应一条面积图曲线。而为了描述一个柱子，需要有四个坐标数据，即柱子矩形的四个顶点。因此原始数据中每一行就要扩展成为 4 行新的数据（分别对应一个柱子的左下、左上、右上、右下顶点）。那我们就来创建一个新的 Excel 表来计算这些数据。&lt;/p&gt;
 &lt;p&gt;假设我们把这个数据表叫作 TableArea，放在从 A10 开始的单元格范围内。&lt;/p&gt;
 &lt;p&gt;第一列叫作 Index，是一列递增的索引值，用于识别所在行的柱子序号和顶点编号。因为每一行原始数据在这里要对应 4 行新数据，所以这里需要 4 * 5 = 20 行，对应的编号分别为 0，1，2，……，19。&lt;/p&gt;
@@ -2182,8 +2248,8 @@ Define Name 来为其指定一个名字，比如叫作“Gap”。&lt;/p&gt;
 &lt;p class="caption"&gt;准备完毕的两个 Excel 表&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;作图&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;作图&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;现在来创建不等宽柱状体的主体结构。&lt;/p&gt;
 &lt;p&gt;在 TableArea 中选择所有的纵坐标列（A 列到 E 列，包括列头和每一行数据），然后点击 Ribbon 的 Insert -&amp;gt;
 Insert Area Chart -&amp;gt; Area，插入一张新的面积图。&lt;/p&gt;
@@ -2220,8 +2286,8 @@ Position 从默认的 Next to Axis 改为 None。&lt;/p&gt;
 &lt;p class="caption"&gt;不等宽柱状图的主体结构&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;添加数据标签&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;添加数据标签&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;有了主体结构后，大家可以根据需要自行美化图表了，这里我介绍一下如何添加目标效果中的位于柱子上方的数据标签，算作抛砖引玉吧。&lt;/p&gt;
 &lt;p&gt;先在 TableData 中添加一列叫作 Mid，用于计算每个柱子中心点的横坐标，公式为&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
@@ -2264,7 +2330,7 @@ Range 对话框，将数据范围设置为 TableData 的 X 列整列数据。然
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="highcharts"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;Highcharts 版本&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Highcharts 版本&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://blog.gocalf.com/"&gt;GoCalf 博客&lt;/a&gt; 使用 &lt;a class="reference external" href="http://www.highcharts.com/"&gt;Highcharts&lt;/a&gt; 渲染动态图表。Highchart 也并不直接支持不等宽柱状图，但是可以用完全相同的方法来进行模拟。具体的过程不再赘述，效果参见下图，源代码可以通过本页面的 HTML 源码获得，或者查看 &lt;a class="reference external" href="http://jsfiddle.net/calfzhou/TUt2U/"&gt;我共享的 jsfiddle&lt;/a&gt;：&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://jsfiddle.net/calfzhou/TUt2U/"&gt;http://jsfiddle.net/calfzhou/TUt2U/&lt;/a&gt;&lt;/p&gt;
 &lt;div class="highcharts" id="variable-width-column-chart" style="height: 400px; width: 640px"&gt;&lt;/div&gt;
@@ -2336,7 +2402,7 @@ $(function () {
     });
 });
 &lt;/script&gt;&lt;div class="admonition note"&gt;
-&lt;p class="first admonition-title"&gt;注解&lt;/p&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
 &lt;p class="last"&gt;Highcharts 从 6.0.0 版本开始也加入了 varwide 类型，详见 &lt;a class="reference external" href="https://www.highcharts.com/demo/variwide"&gt;varwide demo&lt;/a&gt;。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2346,7 +2412,7 @@ $(function () {
 &lt;p&gt;前段时间做一个项目，却不得不使用 Python 直接生成 Excel 文件，后来随着需求的变化，还要对已有的 Excel 文件进行读取。在这个过程中，研究并尝试了一些工具，也走了一些弯路。记录下来，下次再有类似需求的时候就不用漫天遍野地搜索了。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;div class="section" id="pk"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;超级无敌大 PK&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;超级无敌大 PK&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;我主要尝试了四种工具，在此并不会给出他们的排名，因为在不同的应用场景下，做出的选择会不同。&lt;/p&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;colgroup&gt;
@@ -2468,7 +2534,7 @@ Excel 进程通信，调用其各种功能实现对 Excel 文件的操作&lt;/td
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class="section" id="xlsxwriter"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;XlsxWriter&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;XlsxWriter&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/jmcnamara/XlsxWriter"&gt;XlsxWriter&lt;/a&gt; 是我最终选择的用于写操作的工具。顾名思义，它只能用来写文件。&lt;/p&gt;
 &lt;p&gt;这应该是个比较新的项目，在 GitHub 上看它最早的提交是在 2013 年 1 月份。其官方文档中宣称它支持：&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -2485,16 +2551,16 @@ Excel 进程通信，调用其各种功能实现对 Excel 文件的操作&lt;/td
 &lt;li&gt;Cell comments.&lt;/li&gt;
 &lt;li&gt;Memory optimisation mode for writing large files.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="section" id="id2"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;优点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;优点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、功能比较强&lt;/p&gt;
 &lt;p&gt;相对而言，这是除 Excel 自身之外功能最强的工具了。比如我就用到了它提供的：字体设置、前景色背景色、border 设置、视图缩放（zoom）、单元格合并、autofilter、freeze panes、公式、data validation、单元格注释、行高和列宽设置等等。&lt;/p&gt;
 &lt;p&gt;最让我惊奇的是，用它生成的带有单元格注释的 Excel 文件，不论是 Excel 2007 还是 Excel 2013 都可正常打开（下面会提到，这个任务用 Excel 自身都无法完成）。&lt;/p&gt;
 &lt;p&gt;二、支持大文件写入&lt;/p&gt;
 &lt;p&gt;如果数据量非常大，可以启用 &lt;a class="reference external" href="http://xlsxwriter.readthedocs.org/en/latest/working_with_memory.html"&gt;constant memory 模式&lt;/a&gt;，这是一种顺序写入模式，得到一行数据就立刻写入一行，而不会把所有的数据都保持在内存中。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、不支持读取和修改&lt;/p&gt;
 &lt;p&gt;作者并没有打算做一个 XlsxReader 来提供读取操作。不能读取，也就无从修改了。它只能用来创建新的文件。我是利用 xlrd 把需要的信息读入后，用 XlsxWriter 创建全新的文件。&lt;/p&gt;
 &lt;p&gt;另外，即使是创建到一半 Excel 文件，也是无法读取已经创建出来的内容的（信息应该在，但是并没有相应的接口）。因为它的主要方法是 &lt;tt class="docutils literal"&gt;write&lt;/tt&gt; 而不是 &lt;tt class="docutils literal"&gt;set&lt;/tt&gt;。当你在某个单元格写入数据后，除非你自己保存了相关的内容，否则还是没有办法读出已经写入的信息。从这个角度看，你无法做到读出 -&amp;gt; 修改 -&amp;gt; 写回，只能是写入 -&amp;gt; 写入 -&amp;gt; 写入。&lt;/p&gt;
@@ -2505,17 +2571,17 @@ Excel 进程通信，调用其各种功能实现对 Excel 文件的操作&lt;/td
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="xlrd-xlwt"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id24"&gt;xlrd&amp;amp;xlwt&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id23"&gt;xlrd&amp;amp;xlwt&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;我的程序在第一版的时候，使用 &lt;a class="reference external" href="https://pypi.python.org/pypi/xlwt"&gt;xlwt&lt;/a&gt; 创建 XLS 文件，然后通过 &lt;a class="reference external" href="http://msdn.microsoft.com/en-us/library/fp179694.aspx"&gt;Microsoft Excel API&lt;/a&gt; 将其转换为 XLSX 文件，并写入高级的 Data Validation（Excel 2007 的 Data Validation 比 Excel 2003 要强大不少）和单元格注释。&lt;/p&gt;
 &lt;p&gt;我的程序最终的版本也依然用 &lt;a class="reference external" href="https://pypi.python.org/pypi/xlrd"&gt;xlrd&lt;/a&gt; 从已有的文件中读出所需的信息。&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.python-excel.org/"&gt;xlrd&amp;amp;xlwt&lt;/a&gt; 主要是针对 Office 2013 或更早版本的 XLS 文件格式。&lt;/p&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;优点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;优点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、支持 XLS 格式&lt;/p&gt;
 &lt;p&gt;XlsxWriter 和 OpenPyXL 都不支持 XLS 格式，从这个角度看，&lt;a class="reference external" href="http://www.python-excel.org/"&gt;xlrd&amp;amp;xlwt&lt;/a&gt; 仍然有一定的不可替代性。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、对 XLSX 支持比较差&lt;/p&gt;
 &lt;p&gt;目前 &lt;a class="reference external" href="https://pypi.python.org/pypi/xlrd"&gt;xlrd&lt;/a&gt; 已经可以读取 XLSX 文件了，有限地支持。至于 &lt;a class="reference external" href="https://pypi.python.org/pypi/xlwt"&gt;xlwt&lt;/a&gt; 我没有试验过，估计是够呛。&lt;/p&gt;
 &lt;p&gt;二、对修改的支持比较差&lt;/p&gt;
@@ -2525,18 +2591,18 @@ Excel 进程通信，调用其各种功能实现对 Excel 文件的操作&lt;/td
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="openpyxl"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id27"&gt;OpenPyXL&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id26"&gt;OpenPyXL&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://openpyxl.readthedocs.org/"&gt;OpenPyXL&lt;/a&gt; 是比较综合的一个工具，能读能写能修改，功能还算可以但也有很大的缺陷。我在中间版本的时候是打算完全依赖它的，但后来发现一个严重的问题就放弃了。&lt;/p&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;优点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id27"&gt;优点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、能读能写能修改&lt;/p&gt;
 &lt;p&gt;OpenPyXL 的工作模式跟 XlsxWriter 和 xlwt 有很大的区别，它用的是 getter/setter 模式。你可以随时读取某个单元格的内容，并根据其内容进行相应的修改，OpenPyXL 会帮你记住每个单元格的状态。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;特别需要注意的一点：&lt;/strong&gt;虽然它支持修改已有文件，但由于其所支持的功能有限，读入文件时会忽略掉它所不支持的内容，再写入时，这些内容就丢失了。因此使用时一定要慎重。比如下面的缺点中提到它无法读入公式，那如果你修改一个带有公式的文件，保存之后，所有的公式就都没有了。&lt;/p&gt;
 &lt;p&gt;二、功能还算可以&lt;/p&gt;
 &lt;p&gt;整体来讲，它所支持的功能介于 XlsxWriter 和 xlwt 之间。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id29"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、不支持 XLS&lt;/p&gt;
 &lt;p&gt;这件事情只能让 xlrd 和 xlwt 去做。&lt;/p&gt;
 &lt;p&gt;二、不支持读取公式&lt;/p&gt;
@@ -2545,13 +2611,13 @@ Excel 进程通信，调用其各种功能实现对 Excel 文件的操作&lt;/td
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="microsoft-excel-api"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id30"&gt;Microsoft Excel API&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id29"&gt;Microsoft Excel API&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;大部分 Windows 环境的开发人员都会选择 &lt;a class="reference external" href="http://msdn.microsoft.com/en-us/library/fp179694.aspx"&gt;Microsoft Excel API&lt;/a&gt;。实际上不仅仅是 Python，几乎各种语言都有相应的方法使用它，因为核心的逻辑完全是由 Microsft
 Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组件进行通信。&lt;/p&gt;
 &lt;p&gt;在 Python 中首先需要安装 &lt;a class="reference external" href="http://sourceforge.net/projects/pywin32/"&gt;Python for Windows extensions&lt;/a&gt;（&lt;a class="reference external" href="http://sourceforge.net/projects/pywin32/"&gt;pywin32&lt;/a&gt;），具体的文档可以查阅 &lt;a class="reference external" href="http://docs.activestate.com/activepython/2.4/pywin32/win32_modules.html"&gt;Win32 Modules&lt;/a&gt; 和 &lt;a class="reference external" href="http://docs.activestate.com/activepython/2.4/pywin32/com.html"&gt;Python COM&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;当然你还必须要安装某一个版本的 Microsoft Office Excel，它内部的 DLL 负责实际的操作。&lt;/p&gt;
-&lt;div class="section" id="id8"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id31"&gt;优点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id30"&gt;优点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、最大的优点：强大无极限&lt;/p&gt;
 &lt;p&gt;因为直接与 Excel 进程通信，你可以做任何在 Excel 里可以做的事情。&lt;/p&gt;
 &lt;p&gt;二、文档丰富&lt;/p&gt;
@@ -2559,8 +2625,8 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 &lt;p&gt;三、调试方便&lt;/p&gt;
 &lt;p&gt;你完全可以直接在 Excel 里面用宏先调试你想要的效果。甚至如果你不清楚怎么用程序实现某个操作，你可以通过宏录制的方法得到该操作的处理代码。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id9"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id32"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id31"&gt;缺点&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;一、致命的缺点：慢到死&lt;/p&gt;
 &lt;p&gt;因为需要与 Excel 进程通信，其效率是非常低的。&lt;/p&gt;
 &lt;p&gt;如果让 Excel 窗口可见，随着程序的运行，你可以看到每一句程序所带来的变化，单元格的内容一个一个地改变。如果要写入的数据很多，那速度是无法忍受的。&lt;/p&gt;
@@ -2571,8 +2637,8 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 &lt;p&gt;我刚好发现了其中一个，这和 Python 没有任何关系，可以完全在 Excel 中手动复现。在 Excel 2007 中随便创建一个文件，给某个单元格添加注释，保存。换台电脑，用 Excel 2013 打开，就会报错，然后注释就消失了。&lt;/p&gt;
 &lt;p&gt;同样如果你的程序在一台装有 Excel 2007 的机器上创建一个带有注释的 Excel 文件，把这个文件拿到 Excel 2013 中打开也会报错，也看不到注释。反过来也一样。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id10"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id33"&gt;关于初始化&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id32"&gt;关于初始化&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Excel 的 com 接口的具体细节我就不介绍了，需要的话直接查阅相关的 MSDN 文档即可。这里只提几个特殊的小问题。&lt;/p&gt;
 &lt;p&gt;要想得到一个可以操作的 excel 对象，一般可以有两种方式：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;win32com.client&lt;/span&gt;
@@ -2586,8 +2652,8 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 &lt;p&gt;二者的区别在于，Dispatch 方法会试图寻找并复用一个已有的 Excel 进程（比如你已经在运行着的 Excel 程序），而 DispatchEx 则一定会创建一个新的 Excel 进程。一般情况使用前者就可以了，还能节省一些资源的开销。但也会带来一些麻烦，有一些状态是在一个 Excel 进程内共享的，你在同进程的其他窗口内操作有可能会影响到 Python 程序所要进行的处理，导致各种错误。比如当你手动开启的 Excel 窗口中，某个单元格正处于编辑状态，那 Python 程序控制的大部分操作都有可能失败（即使它操作的是另一个文件），因为一个 Excel 进程中无法让两个单元格同时被编辑。&lt;/p&gt;
 &lt;p&gt;为了避免麻烦，我一般都使用 DispatchEx 方法。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id11"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id34"&gt;关于窗口可见&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id10"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id33"&gt;关于窗口可见&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;可以让新启动的 Excel 进程窗口可见，就像你通过双击桌面上的图标启动一样，程序所控制的每一步操作，在这个窗口中都可以观察得到。你也可以同时进行手动的操作，但一旦这样做，很有可能使你的 Python 程序崩溃。&lt;/p&gt;
 &lt;p&gt;窗口不可见也会带来一些麻烦，前面说了，通过 Python 启动的 Excel 进程跟你直接从桌面打开的 Excel 进程没有什么区别，在使用 Excel 的过程中，我们经常会遇到各种弹出的错误、警告或者提示框，这些在用 Python 处理时也有可能遇到。尤其当你的程序还没完全调试好时。&lt;/p&gt;
 &lt;p&gt;我一般都会让程序控制的 Excel 进程在调试过程中可见，正式使用时不可见，通过类似这样的命令（假设你有一个叫做 &lt;tt class="docutils literal"&gt;is_debug&lt;/tt&gt; 的变量记录当前是否在调试状态）：&lt;/p&gt;
@@ -2596,8 +2662,8 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 &lt;/span&gt;&lt;span class="hll"&gt;    &lt;span class="n"&gt;excel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Visible&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
 &lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id12"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id35"&gt;关于保存并覆盖已有文件&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id11"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id34"&gt;关于保存并覆盖已有文件&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;打开和保存文件的细节不在这里多说了，可以查看 MSDN 中相关的 API 介绍，非常详细。这里只说一下在另存为时，如果目标文件已经存在怎么办。Excel 的 API 另存为方法似乎并没有提供参数决定是否直接覆盖同名的目标文件，在窗口操作中，这种情况会弹出一个确认框来让用户决定。我们的程序当然不想这么做，实际上如果你按照上面所说的让窗口不可见，你也就看不到弹出的窗口。&lt;/p&gt;
 &lt;p&gt;可以把 DisplayAlert 属性关闭，这样 Excel 就不会弹出确认窗，而是直接覆盖同名文件。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;orig_display_alerts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;excel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DisplayAlerts&lt;/span&gt;
@@ -2609,7 +2675,7 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="excel"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id36"&gt;关于结束 Excel 进程&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id35"&gt;关于结束 Excel 进程&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;进程是一种资源，我们申请了资源，在用完之后就必须要释放掉。尤其如果你隐藏了 Excel 窗口，用户只有查看系统进程，否则无法关闭你所开启的进程。&lt;/p&gt;
 &lt;p&gt;但是一个 Excel 进程是可以同时开启多个文件的，这些文件可能是你程序的其他部分开启的，也可能是用户自己开启的。这样你就不能随意地结束 Excel 进程，否则会影响到其他人或程序的操作。&lt;/p&gt;
 &lt;p&gt;我一般会在我的处理完成后（关闭了我自己打开或者创建的 Excel 文件），判断一下当前 Excel 进程是否还开启着其他的文档，如果没有了才会结束该进程。&lt;/p&gt;
@@ -2628,8 +2694,8 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 &lt;span class="k"&gt;del&lt;/span&gt; &lt;span class="n"&gt;excel&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id13"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id37"&gt;关于枚举常量&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id12"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id36"&gt;关于枚举常量&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Excel API 中有各种各样的枚举常量，我还没有找到在 Python 中直接引用这些常量的方法，目前的办法是找到所需的常数的值，自己定义这些常数。比如我用到了如下这些枚举常量：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -2726,7 +2792,7 @@ svg_demo_scale&lt;/object&gt;
 &lt;p&gt;经过一段时间的整理，现在正式把 &lt;a class="reference external" href="https://blog.gocalf.com/"&gt;GoCalf 博客&lt;/a&gt; 从 &lt;a class="reference external" href="http://wordpress.org/"&gt;WordPress&lt;/a&gt; 迁移到 &lt;a class="reference external" href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt; 了，简单记录一下，还有一些未完成的事情等着以后再慢慢搞。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;div class="section" id="wordpress-vs"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;WordPress vs. 静态博客&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;WordPress vs. 静态博客&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;最开始的动机只是想寻找一个最适合自己的个人 wiki 系统，之前把一些备忘信息用 &lt;a class="reference external" href="http://tiddlywiki.com/"&gt;TiddlyWiki&lt;/a&gt; 保存在 U 盘上，这样在任何地方，用任何操作系统的电脑都可以查看和编辑。但是后来懒到每次都懒的把 U 盘拿过来插上，所以并没有发挥太大的作用。后来开始用 &lt;a class="reference external" href="https://www.dropbox.com/"&gt;DropBox&lt;/a&gt;，其他很多东西都移到 DropBox 里了，这个却一直没有动。现在 &lt;a class="reference external" href="http://office.microsoft.com/en-us/onenote/"&gt;OneNote&lt;/a&gt; 和 &lt;a class="reference external" href="https://evernote.com/"&gt;Evernote&lt;/a&gt; 和 &lt;a class="reference external" href="http://note.youdao.com/"&gt;有道云笔记&lt;/a&gt; 同时在用，却没有一个是我真正想要的。&lt;/p&gt;
 &lt;p&gt;扯远了。&lt;/p&gt;
 &lt;p&gt;总之在进行个人 wiki 的技术选型时，产生了把 &lt;a class="reference external" href="https://blog.gocalf.com/"&gt;GoCalf 博客&lt;/a&gt; 改成静态博客的念头。&lt;/p&gt;
@@ -2743,7 +2809,7 @@ svg_demo_scale&lt;/object&gt;
 &lt;p&gt;总的来说，静态博客的好处是，你只需要关注要写的内容本身。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="octopress-vs-pelican"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;Octopress vs. Pelican&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;Octopress vs. Pelican&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;刚开始接触到的静态博客是 &lt;a class="reference external" href="http://octopress.org/"&gt;Octopress&lt;/a&gt;，是基于 &lt;a class="reference external" href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt; 的，后者是用 Ruby 写的静态博客系统。据说 Octopress 与 Jekyll 的关系就像 jQuery 与 JavaScript 的关系一样。&lt;/p&gt;
 &lt;p&gt;现在 Octopress 很火的，在 &lt;a class="reference external" href="https://github.com/imathis/octopress/wiki/Octopress-Sites"&gt;Octopress Sites&lt;/a&gt; 中可以看到很多基于 Octopress 搭建的博客，我也针对一些我需要的特性对它进行了一些勘察。不过很快地，我就把目光转向了基于 Python 的 &lt;a class="reference external" href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;Pelican 的使用量相对来说少一些（&lt;a class="reference external" href="https://github.com/getpelican/pelican/wiki/Powered-by-Pelican"&gt;Pelican Sites&lt;/a&gt;），选择它的主要原因是我更熟悉 Python。Ruby 的代码我几乎没有看过，也没有尝试去读或者写，这样如果在使用 Octopress 过程中，需要做一些修改，或者写一些插件，就会比较困难。但如果使用 Pelican，我可以自己修改它的代码，可以自己写插件。后来发现这个选择是对的，我已经对 Pelican 及其插件做了一些修改，而且已经计划写一些至少自己能用的上的新插件。&lt;/p&gt;
@@ -2753,7 +2819,7 @@ svg_demo_scale&lt;/object&gt;
 &lt;p&gt;有一个问题是比较讨厌的，不知道 Octopress 是否也一样，就是编译速度比较慢。静态博客是要把用标记语言书写的文章转换成 HTML 页面，用 Pelican 的时候，几十篇文章就需要几秒钟的时间才能编译完成，如果有上百篇文章，等待过程会让人焦虑的。目前即使只是一篇文章中改变了一个字，编译的时候也会重新编译所有的页面。这一点期待开发团队的改进吧。感觉一个可行的方案是生成一些中间文件，把每篇文章对应的 HTML 片段单独保存，如果文章内容和相关的参数都没变，这一部分就不用重新生成。最终的 HTML 页面，是把框架跟内容片段连在一起生成的，这个过程应该会很快。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="markdown-vs-restructuredtext"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;Markdown vs. reStructuredText&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;Markdown vs. reStructuredText&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://daringfireball.net/projects/markdown/"&gt;Markdown&lt;/a&gt; 和 &lt;a class="reference external" href="http://docutils.sourceforge.net/rst.html"&gt;reStructuredText&lt;/a&gt; 都是非常不错的标记语言，也是众多静态博客玩家首选的语言之一二。开始我一直准备用 Markdown，GitHub 对它的强力支持是很主要的原因。当然 Markdown 自身确实也有很多的优势，它非常的简洁，书写和阅读都非常舒服。我甚至已经把所有的文章都转成 Markdown 格式了，但最后还是转投 reStructuredText 的怀抱。&lt;/p&gt;
 &lt;p&gt;Markdown 很简洁，如果是写文学的东西，用它最合适不过了。但它有点儿太简洁了，如果是写技术文章，它的处理能力就有点儿捉襟见肘了。比如没有原生的表格，没有数学公式的支持，段落嵌套很困难，虽然能直接嵌入 HTML 代码，但很难做到复杂的嵌套。&lt;/p&gt;
 &lt;p&gt;reStructuredText 则要强大的多，也并没有失去太多的简便性。Python 的官方文档就是用它写出来的。很多技术博客或者技术书籍是用它写出来的。&lt;/p&gt;
@@ -2778,11 +2844,11 @@ svg_demo_scale&lt;/object&gt;
 &lt;p&gt;当然 Markdown 也有比 reStructuredText 强大的地方，最明显的就是 Markdown 行内格式的嵌套非常方便。用 &lt;tt class="docutils literal"&gt;***&lt;/tt&gt; 包围起来的文字会同时有粗体和斜体效果。reStructuredText 到目前还不太支持 role 的嵌套，想要做出同时粗体和斜体的文字，或者粗体的链接，都是比较困难或者麻烦的。还有其他一些小的细节，我就不具体说了。&lt;/p&gt;
 &lt;p&gt;总的来说，Markdown 更简洁，更适合于书写纯文字的东西；reStructuredText 更强大，适合于书写复杂的技术文章。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;革命尚未成功&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;革命尚未成功&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;新版的博客已经上线了，但仍然有一些工作需要进行。&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;MathJax 插件：reStructuredText 内置了对 LaTeX 公式的支持，行内公式用 &lt;a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/roles.html#math"&gt;math role&lt;/a&gt; 实现，区块公式用 &lt;a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#math"&gt;math directive&lt;/a&gt; 实现，而且通过 &lt;a class="reference external" href="http://docutils.sourceforge.net/docs/user/config.html#math-output"&gt;--math-output&lt;/a&gt; 配置可以让它用 MathJax 进行渲染。但是 MathJax 是要在浏览器里执行 JavaScript 的，如果无法执行 JavaScript（比如在 RSS 中）就没法正常显示了。之前在 WordPress 中，利用插件先生成图片，如果无法执行 JavaScript 就会直接显示图片。所以这里也需要一个类似的插件，在编译的时候生成图片备用。&lt;/li&gt;
+&lt;li&gt;MathJax 插件：reStructuredText 内置了对 LaTeX 公式的支持，行内公式用 &lt;a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/roles.html#math"&gt;math role&lt;/a&gt; 实现，区块公式用 &lt;a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#math"&gt;math directive&lt;/a&gt; 实现，而且通过 &lt;a class="reference external" href="http://docutils.sourceforge.net/docs/user/config.html#math-output"&gt;–math-output&lt;/a&gt; 配置可以让它用 MathJax 进行渲染。但是 MathJax 是要在浏览器里执行 JavaScript 的，如果无法执行 JavaScript（比如在 RSS 中）就没法正常显示了。之前在 WordPress 中，利用插件先生成图片，如果无法执行 JavaScript 就会直接显示图片。所以这里也需要一个类似的插件，在编译的时候生成图片备用。&lt;/li&gt;
 &lt;li&gt;Graphviz 插件：Pelican 中似乎没有直接能用的 graphviz directive，需要去找一个或者写一个插件。在编译的时候调用 dot 命令生成好图片就可以了。&lt;/li&gt;
 &lt;li&gt;Chart 插件：有时候提供一些数据的展示，图表是非常必需的。之前都是先用 Excel 或这 Mathematica 之类的软件画好，再把图片放上去。如果有插件直接把数据通过 JavaScript 展示出来就更好了。准备写个插件，调用 &lt;a class="reference external" href="http://nvd3.org/"&gt;NVD3&lt;/a&gt; 进行绘图。&lt;/li&gt;
 &lt;li&gt;Featured Image：WordPress 自带了这个，而且大多数主题都支持它，就是每篇文章有一张特色图片。这个需要去考察一下看看有没有现成的插件，当然主题也需要能够支持它。&lt;/li&gt;
@@ -2805,7 +2871,7 @@ Repair”，原来就是传说中的变成砖头了。&lt;/p&gt;
 &lt;p&gt;修砖需要用到的一些工具，我观察到的都是 Windows 程序，所以一切操作都在 Windows
 7 的虚拟机中进行。如果是 Windows XP，可能在驱动方面会稍微麻烦一些。&lt;/p&gt;
 &lt;div class="section" id="kindle"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;1. 让 Kindle 进入诊断模式&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;1. 让 Kindle 进入诊断模式&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;工具：Kindle Select Boot，我是在 &lt;a class="reference external" href="http://www.mobileread.com/forums/showthread.php?t=169645"&gt;这里&lt;/a&gt; 下载到的。&lt;/p&gt;
 &lt;p&gt;用 USB 先把 Kindle 连接到电脑上（我用的虚拟机，所以还要把设备接到虚拟机里），一直按住 Kindle 底部的电源键，等指示灯熄灭后，不松开电源键按住方向键下（↓），然后松开电源键，再松开方向键。这使得 Kindle 进入了 USB 恢复模式。&lt;/p&gt;
 &lt;p&gt;想要知道这个操作是否成功，可以在 Windows 系统的 Device
@@ -2817,7 +2883,7 @@ device 的信息，在下半部的 Profile 那里选择 Kindle
 diags（当时没截图，现在也懒得再折腾一次 Kindle 了）。点击右下角的 Start 按钮，就可以让 Kindle 进入诊断模式。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="mmcblk0p1-img-kindle"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;2. 将 mmcblk0p1.img 拷贝到 Kindle 中&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;2. 将 mmcblk0p1.img 拷贝到 Kindle 中&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;需要下载一个叫做 mmcblk0p1.img 的文件，其实我也不清楚这到底是什么，看起来是个镜像文件。我下载的是 &lt;a class="reference external" href="http://60.211.209.221/cdn.baidupcs.com/file/01589c0ba1f05e9e4f55e35d02ffc05b?xcode=053458c9324860ffda9317ddb745a10aa9749899cf109a05&amp;amp;fid=2601356780-250528-1879823735&amp;amp;time=1374668763&amp;amp;sign=FDTAXER-DCb740ccc5511e5e8fedcff06b081203-7N%2BEg07f9BuUIjG8wPMKIV8gURM%3D&amp;amp;to=cb&amp;amp;fm=N,B,T&amp;amp;expires=8h&amp;amp;rt=sh&amp;amp;r=586640283&amp;amp;logid=1498755034&amp;amp;sh=1&amp;amp;wsiphost=ipdbm"&gt;mmcblk0p1_410.img&lt;/a&gt;（点击下载），RAR 压缩包的大小是 144MB，解压后 358MB。&lt;/p&gt;
 &lt;p&gt;在 Kindle 诊断模式菜单中选择“U) USB device
 mode”，电脑就会将 Kindle 识别为 U 盘，将下载解压后的 .img 文件拷贝到 Kindle 根目录下。&lt;/p&gt;
@@ -2825,7 +2891,7 @@ mode”，电脑就会将 Kindle 识别为 U 盘，将下载解压后的 .img �
 &lt;p&gt;拷贝完成后，在 Kindle 上按左方向键退出 U 盘模式，并返回主菜单。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="ssh-kindle"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;3. SSH 登录到 Kindle&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;3. SSH 登录到 Kindle&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;在 SSH 登录之前，先要确认一下 Kindle 系统的版本和序列号（Serial
 Number），以便获取 root 密码。系统版本我是没注意到，序列号在 Kindle 诊断模式主菜单第一项里就能找到。&lt;/p&gt;
 &lt;p&gt;记下序列号后，在 Kindle 诊断模式菜单中依次选择：“N) Misc individual
@@ -2848,8 +2914,8 @@ Ethernet 驱动，&lt;a class="reference external" href="http://b.billgong.com/w
 &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;4. 进行系统恢复&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;4. 进行系统恢复&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;SSH 登录成功后，在终端中运行如下命令来恢复系统（大概需要几分钟的时间）：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dd &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/mnt/us/mmcblk0p1_410.img &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/mmcblk0p1 &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4K
 &lt;/pre&gt;&lt;/div&gt;
@@ -2859,8 +2925,8 @@ rm /var/local/system/.framework_reboots
 rm /var/local/system/.framework_retries
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;5. 完成&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;5. 完成&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;这些都弄完了，长按电源键重启 Kindle，终于恢复了。&lt;/p&gt;
 &lt;/div&gt;
 </content><category term="Kindle"></category></entry><entry><title>Excel 从右向左查找</title><link href="https://blog.gocalf.com/excel-find-from-right" rel="alternate"></link><published>2013-04-03T18:09:00+08:00</published><updated>2013-04-03T18:09:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-04-03:/excel-find-from-right</id><summary type="html">&lt;p class="first last"&gt;今天看一个小问题，是前几天遇到的，就是要在 Excel 里面实现从右向左查找。比如给定字符串“abc,defg,hi,jkl”，需要找到最右一个逗号的位置（即 12），或者最右一个逗号右边的部分（即“jkl”）。&lt;/p&gt;
@@ -2973,8 +3039,8 @@ m) 时间，这里 m 取 10000 的话，大概是 13。当然实际数值会少�
 &lt;li&gt;后序（LRN）：&lt;tt class="docutils literal"&gt;D B G H E I F C A&lt;/tt&gt;&lt;/li&gt;
 &lt;li&gt;层序：&lt;tt class="docutils literal"&gt;A B C D E F G H I&lt;/tt&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;一、用递归处理二叉树的前序、中序和后序遍历&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;一、用递归处理二叉树的前序、中序和后序遍历&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;递归真是一个迷人东西，它可以把复杂的逻辑变得异常简洁，这也是自然界的表现形式之一。基于递归的前、中、后序遍历二叉树的程序几乎完全相同，用两个递归调用分别处理左、右子树，剩下的事情就是打印根结点。为节省篇幅，直接把三个程序写在一起，用一个参数来控制是哪种遍历方式，也可以更方便地看出三者之间的区别。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
@@ -2991,8 +3057,8 @@ m) 时间，这里 m 取 10000 的话，大概是 13。当然实际数值会少�
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;order&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'LRN'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;二、非递归的前序、中序遍历&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;二、非递归的前序、中序遍历&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;如果不用递归呢？实际上我们要做的就是自己维护一个栈（数据结构）来保存需要但尚未来得及处理的数据。&lt;/p&gt;
 &lt;p&gt;前序和中序都是非常简单的，当遇到一个非空的根结点时，打印其数据（如果是前序遍历），并将其压栈，然后递归地（这里用循环来模拟递归）处理其左子结点；当没有左子结点时，从栈中弹出之前遇到的某个根结点（它没有左子结点，或者左子结点已经处理完毕，需要再处理右子结点），打印数据（如果是中序遍历），然后继续处理右子结点。同样地，把两种遍历方式写在一起以便比较。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
@@ -3018,8 +3084,8 @@ m) 时间，这里 m 取 10000 的话，大概是 13。当然实际数值会少�
       &lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;三、非递归的后序遍历&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;三、非递归的后序遍历&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;后序遍历要稍微复杂一点点，在前序和中序遍历的程序中，当我们准备进入根结点的右子树时，根结点就被扔出栈外了。但在后序遍历时，我们仍需保留它，直到右子树处理完毕。&lt;/p&gt;
 &lt;p&gt;首先想到的改动就是在上面的程序的第 9 行到 11 行，不要从栈 s 中将根结点弹出，而是直接开始处理右子结点。但这就会带来一个问题：什么时候弹出根结点？实际上当左子树遍历完成、或者右子树遍历完成时，我们都会在栈里看到根结点，为了区分这两种状态，添加一个临时变量记录前一次访问的结点，如果前一个结点是根结点的右子树，就说明左右子树全都遍历完成了。非常简单。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
@@ -3049,8 +3115,8 @@ m) 时间，这里 m 取 10000 的话，大概是 13。当然实际数值会少�
       &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;四、非递归的层序遍历&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;四、非递归的层序遍历&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;层序遍历可以写成递归吗？还真没研究过。非递归的时候，层序遍历使用的是队列，而非栈。&lt;/p&gt;
 &lt;p&gt;处理过程非常简明，遇到一个结点，打印信息，然后依次将左、右子结点加入队列等待后续处理。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
@@ -3074,8 +3140,8 @@ m) 时间，这里 m 取 10000 的话，大概是 13。当然实际数值会少�
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;附录&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;附录&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;上面的 python 代码基于 v2.7。另外可以用下面这段代码来定义最简单的二叉树结点类，生成最上面图示的二叉树：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -4109,24 +4175,24 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 </summary><content type="html">
 &lt;p&gt;这里记录《塞尔达传说：黎明公主》中主要剧情之外的一些信息。&lt;/p&gt;
 &lt;!-- more --&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;span id="secret"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id42"&gt;必须要知道的几个秘密&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id3"&gt;
-&lt;span id="secret"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id43"&gt;必须要知道的几个秘密&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id44"&gt;炸弹袋子升级&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id43"&gt;炸弹袋子升级&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;游戏中一共有三个炸弹袋种类升级，以及一个容量升级。&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;strong&gt;Bomb bag 1：&lt;/strong&gt;第二个迷宫过后，在 Kakariko 村子的炸弹商店购买。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Bomb bag 2：&lt;/strong&gt;在 Zora's domain 宫殿中的河床上，用水种炸弹把岩石下的 Goron 救出后入手。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bomb bag 2：&lt;/strong&gt;在 Zora’s domain 宫殿中的河床上，用水种炸弹把岩石下的 Goron 救出后入手。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Bomb bag 3：&lt;/strong&gt;帮助 River Canoe 小游戏的主人（钓鱼屋子旁边的屋子）把河道上的岩石清理后入手。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Bomb bag 容量升级：&lt;/strong&gt;River Canoe 小游戏中得到 25 点分数以上入手。（提示：在炸弹袋子没有升级以前，如果需要用其他种类的炸弹，可以在 Kakariko Village 的炸弹店中将手头的炸弹卖出（站到柜台的铁窗前对话）。）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id45"&gt;第三个空瓶子&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id44"&gt;第三个空瓶子&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;在 Fishing Hole 左侧桥后的水中，用普通钓竿钓起（不能划船过去）。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id46"&gt;泉水精灵&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id45"&gt;泉水精灵&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;在沙漠区域右下角，将吊桥传送回海德拉大陆后，会露出一个洞穴，进入后每层中都有不同敌人：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;完成 10 层洞穴，奥当村（Ordon Village）泉水中会出现精灵&lt;/li&gt;
@@ -4136,8 +4202,8 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;li&gt;完成 50 层洞穴，全部泉水中出现精灵，并且可以装满一瓶大精灵的泪水（增加攻击力并且补满血）（需要双手钩进入）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id47"&gt;鱼饵相关&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id46"&gt;鱼饵相关&lt;/a&gt;&lt;/h3&gt;
 &lt;dl class="docutils"&gt;
 &lt;dt&gt;青蛙鱼饵&lt;/dt&gt;
 &lt;dd&gt;在 Fishing Hole 的商店中，门附近桌子里有一个台子，用主视点观看后，会被主人邀请进入滚珠小游戏。游戏每次 5 块钱，如果通过会奖励 10 块钱。完成每个级别后，出门再进入就会有新的一级游戏。游戏一共为 8*8=64 关。完成 1-8 后就会得到青蛙鱼饵。这个鱼饵对吊深水鱼（Bass）非常有帮助。如果将 64 关全部通过。就可以随意选择任何一关进行游戏，并且每次通过第 8-8 关的时候，主人都会将你的钱袋填满（提示：在 Fishing Hole 的牌子后面，可以用狼的形态挖出虫子，用瓶子装起可以当作鱼饵）。&lt;/dd&gt;
@@ -4145,40 +4211,40 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;dd&gt;在花钱参加钓鱼游戏后，首先吊到 Hylain Pike，Hyrule Bass，Ordon Catfish 三种鱼。然后在池塘的东南角上（挨近钓鱼房子的地方），用 Bobber 鱼饵将重型鱼饵钓起。不过要确定钓上来的时候主人不在船上，不然她会将这个鱼饵拿走。&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id8"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id48"&gt;关于魔法铠甲&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id47"&gt;关于魔法铠甲&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;先在 Kakariko 村子的商店中捐赠 1000 块钱，然后门口的人会交给送热水给海拉尔城的 Goron 的任务。完成任务后，得到心之碎片。然后到海德拉城镇南部的摊位上买一瓶热水，送给南面城外的 Goron，他会将城堡南面的路打通。之后回到 Kakariko 村子的商店，原来捐 2000 块钱开店的要求变成了只需要 200 块。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id9"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id49"&gt;收集幽灵之魂&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id8"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id48"&gt;收集幽灵之魂&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;幽灵之魂只有晚上在狼形态下才可以看到，收集鬼混之后，去海德拉城镇南部的院子里（有很多动物），变成狼钻进屋里。将魂魄交给 Jiovani 后，就会得到奖励：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;20 个魂魄：赠送一瓶装着大精灵眼泪的瓶子&lt;/li&gt;
 &lt;li&gt;60 个魂魄：每次和 Jiovani 对话后，会得到 200 块钱&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id10"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id50"&gt;弓箭升级&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id9"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id49"&gt;弓箭升级&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;在海德拉城镇东侧的帐篷里参加 STAR game 的奖品&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;大箭袋（60 只弓箭）：STAR game 第一级中，获得所有光球（使用钩锁）&lt;/li&gt;
 &lt;li&gt;巨型箭袋（100 只弓箭）：STAR game 第二级中，获得所有光球（使用双钩锁）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id11"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id51"&gt;钱袋升级&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id10"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id50"&gt;钱袋升级&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;在海德拉城镇东南角上，将捉到的虫子送给 Agatha 进行钱袋升级。&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;大钱袋（600 块）：1 只虫子&lt;/li&gt;
 &lt;li&gt;巨型钱袋（1000 块）：全部 24 只虫子&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id12"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id52"&gt;随意调整白天黑夜&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id11"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id51"&gt;随意调整白天黑夜&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;如果流程进行到了可以进入天空神殿，你就可以发现每次通过加农炮进入天空神殿再回来，时间都是白天。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id13"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id53"&gt;容易的获得心之碎片&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id12"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id52"&gt;容易的获得心之碎片&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;在海德拉城镇的东南，虫子女孩屋子的旁边有一个占卜室。里面的女人每次收 10 块钱来为你算命，如果你询问她关于爱情（love）的问题。她就会给你看一个画面，这个画面中就会藏有一个心之碎片（偶尔她会重复显示同一个画面，不过只是偶尔罢了）。&lt;/p&gt;
 &lt;p&gt;参考：&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -4186,8 +4252,8 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id14"&gt;
-&lt;span id="heartpiece"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id54"&gt;心之碎片&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id13"&gt;
+&lt;span id="heartpiece"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id53"&gt;心之碎片&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;在王国中藏有 45 枚心之碎片（Heart Piece），每收集五枚就可以得到一个心之容器。&lt;/p&gt;
 &lt;p&gt;游戏开的时候拥有三颗心。在游戏的八个迷宫里，每打完一个迷宫的 boss 可以获得一颗心。另外海拉尔王国中还有 45 枚心之碎片，这些都获得才能收集到全部 20 颗心。每找到 5 枚心之碎片，就可以得到一个完整的心之容器。一些碎片通过支线事件或小游戏的奖品获得。另外还有一些分布在王国的各个角落，可以去昏暗的洞穴，狭窄的胡同，险峻的高峰搜索这些能提高生命上限的宝藏。&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -4319,8 +4385,8 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;li&gt;&lt;a class="reference external" href="http://files.cngba.com/%E9%B8%A1%E8%9B%8B%E7%9A%84ZELDA/xzsp.zip"&gt;心之碎片收集图文版&lt;/a&gt; by 塞尔达传说中文网&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id15"&gt;
-&lt;span id="item"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id55"&gt;非剧情道具&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id14"&gt;
+&lt;span id="item"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id54"&gt;非剧情道具&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;strong&gt;木盾：&lt;/strong&gt;性质与トアルの盾一样，遇到火会被烧掉。Kakariko Village 商店有售，50 元，与トアルの盾冲突，烧掉トアルの盾后才可买入。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;ハイリアの盾：&lt;/strong&gt;Kakariko Village 商店有售，200 元。&lt;/li&gt;
@@ -4331,30 +4397,30 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;li&gt;&lt;strong&gt;鹰眼：&lt;/strong&gt;可以看远处的东西，与弓组合则为狙击弓；迷宫 L2 完结后去 Kakariko Village，上到左边最高处（地图左上角），发生远距离射箭事件，完成后 Kakariko Village 有售，100 元。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;爆弾袋：&lt;/strong&gt;总共有 3 个。&lt;ol class="arabic"&gt;
 &lt;li&gt;迷宫 L2 完结后，Kakariko Village 炸弹店有售，150 元；&lt;/li&gt;
-&lt;li&gt;Zora's River 上游，已经有炸弹的情况下发生剧情，用炸弹箭完成任务获得；&lt;/li&gt;
-&lt;li&gt;Zora's Domain 中央，用水雷将熔岩炸开获得。&lt;/li&gt;
+&lt;li&gt;Zora’s River 上游，已经有炸弹的情况下发生剧情，用炸弹箭完成任务获得；&lt;/li&gt;
+&lt;li&gt;Zora’s Domain 中央，用水雷将熔岩炸开获得。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;爆弾袋升级：Zora's River 上游的小游戏 25 分，全炸弹袋，容量两倍。&lt;/li&gt;
+&lt;li&gt;爆弾袋升级：Zora’s River 上游的小游戏 25 分，全炸弹袋，容量两倍。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;参考：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="http://www.cngba.com/viewthread.php?tid=16520313&amp;amp;page=1#pid15114268"&gt;《塞尔达传说 黄昏公主》研究部分&lt;/a&gt; by 鸡蛋&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;div class="section" id="id15"&gt;
+&lt;span id="bottle"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id55"&gt;瓶子&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id16"&gt;
-&lt;span id="bottle"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id56"&gt;瓶子&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="id17"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id57"&gt;瓶子收集&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id56"&gt;瓶子收集&lt;/a&gt;&lt;/h3&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;剧情入手；&lt;/li&gt;
 &lt;li&gt;Ordon Village 出 Hyrule Field 处的油商人，花 100 元买油获得；&lt;/li&gt;
-&lt;li&gt;Zora's River 上游的 Fishing Hole，左边被桥封闭的池子里用普通钓竿钓起；&lt;/li&gt;
+&lt;li&gt;Zora’s River 上游的 Fishing Hole，左边被桥封闭的池子里用普通钓竿钓起；&lt;/li&gt;
 &lt;li&gt;海拉尔城东边 Jiovani 家（要变狼挖地进入），身上有 20 个幽灵之魂时获得。幽灵之魂的收集具体看 &lt;a class="reference internal" href="#ghostsoul"&gt;ghostsoul&lt;/a&gt;。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id18"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id58"&gt;瓶子可以装的东西&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id17"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id57"&gt;瓶子可以装的东西&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;（注：商店可以购入的，只写最先有出售的地方）&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;strong&gt;灯油：&lt;/strong&gt;法隆森林的油商人处买入，其他地方也有出售。&lt;/li&gt;
@@ -4384,10 +4450,10 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div class="section" id="id18"&gt;
+&lt;span id="mistery"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id58"&gt;奥义&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id19"&gt;
-&lt;span id="mistery"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id59"&gt;奥义&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="id20"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id60"&gt;奥义学习方法&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id59"&gt;奥义学习方法&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;奥义的学习有几个步骤：&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;在狼的形态下调查中间有圆眼的石像；&lt;/li&gt;
@@ -4396,21 +4462,21 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;li&gt;人的形态下找到狼，按指示发招就可以学会新招，一般学招之前会要求演示学的上一招。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id21"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id61"&gt;亡灵狼的所在&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id20"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id60"&gt;亡灵狼的所在&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;学习并没有顺序可言，但学来的奥义是有顺序的。&lt;/p&gt;
 &lt;p&gt;格式：有圆眼的石像的场所（奥义入手场所）&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Death Mountain，登山的路上中（奥当村的精灵泉水）&lt;/li&gt;
-&lt;li&gt;Zora's River 上游的屋子附近（海拉尔城东门左边，要爬蔓藤上去）&lt;/li&gt;
+&lt;li&gt;Zora’s River 上游的屋子附近（海拉尔城东门左边，要爬蔓藤上去）&lt;/li&gt;
 &lt;li&gt;法隆森林深部（海拉尔城南门）&lt;/li&gt;
 &lt;li&gt;海利亚湖，传送点附近需要人形态爬上楼梯，才能见到（格鲁多沙漠）&lt;/li&gt;
 &lt;li&gt;雪山（墓地）&lt;/li&gt;
 &lt;li&gt;Hidden Village（海拉尔城北）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id22"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id62"&gt;奥义使用方法&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id21"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id61"&gt;奥义使用方法&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;按学习的顺序排列：&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;终结：敌人倒下后，Z 锁定倒下的敌人然后按 A。&lt;/li&gt;
@@ -4427,8 +4493,8 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id23"&gt;
-&lt;span id="goldenbug"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id63"&gt;金色虫&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id22"&gt;
+&lt;span id="goldenbug"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id62"&gt;金色虫&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="golden_bugs_map" src="https://blog.gocalf.com/images/2012/01/golden_bugs_map.png"/&gt;
 &lt;p class="caption"&gt;24 只金色虫的位置分布&lt;/p&gt;
@@ -4456,8 +4522,8 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;li id="b20"&gt;&lt;strong&gt;竹节虫♀：&lt;/strong&gt;艾丁大桥北边山上，用飞索上去，墙壁上。&lt;/li&gt;
 &lt;li id="b21"&gt;&lt;strong&gt;蝗虫♂：&lt;/strong&gt;Kakariko Village 北的平原（海拉尔城王都西面区域），从村子往西北走的路上，5 个湖中间那个湖南面。&lt;/li&gt;
 &lt;li id="b22"&gt;&lt;strong&gt;蝗虫♀：&lt;/strong&gt;Kakariko Village 北的平原（海拉尔城王都西面区域），东北的大块平原上。&lt;/li&gt;
-&lt;li id="b23"&gt;&lt;strong&gt;蜻蜓♂：&lt;/strong&gt;Zora's Domain 下面瀑布区域，左下区域的草丛中。&lt;/li&gt;
-&lt;li id="b24"&gt;&lt;strong&gt;蜻蜓♀：&lt;/strong&gt;Zora's River 上游的屋子旁边。&lt;/li&gt;
+&lt;li id="b23"&gt;&lt;strong&gt;蜻蜓♂：&lt;/strong&gt;Zora’s Domain 下面瀑布区域，左下区域的草丛中。&lt;/li&gt;
+&lt;li id="b24"&gt;&lt;strong&gt;蜻蜓♀：&lt;/strong&gt;Zora’s River 上游的屋子旁边。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;参考：&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -4465,14 +4531,14 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;li&gt;&lt;a class="reference external" href="http://bbs.wiibbs.com/read.php?tid=11977"&gt;全 24 只黄金昆虫位置&lt;/a&gt; by exercises&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id24"&gt;
-&lt;span id="ghostsoul"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id64"&gt;鬼魂之魂&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id23"&gt;
+&lt;span id="ghostsoul"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id63"&gt;鬼魂之魂&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="ghost_souls_map" src="https://blog.gocalf.com/images/2012/01/ghost_souls_map.png"/&gt;
 &lt;p class="caption"&gt;60 只鬼魂之魂的地理位置&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id25"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id65"&gt;详情&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id24"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id64"&gt;详情&lt;/a&gt;&lt;/h3&gt;
 &lt;ol class="arabic simple" id="g01"&gt;
 &lt;li&gt;剧情发生，&lt;a class="reference external" href="https://blog.gocalf.com/zelda-tp-ch4"&gt;第四章&lt;/a&gt; 变成狼后在海拉尔城遇到 Jiovani（乔瓦尼）的密室里。&lt;/li&gt;
 &lt;li id="g02"&gt;海利亚湖东南面取得 &lt;a class="reference external" href="#h16"&gt;心之碎片 16&lt;/a&gt; 的洞窟内（湖南边，传送点附近，爬楼梯上，用炸弹炸开岩石，能看见一个山洞，进入之前准备好足够的灯油和炸弹）。&lt;/li&gt;
@@ -4503,9 +4569,9 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;li id="g27"&gt;雪山地区的中间最南面（佐拉之里进入之后跳过湖面，在开始往山上爬的时候向西走在一棵树下）。&lt;/li&gt;
 &lt;li id="g28"&gt;雪山地区的中间近东北面。&lt;/li&gt;
 &lt;li id="g29"&gt;雪山洞穴的入口（需要用链球打掉两边的冰块）。&lt;/li&gt;
-&lt;li id="g30"&gt;Zora's Domain 的瀑布口。&lt;/li&gt;
-&lt;li id="g31"&gt;Zora's Domain 东北的缺口处。&lt;/li&gt;
-&lt;li id="g32"&gt;Zora's River 东南面的山上（上游两条河流交汇的地方的岸上）。&lt;/li&gt;
+&lt;li id="g30"&gt;Zora’s Domain 的瀑布口。&lt;/li&gt;
+&lt;li id="g31"&gt;Zora’s Domain 东北的缺口处。&lt;/li&gt;
+&lt;li id="g32"&gt;Zora’s River 东南面的山上（上游两条河流交汇的地方的岸上）。&lt;/li&gt;
 &lt;li id="g33"&gt;海拉尔城北面区域的石桥上。&lt;/li&gt;
 &lt;li id="g34"&gt;海拉尔城北面区域（雷纳尔地区）最东面的洞窟内（从北边的石桥向东走的圆形草处挖）。&lt;/li&gt;
 &lt;li id="g35"&gt;同上。&lt;/li&gt;
@@ -4536,8 +4602,8 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;li id="g60"&gt;Kakariko Village 墓地西南面（靠近墓地入口）的墓碑推动后出现。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id28"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id66"&gt;汇总&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id27"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id65"&gt;汇总&lt;/a&gt;&lt;/h3&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;colgroup&gt;
 &lt;col width="27%"/&gt;
@@ -4629,16 +4695,16 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div class="section" id="id28"&gt;
+&lt;span id="fishing"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id66"&gt;钓鱼&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id29"&gt;
-&lt;span id="fishing"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id67"&gt;钓鱼&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="id30"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id68"&gt;鱼还有能钓上来的东西&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id67"&gt;鱼还有能钓上来的东西&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;杂鱼：Ordon Village 以及世界各地都能钓到。（钓鱼日记右上）&lt;/li&gt;
 &lt;li&gt;トアルナマズ：Ordon Village 和 Fishing Hole 能钓到，用蜜蜂幼虫的话会比较容易钓到。（钓鱼日记左上）&lt;/li&gt;
 &lt;li&gt;ハイラルバス：Fishing Hole 可以钓到。（钓鱼日记右中）&lt;/li&gt;
 &lt;li&gt;ハイリアパイク：Fishing Hole 可以钓到。（钓鱼日记左下）&lt;/li&gt;
-&lt;li&gt;特殊的红鱼：Zora's Domain 下方瀑布，在两根石柱附近使用珊瑚耳饰可以钓到，剧情必须钓的鱼。（钓鱼日记左中）&lt;/li&gt;
+&lt;li&gt;特殊的红鱼：Zora’s Domain 下方瀑布，在两根石柱附近使用珊瑚耳饰可以钓到，剧情必须钓的鱼。（钓鱼日记左中）&lt;/li&gt;
 &lt;li&gt;ハイラルドジョウ：湖底神殿、森之圣域和 Fishing Hole 都能钓到，传说之鱼（普通钓法钓到的为幼鱼，船钓才能钓到真正的传说之鱼）。（钓鱼日记右下）&lt;/li&gt;
 &lt;li&gt;骷髅鱼：湖底神殿能钓到，不记入钓鱼日记中。&lt;/li&gt;
 &lt;li&gt;瓶子：Fishing Hole 内一被木桥封闭的区域可以钓到，只能钓到一次，不记入钓鱼日记中。&lt;/li&gt;
@@ -4649,8 +4715,8 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;li&gt;罐子：Fishing Hole 内随机钓到，所谓的垃圾，不记入钓鱼日记中。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id31"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id69"&gt;普通钓法的鱼饵&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id30"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id68"&gt;普通钓法的鱼饵&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;普通钓法（扔竿→浮标下沉→拉竿→成功）&lt;/p&gt;
 &lt;p&gt;普通钓法是静态钓法，只要等待就会有收获，珊瑚耳饰是直接装备的，蜜蜂幼虫和蚯蚓则需要主道具是钓竿的时候使用进行装备。&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -4659,8 +4725,8 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;li&gt;珊瑚耳饰：剧情获得。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id32"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id70"&gt;船钓的鱼饵&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id31"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id69"&gt;船钓的鱼饵&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;（钓到的鱼不记入钓鱼日记，只能钓到部分鱼，会放在钓鱼屋里展示）&lt;/p&gt;
 &lt;p&gt;船钓钓法（扔竿→晃动右手手柄→摇钩→左手转动拉竿→成功）&lt;/p&gt;
 &lt;p&gt;船钓需要到 Fishing Hole 付钱钓，20 和 100 元，20 是自己钓，100 则有教学服务。如果普通钓法是静态钓法，船钓则是动态钓法，需要不断运动，能上钩的鱼竿扔出去后是看得见的，如果看不到换地方吧，更换鱼饵需要在不使用钓竿的情况下按 A 出菜单选第二项。&lt;/p&gt;
@@ -4672,13 +4738,13 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;li&gt;青蛙鱼饵：Fishing Hole 小木屋，观察相片右边的小盒子（按 C 观看），玩小游戏 8 关后，获得，神之鱼饵，几乎无敌。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id33"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id71"&gt;季节变幻&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id32"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id70"&gt;季节变幻&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;（由 cngba 贵宾 lvyou 提供）&lt;/p&gt;
 &lt;p&gt;钓鱼的地方有四种季节，一般第一次进都是春天（有樱花树），出门后再进就是夏天（一片绿），再出去再进就是秋天（枫叶），最后是冬天。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id34"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id72"&gt;传说之鱼&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id33"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id71"&gt;传说之鱼&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;（由 cngba 贵宾 lvyou 提供）&lt;/p&gt;
 &lt;p&gt;在夏天时租船去很多荷叶的地方钓鱼能钓到传说之鱼，并且在租船小屋会多一张你钓到传说之鱼的照片。&lt;/p&gt;
 &lt;p&gt;参考：&lt;/p&gt;
@@ -4687,8 +4753,8 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id35"&gt;
-&lt;span id="trialscave"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id73"&gt;试炼的洞窟&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id34"&gt;
+&lt;span id="trialscave"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id72"&gt;试炼的洞窟&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;试炼的洞窟各层敌人（GC 版第二次打五十层的敌人情况）：&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;一个小怪物&lt;/li&gt;
@@ -4802,8 +4868,8 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;p&gt;刚看到题目的时候，我也愣了一下：一个孩子星期二出生，对于另一个孩子是不是男孩有什么影响吗？&lt;/p&gt;
 &lt;p&gt;先说一下，这道题的答案是 &lt;strong&gt;13 /
 27&lt;/strong&gt;，如果你算出来的不是这个数，那建议你继续往下看看。&lt;/p&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;思维缜密的项目经理的解题思路&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;思维缜密的项目经理的解题思路&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;项目经理小李，虽然数学功底不深，编程技术不精，但有个很大的好处是处事不惊，有条不紊。看到题目之后，略加思索，就用最简单的办法弄懂了这个问题，并求出了结果。&lt;/p&gt;
 &lt;p&gt;首先看如果只知道老王有两个孩子，其他信息都不知道的情况下，两个孩子都是男孩的概率显然是 1/4。&lt;/p&gt;
 &lt;p&gt;再来看看没有“星期二”这个条件的情况，题目变成：老王有两个孩子，已知至少有一个孩子是男孩，问两个孩子都是男孩的概率是多大？那结果显然是 1/3。因为在“至少有一个男孩”这样的条件下，只有三种可能：兄妹俩、姐弟俩、兄弟俩。这三种情况是等概率的，而只有一种情况是两个男孩，因此是 1/3。&lt;/p&gt;
@@ -4823,8 +4889,8 @@ Slider 内部的坐标值和用户数值之间做转换，内容如下（这里�
 &lt;p&gt;没错，13 /
 27 就是这道题的答案，出现这样的数字是因为已知条件所提供的信息使得样本空间发生了变化（变小了一点儿）。这就是条件概率带来的影响。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;博学多才的数据挖掘专家的解题思路&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;博学多才的数据挖掘专家的解题思路&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;小陈是一个有丰富的数据挖掘和机器学习经验的专家，在听到这个题目的时候，想都没想，干脆地说：“这题简单，用贝叶斯公式就能搞定”。&lt;/p&gt;
 &lt;p&gt;根据题目，可以认定两个事件，事件 A 是：至少有一个周二出生的男孩；事件 B 是：两个孩子都是男孩。题目要求的是 P(B|A) 即在事件 A 发生的条件下，事件 B 发生的概率。根据贝叶斯公式，容易知道：&lt;/p&gt;
 &lt;div class="math"&gt;
@@ -4840,8 +4906,8 @@ P(B|A)=\frac{P(AB)}{P(A)}=\frac{P(A|B)P(B)}{P(A)}
 &lt;/ul&gt;
 &lt;p&gt;因此可以求出：&lt;span class="math"&gt;\(P(B|A)=\frac{P(A|B)P(B)}{P(A)}=\frac{13}{49}\times\frac{1}{4}\div\frac{27}{196}=\frac{13}{27}\)&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;苦逼的无证程序员的解题方法&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;苦逼的无证程序员的解题方法&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;无证程序员小周看到题目后，二话不说，写了一小段程序（Python）来计算概率的近似值：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -5679,8 +5745,8 @@ Szh、三代鬼彻、天堂的翅膀&lt;/li&gt;
 &lt;p&gt;今天的问题是怎么在 App 中隐藏系统状态栏（Status Bar）。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;以下内容适用于 iOS 3.2+。&lt;/p&gt;
-&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;一、始终隐藏状态栏&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;一、始终隐藏状态栏&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;如果在 App 中需要状态栏一直是隐藏着的，可以在 &lt;tt class="docutils literal"&gt;&amp;lt;YOUR_APP&amp;gt;AppDelegate&lt;/tt&gt; 的 &lt;tt class="docutils literal"&gt;application:didFinishLaunchingWithOptions:&lt;/tt&gt; 函数中进行设置，比如下面这段示意代码可以让状态栏以淡出的方式隐藏起来：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -5711,7 +5777,7 @@ Szh、三代鬼彻、天堂的翅膀&lt;/li&gt;
 in iOS 3.2）。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="app"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;二、App 启动时就隐藏状态栏&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;二、App 启动时就隐藏状态栏&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;用了上面的方法之后，App 在运行过程中，状态栏确实被隐藏起来了，但是我发现在 App 启动的那个瞬间，还是可以看到状态栏的，然后一闪即过。虽然时间很短暂，看着还是很不舒服。为了让状态栏从启动的时候就隐藏起来，可以修改 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;&amp;lt;YOUR_APP&amp;gt;-Info.plist&lt;/span&gt;&lt;/tt&gt;。如果在 Xcode 中修改，在根结点 Infomation
 Property List 下面新加一项 “Status bar is initially
 hidden”（不用手动输入，可以直接在下拉菜单中选取）。这是个 BOOL 类型的键值，将 Value 栏中的复选框勾选上即可。&lt;/p&gt;
@@ -5724,8 +5790,8 @@ hidden”（不用手动输入，可以直接在下拉菜单中选取）。这�
 &lt;span class="nt"&gt;&amp;lt;true/&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;三、在运行过程中隐藏或显示状态栏&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;三、在运行过程中隐藏或显示状态栏&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;与第一段中的方法一样，只是可以在任何地方调用。只要利用 UIApplication 类的静态方法 &lt;a class="reference external" href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/Reference/Reference.html#//apple_ref/occ/clm/UIApplication/sharedApplication"&gt;sharedApplication&lt;/a&gt; 拿到 application 实例即可。&lt;/p&gt;
 &lt;/div&gt;
 </content><category term="iOS Develop"></category></entry><entry><title>七阶魔方花样：5x5 数独</title><link href="https://blog.gocalf.com/5x5-sudoku-in-vcube7" rel="alternate"></link><published>2011-11-26T15:48:00+08:00</published><updated>2011-11-26T15:49:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-11-26:/5x5-sudoku-in-vcube7</id><summary type="html">&lt;p class="first last"&gt;之前有一段时间特别喜欢玩魔方，从二阶到七阶，在桌子上摆了长长的一排。后来听说九阶和十一阶也有卖的了，心中甚是痒痒，可惜囊中羞涩啊。特别喜欢高阶魔方的一个原因，就是它们每个面上的小方格数很多（就像人们都喜欢高分辨率的显示屏一样），可以玩的花样也就多了很多。今天分享一下我的一个七阶魔方花样作品：混乱中的秩序——五阶数独。&lt;/p&gt;
@@ -5880,8 +5946,8 @@ hidden”（不用手动输入，可以直接在下拉菜单中选取）。这�
 &lt;p&gt;假设系统中已经提供任意精度长整数的运算，可以直接使用。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;这其实是个老生常谈的问题了，不过可能在复杂度分析的时候，很多人忽略了一些事情。另外这个问题恰好有几种复杂度迥异的算法，在刚刚介绍完 &lt;a class="reference external" href="https://blog.gocalf.com/algorithm-complexity-and-master-theorem"&gt;算法复杂度&lt;/a&gt; 之后，正好来直观地理解一下。&lt;/p&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;一、递归法&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;一、递归法&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;一个看起来很直观、用起来很恐怖的算法就是递归法。根据 Fibonacci 的递推公式，对于输入的 n，直接递归地调用相同的函数分别求出 F(n
 - 1) 和 F(n -
 2)，二者相加就是结果。递归的终止点就是递推方程的初值，即 n 取 0 或 1 的时候。&lt;/p&gt;
@@ -5899,8 +5965,8 @@ Python）写出来那也是相当的简洁直观（为了跟后面的程序区�
 - 2) + O(1)，很容易得到 &lt;strong&gt;T(n) = O(1.618 ^
 n)&lt;/strong&gt;（1.618 就是黄金分割，&lt;span class="math"&gt;\((1+\sqrt5)/2\)&lt;/span&gt;）。空间复杂度取决于递归的深度，显然是 &lt;strong&gt;O(n)&lt;/strong&gt;。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;二、递推法&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;二、递推法&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;虽然只是一字之差，但递推法的复杂度要小的多。这个方法就是按照递推方程，从 n
 = 0 和 n =
 1 开始，逐个求出所有小于 n 的 Fibonacci 数，最后就可以算出 F(n)。由于每次计算值需要用到前两个 Fibonacci 数，更小的数就可以丢弃了，可以将空间复杂度降到最低。算法如下：&lt;/p&gt;
@@ -5921,8 +5987,8 @@ n)&lt;/strong&gt;（1.618 就是黄金分割，&lt;span class="math"&gt;\((1+\sq
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;显然时间复杂度是 &lt;strong&gt;O(n)&lt;/strong&gt;，空间复杂度是 &lt;strong&gt;O(1)&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;比较一下递归法和递推法，二者都用了分治的思想——把目标问题拆为若干个小问题，利用小问题的解得到目标问题的解。二者的区别实际上就是普通分治算法和动态规划的区别。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;三、矩阵法&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;三、矩阵法&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;算 Fibonacci 数精确值的最快的方法应该就是矩阵法，看过的人都觉得这个方法很好。如果你跟我一样，曾经为记住这个方法中的矩阵而烦恼，那今天就来看看怎么进行推导。其实方法非常简单，想清楚了也就自然而然地记住了。&lt;/p&gt;
 &lt;p&gt;我们把 Fibonacci 数列中相邻的两项：F(n) 和 F(n -
 1) 写成一个 2x1 的矩阵，然后对其进行变形，看能得到什么：&lt;/p&gt;
@@ -6090,8 +6156,8 @@ n)）。下面的 Python 程序直接利用的 numpy 库中的矩阵乘法（当
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;二阶方阵相乘一次可以看成是常数时间（虽然这个常数会比较大），因此整个算法的时间复杂度是 &lt;strong&gt;O(log
 n)&lt;/strong&gt;，空间复杂度是 &lt;strong&gt;O(1)&lt;/strong&gt;。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;四、运行时间大比拼&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;四、运行时间大比拼&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;至此，我们得到的时间复杂度分别是 O(1.618 ^ n)、O(n) 和 O(log
 n) 的算法，让我们来直观地比较比较它们。&lt;/p&gt;
 &lt;p&gt;用 Python 的 timeit 模块对以上三个算法的运行时间进行了测量，记录了每个算法对于不同的 n 的每千次运算所消耗的时间（单位是秒），部分数据记录在 &lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/11/fibonacci_data.zip"&gt;fibonacci_data&lt;/a&gt;。利用 Mathematica 可以很方便地对这些数据进行拟合，对于较小的 n，用三个复杂度表达式分别去拟合，得到的效果都非常好。尤其值得注意的是，对于第一个算法，我用 a
@@ -6115,8 +6181,8 @@ n) 的矩阵法。散点为实际测量到的运行时间，实线为拟合方�
 &lt;p class="caption"&gt;三种算法的运行时间比较（对数坐标轴）&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;五、大整数情况下的复杂度&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;五、大整数情况下的复杂度&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Python 内置了大整数支持，因此上面的程序都可以直接接受任意大的 n。当整数在 32 位或 64 位以内时，加法和乘法都是常数时间，但大整数情况下，这个时间就不能忽略了。&lt;/p&gt;
 &lt;p&gt;先来看一下 Fibonacci 数的二进制位数。我们知道 Fibonacci 数的通项公式是：&lt;/p&gt;
 &lt;div class="math"&gt;
@@ -6158,8 +6224,8 @@ F_n=\frac{1}{\sqrt5}\left(\frac{1+\sqrt5}{2}\right)^n-\frac{1}{\sqrt5}\left(\fra
 &lt;p class="caption"&gt;矩阵法的运行时间（更大的 n）&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id8"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;六、更快的算法？&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;六、更快的算法？&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;试了试 Mathematica 中的 &lt;tt class="docutils literal"&gt;Fibonacci&lt;/tt&gt; 函数，发现其运算速度相当惊人，估计时间复杂度在 O(n
 log
 n) 上下，而且对于相同的 n，运算速度远远高于我的矩阵法。可惜我还不了解它的算法，只是在帮助文档里看到：&lt;/p&gt;
@@ -6197,7 +6263,7 @@ sequence of n.&lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h3&gt;雪山&lt;/h3&gt;
-&lt;p&gt;找到阿雪后，她告诉林克，前面的暴风雪太大，普通人根本不可能通过，只有一种叫 Reekfish 的特殊红鱼能通过前面的暴风雪地带。拿到阿雪的草图（Ashei's Sketch），林克决定找到这种鱼。&lt;/p&gt;
+&lt;p&gt;找到阿雪后，她告诉林克，前面的暴风雪太大，普通人根本不可能通过，只有一种叫 Reekfish 的特殊红鱼能通过前面的暴风雪地带。拿到阿雪的草图（Ashei’s Sketch），林克决定找到这种鱼。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;a class="reference external image-reference" href="https://blog.gocalf.com/images/2011/11/tp_ch05_03.jpg"&gt;&lt;img alt="tp_ch05_03" src="https://blog.gocalf.com/images/2011/11/tp_ch05_03.jpg" style="width: 500px;" /&gt;&lt;/a&gt;
 &lt;p class="caption"&gt;得到阿雪的草图&lt;/p&gt;
@@ -6299,7 +6365,7 @@ sequence of n.&lt;/blockquote&gt;
 &lt;a class="reference external image-reference" href="https://blog.gocalf.com/images/2011/11/tp_ch05_19.jpg"&gt;&lt;img alt="tp_ch05_19" src="https://blog.gocalf.com/images/2011/11/tp_ch05_19.jpg" style="width: 500px;" /&gt;&lt;/a&gt;
 &lt;p class="caption"&gt;利用大炮干掉大冰怪&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;房间 18：&lt;/strong&gt;干掉房间里的全部冰骷髅后北面的门可以打开，随后终于取得了大钥匙，出门后亚塔也刚到这里，然后她会带林克去卧室拿镜子，跟着她去卧室，结果因为亚塔太沉迷于照镜子，被镜子的魔力所影响，而成为了冰怪——布里泽塔（Twilit Ice--Blizzeta）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;房间 18：&lt;/strong&gt;干掉房间里的全部冰骷髅后北面的门可以打开，随后终于取得了大钥匙，出门后亚塔也刚到这里，然后她会带林克去卧室拿镜子，跟着她去卧室，结果因为亚塔太沉迷于照镜子，被镜子的魔力所影响，而成为了冰怪——布里泽塔（Twilit Ice–Blizzeta）。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;BOSS 战：&lt;/strong&gt;冰怪——布里泽塔&lt;/p&gt;
 &lt;p&gt;布里泽塔体型异常巨大，攻击方式是震落身上的冰块并向四周扩散进行攻击，对付碎冰只需将链子球舞动起来就可以解决，用链子球三下就能轻松搞定布里泽塔的第一阶段。之后布里泽塔会飞起来并召唤许多小冰柱，注意地上的反光，先躲开小柱子的攻击，冰柱会在周围落下一个圈，然后布里泽塔就会在中间落下，躲开后用链子球攻击，很快就可以击败她。&lt;/p&gt;
 &lt;p&gt;战胜布里泽塔后，亚托会冲进来，而布里泽塔也变回亚塔，一番亲热后林克也得到了第一片镜子碎片。&lt;/p&gt;
@@ -6458,7 +6524,7 @@ n 层（最后一层每个节点只处理规模为 1 的子问题，无须再分
 &lt;/div&gt;
 &lt;div class="section" id="id8"&gt;
 &lt;h3&gt;海利亚湖&lt;/h3&gt;
-&lt;p&gt;林克根据得到的标志到地图右下角的哨塔找到奥鲁并获得奥鲁的信物（Auru's memo），之后再来到湖中间的大炮处并将奥鲁的信物出示给他看，他会将林克发射到戈鲁多沙漠（Gerudo Desert）。&lt;/p&gt;
+&lt;p&gt;林克根据得到的标志到地图右下角的哨塔找到奥鲁并获得奥鲁的信物（Auru’s memo），之后再来到湖中间的大炮处并将奥鲁的信物出示给他看，他会将林克发射到戈鲁多沙漠（Gerudo Desert）。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;a class="reference external image-reference" href="https://blog.gocalf.com/images/2011/11/tp_ch04_09.jpg"&gt;&lt;img alt="tp_ch04_09" src="https://blog.gocalf.com/images/2011/11/tp_ch04_09.jpg" style="width: 500px;" /&gt;&lt;/a&gt;
 &lt;p class="caption"&gt;在湖中央“乘坐”奥鲁的大炮&lt;/p&gt;
@@ -6477,8 +6543,8 @@ n 层（最后一层每个节点只处理规模为 1 的子问题，无须再分
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="outside-arbiter-s-grounds"&gt;
-&lt;h3&gt;仲裁者之地外围（Outside Arbiter's Grounds）&lt;/h3&gt;
-&lt;p&gt;一路朝西北方向前进，林克在最里面干掉一个腰部闪闪发亮的兽人卫兵后掉落一把小钥匙，林克将广场上的烤猪打掉会掉落一片 &lt;a class="reference external" href="https://blog.gocalf.com/zelda-tp-appendix#h18"&gt;心之碎片 18&lt;/a&gt;。随后回到路上的一个锁住的门，打开进入后和兽人头领布尔布林决斗（用背斩很容易就能解决掉），战胜后用猪冲破栅栏来到仲裁者之地（Arbiter's Grounds）。&lt;/p&gt;
+&lt;h3&gt;仲裁者之地外围（Outside Arbiter’s Grounds）&lt;/h3&gt;
+&lt;p&gt;一路朝西北方向前进，林克在最里面干掉一个腰部闪闪发亮的兽人卫兵后掉落一把小钥匙，林克将广场上的烤猪打掉会掉落一片 &lt;a class="reference external" href="https://blog.gocalf.com/zelda-tp-appendix#h18"&gt;心之碎片 18&lt;/a&gt;。随后回到路上的一个锁住的门，打开进入后和兽人头领布尔布林决斗（用背斩很容易就能解决掉），战胜后用猪冲破栅栏来到仲裁者之地（Arbiter’s Grounds）。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;a class="reference external image-reference" href="https://blog.gocalf.com/images/2011/11/tp_ch04_12.jpg"&gt;&lt;img alt="tp_ch04_12" src="https://blog.gocalf.com/images/2011/11/tp_ch04_12.jpg" style="width: 500px;" /&gt;&lt;/a&gt;
 &lt;p class="caption"&gt;在仲裁者之地外围&lt;/p&gt;
@@ -6593,7 +6659,7 @@ Lake）是佐拉鱼人出没的地区，林克在桌子的地图上看到了海�
 &lt;div class="section" id="id7"&gt;
 &lt;h4&gt;冰湖，母爱&lt;/h4&gt;
 &lt;p&gt;林克上岸后，来到一座奇怪的房屋前，听到房前的人说不远处有一个兽人弓箭手时常骚扰他，林克当然不会放过这个兽人弓箭手，看来这不是一个普通的弓箭手，他召唤来一只巨大的飞龙，骑到飞龙背上与林克周旋，就是这样林克也不会退缩，获胜后米德娜将飞龙驯服了。飞龙带着林克飞进了一个山洞，这里地势险要，稍不注意就会撞到峭壁上。飞出山洞，林克来到了佐拉河上游（Upper
-Zora's
+Zora’s
 River），这里的河床都结冰了，林克跳下河床，沿着冰川向东前进，随后米德娜会带着林克攀登上北边的冰川，到达冰川顶部后，进入最北边的洞穴。这里又遇到了三个黑暗使者，消灭后出现了这个地区的黑暗空洞。接下来来到已经被冰冻的佐拉王国，米德娜记起了死亡山上的一块炙热的巨石，传送回死亡山，米德娜发动魔法将巨石传送到佐拉王座处，炙热的巨石将整个冰河都融化了，随后佐拉女皇鲁特拉（Rutela）的亡魂出现，她向林克表示感谢，她还请求林克找到并解救王子拉里斯（Ralis），难道就是海拉尔城中那个正被伊莉娅照顾的佐拉人？女皇承诺如果林克完成任务的话，会赐予林克水中呼吸的能力。林克一路返回到海利亚湖，上岸后发现一个洞穴，林克进入后找到最后一个光之精灵，它将最后一个光之容器交给林克。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;a class="reference external image-reference" href="https://blog.gocalf.com/images/2011/11/tp_ch03_03.jpg"&gt;&lt;img alt="tp_ch03_03" src="https://blog.gocalf.com/images/2011/11/tp_ch03_03.jpg" style="width: 500px;" /&gt;&lt;/a&gt;
@@ -6609,7 +6675,7 @@ River），这里的河床都结冰了，林克跳下河床，沿着冰川向东
 &lt;h3&gt;拉内鲁地区&lt;/h3&gt;
 &lt;div class="section" id="id9"&gt;
 &lt;h4&gt;再见影子虫&lt;/h4&gt;
-&lt;p&gt;林克又踏上了收集光之泪的旅程，在精灵之泉的右边道路上不远的地方就有一只，往北尽头处的湖边还有一只，南边的草丛中藏有一只，把草打掉就可以看到。林克向西边游去，在一个小半岛上也有一只，向海利亚湖的南边游去，上岸后林克发现灌木，在遇到阴影怪物的南边，在一排有空隙的石头中，来回跳跃，会发现一支正在挖洞的虫。米德娜告诉他可以在这里召唤之前被收服的飞龙，飞龙带着林克飞进之前的那个洞穴，整个洞穴里一共有四支小虫子，林克用感知可以轻松发现到处乱飞的虫，让飞龙撞击虫子收集光之泪（用 Z 键锁定目标，然后快速抓住，在飞行时不能转身，如果没有抓住所有虫子就回到河的尽头话，就不得不重来一次了）。来到佐拉河上游，林克看到这里的女主人正被虫子吓得发抖，消灭虫子后，林克在河对岸找到嚎叫之岩，记下金狼出现的位置后，林克继续收集光之泪。林克顺着河向佐拉原住地（Zora's
+&lt;p&gt;林克又踏上了收集光之泪的旅程，在精灵之泉的右边道路上不远的地方就有一只，往北尽头处的湖边还有一只，南边的草丛中藏有一只，把草打掉就可以看到。林克向西边游去，在一个小半岛上也有一只，向海利亚湖的南边游去，上岸后林克发现灌木，在遇到阴影怪物的南边，在一排有空隙的石头中，来回跳跃，会发现一支正在挖洞的虫。米德娜告诉他可以在这里召唤之前被收服的飞龙，飞龙带着林克飞进之前的那个洞穴，整个洞穴里一共有四支小虫子，林克用感知可以轻松发现到处乱飞的虫，让飞龙撞击虫子收集光之泪（用 Z 键锁定目标，然后快速抓住，在飞行时不能转身，如果没有抓住所有虫子就回到河的尽头话，就不得不重来一次了）。来到佐拉河上游，林克看到这里的女主人正被虫子吓得发抖，消灭虫子后，林克在河对岸找到嚎叫之岩，记下金狼出现的位置后，林克继续收集光之泪。林克顺着河向佐拉原住地（Zora’s
 Domain）游去，在水域西边的斜坡上有一只，在湖东边靠近雪峰的冰峰道路旁，米德娜会帮助林克攀登上去，途中会有一只虫子，往回走在小梯子处转身向高处的岩石跳上，顺着小路林克来到佐拉王座，虫子就在左边的墙上，林克撞击墙壁惊动虫子，然后杀掉获得光之泪。林克回到佐拉河上游，东南角的水道有两个佐拉亡魂，他们会带林克进入水道，游出来到了海拉尔城的外边，进入城中，来到酒馆外面，打碎角落的箱子就能发现一只虫子。虫子消灭完了，但是光之泪还有一颗，会在哪里呢？此时米德娜会带林克来到最后一只虫子的地方——海利亚湖的正中间。这是一只巨大的母虫，看来她就是罪魁祸首，母虫全身带电的时候，没有办法攻击，林克只好先躲到水里等她冲下来，待其身上电消失后，林克跳到她身上一阵狂咬，没多久虫子就会倒在水里，林克跳到她身上发动群体攻击将其消灭，结束战斗后得到了最后的光之泪。最后一位光之精灵拉内鲁（Lanayru）也变回了原形，他告诉林克，这个世界本来就是黑暗与光明交替的世界，光明离不开黑暗，黑暗也离不开光明，一旦力量失去了平衡，这个世界就会陷入混乱。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;a class="reference external image-reference" href="https://blog.gocalf.com/images/2011/11/tp_ch03_05.jpg"&gt;&lt;img alt="tp_ch03_05" src="https://blog.gocalf.com/images/2011/11/tp_ch03_05.jpg" style="width: 500px;" /&gt;&lt;/a&gt;
@@ -6744,7 +6810,7 @@ Engineer）来测试和修复他们制造的机器人，所谓的“测试”就
 &lt;dl class="docutils"&gt;
 &lt;dt&gt;Level 1: Robotoast! ACCEPT: Move robots from the entrance (top) to the exit (bottom)!&lt;/dt&gt;
 &lt;dd&gt;没有任何悬念，用 3 个元件，耗时 32764（注意这是 v1.30 里的计时单位，在老版本中大概是 0:02）。&lt;/dd&gt;
-&lt;dt&gt;Level 2: Robocoffee! If a robot's string starts with blue, accept. Otherwise, reject!&lt;/dt&gt;
+&lt;dt&gt;Level 2: Robocoffee! If a robot’s string starts with blue, accept. Otherwise, reject!&lt;/dt&gt;
 &lt;dd&gt;要求接受以蓝色开头的机器人。也没有任何可以商量的，3 个元件，耗时 24572。&lt;/dd&gt;
 &lt;dt&gt;Level 3: Robolamp! ACCEPT: if there are three or more blues!&lt;/dt&gt;
 &lt;dd&gt;要求接受纸带中有至少 3 个蓝点的机器人。8 个元件，112570 时间。&lt;/dd&gt;
@@ -6952,8 +7018,8 @@ Reader 的缓存中了。让我没想到的是，刚才搜一个东西的时候�
 Common Ancestor）。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;这算不上是一道算法题了，主要还是看数据结构基本知识和编程能力。&lt;/p&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;有父指针，方法一&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;有父指针，方法一&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;首先考虑最简单的情况——二叉树结点数据结构中有父指针。&lt;/p&gt;
 &lt;p&gt;这是不是非常简单呢？只要分别从两个结点出发向上走到树根，得到两个结点的分支路径，求出这两条路径相互重合部分的最靠下的结点，就是所求的 LCA。这只需要 O(h) 的时空代价（设 h 是树高，n 是树结点数目，平均情况下 h =
 log(n)，最坏情况 h = n）。&lt;/p&gt;
@@ -7002,8 +7068,8 @@ log(n)，最坏情况 h = n）。&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;时间和空间复杂度都是 O(h)。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;有父指针，方法二（2012-04-02 22:10 添加）&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;有父指针，方法二（2012-04-02 22:10 添加）&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;上面的方法需要至少一个跟深度相当的缓存，在空间上还是有一些浪费的。可以使用更节省空间的方法，就是先计算出两个结点各自的深度，如果深度不同，则将较靠下的一个结点拉上去，直到两个结点在同一深度处。然后同步向根结点前进，首次相遇时则为最小公共祖先。示意代码（python 2.7）如下：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -7055,8 +7121,8 @@ log(n)，最坏情况 h = n）。&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;这样时间复杂度是 O(h)，空间复杂度是 O(1)。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;没有父指针，方法一&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;没有父指针，方法一&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;通常二叉树结点中并没有父结点指针，这时候就要遍历二叉树找到这两个结点，并找出它们的 LCA。&lt;/p&gt;
 &lt;p&gt;在遍历二叉树的时候，很容易就能够记录下根结点到任何结点的分支路径，只要有了分支路径，就可以对比找出 LCA。&lt;/p&gt;
 &lt;p&gt;我们采取前序遍历，即 N-L-R 的顺序，使用堆栈来避免递归并且记录完整的分支路径。那么，在二叉树中查找指定结点的算法可以这样写：&lt;/p&gt;
@@ -7115,7 +7181,7 @@ log(n)，最坏情况 h = n）。&lt;/p&gt;
   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;pathDict&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;其中 &lt;tt class="docutils literal"&gt;Dir&lt;/tt&gt; 这个类相当于是一个枚举，用来定义当前的分支方向。&lt;tt class="docutils literal"&gt;FindNodes&lt;/tt&gt; 除了需要二叉树根结点外，还需要一个待查找的结点集合。这个函数可以在二叉树中找到所有（或第一个）待查找结点的分支路径，并返回一个字典（结点
---&amp;gt; 路径）。&lt;/p&gt;
+–&amp;gt; 路径）。&lt;/p&gt;
 &lt;p&gt;可以看出，&lt;tt class="docutils literal"&gt;FindNodes&lt;/tt&gt; 函数按照前序顺序遍历整个二叉树，查找指定结点。每遇到一个结点，首先判断它是不是我们要找的，如果不是就沿着左边的分支下降到底，然后转入右侧分支。&lt;/p&gt;
 &lt;p&gt;有了 &lt;tt class="docutils literal"&gt;FindNodes&lt;/tt&gt; 函数的支持，我们就可改写前面的 &lt;tt class="docutils literal"&gt;FindLCA&lt;/tt&gt; 函数，即先遍历二叉树求出两个结点的分支路径，然后比较这两条路径找出 LCA：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
@@ -7170,8 +7236,8 @@ log(n)，最坏情况 h = n）。&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;遍历二叉树查找所有指定的结点需要 O(n) 时间，O(h) 额外空间；对比两条分支路径需要 O(h) 的时间，因此总的时间代价为 O(n)，空间代价为 O(h)。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;没有父结点，方法二（2012-04-05 23:31 更新）&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;没有父结点，方法二（2012-04-05 23:31 更新）&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;上面的代码有点儿太啰嗦了，如果不想缓存整条分支路径，或者只是想让代码更简洁一些，也很容易做到，只需要在遍历查找的时候做点儿小小的改动。关于遍历二叉树可以参考后面的一篇文章：&lt;a class="reference external" href="https://blog.gocalf.com/traversing-binary-tree"&gt;程序基本功之遍历二叉树&lt;/a&gt;。这里我将在非递归的前序（N-L-R）遍历基础上修改得到求 LCA 的程序。&lt;/p&gt;
 &lt;p&gt;为什么用前序遍历？&lt;/p&gt;
 &lt;p&gt;首先考察一下 LCA 的特性，只有两种可能：&lt;/p&gt;
@@ -7288,9 +7354,9 @@ R[i]），假设现在我们总共有 s 的资源，要求设计一个调度算�
 &lt;p&gt;假设存在一个可行解（任务的执行顺序）为：T1, T2, …,
 Tn。设其中存在两个相邻的任务 T&lt;sub&gt;i&lt;/sub&gt; 和 T&lt;sub&gt;i+1&lt;/sub&gt;，满足 R[i] - O[i] &amp;lt; R[i+1] -
 O[i+1]。&lt;/p&gt;
-&lt;p&gt;设执行任务 j 前的资源剩余量为 s'，因为这是一个可行解，任务 j 和任务 k 都可以顺利执行，因此有：s'
+&lt;p&gt;设执行任务 j 前的资源剩余量为 s’，因为这是一个可行解，任务 j 和任务 k 都可以顺利执行，因此有：s’
 - O[i] &amp;gt;= R[i+1]。&lt;/p&gt;
-&lt;p&gt;联列这两个式子可以得到：s' &amp;gt;= R[i+1] + O[i] &amp;gt; R[i] + O[i+1]，即 s' -
+&lt;p&gt;联列这两个式子可以得到：s’ &amp;gt;= R[i+1] + O[i] &amp;gt; R[i] + O[i+1]，即 s’ -
 O[i+1] &amp;gt; R[i]，可见交换任务 T&lt;sub&gt;i&lt;/sub&gt; 和 T&lt;sub&gt;i+1&lt;/sub&gt; 的执行顺序后依旧是可行解。&lt;/p&gt;
 &lt;p&gt;以此类推，对于任何 i（1 &amp;lt;= i &amp;lt; n），如果 R[i] - O[i] &amp;lt; R[i+1] -
 O[i+1]，我们都可以将这两个任务的顺序交换，最终得到的执行顺序是可行解。&lt;/p&gt;
@@ -7304,7 +7370,7 @@ O[i+1]，我们都可以将这两个任务的顺序交换，最终得到的执�
 &lt;p&gt;大家也许会问，这两个指针要在环里转多少圈才能相遇呢？会不会转几千几万圈都无法相遇？实际上，第一个（速度慢的）指针在环里转满一圈之前，两个指针必然相遇。不妨设环长为 L，第一个指针 P1 第一次进入环时，第二个指针 P2 在 P1 前方第 a 个结点处（0
 &amp;lt; a &amp;lt; L），设经过 x 次移动后两个指针相遇，那么应该有 0 + x = a + 2x (mod
 L)，显然 x = L - a。下面这张图可以清晰地表明这种关系，经过 x =
-L - a 次移动，P1 向前移动了 L - a 个位置（相当于后退了 a），到达 P1' 处，而 P2 向前移动了 2L - 2a 个位置（相当于后退了 2a），到达 P2' 处，显然 P1' 和 P2' 是同一点。&lt;/p&gt;
+L - a 次移动，P1 向前移动了 L - a 个位置（相当于后退了 a），到达 P1’ 处，而 P2 向前移动了 2L - 2a 个位置（相当于后退了 2a），到达 P2’ 处，显然 P1’ 和 P2’ 是同一点。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;object data="https://blog.gocalf.com/images/2011/10/two_pointers_in_ring.svg" style="width: 428px;" type="image/svg+xml"&gt;
 two_pointers_in_ring&lt;/object&gt;
@@ -7418,7 +7484,7 @@ House），在街的西面，这个房子里有另一只虫，穿过南边的 2 
 Bomb
 shop），在这个大型建筑物的北面，找到一些可以攀爬的箱子，然后爬上屋顶。然后可以看到炸弹商店的一扇窗户，林克勇猛地撞碎玻璃跳了进去，直接来到楼上然后撞击书架，就会有虫子飞出来，得到光之泪后爬上棚架，林克发现了出口。从炸弹商店的窗口爬出来，林克发现自己已经上到了西北山丘（The
 Northwestern
-Hills），顺着路向上，林克来到一个标着 &amp;quot;Danger!&amp;quot; 的建筑物面前。进到房子里面，林克发现这里到处都是火药，虫子也藏在角落里，林克没有办法，只好在地上捡起一根木棍，引燃木棍后，用它来把壁炉点着，火星蹦了出来，火药被点燃了，林克见状赶紧原路跑开。刚一出房子，只听身后一声巨响，连屋带虫一起化为了灰烬，林克也得到了三颗光之泪。林克顺着斜坡上到了山顶，这里的房里可以找到一条虫子，村里已经没有虫子了，但是光之泪还没有收集全，看来有虫子飞到了更远的地方去了。林克只好从村子北面的一个大山洞出村，一路来到死亡山（Death
+Hills），顺着路向上，林克来到一个标着 “Danger!” 的建筑物面前。进到房子里面，林克发现这里到处都是火药，虫子也藏在角落里，林克没有办法，只好在地上捡起一根木棍，引燃木棍后，用它来把壁炉点着，火星蹦了出来，火药被点燃了，林克见状赶紧原路跑开。刚一出房子，只听身后一声巨响，连屋带虫一起化为了灰烬，林克也得到了三颗光之泪。林克顺着斜坡上到了山顶，这里的房里可以找到一条虫子，村里已经没有虫子了，但是光之泪还没有收集全，看来有虫子飞到了更远的地方去了。林克只好从村子北面的一个大山洞出村，一路来到死亡山（Death
 Mountain）的脚下。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;a class="reference external image-reference" href="https://blog.gocalf.com/images/2011/10/tp_ch02_03.jpg"&gt;&lt;img alt="tp_ch02_03" src="https://blog.gocalf.com/images/2011/10/tp_ch02_03.jpg" style="width: 500px;" /&gt;&lt;/a&gt;
@@ -7492,7 +7558,7 @@ Mines）是他们世代守护的地方，现在被黑暗势力所侵吞了，而
 &lt;p&gt;&lt;strong&gt;房间 7：&lt;/strong&gt;跳下进入房间 7，这里正东面有把小钥匙，有了它林克就能打开通往西面的门了前往房间 8 了。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;房间 8：&lt;/strong&gt;来到房间 8，在右边的平台上有一把小钥匙，拿到之后可以前往房间 9。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;房间 9：&lt;/strong&gt;到房间 9 找到第二位长老，他会给林克大钥匙的第二部分，之后从长老后面的楼梯上去回到房间 8 的上层，然后前往房间 10。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;房间 10：&lt;/strong&gt;在房间 10 里，林克遇到小 BOSS，一个狂暴的戈隆勇士，穿上钢之靴与其战斗，把他打在地上缩作一团时，可以冲上前将其丢下岩浆，不过他还不肯轻易罢休，看来还得费点力气，战胜后，林克进入南面的小房间内，这里的箱子内可以拿到英雄之弓（Hero's
+&lt;p&gt;&lt;strong&gt;房间 10：&lt;/strong&gt;在房间 10 里，林克遇到小 BOSS，一个狂暴的戈隆勇士，穿上钢之靴与其战斗，把他打在地上缩作一团时，可以冲上前将其丢下岩浆，不过他还不肯轻易罢休，看来还得费点力气，战胜后，林克进入南面的小房间内，这里的箱子内可以拿到英雄之弓（Hero’s
 Bow），看来这就是牧师雷那多告诉林克的戈隆族的宝物，林克用它射断面前平台上的绳索，于是就能进入到南面的房间 11 了。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;房间 11：&lt;/strong&gt;房间 11 里有很多石像，正当林克上前查看时，石像被激活了，用箭射它们上部的红水晶能让其停止攻击，之后就可以将它们往外拉。林克在房间的东面能够得到指南针，继续前进走西面的房间来到房间 12。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;房间 12：&lt;/strong&gt;林克见到了最后一位长老，并得到最后一部分的大钥匙，得到大钥匙后，就可以去矿山深处解救狂暴的戈隆族同伴了。&lt;/p&gt;
@@ -7631,7 +7697,7 @@ key(i)=r_i^{1/w_i}
 &lt;p&gt;之后，如果要随机选取一个元素，就去 key 最大的那个；如果要选取 m 个元素，就取 key 最大的 m 个。&lt;/p&gt;
 &lt;p&gt;真不知道是怎么想出来的这样的方法，不过还是先来关注一下证明的过程。&lt;/p&gt;
 &lt;div class="section" id="m-1"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;m=1 证明&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;m=1 证明&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;对于 m=1 的证明过程会介绍得详细些，主要是怕我自己过几天就忘记了。概率达人可以直接秒杀之。&lt;/p&gt;
 &lt;p&gt;m=1 时，第 i 个元素被选取到的概率，就等于它所对应的键值 key(i) 是最大值的概率，即：&lt;/p&gt;
 &lt;div class="math"&gt;
@@ -7665,11 +7731,11 @@ p_i=\int_0^1\prod_{j\neq i}{r_i^{w_j/w_i}}\mathrm{d}r_i=\int_0^1r_i^{(w-w_i)/w_i
 &lt;/div&gt;
 &lt;p&gt;最后的结果跟 &lt;a class="reference external" href="https://blog.gocalf.com/weighted-random-selection"&gt;前一篇&lt;/a&gt; 文章中的理论值相等，证明完毕。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;m&amp;gt;=1 证明&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;m&amp;gt;=1 证明&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;当 m 取任意值时，概率公式变得非常复杂，在前一篇文章中使用了第 i 个元素不被选到的概率来简化表达式。现在的证明也从同样的角度进行。&lt;/p&gt;
 &lt;p&gt;第 i 个元素不被选到的概率，显然等于这 n 个元素中，至少存在 m 个元素的键值大于 key(i)，与之前的讨论一样，不妨设这 m 个元素的下标（按键值从大到小）依次为 j&lt;sub&gt;1&lt;/sub&gt;,
-j&lt;sub&gt;2&lt;/sub&gt;, ..., j&lt;sub&gt;m&lt;/sub&gt;，&lt;span class="math"&gt;\(\forall 1\leq k\leq m,j_k\notin\{i,j_1,j_2,\cdots,j_{k-1}\}\)&lt;/span&gt;，满足 &lt;span class="math"&gt;\(\forall 1\leq t_k\leq n,t_k\notin\{j_1,j_2,\cdots,j_{k}\},key(j_k) &amp;gt; key(t_k)\)&lt;/span&gt;。注意 j&lt;sub&gt;k&lt;/sub&gt; 和 t&lt;sub&gt;k&lt;/sub&gt; 的取值范围，为了简单起见，下面的式子中就不再重复了。&lt;/p&gt;
+j&lt;sub&gt;2&lt;/sub&gt;, …, j&lt;sub&gt;m&lt;/sub&gt;，&lt;span class="math"&gt;\(\forall 1\leq k\leq m,j_k\notin\{i,j_1,j_2,\cdots,j_{k-1}\}\)&lt;/span&gt;，满足 &lt;span class="math"&gt;\(\forall 1\leq t_k\leq n,t_k\notin\{j_1,j_2,\cdots,j_{k}\},key(j_k) &amp;gt; key(t_k)\)&lt;/span&gt;。注意 j&lt;sub&gt;k&lt;/sub&gt; 和 t&lt;sub&gt;k&lt;/sub&gt; 的取值范围，为了简单起见，下面的式子中就不再重复了。&lt;/p&gt;
 &lt;div class="math"&gt;
 \begin{equation*}
 \bar p_i(m)=p(\exists j_1,j_2,...,j_m\neq i,key(j_1) &amp;gt; key(j_2) &amp;gt; ... &amp;gt; key(j_m) &amp;gt; key(i))
@@ -7725,8 +7791,8 @@ j&lt;sub&gt;2&lt;/sub&gt;, ..., j&lt;sub&gt;m&lt;/sub&gt;，&lt;span class="math
 &lt;p&gt;与 &lt;a class="reference external" href="https://blog.gocalf.com/weighted-random-selection"&gt;前一篇&lt;/a&gt; 文章中的理论值完全一样。&lt;/p&gt;
 &lt;p&gt;呼，可怕的推导过程。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;程序实现&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;程序实现&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;虽然证明过程异常恐怖，但实现起来却很简单。实际运算中，只要维持一个大小为 m 的最小堆（没错，是最小堆）来保存当前已知的最大的 m 个键值，每拿到一个新的元素，算出对应的键值，如果它比堆中的最小值大，就可以放入堆中替换掉最小值。Python 实现函数如下：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -8422,7 +8488,7 @@ p_i=\frac{1}{i}\times\frac{i}{i+1}\times\frac{i+1}{i+2}\times\cdots\times\frac{n
       &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_selectedItem&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;
     &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_count&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;在 Python 2.5 中，&lt;tt class="docutils literal"&gt;yield&lt;/tt&gt; 不仅是个语句，更是一个表达式（详见 &lt;a class="reference external" href="http://www.python.org/dev/peps/pep-0342/"&gt;PEP 342 -- Coroutines via Enhanced Generators&lt;/a&gt;，查阅 Generator 和 Coroutine，中文叫做“生成器”和“协程”），利用 &lt;tt class="docutils literal"&gt;yield&lt;/tt&gt; 可以把程序写的更简洁一些：&lt;/p&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;在 Python 2.5 中，&lt;tt class="docutils literal"&gt;yield&lt;/tt&gt; 不仅是个语句，更是一个表达式（详见 &lt;a class="reference external" href="http://www.python.org/dev/peps/pep-0342/"&gt;PEP 342 – Coroutines via Enhanced Generators&lt;/a&gt;，查阅 Generator 和 Coroutine，中文叫做“生成器”和“协程”），利用 &lt;tt class="docutils literal"&gt;yield&lt;/tt&gt; 可以把程序写的更简洁一些：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -8648,8 +8714,8 @@ Python 2.5 &lt;tt class="docutils literal"&gt;Lib\random.py&lt;/tt&gt;：&lt;/p&
 Princess&lt;/a&gt;）是我玩的唯一的一个塞尔达传说系列的游戏，之前都没太关注过这个系列。开始的时候一直以为塞尔达（公主）是主角呢，后来发现是林克跟黎明公主。不知道这里面的塞尔达有什么特别的作用，感觉就是弱弱的呢。&lt;/p&gt;
 &lt;p&gt;今天来介绍一下《&lt;a class="reference external" href="http://www.zelda.com/tp/"&gt;塞尔达传说：黎明公主&lt;/a&gt;》中的几位角色，有好的也有敌人。&lt;/p&gt;
 &lt;!-- more --&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;span id="link"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;主角：林克（Link）&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;span id="link"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;主角：林克（Link）&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;海拉尔大陆南端奥东村的年轻牧羊人，与村里的朋友们过着隐居的生活，并暗恋着村长的女儿伊莉娅，森林和自然赐予了他非凡的勇气和强健的体魄。作为女神所选择的勇士，林克肩负着拯救海拉尔世界的使命，平静的生活将在他进入法隆森林之时结束。&lt;/p&gt;
 &lt;p&gt;不过他为什么喜欢带“绿”帽子呢……话说我开始还以为塞尔达会是他的伴侣呢……&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -8657,8 +8723,8 @@ Princess&lt;/a&gt;）是我玩的唯一的一个塞尔达传说系列的游戏�
 &lt;p class="caption"&gt;《塞尔达传说：黎明公主》主角：林克（Link）&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;span id="zelda"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;塞尔达（Zelda）&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;span id="zelda"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;塞尔达（Zelda）&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;善良温和的光之世界领主，拥有世代相传的光明力量。赞特统领的暗之军队入侵后，为了自己的子民能够保留性命，她不得不牺牲自身的自由，臣服于暗之世界，并被赞特软禁在海拉尔城堡顶层。唯一能做的，便是默默地祈祷着拯救世界的英雄出现。&lt;/p&gt;
 &lt;p&gt;“善良温和”，弱弱的样子，呵呵。&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -8666,8 +8732,8 @@ Princess&lt;/a&gt;）是我玩的唯一的一个塞尔达传说系列的游戏�
 &lt;p class="caption"&gt;善良温和的光之世界领主：塞尔达（Zelda）&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;span id="midna"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;米德娜（Midna）&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;span id="midna"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;米德娜（Midna）&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;谜一般怪异的人物，似乎拥有非常强大的魔力。为了寻找自己丢失在暗影世界中的神秘之物，米德娜需要借助林克强大的能力，在光与暗的世界中与他结伴而行，在与林克和塞尔达公主的相处中，她渐渐的表露出了自己善良的本性，和自己真实的身份……&lt;/p&gt;
 &lt;p&gt;话说游戏里她的声音挺有趣的呢，如果她一直没有变回去该多好啊。&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -8677,7 +8743,7 @@ Princess&lt;/a&gt;）是我玩的唯一的一个塞尔达传说系列的游戏�
 &lt;!-- ilia: --&gt;
 &lt;/div&gt;
 &lt;div class="section" id="ilia"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;伊莉娅（Ilia）&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;伊莉娅（Ilia）&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;与林克青梅竹马的乡村少女，拥有如森林中泉水般清澈的心灵。深爱自然与和平的她被兽人掠走后不幸地丢失了记忆，却在海拉尔大陆深处的隐蔽村落发现了通往天空之城的线索。为了她和她失去的记忆，林克走出了村庄，探寻起世界。&lt;/p&gt;
 &lt;p&gt;没什么戏份啊，是不是让我们这位主角的女友太受冷落了啊。&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -8686,7 +8752,7 @@ Princess&lt;/a&gt;）是我玩的唯一的一个塞尔达传说系列的游戏�
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="ooccoo-ooccoo-jr"&gt;
-&lt;span id="ooccoo"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;欧库 &amp;amp; 小欧库（Ooccoo &amp;amp; Ooccoo Jr.）&lt;/a&gt;&lt;/h2&gt;
+&lt;span id="ooccoo"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;欧库 &amp;amp; 小欧库（Ooccoo &amp;amp; Ooccoo Jr.）&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;天空之城的居民，因为某种原因来到了海拉尔大陆。为了寻找回到天空城的道路，她和自己的孩子不断穿梭在大陆的迷宫中寻找线索，并用魔法帮助林克脱离险境。最后在林克、米德娜和暗影帝国反击队的共同协助下回到了自己的故乡。&lt;/p&gt;
 &lt;p&gt;真的是非常非常有用的哦！&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -8695,7 +8761,7 @@ Princess&lt;/a&gt;）是我玩的唯一的一个塞尔达传说系列的游戏�
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="gor-coron"&gt;
-&lt;span id="gorcoron"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;戈隆长老：戈·克隆（Gor Coron）&lt;/a&gt;&lt;/h2&gt;
+&lt;span id="gorcoron"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;戈隆长老：戈·克隆（Gor Coron）&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;戈隆族四大长老之一，拥有非同寻常的力量和智慧，领导着自己的子民看守着死亡之山上的矿藏圣地。虽然因为暗影力量的侵袭而与卡卡里科村的居民产生们了矛盾，但在林克解救了矿山内被操纵的伙伴后，重新与光之世界的居民建立起良好的关系。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="zelda_tp_GorCoron" src="https://blog.gocalf.com/images/2011/08/zelda_tp_GorCoron.jpg"/&gt;
@@ -8703,7 +8769,7 @@ Princess&lt;/a&gt;）是我玩的唯一的一个塞尔达传说系列的游戏�
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="king-orcs-bulblin"&gt;
-&lt;span id="kingorcsbulblin"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;兽王：布尔布林（King Orcs Bulblin）&lt;/a&gt;&lt;/h2&gt;
+&lt;span id="kingorcsbulblin"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;兽王：布尔布林（King Orcs Bulblin）&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;居住在大陆东方兽族部落的酋长，带领着自己强悍的军队统治着自己的领地。暗影军队入侵后，崇尚力量的他屈服在黎明之国的魔力下，成为魔王赞特的手下。绑架了奥东村的孩子们，并与林克数次作战。在最后的战斗中终于承认了林克的实力，并退出了光与暗的争斗。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="zelda_tp_KingOrcsBulblin" src="https://blog.gocalf.com/images/2011/08/zelda_tp_KingOrcsBulblin.jpg"/&gt;
@@ -8711,23 +8777,23 @@ Princess&lt;/a&gt;）是我玩的唯一的一个塞尔达传说系列的游戏�
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="shadow-being"&gt;
-&lt;span id="shadowbeing"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;暗影使者（Shadow Being）&lt;/a&gt;&lt;/h2&gt;
+&lt;span id="shadowbeing"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;暗影使者（Shadow Being）&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;来自黎明之国的黑暗使者，拥有打开黎明之国和光之国之间时空隧道的能力，在赞特的带领下前往光之国与塞尔达公主的部队战斗。由于拥有特殊的能力，林克击败他们后，在米德娜的帮助下可以方便的穿梭在海拉尔大陆的各个角落。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="zelda_tp_ShadowBeing" src="https://blog.gocalf.com/images/2011/08/zelda_tp_ShadowBeing.jpg"/&gt;
 &lt;p class="caption"&gt;暗影使者（Shadow Being）&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;span id="zant"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;赞特（Zant）&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;span id="zant"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;赞特（Zant）&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;本是黎明之国中普通的魔法师，渴望拥有强大力量和权利的野心侵蚀了自己的心，在偶然的机会中获得了魔王加农道夫的力量，并在他的操纵下篡夺了黎明公主的王位。觊觎光之世界的他破坏了光与暗的平衡，率领着强大的暗之军团横行世界。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="zelda_tp_Zant" src="https://blog.gocalf.com/images/2011/08/zelda_tp_Zant.jpg"/&gt;
 &lt;p class="caption"&gt;赞特（Zant）&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;span id="ganondorf"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;加农道夫（Ganondorf）&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;span id="ganondorf"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;加农道夫（Ganondorf）&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;曾经是女神选择的勇士，拥有终极的三角力量。由于残暴的本性而被女神诅咒，成为了横行于古代历史的恶贼。受伤后的他被光明力量和仲裁者们封印在了黎明之国。不曾想他利用赞特恢复了自己的元气，并重新渴望统治整个世界。&lt;/p&gt;
 &lt;p&gt;不知道林克将来会不会也变成这样呢？应该不会吧！&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -8736,7 +8802,7 @@ Princess&lt;/a&gt;）是我玩的唯一的一个塞尔达传说系列的游戏�
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="twilight-princess"&gt;
-&lt;span id="twilightprincess"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;黎明公主（Twilight Princess）&lt;/a&gt;&lt;/h2&gt;
+&lt;span id="twilightprincess"&gt;&lt;/span&gt;&lt;h2&gt;&lt;a class="toc-backref" href="#id19"&gt;黎明公主（Twilight Princess）&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;黎明世界的统治者，迷一般的角色，她的真实身份是……&lt;/p&gt;
 &lt;p&gt;或者应该说“她是……的真实身份”吧。&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -8762,7 +8828,7 @@ Update，用了两个多小时下载了升级包。昨天早晨爬起来之后�
 &lt;p&gt;再次开机，在 BootThink 引导的时候输入 -v 进入 verbose 模式，查看系统 hang 在什么地方。发现在显示了 [PCI
 configuration end] 之后就停住了，这似乎是 Snow Leopard 10.6.8 和 Lion
 10.7.1 都会遇到的问题呢，原来是 IOPCIFamily.kext 和 AppleACPIPlatform.kext 被更新了，解决办法简单粗暴，直接找个老版本（10.6.7）的替换回去就好了。不过我把它们放在 BootThink 的 Darwain\System\LibrarySL\Extensions\ 里面并不能解决问题，得要放到 Mac 分区去。如果有安装盘，可以用 BootThink 引导安装盘，在 Console 里面进行复制的操作，但我上次用来安装的硬盘分区早就格式化掉了，只好用 &lt;a class="reference external" href="http://bbs.pcbeta.com/forum-viewthread-tid-860881-highlight-macdriver.html"&gt;MacDrive（v8.0.5.31）&lt;/a&gt; 来操作。把那两个 kext 复制到 Mac 所在分区的 /System/Library/Extensions 里。&lt;/p&gt;
-&lt;p&gt;再次启动 Mac OS，刚才的问题没有了，这次遇到的是 Can't load kext
+&lt;p&gt;再次启动 Mac OS，刚才的问题没有了，这次遇到的是 Can’t load kext
 com.apple.driver.AudioIPCDriver, link
 fail。要删掉 BootThink 里的 VoodooHDA.kext。不过这样不就不能驱动声卡了吗？先不管它了。&lt;/p&gt;
 &lt;p&gt;接下来遇到的是 FakeSMC: key info not found MSDS, length
@@ -9439,8 +9505,8 @@ Library）之后，我才意识到模板类可以帮助我（话说我真的是�
 &lt;p&gt;还记得小学的时候看到过计算某年某月某日是星期几的方法，当时觉得好神奇啊，当时一直不明白为什么一个简简单单的式子或者一张表格就能够算出任何一天是星期几呢，这些方法伴随我度过了整个童年。&lt;/p&gt;
 &lt;p&gt;长大后就知道了它们的原理，因为星期是七天为一个周期，只要已知某一天是星期几，要算任何一天是星期几只要求出两个日子之间的天数就可以了。现在的编程语言几乎全都包含了获得星期的方法，程序员们再也不用为此发愁。但还是让我们回忆一下孩童时期的乐趣吧，或许以后可以用来逗孩子玩呢。&lt;/p&gt;
 &lt;!-- more --&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;公式法计算星期几&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;公式法计算星期几&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;这是我最早知道的计算某一天是星期几的方法，还曾经在同学的 Casio 可编程计算器上做了个简单的程序来自动计算，真是有趣的回忆。&lt;/p&gt;
 &lt;p&gt;设 Y 是公元年数（比如今年的话，Y 等于 2011），D 是从同年元旦到指定的这天未为止的天数（包含这一天，比如 1 月 1 号的话，D 就是 1），那么指定日期的星期数为：&lt;/p&gt;
 &lt;div class="math"&gt;
@@ -9462,8 +9528,8 @@ W &amp;amp; = &amp;amp; \left((2011-1)+\left\lfloor\frac{2011-1}{4}\right\rfloor
 &lt;/div&gt;
 &lt;p&gt;今天是周三，没错呢。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;表格法计算星期几&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;表格法计算星期几&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;上面的公式虽然简单明了，但对于小学时候的我却还是非常头疼的，四则运算不过关的人伤不起啊！下面这个表格法则没有任何计算了，我还特意添加了 JavaScript 使得它更容易使用。&lt;/p&gt;
 &lt;p&gt;使用方法非常简单，比如还是看今天是星期几，按照以下三步进行：&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
@@ -9472,16 +9538,16 @@ W &amp;amp; = &amp;amp; \left((2011-1)+\left\lfloor\frac{2011-1}{4}\right\rfloor
 &lt;li&gt;在日期区域里找到 10，在同一横行向左，同时由（第 2 步中找到的）F 所在竖行向下，与 10 所在横行相交于星期区域里的“三”。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;可见同样求出今天是星期三。&lt;/p&gt;
-&lt;p&gt;另外注意在月份区域中的 1' 和 2' 分别表示闰年的 1 月和 2 月。比如算 2000 年 1 月某天是星期几，就要在月份区域里选择 1'。&lt;/p&gt;
+&lt;p&gt;另外注意在月份区域中的 1’ 和 2’ 分别表示闰年的 1 月和 2 月。比如算 2000 年 1 月某天是星期几，就要在月份区域里选择 1’。&lt;/p&gt;
 &lt;p&gt;猛烈点击 &lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/calendar_week.htm"&gt;这里（calendar_week.html）&lt;/a&gt; 可以在新的页面中打开星期万年历表格。如果你的浏览器支持 IFRAME，可以在文章底部看到同样的表格。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;啰嗦两句&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;啰嗦两句&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;根据公式或者表格都可以算出公元 1 年 1 月 1 日是星期一，那天到底是不是星期一呢？我不知道，而且也没有实际的意义，因为这个历法是罗马教皇格里高利十三世在 1582 年 10 月 15 日启用的，而英国及其殖民地直到 1752 年 9 月 14 日才使用现在的历法，所以算这之前甚至公元前某日是星期几毫无意义。另外，1582 年 2 月 24 日教皇下令去除 1582 年 10 月 5 日至 14 日，1752 年英国国会下令去除 1752 年 9 月 3 日至 13 日，所以 1752 年 9 月 14 日是星期四，但 1752 年 9 月 2 日却是星期三而不是星期六。
 这也是为什么我在表格的百年数区域里从 15 开始写。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="iframe"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;附：放在 IFRAME 里面的星期万年历表格&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;附：放在 IFRAME 里面的星期万年历表格&lt;/a&gt;&lt;/h2&gt;
 &lt;iframe frameborder="0" height="1060" name="星期万年历" scrolling="yes" src="https://blog.gocalf.com/assets/2011/08/calendar_week.htm" title="Week Calendar" width="100%"&gt;&lt;/iframe&gt;&lt;/div&gt;
 </content><category term="Perpetual Calendar"></category></entry><entry><title>C++ 中的常量指针和指针常量</title><link href="https://blog.gocalf.com/cpp-const-and-pointer" rel="alternate"></link><published>2011-08-04T23:39:00+08:00</published><updated>2011-08-18T14:06:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-04:/cpp-const-and-pointer</id><summary type="html">&lt;p class="first last"&gt;仔细回忆一下 C++ 中的指针常量与常量指针的区别，记录于此。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;太久不用 C++ 了，竟然连最基本的东西都记不清楚了。今天干活的时候突然想要用指针常量，但突然就忘了指针常量跟常量指针的区别。花了一点儿时间仔细回想了一下几年前上课时老师讲的，总算又回忆起来了，赶紧记录下来备忘。&lt;/p&gt;
@@ -10011,7 +10077,7 @@ paper_24k&lt;/object&gt;
 E6400 有关的部分和遇到的一些问题为主吧，这款机器似乎是最难装 Mac 的机器之一。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;div class="section" id="dell-latitude-e6400"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;Dell Latitude E6400 硬件配置&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;Dell Latitude E6400 硬件配置&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;为 PC 装 Mac 系统最头疼的当然是硬件驱动了，所以在安装前要先搞清楚机器的硬件情况。&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Chip set&lt;ul&gt;
@@ -10034,8 +10100,8 @@ Controller [A-3] PCI&lt;/li&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;工具和准备工作&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;工具和准备工作&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;下载了 Mac OS X
 10.6 原版光盘镜像（尝试了很多其他处理好的镜像，全都无法正常安装，最后还是选择用原版），我用的是 snowleopard_10a432_userdvd.dmg（网上到处都能下载，我就不发链接了），6.13G。这么大就不刻盘了，用光盘装还慢呢。&lt;/p&gt;
 &lt;p&gt;用硬盘安装的话，一般要给磁盘上新建两个分区，一个放安装盘镜像，一个装 Mac。前者 6.3G 左右（不要格式化），后者视个人需要，一般至少 20G（NTFS 格式）。我用的 BootThink 引导似乎要求被引导的系统（包括安装镜像和已经装好的系统）在主分区上，但我的硬盘上没有那么多主分区可以用了（一块硬盘最多可以有四个主分区，我已经有了三个，分别是 Win
@@ -10043,8 +10109,8 @@ Controller [A-3] PCI&lt;/li&gt;
 7 系统分区，数据分区），因此就把最后一个主分区名额留给了 Mac 系统，而把安装盘镜像放到了移动硬盘上。同样注意放安装盘镜像的分区不要格式化。&lt;/p&gt;
 &lt;p&gt;接下来安装 HFS-Explorer（v0.21），运行，按 Ctrl+O（菜单 File-&amp;gt;Load file
 system from
-file...），选择下载的安装盘镜像，在弹出的对话框里选择 Apple_HFS 那项。加载之后点击菜单 Tool-&amp;gt;Create
-disk image...，将生成的文件（.dmg）保存在某个 NTFS 分区上即可。&lt;/p&gt;
+file…），选择下载的安装盘镜像，在弹出的对话框里选择 Apple_HFS 那项。加载之后点击菜单 Tool-&amp;gt;Create
+disk image…，将生成的文件（.dmg）保存在某个 NTFS 分区上即可。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="hfs_explorer_hfs" src="https://blog.gocalf.com/images/2011/07/hfs_explorer_hfs.png"/&gt;
 &lt;p class="caption"&gt;HFS-Explorer 选择 Partition&lt;/p&gt;
@@ -10080,8 +10146,8 @@ partition type to AF: Success”、“All done, have fun!”时就算成功了�
 7 装在 C 盘，但在安装过程中，它会在 C 盘前面保留一个 100MB 左右的 NTFS 分区（卷标一般就叫 System
 Reserved），而这个分区默认是不显示出来的（没有分配盘符）。如果把 BootThink 装在 C 盘，那有可能会无法进行引导。所以要把它装在那个保留分区里（幸好它体积不是很大）。在磁盘管理中找到那个保留分区，给它指定一个盘符（我习惯用 B），然后把 BootThink 装在这个分区中。（有人说把 C 盘标记为活动分区就可以启动 BootThink，但我没有成功。）安装之后在目标分区的根目录应该有一个文件夹 Darwin 和两个文件 btldr（系统文件）、btldr.mbr。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;准备驱动程序&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;准备驱动程序&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;网上那些破解过的 Mac 安装镜像里面通常都包含了各种驱动程序，在安装的时候选择需要的就可以了，但不知道为什么我这次怎么都装不成功，所以才用了原版的镜像。但原版镜像里没有 PC 的驱动程序，这就要借助 BootThink 了。用 BootThink 引导刚才制作的替换了 OSInstall 的硬盘安装分区，它就可以从 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;C:\Darwin\System\LibrarySL\Extensions\&lt;/span&gt;&lt;/tt&gt; （我的是 &lt;tt class="docutils literal"&gt;B:\&lt;/tt&gt;）里面加载放在那里的驱动程序和补丁（不同版本的 Mac
 OS 对应的目录也不太一样，这里就不多说了）。&lt;/p&gt;
 &lt;p&gt;驱动的选择至关重要啊，选择的不好，轻则某个硬件不工作，重则四国、五国、风火轮（在系统加载时出现用四国或者五国文字写的提示信息，或者风火轮图标一直转却无法进入系统）。这里列出我选择的驱动和补丁。&lt;/p&gt;
@@ -10151,8 +10217,8 @@ OS 对应的目录也不太一样，这里就不多说了）。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;安装&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;安装&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;动手安装之前还要注意几件事情。&lt;/p&gt;
 &lt;p&gt;首先是 Snow
 Lopard 需要 SATA 硬盘支持，所以要确认 BIOS 中 SATA 模式设定为 AHCI（默认可能是 IRRT）。&lt;/p&gt;
@@ -10217,7 +10283,7 @@ Flags，值为 &lt;tt class="docutils literal"&gt;arch=i386&lt;/tt&gt;。我的�
   &lt;span class="nt"&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;/plist&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;好了，重启电脑，进入 BootThink 引导，选择启动 Mac 安装盘分区。成功话可以看到苹果图标和风火轮，选择语言，然后就进入安装界面。这时候要对目标分区做格式化，点击菜单“实用工具 -&amp;gt; 磁盘工具...”，在对话框中选择之前格式化成 NTFS 的空白分区，将选择模式“Mac
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;好了，重启电脑，进入 BootThink 引导，选择启动 Mac 安装盘分区。成功话可以看到苹果图标和风火轮，选择语言，然后就进入安装界面。这时候要对目标分区做格式化，点击菜单“实用工具 -&amp;gt; 磁盘工具…”，在对话框中选择之前格式化成 NTFS 的空白分区，将选择模式“Mac
 OS 扩展（日志式）”，填写卷标，点击“抹掉”。成功之后关闭窗口，继续安装，接受软解许可协议，然后就是选择安装组件。有人建议不用选“打印机支持”，太占体积了。选好之后继续，选择刚才格式化好的目标分区，点击安装。&lt;/p&gt;
 &lt;p&gt;如果是用硬盘安装的话，不用等太久就装好了。装好之后会自动重启，不过由于安装过程中，Windows 系统盘的活动分区属性被取消了，如果直接重启将无法进入 Windows，可以利用重启前的一点时间处理一下。点击菜单“实用工具 -&amp;gt; 终端”，用 diskutil 命令来设置活动分区。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# diskutil list
@@ -10413,7 +10479,7 @@ E &amp;lt;= W = 2 * O &amp;lt;= 9，得到 2 &amp;lt;= O &amp;lt;=
 &lt;/ol&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;根据 &lt;a class="reference external" href="http://wordpress.org/extend/plugins/latex/"&gt;LaTeX for WordPress&lt;/a&gt; 主页上的说明，如果不想对公式进行渲染，只显示公式的源码，需要在第二个 &lt;tt class="docutils literal"&gt;$$&lt;/tt&gt; 前面加 &lt;tt class="docutils literal"&gt;!&lt;/tt&gt;。但在实际使用中发现开启了 MathJax 的时候无法实现这一效果。仔细看了一下 MathJax 的文档，原来虽然插件把 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$$a^2+b^2+c^2!$$&lt;/span&gt;&lt;/tt&gt; 这样的代码转换成了 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;\(a^2+b^2+c^2!\)&lt;/span&gt;&lt;/tt&gt;，但后者又被 MathJax 的 JavaScript 给渲染成 &lt;span class="math"&gt;\(a^2+b^2+c^2\)&lt;/span&gt; 了。而要解决这个问题也很简单，只要给页面的 &lt;tt class="docutils literal"&gt;body&lt;/tt&gt; 标签添加一个 &lt;tt class="docutils literal"&gt;tex2jax_ignore&lt;/tt&gt; 的 class，就可以阻止 MathJax 的处理（参见 &lt;a class="reference external" href="http://www.mathjax.org/docs/1.1/options/tex2jax.html"&gt;The tex2jax Preprocessor&lt;/a&gt;）。&lt;/p&gt;
-&lt;p&gt;以我现在使用的 LightWord 主题为例，修改 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;wp-content/themes/lightword/header.php&lt;/span&gt;&lt;/tt&gt;，把 &lt;code class="php"&gt;&lt;span class="x"&gt;&amp;lt;body &lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;?php&lt;/span&gt; &lt;span class="nx"&gt;body_class&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="cp"&gt;?&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt; 改成 &lt;code class="php"&gt;&lt;span class="x"&gt;&amp;lt;body &lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;?php&lt;/span&gt; &lt;span class="nx"&gt;body_class&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'tex2jax_ignore'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="cp"&gt;?&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt; 即可。&lt;/p&gt;
+&lt;p&gt;以我现在使用的 LightWord 主题为例，修改 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;wp-content/themes/lightword/header.php&lt;/span&gt;&lt;/tt&gt;，把 &lt;code class="php"&gt;&lt;span class="x"&gt;&amp;lt;body &lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;?php&lt;/span&gt; &lt;span class="nx"&gt;body_class&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="cp"&gt;?&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt; 改成 &lt;code class="php"&gt;&lt;span class="x"&gt;&amp;lt;body &lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;?php&lt;/span&gt; &lt;span class="nx"&gt;body_class&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;‘tex2jax_ignore’&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="cp"&gt;?&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt; 即可。&lt;/p&gt;
 &lt;p&gt;至于公式的修饰符，插件支持 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;\(...\)&lt;/span&gt;&lt;/tt&gt;、&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;\[...\]&lt;/span&gt;&lt;/tt&gt;、&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$$...$$&lt;/span&gt;&lt;/tt&gt;、&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;[latex]...[/latex]&lt;/span&gt;&lt;/tt&gt;、&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;[tex]...[/tex]&lt;/span&gt;&lt;/tt&gt;，但我还是担心这样的代码在一些程序源代码中也很容易出现（比如正则表达式），所以还是决定只用 latex 作为标记。这个修改很简单，只要对 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;/wp-content/plugins/latex/latex.php&lt;/span&gt;&lt;/tt&gt; （v3.1）做如下改动即可：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;108c108,109
 &amp;lt; $regex = &amp;#39;#\$\$(.*?)\$\$#si&amp;#39;;
@@ -10638,8 +10704,8 @@ Code 这样的，平行宇宙论。一个人回到过去，其实是回到了一
 &lt;p&gt;by&amp;nbsp;&lt;a class="reference external" href="http://blogs.discovermagazine.com/cosmicvariance/author/scarroll/"&gt;Sean&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Jim Kakalios of the University of Minnesota has achieved internet
 demi-fame — he has&amp;nbsp;&lt;a class="reference external" href="http://www.youtube.com/watch?v=zmj1rpzDRZ0"&gt;a YouTube video&lt;/a&gt; with over a million and a half
-views. It's on the science of&amp;nbsp;&lt;em&gt;Watchmen&lt;/em&gt;, the movie based on Alan
-Moore's graphic novel. Jim got that sweet gig because he wrote a great
+views. It’s on the science of&amp;nbsp;&lt;em&gt;Watchmen&lt;/em&gt;, the movie based on Alan
+Moore’s graphic novel. Jim got that sweet gig because he wrote a great
 book called&amp;nbsp;&lt;a class="reference external" href="http://www.amazon.com/Physics-Superheroes-Spectacular-Second/dp/1592405088/"&gt;&lt;em&gt;The Science of Superheroes&lt;/em&gt;&lt;/a&gt; — what better credentials
 could you ask for?&lt;/p&gt;
 &lt;p&gt;More recently Jim has written another book,
@@ -10655,24 +10721,24 @@ enough to share his thoughts with us in this guest post.&lt;/p&gt;
 concerning the ending of the newly released film SOURCE CODE, that
 suggests that the film concludes with a paradox. I believe that any such
 paradox can be resolved – with Physics!&lt;/p&gt;
-&lt;p&gt;This entire post is one big honkin' SPOILER, so if you want to read
+&lt;p&gt;This entire post is one big honkin’ SPOILER, so if you want to read
 about the final twist ending of a film without having seen said film –
 by all means, read on, MacDuff!&lt;/p&gt;
 &lt;p&gt;In SOURCE CODE, Jake Gyllenhaal plays US helicopter pilot Colter
-Stevens, whose consciousness is inserted into another man's body (Sean
+Stevens, whose consciousness is inserted into another man’s body (Sean
 Fentress, a school teacher in Chicago) through a procedure that requires
 a miracle exception from the laws of nature (involving quantum mechanics
-and &amp;quot;parabolic calculus&amp;quot; – by the way, there is no such thing as
+and “parabolic calculus” – by the way, there is no such thing as
 parabolic calculus). Thanks to some technobabble (or as Q-Bert on
-Futurama would describe it – weapons grade bolognium) Colter's mind can
-only enter Sean's body in the last eight minutes of Sean's life. As Sean
+Futurama would describe it – weapons grade bolognium) Colter’s mind can
+only enter Sean’s body in the last eight minutes of Sean’s life. As Sean
 is sitting on a city bound Chicago commuter train, on which a bomb will
 explode at 7:58 AM, killing everyone aboard, the goal is for Colter to
 ascertain who planted the bomb. He cannot stop it from exploding, he is
 told, because that has already happened. He cannot affect the past, but
 he can bring information obtained in the past back to his present time.
 Learning the identity of the bomber would enable the authorities to
-prevent the detonation of a threatened second &amp;quot;dirty atomic&amp;quot; bomb is
+prevent the detonation of a threatened second “dirty atomic” bomb is
 downtown Chicago.&lt;/p&gt;
 &lt;p&gt;While the above can be discerned from the movie trailer, what I am going
 to discuss next involves the actual ending of the film, and if you do
@@ -10689,7 +10755,7 @@ designed the Source Code project, the terrorist is caught before he can
 set off the second bomb, but after, of course, the first bomb on the
 Chicago train explodes.&lt;/p&gt;
 &lt;p&gt;It is left somewhat vague as to whether Colter is going to parallel
-realities, a la the Many World's interpretation of Quantum Mechanics, or
+realities, a la the Many World’s interpretation of Quantum Mechanics, or
 whether he is engaging in a quantum/ neurological simulation. If the
 former (which seems to be borne out by the ending) then this would tie
 into notions of time travel being explored in the context of quantum
@@ -10698,7 +10764,7 @@ fear any Grandfather paradox (what if you killed your ancestor –
 preventing your birth, but then you would not be able to travel back in
 time to ice Grandpa). Some physicists argue that time travel is only
 possible via parallel realities. You do not go back in time in your own
-reality, but to an alternate Earth's past. You can thus kill as many
+reality, but to an alternate Earth’s past. You can thus kill as many
 grandparents as you have bullets, remaining safe in your own timeline.
 In any event it is assumed that the bomber is the same person every time
 Colter enters the Source Code.&lt;/p&gt;
@@ -10712,10 +10778,10 @@ manages to stop the first bomb from exploding on the train, hands the
 bomber to the authorities, and kisses his love interest just as the
 eight minute mark is reached. We see Goodwin make good on her promise
 and end his life support at that moment, at which point she is arrested
-my the military police for acting against Rutlidge's instructions.&lt;/p&gt;
+my the military police for acting against Rutlidge’s instructions.&lt;/p&gt;
 &lt;p&gt;On the train however, Sean/Colter is still alive after the kiss. The
-film implies that he goes on to live happily ever after in Sean's body,
-with Colter's mind, while Colter's deformed body remains at the Nellis
+film implies that he goes on to live happily ever after in Sean’s body,
+with Colter’s mind, while Colter’s deformed body remains at the Nellis
 laboratory on life support. As the bomb never went off on the Chicago
 train – there was no reason to activate Coulter and send him into the
 Source Code, and the project awaits its first true trial by fire. Thus
@@ -10724,23 +10790,23 @@ where Goodwin is arrested after pulling the plug on Colter following the
 successful application of the Source Code, and the other where
 Sean/Colter is still alive, where the Source Code project has not been
 activated.&lt;/p&gt;
-&lt;p&gt;Among the many discussions I've noted on the web about the ending of
+&lt;p&gt;Among the many discussions I’ve noted on the web about the ending of
 this film, I wish to address two particular issues that are being
-debated by the Hive Mind. In the film's final reality, where the bomb
-does not explode on the train – does Colter's consciousness reside in
-two places at once? And, what happens to Sean Fentriss' consciousness in
+debated by the Hive Mind. In the film’s final reality, where the bomb
+does not explode on the train – does Colter’s consciousness reside in
+two places at once? And, what happens to Sean Fentriss’ consciousness in
 this final reality?&lt;/p&gt;
 &lt;p&gt;Reasonable people may reach different conclusions concerning these two
 points. As I am a physics professor – I will tell you the RIGHT answers!&lt;/p&gt;
 &lt;p&gt;(1) In the final reality – Colter is NOT consciousness in two places at
-once. He is awake and aware in Sean's body and at the same time his
+once. He is awake and aware in Sean’s body and at the same time his
 damaged body is in the Nellis lab – IN A NON-CONSCIOUS STATE. He is not
 awake and aware in the lab at Nellis, he can not initiate motion or form
 an independent coherent thought. He is in essence brain dead, kept
 artificially alive until there is a time and need for him to be
 activated (if there is a terrorist attack).&lt;/p&gt;
 &lt;p&gt;Even if he is activated – this would NOT influence or affect Colter in
-Sean's body, as it would take place in Sean/Colter's FUTURE. Remember he
+Sean’s body, as it would take place in Sean/Colter’s FUTURE. Remember he
 was sent back to Chicago at 7:50 AM – the bomb exploded at 7:58. Time
 progresses forward for both Sean/Colter and Nellis/Colter at the same
 rate. This was why Goodwin and Rutlidge were upset about how many trials
@@ -10751,30 +10817,30 @@ doing and thinking several hours from now. Do you know what you will be
 thinking about several hours from now (ok – for the guys this is an easy
 one). Nellis/Colter may not be activated for weeks/months/years later.
 But even if he is – Sean/Coulter can live his life, unaffected by what
-is happening in his future. There is no paradox, for Colter in Sean's
+is happening in his future. There is no paradox, for Colter in Sean’s
 body is only awake and conscious at one point in time. Colter is NOT
-like Schrodinger's cat, in two different conscious states
+like Schrodinger’s cat, in two different conscious states
 simultaneously, as they are separated in time.&lt;/p&gt;
-&lt;p&gt;(2) What happened to Sean's consciousness? Here there is a potential
-problem. Basically I believe Sean is dead. When Colter's mind jumps into
-his body, it over-writes Sean's consciousness. Rutlidge probably knows
+&lt;p&gt;(2) What happened to Sean’s consciousness? Here there is a potential
+problem. Basically I believe Sean is dead. When Colter’s mind jumps into
+his body, it over-writes Sean’s consciousness. Rutlidge probably knows
 this, and ignores the ethical issues. Sean will be dead when the bomb
 explodes after all, and Rutlidge believes that cannot be changed. By
-sending Colter into Sean's body, he robs Sean of the last eight minutes
+sending Colter into Sean’s body, he robs Sean of the last eight minutes
 of his life. As Sean is unaware that a bomb will explode, killing him
 and everyone on board, he would not do anything extraordinary in those
 eight minutes. Rutlidge probably believes that it is acceptable to
-sacrifice the last eight minutes of one man's life in order to save
+sacrifice the last eight minutes of one man’s life in order to save
 millions of lives if they can prevent the second bomb blast in downtown
 Chicago. Every time Coulter enters the Source Code at 7:50 AM, he
 essentially kills Sean. Sean will die in every reality where Colter does
 not enter the code, and he will also die in all N – 1 realities where he
 does – so this is an ethical problem of order 1/N where N goes to
 infinity.&lt;/p&gt;
-&lt;p&gt;Alternatively, Sean may be alive in Colter's damaged body – but there
-was no suggestion that something like that was happening. Here I'm
+&lt;p&gt;Alternatively, Sean may be alive in Colter’s damaged body – but there
+was no suggestion that something like that was happening. Here I’m
 taking the Quantum Leap analogy too literally. (There is a wonderful tip
-of the hat to Quantum Leap – listen carefully to Coulter's Dad).&lt;/p&gt;
+of the hat to Quantum Leap – listen carefully to Coulter’s Dad).&lt;/p&gt;
 &lt;p&gt;Sorry this is so long. Never ask a professor a simple question – you
 always get a lecture in reply!&lt;/p&gt;
 &lt;/div&gt;
