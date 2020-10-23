@@ -15,6 +15,10 @@ SITEURL = 'https://blog.gocalf.com'
 
 STATIC_PATHS.append('CNAME')
 
+# Not include draft posts when publish.
+DRAFT_SAVE_AS = ''
+DRAFT_LANG_SAVE_AS = ''
+
 FEED_DOMAIN = SITEURL
 FEED_ATOM = 'feeds/atom.xml'
 FEED_ALL_ATOM = "feeds/all.atom.xml"
