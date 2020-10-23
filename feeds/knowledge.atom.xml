@@ -107,9 +107,9 @@ $ cat private-diary.txt
 &lt;/ul&gt;
 &lt;p&gt;当然也有反对的声音，所以建议大家先多了解了解再决定要不要使用这个方法。&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://article.gmane.org/gmane.comp.version-control.git/113221"&gt;Don’t do this&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://article.gmane.org/gmane.comp.version-control.git/113221"&gt;Don't do this&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content><category term="Git"></category><category term="Encrypt"></category></entry><entry><title>在 Excel 中制作不等宽柱状图</title><link href="https://blog.gocalf.com/excel-variable-width-column-chart" rel="alternate"></link><published>2013-12-13T14:35:00+08:00</published><updated>2019-09-30T16:00:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-12-13:/excel-variable-width-column-chart</id><summary type="html">&lt;p class="first last"&gt;介绍一下我是怎么在 Microsoft Office Excel 中制作不等宽柱状图（Variable Width Column Chart）的。&lt;/p&gt;
+</content><category term="有用知识"></category><category term="Git"></category><category term="Encrypt"></category></entry><entry><title>在 Excel 中制作不等宽柱状图</title><link href="https://blog.gocalf.com/excel-variable-width-column-chart" rel="alternate"></link><published>2013-12-13T14:35:00+08:00</published><updated>2019-09-30T16:00:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-12-13:/excel-variable-width-column-chart</id><summary type="html">&lt;p class="first last"&gt;介绍一下我是怎么在 Microsoft Office Excel 中制作不等宽柱状图（Variable Width Column Chart）的。&lt;/p&gt;
 </summary><content type="html">
 &lt;p&gt;柱状图大家应该都很熟悉，在 Excel 中可以很容易创建一个柱状图，每个柱子的高度表达了某个对象的数值大小。但有的时候，需要在柱状图中同时表达两个维度的数据，除了高度之外，希望柱子的宽度也能表达该对象的另外一个数值大小，以便直观地比较这两个维度。我曾经就需要做一个这样的图，不过在 Excel 中并没有直接提供相关的功能，需要一些小技巧。&lt;/p&gt;
 &lt;p&gt;今天就来介绍一下我是怎么制作不等宽柱状图（Variable Width Column Chart）的。也有人称其为 Marimekko
@@ -413,7 +413,7 @@ $(function () {
 &lt;p class="last"&gt;Highcharts 从 6.0.0 版本开始也加入了 varwide 类型，详见 &lt;a class="reference external" href="https://www.highcharts.com/demo/variwide"&gt;varwide demo&lt;/a&gt;。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="Excel"></category></entry><entry><title>Excel 从右向左查找</title><link href="https://blog.gocalf.com/excel-find-from-right" rel="alternate"></link><published>2013-04-03T18:09:00+08:00</published><updated>2013-04-03T18:09:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-04-03:/excel-find-from-right</id><summary type="html">&lt;p class="first last"&gt;今天看一个小问题，是前几天遇到的，就是要在 Excel 里面实现从右向左查找。比如给定字符串“abc,defg,hi,jkl”，需要找到最右一个逗号的位置（即 12），或者最右一个逗号右边的部分（即“jkl”）。&lt;/p&gt;
+</content><category term="有用知识"></category><category term="Excel"></category></entry><entry><title>Excel 从右向左查找</title><link href="https://blog.gocalf.com/excel-find-from-right" rel="alternate"></link><published>2013-04-03T18:09:00+08:00</published><updated>2013-04-03T18:09:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2013-04-03:/excel-find-from-right</id><summary type="html">&lt;p class="first last"&gt;今天看一个小问题，是前几天遇到的，就是要在 Excel 里面实现从右向左查找。比如给定字符串“abc,defg,hi,jkl”，需要找到最右一个逗号的位置（即 12），或者最右一个逗号右边的部分（即“jkl”）。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;发现我已经有几乎整整一年没更新博客了。在 Google
 Reader 都快要关闭的时代，个人博客还有多少存在的意义呢。&lt;/p&gt;
 &lt;p&gt;今天看一个小问题，是前几天遇到的，就是要在 Excel 里面实现从右向左查找。比如给定字符串“abc,defg,hi,jkl”，需要找到最右一个逗号的位置（即 12），或者最右一个逗号右边的部分（即“jkl”）。&lt;/p&gt;
@@ -439,7 +439,7 @@ Reader 都快要关闭的时代，个人博客还有多少存在的意义呢。&
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;唯一的变化就是上述的第 2 步，原字符串的长度减去 text1 的长度后，要除以分隔符本身的长度，才是分隔符的个数。&lt;/p&gt;
 &lt;p&gt;在这种情况下，取（最右分隔符）右边的子串的公式也要相应地修改为：&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;=RIGHT(A1,LEN(A1)+1-LEN(B1)-pos)&lt;/span&gt;&lt;/tt&gt;。&lt;/p&gt;
-</content><category term="Excel"></category></entry><entry><title>星期万年历</title><link href="https://blog.gocalf.com/calendar-of-week" rel="alternate"></link><published>2011-08-10T22:25:00+08:00</published><updated>2011-08-10T22:25:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-10:/calendar-of-week</id><summary type="html">&lt;p class="first last"&gt;小学的时候看到过计算某年某月某日是星期几的方法，当时觉得好神奇啊，当时一直不明白为什么一个简简单单的式子或者一张表格就能够算出任何一天是星期几呢。让我们回忆一下孩童时期的乐趣吧，或许以后可以用来逗孩子玩呢。&lt;/p&gt;
+</content><category term="有用知识"></category><category term="Excel"></category></entry><entry><title>星期万年历</title><link href="https://blog.gocalf.com/calendar-of-week" rel="alternate"></link><published>2011-08-10T22:25:00+08:00</published><updated>2011-08-10T22:25:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-10:/calendar-of-week</id><summary type="html">&lt;p class="first last"&gt;小学的时候看到过计算某年某月某日是星期几的方法，当时觉得好神奇啊，当时一直不明白为什么一个简简单单的式子或者一张表格就能够算出任何一天是星期几呢。让我们回忆一下孩童时期的乐趣吧，或许以后可以用来逗孩子玩呢。&lt;/p&gt;
 </summary><content type="html">
 &lt;p&gt;还记得小学的时候看到过计算某年某月某日是星期几的方法，当时觉得好神奇啊，当时一直不明白为什么一个简简单单的式子或者一张表格就能够算出任何一天是星期几呢，这些方法伴随我度过了整个童年。&lt;/p&gt;
 &lt;p&gt;长大后就知道了它们的原理，因为星期是七天为一个周期，只要已知某一天是星期几，要算任何一天是星期几只要求出两个日子之间的天数就可以了。现在的编程语言几乎全都包含了获得星期的方法，程序员们再也不用为此发愁。但还是让我们回忆一下孩童时期的乐趣吧，或许以后可以用来逗孩子玩呢。&lt;/p&gt;
@@ -477,7 +477,7 @@ W &amp;amp; = &amp;amp; \left((2011-1)+\left\lfloor\frac{2011-1}{4}\right\rfloor
 &lt;li&gt;在日期区域里找到 10，在同一横行向左，同时由（第 2 步中找到的）F 所在竖行向下，与 10 所在横行相交于星期区域里的“三”。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;可见同样求出今天是星期三。&lt;/p&gt;
-&lt;p&gt;另外注意在月份区域中的 1’ 和 2’ 分别表示闰年的 1 月和 2 月。比如算 2000 年 1 月某天是星期几，就要在月份区域里选择 1’。&lt;/p&gt;
+&lt;p&gt;另外注意在月份区域中的 1' 和 2' 分别表示闰年的 1 月和 2 月。比如算 2000 年 1 月某天是星期几，就要在月份区域里选择 1'。&lt;/p&gt;
 &lt;p&gt;猛烈点击 &lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/08/calendar_week.htm"&gt;这里（calendar_week.html）&lt;/a&gt; 可以在新的页面中打开星期万年历表格。如果你的浏览器支持 IFRAME，可以在文章底部看到同样的表格。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id4"&gt;
@@ -488,7 +488,7 @@ W &amp;amp; = &amp;amp; \left((2011-1)+\left\lfloor\frac{2011-1}{4}\right\rfloor
 &lt;div class="section" id="iframe"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;附：放在 IFRAME 里面的星期万年历表格&lt;/a&gt;&lt;/h2&gt;
 &lt;iframe frameborder="0" height="1060" name="星期万年历" scrolling="yes" src="https://blog.gocalf.com/assets/2011/08/calendar_week.htm" title="Week Calendar" width="100%"&gt;&lt;/iframe&gt;&lt;/div&gt;
-</content><category term="Perpetual Calendar"></category></entry><entry><title>纸张的尺寸</title><link href="https://blog.gocalf.com/about-paper-size" rel="alternate"></link><published>2011-07-27T22:11:00+08:00</published><updated>2013-10-30T16:48:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-27:/about-paper-size</id><summary type="html">&lt;p class="first last"&gt;小时候常说的 16 开、32 开的纸是多大？现在打印复印用的 A3、A4、B5 纸又分别是多大？看到书架里高矮宽窄各不同的书本，赶紧上网查了一番，总结于此。&lt;/p&gt;
+</content><category term="有用知识"></category><category term="Perpetual Calendar"></category></entry><entry><title>纸张的尺寸</title><link href="https://blog.gocalf.com/about-paper-size" rel="alternate"></link><published>2011-07-27T22:11:00+08:00</published><updated>2013-10-30T16:48:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-27:/about-paper-size</id><summary type="html">&lt;p class="first last"&gt;小时候常说的 16 开、32 开的纸是多大？现在打印复印用的 A3、A4、B5 纸又分别是多大？看到书架里高矮宽窄各不同的书本，赶紧上网查了一番，总结于此。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;记得小时候买书本，都会提到多少多少开，成语词典好像是 64 开，小学课本是 32 开，到高中教材改革，课本变成了 16 开。随着打印机、复印机的广泛应用，现在似乎很少说多少开了，张口就是 A4 纸，A3 纸，还有 B5、C5 之类的。它们的尺寸分别是多少？大小关系呢？&lt;/p&gt;
 &lt;p&gt;看到书架里高矮宽窄各不同的书本，赶紧上网查了一番，总结于此。&lt;/p&gt;
 &lt;!-- more --&gt;
@@ -621,8 +621,8 @@ paper_24k&lt;/object&gt;
 6
 7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;Kai&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
   &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;
-  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;xrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;x&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;
+  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;xrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;x&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;
     &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
 
 &lt;span class="n"&gt;Kai&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;841&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1189&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -701,4 +701,4 @@ paper_24k&lt;/object&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</content><category term="Paper Size"></category></entry></feed>
+</content><category term="有用知识"></category><category term="Paper Size"></category></entry></feed>

@@ -112,7 +112,7 @@ Update，用了两个多小时下载了升级包。昨天早晨爬起来之后�
 <p>再次开机，在 BootThink 引导的时候输入 -v 进入 verbose 模式，查看系统 hang 在什么地方。发现在显示了 [PCI
 configuration end] 之后就停住了，这似乎是 Snow Leopard 10.6.8 和 Lion
 10.7.1 都会遇到的问题呢，原来是 IOPCIFamily.kext 和 AppleACPIPlatform.kext 被更新了，解决办法简单粗暴，直接找个老版本（10.6.7）的替换回去就好了。不过我把它们放在 BootThink 的 Darwain\System\LibrarySL\Extensions\ 里面并不能解决问题，得要放到 Mac 分区去。如果有安装盘，可以用 BootThink 引导安装盘，在 Console 里面进行复制的操作，但我上次用来安装的硬盘分区早就格式化掉了，只好用 <a class="reference external" href="http://bbs.pcbeta.com/forum-viewthread-tid-860881-highlight-macdriver.html">MacDrive（v8.0.5.31）</a> 来操作。把那两个 kext 复制到 Mac 所在分区的 /System/Library/Extensions 里。</p>
-<p>再次启动 Mac OS，刚才的问题没有了，这次遇到的是 Can’t load kext
+<p>再次启动 Mac OS，刚才的问题没有了，这次遇到的是 Can't load kext
 com.apple.driver.AudioIPCDriver, link
 fail。要删掉 BootThink 里的 VoodooHDA.kext。不过这样不就不能驱动声卡了吗？先不管它了。</p>
 <p>接下来遇到的是 FakeSMC: key info not found MSDS, length

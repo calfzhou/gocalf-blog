@@ -104,7 +104,7 @@
         <nav>
         <h4>Contents</h4>
         <div class="toc" id="">
-
+<p class="topic-title">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#pk" id="id19">超级无敌大 PK</a></li>
 <li><a class="reference internal" href="#xlsxwriter" id="id20">XlsxWriter</a><ul>
@@ -390,7 +390,7 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 <p>我一般都会让程序控制的 Excel 进程在调试过程中可见，正式使用时不可见，通过类似这样的命令（假设你有一个叫做 <tt class="docutils literal">is_debug</tt> 的变量记录当前是否在调试状态）：</p>
 <div class="highlight"><pre><span></span><span class="n">excel</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">DispatchEx</span><span class="p">(</span><span class="s1">'Excel.Application'</span><span class="p">)</span>
 <span class="hll"><span class="k">if</span> <span class="n">is_debug</span><span class="p">:</span>
-</span><span class="hll">    <span class="n">excel</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="bp">True</span>
+</span><span class="hll">    <span class="n">excel</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="kc">True</span>
 </span></pre></div>
 </div>
 <div class="section" id="id11">
@@ -398,7 +398,7 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 <p>打开和保存文件的细节不在这里多说了，可以查看 MSDN 中相关的 API 介绍，非常详细。这里只说一下在另存为时，如果目标文件已经存在怎么办。Excel 的 API 另存为方法似乎并没有提供参数决定是否直接覆盖同名的目标文件，在窗口操作中，这种情况会弹出一个确认框来让用户决定。我们的程序当然不想这么做，实际上如果你按照上面所说的让窗口不可见，你也就看不到弹出的窗口。</p>
 <p>可以把 DisplayAlert 属性关闭，这样 Excel 就不会弹出确认窗，而是直接覆盖同名文件。</p>
 <div class="highlight"><pre><span></span><span class="n">orig_display_alerts</span> <span class="o">=</span> <span class="n">excel</span><span class="o">.</span><span class="n">DisplayAlerts</span>
-<span class="hll"><span class="n">excel</span><span class="o">.</span><span class="n">DisplayAlerts</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="hll"><span class="n">excel</span><span class="o">.</span><span class="n">DisplayAlerts</span> <span class="o">=</span> <span class="kc">False</span>
 </span><span class="k">try</span><span class="p">:</span>
     <span class="n">book</span><span class="o">.</span><span class="n">SaveAs</span><span class="p">(</span><span class="n">save_as_file_path</span><span class="p">)</span>
 <span class="k">finally</span><span class="p">:</span>
@@ -467,8 +467,8 @@ Excel 自身提供的。语言相关的部分只是负责跟 Windows 的 COM 组
 5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">win32com</span>
 <span class="kn">from</span> <span class="nn">win32com.client</span> <span class="kn">import</span> <span class="n">constants</span>
 <span class="n">excel</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gencache</span><span class="o">.</span><span class="n">EnsureDispatch</span><span class="p">(</span><span class="s1">'Excel.Application'</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">constants</span><span class="o">.</span><span class="n">xlOpenXMLWorkbook</span>  <span class="c1"># will be 51</span>
-<span class="k">print</span> <span class="n">constants</span><span class="o">.</span><span class="n">xlCenter</span>  <span class="c1"># will be -4108</span>
+<span class="nb">print</span> <span class="n">constants</span><span class="o">.</span><span class="n">xlOpenXMLWorkbook</span>  <span class="c1"># will be 51</span>
+<span class="nb">print</span> <span class="n">constants</span><span class="o">.</span><span class="n">xlCenter</span>  <span class="c1"># will be -4108</span>
 </pre></div>
 </td></tr></table></div>
 </div>

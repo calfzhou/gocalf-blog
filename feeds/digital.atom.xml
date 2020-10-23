@@ -51,7 +51,7 @@ Ethernet 驱动，&lt;a class="reference external" href="http://b.billgong.com/w
 4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;hashlib&lt;/span&gt;
 &lt;span class="n"&gt;serial_number&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'USE YOUR OWN SERIAL NUMBER'&lt;/span&gt;
 &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'fiona&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;hashlib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;serial_number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hexdigest&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 &lt;div class="section" id="id1"&gt;
@@ -69,7 +69,7 @@ rm /var/local/system/.framework_retries
 &lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;5. 完成&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;这些都弄完了，长按电源键重启 Kindle，终于恢复了。&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Kindle"></category></entry><entry><title>iPad 2 iOS 4.3.3 可以越狱了</title><link href="https://blog.gocalf.com/ipad2-433-jailbreak" rel="alternate"></link><published>2011-07-07T14:32:00+08:00</published><updated>2011-08-03T20:41:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-07:/ipad2-433-jailbreak</id><summary type="html">&lt;p class="first last"&gt;iOS 4.3.3 可以越狱了。&lt;/p&gt;
+</content><category term="数码电子"></category><category term="Kindle"></category></entry><entry><title>iPad 2 iOS 4.3.3 可以越狱了</title><link href="https://blog.gocalf.com/ipad2-433-jailbreak" rel="alternate"></link><published>2011-07-07T14:32:00+08:00</published><updated>2011-08-03T20:41:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-07:/ipad2-433-jailbreak</id><summary type="html">&lt;p class="first last"&gt;iOS 4.3.3 可以越狱了。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;原以为 iPad
 2 的越狱会遥遥无期，没想到突然就传出已经可以越狱的消息，大神 Comex 又一次找到了 PDF 漏洞，跟去年的 iPhone4 越狱一样，无需连接电脑只要有 WiFi 就可以。&lt;/p&gt;
 &lt;p&gt;不过现在还只有 iOS 4.3.3 可以越狱，低版本没有这个漏洞。低版本的就备份一下 shsh 之后赶紧升级吧。&lt;/p&gt;
@@ -107,4 +107,4 @@ Mismatch。我还是推荐从 hackluo.us 源安装。&lt;/p&gt;
 &lt;li&gt;&lt;p class="first"&gt;最后还是要罗嗦一句，提倡正版。大多数 apps 都不贵，如果觉得好就买一个吧。越狱是为了把 iPad 玩的更好，而不仅仅是为了装盗版软件。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-</content><category term="iOS JailBreak"></category></entry></feed>
+</content><category term="数码电子"></category><category term="iOS JailBreak"></category></entry></feed>

@@ -276,7 +276,7 @@ Library）之后，我才意识到模板类可以帮助我（话说我真的是�
 <span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;boost/thread.hpp&gt;</span><span class="cp"></span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span>
 <span class="k">class</span> <span class="nc">ISingleton</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -308,7 +308,7 @@ Library）之后，我才意识到模板类可以帮助我（话说我真的是�
     <span class="n">ISingleton</span><span class="o">&amp;</span> <span class="k">operator</span> <span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">ISingleton</span><span class="o">&amp;</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">auto_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">ISingleton</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">s_instance</span><span class="p">;</span>
 
 <span class="cp">#endif</span>

@@ -104,7 +104,7 @@
         <nav>
         <h4>Contents</h4>
         <div class="toc" id="">
-
+<p class="topic-title">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#m-1" id="id5">m=1 证明</a></li>
 <li><a class="reference internal" href="#id2" id="id6">m&gt;=1 证明</a></li>
@@ -167,7 +167,7 @@ p_i=\int_0^1\prod_{j\neq i}{r_i^{w_j/w_i}}\mathrm{d}r_i=\int_0^1r_i^{(w-w_i)/w_i
 <h2><a class="toc-backref" href="#id6">m&gt;=1 证明</a></h2>
 <p>当 m 取任意值时，概率公式变得非常复杂，在前一篇文章中使用了第 i 个元素不被选到的概率来简化表达式。现在的证明也从同样的角度进行。</p>
 <p>第 i 个元素不被选到的概率，显然等于这 n 个元素中，至少存在 m 个元素的键值大于 key(i)，与之前的讨论一样，不妨设这 m 个元素的下标（按键值从大到小）依次为 j<sub>1</sub>,
-j<sub>2</sub>, …, j<sub>m</sub>，<span class="math">\(\forall 1\leq k\leq m,j_k\notin\{i,j_1,j_2,\cdots,j_{k-1}\}\)</span>，满足 <span class="math">\(\forall 1\leq t_k\leq n,t_k\notin\{j_1,j_2,\cdots,j_{k}\},key(j_k) &gt; key(t_k)\)</span>。注意 j<sub>k</sub> 和 t<sub>k</sub> 的取值范围，为了简单起见，下面的式子中就不再重复了。</p>
+j<sub>2</sub>, ..., j<sub>m</sub>，<span class="math">\(\forall 1\leq k\leq m,j_k\notin\{i,j_1,j_2,\cdots,j_{k-1}\}\)</span>，满足 <span class="math">\(\forall 1\leq t_k\leq n,t_k\notin\{j_1,j_2,\cdots,j_{k}\},key(j_k) &gt; key(t_k)\)</span>。注意 j<sub>k</sub> 和 t<sub>k</sub> 的取值范围，为了简单起见，下面的式子中就不再重复了。</p>
 <div class="math">
 \begin{equation*}
 \bar p_i(m)=p(\exists j_1,j_2,...,j_m\neq i,key(j_1) &gt; key(j_2) &gt; ... &gt; key(j_m) &gt; key(i))
@@ -252,13 +252,13 @@ j<sub>2</sub>, …, j<sub>m</sub>，<span class="math">\(\forall 1\leq k\leq m,j
 24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">Random</span>
 <span class="kn">from</span> <span class="nn">heapq</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">def</span> <span class="nf">WeightedRandomSample</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rand</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">WeightedRandomSample</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rand</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
   <span class="k">assert</span> <span class="n">m</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'invalid m'</span>
   <span class="n">selection</span> <span class="o">=</span> <span class="p">[]</span>
   <span class="n">heap</span> <span class="o">=</span> <span class="p">[]</span>
-  <span class="k">if</span> <span class="n">rand</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">rand</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">rand</span> <span class="o">=</span> <span class="n">Random</span><span class="p">()</span>
-  <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="c1"># Outputs the current selection and gets next item</span>
     <span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">selection</span>
     <span class="k">if</span> <span class="n">weight</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> <span class="k">continue</span>

@@ -104,7 +104,7 @@
         <nav>
         <h4>Contents</h4>
         <div class="toc" id="">
-
+<p class="topic-title">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#wordpress-vs" id="id3">WordPress vs. 静态博客</a></li>
 <li><a class="reference internal" href="#octopress-vs-pelican" id="id4">Octopress vs. Pelican</a></li>
@@ -176,7 +176,7 @@
 <h2><a class="toc-backref" href="#id6">革命尚未成功</a></h2>
 <p>新版的博客已经上线了，但仍然有一些工作需要进行。</p>
 <ul class="simple">
-<li>MathJax 插件：reStructuredText 内置了对 LaTeX 公式的支持，行内公式用 <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/roles.html#math">math role</a> 实现，区块公式用 <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#math">math directive</a> 实现，而且通过 <a class="reference external" href="http://docutils.sourceforge.net/docs/user/config.html#math-output">–math-output</a> 配置可以让它用 MathJax 进行渲染。但是 MathJax 是要在浏览器里执行 JavaScript 的，如果无法执行 JavaScript（比如在 RSS 中）就没法正常显示了。之前在 WordPress 中，利用插件先生成图片，如果无法执行 JavaScript 就会直接显示图片。所以这里也需要一个类似的插件，在编译的时候生成图片备用。</li>
+<li>MathJax 插件：reStructuredText 内置了对 LaTeX 公式的支持，行内公式用 <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/roles.html#math">math role</a> 实现，区块公式用 <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#math">math directive</a> 实现，而且通过 <a class="reference external" href="http://docutils.sourceforge.net/docs/user/config.html#math-output"><tt class="docutils literal"><span class="pre">--math-output</span></tt> 配置</a> 可以让它用 MathJax 进行渲染。但是 MathJax 是要在浏览器里执行 JavaScript 的，如果无法执行 JavaScript（比如在 RSS 中）就没法正常显示了。之前在 WordPress 中，利用插件先生成图片，如果无法执行 JavaScript 就会直接显示图片。所以这里也需要一个类似的插件，在编译的时候生成图片备用。</li>
 <li>Graphviz 插件：Pelican 中似乎没有直接能用的 graphviz directive，需要去找一个或者写一个插件。在编译的时候调用 dot 命令生成好图片就可以了。</li>
 <li>Chart 插件：有时候提供一些数据的展示，图表是非常必需的。之前都是先用 Excel 或这 Mathematica 之类的软件画好，再把图片放上去。如果有插件直接把数据通过 JavaScript 展示出来就更好了。准备写个插件，调用 <a class="reference external" href="http://nvd3.org/">NVD3</a> 进行绘图。</li>
 <li>Featured Image：WordPress 自带了这个，而且大多数主题都支持它，就是每篇文章有一张特色图片。这个需要去考察一下看看有没有现成的插件，当然主题也需要能够支持它。</li>

@@ -161,8 +161,8 @@
   <span class="n">x</span> <span class="o">=</span> <span class="n">xy</span> <span class="o">%</span> <span class="n">n</span>
   <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span> <span class="o">//</span> <span class="n">n</span>
   <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Find a possible solution.&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">True</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Find a possible solution.&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
 
   <span class="n">existValues</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
   <span class="n">existValues</span> <span class="o">=</span> <span class="n">existValues</span><span class="o">.</span><span class="n">union</span><span class="p">([</span><span class="n">board</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">xx</span><span class="p">]</span> <span class="k">for</span> <span class="n">xx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
@@ -174,17 +174,17 @@
 
   <span class="n">validValues</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">existValues</span><span class="p">]</span>
 
-  <span class="k">if</span> <span class="ow">not</span> <span class="n">validValues</span><span class="p">:</span> <span class="k">return</span> <span class="bp">False</span>
+  <span class="k">if</span> <span class="ow">not</span> <span class="n">validValues</span><span class="p">:</span> <span class="k">return</span> <span class="kc">False</span>
   <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">validValues</span><span class="p">:</span>
     <span class="n">board</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
-    <span class="k">if</span> <span class="n">FillBoard</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">xy</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="k">return</span> <span class="bp">True</span>
-    <span class="n">board</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
-  <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">if</span> <span class="n">FillBoard</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">xy</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="k">return</span> <span class="kc">True</span>
+    <span class="n">board</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+  <span class="k">return</span> <span class="kc">False</span>
 
 <span class="k">def</span> <span class="nf">GenerateBoard</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-  <span class="n">board</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">None</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+  <span class="n">board</span> <span class="o">=</span> <span class="p">[[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
   <span class="k">if</span> <span class="ow">not</span> <span class="n">FillBoard</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;No solution.&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No solution.&#39;</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">board</span>
 
 <span class="n">cnt</span> <span class="o">=</span> <span class="mi">5</span>
@@ -228,7 +228,7 @@
 
 <span class="k">def</span> <span class="nf">DrawBoard</span><span class="p">(</span><span class="n">board</span><span class="p">):</span>
   <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">board</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 
 <span class="n">allcolors</span> <span class="o">=</span> <span class="p">(</span>
   <span class="p">[</span><span class="s1">&#39;B Center&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">],</span>
@@ -239,10 +239,10 @@
   <span class="p">[</span><span class="s1">&#39;W Center&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span>
   <span class="p">)</span>
 <span class="k">for</span> <span class="n">colors</span> <span class="ow">in</span> <span class="n">allcolors</span><span class="p">:</span>
-  <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Colors:&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Colors:&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="p">)</span>
   <span class="n">colorboard</span> <span class="o">=</span> <span class="n">ApplyColor</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">colors</span><span class="p">)</span>
   <span class="n">DrawBoard</span><span class="p">(</span><span class="n">colorboard</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">()</span>
 </pre></div>
 </td></tr></table><p>最后一步就是纯体力活——转魔方。这里就不详细说了，基本的过程是先把棱块和角块转好，最后就可以随意调换每个面中部的颜色了。因为图案看起来乱乱的，转的时候很容易忘记哪边已经转好哪边还没转，只能是小心仔细慢慢进行。</p>
 

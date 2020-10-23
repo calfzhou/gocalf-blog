@@ -104,7 +104,7 @@
         <nav>
         <h4>Contents</h4>
         <div class="toc" id="">
-
+<p class="topic-title">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#kindle" id="id5">1. 让 Kindle 进入诊断模式</a></li>
 <li><a class="reference internal" href="#mmcblk0p1-img-kindle" id="id6">2. 将 mmcblk0p1.img 拷贝到 Kindle 中</a></li>
@@ -168,7 +168,7 @@ Ethernet 驱动，<a class="reference external" href="http://b.billgong.com/wp-c
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
 <span class="n">serial_number</span> <span class="o">=</span> <span class="s1">'USE YOUR OWN SERIAL NUMBER'</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">'fiona</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="s1">'</span><span class="si">%s</span><span class="se">\n</span><span class="s1">'</span> <span class="o">%</span> <span class="n">serial_number</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[</span><span class="mi">7</span><span class="p">:</span><span class="mi">11</span><span class="p">]</span>
-<span class="k">print</span> <span class="n">password</span>
+<span class="nb">print</span> <span class="n">password</span>
 </pre></div>
 </td></tr></table></div>
 <div class="section" id="id1">

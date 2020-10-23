@@ -51,7 +51,7 @@ sudo vi NetworkInterfaces.plist
 &lt;span class="nt"&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;添加好后保存此文件，然后重启系统。问题就解决了。&lt;/p&gt;
-</content><category term="Hackintosh"></category></entry><entry><title>Dell E6400 升级到 MacOS 10.6.8</title><link href="https://blog.gocalf.com/dell-e6400-mac-10-6-8" rel="alternate"></link><published>2011-08-26T23:48:00+08:00</published><updated>2012-03-02T21:45:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-26:/dell-e6400-mac-10-6-8</id><summary type="html">&lt;p class="first last"&gt;半年前安装黑苹果的经历，装的是 10.6.3。最近由于有些软件需要较高版本的系统，不得不对系统进行升级，升级到雪豹的最后一个版本 10.6.8。升级后自然又遇到了一堆问题并逐一解决。解决得算是基本完美了，只差我那全球无解的 Intel WiFi Link 5300 AGN 无线网卡和不能休眠的问题。&lt;/p&gt;
+</content><category term="操作系统"></category><category term="Hackintosh"></category></entry><entry><title>Dell E6400 升级到 MacOS 10.6.8</title><link href="https://blog.gocalf.com/dell-e6400-mac-10-6-8" rel="alternate"></link><published>2011-08-26T23:48:00+08:00</published><updated>2012-03-02T21:45:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-08-26:/dell-e6400-mac-10-6-8</id><summary type="html">&lt;p class="first last"&gt;半年前安装黑苹果的经历，装的是 10.6.3。最近由于有些软件需要较高版本的系统，不得不对系统进行升级，升级到雪豹的最后一个版本 10.6.8。升级后自然又遇到了一堆问题并逐一解决。解决得算是基本完美了，只差我那全球无解的 Intel WiFi Link 5300 AGN 无线网卡和不能休眠的问题。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;在 &lt;a class="reference external" href="https://blog.gocalf.com/dell-e6400-install-mac"&gt;Dell E6400 安装 MacOS 雪豹 10.6&lt;/a&gt; 中介绍了半年前安装黑苹果的经历，当时安装的版本其实是 10.6.3。最近由于有些软件需要较高版本的系统，不得不对系统进行升级，升级到雪豹的最后一个版本 10.6.8。升级后自然又遇到了一堆问题并逐一解决。解决得算是基本完美了，只差我那全球无解的 Intel
 WiFi Link 5300 AGN 无线网卡和不能休眠的问题。&lt;/p&gt;
 &lt;!-- more --&gt;
@@ -62,7 +62,7 @@ Update，用了两个多小时下载了升级包。昨天早晨爬起来之后�
 &lt;p&gt;再次开机，在 BootThink 引导的时候输入 -v 进入 verbose 模式，查看系统 hang 在什么地方。发现在显示了 [PCI
 configuration end] 之后就停住了，这似乎是 Snow Leopard 10.6.8 和 Lion
 10.7.1 都会遇到的问题呢，原来是 IOPCIFamily.kext 和 AppleACPIPlatform.kext 被更新了，解决办法简单粗暴，直接找个老版本（10.6.7）的替换回去就好了。不过我把它们放在 BootThink 的 Darwain\System\LibrarySL\Extensions\ 里面并不能解决问题，得要放到 Mac 分区去。如果有安装盘，可以用 BootThink 引导安装盘，在 Console 里面进行复制的操作，但我上次用来安装的硬盘分区早就格式化掉了，只好用 &lt;a class="reference external" href="http://bbs.pcbeta.com/forum-viewthread-tid-860881-highlight-macdriver.html"&gt;MacDrive（v8.0.5.31）&lt;/a&gt; 来操作。把那两个 kext 复制到 Mac 所在分区的 /System/Library/Extensions 里。&lt;/p&gt;
-&lt;p&gt;再次启动 Mac OS，刚才的问题没有了，这次遇到的是 Can’t load kext
+&lt;p&gt;再次启动 Mac OS，刚才的问题没有了，这次遇到的是 Can't load kext
 com.apple.driver.AudioIPCDriver, link
 fail。要删掉 BootThink 里的 VoodooHDA.kext。不过这样不就不能驱动声卡了吗？先不管它了。&lt;/p&gt;
 &lt;p&gt;接下来遇到的是 FakeSMC: key info not found MSDS, length
@@ -166,7 +166,7 @@ Waiting for Root Device）。&lt;/li&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;继续啃苹果咯～&lt;/p&gt;
-</content><category term="Hackintosh"></category></entry><entry><title>Dell E6400 安装 MacOS 雪豹 10.6</title><link href="https://blog.gocalf.com/dell-e6400-install-mac" rel="alternate"></link><published>2011-07-24T18:08:00+08:00</published><updated>2012-03-02T21:46:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-24:/dell-e6400-install-mac</id><summary type="html">&lt;p class="first last"&gt;半年前在 Dell Latitude E6400 上安装了 Mac OS X Snow Leopard 10.6（与 Windows 7 并存），除了 WiFi 之外都挺好的，折腾了好久才搞定，现在又有些记不清了，所以要赶紧留下印记，以免过几天就忘光了。&lt;/p&gt;
+</content><category term="操作系统"></category><category term="Hackintosh"></category></entry><entry><title>Dell E6400 安装 MacOS 雪豹 10.6</title><link href="https://blog.gocalf.com/dell-e6400-install-mac" rel="alternate"></link><published>2011-07-24T18:08:00+08:00</published><updated>2012-03-02T21:46:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-24:/dell-e6400-install-mac</id><summary type="html">&lt;p class="first last"&gt;半年前在 Dell Latitude E6400 上安装了 Mac OS X Snow Leopard 10.6（与 Windows 7 并存），除了 WiFi 之外都挺好的，折腾了好久才搞定，现在又有些记不清了，所以要赶紧留下印记，以免过几天就忘光了。&lt;/p&gt;
 </summary><content type="html">
 &lt;p&gt;半年前在 Dell Latitude E6400 上安装了 Mac OS X Snow Leopard 10.6（与 Windows
 7 并存），除了 WiFi 之外都挺好的，折腾了好久才搞定，现在又有些记不清了，所以要赶紧留下印记，以免过几天就忘光了。&lt;/p&gt;
@@ -207,8 +207,8 @@ Controller [A-3] PCI&lt;/li&gt;
 7 系统分区，数据分区），因此就把最后一个主分区名额留给了 Mac 系统，而把安装盘镜像放到了移动硬盘上。同样注意放安装盘镜像的分区不要格式化。&lt;/p&gt;
 &lt;p&gt;接下来安装 HFS-Explorer（v0.21），运行，按 Ctrl+O（菜单 File-&amp;gt;Load file
 system from
-file…），选择下载的安装盘镜像，在弹出的对话框里选择 Apple_HFS 那项。加载之后点击菜单 Tool-&amp;gt;Create
-disk image…，将生成的文件（.dmg）保存在某个 NTFS 分区上即可。&lt;/p&gt;
+file...），选择下载的安装盘镜像，在弹出的对话框里选择 Apple_HFS 那项。加载之后点击菜单 Tool-&amp;gt;Create
+disk image...，将生成的文件（.dmg）保存在某个 NTFS 分区上即可。&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="hfs_explorer_hfs" src="https://blog.gocalf.com/images/2011/07/hfs_explorer_hfs.png"/&gt;
 &lt;p class="caption"&gt;HFS-Explorer 选择 Partition&lt;/p&gt;
@@ -381,7 +381,7 @@ Flags，值为 &lt;tt class="docutils literal"&gt;arch=i386&lt;/tt&gt;。我的�
   &lt;span class="nt"&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;/plist&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;好了，重启电脑，进入 BootThink 引导，选择启动 Mac 安装盘分区。成功话可以看到苹果图标和风火轮，选择语言，然后就进入安装界面。这时候要对目标分区做格式化，点击菜单“实用工具 -&amp;gt; 磁盘工具…”，在对话框中选择之前格式化成 NTFS 的空白分区，将选择模式“Mac
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;好了，重启电脑，进入 BootThink 引导，选择启动 Mac 安装盘分区。成功话可以看到苹果图标和风火轮，选择语言，然后就进入安装界面。这时候要对目标分区做格式化，点击菜单“实用工具 -&amp;gt; 磁盘工具...”，在对话框中选择之前格式化成 NTFS 的空白分区，将选择模式“Mac
 OS 扩展（日志式）”，填写卷标，点击“抹掉”。成功之后关闭窗口，继续安装，接受软解许可协议，然后就是选择安装组件。有人建议不用选“打印机支持”，太占体积了。选好之后继续，选择刚才格式化好的目标分区，点击安装。&lt;/p&gt;
 &lt;p&gt;如果是用硬盘安装的话，不用等太久就装好了。装好之后会自动重启，不过由于安装过程中，Windows 系统盘的活动分区属性被取消了，如果直接重启将无法进入 Windows，可以利用重启前的一点时间处理一下。点击菜单“实用工具 -&amp;gt; 终端”，用 diskutil 命令来设置活动分区。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# diskutil list
@@ -395,7 +395,7 @@ quit
 &lt;p&gt;重启电脑，进入 BootThink，这时候就可以看到安装好的 Mac 系统分区了，引导它启动即可（如果装的是 32 位，也没改 &lt;tt class="docutils literal"&gt;com.apple.Boot.plist&lt;/tt&gt;，就需要输入 &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;-x32&lt;/span&gt;&lt;/tt&gt; 以 32 位模式启动）。&lt;/p&gt;
 &lt;p&gt;运气不背的话就可以顺利进入 Mac 系统了，声音、图像、有线网络、触摸板等全都正常，唯一的遗憾是无线网卡不能使用（也不知道这半年来出了新的驱动没）。可以买个 USB/PCMCIA 无线网卡，也可以像我一样扯根网线。&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Hackintosh"></category></entry><entry><title>隐藏磁盘分区 Q</title><link href="https://blog.gocalf.com/hide-drive-q" rel="alternate"></link><published>2011-07-15T23:34:00+08:00</published><updated>2011-08-03T20:57:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-15:/hide-drive-q</id><summary type="html">&lt;p class="first last"&gt;本文介绍如果隐藏 Windows 7 中那讨厌的无法访问的磁盘分区 Q。&lt;/p&gt;
+</content><category term="操作系统"></category><category term="Hackintosh"></category></entry><entry><title>隐藏磁盘分区 Q</title><link href="https://blog.gocalf.com/hide-drive-q" rel="alternate"></link><published>2011-07-15T23:34:00+08:00</published><updated>2011-08-03T20:57:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-15:/hide-drive-q</id><summary type="html">&lt;p class="first last"&gt;本文介绍如果隐藏 Windows 7 中那讨厌的无法访问的磁盘分区 Q。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;在 Windows 7 操作系统中，有些用户可能会在我的电脑（My
 Computer）中看到一个盘符为 &lt;strong&gt;Q&lt;/strong&gt; 的本地磁盘分区，在磁盘管理中看不到它，无法访问它，也无法删除它。这个恼人的分区图标虽然不会有什么实际的影响，但似乎总是在眼前晃悠，不得不让人想要立刻干掉它。其实要去掉它是非常容易的，让我们一起来看一下。&lt;/p&gt;
 &lt;!-- more --&gt;
@@ -435,7 +435,7 @@ mask 第三位），那 C 盘就消失了：&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;在微软的 Knowledge
 Base 中也提供了类似的隐藏磁盘分区的方法，其中也有详细的磁盘分区盘符与二进制数之间的对应关系，详情请见 &lt;a class="reference external" href="http://support.microsoft.com/kb/231289"&gt;Using Group Policy Objects to hide specified drives&lt;/a&gt;。&lt;/p&gt;
-</content><category term="Windows 7"></category></entry><entry><title>Windows 7 上帝模式</title><link href="https://blog.gocalf.com/win7-god-mode" rel="alternate"></link><published>2011-07-14T17:48:00+08:00</published><updated>2011-08-03T20:57:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-14:/win7-god-mode</id><summary type="html">&lt;p class="first last"&gt;在 Windows 7 里，“上帝” 能做什么？&lt;/p&gt;
+</content><category term="操作系统"></category><category term="Windows 7"></category></entry><entry><title>Windows 7 上帝模式</title><link href="https://blog.gocalf.com/win7-god-mode" rel="alternate"></link><published>2011-07-14T17:48:00+08:00</published><updated>2011-08-03T20:57:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-14:/win7-god-mode</id><summary type="html">&lt;p class="first last"&gt;在 Windows 7 里，“上帝” 能做什么？&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;在 Windows 7 里，“上帝” 能做什么？&lt;/p&gt;
 &lt;p&gt;一个简单的方法就可以调出调整 Windows 7 系统里全部功能的面板，这个小小的技巧可以让你控制你电脑中的一切。&lt;/p&gt;
 &lt;!-- more --&gt;
@@ -454,4 +454,4 @@ Base 中也提供了类似的隐藏磁盘分区的方法，其中也有详细的
 &lt;img alt="创建 GodMode 文件夹" src="https://blog.gocalf.com/images/2011/07/godmode3.png" /&gt;
 &lt;p class="caption"&gt;Windows 7 上帝模式&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="Windows 7"></category></entry></feed>
+</content><category term="操作系统"></category><category term="Windows 7"></category></entry></feed>

@@ -13,7 +13,7 @@
 Picasa 制作了四个博客，分别收集了清华水木社区、南大小百合、上海交通大学饮水思源和复旦大学日月光华的全站十大，不但保留了文章全文，还存储了图片，几乎是与这几个个 BBS 同步更新的，非常方便。欢迎大家前往以上博客参观，猛烈点击小广告，也可以直接把上述地址扔到 Google
 Reader 中进行订阅。&lt;/p&gt;
 &lt;p&gt;原文地址：&lt;a class="reference external" href="http://www.truevue.org/web/smth-top-10-smthot"&gt;水木十大博客&lt;/a&gt;&lt;/p&gt;
-</content><category term="RSS Feed"></category></entry><entry><title>Google 图标：动态雕塑家 Calder 诞辰 113 周年</title><link href="https://blog.gocalf.com/google-doodle-calder" rel="alternate"></link><published>2011-07-22T18:33:00+08:00</published><updated>2011-08-03T21:45:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-22:/google-doodle-calder</id><summary type="html">&lt;p class="first last"&gt;现在 Google 经常会在它的 Doodle 中加入各种有趣的元素，今天这个就用到了 HTML5 的 Canvas，在支持 HTML5 Canvas 的浏览器里，可以看到 3D 的动态 Doodle，还可以拖动哦。为了便于以后查看和保存，我把这个 Doodle 相关的脚本扒下来，在此留存。&lt;/p&gt;
+</content><category term="互联网"></category><category term="RSS Feed"></category></entry><entry><title>Google 图标：动态雕塑家 Calder 诞辰 113 周年</title><link href="https://blog.gocalf.com/google-doodle-calder" rel="alternate"></link><published>2011-07-22T18:33:00+08:00</published><updated>2011-08-03T21:45:00+08:00</updated><author><name>Calf</name></author><id>tag:blog.gocalf.com,2011-07-22:/google-doodle-calder</id><summary type="html">&lt;p class="first last"&gt;现在 Google 经常会在它的 Doodle 中加入各种有趣的元素，今天这个就用到了 HTML5 的 Canvas，在支持 HTML5 Canvas 的浏览器里，可以看到 3D 的动态 Doodle，还可以拖动哦。为了便于以后查看和保存，我把这个 Doodle 相关的脚本扒下来，在此留存。&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;现在 Google 经常会在它的 Doodle 中加入各种有趣的元素，今天这个就用到了 HTML5 的 Canvas，在支持 HTML5
 Canvas 的浏览器里，可以看到 3D 的动态 Doodle，还可以拖动哦。为了便于以后查看和保存，我把这个 Doodle 相关的脚本扒下来，在此留存。&lt;/p&gt;
 &lt;!-- more --&gt;
@@ -27,4 +27,4 @@ Star (1960)。原作如下图示。&lt;/p&gt;
 &lt;p&gt;当然我对艺术是一窍不通了，对 HTML5
 Canvas 也一无所知。就像电视上有个广告词：“我们不生产水，我们只是大自然的搬运工”。我今天也只是把这个 Doodle 从 Google 主页上搬下来，以满足收藏的欲望。由于没有搜索框，我把雕塑阴影的位置调高了一些。&lt;/p&gt;
 &lt;p&gt;注意，在 IE8 或 IE6（该淘汰了）中是无法看到 Canvas 的，只能看到静态的图片，请使用其他浏览器。另外可以点击 &lt;a class="reference external" href="https://blog.gocalf.com/assets/2011/07/doodle_0722.html"&gt;doodle_0722_html&lt;/a&gt; 在单独的 HTML 页面中查看（方便下载）。&lt;/p&gt;
-&lt;iframe frameborder="0" height="320" scrolling="no" src="https://blog.gocalf.com/assets/2011/07/doodle_0722.html" title="The Star" width="100%"&gt;&lt;/iframe&gt;</content><category term="Google"></category><category term="Doodle"></category></entry></feed>
+&lt;iframe frameborder="0" height="320" scrolling="no" src="https://blog.gocalf.com/assets/2011/07/doodle_0722.html" title="The Star" width="100%"&gt;&lt;/iframe&gt;</content><category term="互联网"></category><category term="Google"></category><category term="Doodle"></category></entry></feed>

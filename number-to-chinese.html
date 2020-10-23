@@ -102,7 +102,7 @@
         <nav>
         <h4>Contents</h4>
         <div class="toc" id="">
-
+<p class="topic-title">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#id2" id="id11">准备工作</a></li>
 <li><a class="reference internal" href="#id3" id="id12">初始版本</a></li>
@@ -218,7 +218,7 @@
 <span class="sd">:type number: int|long</span>
 <span class="sd">:rtype: string</span>
 <span class="sd">"""</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="nb">long</span><span class="p">):</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">long</span><span class="p">):</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'number must be integer'</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -297,7 +297,7 @@
 <span class="k">def</span> <span class="nf">create_number_test_function</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">_test_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">actual</span> <span class="o">=</span> <span class="n">translate_number_to_chinese</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-        <span class="k">print</span> <span class="n">actual</span><span class="p">,</span> <span class="n">expected</span>
+        <span class="nb">print</span> <span class="n">actual</span><span class="p">,</span> <span class="n">expected</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">_test_method</span>
@@ -310,7 +310,7 @@
             <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">'</span><span class="se">\r\n</span><span class="s1">'</span><span class="p">)</span>
             <span class="n">number_text</span><span class="p">,</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">)</span>
             <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">number_text</span><span class="p">)</span>
-            <span class="nb">setattr</span><span class="p">(</span><span class="n">TestTranslateNumberToChinese</span><span class="p">,</span> <span class="s1">'test_number_{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">),</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">TestTranslateNumberToChinese</span><span class="p">,</span> <span class="s1">'test_number_</span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">),</span>
                     <span class="n">create_number_test_function</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">expected</span><span class="p">))</span>
 
 <span class="n">add_tests</span><span class="p">()</span>
@@ -359,8 +359,8 @@
 25
 26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Begin core loop.</span>
 <span class="c1"># Version 0.2</span>
-<span class="n">group_is_zero</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">need_zero</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">group_is_zero</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">need_zero</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="k">for</span> <span class="n">position</span><span class="p">,</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">_enumerate_digits</span><span class="p">(</span><span class="n">number</span><span class="p">))):</span>
     <span class="n">unit</span> <span class="o">=</span> <span class="n">position</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">CHINESE_UNITS</span><span class="p">)</span>
     <span class="n">group</span> <span class="o">=</span> <span class="n">position</span> <span class="o">//</span> <span class="nb">len</span><span class="p">(</span><span class="n">CHINESE_UNITS</span><span class="p">)</span>
@@ -380,7 +380,7 @@
     <span class="n">need_zero</span> <span class="o">=</span> <span class="p">(</span><span class="n">digit</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="n">unit</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">group_is_zero</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="n">unit</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">group_is_zero</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">group_is_zero</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="c1"># End core loop.</span>
 </pre></div>
@@ -429,8 +429,8 @@
 27
 28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># Begin core loop.</span>
 <span class="c1"># Version 0.4</span>
-<span class="n">group_is_zero</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">need_zero</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">group_is_zero</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">need_zero</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="k">for</span> <span class="n">position</span><span class="p">,</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">_enumerate_digits</span><span class="p">(</span><span class="n">number</span><span class="p">))):</span>
     <span class="n">unit</span> <span class="o">=</span> <span class="n">position</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">CHINESE_UNITS</span><span class="p">)</span>
     <span class="n">group</span> <span class="o">=</span> <span class="n">position</span> <span class="o">//</span> <span class="nb">len</span><span class="p">(</span><span class="n">CHINESE_UNITS</span><span class="p">)</span>
@@ -452,7 +452,7 @@
     <span class="n">need_zero</span> <span class="o">=</span> <span class="p">(</span><span class="n">digit</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="n">unit</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">group_is_zero</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="n">unit</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">group_is_zero</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">group_is_zero</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="c1"># End core loop.</span>
 </pre></div>

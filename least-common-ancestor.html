@@ -104,7 +104,7 @@
         <nav>
         <h4>Contents</h4>
         <div class="toc" id="">
-
+<p class="topic-title">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#id2" id="id7">有父指针，方法一</a></li>
 <li><a class="reference internal" href="#id3" id="id8">有父指针，方法二（2012-04-02 22:10 添加）</a></li>
@@ -151,7 +151,7 @@ log(n)，最坏情况 h = n）。</p>
 21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">FindLCA</span><span class="p">(</span><span class="n">node1</span><span class="p">,</span> <span class="n">node2</span><span class="p">):</span>
   <span class="c1"># Special cases.</span>
   <span class="k">if</span> <span class="ow">not</span> <span class="n">node1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">node2</span><span class="p">:</span>
-    <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="kc">None</span>
   <span class="k">if</span> <span class="n">node1</span> <span class="ow">is</span> <span class="n">node2</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">node1</span>
 
@@ -168,7 +168,7 @@ log(n)，最坏情况 h = n）。</p>
     <span class="n">node2</span> <span class="o">=</span> <span class="n">node2</span><span class="o">.</span><span class="n">parent</span>
 
   <span class="c1"># These two nodes have no common ancestor.</span>
-  <span class="k">return</span> <span class="bp">None</span>
+  <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
 </td></tr></table><p>时间和空间复杂度都是 O(h)。</p>
 </div>
@@ -201,7 +201,7 @@ log(n)，最坏情况 h = n）。</p>
 24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">FindLCA</span><span class="p">(</span><span class="n">node1</span><span class="p">,</span> <span class="n">node2</span><span class="p">):</span>
   <span class="c1"># Special cases.</span>
   <span class="k">if</span> <span class="ow">not</span> <span class="n">node1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">node2</span><span class="p">:</span>
-    <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="kc">None</span>
   <span class="k">if</span> <span class="n">node1</span> <span class="ow">is</span> <span class="n">node2</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">node1</span>
 
@@ -212,8 +212,8 @@ log(n)，最坏情况 h = n）。</p>
 
   <span class="c1"># Pulls up the lower node and makes the two nodes in the same depth.</span>
   <span class="n">mindepth</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">depth1</span><span class="p">,</span> <span class="n">depth2</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">depth1</span> <span class="o">-</span> <span class="n">mindepth</span><span class="p">):</span> <span class="n">node1</span> <span class="o">=</span> <span class="n">node1</span><span class="o">.</span><span class="n">parent</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">depth2</span> <span class="o">-</span> <span class="n">mindepth</span><span class="p">):</span> <span class="n">node2</span> <span class="o">=</span> <span class="n">node2</span><span class="o">.</span><span class="n">parent</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">depth1</span> <span class="o">-</span> <span class="n">mindepth</span><span class="p">):</span> <span class="n">node1</span> <span class="o">=</span> <span class="n">node1</span><span class="o">.</span><span class="n">parent</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">depth2</span> <span class="o">-</span> <span class="n">mindepth</span><span class="p">):</span> <span class="n">node2</span> <span class="o">=</span> <span class="n">node2</span><span class="o">.</span><span class="n">parent</span>
 
   <span class="c1"># Finds the common ancestor.</span>
   <span class="k">while</span> <span class="n">node1</span> <span class="ow">and</span> <span class="n">node2</span><span class="p">:</span>
@@ -221,7 +221,7 @@ log(n)，最坏情况 h = n）。</p>
     <span class="n">node1</span> <span class="o">=</span> <span class="n">node1</span><span class="o">.</span><span class="n">parent</span>
     <span class="n">node2</span> <span class="o">=</span> <span class="n">node2</span><span class="o">.</span><span class="n">parent</span>
 
-  <span class="k">return</span> <span class="bp">None</span>
+  <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
 </td></tr></table><p>这样时间复杂度是 O(h)，空间复杂度是 O(1)。</p>
 </div>
@@ -259,9 +259,9 @@ log(n)，最坏情况 h = n）。</p>
 27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dir</span><span class="p">:</span>
   <span class="p">(</span><span class="n">Undef</span><span class="p">,</span> <span class="n">Left</span><span class="p">,</span> <span class="n">Right</span><span class="p">)</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">FindNodes</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">nodeSet</span><span class="p">,</span> <span class="n">findAll</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">FindNodes</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">nodeSet</span><span class="p">,</span> <span class="n">findAll</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
   <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">nodeSet</span><span class="p">:</span>
-    <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="kc">None</span>
 
   <span class="n">pathDict</span> <span class="o">=</span> <span class="p">{}</span>
   <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
@@ -285,7 +285,7 @@ log(n)，最坏情况 h = n）。</p>
   <span class="k">return</span> <span class="n">pathDict</span>
 </pre></div>
 </td></tr></table><p>其中 <tt class="docutils literal">Dir</tt> 这个类相当于是一个枚举，用来定义当前的分支方向。<tt class="docutils literal">FindNodes</tt> 除了需要二叉树根结点外，还需要一个待查找的结点集合。这个函数可以在二叉树中找到所有（或第一个）待查找结点的分支路径，并返回一个字典（结点
-–&gt; 路径）。</p>
+--&gt; 路径）。</p>
 <p>可以看出，<tt class="docutils literal">FindNodes</tt> 函数按照前序顺序遍历整个二叉树，查找指定结点。每遇到一个结点，首先判断它是不是我们要找的，如果不是就沿着左边的分支下降到底，然后转入右侧分支。</p>
 <p>有了 <tt class="docutils literal">FindNodes</tt> 函数的支持，我们就可改写前面的 <tt class="docutils literal">FindLCA</tt> 函数，即先遍历二叉树求出两个结点的分支路径，然后比较这两条路径找出 LCA：</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -315,7 +315,7 @@ log(n)，最坏情况 h = n）。</p>
 25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">FindLCA</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">node1</span><span class="p">,</span> <span class="n">node2</span><span class="p">):</span>
   <span class="c1"># Special cases.</span>
   <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">node1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">node2</span><span class="p">:</span>
-    <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="kc">None</span>
   <span class="k">if</span> <span class="n">node1</span> <span class="ow">is</span> <span class="n">node2</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">node1</span>
 
@@ -323,15 +323,15 @@ log(n)，最坏情况 h = n）。</p>
   <span class="n">nodeSet</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">node1</span><span class="p">,</span> <span class="n">node2</span><span class="p">])</span>
   <span class="n">pathDict</span> <span class="o">=</span> <span class="n">FindNodes</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">nodeSet</span><span class="p">)</span>
   <span class="k">if</span> <span class="n">nodeSet</span><span class="p">:</span>
-    <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="kc">None</span>
 
   <span class="n">path1</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pathDict</span><span class="p">[</span><span class="n">node1</span><span class="p">]]</span>
   <span class="n">path2</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pathDict</span><span class="p">[</span><span class="n">node2</span><span class="p">]]</span>
 
   <span class="c1"># Compare the two paths, find out the LCA.</span>
-  <span class="n">lca</span> <span class="o">=</span> <span class="bp">None</span>
+  <span class="n">lca</span> <span class="o">=</span> <span class="kc">None</span>
   <span class="n">minLen</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">path1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">path2</span><span class="p">))</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">minLen</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">minLen</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">path1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">path2</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
       <span class="k">break</span>
     <span class="n">lca</span> <span class="o">=</span> <span class="n">path1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -394,7 +394,7 @@ E
 24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">FindLCA</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">node1</span><span class="p">,</span> <span class="n">node2</span><span class="p">):</span>
   <span class="n">nodeset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">node1</span><span class="p">,</span> <span class="n">node2</span><span class="p">])</span>   <span class="c1"># Also supports 3 or more nodes.</span>
   <span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>          <span class="c1"># A stack to help performing N-L-R traversing.</span>
-  <span class="n">lca</span> <span class="o">=</span> <span class="bp">None</span>      <span class="c1"># Records the most possible least common ancestor.</span>
+  <span class="n">lca</span> <span class="o">=</span> <span class="kc">None</span>      <span class="c1"># Records the most possible least common ancestor.</span>
   <span class="n">mindepth</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>   <span class="c1"># The depth of lca.</span>
   <span class="k">while</span> <span class="n">root</span> <span class="ow">or</span> <span class="n">s</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">root</span><span class="p">:</span>
@@ -414,7 +414,7 @@ E
         <span class="n">lca</span> <span class="o">=</span> <span class="n">root</span>
         <span class="n">mindepth</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
       <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span>
-  <span class="k">return</span> <span class="bp">None</span> <span class="k">if</span> <span class="n">nodeset</span> <span class="k">else</span> <span class="n">lca</span>
+  <span class="k">return</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">nodeset</span> <span class="k">else</span> <span class="n">lca</span>
 </pre></div>
 </td></tr></table><p>可以跟 <a class="reference external" href="https://blog.gocalf.com/traversing-binary-tree">程序基本功之遍历二叉树</a> 中的 <strong>非递归前序遍历</strong> 的程序对比一下，会发现改动之处是非常小的。</p>
 <p>这段程序时间复杂度都是 O(n)，空间复杂度是 O(h)，这些都是遍历二叉树所需的时间和空间消耗。在遍历之外，就只剩下常数量的时空开销了。</p>

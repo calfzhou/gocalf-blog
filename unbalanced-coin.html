@@ -139,10 +139,10 @@ p。函数 <tt class="docutils literal">MakeEqualProb</tt> 利用参数 <tt clas
 18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">Random</span>
 
 <span class="k">class</span> <span class="nc">UnbalancedCoin</span><span class="p">:</span>
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">rand</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">rand</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">assert</span> <span class="mf">0.0</span> <span class="o">&lt;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;invalid p&#39;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_p</span> <span class="o">=</span> <span class="n">p</span>
-    <span class="k">if</span> <span class="n">rand</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">rand</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
       <span class="n">rand</span> <span class="o">=</span> <span class="n">Random</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_rand</span> <span class="o">=</span> <span class="n">rand</span>
 
@@ -150,7 +150,7 @@ p。函数 <tt class="docutils literal">MakeEqualProb</tt> 利用参数 <tt clas
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rand</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_p</span>
 
 <span class="k">def</span> <span class="nf">MakeEqualProb</span><span class="p">(</span><span class="n">coin</span><span class="p">):</span>
-  <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">coin</span><span class="o">.</span><span class="n">Flip</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">coin</span><span class="o">.</span><span class="n">Flip</span><span class="p">():</span>
       <span class="k">return</span> <span class="n">a</span>

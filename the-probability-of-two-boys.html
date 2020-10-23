@@ -104,7 +104,7 @@
         <nav>
         <h4>Contents</h4>
         <div class="toc" id="">
-
+<p class="topic-title">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#id2" id="id5">思维缜密的项目经理的解题思路</a></li>
 <li><a class="reference internal" href="#id3" id="id6">博学多才的数据挖掘专家的解题思路</a></li>
@@ -185,19 +185,19 @@ P(B|A)=\frac{P(AB)}{P(A)}=\frac{P(A|B)P(B)}{P(A)}
 <span class="k">def</span> <span class="nf">IsTwoBoys</span><span class="p">(</span><span class="n">rand</span><span class="p">):</span>
   <span class="n">genders</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'M'</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">)</span>
   <span class="n">weekdays</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-  <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="n">children</span> <span class="o">=</span> <span class="p">[(</span><span class="n">rand</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">genders</span><span class="p">),</span> <span class="n">rand</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">weekdays</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">children</span> <span class="o">=</span> <span class="p">[(</span><span class="n">rand</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">genders</span><span class="p">),</span> <span class="n">rand</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">weekdays</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
     <span class="k">if</span> <span class="p">((</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'M'</span> <span class="ow">and</span> <span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span>
         <span class="p">(</span><span class="n">children</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'M'</span> <span class="ow">and</span> <span class="n">children</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)):</span>
-      <span class="k">return</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">children</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'M'</span> <span class="k">else</span> <span class="bp">False</span>
+      <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">children</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'M'</span> <span class="k">else</span> <span class="kc">False</span>
 
 <span class="n">cnt</span> <span class="o">=</span> <span class="mi">1000000</span>
 <span class="n">twoboys</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">rand</span> <span class="o">=</span> <span class="n">Random</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">cnt</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">cnt</span><span class="p">):</span>
   <span class="k">if</span> <span class="n">IsTwoBoys</span><span class="p">(</span><span class="n">rand</span><span class="p">):</span>
     <span class="n">twoboys</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="k">print</span> <span class="s1">'p(twoboys) ='</span><span class="p">,</span> <span class="n">twoboys</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">,</span> <span class="n">cnt</span><span class="p">,</span> <span class="s1">'='</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">twoboys</span><span class="p">)</span> <span class="o">/</span> <span class="n">cnt</span>
+<span class="nb">print</span> <span class="s1">'p(twoboys) ='</span><span class="p">,</span> <span class="n">twoboys</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">,</span> <span class="n">cnt</span><span class="p">,</span> <span class="s1">'='</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">twoboys</span><span class="p">)</span> <span class="o">/</span> <span class="n">cnt</span>
 </pre></div>
 </td></tr></table><p>运行结果，题目所求概率值近似为：0.48213，与 13 / 27 = 0.(481) 非常接近。</p>
 </div>

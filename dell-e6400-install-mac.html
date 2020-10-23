@@ -104,7 +104,7 @@
         <nav>
         <h4>Contents</h4>
         <div class="toc" id="">
-
+<p class="topic-title">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#dell-latitude-e6400" id="id4">Dell Latitude E6400 硬件配置</a></li>
 <li><a class="reference internal" href="#id1" id="id5">工具和准备工作</a></li>
@@ -156,8 +156,8 @@ Controller [A-3] PCI</li>
 7 系统分区，数据分区），因此就把最后一个主分区名额留给了 Mac 系统，而把安装盘镜像放到了移动硬盘上。同样注意放安装盘镜像的分区不要格式化。</p>
 <p>接下来安装 HFS-Explorer（v0.21），运行，按 Ctrl+O（菜单 File-&gt;Load file
 system from
-file…），选择下载的安装盘镜像，在弹出的对话框里选择 Apple_HFS 那项。加载之后点击菜单 Tool-&gt;Create
-disk image…，将生成的文件（.dmg）保存在某个 NTFS 分区上即可。</p>
+file...），选择下载的安装盘镜像，在弹出的对话框里选择 Apple_HFS 那项。加载之后点击菜单 Tool-&gt;Create
+disk image...，将生成的文件（.dmg）保存在某个 NTFS 分区上即可。</p>
 <div class="figure">
 <img alt="hfs_explorer_hfs" src="https://blog.gocalf.com/images/2011/07/hfs_explorer_hfs.png"/>
 <p class="caption">HFS-Explorer 选择 Partition</p>
@@ -330,7 +330,7 @@ Flags，值为 <tt class="docutils literal">arch=i386</tt>。我的此文件内�
   <span class="nt">&lt;/dict&gt;</span>
 <span class="nt">&lt;/plist&gt;</span>
 </pre></div>
-</td></tr></table><p>好了，重启电脑，进入 BootThink 引导，选择启动 Mac 安装盘分区。成功话可以看到苹果图标和风火轮，选择语言，然后就进入安装界面。这时候要对目标分区做格式化，点击菜单“实用工具 -&gt; 磁盘工具…”，在对话框中选择之前格式化成 NTFS 的空白分区，将选择模式“Mac
+</td></tr></table><p>好了，重启电脑，进入 BootThink 引导，选择启动 Mac 安装盘分区。成功话可以看到苹果图标和风火轮，选择语言，然后就进入安装界面。这时候要对目标分区做格式化，点击菜单“实用工具 -&gt; 磁盘工具...”，在对话框中选择之前格式化成 NTFS 的空白分区，将选择模式“Mac
 OS 扩展（日志式）”，填写卷标，点击“抹掉”。成功之后关闭窗口，继续安装，接受软解许可协议，然后就是选择安装组件。有人建议不用选“打印机支持”，太占体积了。选好之后继续，选择刚才格式化好的目标分区，点击安装。</p>
 <p>如果是用硬盘安装的话，不用等太久就装好了。装好之后会自动重启，不过由于安装过程中，Windows 系统盘的活动分区属性被取消了，如果直接重启将无法进入 Windows，可以利用重启前的一点时间处理一下。点击菜单“实用工具 -&gt; 终端”，用 diskutil 命令来设置活动分区。</p>
 <div class="highlight"><pre><span></span># diskutil list

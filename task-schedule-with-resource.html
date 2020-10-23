@@ -127,22 +127,22 @@ R[i]），假设现在我们总共有 s 的资源，要求设计一个调度算�
   <span class="c1"># R: request</span>
   <span class="c1"># O: occupancy</span>
   <span class="c1"># R - O: temporal = request - occupancy</span>
-  <span class="n">tasks</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">O</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">O</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
-  <span class="n">tasks</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="n">tasks</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">O</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">O</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+  <span class="n">tasks</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="p">(</span><span class="n">taskId</span><span class="p">,</span> <span class="n">req</span><span class="p">,</span> <span class="n">occ</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span> <span class="o">=</span> <span class="n">tasks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">req</span> <span class="o">&gt;</span> <span class="n">s</span> <span class="ow">or</span> <span class="n">occ</span> <span class="o">&gt;</span> <span class="n">s</span><span class="p">:</span>
-      <span class="k">return</span> <span class="p">(</span><span class="bp">False</span><span class="p">,</span> <span class="n">tasks</span><span class="p">)</span>
+      <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">tasks</span><span class="p">)</span>
     <span class="n">s</span> <span class="o">-=</span> <span class="n">occ</span>
-  <span class="k">return</span> <span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">tasks</span><span class="p">)</span>
+  <span class="k">return</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">tasks</span><span class="p">)</span>
 </pre></div>
 </td></tr></table><p>显然这是贪心法，那么贪心法是否一定能得到可行解呢？</p>
 <p>假设存在一个可行解（任务的执行顺序）为：T1, T2, …,
 Tn。设其中存在两个相邻的任务 T<sub>i</sub> 和 T<sub>i+1</sub>，满足 R[i] - O[i] &lt; R[i+1] -
 O[i+1]。</p>
-<p>设执行任务 j 前的资源剩余量为 s’，因为这是一个可行解，任务 j 和任务 k 都可以顺利执行，因此有：s’
+<p>设执行任务 j 前的资源剩余量为 s'，因为这是一个可行解，任务 j 和任务 k 都可以顺利执行，因此有：s'
 - O[i] &gt;= R[i+1]。</p>
-<p>联列这两个式子可以得到：s’ &gt;= R[i+1] + O[i] &gt; R[i] + O[i+1]，即 s’ -
+<p>联列这两个式子可以得到：s' &gt;= R[i+1] + O[i] &gt; R[i] + O[i+1]，即 s' -
 O[i+1] &gt; R[i]，可见交换任务 T<sub>i</sub> 和 T<sub>i+1</sub> 的执行顺序后依旧是可行解。</p>
 <p>以此类推，对于任何 i（1 &lt;= i &lt; n），如果 R[i] - O[i] &lt; R[i+1] -
 O[i+1]，我们都可以将这两个任务的顺序交换，最终得到的执行顺序是可行解。</p>
