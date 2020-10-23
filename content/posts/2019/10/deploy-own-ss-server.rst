@@ -7,6 +7,7 @@
 :keywrods: Shadowsocks 服务
 :slug: deploy-own-ss-server
 :lang: zh_cn
+:status: draft
 :featured_image: https://blog.gocalf.com/images/2019/10/shadowsocks.png
 :summary: 本文介绍如何搭建自己的 Shadowsocks 服务。
 

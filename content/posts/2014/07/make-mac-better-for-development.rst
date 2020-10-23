@@ -89,85 +89,86 @@ virtualenvwrapper 提供了很多方便的命令，还支持命令的 tab comple
 
 ipython 除了 shell console 外，还提供 Qt console，详细的信息查看官方的介绍吧。
 
-科学上网
---------
+..
+    科学上网
+    --------
 
-由于一些众所周不知的原因，这个世界上存在着一些不存在的网站。本来不应该为不存在的事物所烦恼，但对于开发人员来说，不存在的世界中却存在着一些非常有价值的资源。所以，需要用科学的方法访问互联网。
+    由于一些众所周不知的原因，这个世界上存在着一些不存在的网站。本来不应该为不存在的事物所烦恼，但对于开发人员来说，不存在的世界中却存在着一些非常有价值的资源。所以，需要用科学的方法访问互联网。
 
-我目前主要用到了 `goagent`_、SSH tunnel、`proxychains-ng`_、`dnscrypt-proxy`_ 和 `unbound`_。
+    我目前主要用到了 `goagent`_、SSH tunnel、`proxychains-ng`_、`dnscrypt-proxy`_ 和 `unbound`_。
 
-goagent 需要在 Google App Engine 上用自己的账号安装服务端，在本地用 python 运行客户端。具体的安装方法参见官网介绍。我创建一个 virtualenv 给它使用，在这个虚拟环境中安装相关的 Python 依赖。
+    goagent 需要在 Google App Engine 上用自己的账号安装服务端，在本地用 python 运行客户端。具体的安装方法参见官网介绍。我创建一个 virtualenv 给它使用，在这个虚拟环境中安装相关的 Python 依赖。
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    mkvirtualenv goagent
-    pip install pyopenssl
-    pip install pycrypto
-    pip install gevent
+        mkvirtualenv goagent
+        pip install pyopenssl
+        pip install pycrypto
+        pip install gevent
 
-用 goagent 访问 HTTPS 网站的时候，需要安装证书。现在的 goagent 已经可以自动安装证书了（需要用 sudo 权限运行）。如果是第一次使用 goagent，可以先将 goagent 的 local 目录中的 ca.cer、ca.key 和 certs 目录内的文件都删除，删除浏览器或系统中的 goagent ca 证书，然后用 sudo 权限启动 goagent，它会自行安装证书到系统中。我建议一直使用 sudo 权限运行 goagent。
+    用 goagent 访问 HTTPS 网站的时候，需要安装证书。现在的 goagent 已经可以自动安装证书了（需要用 sudo 权限运行）。如果是第一次使用 goagent，可以先将 goagent 的 local 目录中的 ca.cer、ca.key 和 certs 目录内的文件都删除，删除浏览器或系统中的 goagent ca 证书，然后用 sudo 权限启动 goagent，它会自行安装证书到系统中。我建议一直使用 sudo 权限运行 goagent。
 
-在 Mac 系统中，利用系统的 launchd 来控制 goagent 的随系统（以 root 权限）启动。可以在 /Library/LaunchDaemons 中创建一个扩展名为. plist 的文件，内容为（需要根据你的实际环境进行调整）：
+    在 Mac 系统中，利用系统的 launchd 来控制 goagent 的随系统（以 root 权限）启动。可以在 /Library/LaunchDaemons 中创建一个扩展名为. plist 的文件，内容为（需要根据你的实际环境进行调整）：
 
-.. code-block:: xml
+    .. code-block:: xml
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-        <key>Label</key>
-        <string>com.github.calfzhou.goagent.local</string>
-        <key>ProgramArguments</key>
-        <array>
-            <string>YOUR_OWN_PATH/.virtualenvs/goagent/bin/python</string>
-            <string>proxy.py</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>ServiceDescription</key>
-        <string>Goagnet proxy</string>
-        <key>StandardErrorPath</key>
-        <string>/dev/null</string>
-        <key>StandardOutPath</key>
-        <string>/dev/null</string>
-        <key>WorkingDirectory</key>
-        <string>YOUR_OWN_PATH/goagent/local</string>
-    </dict>
-    </plist>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+            <key>Label</key>
+            <string>com.github.calfzhou.goagent.local</string>
+            <key>ProgramArguments</key>
+            <array>
+                <string>YOUR_OWN_PATH/.virtualenvs/goagent/bin/python</string>
+                <string>proxy.py</string>
+            </array>
+            <key>RunAtLoad</key>
+            <true/>
+            <key>ServiceDescription</key>
+            <string>Goagnet proxy</string>
+            <key>StandardErrorPath</key>
+            <string>/dev/null</string>
+            <key>StandardOutPath</key>
+            <string>/dev/null</string>
+            <key>WorkingDirectory</key>
+            <string>YOUR_OWN_PATH/goagent/local</string>
+        </dict>
+        </plist>
 
-给系统的网络连接设置代理，进入 System Preferences -> Network，选择使用的网络，点击 Advanced...，在 Proxies 页中勾选“Automatic Proxy Configuration”，在 URL 内填入“http://127.0.0.1:8086/proxy.pac”，保存生效。
+    给系统的网络连接设置代理，进入 System Preferences -> Network，选择使用的网络，点击 Advanced...，在 Proxies 页中勾选“Automatic Proxy Configuration”，在 URL 内填入“http://127.0.0.1:8086/proxy.pac”，保存生效。
 
-对于 Chrome 浏览器，推荐使用 `Proxy SwichySharp`_ 插件。鉴于 Google 所有的服务都访问不顺畅，这个链接可能不太容易访问到，可以考虑使用 `chrome extension downloader`_ 网站来直接下载插件的. crx 文件。用非 Chrome 浏览器打开该网站，输入 Proxy SwichySharp 的 ID（dpplabbmogkhghncfbfdeeokoefdjegm），下载保存，然后在 Chrome 的 extensions 页面中把 .crx 文件拖进去即可。goagent 里也提供了该插件的 .crx 文件以及配置文件，可以直接使用（作者想的真周到啊）。
+    对于 Chrome 浏览器，推荐使用 `Proxy SwichySharp`_ 插件。鉴于 Google 所有的服务都访问不顺畅，这个链接可能不太容易访问到，可以考虑使用 `chrome extension downloader`_ 网站来直接下载插件的. crx 文件。用非 Chrome 浏览器打开该网站，输入 Proxy SwichySharp 的 ID（dpplabbmogkhghncfbfdeeokoefdjegm），下载保存，然后在 Chrome 的 extensions 页面中把 .crx 文件拖进去即可。goagent 里也提供了该插件的 .crx 文件以及配置文件，可以直接使用（作者想的真周到啊）。
 
-系统的网络连接代理和 Chrome 的代理插件基本能解决大部分网页访问的需求，比如苹果自带的 Safari 就会默认通过系统的代理，也就能科学地上网了。不过 wget、curl 等 shell 命令却无法直接使用这些代理，它们会根据环境变量 ``http_proxy`` 和 ``https_proxy`` 来访问网络。为了方便，在 ``~/.bash_profile`` 中添加：
+    系统的网络连接代理和 Chrome 的代理插件基本能解决大部分网页访问的需求，比如苹果自带的 Safari 就会默认通过系统的代理，也就能科学地上网了。不过 wget、curl 等 shell 命令却无法直接使用这些代理，它们会根据环境变量 ``http_proxy`` 和 ``https_proxy`` 来访问网络。为了方便，在 ``~/.bash_profile`` 中添加：
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    # Setup or dismiss (goagent) proxy for curl, wget, etc.
-    alias gaproxy='export http_proxy=http://127.0.0.1:8087 https_proxy=http://127.0.0.1:8087'
-    alias noproxy='unset http_proxy https_proxy'
+        # Setup or dismiss (goagent) proxy for curl, wget, etc.
+        alias gaproxy='export http_proxy=http://127.0.0.1:8087 https_proxy=http://127.0.0.1:8087'
+        alias noproxy='unset http_proxy https_proxy'
 
-在需要 wget 或者 curl 某个不存在的网页前，通过 ``gaproxy`` 命令开启代理，使用完毕后通过 ``noproxy`` 关闭代理即可。
+    在需要 wget 或者 curl 某个不存在的网页前，通过 ``gaproxy`` 命令开启代理，使用完毕后通过 ``noproxy`` 关闭代理即可。
 
-有的时候 goagent 会抽疯，一个备选的代理是必需的。我一般会利用 SSH 隧道，通过 gocalf 网站所在的主机建立 socks 代理。如果你也有一台在国外的服务器，可以通过这个命令在本地开启 socks5 代理服务：
+    有的时候 goagent 会抽疯，一个备选的代理是必需的。我一般会利用 SSH 隧道，通过 gocalf 网站所在的主机建立 socks 代理。如果你也有一台在国外的服务器，可以通过这个命令在本地开启 socks5 代理服务：
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    ssh -D LOCAL_PORT(7070) -p REMOTE_SSH_PORT(22) USER_NAME@SERVER_ADDRESS
+        ssh -D LOCAL_PORT(7070) -p REMOTE_SSH_PORT(22) USER_NAME@SERVER_ADDRESS
 
-对于不支持 ``http_proxy`` 和 ``https_proxy`` 的程序，我会使用 `proxychains-ng`_。通过 ``brew install proxychains-ng`` 即可安装，运行的命令是 ``proxychains4``。这个有点儿像 Windows 里的 SocksCap，但是更强大些，比如想从一个不存在的 svn 站点下载代码，可以用 ``proxychains4 svn checkout xxxx`` 实现。
+    对于不支持 ``http_proxy`` 和 ``https_proxy`` 的程序，我会使用 `proxychains-ng`_。通过 ``brew install proxychains-ng`` 即可安装，运行的命令是 ``proxychains4``。这个有点儿像 Windows 里的 SocksCap，但是更强大些，比如想从一个不存在的 svn 站点下载代码，可以用 ``proxychains4 svn checkout xxxx`` 实现。
 
-最近发现 `Dropbox`_ 的客户端即使设置上 goagent 代理也不好使（网页倒是没问题），所幸 Dropbox（还有 Facebook 等）不存在的原因只是域名解析被人为破坏了，只要能解析出正确的 ID 地址，不用代理也能够访问。为了防止域名解析被恶意破坏，我又祭出了 `dnscrypt-proxy`_ 这个法宝。不幸的是，dnscrytp-proxy 的下载站点本身就是不存在的，要用前面提到的 ``gaproxy`` 激活代理后才能下载成功：
+    最近发现 `Dropbox`_ 的客户端即使设置上 goagent 代理也不好使（网页倒是没问题），所幸 Dropbox（还有 Facebook 等）不存在的原因只是域名解析被人为破坏了，只要能解析出正确的 ID 地址，不用代理也能够访问。为了防止域名解析被恶意破坏，我又祭出了 `dnscrypt-proxy`_ 这个法宝。不幸的是，dnscrytp-proxy 的下载站点本身就是不存在的，要用前面提到的 ``gaproxy`` 激活代理后才能下载成功：
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    gaproxy
-    brew install dnscrypt-proxy
-    noproxy
+        gaproxy
+        brew install dnscrypt-proxy
+        noproxy
 
-安装后根据提示设置成开机自动启动即可。默认的话它会监听 127.0.0.1 的 53 端口提供 DNS 服务，上游使用 OpenDNS 服务（可自行配置），并使用加密通信来防止 DNS 污染。将网络连接的 DNS 设置为 127.0.0.1（System Preferences -> Network -> 当前使用的网络 -> Advanced... -> DNS -> DNS Servers），就会发现即使没有 goagent，Dropbox、Facebook 等网站也变得存在了。
+    安装后根据提示设置成开机自动启动即可。默认的话它会监听 127.0.0.1 的 53 端口提供 DNS 服务，上游使用 OpenDNS 服务（可自行配置），并使用加密通信来防止 DNS 污染。将网络连接的 DNS 设置为 127.0.0.1（System Preferences -> Network -> 当前使用的网络 -> Advanced... -> DNS -> DNS Servers），就会发现即使没有 goagent，Dropbox、Facebook 等网站也变得存在了。
 
-dnscrypt-proxy 有个缺点就是没有缓存功能，每次来个域名都要去远程服务器上解析一次，速度很慢，非常影响上网的体验，建议配合具备 DNS 缓存的工具一起使用，比如 `unbound`_、`dnsmasq`_ 等。二者都可以通过 Homebrew 安装，非常方便。当然要配合使用，就需要一些配置，在性能方面也需要做一些优化，这里就不再仔细说了。
+    dnscrypt-proxy 有个缺点就是没有缓存功能，每次来个域名都要去远程服务器上解析一次，速度很慢，非常影响上网的体验，建议配合具备 DNS 缓存的工具一起使用，比如 `unbound`_、`dnsmasq`_ 等。二者都可以通过 Homebrew 安装，非常方便。当然要配合使用，就需要一些配置，在性能方面也需要做一些优化，这里就不再仔细说了。
 
 友好的 Shell
 ============
