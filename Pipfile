@@ -8,11 +8,11 @@ autopep8 = "*"
 pep8 = "*"
 
 [packages]
-pelican = "*"
+pelican = "~=4.5"
 beautifulsoup4 = "*"
 webassets = "*"
 cssmin = "*"
 ghp-import = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
