@@ -1,0 +1,5 @@
+pelican~=4.5
+beautifulsoup4
+webassets
+cssmin
+ghp-import
