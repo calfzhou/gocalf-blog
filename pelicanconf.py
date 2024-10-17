@@ -189,15 +189,15 @@ SITE_DESCRIPTION = 'GoCalf Blog'
 # Blogroll
 
 LINKS = (
+    ('GoCalf 新站', 'https://gocalf.com/'),
     # 快乐生活，幽它一默
-    ('Bebluesky', 'http://www.bebluesky.com/'),
+    ('Xiaoli Zhao', 'https://www.xiaolizhao.com/'),
     # 以提供Python知识为目标，原创并收集Python编程相关的知识
     ('Python俱乐部', 'http://www.pythonclub.org/'),
     # 关注生活，关注科技，关注互联网，了解互联网，了解科技，了解生活！
     ('东华博客', 'http://www.truevue.org/'),
     # 数学、金融、计算机
-    ('阅微堂', 'http://zhiqiang.org/blog/'),
-    ('Pelican', 'http://getpelican.com/'),
-    ('Python.org', 'http://python.org/'),
-    ('Jinja2', 'http://jinja.pocoo.org/'),
+    ('阅微堂', 'https://zhiqiang.org/'),
+    ('Pelican', 'https://getpelican.com/'),
+    ('Python.org', 'https://python.org/'),
 )
