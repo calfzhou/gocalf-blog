@@ -177,7 +177,7 @@ COMMENTS_INTRO = "So what do you think? Did I miss something? Is any part unclea
 TWITTER_USERNAME = 'calfzhou'
 
 # Legal
-SITE_LICENSE = '&copy; 2019 gocalf.com'
+SITE_LICENSE = '&copy; 2011-2025 blog.gocalf.com'
 HOSTED_ON = {'name': 'GitHub Pages', 'url': 'https://pages.github.com/'}
 
 # SEO
