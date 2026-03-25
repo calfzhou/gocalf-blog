@@ -5,42 +5,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.gocalf.com/</loc>
-<lastmod>2026-03-25T15:39:13-00:00</lastmod>
+<lastmod>2026-03-25T15:57:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://blog.gocalf.com/tags</loc>
-<lastmod>2026-03-25T15:39:13-00:00</lastmod>
+<lastmod>2026-03-25T15:57:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://blog.gocalf.com/categories</loc>
-<lastmod>2026-03-25T15:39:13-00:00</lastmod>
+<lastmod>2026-03-25T15:57:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://blog.gocalf.com/archives</loc>
-<lastmod>2026-03-25T15:39:13-00:00</lastmod>
+<lastmod>2026-03-25T15:57:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://blog.gocalf.com/search</loc>
-<lastmod>2026-03-25T15:39:13-00:00</lastmod>
+<lastmod>2026-03-25T15:57:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://blog.gocalf.com/404.html</loc>
-<lastmod>2026-03-25T15:39:13-00:00</lastmod>
+<lastmod>2026-03-25T15:57:25-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
