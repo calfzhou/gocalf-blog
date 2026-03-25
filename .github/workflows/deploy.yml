@@ -34,4 +34,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           ghp-import -m "Generate Pelican site for $(git describe --always --dirty=' (dirty)')" -b gh-pages output/
-          git push origin gh-pages
+          git push --force origin gh-pages
