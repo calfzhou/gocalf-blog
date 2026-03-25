@@ -1,0 +1,37 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - source
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure git to use HTTPS instead of SSH
+        run: git config --global url."https://github.com/".insteadOf "git@github.com:"
+
+      - name: Checkout source with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt -c constraints.txt
+
+      - name: Build site
+        run: make publish
+
+      - name: Deploy to gh-pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          ghp-import -m "Generate Pelican site for $(git describe --always --dirty=' (dirty)')" -b gh-pages output/
+          git push origin gh-pages
