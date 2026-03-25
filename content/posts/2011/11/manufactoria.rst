@@ -35,7 +35,7 @@ Matrix67 的这篇博客是一年多之前发的了，后来我又找到了这�
 
 （如果上面的 Flash 无法加载，可以尝试我在这里上传的：`Manufactoria.swf`_。另外，现在也可以直接在 `Kongregate`_ 在线玩：`Manufactoria @ Kongregate`_。）
 
-分享一下我在各关的解法（进入一个关卡，点击磁盘图标，在文本框中粘贴解法代码即可；注意贴入的代码中的关卡序号不需要与当前所在的关卡序号一致，游戏会自动跳转到正确的关卡，除非你还没有激活那一关）。另外很多关卡都有无数种解法，我一般会尽量优化使之元件个数最少（比较测试时间没有太大意义，一旦下一个版本的测试用例变化，测试时间就不一样了）。
+分享一下我在各关的解法（进入一个关卡，点击磁盘图标，在文本框中粘贴解法代码即可；注意贴入的代码中的关卡序号不需要与当前所在的关卡序号一致，游戏会自动跳转到正确的关卡，除非你还没有激活那一关）。另外很多关卡都有无数种解法，我一般会尽量优化使之元件个数最少（比较测试时间没有太大意义，一旦下一个版本的测试用例变化，测试时间就不一样了）。也推荐参考 `@837951602 的解法整理`_。
 
 下面这张图是游戏当前版本（v1.30）的关卡分布图，为了方便查找，我特意用红色字体添加了关卡序号在每关图标的左上角处。其中第 29 到 31 关是隐藏关，要通过了第 24 关才能显示出来。
 
@@ -221,3 +221,4 @@ Level 31: Metatron! OUTPUT: Read the tape as two numbers, A and B, split by a gr
 .. _Kongregate: https://www.kongregate.com/
 .. _Manufactoria @ Kongregate: https://www.kongregate.com/en/games/PleasingFungus/manufactoria
 .. _@837951602: https://github.com/837951602
+.. _@837951602 的解法整理: https://github.com/837951602/Blog/blob/master/Implements/MANUFACTORIA%20cheapest%20designs.md
