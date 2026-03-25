@@ -10,7 +10,7 @@ pelican==4.5.0
 Pygments==2.7.1
 python-dateutil==2.8.1
 pytz==2020.1
-six==1.15.0
+six==1.16.0
 soupsieve==2.0.1
 Unidecode==1.1.1
 webassets==2.0
